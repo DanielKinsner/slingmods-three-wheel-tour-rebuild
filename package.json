@@ -8,7 +8,14 @@
     "test": "tsx --test tests/*.test.ts",
     "test:browser": "node scripts/capture-calibration.mjs",
     "gate:g0": "python director-kit/tools/check_gate.py --gate G0",
-    "preview:accepted": "npm run gate:g0 && vite preview"
+    "preview:accepted": "npm run gate:g1 && npm run gate:g2 && vite preview --port 5187",
+    "gate:g1": "python director-kit/tools/check_gate.py --gate G1",
+    "gate:g2": "python director-kit/tools/check_gate.py --gate G2",
+    "capture:vehicle": "node scripts/capture-vehicle.mjs",
+    "capture:driving": "node scripts/capture-driving.mjs",
+    "record:driving": "node scripts/record-driving.mjs",
+    "record:stress": "node scripts/record-stress.mjs",
+    "test:presenter": "node scripts/test-presenter.mjs"
   },
   "keywords": [],
   "author": "",
