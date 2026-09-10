@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "gate_id": "G2",
+  "decision": "PASS",
+  "build_ref": "8f115fcd44ab0d950e73fd7d24307aae1190e602",
+  "reviewed_at": "2026-09-10T22:23:52.691628+00:00",
+  "implementer_id": "/root and driving engineer",
+  "reviewer_id": "/root/gate_review",
+  "review_mode": "independent_subagent",
+  "review_limitation": "Simcade P02 foundation only. Slow SwiftShader browser recordings sampled at2Hz across complete files, with separate numerical tests; no normal-speed human/controller or physical GPU performance claim. Cap evidence is injected-clock final-state consistency. Severe18cm high-speed curb flight is a bounded crash approximation, not real vehicle proof.",
+  "blockers": [],
+  "criteria": {
+    "three_contacts": {
+      "status": "PASS",
+      "reason": "Inspected source uses exactly three shared-layout suspension/tire channels, independent contact/load/slip states, front-only Ackermann and rear-only drive. Rapier owns body integration; no spline/pose pinning during driving. Contact and force invariants independently pass.",
+      "evidence_ids": [
+        "build",
+        "source",
+        "dynamics",
+        "trace_rest",
+        "trace_left-circle",
+        "trace_one-wheel-bump",
+        "trace_drop-landing",
+        "review"
+      ]
+    },
+    "drive_controls": {
+      "status": "PASS",
+      "reason": "Final actual keyboard trace and movie show acceleration/turn/brake/reverse with stable near chase. Pause and interrupted/fresh held-reset checks pass. Corrected actual cockpit images and telemetry bind steering; wheel travel/spin read physics. Wet/gravel/recovery scenarios pass.",
+      "evidence_ids": [
+        "keyboard",
+        "keyboard_video",
+        "presenter",
+        "steer_left",
+        "steer_right",
+        "trace_reverse",
+        "trace_wet-traction-recovery",
+        "trace_gravel",
+        "curb_video",
+        "incline-launch_video",
+        "review"
+      ]
+    },
+    "powertrain": {
+      "status": "PASS",
+      "reason": "One AutoDrive state owns torque, RPM, gear, shifting and reverse interlock; runtime HUD and wheel presenter consume authoritative telemetry. Integrated changes and explicitly separate five-ratio sweep checked; assumptions are disclosed as simulation estimates.",
+      "evidence_ids": [
+        "source",
+        "report",
+        "five_speed",
+        "trace_straight",
+        "trace_moving-reverse-interlock",
+        "keyboard",
+        "presenter",
+        "review"
+      ]
+    },
+    "regression": {
+      "status": "PASS",
+      "reason": "Independently reran16 integrated tests including13 driving checks and strict symmetric ramp regression. Inspected actual ordinary/stress recordings and traces: repaired ramp stays straight; curb and severe high-speed strike recover. Cap tests establish consistent simulation scheduling only; physical-rate rendering is explicitly unearned.",
+      "evidence_ids": [
+        "regression",
+        "dynamics",
+        "summary",
+        "caps",
+        "browser_caps",
+        "ramp_cause",
+        "curb_video",
+        "curb_runtime",
+        "incline-launch_video",
+        "incline-launch_runtime",
+        "high-speed-curb_video",
+        "high-speed-curb_runtime",
+        "trace_split-seam",
+        "trace_barrier",
+        "trace_high-speed-lock",
+        "review"
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "id": "review",
+      "kind": "source_manifest",
+      "path": "production/evidence/G2/reviewer-notes.md",
+      "description": "Independent source, frame-sequence, telemetry and test inspection with bounded decisions",
+      "sha256": "3f9e36b430388730dc97c305388b70bea08da03c8631eb0b5c17058e1a4fdfb4"
+    },
+    {
+      "id": "build",
+      "kind": "source_manifest",
+      "path": "production/evidence/G2/runtime-build.json",
+      "description": "Twelve independently verified runtime/source/asset file hashes and sizes",
+      "sha256": "bca1948645f976730397ee1135cdb198853f9585cc4998fa8a05479f5bcbf1fe"
+    },
+    {
+      "id": "source",
+      "kind": "source_manifest",
+      "path": "production/evidence/G2/dynamics-source-snapshot.json",
+      "description": "Nine independently verified dynamics source/test file hashes and sizes",
+      "sha256": "80764cd85f79c378b03e21e5c9fe76e5b8568166ab58cfebeda3fb6694e3eb1e"
+    },
+    {
+      "id": "regression",
+      "kind": "test_log",
+      "path": "production/evidence/G2/integration-tests.log",
+      "description": "Actual integrated16-test result; reviewer independently reproduced16 passes",
+      "sha256": "5f2a448c3c8d8c4d6c8d2e7b07121f4c97259a071d4d6039748267b29c563f66"
+    },
+    {
+      "id": "dynamics",
+      "kind": "test_log",
+      "path": "production/evidence/G2/dynamics-regression.log",
+      "description": "Actual13-test driving regression output",
+      "sha256": "b698a964a4e4128de8e06bc3ef1f08013cafb940be4749a8d97d9a293079e65f"
+    },
+    {
+      "id": "report",
+      "kind": "source_manifest",
+      "path": "production/evidence/G2/dynamics-report.md",
+      "description": "Implementation assumptions, results and explicit severe-impact limits",
+      "sha256": "b671c5ec157117ccf1d8dced6b2550a87d4ad2a59f9a7d099b67c16e72b3591b"
+    },
+    {
+      "id": "summary",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/dynamics-summary.json",
+      "description": "Scenario extrema from actual fixed-step simulation",
+      "sha256": "dcde890f3a5250faad90989fa6894a6aabf760daaee59c0400c5570994f2f67a"
+    },
+    {
+      "id": "caps",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/dynamics-frame-caps.json",
+      "description": "Node fixed-clock30/60/120/144 schedule comparison",
+      "sha256": "8340879ba51a962b75eaa936b1bf2b56c3854353ec0f3f1b641330208059d7e1"
+    },
+    {
+      "id": "browser_caps",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/runtime-driving.json",
+      "description": "Actual injected-clock final-pose captures; intermediate rendering explicitly skipped",
+      "sha256": "b3dfe62bef55aab4a8f209c8b7376531b09a040d4778218dc722dccccf498017"
+    },
+    {
+      "id": "keyboard",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/keyboard-motion.json",
+      "description": "Final real-keyboard stages, pause, interrupted hold and fresh reset telemetry",
+      "sha256": "bab82c463eb5e0a2f1faeeb11f42ee65fb5a52f992dc4feecbaf9594bc8a038b"
+    },
+    {
+      "id": "keyboard_video",
+      "kind": "runtime_video",
+      "path": "production/evidence/G2/driving-keyboard.webm",
+      "description": "Actual final keyboard recording independently decoded and inspected across its duration",
+      "sha256": "8af6bcdbccb32a8fc3ad92255e67dd129bb5b90ccce2a8af2e3293609a3ef2d5"
+    },
+    {
+      "id": "presenter",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/input-presentation.json",
+      "description": "Final cockpit/front steering quaternion correspondence assertions",
+      "sha256": "bc805f1bc479ba326ed3df1c0cccbc21ef4fa023c7fb3c642d39913ddaa61560"
+    },
+    {
+      "id": "steer_left",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/cockpit-steer-left.png",
+      "description": "Corrected actual cockpit left-steering pose directly inspected",
+      "sha256": "db5139e62111a591aa95a9b866e857b3849994cbe53b96a518dd002e238d1148"
+    },
+    {
+      "id": "steer_right",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/cockpit-steer-right.png",
+      "description": "Corrected actual cockpit right-steering pose directly inspected",
+      "sha256": "2ffff18e9ea910ad39fc3d3ec30c7422abd1c3add15b6b7204a562be61a24980"
+    },
+    {
+      "id": "five_speed",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/dynamics-five-speed.json",
+      "description": "Explicit isolated drivetrain sweep through five ratios with torque interruptions",
+      "sha256": "6445d6b0ba0222f5d67043afa2e68cb42a8256b9d553dc9431df8103c6a4ddc5"
+    },
+    {
+      "id": "controller_probe",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/dynamics-controller-evaluation.json",
+      "description": "Actual separate built-in controller probe; production force choice disclosed",
+      "sha256": "1ba9175dc2f3f1a94726759f5e6ea0792804bfa41964dde9384a661e440428ae"
+    },
+    {
+      "id": "ramp_cause",
+      "kind": "source_manifest",
+      "path": "production/evidence/G2/revision02/dynamics-ramp-cause.md",
+      "description": "Controlled guard-contact/ground diagnosis and repaired symmetric-lane results",
+      "sha256": "1574b2c5b17dbfaf61fbc75a6b03f12c44cbf28fb2c80b818a62eae4937e4820"
+    },
+    {
+      "id": "g0_regression",
+      "kind": "test_log",
+      "path": "production/evidence/G2/g0-regression-run.log",
+      "description": "Actual calibration regression in separate evidence location",
+      "sha256": "56bbbf2e5d03cce794f240f673bd72680f78b8838e03fa586e97ce2c458aaedc"
+    },
+    {
+      "id": "export",
+      "kind": "test_log",
+      "path": "production/evidence/G2/pad-export.log",
+      "description": "Actual Blender pad export output",
+      "sha256": "0ba1a150b9882d1968729ac79691bc7115835dea184d030383ed429711448c40"
+    },
+    {
+      "id": "curb_video",
+      "kind": "runtime_video",
+      "path": "production/evidence/G2/curb.webm",
+      "description": "Actual curb motion independently sampled across entire recording",
+      "sha256": "b9efd84b9ac0e3f5d3dc0f30b2cae411c36814976a3e1eedca4affee535ce1fb"
+    },
+    {
+      "id": "curb_runtime",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/stress/curb.json",
+      "description": "Corresponding actual paced browser curb trace",
+      "sha256": "f3a150cb06db5947260a2205f55b4dd043c9bdc52ef16369773dba72759068a3"
+    },
+    {
+      "id": "incline-launch_video",
+      "kind": "runtime_video",
+      "path": "production/evidence/G2/incline-launch.webm",
+      "description": "Actual incline-launch motion independently sampled across entire recording",
+      "sha256": "49abc2c73963b46d96e03069fbaafc86b186e4dd8f4ba842e9995ab5120eab19"
+    },
+    {
+      "id": "incline-launch_runtime",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/stress/incline-launch.json",
+      "description": "Corresponding actual paced browser incline-launch trace",
+      "sha256": "91866a10ffef37123fe94e0c2aa6aa272d75c3ccb326922676ad149491888ee7"
+    },
+    {
+      "id": "high-speed-curb_video",
+      "kind": "runtime_video",
+      "path": "production/evidence/G2/high-speed-curb.webm",
+      "description": "Actual high-speed-curb motion independently sampled across entire recording",
+      "sha256": "ea1dea950abd5b08674cb3d701bbe2fa56b2c875f39ec75c21b87e96e6258973"
+    },
+    {
+      "id": "high-speed-curb_runtime",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/stress/high-speed-curb.json",
+      "description": "Corresponding actual paced browser high-speed-curb trace",
+      "sha256": "64e47422ee82497a8b32bb7e8d74b32e880ca105bd28dc1cb2f4add0bee1bb8c"
+    },
+    {
+      "id": "trace_rest",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-rest.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative rest telemetry",
+      "sha256": "54b6fa1686cb2dbd7ab80986f68140fbdf1b13a24b6560214c53515996bb15e2"
+    },
+    {
+      "id": "trace_straight",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-straight.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative straight telemetry",
+      "sha256": "366d2c860bc57417dbabfe6f5781ba8bb2f16975356325105bdf89253dbca4ec"
+    },
+    {
+      "id": "trace_coast",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-coast.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative coast telemetry",
+      "sha256": "9b238dcc74a1203dbaa17a14ded812bec4e4016a9654457bef4eff48e014dd9b"
+    },
+    {
+      "id": "trace_brake",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-brake.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative brake telemetry",
+      "sha256": "33e9ce28003f9e1c0bc0752049e40d72d5156de8a03a4bfa796ec3b18490e07f"
+    },
+    {
+      "id": "trace_left-circle",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-left-circle.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative left-circle telemetry",
+      "sha256": "ca12c6189a4442d9def3afbd465261f66542de487be18706d732997f397698a2"
+    },
+    {
+      "id": "trace_right-circle",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-right-circle.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative right-circle telemetry",
+      "sha256": "7a7f5b1aa13f97e0490b2c09cba9dc7ad4d4b5aa229dd12a756bc8ffb2c07509"
+    },
+    {
+      "id": "trace_slalom",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-slalom.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative slalom telemetry",
+      "sha256": "81f52262e37033ca47e81b96f9520d7f58787ff36c73864fe75c91cd7f74b1e1"
+    },
+    {
+      "id": "trace_reverse",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-reverse.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative reverse telemetry",
+      "sha256": "ddc91c9dd250edd37d7e19d9d967ca19166e38e1da5b7c569865e7f02877d6c7"
+    },
+    {
+      "id": "trace_moving-reverse-interlock",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-moving-reverse-interlock.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative moving-reverse-interlock telemetry",
+      "sha256": "9ba8b9a53af5cc990887b288d51f974ac83b44af7e7d87c9d12dcb3ba8beabaf"
+    },
+    {
+      "id": "trace_wet-traction-recovery",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-wet-traction-recovery.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative wet-traction-recovery telemetry",
+      "sha256": "49b8bac2bc996d5dbc76b4f0d3bea9b1f351a75aeff1e7e5f638cacd80c76bd8"
+    },
+    {
+      "id": "trace_wet-assisted",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-wet-assisted.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative wet-assisted telemetry",
+      "sha256": "be789ff10111c895a68f746430d2afc53055dc1c72c10a1c2cdc5af08b6fe190"
+    },
+    {
+      "id": "trace_dry-assisted",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-dry-assisted.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative dry-assisted telemetry",
+      "sha256": "2fc206471c2fd048357676c7d782c7ac2748e552af3da432c80ed4c468683e15"
+    },
+    {
+      "id": "trace_gravel",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-gravel.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative gravel telemetry",
+      "sha256": "a939c8c041f19e3e4f5826f586dd49e2ed9bfdbd40a5b75e9b8de616d6f0d1aa"
+    },
+    {
+      "id": "trace_one-wheel-bump",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-one-wheel-bump.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative one-wheel-bump telemetry",
+      "sha256": "2b5a710b20e1ed0fa44847ffe0d7019b573ac8986a25ab82bd91f8ba60c1bebd"
+    },
+    {
+      "id": "trace_curb",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-curb.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative curb telemetry",
+      "sha256": "31ec1edf454b1d42f2b4f2ac27dbb7c6daf2c6d6106411048ca61f26547ea6b5"
+    },
+    {
+      "id": "trace_split-seam",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-split-seam.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative split-seam telemetry",
+      "sha256": "69631b1976dbfd099d86a9fe4186cb25fab9c5f266740f8ba232c97d59ec4e7c"
+    },
+    {
+      "id": "trace_barrier",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-barrier.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative barrier telemetry",
+      "sha256": "8b8251d6e06139d9dcc03e906c0a07cb42536e5bdb82e0abd38c956e6712610f"
+    },
+    {
+      "id": "trace_drop-landing",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-drop-landing.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative drop-landing telemetry",
+      "sha256": "fdf62af902be41a3c1918b98019fb800c92b22a26b5a96e4c23ecf290757b04d"
+    },
+    {
+      "id": "trace_incline-launch",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-incline-launch.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative incline-launch telemetry",
+      "sha256": "43f0c75e0087e0b501da033a10e58317721574b1e3cdf7f0905dccf6bbaacb42"
+    },
+    {
+      "id": "trace_high-speed-lock",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-high-speed-lock.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative high-speed-lock telemetry",
+      "sha256": "edbb16f7025a334f84be768f9998dad54bec8ed8bbbceee5cc67c136e11d52b1"
+    },
+    {
+      "id": "trace_high-speed-curb",
+      "kind": "telemetry",
+      "path": "production/evidence/G2/telemetry-high-speed-curb.json",
+      "description": "Actual fixed-tick inputs and sampled authoritative high-speed-curb telemetry",
+      "sha256": "3d2b7d6c4c1644696d3e3d56453b5d33cb081ac72dbba25ceaa1884ef3f66ea0"
+    },
+    {
+      "id": "cap_30",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-cap-30.png",
+      "description": "Actual final pose after injected 30Hz schedule; final-state evidence only",
+      "sha256": "c9267adb21655f82af136750e6e5f5a9f5e008484d7712ba959ee6c9882cde2e"
+    },
+    {
+      "id": "cap_60",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-cap-60.png",
+      "description": "Actual final pose after injected 60Hz schedule; final-state evidence only",
+      "sha256": "c9267adb21655f82af136750e6e5f5a9f5e008484d7712ba959ee6c9882cde2e"
+    },
+    {
+      "id": "cap_120",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-cap-120.png",
+      "description": "Actual final pose after injected 120Hz schedule; final-state evidence only",
+      "sha256": "c9267adb21655f82af136750e6e5f5a9f5e008484d7712ba959ee6c9882cde2e"
+    },
+    {
+      "id": "cap_144",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-cap-144.png",
+      "description": "Actual final pose after injected 144Hz schedule; final-state evidence only",
+      "sha256": "c9267adb21655f82af136750e6e5f5a9f5e008484d7712ba959ee6c9882cde2e"
+    },
+    {
+      "id": "image_rest",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-rest.png",
+      "description": "Actual final runtime rest maneuver pose",
+      "sha256": "1eca09229cee6d329245682af602b423c9fa9b1b14eeb6450d8c120cf7c744cf"
+    },
+    {
+      "id": "image_accelerate",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-accelerate.png",
+      "description": "Actual final runtime accelerate maneuver pose",
+      "sha256": "b1315137ad12cd59bc69bba82a6529238b59384537e76d6e6f860b20452bce60"
+    },
+    {
+      "id": "image_left-turn",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-left-turn.png",
+      "description": "Actual final runtime left-turn maneuver pose",
+      "sha256": "446c462e366d55d936ca975e28d4d42cf0a6c36eec48a5e8643ea4ad40e11bdb"
+    },
+    {
+      "id": "image_brake",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-brake.png",
+      "description": "Actual final runtime brake maneuver pose",
+      "sha256": "212343bd3e2c445cd0d673c3a62ce3c9236ecee7ee3eb110f0c437bf6b864385"
+    },
+    {
+      "id": "image_reverse",
+      "kind": "runtime_image",
+      "path": "production/evidence/G2/runtime-reverse.png",
+      "description": "Actual final runtime reverse maneuver pose",
+      "sha256": "9b7c927cf9fcbf1e8b4690494f06b6cce70a3c635e9c730c4c34f27fcd0cdc1b"
+    }
+  ]
+}

@@ -4,13 +4,15 @@
   "as_of": "2026-09-10",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "d8c5f9226e968f2c551225cf3ab2b79a5343da00",
-  "current_gate": "G1/G2",
-  "current_packet": "P01/P02",
-  "next_action": "Execute P01 exact-year references and Blender clay hero plus fleet scale blockouts; independently execute P02 test-pad dynamics using one contact manifest.",
+  "commit": "d047c56ba78a6b85a7d1c470d836a696f0753af8",
+  "current_gate": "G3",
+  "current_packet": "P03",
+  "next_action": "Begin P03 in assets/blender/vehicles and scripts with a new versioned Slingshot source/export, preserving accepted G1 clay. Use G1 reviewer-notes.md and exact-year references to refine cabin/dashboard, hood ridges, lamp sections and rear shell; author a driver contact rig with hands on steering control and feet on pedals. Export to a separate candidate GLB and inspect neutral runtime multiviews before replacing accepted assets. Then complete P03 materials/UV/LOD, garage, day/night 150-250 m sample, drivetrain audio and cameras. Capture in-engine clips with audio and identify hardware/profile limitations for independent G3 review before P04.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
-    "production/evidence/G0/review.json"
+    "production/evidence/G0/review.json",
+    "production/evidence/G1/review.json",
+    "production/evidence/G2/review.json"
   ],
   "gates": {
     "G0": {
@@ -19,14 +21,14 @@
       "approach_changes": 0
     },
     "G1": {
-      "status": "pending",
-      "same_approach_revisions": 0,
+      "status": "passed",
+      "same_approach_revisions": 1,
       "approach_changes": 0
     },
     "G2": {
-      "status": "pending",
+      "status": "passed",
       "same_approach_revisions": 0,
-      "approach_changes": 0
+      "approach_changes": 2
     },
     "G3": {
       "status": "pending",
@@ -56,26 +58,62 @@
   },
   "blockers": [],
   "unknowns": [
-    "Fresh local project root, tool availability, and dependency versions to verify during P00",
-    "Blender executable/export and isolated capture capability",
-    "Game-redistribution asset permissions",
-    "Physical target-device testing availability",
-    "Ryker Rally overall-length source discrepancy",
-    "Product option values and authored asset dimensions"
+    "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
+    "Physical target-device, GPU performance and controller testing remain unperformed.",
+    "Ryker Rally overall-length source discrepancy: 2.35204 m is provisional blockout scale only.",
+    "Mass, tire, suspension and drivetrain coefficients are documented simulation estimates; real vehicle handling is not established.",
+    "Finished rider, materials, garage, audio and course sample remain P03 work; no G3 or complete-slice claim."
   ],
   "commands": {
     "build": "npm run build",
     "test": "npm test",
-    "capture": "npm run test:browser",
     "dev": "npm run dev",
-    "gate": "python director-kit/tools/check_gate.py --gate G0",
-    "blender": "pwsh -File scripts/blender.ps1"
+    "preview": "npm run preview:accepted",
+    "gate_g0": "npm run gate:g0",
+    "gate_g1": "npm run gate:g1",
+    "gate_g2": "npm run gate:g2",
+    "capture_vehicle": "npm run capture:vehicle",
+    "capture_driving": "npm run capture:driving",
+    "record_driving": "npm run record:driving",
+    "record_stress": "npm run record:stress",
+    "presenter": "npm run test:presenter",
+    "calibration": "Set EVIDENCE_DIR to a new folder before npm run test:browser; never overwrite accepted evidence",
+    "blender": ".tools/blender-4.5.2-windows-x64/blender.exe --background --factory-startup --python scripts/vehicle_build.py"
   },
-  "rejected_approaches": [],
+  "rejected_approaches": [
+    "P01 revision01: flat center lamp, missing raised hood inlet and tubular splitter. Repaired in revision02; G1 independently accepted.",
+    "P02 point-ray curb support caused excessive pitch. Replaced with five-sample wheel envelope selecting exactly one support/load per wheel; still only three tire-force channels.",
+    "P02 passive wheel-guard versus large convex ground slab generated an asymmetric solver impulse and uncommanded incline yaw. Diagnosed with contact instrumentation and repaired using planar ground triangles and frictionless passive guards. Strict three-lane regression failed before repair and passed after; maximum drift 0.01844 m and heading error 0.02958 degrees. See production/evidence/G2/revision02/dynamics-ramp-cause.md.",
+    "Held-reset based on clamped simulation elapsed failed real keyboard test. Replaced with continuous monotonic held time, clearing on release, pause and focus loss; final isolated keyboard recording verifies interrupted and fresh holds.",
+    "Initial cockpit captures were framed away from a car at z=35 and did not establish steering visuals. Preserved under G2/presenter-revision01; corrected capture reset to z=0 and independent reviewer inspected both final steering views."
+  ],
   "kit_revision": 2,
   "build_mode": "FRESH_START",
   "workspace_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
   "new_repository_required": true,
   "legacy_import_allowed": false,
-  "save_namespace": "slingmods-twt-rebuild-v1"
+  "save_namespace": "slingmods-twt-rebuild-v1",
+  "commit_meaning": "Implementation and capture checkpoint preceding this review-and-ledger commit. Accepted G2 runtime source is 8f115fcd44ab0d950e73fd7d24307aae1190e602; d047c56 corrects capture framing and documents the workflow without changing runtime source.",
+  "known_limitations": [
+    "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
+    "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
+    "The accepted Slingshot is recognizable diagnostic clay; the other two vehicles are scale blockouts. No finished game or complete playable slice has passed."
+  ],
+  "accepted_assets": [
+    "assets/blender/calibration.blend",
+    "public/assets/calibration.glb",
+    "assets/blender/vehicles/slingshot-p01.blend",
+    "public/assets/vehicles/slingshot.glb",
+    "assets/blender/vehicles/vehicles-scale-blockouts.blend",
+    "public/assets/vehicles/scale-blockouts.glb",
+    "assets/blender/test-pad.blend",
+    "public/assets/test-pad.glb",
+    "public/assets/slingshot-contact-layout.json"
+  ],
+  "verification": {
+    "independent_tests": "16/16 integrated tests passed, including 13 driving checks",
+    "gates": "G0, G1 and G2 independent PASS; all three evidence-integrity validators pass",
+    "preservation": "Separate new Git root; supplied original kit hashes unchanged; no legacy source/assets or saves imported",
+    "evidence": "Actual Blender source/export checks, runtime stills, four final motion videos, 21 telemetry scenarios, fixed-step scheduling and keyboard/pause/reset tests"
+  }
 }
