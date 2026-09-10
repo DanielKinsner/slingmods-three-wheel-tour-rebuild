@@ -1,0 +1,32 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ fixture: stationary zero-throttle engine stays at idle (0.6982ms)
+✔ fixture: freely rolling rear wheel raises coupled engine RPM above idle (0.1496ms)
+✔ fixture: positive rear wheel overspeed raises RPM above rolling baseline (0.0975ms)
+✔ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.152ms)
+✔ loaded rest: three non-tensile contacts support stated loaded mass without drift (115.6004ms)
+✔ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (573.5886ms)
+✔ straight acceleration, lift-off coast and braking have coherent measured distances (0.736ms)
+✔ left/right asphalt circles have correct turn signs, mirrored radii and sustained support (0.8855ms)
+✔ slalom follows alternating input in authoritative yaw response (0.4121ms)
+✔ controlled reverse engages near rest and uses signed physical velocity (0.4358ms)
+✔ surface friction reduces acceleration; optional traction help limits wheel overspeed; lift/brake recovers (0.4174ms)
+✔ one-wheel bump, curb, seam and landing excite suspension and recover without tunneling (0.5791ms)
+✔ authoritative AutoDrive executes all five ratios, cuts torque during transitions, and has consistent SI torque/power (0.9918ms)
+✔ incline launch and high-speed curb produce physical vertical motion then recover; full-speed steering stays bounded (0.5807ms)
+✔ straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes (74.459ms)
+✔ render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error (79.8116ms)
+✔ reset clears forces/drivetrain/history, fixed-step rejection and pause clock do not advance state (7.5729ms)
+✔ new save round-trip touches only the new namespace (0.9024ms)
+✔ malformed or future schemas fall back without reading legacy data (0.1813ms)
+✔ actual Rapier world falls onto a collider and settles (58.2945ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1078.2533

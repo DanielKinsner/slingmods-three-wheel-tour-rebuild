@@ -1,0 +1,185 @@
+{
+  "review_id": "G2-addendum-01",
+  "decision": "PASS",
+  "scope": "Targeted signed-wheel-speed/RPM correction only; historical G2 unchanged; G3 pending",
+  "reviewed_at": "2026-09-10T23:30:30.150Z",
+  "reviewer_id": "/root/gate_review",
+  "review_mode": "independent_subagent",
+  "build_ref": {
+    "baseline_commit": "b073e1e2d4fab9e5eaf3ef4ed9aefacbd34c2cc5",
+    "state": "Frozen working-tree drivetrain patch, identified by exact file hashes; not yet a committed runtime candidate"
+  },
+  "blockers": [],
+  "criteria": [
+    {
+      "id": "signed-repair",
+      "status": "PASS",
+      "reason": "Independent baseline module fixture reproduces rolling 3711.3735 RPM versus locked/spinning 4950 RPM. Current supplied regression passes 4/4; normal fixtures include forward and reverse cancellation. Signed components are added before magnitude."
+    },
+    {
+      "id": "integration",
+      "status": "PASS",
+      "reason": "Independently ran current npm test: 27/27, including all unchanged historical tests and six integrated RPM cases. Independent TypeScript no-emit check passed. No simulation coefficient or existing assertion-bound retune."
+    },
+    {
+      "id": "trace-integrity",
+      "status": "PASS",
+      "reason": "Independently regenerated all seven scenarios in memory and deep-compared all 5700 sample objects with recorded JSON; exact equality. Recomputed every maximum mismatch. Actual rolling scenario visits gears 1 through 5."
+    },
+    {
+      "id": "scope-and-limits",
+      "status": "PASS",
+      "reason": "Unused optional contact-speed argument removed. Failed contact-projection experiment and strict ramp failure retained. Body-forward and rear-contact states are explicitly distinguished and their mismatch quantified. This bounded defect repair does not claim an authoritative unified rear-wheel rotational state."
+    }
+  ],
+  "independent_checks": [
+    {
+      "command": "npm test",
+      "result": "27 passed, 0 failed"
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "result": "exit 0"
+    },
+    {
+      "command": "node --experimental-strip-types --test SlingMods-Astra-Review-01/repro/drivetrain-wheel-speed.test.mjs",
+      "result": "4 passed, 0 failed"
+    },
+    {
+      "method": "Read baseline drivetrain through git show and stripTypeScriptTypes, then 24-tick rolling/lock/spin fixture",
+      "result": "Reproduced original regression independently without modifying original source"
+    },
+    {
+      "method": "Read-only Node/tsx replay of all seven trace scenarios, assert.deepEqual on every sample and strict equality on maximum mismatch",
+      "result": "5700 samples exactly matched; evidence was not overwritten"
+    }
+  ],
+  "mismatch_max_rad_s": [
+    {
+      "scenario": "straight",
+      "value": 0.10244470146254514
+    },
+    {
+      "scenario": "reverse",
+      "value": 0.03726665110891503
+    },
+    {
+      "scenario": "wet-traction-recovery",
+      "value": 7.070313492876565
+    },
+    {
+      "scenario": "moving-reverse-interlock",
+      "value": 0.12668597037823304
+    },
+    {
+      "scenario": "incline-launch",
+      "value": 1.4648240194709956
+    },
+    {
+      "scenario": "wet-braking-rpm",
+      "value": 6.914516935128276
+    },
+    {
+      "scenario": "rolling-and-shifts-rpm",
+      "value": 4.914811640782119
+    }
+  ],
+  "limitations": [
+    "Powertrain samples tick-start body-forward velocity plus previous overspeed. Rear wheel phase uses contact-projected speed plus overspeed updated during this tick. These are different model states despite shared algebra.",
+    "The maximum recorded discrepancy is 7.070313492876565 rad/s during wet traction loss/recovery. This is disclosed and accepted only within the existing provisional simcade model, not OEM drivetrain validation.",
+    "Original lock failure and corrected cancellation are controlled module fixtures; integrated traces are not claimed to independently reproduce a physically validated locked tire.",
+    "No new browser/video, normal-speed driving feel, hardware frame-time, physical controller or audio approval is issued by this targeted source review. P03A art and G3 are outside this decision."
+  ],
+  "files": [
+    {
+      "path": "src/simulation/drivetrain.ts",
+      "bytes": 2675,
+      "sha256": "361624e7a0ca8f6594f8c21cf195486c76462040f68afcf9a9f9dd1e2f65d6cc"
+    },
+    {
+      "path": "src/simulation/index.ts",
+      "bytes": 13998,
+      "sha256": "52b231ecbf5f56568f7473b221c915e464810ef501f955cbee790965a7865c3a"
+    },
+    {
+      "path": "src/simulation/scenarios.ts",
+      "bytes": 2963,
+      "sha256": "fcf0592ca210e958e2686b4116e7adca098a04879abd7a0a7d519a8613f74e84"
+    },
+    {
+      "path": "src/simulation/pad.ts",
+      "bytes": 1281,
+      "sha256": "d3939caeff211cb6f1228fce41b028b2460c89f8f615818932e260f13c506ed8"
+    },
+    {
+      "path": "tests/drivetrain-wheel-speed.test.ts",
+      "bytes": 1788,
+      "sha256": "4fc917580e23a3439f5c41a49071b317ca1feda217c5e9a407f2d589e8c21446"
+    },
+    {
+      "path": "tests/drivetrain-integrated.test.ts",
+      "bytes": 1669,
+      "sha256": "89f31bbce3ff9cc02273c94c6805dabe86df8c435c59506ac09051328bd5dae5"
+    },
+    {
+      "path": "tests/driving.test.ts",
+      "bytes": 10689,
+      "sha256": "cbb2b57e98d68756f2950d076d1193001bed7e2111cc6eaad34bae473ba5c967"
+    },
+    {
+      "path": "scripts/capture-rpm-addendum.ts",
+      "bytes": 1702,
+      "sha256": "fe34da86586979db4dc6f02a4c5b70080cddc21cef8945a4e320b802084d262b"
+    },
+    {
+      "path": "public/assets/slingshot-contact-layout.json",
+      "bytes": 828,
+      "sha256": "35a5862b275de62e45b58e7a62b0b0b513371a336b4ca5f09eb66bc1c8e11da3"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1241,
+      "sha256": "4577221a8e1094905e750a3f712f57c1587948d83648256831777717673ee628"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 57567,
+      "sha256": "6e13f8ddde428622a8199eee39bbc5a37471957c5bd6760bd57592f4059fea4f"
+    },
+    {
+      "path": "director-kit/production/evidence/G2-addendum-01/ADDENDUM.md",
+      "bytes": 2825,
+      "sha256": "4e10c43589ab7e03b447813ef4c3dcce1c7ce2f8f6d083981311c63edeaebcb7"
+    },
+    {
+      "path": "director-kit/production/evidence/G2-addendum-01/integrated-rpm-traces.json",
+      "bytes": 3203507,
+      "sha256": "79c3859064f3cfd279e4d28c410bc9a8990e4593ff32f0343e954d2e8e46f006"
+    },
+    {
+      "path": "director-kit/production/evidence/G2-addendum-01/integrated-final.log",
+      "bytes": 2901,
+      "sha256": "fb0e6b5cd90ebbddb50a0d915eea0fd6f322131039a70e751c92643fcaf74b8b"
+    },
+    {
+      "path": "director-kit/production/evidence/G2-addendum-01/integrated-initial.log",
+      "bytes": 2910,
+      "sha256": "fd21577bb019c46e2824ba2a5de1bb675648fd12fbcc0518215fa766840eb112"
+    },
+    {
+      "path": "director-kit/production/evidence/G2-addendum-01/diagnostic-contact-projection/index.ts",
+      "bytes": 14362,
+      "sha256": "306664246d019a82b4be77f69b241e41d9d815c0788d8518fe504fe8af4d8b85"
+    },
+    {
+      "path": "director-kit/production/evidence/G2-addendum-01/rpm-before.log",
+      "bytes": 1566,
+      "sha256": "2dbdf5eb18379c450e30df029a2131264fcc6d59532cad59e8577fe51ee5c56d"
+    },
+    {
+      "path": "director-kit/production/evidence/G2-addendum-01/rpm-after.log",
+      "bytes": 460,
+      "sha256": "7f5cc40e963ae88cc3808f46fcbf9890f4eec0bb97c163d779e9752615280039"
+    }
+  ]
+}

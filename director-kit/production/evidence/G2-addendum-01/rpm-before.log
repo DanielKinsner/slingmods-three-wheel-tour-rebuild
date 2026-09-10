@@ -1,0 +1,32 @@
+✔ fixture: stationary zero-throttle engine stays at idle (0.6111ms)
+✔ fixture: freely rolling rear wheel raises coupled engine RPM above idle (0.1495ms)
+✔ fixture: positive rear wheel overspeed raises RPM above rolling baseline (0.0992ms)
+✖ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.4738ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82.4261
+
+✖ failing tests:
+
+test at SlingMods-Astra-Review-01\repro\drivetrain-wheel-speed.test.mjs:31:1
+✖ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.4738ms)
+  AssertionError [ERR_ASSERTION]: Locked wheel: 4950 RPM; rolling: 3711.373503625998; spinning: 4950. Signed rotational contributions must be combined before taking magnitude.
+      at TestContext.<anonymous> (file:///C:/Users/SM%20-%20Dan/Documents/GitHub/slingmods-three-wheel-tour-rebuild/SlingMods-Astra-Review-01/repro/drivetrain-wheel-speed.test.mjs:35:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

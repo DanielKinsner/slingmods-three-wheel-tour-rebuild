@@ -1,14 +1,14 @@
 import RAPIER from '@dimforge/rapier3d-compat';
 import layout from '../../public/assets/slingshot-contact-layout.json';
 import { PAD, surfaceAt } from './pad';
-import {AutoDrive,DRIVETRAIN} from './drivetrain';
+import {AutoDrive,DRIVETRAIN,wheelAngularSpeed} from './drivetrain';
 export {PAD} from './pad';
 export type Vec3={x:number;y:number;z:number};
 export type Quat=Vec3&{w:number};
 /** Positive steer is LEFT; body forward is -Z. Controls are sanitized each tick. */
 export interface VehicleControl { throttle:number; brake:number; steer:number; reverse:boolean; tractionControl?:boolean }
-export interface WheelTelemetry {id:string;contact:boolean;load:number;travel:number;slipRatio:number;slipAngle:number;spin:number;steer:number;localCenter:Vec3;surface:string;longitudinalForce:number;lateralForce:number;gripLimit:number;driveTorque:number}
-export interface VehicleTelemetry {time:number;position:Vec3;quaternion:Quat;velocity:Vec3;angularVelocity:Vec3;speed:number;rpm:number;gear:number;shifting:boolean;shiftRemaining:number;steer:number;throttle:number;brake:number;reversePending:boolean;wheels:WheelTelemetry[]}
+export interface WheelTelemetry {id:string;contact:boolean;load:number;travel:number;slipRatio:number;slipAngle:number;spin:number;steer:number;localCenter:Vec3;surface:string;angularSpeed:number;longitudinalSpeed:number;longitudinalForce:number;lateralForce:number;gripLimit:number;driveTorque:number}
+export interface VehicleTelemetry {time:number;position:Vec3;quaternion:Quat;velocity:Vec3;angularVelocity:Vec3;speed:number;rpm:number;engineWheelAngularSpeed:number;gear:number;shifting:boolean;shiftRemaining:number;steer:number;throttle:number;brake:number;reversePending:boolean;wheels:WheelTelemetry[]}
 export const FIXED_DT=1/60;
 export const SPEC={mass:850,comHeight:0.46,frontSpring:28000,rearSpring:48000,damperFront:3800,damperRear:6500,restLength:0.24,travel:0.15,...DRIVETRAIN,provenance:'Provisional simulation estimates, including loaded mass, CG, spring rates, damping, torque curve, gearing and tire coefficients. Dimensional contact geometry comes solely from shared P01 layout.'} as const;
 const v=(x=0,y=0,z=0):Vec3=>({x,y,z});
@@ -57,7 +57,7 @@ export class Simulation {
     this.body.setTranslation(v(pose.x??0,(pose.y??0.04)+SPEC.comHeight,pose.z??35),true);this.body.setRotation(q,true);
     this.body.setLinvel(v(),true);this.body.setAngvel(v(),true);this.body.resetForces(true);this.body.resetTorques(true);
     this.time=0;this.steering=0;this.drivetrain.reset();this.spin=[0,0,0];this.overspeed=[0,0,0];this.throttle=0;this.brake=0;
-    this.wheels=layout.wheels.map(w=>({id:w.id,contact:false,load:0,travel:0,slipRatio:0,slipAngle:0,spin:0,steer:0,localCenter:v(...w.center as [number,number,number]),surface:'air',longitudinalForce:0,lateralForce:0,gripLimit:0,driveTorque:0}));
+    this.wheels=layout.wheels.map(w=>({id:w.id,contact:false,load:0,travel:0,slipRatio:0,slipAngle:0,spin:0,steer:0,localCenter:v(...w.center as [number,number,number]),surface:'air',angularSpeed:0,longitudinalSpeed:0,longitudinalForce:0,lateralForce:0,gripLimit:0,driveTorque:0}));
   }
   step(control:VehicleControl,dt=FIXED_DT):void {
     if(this.disposed)throw new Error('Simulation disposed');
@@ -132,8 +132,9 @@ export class Simulation {
         this.overspeed[i]=rear?clamp((this.overspeed[i]+excess*wheel.radius/2.8*dt)*Math.exp(-dt*5),-190,190):0;
         slipRatio=fx/Math.max(load*10,1)+this.overspeed[i]*wheel.radius/Math.max(Math.abs(long),3);
       }else if(rear){this.overspeed[i]=clamp(this.overspeed[i]+engineForce*wheel.radius/2.8*dt,-190,190);driveTorque=engineForce*wheel.radius}
-      this.spin[i]+=(long/wheel.radius+this.overspeed[i])*dt;
-      newWheels.push({id:wheel.id,contact,load,travel,slipRatio,slipAngle,spin:this.spin[i],steer,localCenter:v(wheel.center[0],wheel.center[1]+travel,wheel.center[2]),surface,longitudinalForce:fx,lateralForce:fy,gripLimit:muLimit,driveTorque});
+      const angularSpeed=wheelAngularSpeed(long,this.overspeed[i],wheel.radius);
+      this.spin[i]+=angularSpeed*dt;
+      newWheels.push({id:wheel.id,contact,load,travel,slipRatio,slipAngle,spin:this.spin[i],steer,localCenter:v(wheel.center[0],wheel.center[1]+travel,wheel.center[2]),surface,angularSpeed,longitudinalSpeed:long,longitudinalForce:fx,lateralForce:fy,gripLimit:muLimit,driveTorque});
     }
     this.wheels=newWheels;
     // Aerodynamic drag is a COM force. Load transfer is solely rigid-body response at tire contacts.
@@ -142,7 +143,7 @@ export class Simulation {
   }
   telemetry():VehicleTelemetry {
     const q=this.body.rotation(),p=this.body.translation(),velocity=this.body.linvel();
-    return {time:this.time,position:add(p,rotate(v(0,-SPEC.comHeight,0),q)),quaternion:{...q},velocity:{...velocity},angularVelocity:{...this.body.angvel()},speed:dot(velocity,rotate(v(0,0,-1),q)),rpm:this.drivetrain.rpm,gear:this.drivetrain.gear,shifting:this.drivetrain.shiftRemaining>0,shiftRemaining:this.drivetrain.shiftRemaining,steer:this.steering,throttle:this.throttle,brake:this.brake,reversePending:this.drivetrain.reversePending,wheels:this.wheels.map(w=>({...w,localCenter:{...w.localCenter}}))};
+    return {time:this.time,position:add(p,rotate(v(0,-SPEC.comHeight,0),q)),quaternion:{...q},velocity:{...velocity},angularVelocity:{...this.body.angvel()},speed:dot(velocity,rotate(v(0,0,-1),q)),rpm:this.drivetrain.rpm,engineWheelAngularSpeed:this.drivetrain.inputWheelAngularSpeed,gear:this.drivetrain.gear,shifting:this.drivetrain.shiftRemaining>0,shiftRemaining:this.drivetrain.shiftRemaining,steer:this.steering,throttle:this.throttle,brake:this.brake,reversePending:this.drivetrain.reversePending,wheels:this.wheels.map(w=>({...w,localCenter:{...w.localCenter}}))};
   }
   dispose():void{if(!this.disposed){this.world.free();this.disposed=true}}
 }
