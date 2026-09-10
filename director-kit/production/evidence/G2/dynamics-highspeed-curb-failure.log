@@ -1,0 +1,36 @@
+✔ loaded rest: three non-tensile contacts support stated loaded mass without drift (98.9256ms)
+✖ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (374.8492ms)
+✔ straight acceleration, lift-off coast and braking have coherent measured distances (0.629ms)
+✔ left/right asphalt circles have correct turn signs, mirrored radii and sustained support (0.8019ms)
+✔ slalom follows alternating input in authoritative yaw response (0.3848ms)
+✔ controlled reverse engages near rest and uses signed physical velocity (0.4471ms)
+✔ surface friction reduces acceleration; optional traction help limits wheel overspeed; lift/brake recovers (0.341ms)
+✔ one-wheel bump, curb, seam and landing excite suspension and recover without tunneling (0.7759ms)
+✔ authoritative AutoDrive executes all five ratios, cuts torque during transitions, and has consistent SI torque/power (1.1618ms)
+✔ incline launch and high-speed curb produce physical vertical motion then recover; full-speed steering stays bounded (0.757ms)
+✔ render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error (49.6801ms)
+✔ reset clears forces/drivetrain/history, fixed-step rejection and pause clock do not advance state (5.48ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 685.1788
+
+✖ failing tests:
+
+test at tests\driving.test.ts:19:1
+✖ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (374.8492ms)
+  AssertionError [ERR_ASSERTION]: high-speed-curb overturned at 7.1666666666666465
+      at TestContext.<anonymous> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\driving.test.ts:21:42)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

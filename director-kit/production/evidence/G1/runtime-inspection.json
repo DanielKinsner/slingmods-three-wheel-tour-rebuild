@@ -1,0 +1,59 @@
+{
+  "command": "node scripts/capture-vehicle.mjs",
+  "outcome": "PASS capture and pivot presence only; recognition requires reviewer",
+  "browser": "153.0.8010.12",
+  "renderer": "isolated SwiftShader software",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "inspected": {
+    "bounds": [
+      1.995999999344349,
+      1.3127319812774658,
+      3.7989999055862427
+    ],
+    "nodes": [
+      {
+        "id": "front_left",
+        "steer": true,
+        "spin": true,
+        "position": [
+          -0.8774999976158142,
+          0.3298499882221222,
+          -1.3335000276565552
+        ]
+      },
+      {
+        "id": "front_right",
+        "steer": true,
+        "spin": true,
+        "position": [
+          0.8774999976158142,
+          0.3298499882221222,
+          -1.3335000276565552
+        ]
+      },
+      {
+        "id": "rear",
+        "steer": false,
+        "spin": true,
+        "position": [
+          0,
+          0.34549999237060547,
+          1.3335000276565552
+        ]
+      }
+    ],
+    "telemetry": null,
+    "renderInfo": {
+      "frame": 36,
+      "calls": 452,
+      "triangles": 70396,
+      "points": 0,
+      "lines": 0
+    },
+    "renderer": "WebKit WebGL"
+  },
+  "errors": []
+}

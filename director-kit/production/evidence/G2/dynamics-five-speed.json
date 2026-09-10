@@ -1,0 +1,5028 @@
+{
+  "provenance": "Isolated authoritative AutoDrive module sweep with prescribed wheel-equivalent speed. This is NOT a chassis acceleration run or a real vehicle performance claim. Driving scenarios separately demonstrate integration on the pad.",
+  "spec": {
+    "mass": 850,
+    "comHeight": 0.46,
+    "frontSpring": 28000,
+    "rearSpring": 48000,
+    "damperFront": 3800,
+    "damperRear": 6500,
+    "restLength": 0.24,
+    "travel": 0.15,
+    "ratios": [
+      3.6,
+      2.19,
+      1.41,
+      1,
+      0.83
+    ],
+    "finalDrive": 3.73,
+    "efficiency": 0.88,
+    "idle": 950,
+    "redline": 8500,
+    "shiftSeconds": 0.24,
+    "provenance": "Provisional simulation estimates, including loaded mass, CG, spring rates, damping, torque curve, gearing and tire coefficients. Dimensional contact geometry comes solely from shared P01 layout."
+  },
+  "sweep": [
+    {
+      "time": 0.1,
+      "prescribedSpeed": 0.15,
+      "gear": 1,
+      "rpm": 1950.0000000000005,
+      "shiftRemaining": 0,
+      "outputForce": 4518.385582402316,
+      "torqueNm": 132.1105,
+      "powerWatts": 26977.429457034843
+    },
+    {
+      "time": 0.2,
+      "prescribedSpeed": 0.32999999999999996,
+      "gear": 1,
+      "rpm": 2164.2,
+      "shiftRemaining": 0,
+      "outputForce": 4710.077331649145,
+      "torqueNm": 137.715265768,
+      "powerWatts": 31211.0295775332
+    },
+    {
+      "time": 0.3,
+      "prescribedSpeed": 0.51,
+      "gear": 1,
+      "rpm": 2117.4,
+      "shiftRemaining": 0,
+      "outputForce": 4669.213295478204,
+      "torqueNm": 136.520465512,
+      "powerWatts": 30271.175587281003
+    },
+    {
+      "time": 0.4,
+      "prescribedSpeed": 0.6900000000000001,
+      "gear": 1,
+      "rpm": 2070.6,
+      "shiftRemaining": 0,
+      "outputForce": 4627.779946109837,
+      "torqueNm": 135.30901943199999,
+      "powerWatts": 29339.423393856912
+    },
+    {
+      "time": 0.5,
+      "prescribedSpeed": 0.87,
+      "gear": 1,
+      "rpm": 2023.8000000000002,
+      "shiftRemaining": 0,
+      "outputForce": 4585.777283544041,
+      "torqueNm": 134.08092752800002,
+      "powerWatts": 28416.01773504541
+    },
+    {
+      "time": 0.6,
+      "prescribedSpeed": 1.05,
+      "gear": 1,
+      "rpm": 1977,
+      "shiftRemaining": 0,
+      "outputForce": 4543.205307780817,
+      "torqueNm": 132.8361898,
+      "powerWatts": 27501.203348630945
+    },
+    {
+      "time": 0.7,
+      "prescribedSpeed": 1.23,
+      "gear": 1,
+      "rpm": 1930.2,
+      "shiftRemaining": 0,
+      "outputForce": 4500.064018820164,
+      "torqueNm": 131.574806248,
+      "powerWatts": 26595.224972398013
+    },
+    {
+      "time": 0.8,
+      "prescribedSpeed": 1.41,
+      "gear": 1,
+      "rpm": 1883.4,
+      "shiftRemaining": 0,
+      "outputForce": 4456.353416662086,
+      "torqueNm": 130.296776872,
+      "powerWatts": 25698.327344131085
+    },
+    {
+      "time": 0.9,
+      "prescribedSpeed": 1.59,
+      "gear": 1,
+      "rpm": 1836.6,
+      "shiftRemaining": 0,
+      "outputForce": 4412.073501306575,
+      "torqueNm": 129.00210167199998,
+      "powerWatts": 24810.755201614604
+    },
+    {
+      "time": 1,
+      "prescribedSpeed": 1.77,
+      "gear": 1,
+      "rpm": 1789.8000000000002,
+      "shiftRemaining": 0,
+      "outputForce": 4367.224272753641,
+      "torqueNm": 127.690780648,
+      "powerWatts": 23932.75328263309
+    },
+    {
+      "time": 1.1,
+      "prescribedSpeed": 1.95,
+      "gear": 1,
+      "rpm": 1743,
+      "shiftRemaining": 0,
+      "outputForce": 4321.805731003276,
+      "torqueNm": 126.3628138,
+      "powerWatts": 23064.56632497097
+    },
+    {
+      "time": 1.2,
+      "prescribedSpeed": 2.13,
+      "gear": 1,
+      "rpm": 1696.2,
+      "shiftRemaining": 0,
+      "outputForce": 4275.817876055485,
+      "torqueNm": 125.01820112799999,
+      "powerWatts": 22206.43906641273
+    },
+    {
+      "time": 1.3,
+      "prescribedSpeed": 2.31,
+      "gear": 1,
+      "rpm": 1649.4,
+      "shiftRemaining": 0,
+      "outputForce": 4229.260707910266,
+      "torqueNm": 123.65694263200001,
+      "powerWatts": 21358.616244742854
+    },
+    {
+      "time": 1.4,
+      "prescribedSpeed": 2.49,
+      "gear": 1,
+      "rpm": 1602.6,
+      "shiftRemaining": 0,
+      "outputForce": 4182.134226567618,
+      "torqueNm": 122.27903831199998,
+      "powerWatts": 20521.342597745792
+    },
+    {
+      "time": 1.5,
+      "prescribedSpeed": 2.6700000000000004,
+      "gear": 1,
+      "rpm": 1555.8,
+      "shiftRemaining": 0,
+      "outputForce": 4134.438432027542,
+      "torqueNm": 120.884488168,
+      "powerWatts": 19694.862863206035
+    },
+    {
+      "time": 1.6,
+      "prescribedSpeed": 2.85,
+      "gear": 1,
+      "rpm": 1509,
+      "shiftRemaining": 0,
+      "outputForce": 4086.173324290038,
+      "torqueNm": 119.4732922,
+      "powerWatts": 18879.42177890805
+    },
+    {
+      "time": 1.7,
+      "prescribedSpeed": 3.0300000000000002,
+      "gear": 1,
+      "rpm": 1462.1999999999998,
+      "shiftRemaining": 0,
+      "outputForce": 4037.338903355106,
+      "torqueNm": 118.045450408,
+      "powerWatts": 18075.264082636295
+    },
+    {
+      "time": 1.8,
+      "prescribedSpeed": 3.2100000000000004,
+      "gear": 1,
+      "rpm": 1415.3999999999999,
+      "shiftRemaining": 0,
+      "outputForce": 3987.9351692227465,
+      "torqueNm": 116.60096279199999,
+      "powerWatts": 17282.634512175257
+    },
+    {
+      "time": 1.9,
+      "prescribedSpeed": 3.39,
+      "gear": 1,
+      "rpm": 1368.6,
+      "shiftRemaining": 0,
+      "outputForce": 3937.962121892959,
+      "torqueNm": 115.139829352,
+      "powerWatts": 16501.777805309404
+    },
+    {
+      "time": 2,
+      "prescribedSpeed": 3.5700000000000003,
+      "gear": 1,
+      "rpm": 1324.960340794482,
+      "shiftRemaining": 0,
+      "outputForce": 3890.8507431202493,
+      "torqueNm": 113.76236660743206,
+      "powerWatts": 15784.474037431015
+    },
+    {
+      "time": 2.1,
+      "prescribedSpeed": 3.7500000000000004,
+      "gear": 1,
+      "rpm": 1391.7650638597497,
+      "shiftRemaining": 0,
+      "outputForce": 3962.7689376867083,
+      "torqueNm": 115.8651416960115,
+      "powerWatts": 16886.799450369497
+    },
+    {
+      "time": 2.2,
+      "prescribedSpeed": 3.9299999999999997,
+      "gear": 1,
+      "rpm": 1458.5697869250173,
+      "shiftRemaining": 0,
+      "outputForce": 4033.5270898047206,
+      "torqueNm": 117.93399896480986,
+      "powerWatts": 18013.36529878699
+    },
+    {
+      "time": 2.3,
+      "prescribedSpeed": 4.11,
+      "gear": 1,
+      "rpm": 1525.3745099902858,
+      "shiftRemaining": 0,
+      "outputForce": 4103.125199474288,
+      "torqueNm": 119.96893841382715,
+      "powerWatts": 19163.459738453785
+    },
+    {
+      "time": 2.4,
+      "prescribedSpeed": 4.29,
+      "gear": 1,
+      "rpm": 1592.1792330555534,
+      "shiftRemaining": 0,
+      "outputForce": 4171.56326669541,
+      "torqueNm": 121.96996004306334,
+      "powerWatts": 20336.37092514012
+    },
+    {
+      "time": 2.5,
+      "prescribedSpeed": 4.470000000000001,
+      "gear": 1,
+      "rpm": 1658.9839561208214,
+      "shiftRemaining": 0,
+      "outputForce": 4238.841291468085,
+      "torqueNm": 123.93706385251843,
+      "powerWatts": 21531.3870146163
+    },
+    {
+      "time": 2.6,
+      "prescribedSpeed": 4.65,
+      "gear": 1,
+      "rpm": 1725.7886791860897,
+      "shiftRemaining": 0,
+      "outputForce": 4304.959273792316,
+      "torqueNm": 125.87024984219244,
+      "powerWatts": 22747.796162652583
+    },
+    {
+      "time": 2.7,
+      "prescribedSpeed": 4.83,
+      "gear": 1,
+      "rpm": 1792.5934022513572,
+      "shiftRemaining": 0,
+      "outputForce": 4369.9172136681,
+      "torqueNm": 127.76951801208537,
+      "powerWatts": 23984.886525019232
+    },
+    {
+      "time": 2.8,
+      "prescribedSpeed": 5.01,
+      "gear": 1,
+      "rpm": 1859.3981253166253,
+      "shiftRemaining": 0,
+      "outputForce": 4433.715111095439,
+      "torqueNm": 129.6348683621972,
+      "powerWatts": 25241.946257486532
+    },
+    {
+      "time": 2.9,
+      "prescribedSpeed": 5.19,
+      "gear": 1,
+      "rpm": 1926.2028483818933,
+      "shiftRemaining": 0,
+      "outputForce": 4496.352966074332,
+      "torqueNm": 131.46630089252795,
+      "powerWatts": 26518.26351582475
+    },
+    {
+      "time": 3,
+      "prescribedSpeed": 5.37,
+      "gear": 1,
+      "rpm": 1993.0075714471614,
+      "shiftRemaining": 0,
+      "outputForce": 4557.83077860478,
+      "torqueNm": 133.26381560307763,
+      "powerWatts": 27813.126455804166
+    },
+    {
+      "time": 3.1,
+      "prescribedSpeed": 5.550000000000001,
+      "gear": 1,
+      "rpm": 2059.8122945124296,
+      "shiftRemaining": 0,
+      "outputForce": 4618.148548686782,
+      "torqueNm": 135.0274124938462,
+      "powerWatts": 29125.82323319505
+    },
+    {
+      "time": 3.2,
+      "prescribedSpeed": 5.7299999999999995,
+      "gear": 1,
+      "rpm": 2126.6170175776965,
+      "shiftRemaining": 0,
+      "outputForce": 4677.306276320338,
+      "torqueNm": 136.7570915648337,
+      "powerWatts": 30455.642003767643
+    },
+    {
+      "time": 3.3,
+      "prescribedSpeed": 5.91,
+      "gear": 1,
+      "rpm": 2193.4217406429652,
+      "shiftRemaining": 0,
+      "outputForce": 4735.3039615054495,
+      "torqueNm": 138.45285281604012,
+      "powerWatts": 31801.870923292277
+    },
+    {
+      "time": 3.4,
+      "prescribedSpeed": 6.09,
+      "gear": 1,
+      "rpm": 2260.226463708233,
+      "shiftRemaining": 0,
+      "outputForce": 4792.141604242114,
+      "torqueNm": 140.11469624746545,
+      "powerWatts": 33163.79814753917
+    },
+    {
+      "time": 3.5,
+      "prescribedSpeed": 6.2700000000000005,
+      "gear": 1,
+      "rpm": 2327.0311867735013,
+      "shiftRemaining": 0,
+      "outputForce": 4847.819204530334,
+      "torqueNm": 141.7426218591097,
+      "powerWatts": 34540.71183227863
+    },
+    {
+      "time": 3.6,
+      "prescribedSpeed": 6.45,
+      "gear": 1,
+      "rpm": 2393.8359098387696,
+      "shiftRemaining": 0,
+      "outputForce": 4902.336762370106,
+      "torqueNm": 143.33662965097284,
+      "powerWatts": 35931.9001332809
+    },
+    {
+      "time": 3.7,
+      "prescribedSpeed": 6.63,
+      "gear": 1,
+      "rpm": 2460.640632904037,
+      "shiftRemaining": 0,
+      "outputForce": 4955.694277761434,
+      "torqueNm": 144.8967196230549,
+      "powerWatts": 37336.651206316266
+    },
+    {
+      "time": 3.8,
+      "prescribedSpeed": 6.81,
+      "gear": 1,
+      "rpm": 2527.445355969305,
+      "shiftRemaining": 0,
+      "outputForce": 5007.891750704317,
+      "torqueNm": 146.42289177535588,
+      "powerWatts": 38754.253207155
+    },
+    {
+      "time": 3.9,
+      "prescribedSpeed": 6.99,
+      "gear": 1,
+      "rpm": 2594.250079034573,
+      "shiftRemaining": 0,
+      "outputForce": 5058.929181198754,
+      "torqueNm": 147.91514610787578,
+      "powerWatts": 40183.994291567375
+    },
+    {
+      "time": 4,
+      "prescribedSpeed": 7.17,
+      "gear": 1,
+      "rpm": 2661.054802099841,
+      "shiftRemaining": 0,
+      "outputForce": 5108.806569244744,
+      "torqueNm": 149.37348262061457,
+      "powerWatts": 41625.16261532366
+    },
+    {
+      "time": 4.1,
+      "prescribedSpeed": 7.35,
+      "gear": 1,
+      "rpm": 2727.8595251651086,
+      "shiftRemaining": 0,
+      "outputForce": 5157.523914842292,
+      "torqueNm": 150.7979013135723,
+      "powerWatts": 43077.04633419413
+    },
+    {
+      "time": 4.2,
+      "prescribedSpeed": 7.53,
+      "gear": 1,
+      "rpm": 2794.664248230377,
+      "shiftRemaining": 0,
+      "outputForce": 5205.081217991389,
+      "torqueNm": 152.18840218674893,
+      "powerWatts": 44538.933603949044
+    },
+    {
+      "time": 4.3,
+      "prescribedSpeed": 7.71,
+      "gear": 1,
+      "rpm": 2861.4689712956447,
+      "shiftRemaining": 0,
+      "outputForce": 5251.4784786920445,
+      "torqueNm": 153.54498524014448,
+      "powerWatts": 46010.112580358706
+    },
+    {
+      "time": 4.4,
+      "prescribedSpeed": 7.890000000000001,
+      "gear": 1,
+      "rpm": 2928.273694360913,
+      "shiftRemaining": 0,
+      "outputForce": 5296.715696944252,
+      "torqueNm": 154.86765047375894,
+      "powerWatts": 47489.871419193354
+    },
+    {
+      "time": 4.5,
+      "prescribedSpeed": 8.07,
+      "gear": 1,
+      "rpm": 2995.078417426181,
+      "shiftRemaining": 0,
+      "outputForce": 5340.792872748016,
+      "torqueNm": 156.15639788759233,
+      "powerWatts": 48977.49827622328
+    },
+    {
+      "time": 4.6,
+      "prescribedSpeed": 8.25,
+      "gear": 1,
+      "rpm": 3061.883140491449,
+      "shiftRemaining": 0,
+      "outputForce": 5383.710006103332,
+      "torqueNm": 157.4112274816446,
+      "powerWatts": 50472.281307218735
+    },
+    {
+      "time": 4.7,
+      "prescribedSpeed": 8.430000000000001,
+      "gear": 1,
+      "rpm": 3128.6878635567173,
+      "shiftRemaining": 0,
+      "outputForce": 5425.467097010205,
+      "torqueNm": 158.63213925591583,
+      "powerWatts": 51973.50866795003
+    },
+    {
+      "time": 4.8,
+      "prescribedSpeed": 8.61,
+      "gear": 1,
+      "rpm": 3195.492586621985,
+      "shiftRemaining": 0,
+      "outputForce": 5466.064145468629,
+      "torqueNm": 159.81913321040594,
+      "powerWatts": 53480.468514187385
+    },
+    {
+      "time": 4.9,
+      "prescribedSpeed": 8.790000000000001,
+      "gear": 1,
+      "rpm": 3262.297309687253,
+      "shiftRemaining": 0,
+      "outputForce": 5505.501151478609,
+      "torqueNm": 160.97220934511495,
+      "powerWatts": 54992.4490017011
+    },
+    {
+      "time": 5,
+      "prescribedSpeed": 8.97,
+      "gear": 1,
+      "rpm": 3329.102032752521,
+      "shiftRemaining": 0,
+      "outputForce": 5543.778115040142,
+      "torqueNm": 162.0913676600429,
+      "powerWatts": 56508.73828626146
+    },
+    {
+      "time": 5.1,
+      "prescribedSpeed": 9.15,
+      "gear": 1,
+      "rpm": 3395.9067558177885,
+      "shiftRemaining": 0,
+      "outputForce": 5580.8950361532325,
+      "torqueNm": 163.17660815518974,
+      "powerWatts": 58028.62452363872
+    },
+    {
+      "time": 5.2,
+      "prescribedSpeed": 9.33,
+      "gear": 1,
+      "rpm": 3462.7114788830568,
+      "shiftRemaining": 0,
+      "outputForce": 5616.851914817875,
+      "torqueNm": 164.22793083055552,
+      "powerWatts": 59551.395869603155
+    },
+    {
+      "time": 5.3,
+      "prescribedSpeed": 9.51,
+      "gear": 1,
+      "rpm": 3529.516201948325,
+      "shiftRemaining": 0,
+      "outputForce": 5651.648751034073,
+      "torqueNm": 165.2453356861402,
+      "powerWatts": 61076.34047992504
+    },
+    {
+      "time": 5.4,
+      "prescribedSpeed": 9.690000000000001,
+      "gear": 1,
+      "rpm": 3596.3209250135924,
+      "shiftRemaining": 0,
+      "outputForce": 5685.2855448018245,
+      "torqueNm": 166.2288227219438,
+      "powerWatts": 62602.74651037463
+    },
+    {
+      "time": 5.5,
+      "prescribedSpeed": 9.870000000000001,
+      "gear": 1,
+      "rpm": 3663.125648078861,
+      "shiftRemaining": 0,
+      "outputForce": 5717.762296121131,
+      "torqueNm": 167.17839193796632,
+      "powerWatts": 64129.90211672223
+    },
+    {
+      "time": 5.6,
+      "prescribedSpeed": 10.049999999999999,
+      "gear": 1,
+      "rpm": 3729.930371144128,
+      "shiftRemaining": 0,
+      "outputForce": 5749.079004991991,
+      "torqueNm": 168.09404333420773,
+      "powerWatts": 65657.09545473807
+    },
+    {
+      "time": 5.7,
+      "prescribedSpeed": 10.23,
+      "gear": 1,
+      "rpm": 3796.7350942093963,
+      "shiftRemaining": 0,
+      "outputForce": 5779.235671414406,
+      "torqueNm": 168.9757769106681,
+      "powerWatts": 67183.61468019246
+    },
+    {
+      "time": 5.8,
+      "prescribedSpeed": 10.41,
+      "gear": 1,
+      "rpm": 3863.5398172746654,
+      "shiftRemaining": 0,
+      "outputForce": 5808.232295388375,
+      "torqueNm": 169.82359266734736,
+      "powerWatts": 68708.74794885569
+    },
+    {
+      "time": 5.9,
+      "prescribedSpeed": 10.590000000000002,
+      "gear": 1,
+      "rpm": 3930.344540339933,
+      "shiftRemaining": 0,
+      "outputForce": 5836.068876913898,
+      "torqueNm": 170.6374906042455,
+      "powerWatts": 70231.78341649794
+    },
+    {
+      "time": 6,
+      "prescribedSpeed": 10.77,
+      "gear": 1,
+      "rpm": 3997.1492634052006,
+      "shiftRemaining": 0,
+      "outputForce": 5862.745415990977,
+      "torqueNm": 171.41747072136258,
+      "powerWatts": 71752.00923888957
+    },
+    {
+      "time": 6.1,
+      "prescribedSpeed": 10.95,
+      "gear": 1,
+      "rpm": 4063.9539864704684,
+      "shiftRemaining": 0,
+      "outputForce": 5888.261912619609,
+      "torqueNm": 172.1635330186986,
+      "powerWatts": 73268.7135718008
+    },
+    {
+      "time": 6.2,
+      "prescribedSpeed": 11.13,
+      "gear": 1,
+      "rpm": 4130.758709535736,
+      "shiftRemaining": 0,
+      "outputForce": 5912.618366799795,
+      "torqueNm": 172.87567749625347,
+      "powerWatts": 74781.18457100193
+    },
+    {
+      "time": 6.3,
+      "prescribedSpeed": 11.31,
+      "gear": 1,
+      "rpm": 4197.563432601005,
+      "shiftRemaining": 0,
+      "outputForce": 5935.814778531534,
+      "torqueNm": 173.5539041540273,
+      "powerWatts": 76288.71039226325
+    },
+    {
+      "time": 6.4,
+      "prescribedSpeed": 11.49,
+      "gear": 1,
+      "rpm": 4264.368155666272,
+      "shiftRemaining": 0,
+      "outputForce": 5957.851147814831,
+      "torqueNm": 174.19821299202005,
+      "powerWatts": 77790.579191355
+    },
+    {
+      "time": 6.5,
+      "prescribedSpeed": 11.67,
+      "gear": 1,
+      "rpm": 4331.17287873154,
+      "shiftRemaining": 0,
+      "outputForce": 5978.72747464968,
+      "torqueNm": 174.80860401023168,
+      "powerWatts": 79286.07912404744
+    },
+    {
+      "time": 6.6,
+      "prescribedSpeed": 11.85,
+      "gear": 1,
+      "rpm": 4397.977601796809,
+      "shiftRemaining": 0,
+      "outputForce": 5998.443759036083,
+      "torqueNm": 175.38507720866224,
+      "powerWatts": 80774.4983461109
+    },
+    {
+      "time": 6.7,
+      "prescribedSpeed": 12.030000000000001,
+      "gear": 1,
+      "rpm": 4464.782324862077,
+      "shiftRemaining": 0,
+      "outputForce": 6017.000000974042,
+      "torqueNm": 175.92763258731173,
+      "powerWatts": 82255.1250133156
+    },
+    {
+      "time": 6.8,
+      "prescribedSpeed": 12.21,
+      "gear": 1,
+      "rpm": 4531.5870479273435,
+      "shiftRemaining": 0,
+      "outputForce": 6034.396200463554,
+      "torqueNm": 176.4362701461801,
+      "powerWatts": 83727.24728143179
+    },
+    {
+      "time": 6.9,
+      "prescribedSpeed": 12.39,
+      "gear": 1,
+      "rpm": 4598.391770992613,
+      "shiftRemaining": 0,
+      "outputForce": 6050.632357504621,
+      "torqueNm": 176.9109898852674,
+      "powerWatts": 85190.15330622984
+    },
+    {
+      "time": 7,
+      "prescribedSpeed": 12.57,
+      "gear": 1,
+      "rpm": 4665.19649405788,
+      "shiftRemaining": 0,
+      "outputForce": 6065.7084720972425,
+      "torqueNm": 177.35179180457362,
+      "powerWatts": 86643.13124347992
+    },
+    {
+      "time": 7.1,
+      "prescribedSpeed": 12.75,
+      "gear": 1,
+      "rpm": 4732.001217123147,
+      "shiftRemaining": 0,
+      "outputForce": 6079.624544241419,
+      "torqueNm": 177.75867590409877,
+      "powerWatts": 88085.46924895234
+    },
+    {
+      "time": 7.2,
+      "prescribedSpeed": 12.930000000000001,
+      "gear": 1,
+      "rpm": 4798.805940188417,
+      "shiftRemaining": 0,
+      "outputForce": 6092.380573937147,
+      "torqueNm": 178.1316421838428,
+      "powerWatts": 89516.45547841743
+    },
+    {
+      "time": 7.3,
+      "prescribedSpeed": 13.11,
+      "gear": 1,
+      "rpm": 4865.610663253685,
+      "shiftRemaining": 0,
+      "outputForce": 6103.976561184432,
+      "torqueNm": 178.47069064380577,
+      "powerWatts": 90935.37808764535
+    },
+    {
+      "time": 7.4,
+      "prescribedSpeed": 13.290000000000001,
+      "gear": 1,
+      "rpm": 4932.415386318952,
+      "shiftRemaining": 0,
+      "outputForce": 6114.41250598327,
+      "torqueNm": 178.77582128398763,
+      "powerWatts": 92341.52523240642
+    },
+    {
+      "time": 7.5,
+      "prescribedSpeed": 13.47,
+      "gear": 1,
+      "rpm": 4999.22010938422,
+      "shiftRemaining": 0,
+      "outputForce": 6123.688408333664,
+      "torqueNm": 179.04703410438842,
+      "powerWatts": 93734.18506847095
+    },
+    {
+      "time": 7.6,
+      "prescribedSpeed": 13.65,
+      "gear": 1,
+      "rpm": 5066.024832449489,
+      "shiftRemaining": 0,
+      "outputForce": 6131.804268235609,
+      "torqueNm": 179.2843291050081,
+      "powerWatts": 95112.64575160919
+    },
+    {
+      "time": 7.7,
+      "prescribedSpeed": 13.83,
+      "gear": 1,
+      "rpm": 5132.829555514756,
+      "shiftRemaining": 0,
+      "outputForce": 6138.760085689111,
+      "torqueNm": 179.48770628584674,
+      "powerWatts": 96476.19543759138
+    },
+    {
+      "time": 7.8,
+      "prescribedSpeed": 14.01,
+      "gear": 1,
+      "rpm": 5199.634278580023,
+      "shiftRemaining": 0,
+      "outputForce": 6144.555860694167,
+      "torqueNm": 179.65716564690425,
+      "powerWatts": 97824.12228218782
+    },
+    {
+      "time": 7.9,
+      "prescribedSpeed": 14.190000000000001,
+      "gear": 1,
+      "rpm": 5266.4390016452935,
+      "shiftRemaining": 0,
+      "outputForce": 6149.191593250778,
+      "torqueNm": 179.7927071881807,
+      "powerWatts": 99155.71444116884
+    },
+    {
+      "time": 8,
+      "prescribedSpeed": 14.370000000000001,
+      "gear": 1,
+      "rpm": 5333.24372471056,
+      "shiftRemaining": 0,
+      "outputForce": 6152.667283358943,
+      "torqueNm": 179.89433090967606,
+      "powerWatts": 100470.26007030456
+    },
+    {
+      "time": 8.1,
+      "prescribedSpeed": 14.55,
+      "gear": 1,
+      "rpm": 5400.048447775828,
+      "shiftRemaining": 0,
+      "outputForce": 6154.9829310186615,
+      "torqueNm": 179.9620368113903,
+      "powerWatts": 101767.04732536538
+    },
+    {
+      "time": 8.2,
+      "prescribedSpeed": 14.73,
+      "gear": 1,
+      "rpm": 5466.8531708410965,
+      "shiftRemaining": 0,
+      "outputForce": 6156.138536229934,
+      "torqueNm": 179.9958248933235,
+      "powerWatts": 103045.36436212152
+    },
+    {
+      "time": 8.3,
+      "prescribedSpeed": 14.91,
+      "gear": 1,
+      "rpm": 5533.657893906365,
+      "shiftRemaining": 0,
+      "outputForce": 6156.134098992763,
+      "torqueNm": 179.9956951554756,
+      "powerWatts": 104304.49933634329
+    },
+    {
+      "time": 8.4,
+      "prescribedSpeed": 15.09,
+      "gear": 1,
+      "rpm": 5600.462616971633,
+      "shiftRemaining": 0,
+      "outputForce": 6154.969619307144,
+      "torqueNm": 179.9616475978466,
+      "powerWatts": 105543.74040380093
+    },
+    {
+      "time": 8.5,
+      "prescribedSpeed": 15.27,
+      "gear": 1,
+      "rpm": 5667.267340036899,
+      "shiftRemaining": 0,
+      "outputForce": 6152.64509717308,
+      "torqueNm": 179.89368222043652,
+      "powerWatts": 106762.3757202647
+    },
+    {
+      "time": 8.6,
+      "prescribedSpeed": 15.450000000000001,
+      "gear": 1,
+      "rpm": 5734.072063102169,
+      "shiftRemaining": 0,
+      "outputForce": 6149.160532590571,
+      "torqueNm": 179.79179902324535,
+      "powerWatts": 107959.6934415049
+    },
+    {
+      "time": 8.7,
+      "prescribedSpeed": 15.63,
+      "gear": 1,
+      "rpm": 5800.876786167436,
+      "shiftRemaining": 0,
+      "outputForce": 6144.515925559615,
+      "torqueNm": 179.6559980062731,
+      "powerWatts": 109134.98172329181
+    },
+    {
+      "time": 8.8,
+      "prescribedSpeed": 15.81,
+      "gear": 1,
+      "rpm": 5867.681509232703,
+      "shiftRemaining": 0,
+      "outputForce": 6138.711276080215,
+      "torqueNm": 179.48627916951978,
+      "powerWatts": 110287.52872139568
+    },
+    {
+      "time": 8.9,
+      "prescribedSpeed": 15.99,
+      "gear": 1,
+      "rpm": 5934.486232297971,
+      "shiftRemaining": 0,
+      "outputForce": 6131.746584152369,
+      "torqueNm": 179.28264251298535,
+      "powerWatts": 111416.62259158677
+    },
+    {
+      "time": 9,
+      "prescribedSpeed": 16.169999999999998,
+      "gear": 1,
+      "rpm": 6001.29095536324,
+      "shiftRemaining": 0,
+      "outputForce": 6123.621849776078,
+      "torqueNm": 179.04508803666985,
+      "powerWatts": 112521.55148963543
+    },
+    {
+      "time": 9.1,
+      "prescribedSpeed": 16.35,
+      "gear": 1,
+      "rpm": 6068.095678428507,
+      "shiftRemaining": 0,
+      "outputForce": 6114.337072951338,
+      "torqueNm": 178.77361574057323,
+      "powerWatts": 113601.60357131179
+    },
+    {
+      "time": 9.2,
+      "prescribedSpeed": 16.53,
+      "gear": 1,
+      "rpm": 6134.900401493775,
+      "shiftRemaining": 0,
+      "outputForce": 6103.8922536781565,
+      "torqueNm": 178.46822562469558,
+      "powerWatts": 114656.06699238626
+    },
+    {
+      "time": 9.3,
+      "prescribedSpeed": 16.71,
+      "gear": 1,
+      "rpm": 6201.705124559045,
+      "shiftRemaining": 0,
+      "outputForce": 6092.287391956526,
+      "torqueNm": 178.1289176890368,
+      "powerWatts": 115684.22990862907
+    },
+    {
+      "time": 9.4,
+      "prescribedSpeed": 16.89,
+      "gear": 1,
+      "rpm": 6268.509847624312,
+      "shiftRemaining": 0,
+      "outputForce": 6079.522487786452,
+      "torqueNm": 177.75569193359695,
+      "powerWatts": 116685.38047581044
+    },
+    {
+      "time": 9.5,
+      "prescribedSpeed": 17.07,
+      "gear": 1,
+      "rpm": 6335.314570689579,
+      "shiftRemaining": 0,
+      "outputForce": 6065.597541167931,
+      "torqueNm": 177.348548358376,
+      "powerWatts": 117658.80684970068
+    },
+    {
+      "time": 9.6,
+      "prescribedSpeed": 17.25,
+      "gear": 1,
+      "rpm": 6402.1192937548485,
+      "shiftRemaining": 0,
+      "outputForce": 6050.512552100966,
+      "torqueNm": 176.90748696337397,
+      "powerWatts": 118603.79718607008
+    },
+    {
+      "time": 9.7,
+      "prescribedSpeed": 17.43,
+      "gear": 1,
+      "rpm": 6468.924016820115,
+      "shiftRemaining": 0,
+      "outputForce": 6034.267520585554,
+      "torqueNm": 176.43250774859087,
+      "powerWatts": 119519.63964068887
+    },
+    {
+      "time": 9.8,
+      "prescribedSpeed": 17.61,
+      "gear": 1,
+      "rpm": 6535.728739885382,
+      "shiftRemaining": 0,
+      "outputForce": 6016.862446621696,
+      "torqueNm": 175.92361071402667,
+      "powerWatts": 120405.62236932734
+    },
+    {
+      "time": 9.9,
+      "prescribedSpeed": 17.79,
+      "gear": 1,
+      "rpm": 6602.5334629506515,
+      "shiftRemaining": 0,
+      "outputForce": 5998.297330209394,
+      "torqueNm": 175.38079585968137,
+      "powerWatts": 121261.03352775582
+    },
+    {
+      "time": 10,
+      "prescribedSpeed": 17.97,
+      "gear": 1,
+      "rpm": 6669.33818601592,
+      "shiftRemaining": 0,
+      "outputForce": 5978.5721713486455,
+      "torqueNm": 174.80406318555498,
+      "powerWatts": 122085.16127174448
+    },
+    {
+      "time": 10.1,
+      "prescribedSpeed": 18.150000000000002,
+      "gear": 1,
+      "rpm": 6736.142909081188,
+      "shiftRemaining": 0,
+      "outputForce": 5957.686970039449,
+      "torqueNm": 174.19341269164752,
+      "powerWatts": 122877.29375706366
+    },
+    {
+      "time": 10.2,
+      "prescribedSpeed": 18.330000000000002,
+      "gear": 1,
+      "rpm": 6802.947632146456,
+      "shiftRemaining": 0,
+      "outputForce": 5935.64172628181,
+      "torqueNm": 173.54884437795897,
+      "powerWatts": 123636.71913948361
+    },
+    {
+      "time": 10.3,
+      "prescribedSpeed": 18.51,
+      "gear": 1,
+      "rpm": 6869.752355211724,
+      "shiftRemaining": 0,
+      "outputForce": 5912.436440075725,
+      "torqueNm": 172.87035824448935,
+      "powerWatts": 124362.72557477462
+    },
+    {
+      "time": 10.4,
+      "prescribedSpeed": 18.69,
+      "gear": 1,
+      "rpm": 6936.557078276992,
+      "shiftRemaining": 0.19,
+      "outputForce": 0,
+      "torqueNm": 172.15795429123864,
+      "powerWatts": 125054.60121870696
+    },
+    {
+      "time": 10.5,
+      "prescribedSpeed": 18.869999999999997,
+      "gear": 1,
+      "rpm": 7003.361801342258,
+      "shiftRemaining": 0.09000000000000002,
+      "outputForce": 0,
+      "torqueNm": 171.41163251820686,
+      "powerWatts": 125711.63422705085
+    },
+    {
+      "time": 10.6,
+      "prescribedSpeed": 19.05,
+      "gear": 2,
+      "rpm": 6892.365737229983,
+      "shiftRemaining": 0,
+      "outputForce": 3591.793851154436,
+      "torqueNm": 172.63300708439442,
+      "powerWatts": 124600.78210875372
+    },
+    {
+      "time": 10.7,
+      "prescribedSpeed": 19.23,
+      "gear": 2,
+      "rpm": 5892.365737229981,
+      "shiftRemaining": 0,
+      "outputForce": 3732.899385072492,
+      "torqueNm": 179.4149866873423,
+      "powerWatts": 110707.49670774794
+    },
+    {
+      "time": 10.8,
+      "prescribedSpeed": 19.41,
+      "gear": 2,
+      "rpm": 4892.3657372299795,
+      "shiftRemaining": 0,
+      "outputForce": 3715.879692941343,
+      "torqueNm": 178.59696629029014,
+      "powerWatts": 91500.10902136282
+    },
+    {
+      "time": 10.9,
+      "prescribedSpeed": 19.59,
+      "gear": 2,
+      "rpm": 4422.936588608693,
+      "shiftRemaining": 0,
+      "outputForce": 3653.3533262746873,
+      "torqueNm": 175.59175074980004,
+      "powerWatts": 81328.62688831946
+    },
+    {
+      "time": 11,
+      "prescribedSpeed": 19.77,
+      "gear": 2,
+      "rpm": 4463.576128473398,
+      "shiftRemaining": 0,
+      "outputForce": 3660.144105083747,
+      "torqueNm": 175.91813712241327,
+      "powerWatts": 82228.46472443826
+    },
+    {
+      "time": 11.1,
+      "prescribedSpeed": 19.950000000000003,
+      "gear": 2,
+      "rpm": 4504.215668338103,
+      "shiftRemaining": 0,
+      "outputForce": 3666.673728665278,
+      "torqueNm": 176.23197154630333,
+      "powerWatts": 83125.16009871852
+    },
+    {
+      "time": 11.2,
+      "prescribedSpeed": 20.130000000000003,
+      "gear": 2,
+      "rpm": 4544.855208202806,
+      "shiftRemaining": 0,
+      "outputForce": 3672.9421970192825,
+      "torqueNm": 176.53325402147024,
+      "powerWatts": 84018.55275681608
+    },
+    {
+      "time": 11.3,
+      "prescribedSpeed": 20.31,
+      "gear": 2,
+      "rpm": 4585.494748067512,
+      "shiftRemaining": 0,
+      "outputForce": 3678.9495101457596,
+      "torqueNm": 176.821984547914,
+      "powerWatts": 84908.48244438678
+    },
+    {
+      "time": 11.4,
+      "prescribedSpeed": 20.49,
+      "gear": 2,
+      "rpm": 4626.1342879322165,
+      "shiftRemaining": 0,
+      "outputForce": 3684.6956680447092,
+      "torqueNm": 177.0981631256346,
+      "powerWatts": 85794.78890708646
+    },
+    {
+      "time": 11.5,
+      "prescribedSpeed": 20.669999999999998,
+      "gear": 2,
+      "rpm": 4666.77382779692,
+      "shiftRemaining": 0,
+      "outputForce": 3690.1806707161313,
+      "torqueNm": 177.36178975463204,
+      "powerWatts": 86677.31189057093
+    },
+    {
+      "time": 11.6,
+      "prescribedSpeed": 20.85,
+      "gear": 2,
+      "rpm": 4707.413367661626,
+      "shiftRemaining": 0,
+      "outputForce": 3695.4045181600272,
+      "torqueNm": 177.61286443490636,
+      "powerWatts": 87555.8911404961
+    },
+    {
+      "time": 11.7,
+      "prescribedSpeed": 21.03,
+      "gear": 2,
+      "rpm": 4748.052907526331,
+      "shiftRemaining": 0,
+      "outputForce": 3700.3672103763947,
+      "torqueNm": 177.8513871664575,
+      "powerWatts": 88430.36640251773
+    },
+    {
+      "time": 11.8,
+      "prescribedSpeed": 21.21,
+      "gear": 2,
+      "rpm": 4788.692447391035,
+      "shiftRemaining": 0,
+      "outputForce": 3705.0687473652365,
+      "torqueNm": 178.0773579492855,
+      "powerWatts": 89300.57742229165
+    },
+    {
+      "time": 11.9,
+      "prescribedSpeed": 21.39,
+      "gear": 2,
+      "rpm": 4829.3319872557395,
+      "shiftRemaining": 0,
+      "outputForce": 3709.50912912655,
+      "torqueNm": 178.29077678339033,
+      "powerWatts": 90166.36394547374
+    },
+    {
+      "time": 12,
+      "prescribedSpeed": 21.57,
+      "gear": 2,
+      "rpm": 4869.971527120445,
+      "shiftRemaining": 0,
+      "outputForce": 3713.6883556603366,
+      "torqueNm": 178.491643668772,
+      "powerWatts": 91027.56571771986
+    },
+    {
+      "time": 12.1,
+      "prescribedSpeed": 21.75,
+      "gear": 2,
+      "rpm": 4910.611066985149,
+      "shiftRemaining": 0,
+      "outputForce": 3717.606426966596,
+      "torqueNm": 178.67995860543053,
+      "powerWatts": 91884.02248468573
+    },
+    {
+      "time": 12.2,
+      "prescribedSpeed": 21.93,
+      "gear": 2,
+      "rpm": 4951.250606849854,
+      "shiftRemaining": 0,
+      "outputForce": 3721.263343045328,
+      "torqueNm": 178.85572159336593,
+      "powerWatts": 92735.57399202735
+    },
+    {
+      "time": 12.3,
+      "prescribedSpeed": 22.11,
+      "gear": 2,
+      "rpm": 4991.89014671456,
+      "shiftRemaining": 0,
+      "outputForce": 3724.6591038965335,
+      "torqueNm": 179.01893263257816,
+      "powerWatts": 93582.05998540042
+    },
+    {
+      "time": 12.4,
+      "prescribedSpeed": 22.29,
+      "gear": 2,
+      "rpm": 5032.5296865792625,
+      "shiftRemaining": 0,
+      "outputForce": 3727.793709520211,
+      "torqueNm": 179.1695917230672,
+      "powerWatts": 94423.32021046079
+    },
+    {
+      "time": 12.5,
+      "prescribedSpeed": 22.47,
+      "gear": 2,
+      "rpm": 5073.169226443968,
+      "shiftRemaining": 0,
+      "outputForce": 3730.667159916362,
+      "torqueNm": 179.30769886483313,
+      "powerWatts": 95259.19441286437
+    },
+    {
+      "time": 12.6,
+      "prescribedSpeed": 22.650000000000002,
+      "gear": 2,
+      "rpm": 5113.808766308673,
+      "shiftRemaining": 0,
+      "outputForce": 3733.2794550849853,
+      "torqueNm": 179.4332540578759,
+      "powerWatts": 96089.52233826695
+    },
+    {
+      "time": 12.7,
+      "prescribedSpeed": 22.830000000000002,
+      "gear": 2,
+      "rpm": 5154.448306173377,
+      "shiftRemaining": 0,
+      "outputForce": 3735.630595026081,
+      "torqueNm": 179.5462573021955,
+      "powerWatts": 96914.14373232434
+    },
+    {
+      "time": 12.8,
+      "prescribedSpeed": 23.01,
+      "gear": 2,
+      "rpm": 5195.087846038083,
+      "shiftRemaining": 0,
+      "outputForce": 3737.7205797396505,
+      "torqueNm": 179.64670859779196,
+      "powerWatts": 97732.89834069247
+    },
+    {
+      "time": 12.9,
+      "prescribedSpeed": 23.19,
+      "gear": 2,
+      "rpm": 5235.727385902787,
+      "shiftRemaining": 0,
+      "outputForce": 3739.5494092256927,
+      "torqueNm": 179.73460794466527,
+      "powerWatts": 98545.62590902709
+    },
+    {
+      "time": 13,
+      "prescribedSpeed": 23.369999999999997,
+      "gear": 2,
+      "rpm": 5276.36692576749,
+      "shiftRemaining": 0,
+      "outputForce": 3741.117083484208,
+      "torqueNm": 179.8099553428154,
+      "powerWatts": 99352.16618298397
+    },
+    {
+      "time": 13.1,
+      "prescribedSpeed": 23.55,
+      "gear": 2,
+      "rpm": 5317.0064656321965,
+      "shiftRemaining": 0,
+      "outputForce": 3742.423602515195,
+      "torqueNm": 179.8727507922424,
+      "powerWatts": 100152.35890821916
+    },
+    {
+      "time": 13.2,
+      "prescribedSpeed": 23.73,
+      "gear": 2,
+      "rpm": 5357.646005496901,
+      "shiftRemaining": 0,
+      "outputForce": 3743.4689663186546,
+      "torqueNm": 179.92299429294624,
+      "powerWatts": 100946.04383038827
+    },
+    {
+      "time": 13.3,
+      "prescribedSpeed": 23.91,
+      "gear": 2,
+      "rpm": 5398.285545361606,
+      "shiftRemaining": 0,
+      "outputForce": 3744.2531748945876,
+      "torqueNm": 179.96068584492693,
+      "powerWatts": 101733.06069514729
+    },
+    {
+      "time": 13.4,
+      "prescribedSpeed": 24.09,
+      "gear": 2,
+      "rpm": 5438.9250852263085,
+      "shiftRemaining": 0,
+      "outputForce": 3744.776228242994,
+      "torqueNm": 179.98582544818447,
+      "powerWatts": 102513.24924815193
+    },
+    {
+      "time": 13.5,
+      "prescribedSpeed": 24.27,
+      "gear": 2,
+      "rpm": 5479.564625091014,
+      "shiftRemaining": 0,
+      "outputForce": 3745.038126363872,
+      "torqueNm": 179.99841310271884,
+      "powerWatts": 103286.44923505816
+    },
+    {
+      "time": 13.6,
+      "prescribedSpeed": 24.450000000000003,
+      "gear": 2,
+      "rpm": 5520.2041649557195,
+      "shiftRemaining": 0,
+      "outputForce": 3745.0388692572237,
+      "torqueNm": 179.99844880853007,
+      "powerWatts": 104052.50040152174
+    },
+    {
+      "time": 13.7,
+      "prescribedSpeed": 24.630000000000003,
+      "gear": 2,
+      "rpm": 5560.843704820424,
+      "shiftRemaining": 0,
+      "outputForce": 3744.778456923049,
+      "torqueNm": 179.98593256561816,
+      "powerWatts": 104811.24249319852
+    },
+    {
+      "time": 13.8,
+      "prescribedSpeed": 24.81,
+      "gear": 2,
+      "rpm": 5601.483244685129,
+      "shiftRemaining": 0,
+      "outputForce": 3744.2568893613457,
+      "torqueNm": 179.96086437398307,
+      "powerWatts": 105562.51525574429
+    },
+    {
+      "time": 13.9,
+      "prescribedSpeed": 24.99,
+      "gear": 2,
+      "rpm": 5642.122784549833,
+      "shiftRemaining": 0,
+      "outputForce": 3743.4741665721153,
+      "torqueNm": 179.92324423362484,
+      "powerWatts": 106306.15843481496
+    },
+    {
+      "time": 14,
+      "prescribedSpeed": 25.169999999999998,
+      "gear": 2,
+      "rpm": 5682.762324414537,
+      "shiftRemaining": 0,
+      "outputForce": 3742.430288555359,
+      "torqueNm": 179.87307214454347,
+      "powerWatts": 107042.01177606631
+    },
+    {
+      "time": 14.1,
+      "prescribedSpeed": 25.35,
+      "gear": 2,
+      "rpm": 5723.4018642792435,
+      "shiftRemaining": 0,
+      "outputForce": 3741.1252553110735,
+      "torqueNm": 179.81034810673893,
+      "powerWatts": 107769.91502515426
+    },
+    {
+      "time": 14.2,
+      "prescribedSpeed": 25.53,
+      "gear": 2,
+      "rpm": 5764.041404143948,
+      "shiftRemaining": 0,
+      "outputForce": 3739.559066839263,
+      "torqueNm": 179.73507212021124,
+      "powerWatts": 108489.70792773453
+    },
+    {
+      "time": 14.3,
+      "prescribedSpeed": 25.71,
+      "gear": 2,
+      "rpm": 5804.680944008652,
+      "shiftRemaining": 0,
+      "outputForce": 3737.731723139924,
+      "torqueNm": 179.64724418496039,
+      "powerWatts": 109201.23022946299
+    },
+    {
+      "time": 14.4,
+      "prescribedSpeed": 25.89,
+      "gear": 2,
+      "rpm": 5845.320483873357,
+      "shiftRemaining": 0,
+      "outputForce": 3735.6432242130577,
+      "torqueNm": 179.54686430098639,
+      "powerWatts": 109904.32167599555
+    },
+    {
+      "time": 14.5,
+      "prescribedSpeed": 26.07,
+      "gear": 2,
+      "rpm": 5885.960023738063,
+      "shiftRemaining": 0,
+      "outputForce": 3733.2935700586654,
+      "torqueNm": 179.43393246828924,
+      "powerWatts": 110598.82201298796
+    },
+    {
+      "time": 14.6,
+      "prescribedSpeed": 26.25,
+      "gear": 2,
+      "rpm": 5926.599563602766,
+      "shiftRemaining": 0,
+      "outputForce": 3730.682760676744,
+      "torqueNm": 179.30844868686893,
+      "powerWatts": 111284.57098609605
+    },
+    {
+      "time": 14.7,
+      "prescribedSpeed": 26.43,
+      "gear": 2,
+      "rpm": 5967.239103467472,
+      "shiftRemaining": 0,
+      "outputForce": 3727.8107960672974,
+      "torqueNm": 179.17041295672547,
+      "powerWatts": 111961.40834097574
+    },
+    {
+      "time": 14.8,
+      "prescribedSpeed": 26.61,
+      "gear": 2,
+      "rpm": 6007.878643332175,
+      "shiftRemaining": 0,
+      "outputForce": 3724.6776762303216,
+      "torqueNm": 179.01982527785887,
+      "powerWatts": 112629.17382328279
+    },
+    {
+      "time": 14.9,
+      "prescribedSpeed": 26.79,
+      "gear": 2,
+      "rpm": 6048.518183196879,
+      "shiftRemaining": 0,
+      "outputForce": 3721.28340116582,
+      "torqueNm": 178.8566856502691,
+      "powerWatts": 113287.70717867307
+    },
+    {
+      "time": 15,
+      "prescribedSpeed": 26.97,
+      "gear": 2,
+      "rpm": 6089.157723061585,
+      "shiftRemaining": 0,
+      "outputForce": 3717.627970873791,
+      "torqueNm": 178.68099407395619,
+      "powerWatts": 113936.84815280246
+    },
+    {
+      "time": 15.1,
+      "prescribedSpeed": 27.150000000000002,
+      "gear": 2,
+      "rpm": 6129.79726292629,
+      "shiftRemaining": 0,
+      "outputForce": 3713.7113853542346,
+      "torqueNm": 178.4927505489201,
+      "powerWatts": 114576.43649132668
+    },
+    {
+      "time": 15.2,
+      "prescribedSpeed": 27.330000000000002,
+      "gear": 2,
+      "rpm": 6170.436802790994,
+      "shiftRemaining": 0,
+      "outputForce": 3709.5336446071515,
+      "torqueNm": 178.29195507516087,
+      "powerWatts": 115206.31193990163
+    },
+    {
+      "time": 15.3,
+      "prescribedSpeed": 27.51,
+      "gear": 2,
+      "rpm": 6211.0763426557,
+      "shiftRemaining": 0,
+      "outputForce": 3705.094748632541,
+      "torqueNm": 178.0786076526785,
+      "powerWatts": 115826.31424418319
+    },
+    {
+      "time": 15.4,
+      "prescribedSpeed": 27.69,
+      "gear": 2,
+      "rpm": 6251.715882520404,
+      "shiftRemaining": 0,
+      "outputForce": 3700.3946974304017,
+      "torqueNm": 177.85270828147296,
+      "powerWatts": 116436.2831498271
+    },
+    {
+      "time": 15.5,
+      "prescribedSpeed": 27.869999999999997,
+      "gear": 2,
+      "rpm": 6292.355422385108,
+      "shiftRemaining": 0,
+      "outputForce": 3695.433491000738,
+      "torqueNm": 177.6142569615443,
+      "powerWatts": 117036.05840248926
+    },
+    {
+      "time": 15.6,
+      "prescribedSpeed": 28.05,
+      "gear": 2,
+      "rpm": 6332.994962249813,
+      "shiftRemaining": 0,
+      "outputForce": 3690.211129343545,
+      "torqueNm": 177.36325369289244,
+      "powerWatts": 117625.4797478255
+    },
+    {
+      "time": 15.7,
+      "prescribedSpeed": 28.23,
+      "gear": 2,
+      "rpm": 6373.634502114517,
+      "shiftRemaining": 0,
+      "outputForce": 3684.7276124588257,
+      "torqueNm": 177.09969847551744,
+      "powerWatts": 118204.38693149164
+    },
+    {
+      "time": 15.8,
+      "prescribedSpeed": 28.41,
+      "gear": 2,
+      "rpm": 6414.2740419792235,
+      "shiftRemaining": 0,
+      "outputForce": 3678.9829403465797,
+      "torqueNm": 176.8235913094193,
+      "powerWatts": 118772.61969914357
+    },
+    {
+      "time": 15.9,
+      "prescribedSpeed": 28.59,
+      "gear": 2,
+      "rpm": 6454.913581843927,
+      "shiftRemaining": 0,
+      "outputForce": 3672.9771130068057,
+      "torqueNm": 176.534932194598,
+      "powerWatts": 119330.01779643701
+    },
+    {
+      "time": 16,
+      "prescribedSpeed": 28.77,
+      "gear": 2,
+      "rpm": 6495.553121708632,
+      "shiftRemaining": 0,
+      "outputForce": 3666.7101304395046,
+      "torqueNm": 176.23372113105356,
+      "powerWatts": 119876.4209690279
+    },
+    {
+      "time": 16.1,
+      "prescribedSpeed": 28.95,
+      "gear": 2,
+      "rpm": 6536.192661573336,
+      "shiftRemaining": 0,
+      "outputForce": 3660.1819926446765,
+      "torqueNm": 175.91995811878596,
+      "powerWatts": 120411.66896257202
+    },
+    {
+      "time": 16.2,
+      "prescribedSpeed": 29.130000000000003,
+      "gear": 2,
+      "rpm": 6576.832201438042,
+      "shiftRemaining": 0,
+      "outputForce": 3653.392699622321,
+      "torqueNm": 175.59364315779519,
+      "powerWatts": 120935.60152272524
+    },
+    {
+      "time": 16.3,
+      "prescribedSpeed": 29.310000000000002,
+      "gear": 2,
+      "rpm": 6617.4717413027465,
+      "shiftRemaining": 0,
+      "outputForce": 3646.3422513724377,
+      "torqueNm": 175.25477624808127,
+      "powerWatts": 121448.0583951434
+    },
+    {
+      "time": 16.4,
+      "prescribedSpeed": 29.49,
+      "gear": 2,
+      "rpm": 6658.111281167451,
+      "shiftRemaining": 0,
+      "outputForce": 3639.0306478950283,
+      "torqueNm": 174.9033573896442,
+      "powerWatts": 121948.87932548228
+    },
+    {
+      "time": 16.5,
+      "prescribedSpeed": 29.67,
+      "gear": 2,
+      "rpm": 6698.750821032156,
+      "shiftRemaining": 0,
+      "outputForce": 3631.4578891900915,
+      "torqueNm": 174.53938658248398,
+      "powerWatts": 122437.90405939776
+    },
+    {
+      "time": 16.6,
+      "prescribedSpeed": 29.849999999999998,
+      "gear": 2,
+      "rpm": 6739.390360896859,
+      "shiftRemaining": 0,
+      "outputForce": 3623.623975257627,
+      "torqueNm": 174.1628638266006,
+      "powerWatts": 122914.97234254565
+    },
+    {
+      "time": 16.7,
+      "prescribedSpeed": 30.03,
+      "gear": 2,
+      "rpm": 6780.029900761565,
+      "shiftRemaining": 0,
+      "outputForce": 3615.5289060976356,
+      "torqueNm": 173.7737891219941,
+      "powerWatts": 123379.92392058184
+    },
+    {
+      "time": 16.8,
+      "prescribedSpeed": 30.210000000000004,
+      "gear": 2,
+      "rpm": 6820.66944062627,
+      "shiftRemaining": 0,
+      "outputForce": 3607.1726817101166,
+      "torqueNm": 173.37216246866438,
+      "powerWatts": 123832.5985391621
+    },
+    {
+      "time": 16.9,
+      "prescribedSpeed": 30.39,
+      "gear": 2,
+      "rpm": 6861.308980490975,
+      "shiftRemaining": 0,
+      "outputForce": 3598.5553020950715,
+      "torqueNm": 172.95798386661156,
+      "powerWatts": 124272.83594394232
+    },
+    {
+      "time": 17,
+      "prescribedSpeed": 30.570000000000004,
+      "gear": 2,
+      "rpm": 6901.94852035568,
+      "shiftRemaining": 0.24,
+      "outputForce": 0,
+      "torqueNm": 172.53125331583558,
+      "powerWatts": 124700.4758805783
+    },
+    {
+      "time": 17.1,
+      "prescribedSpeed": 30.75,
+      "gear": 2,
+      "rpm": 6942.588060220382,
+      "shiftRemaining": 0.14,
+      "outputForce": 0,
+      "torqueNm": 172.09197081633647,
+      "powerWatts": 125115.35809472585
+    },
+    {
+      "time": 17.2,
+      "prescribedSpeed": 30.93,
+      "gear": 2,
+      "rpm": 6983.227600085087,
+      "shiftRemaining": 0.040000000000000036,
+      "outputForce": 0,
+      "torqueNm": 171.64013636811416,
+      "powerWatts": 125517.32233204086
+    },
+    {
+      "time": 17.3,
+      "prescribedSpeed": 31.110000000000003,
+      "gear": 3,
+      "rpm": 6330.107446706655,
+      "shiftRemaining": 0,
+      "outputForce": 2376.133806935182,
+      "torqueNm": 177.3815021823042,
+      "powerWatts": 117583.94535316563
+    },
+    {
+      "time": 17.4,
+      "prescribedSpeed": 31.29,
+      "gear": 3,
+      "rpm": 5330.107446706653,
+      "shiftRemaining": 0,
+      "outputForce": 2409.740941012685,
+      "torqueNm": 179.89031877727479,
+      "powerWatts": 100408.93788551274
+    },
+    {
+      "time": 17.5,
+      "prescribedSpeed": 31.470000000000002,
+      "gear": 3,
+      "rpm": 4574.546196231815,
+      "shiftRemaining": 0,
+      "outputForce": 2367.6132839512497,
+      "torqueNm": 176.7454339769458,
+      "powerWatts": 84669.07959766572
+    },
+    {
+      "time": 17.6,
+      "prescribedSpeed": 31.65,
+      "gear": 3,
+      "rpm": 4600.711379432379,
+      "shiftRemaining": 0,
+      "outputForce": 2370.0436489986205,
+      "torqueNm": 176.92686391228682,
+      "powerWatts": 85240.77442137084
+    },
+    {
+      "time": 17.7,
+      "prescribedSpeed": 31.830000000000002,
+      "gear": 3,
+      "rpm": 4626.876562632942,
+      "shiftRemaining": 0,
+      "outputForce": 2372.404315500201,
+      "torqueNm": 177.10309075985728,
+      "powerWatts": 85810.94245724023
+    },
+    {
+      "time": 17.8,
+      "prescribedSpeed": 32.010000000000005,
+      "gear": 3,
+      "rpm": 4653.041745833505,
+      "shiftRemaining": 0,
+      "outputForce": 2374.695283455991,
+      "torqueNm": 177.27411451965713,
+      "powerWatts": 86379.54093571167
+    },
+    {
+      "time": 17.9,
+      "prescribedSpeed": 32.19,
+      "gear": 3,
+      "rpm": 4679.206929034068,
+      "shiftRemaining": 0,
+      "outputForce": 2376.916552865991,
+      "torqueNm": 177.4399351916864,
+      "powerWatts": 86946.52708722302
+    },
+    {
+      "time": 18,
+      "prescribedSpeed": 32.370000000000005,
+      "gear": 3,
+      "rpm": 4705.372112234632,
+      "shiftRemaining": 0,
+      "outputForce": 2379.0681237302015,
+      "torqueNm": 177.6005527759451,
+      "powerWatts": 87511.85814221209
+    },
+    {
+      "time": 18.1,
+      "prescribedSpeed": 32.55,
+      "gear": 3,
+      "rpm": 4731.537295435193,
+      "shiftRemaining": 0,
+      "outputForce": 2381.149996048622,
+      "torqueNm": 177.75596727243317,
+      "powerWatts": 88075.4913311166
+    },
+    {
+      "time": 18.2,
+      "prescribedSpeed": 32.730000000000004,
+      "gear": 3,
+      "rpm": 4757.702478635758,
+      "shiftRemaining": 0,
+      "outputForce": 2383.162169821253,
+      "torqueNm": 177.90617868115072,
+      "powerWatts": 88637.38388437455
+    },
+    {
+      "time": 18.3,
+      "prescribedSpeed": 32.910000000000004,
+      "gear": 3,
+      "rpm": 4783.8676618363215,
+      "shiftRemaining": 0,
+      "outputForce": 2385.1046450480935,
+      "torqueNm": 178.05118700209763,
+      "powerWatts": 89197.49303242358
+    },
+    {
+      "time": 18.4,
+      "prescribedSpeed": 33.09,
+      "gear": 3,
+      "rpm": 4810.032845036885,
+      "shiftRemaining": 0,
+      "outputForce": 2386.9774217291447,
+      "torqueNm": 178.190992235274,
+      "powerWatts": 89755.77600570158
+    },
+    {
+      "time": 18.5,
+      "prescribedSpeed": 33.27,
+      "gear": 3,
+      "rpm": 4836.198028237448,
+      "shiftRemaining": 0,
+      "outputForce": 2388.7804998644056,
+      "torqueNm": 178.32559438067977,
+      "powerWatts": 90312.19003464634
+    },
+    {
+      "time": 18.6,
+      "prescribedSpeed": 33.449999999999996,
+      "gear": 3,
+      "rpm": 4862.363211438011,
+      "shiftRemaining": 0,
+      "outputForce": 2390.5138794538757,
+      "torqueNm": 178.45499343831494,
+      "powerWatts": 90866.69234969563
+    },
+    {
+      "time": 18.7,
+      "prescribedSpeed": 33.63,
+      "gear": 3,
+      "rpm": 4888.528394638574,
+      "shiftRemaining": 0,
+      "outputForce": 2392.177560497557,
+      "torqueNm": 178.57918940817953,
+      "powerWatts": 91419.24018128731
+    },
+    {
+      "time": 18.8,
+      "prescribedSpeed": 33.81,
+      "gear": 3,
+      "rpm": 4914.693577839138,
+      "shiftRemaining": 0,
+      "outputForce": 2393.7715429954487,
+      "torqueNm": 178.69818229027356,
+      "powerWatts": 91969.79075985921
+    },
+    {
+      "time": 18.9,
+      "prescribedSpeed": 33.99,
+      "gear": 3,
+      "rpm": 4940.858761039702,
+      "shiftRemaining": 0,
+      "outputForce": 2395.29582694755,
+      "torqueNm": 178.811972084597,
+      "powerWatts": 92518.30131584912
+    },
+    {
+      "time": 19,
+      "prescribedSpeed": 34.17,
+      "gear": 3,
+      "rpm": 4967.023944240264,
+      "shiftRemaining": 0,
+      "outputForce": 2396.750412353861,
+      "torqueNm": 178.92055879114983,
+      "powerWatts": 93064.72907969481
+    },
+    {
+      "time": 19.1,
+      "prescribedSpeed": 34.35,
+      "gear": 3,
+      "rpm": 4993.189127440828,
+      "shiftRemaining": 0,
+      "outputForce": 2398.1352992143825,
+      "torqueNm": 179.0239424099321,
+      "powerWatts": 93609.03128183415
+    },
+    {
+      "time": 19.2,
+      "prescribedSpeed": 34.53,
+      "gear": 3,
+      "rpm": 5019.354310641391,
+      "shiftRemaining": 0,
+      "outputForce": 2399.4504875291136,
+      "torqueNm": 179.12212294094374,
+      "powerWatts": 94151.16515270488
+    },
+    {
+      "time": 19.3,
+      "prescribedSpeed": 34.71,
+      "gear": 3,
+      "rpm": 5045.5194938419545,
+      "shiftRemaining": 0,
+      "outputForce": 2400.6959772980554,
+      "torqueNm": 179.21510038418484,
+      "powerWatts": 94691.0879227449
+    },
+    {
+      "time": 19.4,
+      "prescribedSpeed": 34.89,
+      "gear": 3,
+      "rpm": 5071.684677042517,
+      "shiftRemaining": 0,
+      "outputForce": 2401.8717685212073,
+      "torqueNm": 179.30287473965535,
+      "powerWatts": 95228.75682239195
+    },
+    {
+      "time": 19.5,
+      "prescribedSpeed": 35.07,
+      "gear": 3,
+      "rpm": 5097.84986024308,
+      "shiftRemaining": 0,
+      "outputForce": 2402.977861198569,
+      "torqueNm": 179.38544600735526,
+      "powerWatts": 95764.12908208386
+    },
+    {
+      "time": 19.6,
+      "prescribedSpeed": 35.25,
+      "gear": 3,
+      "rpm": 5124.015043443644,
+      "shiftRemaining": 0,
+      "outputForce": 2404.0142553301407,
+      "torqueNm": 179.4628141872846,
+      "powerWatts": 96297.16193225847
+    },
+    {
+      "time": 19.7,
+      "prescribedSpeed": 35.43,
+      "gear": 3,
+      "rpm": 5150.180226644207,
+      "shiftRemaining": 0,
+      "outputForce": 2404.980950915922,
+      "torqueNm": 179.53497927944335,
+      "powerWatts": 96827.81260335357
+    },
+    {
+      "time": 19.8,
+      "prescribedSpeed": 35.61000000000001,
+      "gear": 3,
+      "rpm": 5176.345409844771,
+      "shiftRemaining": 0,
+      "outputForce": 2405.8779479559144,
+      "torqueNm": 179.6019412838315,
+      "powerWatts": 97356.03832580698
+    },
+    {
+      "time": 19.9,
+      "prescribedSpeed": 35.79,
+      "gear": 3,
+      "rpm": 5202.510593045334,
+      "shiftRemaining": 0,
+      "outputForce": 2406.7052464501166,
+      "torqueNm": 179.66370020044909,
+      "powerWatts": 97881.79633005643
+    },
+    {
+      "time": 20,
+      "prescribedSpeed": 35.970000000000006,
+      "gear": 3,
+      "rpm": 5228.675776245898,
+      "shiftRemaining": 0,
+      "outputForce": 2407.462846398529,
+      "torqueNm": 179.72025602929608,
+      "powerWatts": 98405.04384653989
+    },
+    {
+      "time": 20.1,
+      "prescribedSpeed": 36.15,
+      "gear": 3,
+      "rpm": 5254.84095944646,
+      "shiftRemaining": 0,
+      "outputForce": 2408.150747801151,
+      "torqueNm": 179.7716087703725,
+      "powerWatts": 98925.73810569501
+    },
+    {
+      "time": 20.2,
+      "prescribedSpeed": 36.33,
+      "gear": 3,
+      "rpm": 5281.006142647024,
+      "shiftRemaining": 0,
+      "outputForce": 2408.7689506579836,
+      "torqueNm": 179.81775842367833,
+      "powerWatts": 99443.8363379597
+    },
+    {
+      "time": 20.3,
+      "prescribedSpeed": 36.510000000000005,
+      "gear": 3,
+      "rpm": 5307.171325847588,
+      "shiftRemaining": 0,
+      "outputForce": 2409.3174549690257,
+      "torqueNm": 179.85870498921358,
+      "powerWatts": 99959.29577377178
+    },
+    {
+      "time": 20.4,
+      "prescribedSpeed": 36.69,
+      "gear": 3,
+      "rpm": 5333.336509048149,
+      "shiftRemaining": 0,
+      "outputForce": 2409.7962607342783,
+      "torqueNm": 179.89444846697822,
+      "powerWatts": 100472.07364356892
+    },
+    {
+      "time": 20.5,
+      "prescribedSpeed": 36.870000000000005,
+      "gear": 3,
+      "rpm": 5359.501692248714,
+      "shiftRemaining": 0,
+      "outputForce": 2410.205367953741,
+      "torqueNm": 179.9249888569723,
+      "powerWatts": 100982.12717778912
+    },
+    {
+      "time": 20.6,
+      "prescribedSpeed": 37.05,
+      "gear": 3,
+      "rpm": 5385.666875449277,
+      "shiftRemaining": 0,
+      "outputForce": 2410.5447766274137,
+      "torqueNm": 179.95032615919578,
+      "powerWatts": 101489.41360687008
+    },
+    {
+      "time": 20.7,
+      "prescribedSpeed": 37.230000000000004,
+      "gear": 3,
+      "rpm": 5411.832058649841,
+      "shiftRemaining": 0,
+      "outputForce": 2410.814486755296,
+      "torqueNm": 179.97046037364868,
+      "powerWatts": 101993.89016124964
+    },
+    {
+      "time": 20.8,
+      "prescribedSpeed": 37.410000000000004,
+      "gear": 3,
+      "rpm": 5437.997241850404,
+      "shiftRemaining": 0,
+      "outputForce": 2411.014498337389,
+      "torqueNm": 179.985391500331,
+      "powerWatts": 102495.51407136561
+    },
+    {
+      "time": 20.9,
+      "prescribedSpeed": 37.59,
+      "gear": 3,
+      "rpm": 5464.162425050968,
+      "shiftRemaining": 0,
+      "outputForce": 2411.144811373692,
+      "torqueNm": 179.99511953924272,
+      "powerWatts": 102994.24256765579
+    },
+    {
+      "time": 21,
+      "prescribedSpeed": 37.77,
+      "gear": 3,
+      "rpm": 5490.32760825153,
+      "shiftRemaining": 0,
+      "outputForce": 2411.2054258642047,
+      "torqueNm": 179.99964449038387,
+      "powerWatts": 103490.03288055799
+    },
+    {
+      "time": 21.1,
+      "prescribedSpeed": 37.949999999999996,
+      "gear": 3,
+      "rpm": 5516.492791452092,
+      "shiftRemaining": 0,
+      "outputForce": 2411.196341808928,
+      "torqueNm": 179.99896635375444,
+      "powerWatts": 103982.84224051
+    },
+    {
+      "time": 21.2,
+      "prescribedSpeed": 38.13,
+      "gear": 3,
+      "rpm": 5542.657974652658,
+      "shiftRemaining": 0,
+      "outputForce": 2411.1175592078616,
+      "torqueNm": 179.99308512935443,
+      "powerWatts": 104472.62787794974
+    },
+    {
+      "time": 21.3,
+      "prescribedSpeed": 38.31,
+      "gear": 3,
+      "rpm": 5568.823157853221,
+      "shiftRemaining": 0,
+      "outputForce": 2410.969078061005,
+      "torqueNm": 179.98200081718383,
+      "powerWatts": 104959.3470233149
+    },
+    {
+      "time": 21.4,
+      "prescribedSpeed": 38.49,
+      "gear": 3,
+      "rpm": 5594.988341053783,
+      "shiftRemaining": 0,
+      "outputForce": 2410.750898368358,
+      "torqueNm": 179.96571341724263,
+      "powerWatts": 105442.95690704329
+    },
+    {
+      "time": 21.5,
+      "prescribedSpeed": 38.67,
+      "gear": 3,
+      "rpm": 5621.153524254347,
+      "shiftRemaining": 0,
+      "outputForce": 2410.4630201299215,
+      "torqueNm": 179.94422292953087,
+      "powerWatts": 105923.41475957281
+    },
+    {
+      "time": 21.6,
+      "prescribedSpeed": 38.85,
+      "gear": 3,
+      "rpm": 5647.31870745491,
+      "shiftRemaining": 0,
+      "outputForce": 2410.105443345695,
+      "torqueNm": 179.9175293540485,
+      "powerWatts": 106400.67781134119
+    },
+    {
+      "time": 21.7,
+      "prescribedSpeed": 39.03,
+      "gear": 3,
+      "rpm": 5673.483890655473,
+      "shiftRemaining": 0,
+      "outputForce": 2409.6781680156782,
+      "torqueNm": 179.88563269079555,
+      "powerWatts": 106874.7032927863
+    },
+    {
+      "time": 21.8,
+      "prescribedSpeed": 39.21,
+      "gear": 3,
+      "rpm": 5699.649073856036,
+      "shiftRemaining": 0,
+      "outputForce": 2409.1811941398723,
+      "torqueNm": 179.848532939772,
+      "powerWatts": 107345.44843434589
+    },
+    {
+      "time": 21.9,
+      "prescribedSpeed": 39.39,
+      "gear": 3,
+      "rpm": 5725.814257056599,
+      "shiftRemaining": 0,
+      "outputForce": 2408.6145217182757,
+      "torqueNm": 179.8062301009779,
+      "powerWatts": 107812.87046645781
+    },
+    {
+      "time": 22,
+      "prescribedSpeed": 39.57,
+      "gear": 3,
+      "rpm": 5751.979440257163,
+      "shiftRemaining": 0,
+      "outputForce": 2407.9781507508897,
+      "torqueNm": 179.7587241744132,
+      "powerWatts": 108276.92661955992
+    },
+    {
+      "time": 22.1,
+      "prescribedSpeed": 39.75,
+      "gear": 3,
+      "rpm": 5778.144623457727,
+      "shiftRemaining": 0,
+      "outputForce": 2407.272081237714,
+      "torqueNm": 179.70601516007792,
+      "powerWatts": 108737.57412408992
+    },
+    {
+      "time": 22.2,
+      "prescribedSpeed": 39.93,
+      "gear": 3,
+      "rpm": 5804.309806658289,
+      "shiftRemaining": 0,
+      "outputForce": 2406.496313178748,
+      "torqueNm": 179.64810305797207,
+      "powerWatts": 109194.77021048567
+    },
+    {
+      "time": 22.3,
+      "prescribedSpeed": 40.11000000000001,
+      "gear": 3,
+      "rpm": 5830.474989858854,
+      "shiftRemaining": 0,
+      "outputForce": 2405.6508465739917,
+      "torqueNm": 179.5849878680956,
+      "powerWatts": 109648.47210918505
+    },
+    {
+      "time": 22.4,
+      "prescribedSpeed": 40.29,
+      "gear": 3,
+      "rpm": 5856.640173059416,
+      "shiftRemaining": 0,
+      "outputForce": 2404.7356814234463,
+      "torqueNm": 179.51666959044857,
+      "powerWatts": 110098.63705062572
+    },
+    {
+      "time": 22.5,
+      "prescribedSpeed": 40.470000000000006,
+      "gear": 3,
+      "rpm": 5882.805356259979,
+      "shiftRemaining": 0,
+      "outputForce": 2403.75081772711,
+      "torqueNm": 179.44314822503094,
+      "powerWatts": 110545.22226524561
+    },
+    {
+      "time": 22.6,
+      "prescribedSpeed": 40.65,
+      "gear": 3,
+      "rpm": 5908.970539460543,
+      "shiftRemaining": 0,
+      "outputForce": 2402.6962554849847,
+      "torqueNm": 179.36442377184275,
+      "powerWatts": 110988.18498348256
+    },
+    {
+      "time": 22.7,
+      "prescribedSpeed": 40.83,
+      "gear": 3,
+      "rpm": 5935.135722661106,
+      "shiftRemaining": 0,
+      "outputForce": 2401.5719946970694,
+      "torqueNm": 179.28049623088395,
+      "powerWatts": 111427.48243577425
+    },
+    {
+      "time": 22.8,
+      "prescribedSpeed": 41.010000000000005,
+      "gear": 3,
+      "rpm": 5961.30090586167,
+      "shiftRemaining": 0,
+      "outputForce": 2400.378035363364,
+      "torqueNm": 179.19136560215458,
+      "powerWatts": 111863.07185255858
+    },
+    {
+      "time": 22.9,
+      "prescribedSpeed": 41.19,
+      "gear": 3,
+      "rpm": 5987.466089062233,
+      "shiftRemaining": 0,
+      "outputForce": 2399.1143774838683,
+      "torqueNm": 179.09703188565462,
+      "powerWatts": 112294.91046427333
+    },
+    {
+      "time": 23,
+      "prescribedSpeed": 41.370000000000005,
+      "gear": 3,
+      "rpm": 6013.631272262796,
+      "shiftRemaining": 0,
+      "outputForce": 2397.781021058583,
+      "torqueNm": 178.99749508138407,
+      "powerWatts": 112722.95550135637
+    },
+    {
+      "time": 23.1,
+      "prescribedSpeed": 41.55,
+      "gear": 3,
+      "rpm": 6039.796455463358,
+      "shiftRemaining": 0,
+      "outputForce": 2396.377966087508,
+      "torqueNm": 178.89275518934295,
+      "powerWatts": 113147.16419424539
+    },
+    {
+      "time": 23.2,
+      "prescribedSpeed": 41.730000000000004,
+      "gear": 3,
+      "rpm": 6065.961638663923,
+      "shiftRemaining": 0,
+      "outputForce": 2394.9052125706426,
+      "torqueNm": 178.78281220953122,
+      "powerWatts": 113567.49377337833
+    },
+    {
+      "time": 23.3,
+      "prescribedSpeed": 41.910000000000004,
+      "gear": 3,
+      "rpm": 6092.1268218644855,
+      "shiftRemaining": 0,
+      "outputForce": 2393.362760507988,
+      "torqueNm": 178.66766614194893,
+      "powerWatts": 113983.90146919292
+    },
+    {
+      "time": 23.4,
+      "prescribedSpeed": 42.09,
+      "gear": 3,
+      "rpm": 6118.292005065049,
+      "shiftRemaining": 0,
+      "outputForce": 2391.7506098995423,
+      "torqueNm": 178.54731698659603,
+      "powerWatts": 114396.344512127
+    },
+    {
+      "time": 23.5,
+      "prescribedSpeed": 42.27,
+      "gear": 3,
+      "rpm": 6144.457188265614,
+      "shiftRemaining": 0,
+      "outputForce": 2390.0687607453074,
+      "torqueNm": 178.42176474347255,
+      "powerWatts": 114804.7801326184
+    },
+    {
+      "time": 23.6,
+      "prescribedSpeed": 42.449999999999996,
+      "gear": 3,
+      "rpm": 6170.6223714661755,
+      "shiftRemaining": 0,
+      "outputForce": 2388.3172130452826,
+      "torqueNm": 178.29100941257852,
+      "powerWatts": 115209.16556110485
+    },
+    {
+      "time": 23.7,
+      "prescribedSpeed": 42.63,
+      "gear": 3,
+      "rpm": 6196.787554666738,
+      "shiftRemaining": 0,
+      "outputForce": 2386.4959667994685,
+      "torqueNm": 178.15505099391387,
+      "powerWatts": 115609.45802802422
+    },
+    {
+      "time": 23.8,
+      "prescribedSpeed": 42.81,
+      "gear": 3,
+      "rpm": 6222.952737867302,
+      "shiftRemaining": 0,
+      "outputForce": 2384.6050220078637,
+      "torqueNm": 178.01388948747865,
+      "powerWatts": 116005.61476381436
+    },
+    {
+      "time": 23.9,
+      "prescribedSpeed": 42.99,
+      "gear": 3,
+      "rpm": 6249.117921067865,
+      "shiftRemaining": 0,
+      "outputForce": 2382.644378670469,
+      "torqueNm": 177.86752489327284,
+      "powerWatts": 116397.59299891301
+    },
+    {
+      "time": 24,
+      "prescribedSpeed": 43.17,
+      "gear": 3,
+      "rpm": 6275.283104268428,
+      "shiftRemaining": 0,
+      "outputForce": 2380.614036787285,
+      "torqueNm": 177.71595721129646,
+      "powerWatts": 116785.34996375807
+    },
+    {
+      "time": 24.1,
+      "prescribedSpeed": 43.35,
+      "gear": 3,
+      "rpm": 6301.448287468993,
+      "shiftRemaining": 0,
+      "outputForce": 2378.51399635831,
+      "torqueNm": 177.55918644154946,
+      "powerWatts": 117168.84288878723
+    },
+    {
+      "time": 24.2,
+      "prescribedSpeed": 43.53,
+      "gear": 3,
+      "rpm": 6327.613470669556,
+      "shiftRemaining": 0,
+      "outputForce": 2376.3442573835455,
+      "torqueNm": 177.3972125840319,
+      "powerWatts": 117548.02900443836
+    },
+    {
+      "time": 24.3,
+      "prescribedSpeed": 43.71,
+      "gear": 3,
+      "rpm": 6353.778653870119,
+      "shiftRemaining": 0,
+      "outputForce": 2374.104819862992,
+      "torqueNm": 177.23003563874377,
+      "powerWatts": 117922.86554114931
+    },
+    {
+      "time": 24.4,
+      "prescribedSpeed": 43.89,
+      "gear": 3,
+      "rpm": 6379.943837070682,
+      "shiftRemaining": 0,
+      "outputForce": 2371.7956837966476,
+      "torqueNm": 177.05765560568503,
+      "powerWatts": 118293.3097293578
+    },
+    {
+      "time": 24.5,
+      "prescribedSpeed": 44.07,
+      "gear": 3,
+      "rpm": 6406.109020271244,
+      "shiftRemaining": 0,
+      "outputForce": 2369.416849184514,
+      "torqueNm": 176.88007248485573,
+      "powerWatts": 118659.31879950172
+    },
+    {
+      "time": 24.6,
+      "prescribedSpeed": 44.25,
+      "gear": 3,
+      "rpm": 6432.2742034718085,
+      "shiftRemaining": 0,
+      "outputForce": 2366.96831602659,
+      "torqueNm": 176.69728627625582,
+      "powerWatts": 119020.84998201886
+    },
+    {
+      "time": 24.7,
+      "prescribedSpeed": 44.43,
+      "gear": 3,
+      "rpm": 6458.439386672373,
+      "shiftRemaining": 0,
+      "outputForce": 2364.450084322876,
+      "torqueNm": 176.50929697988533,
+      "powerWatts": 119377.86050734705
+    },
+    {
+      "time": 24.8,
+      "prescribedSpeed": 44.61000000000001,
+      "gear": 3,
+      "rpm": 6484.604569872935,
+      "shiftRemaining": 0,
+      "outputForce": 2361.8621540733725,
+      "torqueNm": 176.31610459574426,
+      "powerWatts": 119730.30760592403
+    },
+    {
+      "time": 24.9,
+      "prescribedSpeed": 44.79,
+      "gear": 3,
+      "rpm": 6510.769753073498,
+      "shiftRemaining": 0,
+      "outputForce": 2359.2045252780786,
+      "torqueNm": 176.1177091238326,
+      "powerWatts": 120078.14850818765
+    },
+    {
+      "time": 25,
+      "prescribedSpeed": 44.970000000000006,
+      "gear": 3,
+      "rpm": 6536.934936274063,
+      "shiftRemaining": 0,
+      "outputForce": 2356.4771979369943,
+      "torqueNm": 175.91411056415035,
+      "powerWatts": 120421.34044457576
+    },
+    {
+      "time": 25.1,
+      "prescribedSpeed": 45.15,
+      "gear": 3,
+      "rpm": 6563.100119474624,
+      "shiftRemaining": 0,
+      "outputForce": 2353.6801720501217,
+      "torqueNm": 175.70530891669756,
+      "powerWatts": 120759.8406455261
+    },
+    {
+      "time": 25.2,
+      "prescribedSpeed": 45.33,
+      "gear": 3,
+      "rpm": 6589.265302675189,
+      "shiftRemaining": 0,
+      "outputForce": 2350.8134476174578,
+      "torqueNm": 175.49130418147413,
+      "powerWatts": 121093.60634147655
+    },
+    {
+      "time": 25.3,
+      "prescribedSpeed": 45.510000000000005,
+      "gear": 3,
+      "rpm": 6615.430485875752,
+      "shiftRemaining": 0,
+      "outputForce": 2347.8770246390045,
+      "torqueNm": 175.27209635848013,
+      "powerWatts": 121422.59476286489
+    },
+    {
+      "time": 25.4,
+      "prescribedSpeed": 45.69,
+      "gear": 3,
+      "rpm": 6641.595669076313,
+      "shiftRemaining": 0,
+      "outputForce": 2344.8709031147614,
+      "torqueNm": 175.04768544771557,
+      "powerWatts": 121746.7631401289
+    },
+    {
+      "time": 25.5,
+      "prescribedSpeed": 45.870000000000005,
+      "gear": 3,
+      "rpm": 6667.76085227688,
+      "shiftRemaining": 0,
+      "outputForce": 2341.795083044728,
+      "torqueNm": 174.8180714491804,
+      "powerWatts": 122066.06870370646
+    },
+    {
+      "time": 25.6,
+      "prescribedSpeed": 46.05,
+      "gear": 3,
+      "rpm": 6693.926035477441,
+      "shiftRemaining": 0,
+      "outputForce": 2338.649564428905,
+      "torqueNm": 174.58325436287467,
+      "powerWatts": 122380.46868403531
+    },
+    {
+      "time": 25.7,
+      "prescribedSpeed": 46.230000000000004,
+      "gear": 3,
+      "rpm": 6720.091218678004,
+      "shiftRemaining": 0,
+      "outputForce": 2335.434347267292,
+      "torqueNm": 174.34323418879833,
+      "powerWatts": 122689.9203115533
+    },
+    {
+      "time": 25.8,
+      "prescribedSpeed": 46.410000000000004,
+      "gear": 3,
+      "rpm": 6746.256401878569,
+      "shiftRemaining": 0,
+      "outputForce": 2332.149431559889,
+      "torqueNm": 174.0980109269514,
+      "powerWatts": 122994.38081669826
+    },
+    {
+      "time": 25.9,
+      "prescribedSpeed": 46.59,
+      "gear": 3,
+      "rpm": 6772.421585079132,
+      "shiftRemaining": 0,
+      "outputForce": 2328.7948173066957,
+      "torqueNm": 173.8475845773339,
+      "powerWatts": 123293.80742990792
+    },
+    {
+      "time": 26,
+      "prescribedSpeed": 46.77,
+      "gear": 3,
+      "rpm": 6798.586768279695,
+      "shiftRemaining": 0,
+      "outputForce": 2325.3705045077136,
+      "torqueNm": 173.5919551399458,
+      "powerWatts": 123588.15738162019
+    },
+    {
+      "time": 26.1,
+      "prescribedSpeed": 46.949999999999996,
+      "gear": 3,
+      "rpm": 6824.751951480257,
+      "shiftRemaining": 0,
+      "outputForce": 2321.8764931629403,
+      "torqueNm": 173.33112261478715,
+      "powerWatts": 123877.38790227279
+    },
+    {
+      "time": 26.2,
+      "prescribedSpeed": 47.13,
+      "gear": 3,
+      "rpm": 6850.917134680821,
+      "shiftRemaining": 0,
+      "outputForce": 2318.3127832723785,
+      "torqueNm": 173.0650870018579,
+      "powerWatts": 124161.45622230363
+    },
+    {
+      "time": 26.3,
+      "prescribedSpeed": 47.31,
+      "gear": 3,
+      "rpm": 6877.0823178813835,
+      "shiftRemaining": 0,
+      "outputForce": 2314.6793748360255,
+      "torqueNm": 172.79384830115805,
+      "powerWatts": 124440.31957215042
+    },
+    {
+      "time": 26.4,
+      "prescribedSpeed": 47.49,
+      "gear": 3,
+      "rpm": 6903.247501081948,
+      "shiftRemaining": 0.24,
+      "outputForce": 0,
+      "torqueNm": 172.51740651268761,
+      "powerWatts": 124713.93518225105
+    },
+    {
+      "time": 26.5,
+      "prescribedSpeed": 47.67,
+      "gear": 3,
+      "rpm": 6929.412684282511,
+      "shiftRemaining": 0.14,
+      "outputForce": 0,
+      "torqueNm": 172.23576163644663,
+      "powerWatts": 124982.26028304329
+    },
+    {
+      "time": 26.6,
+      "prescribedSpeed": 47.85,
+      "gear": 3,
+      "rpm": 6955.577867483074,
+      "shiftRemaining": 0.040000000000000036,
+      "outputForce": 0,
+      "torqueNm": 171.94891367243503,
+      "powerWatts": 125245.25210496495
+    },
+    {
+      "time": 26.7,
+      "prescribedSpeed": 48.03,
+      "gear": 4,
+      "rpm": 6297.632928549928,
+      "shiftRemaining": 0,
+      "outputForce": 1687.1096177677603,
+      "torqueNm": 177.58237050291288,
+      "powerWatts": 117113.18985585096
+    },
+    {
+      "time": 26.8,
+      "prescribedSpeed": 48.21,
+      "gear": 4,
+      "rpm": 5297.632928549926,
+      "shiftRemaining": 0,
+      "outputForce": 1708.5996972685116,
+      "torqueNm": 179.84438075989235,
+      "powerWatts": 99771.69574705609
+    },
+    {
+      "time": 26.9,
+      "prescribedSpeed": 48.39,
+      "gear": 4,
+      "rpm": 4988.704551123947,
+      "shiftRemaining": 0,
+      "outputForce": 1700.6403447198022,
+      "torqueNm": 179.0065924630428,
+      "powerWatts": 93515.89350112641
+    },
+    {
+      "time": 27,
+      "prescribedSpeed": 48.57,
+      "gear": 4,
+      "rpm": 5007.261418642077,
+      "shiftRemaining": 0,
+      "outputForce": 1701.312980784134,
+      "torqueNm": 179.07739302367725,
+      "powerWatts": 93900.87667805159
+    },
+    {
+      "time": 27.1,
+      "prescribedSpeed": 48.75,
+      "gear": 4,
+      "rpm": 5025.818286160206,
+      "shiftRemaining": 0,
+      "outputForce": 1701.960753112859,
+      "torqueNm": 179.14557646858782,
+      "powerWatts": 94284.75762983166
+    },
+    {
+      "time": 27.2,
+      "prescribedSpeed": 48.93,
+      "gear": 4,
+      "rpm": 5044.375153678336,
+      "shiftRemaining": 0,
+      "outputForce": 1702.5836617059774,
+      "torqueNm": 179.21114279777456,
+      "powerWatts": 94667.5210991744
+    },
+    {
+      "time": 27.3,
+      "prescribedSpeed": 49.11000000000001,
+      "gear": 4,
+      "rpm": 5062.932021196468,
+      "shiftRemaining": 0,
+      "outputForce": 1703.18170656349,
+      "torqueNm": 179.27409201123746,
+      "powerWatts": 95049.15182878754
+    },
+    {
+      "time": 27.4,
+      "prescribedSpeed": 49.29,
+      "gear": 4,
+      "rpm": 5081.488888714596,
+      "shiftRemaining": 0,
+      "outputForce": 1703.7548876853964,
+      "torqueNm": 179.3344241089765,
+      "powerWatts": 95429.63456137861
+    },
+    {
+      "time": 27.5,
+      "prescribedSpeed": 49.470000000000006,
+      "gear": 4,
+      "rpm": 5100.0457562327265,
+      "shiftRemaining": 0,
+      "outputForce": 1704.3032050716965,
+      "torqueNm": 179.3921390909917,
+      "powerWatts": 95808.95403965548
+    },
+    {
+      "time": 27.6,
+      "prescribedSpeed": 49.65,
+      "gear": 4,
+      "rpm": 5118.602623750857,
+      "shiftRemaining": 0,
+      "outputForce": 1704.8266587223904,
+      "torqueNm": 179.44723695728302,
+      "powerWatts": 96187.09500632578
+    },
+    {
+      "time": 27.7,
+      "prescribedSpeed": 49.83,
+      "gear": 4,
+      "rpm": 5137.159491268986,
+      "shiftRemaining": 0,
+      "outputForce": 1705.325248637478,
+      "torqueNm": 179.49971770785052,
+      "powerWatts": 96564.04220409718
+    },
+    {
+      "time": 27.8,
+      "prescribedSpeed": 50.010000000000005,
+      "gear": 4,
+      "rpm": 5155.716358787117,
+      "shiftRemaining": 0,
+      "outputForce": 1705.798974816959,
+      "torqueNm": 179.54958134269415,
+      "powerWatts": 96939.78037567742
+    },
+    {
+      "time": 27.9,
+      "prescribedSpeed": 50.19,
+      "gear": 4,
+      "rpm": 5174.273226305247,
+      "shiftRemaining": 0,
+      "outputForce": 1706.247837260834,
+      "torqueNm": 179.59682786181395,
+      "powerWatts": 97314.29426377417
+    },
+    {
+      "time": 28,
+      "prescribedSpeed": 50.370000000000005,
+      "gear": 4,
+      "rpm": 5192.830093823377,
+      "shiftRemaining": 0,
+      "outputForce": 1706.6718359691026,
+      "torqueNm": 179.64145726520988,
+      "powerWatts": 97687.56861109512
+    },
+    {
+      "time": 28.1,
+      "prescribedSpeed": 50.55,
+      "gear": 4,
+      "rpm": 5211.386961341505,
+      "shiftRemaining": 0,
+      "outputForce": 1707.0709709417652,
+      "torqueNm": 179.68346955288197,
+      "powerWatts": 98059.58816034796
+    },
+    {
+      "time": 28.2,
+      "prescribedSpeed": 50.730000000000004,
+      "gear": 4,
+      "rpm": 5229.9438288596375,
+      "shiftRemaining": 0,
+      "outputForce": 1707.4452421788212,
+      "torqueNm": 179.72286472483023,
+      "powerWatts": 98430.33765424049
+    },
+    {
+      "time": 28.3,
+      "prescribedSpeed": 50.910000000000004,
+      "gear": 4,
+      "rpm": 5248.500696377766,
+      "shiftRemaining": 0,
+      "outputForce": 1707.7946496802715,
+      "torqueNm": 179.75964278105462,
+      "powerWatts": 98799.80183548023
+    },
+    {
+      "time": 28.4,
+      "prescribedSpeed": 51.09,
+      "gear": 4,
+      "rpm": 5267.057563895895,
+      "shiftRemaining": 0,
+      "outputForce": 1708.1191934461149,
+      "torqueNm": 179.79380372155515,
+      "powerWatts": 99167.965446775
+    },
+    {
+      "time": 28.5,
+      "prescribedSpeed": 51.27,
+      "gear": 4,
+      "rpm": 5285.6144314140265,
+      "shiftRemaining": 0,
+      "outputForce": 1708.4188734763525,
+      "torqueNm": 179.82534754633187,
+      "powerWatts": 99534.8132308325
+    },
+    {
+      "time": 28.6,
+      "prescribedSpeed": 51.449999999999996,
+      "gear": 4,
+      "rpm": 5304.171298932156,
+      "shiftRemaining": 0,
+      "outputForce": 1708.6936897709834,
+      "torqueNm": 179.8542742553847,
+      "powerWatts": 99900.32993036034
+    },
+    {
+      "time": 28.7,
+      "prescribedSpeed": 51.63,
+      "gear": 4,
+      "rpm": 5322.728166450286,
+      "shiftRemaining": 0,
+      "outputForce": 1708.9436423300085,
+      "torqueNm": 179.8805838487137,
+      "powerWatts": 100264.5002880663
+    },
+    {
+      "time": 28.8,
+      "prescribedSpeed": 51.81,
+      "gear": 4,
+      "rpm": 5341.285033968416,
+      "shiftRemaining": 0,
+      "outputForce": 1709.168731153427,
+      "torqueNm": 179.90427632631886,
+      "powerWatts": 100627.30904665802
+    },
+    {
+      "time": 28.9,
+      "prescribedSpeed": 51.99,
+      "gear": 4,
+      "rpm": 5359.841901486546,
+      "shiftRemaining": 0,
+      "outputForce": 1709.3689562412396,
+      "torqueNm": 179.92535168820015,
+      "powerWatts": 100988.74094884322
+    },
+    {
+      "time": 29,
+      "prescribedSpeed": 52.17,
+      "gear": 4,
+      "rpm": 5378.398769004676,
+      "shiftRemaining": 0,
+      "outputForce": 1709.5443175934456,
+      "torqueNm": 179.9438099343576,
+      "powerWatts": 101348.78073732961
+    },
+    {
+      "time": 29.1,
+      "prescribedSpeed": 52.35,
+      "gear": 4,
+      "rpm": 5396.955636522807,
+      "shiftRemaining": 0,
+      "outputForce": 1709.6948152100456,
+      "torqueNm": 179.95965106479122,
+      "powerWatts": 101707.41315482488
+    },
+    {
+      "time": 29.2,
+      "prescribedSpeed": 52.53,
+      "gear": 4,
+      "rpm": 5415.512504040937,
+      "shiftRemaining": 0,
+      "outputForce": 1709.820449091039,
+      "torqueNm": 179.97287507950097,
+      "powerWatts": 102064.62294403669
+    },
+    {
+      "time": 29.3,
+      "prescribedSpeed": 52.71,
+      "gear": 4,
+      "rpm": 5434.069371559066,
+      "shiftRemaining": 0,
+      "outputForce": 1709.9212192364262,
+      "torqueNm": 179.98348197848685,
+      "powerWatts": 102420.39484767275
+    },
+    {
+      "time": 29.4,
+      "prescribedSpeed": 52.89,
+      "gear": 4,
+      "rpm": 5452.626239077196,
+      "shiftRemaining": 0,
+      "outputForce": 1709.9971256462075,
+      "torqueNm": 179.9914717617489,
+      "powerWatts": 102774.7136084408
+    },
+    {
+      "time": 29.5,
+      "prescribedSpeed": 53.07,
+      "gear": 4,
+      "rpm": 5471.1831065953265,
+      "shiftRemaining": 0,
+      "outputForce": 1710.048168320382,
+      "torqueNm": 179.9968444292871,
+      "powerWatts": 103127.56396904851
+    },
+    {
+      "time": 29.6,
+      "prescribedSpeed": 53.25,
+      "gear": 4,
+      "rpm": 5489.739974113457,
+      "shiftRemaining": 0,
+      "outputForce": 1710.0743472589509,
+      "torqueNm": 179.99959998110145,
+      "powerWatts": 103478.93067220357
+    },
+    {
+      "time": 29.7,
+      "prescribedSpeed": 53.43,
+      "gear": 4,
+      "rpm": 5508.296841631586,
+      "shiftRemaining": 0,
+      "outputForce": 1710.075662461913,
+      "torqueNm": 179.99973841719196,
+      "powerWatts": 103828.79846061366
+    },
+    {
+      "time": 29.8,
+      "prescribedSpeed": 53.61000000000001,
+      "gear": 4,
+      "rpm": 5526.853709149717,
+      "shiftRemaining": 0,
+      "outputForce": 1710.0521139292694,
+      "torqueNm": 179.99725973755864,
+      "powerWatts": 104177.15207698653
+    },
+    {
+      "time": 29.9,
+      "prescribedSpeed": 53.79,
+      "gear": 4,
+      "rpm": 5545.410576667846,
+      "shiftRemaining": 0,
+      "outputForce": 1710.003701661019,
+      "torqueNm": 179.99216394220144,
+      "powerWatts": 104523.97626402978
+    },
+    {
+      "time": 30,
+      "prescribedSpeed": 53.970000000000006,
+      "gear": 4,
+      "rpm": 5563.967444185977,
+      "shiftRemaining": 0,
+      "outputForce": 1709.9304256571625,
+      "torqueNm": 179.9844510311204,
+      "powerWatts": 104869.25576445121
+    },
+    {
+      "time": 30.1,
+      "prescribedSpeed": 54.15,
+      "gear": 4,
+      "rpm": 5582.524311704106,
+      "shiftRemaining": 0,
+      "outputForce": 1709.8322859176997,
+      "torqueNm": 179.9741210043155,
+      "powerWatts": 105212.97532095846
+    },
+    {
+      "time": 30.2,
+      "prescribedSpeed": 54.33,
+      "gear": 4,
+      "rpm": 5601.081179222235,
+      "shiftRemaining": 0,
+      "outputForce": 1709.7092824426306,
+      "torqueNm": 179.96117386178676,
+      "powerWatts": 105555.11967625922
+    },
+    {
+      "time": 30.3,
+      "prescribedSpeed": 54.510000000000005,
+      "gear": 4,
+      "rpm": 5619.638046740367,
+      "shiftRemaining": 0,
+      "outputForce": 1709.5614152319554,
+      "torqueNm": 179.94560960353417,
+      "powerWatts": 105895.67357306126
+    },
+    {
+      "time": 30.4,
+      "prescribedSpeed": 54.69,
+      "gear": 4,
+      "rpm": 5638.194914258495,
+      "shiftRemaining": 0,
+      "outputForce": 1709.388684285674,
+      "torqueNm": 179.92742822955773,
+      "powerWatts": 106234.62175407216
+    },
+    {
+      "time": 30.5,
+      "prescribedSpeed": 54.870000000000005,
+      "gear": 4,
+      "rpm": 5656.751781776626,
+      "shiftRemaining": 0,
+      "outputForce": 1709.1910896037862,
+      "torqueNm": 179.90662973985744,
+      "powerWatts": 106571.9489619997
+    },
+    {
+      "time": 30.6,
+      "prescribedSpeed": 55.05,
+      "gear": 4,
+      "rpm": 5675.308649294756,
+      "shiftRemaining": 0,
+      "outputForce": 1708.968631186292,
+      "torqueNm": 179.8832141344333,
+      "powerWatts": 106907.63993955156
+    },
+    {
+      "time": 30.7,
+      "prescribedSpeed": 55.230000000000004,
+      "gear": 4,
+      "rpm": 5693.865516812886,
+      "shiftRemaining": 0,
+      "outputForce": 1708.7213090331916,
+      "torqueNm": 179.8571814132853,
+      "powerWatts": 107241.67942943543
+    },
+    {
+      "time": 30.8,
+      "prescribedSpeed": 55.410000000000004,
+      "gear": 4,
+      "rpm": 5712.4223843310165,
+      "shiftRemaining": 0,
+      "outputForce": 1708.4491231444852,
+      "torqueNm": 179.82853157641347,
+      "powerWatts": 107574.05217435902
+    },
+    {
+      "time": 30.9,
+      "prescribedSpeed": 55.59,
+      "gear": 4,
+      "rpm": 5730.979251849146,
+      "shiftRemaining": 0,
+      "outputForce": 1708.1520735201725,
+      "torqueNm": 179.7972646238178,
+      "powerWatts": 107904.74291702997
+    },
+    {
+      "time": 31,
+      "prescribedSpeed": 55.77,
+      "gear": 4,
+      "rpm": 5749.536119367276,
+      "shiftRemaining": 0,
+      "outputForce": 1707.8301601602534,
+      "torqueNm": 179.76338055549826,
+      "powerWatts": 108233.73640015606
+    },
+    {
+      "time": 31.1,
+      "prescribedSpeed": 55.949999999999996,
+      "gear": 4,
+      "rpm": 5768.0929868854055,
+      "shiftRemaining": 0,
+      "outputForce": 1707.483383064728,
+      "torqueNm": 179.72687937145488,
+      "powerWatts": 108561.01736644492
+    },
+    {
+      "time": 31.2,
+      "prescribedSpeed": 56.13,
+      "gear": 4,
+      "rpm": 5786.649854403536,
+      "shiftRemaining": 0,
+      "outputForce": 1707.1117422335963,
+      "torqueNm": 179.68776107168765,
+      "powerWatts": 108886.57055860427
+    },
+    {
+      "time": 31.3,
+      "prescribedSpeed": 56.31,
+      "gear": 4,
+      "rpm": 5805.206721921667,
+      "shiftRemaining": 0,
+      "outputForce": 1706.7152376668582,
+      "torqueNm": 179.64602565619654,
+      "powerWatts": 109210.38071934183
+    },
+    {
+      "time": 31.4,
+      "prescribedSpeed": 56.49,
+      "gear": 4,
+      "rpm": 5823.763589439796,
+      "shiftRemaining": 0,
+      "outputForce": 1706.2938693645144,
+      "torqueNm": 179.60167312498163,
+      "powerWatts": 109532.43259136524
+    },
+    {
+      "time": 31.5,
+      "prescribedSpeed": 56.67,
+      "gear": 4,
+      "rpm": 5842.320456957926,
+      "shiftRemaining": 0,
+      "outputForce": 1705.847637326564,
+      "torqueNm": 179.55470347804285,
+      "powerWatts": 109852.71091738227
+    },
+    {
+      "time": 31.6,
+      "prescribedSpeed": 56.85,
+      "gear": 4,
+      "rpm": 5860.877324476056,
+      "shiftRemaining": 0,
+      "outputForce": 1705.3765415530074,
+      "torqueNm": 179.5051167153802,
+      "powerWatts": 110171.20044010053
+    },
+    {
+      "time": 31.7,
+      "prescribedSpeed": 57.03,
+      "gear": 4,
+      "rpm": 5879.434191994186,
+      "shiftRemaining": 0,
+      "outputForce": 1704.8805820438447,
+      "torqueNm": 179.45291283699373,
+      "powerWatts": 110487.88590222779
+    },
+    {
+      "time": 31.8,
+      "prescribedSpeed": 57.21,
+      "gear": 4,
+      "rpm": 5897.9910595123165,
+      "shiftRemaining": 0,
+      "outputForce": 1704.3597587990753,
+      "torqueNm": 179.3980918428834,
+      "powerWatts": 110802.7520464717
+    },
+    {
+      "time": 31.9,
+      "prescribedSpeed": 57.39,
+      "gear": 4,
+      "rpm": 5916.547927030446,
+      "shiftRemaining": 0,
+      "outputForce": 1703.8140718187,
+      "torqueNm": 179.34065373304924,
+      "powerWatts": 111115.78361553999
+    },
+    {
+      "time": 32,
+      "prescribedSpeed": 57.57,
+      "gear": 4,
+      "rpm": 5935.104794548576,
+      "shiftRemaining": 0,
+      "outputForce": 1703.2435211027182,
+      "torqueNm": 179.2805985074912,
+      "powerWatts": 111426.96535214032
+    },
+    {
+      "time": 32.1,
+      "prescribedSpeed": 57.75000000000001,
+      "gear": 4,
+      "rpm": 5953.661662066706,
+      "shiftRemaining": 0,
+      "outputForce": 1702.64810665113,
+      "torqueNm": 179.2179261662093,
+      "powerWatts": 111736.28199898043
+    },
+    {
+      "time": 32.2,
+      "prescribedSpeed": 57.92999999999999,
+      "gear": 4,
+      "rpm": 5972.218529584836,
+      "shiftRemaining": 0,
+      "outputForce": 1702.027828463936,
+      "torqueNm": 179.1526367092036,
+      "powerWatts": 112043.71829876797
+    },
+    {
+      "time": 32.3,
+      "prescribedSpeed": 58.11,
+      "gear": 4,
+      "rpm": 5990.775397102967,
+      "shiftRemaining": 0,
+      "outputForce": 1701.3826865411356,
+      "torqueNm": 179.084730136474,
+      "powerWatts": 112349.25899421069
+    },
+    {
+      "time": 32.4,
+      "prescribedSpeed": 58.29,
+      "gear": 4,
+      "rpm": 6009.3322646210945,
+      "shiftRemaining": 0,
+      "outputForce": 1700.7126808827288,
+      "torqueNm": 179.0142064480206,
+      "powerWatts": 112652.88882801618
+    },
+    {
+      "time": 32.5,
+      "prescribedSpeed": 58.470000000000006,
+      "gear": 4,
+      "rpm": 6027.8891321392275,
+      "shiftRemaining": 0,
+      "outputForce": 1700.0178114887158,
+      "torqueNm": 178.9410656438433,
+      "powerWatts": 112954.59254289232
+    },
+    {
+      "time": 32.6,
+      "prescribedSpeed": 58.650000000000006,
+      "gear": 4,
+      "rpm": 6046.445999657357,
+      "shiftRemaining": 0,
+      "outputForce": 1699.2980783590965,
+      "torqueNm": 178.86530772394218,
+      "powerWatts": 113254.35488154662
+    },
+    {
+      "time": 32.7,
+      "prescribedSpeed": 58.83,
+      "gear": 4,
+      "rpm": 6065.002867175485,
+      "shiftRemaining": 0,
+      "outputForce": 1698.5534814938715,
+      "torqueNm": 178.78693268831722,
+      "powerWatts": 113552.16058668685
+    },
+    {
+      "time": 32.8,
+      "prescribedSpeed": 59.01,
+      "gear": 4,
+      "rpm": 6083.5597346936165,
+      "shiftRemaining": 0,
+      "outputForce": 1697.7840208930395,
+      "torqueNm": 178.7059405369684,
+      "powerWatts": 113847.99440102075
+    },
+    {
+      "time": 32.9,
+      "prescribedSpeed": 59.19,
+      "gear": 4,
+      "rpm": 6102.116602211745,
+      "shiftRemaining": 0,
+      "outputForce": 1696.9896965566015,
+      "torqueNm": 178.62233126989574,
+      "powerWatts": 114141.84106725594
+    },
+    {
+      "time": 33,
+      "prescribedSpeed": 59.370000000000005,
+      "gear": 4,
+      "rpm": 6120.673469729876,
+      "shiftRemaining": 0,
+      "outputForce": 1696.1705084845573,
+      "torqueNm": 178.5361048870992,
+      "powerWatts": 114433.68532810018
+    },
+    {
+      "time": 33.1,
+      "prescribedSpeed": 59.550000000000004,
+      "gear": 4,
+      "rpm": 6139.2303372480055,
+      "shiftRemaining": 0,
+      "outputForce": 1695.3264566769067,
+      "torqueNm": 178.44726138857885,
+      "powerWatts": 114723.51192626111
+    },
+    {
+      "time": 33.2,
+      "prescribedSpeed": 59.73,
+      "gear": 4,
+      "rpm": 6157.787204766136,
+      "shiftRemaining": 0,
+      "outputForce": 1694.4575411336498,
+      "torqueNm": 178.35580077433463,
+      "powerWatts": 115011.30560444648
+    },
+    {
+      "time": 33.3,
+      "prescribedSpeed": 59.91,
+      "gear": 4,
+      "rpm": 6176.344072284265,
+      "shiftRemaining": 0,
+      "outputForce": 1693.5637618547867,
+      "torqueNm": 178.26172304436656,
+      "powerWatts": 115297.05110536393
+    },
+    {
+      "time": 33.4,
+      "prescribedSpeed": 60.09,
+      "gear": 4,
+      "rpm": 6194.900939802396,
+      "shiftRemaining": 0,
+      "outputForce": 1692.6451188403178,
+      "torqueNm": 178.16502819867463,
+      "powerWatts": 115580.73317172122
+    },
+    {
+      "time": 33.5,
+      "prescribedSpeed": 60.27,
+      "gear": 4,
+      "rpm": 6213.457807320527,
+      "shiftRemaining": 0,
+      "outputForce": 1691.701612090242,
+      "torqueNm": 178.06571623725887,
+      "powerWatts": 115862.33654622601
+    },
+    {
+      "time": 33.6,
+      "prescribedSpeed": 60.45,
+      "gear": 4,
+      "rpm": 6232.014674838656,
+      "shiftRemaining": 0,
+      "outputForce": 1690.7332416045604,
+      "torqueNm": 177.96378716011927,
+      "powerWatts": 116141.84597158598
+    },
+    {
+      "time": 33.7,
+      "prescribedSpeed": 60.629999999999995,
+      "gear": 4,
+      "rpm": 6250.571542356785,
+      "shiftRemaining": 0,
+      "outputForce": 1689.740007383272,
+      "torqueNm": 177.8592409672558,
+      "powerWatts": 116419.24619050884
+    },
+    {
+      "time": 33.8,
+      "prescribedSpeed": 60.809999999999995,
+      "gear": 4,
+      "rpm": 6269.128409874916,
+      "shiftRemaining": 0,
+      "outputForce": 1688.7219094263776,
+      "torqueNm": 177.75207765866847,
+      "powerWatts": 116694.52194570229
+    },
+    {
+      "time": 33.9,
+      "prescribedSpeed": 60.99,
+      "gear": 4,
+      "rpm": 6287.685277393046,
+      "shiftRemaining": 0,
+      "outputForce": 1687.6789477338768,
+      "torqueNm": 177.6422972343573,
+      "powerWatts": 116967.65797987404
+    },
+    {
+      "time": 34,
+      "prescribedSpeed": 61.17,
+      "gear": 4,
+      "rpm": 6306.242144911176,
+      "shiftRemaining": 0,
+      "outputForce": 1686.6111223057699,
+      "torqueNm": 177.5298996943223,
+      "powerWatts": 117238.63903573177
+    },
+    {
+      "time": 34.1,
+      "prescribedSpeed": 61.35000000000001,
+      "gear": 4,
+      "rpm": 6324.7990124293065,
+      "shiftRemaining": 0,
+      "outputForce": 1685.518433142057,
+      "torqueNm": 177.41488503856343,
+      "powerWatts": 117507.44985598318
+    },
+    {
+      "time": 34.2,
+      "prescribedSpeed": 61.529999999999994,
+      "gear": 4,
+      "rpm": 6343.355879947436,
+      "shiftRemaining": 0,
+      "outputForce": 1684.4008802427372,
+      "torqueNm": 177.29725326708072,
+      "powerWatts": 117774.07518333595
+    },
+    {
+      "time": 34.3,
+      "prescribedSpeed": 61.71,
+      "gear": 4,
+      "rpm": 6361.912747465565,
+      "shiftRemaining": 0,
+      "outputForce": 1683.258463607812,
+      "torqueNm": 177.17700437987418,
+      "powerWatts": 118038.4997604978
+    },
+    {
+      "time": 34.4,
+      "prescribedSpeed": 61.89,
+      "gear": 4,
+      "rpm": 6380.469614983696,
+      "shiftRemaining": 0,
+      "outputForce": 1682.0911832372797,
+      "torqueNm": 177.05413837694374,
+      "powerWatts": 118300.70833017645
+    },
+    {
+      "time": 34.5,
+      "prescribedSpeed": 62.07,
+      "gear": 4,
+      "rpm": 6399.026482501827,
+      "shiftRemaining": 0,
+      "outputForce": 1680.8990391311415,
+      "torqueNm": 176.9286552582895,
+      "powerWatts": 118560.68563507954
+    },
+    {
+      "time": 34.6,
+      "prescribedSpeed": 62.25000000000001,
+      "gear": 4,
+      "rpm": 6417.583350019956,
+      "shiftRemaining": 0,
+      "outputForce": 1679.6820312893972,
+      "torqueNm": 176.8005550239114,
+      "powerWatts": 118818.41641791476
+    },
+    {
+      "time": 34.7,
+      "prescribedSpeed": 62.42999999999999,
+      "gear": 4,
+      "rpm": 6436.1402175380845,
+      "shiftRemaining": 0,
+      "outputForce": 1678.4401597120466,
+      "torqueNm": 176.66983767380944,
+      "powerWatts": 119073.88542138984
+    },
+    {
+      "time": 34.8,
+      "prescribedSpeed": 62.61,
+      "gear": 4,
+      "rpm": 6454.697085056216,
+      "shiftRemaining": 0,
+      "outputForce": 1677.1734243990898,
+      "torqueNm": 176.53650320798363,
+      "powerWatts": 119327.0773882125
+    },
+    {
+      "time": 34.9,
+      "prescribedSpeed": 62.79,
+      "gear": 4,
+      "rpm": 6473.253952574345,
+      "shiftRemaining": 0,
+      "outputForce": 1675.8818253505267,
+      "torqueNm": 176.40055162643398,
+      "powerWatts": 119577.9770610904
+    },
+    {
+      "time": 35,
+      "prescribedSpeed": 62.970000000000006,
+      "gear": 4,
+      "rpm": 6491.810820092477,
+      "shiftRemaining": 0,
+      "outputForce": 1674.5653625663572,
+      "torqueNm": 176.26198292916047,
+      "powerWatts": 119826.56918273127
+    },
+    {
+      "time": 35.1,
+      "prescribedSpeed": 63.150000000000006,
+      "gear": 4,
+      "rpm": 6510.3676876106065,
+      "shiftRemaining": 0,
+      "outputForce": 1673.2240360465814,
+      "torqueNm": 176.12079711616312,
+      "powerWatts": 120072.83849584275
+    },
+    {
+      "time": 35.2,
+      "prescribedSpeed": 63.33,
+      "gear": 4,
+      "rpm": 6528.924555128735,
+      "shiftRemaining": 0,
+      "outputForce": 1671.8578457911992,
+      "torqueNm": 175.9769941874419,
+      "powerWatts": 120316.76974313255
+    },
+    {
+      "time": 35.3,
+      "prescribedSpeed": 63.51,
+      "gear": 4,
+      "rpm": 6547.481422646865,
+      "shiftRemaining": 0,
+      "outputForce": 1670.4667918002112,
+      "torqueNm": 175.83057414299685,
+      "powerWatts": 120558.3476673084
+    },
+    {
+      "time": 35.4,
+      "prescribedSpeed": 63.69,
+      "gear": 4,
+      "rpm": 6566.0382901649955,
+      "shiftRemaining": 0,
+      "outputForce": 1669.0508740736168,
+      "torqueNm": 175.68153698282796,
+      "powerWatts": 120797.55701107802
+    },
+    {
+      "time": 35.5,
+      "prescribedSpeed": 63.870000000000005,
+      "gear": 4,
+      "rpm": 6584.595157683126,
+      "shiftRemaining": 0,
+      "outputForce": 1667.6100926114157,
+      "torqueNm": 175.5298827069352,
+      "powerWatts": 121034.382517149
+    },
+    {
+      "time": 35.6,
+      "prescribedSpeed": 64.05000000000001,
+      "gear": 4,
+      "rpm": 6603.152025201258,
+      "shiftRemaining": 0,
+      "outputForce": 1666.1444474136085,
+      "torqueNm": 175.3756113153186,
+      "powerWatts": 121268.80892822916
+    },
+    {
+      "time": 35.7,
+      "prescribedSpeed": 64.22999999999999,
+      "gear": 4,
+      "rpm": 6621.7088927193845,
+      "shiftRemaining": 0,
+      "outputForce": 1664.6539384801956,
+      "torqueNm": 175.21872280797817,
+      "powerWatts": 121500.82098702608
+    },
+    {
+      "time": 35.8,
+      "prescribedSpeed": 64.41,
+      "gear": 4,
+      "rpm": 6640.265760237515,
+      "shiftRemaining": 0,
+      "outputForce": 1663.1385658111758,
+      "torqueNm": 175.05921718491385,
+      "powerWatts": 121730.40343624752
+    },
+    {
+      "time": 35.9,
+      "prescribedSpeed": 64.59,
+      "gear": 4,
+      "rpm": 6658.822627755646,
+      "shiftRemaining": 0,
+      "outputForce": 1661.5983294065502,
+      "torqueNm": 174.8970944461257,
+      "powerWatts": 121957.54101860122
+    },
+    {
+      "time": 36,
+      "prescribedSpeed": 64.77000000000001,
+      "gear": 4,
+      "rpm": 6677.379495273776,
+      "shiftRemaining": 0,
+      "outputForce": 1660.033229266318,
+      "torqueNm": 174.7323545916137,
+      "powerWatts": 122182.2184767948
+    },
+    {
+      "time": 36.1,
+      "prescribedSpeed": 64.95,
+      "gear": 4,
+      "rpm": 6695.936362791906,
+      "shiftRemaining": 0,
+      "outputForce": 1658.4432653904796,
+      "torqueNm": 174.56499762137787,
+      "powerWatts": 122404.42055353598
+    },
+    {
+      "time": 36.2,
+      "prescribedSpeed": 65.13,
+      "gear": 4,
+      "rpm": 6714.493230310036,
+      "shiftRemaining": 0,
+      "outputForce": 1656.8284377790349,
+      "torqueNm": 174.39502353541815,
+      "powerWatts": 122624.13199153244
+    },
+    {
+      "time": 36.3,
+      "prescribedSpeed": 65.31,
+      "gear": 4,
+      "rpm": 6733.050097828166,
+      "shiftRemaining": 0,
+      "outputForce": 1655.188746431984,
+      "torqueNm": 174.22243233373462,
+      "powerWatts": 122841.33753349193
+    },
+    {
+      "time": 36.4,
+      "prescribedSpeed": 65.49,
+      "gear": 4,
+      "rpm": 6751.6069653462955,
+      "shiftRemaining": 0,
+      "outputForce": 1653.5241913493269,
+      "torqueNm": 174.04722401632722,
+      "powerWatts": 123056.02192212206
+    },
+    {
+      "time": 36.5,
+      "prescribedSpeed": 65.67,
+      "gear": 4,
+      "rpm": 6770.163832864426,
+      "shiftRemaining": 0,
+      "outputForce": 1651.8347725310634,
+      "torqueNm": 173.86939858319596,
+      "powerWatts": 123268.16990013063
+    },
+    {
+      "time": 36.6,
+      "prescribedSpeed": 65.85000000000001,
+      "gear": 4,
+      "rpm": 6788.720700382557,
+      "shiftRemaining": 0,
+      "outputForce": 1650.1204899771938,
+      "torqueNm": 173.68895603434086,
+      "powerWatts": 123477.76621022527
+    },
+    {
+      "time": 36.7,
+      "prescribedSpeed": 66.03,
+      "gear": 4,
+      "rpm": 6807.277567900686,
+      "shiftRemaining": 0,
+      "outputForce": 1648.381343687718,
+      "torqueNm": 173.50589636976193,
+      "powerWatts": 123684.79559511368
+    },
+    {
+      "time": 36.8,
+      "prescribedSpeed": 66.21,
+      "gear": 4,
+      "rpm": 6825.834435418816,
+      "shiftRemaining": 0,
+      "outputForce": 1646.6173336626362,
+      "torqueNm": 173.32021958945916,
+      "powerWatts": 123889.24279750355
+    },
+    {
+      "time": 36.9,
+      "prescribedSpeed": 66.39,
+      "gear": 4,
+      "rpm": 6844.391302936946,
+      "shiftRemaining": 0,
+      "outputForce": 1644.8284599019473,
+      "torqueNm": 173.1319256934325,
+      "powerWatts": 124091.09256010262
+    },
+    {
+      "time": 37,
+      "prescribedSpeed": 66.57000000000001,
+      "gear": 4,
+      "rpm": 6862.948170455076,
+      "shiftRemaining": 0,
+      "outputForce": 1643.014722405653,
+      "torqueNm": 172.94101468168202,
+      "powerWatts": 124290.32962561856
+    },
+    {
+      "time": 37.1,
+      "prescribedSpeed": 66.75,
+      "gear": 4,
+      "rpm": 6881.5050379732065,
+      "shiftRemaining": 0,
+      "outputForce": 1641.1761211737517,
+      "torqueNm": 172.74748655420765,
+      "powerWatts": 124486.93873675904
+    },
+    {
+      "time": 37.2,
+      "prescribedSpeed": 66.92999999999999,
+      "gear": 4,
+      "rpm": 6900.061905491335,
+      "shiftRemaining": 0.24,
+      "outputForce": 0,
+      "torqueNm": 172.55134131100948,
+      "powerWatts": 124680.90463623175
+    },
+    {
+      "time": 37.3,
+      "prescribedSpeed": 67.11,
+      "gear": 4,
+      "rpm": 6918.618773009464,
+      "shiftRemaining": 0.14,
+      "outputForce": 0,
+      "torqueNm": 172.35257895208747,
+      "powerWatts": 124872.21206674448
+    },
+    {
+      "time": 37.4,
+      "prescribedSpeed": 67.29,
+      "gear": 4,
+      "rpm": 6937.175640527596,
+      "shiftRemaining": 0.040000000000000036,
+      "outputForce": 0,
+      "torqueNm": 172.15119947744157,
+      "powerWatts": 125060.84577100487
+    },
+    {
+      "time": 37.5,
+      "prescribedSpeed": 67.47,
+      "gear": 5,
+      "rpm": 6276.6945963669705,
+      "shiftRemaining": 0,
+      "outputForce": 1401.2887220053315,
+      "torqueNm": 177.70763291510252,
+      "powerWatts": 116806.14684682385
+    },
+    {
+      "time": 37.6,
+      "prescribedSpeed": 67.65,
+      "gear": 5,
+      "rpm": 5788.660181718,
+      "shiftRemaining": 0,
+      "outputForce": 1416.8680904185603,
+      "torqueNm": 179.68336613806403,
+      "powerWatts": 108921.73445092682
+    },
+    {
+      "time": 37.7,
+      "prescribedSpeed": 67.83,
+      "gear": 5,
+      "rpm": 5804.062381758047,
+      "shiftRemaining": 0,
+      "outputForce": 1416.5945387545603,
+      "torqueNm": 179.64867505839857,
+      "powerWatts": 109190.46314059297
+    },
+    {
+      "time": 37.8,
+      "prescribedSpeed": 68.01,
+      "gear": 5,
+      "rpm": 5819.464581798096,
+      "shiftRemaining": 0,
+      "outputForce": 1416.3067703297693,
+      "torqueNm": 179.61218104771095,
+      "powerWatts": 109457.98119332686
+    },
+    {
+      "time": 37.9,
+      "prescribedSpeed": 68.19,
+      "gear": 5,
+      "rpm": 5834.866781838143,
+      "shiftRemaining": 0,
+      "outputForce": 1416.0047851441877,
+      "torqueNm": 179.5738841060012,
+      "powerWatts": 109724.279885207
+    },
+    {
+      "time": 38,
+      "prescribedSpeed": 68.37,
+      "gear": 5,
+      "rpm": 5850.268981878191,
+      "shiftRemaining": 0,
+      "outputForce": 1415.6885831978148,
+      "torqueNm": 179.53378423326927,
+      "powerWatts": 109989.35049231202
+    },
+    {
+      "time": 38.1,
+      "prescribedSpeed": 68.55000000000001,
+      "gear": 5,
+      "rpm": 5865.67118191824,
+      "shiftRemaining": 0,
+      "outputForce": 1415.3581644906503,
+      "torqueNm": 179.49188142951516,
+      "powerWatts": 110253.18429072056
+    },
+    {
+      "time": 38.2,
+      "prescribedSpeed": 68.72999999999999,
+      "gear": 5,
+      "rpm": 5881.0733819582865,
+      "shiftRemaining": 0,
+      "outputForce": 1415.0135290226951,
+      "torqueNm": 179.44817569473892,
+      "powerWatts": 110515.77255651118
+    },
+    {
+      "time": 38.3,
+      "prescribedSpeed": 68.91,
+      "gear": 5,
+      "rpm": 5896.475581998335,
+      "shiftRemaining": 0,
+      "outputForce": 1414.6546767939487,
+      "torqueNm": 179.4026670289405,
+      "powerWatts": 110777.10656576251
+    },
+    {
+      "time": 38.4,
+      "prescribedSpeed": 69.09,
+      "gear": 5,
+      "rpm": 5911.877782038384,
+      "shiftRemaining": 0,
+      "outputForce": 1414.2816078044116,
+      "torqueNm": 179.35535543211995,
+      "powerWatts": 111037.17759455317
+    },
+    {
+      "time": 38.5,
+      "prescribedSpeed": 69.27000000000001,
+      "gear": 5,
+      "rpm": 5927.279982078431,
+      "shiftRemaining": 0,
+      "outputForce": 1413.8943220540827,
+      "torqueNm": 179.30624090427722,
+      "powerWatts": 111295.97691896172
+    },
+    {
+      "time": 38.6,
+      "prescribedSpeed": 69.45,
+      "gear": 5,
+      "rpm": 5942.6821821184785,
+      "shiftRemaining": 0,
+      "outputForce": 1413.4928195429634,
+      "torqueNm": 179.25532344541233,
+      "powerWatts": 111553.49581506681
+    },
+    {
+      "time": 38.7,
+      "prescribedSpeed": 69.63,
+      "gear": 5,
+      "rpm": 5958.084382158526,
+      "shiftRemaining": 0,
+      "outputForce": 1413.0771002710528,
+      "torqueNm": 179.2026030555253,
+      "powerWatts": 111809.72555894703
+    },
+    {
+      "time": 38.8,
+      "prescribedSpeed": 69.81,
+      "gear": 5,
+      "rpm": 5973.486582198575,
+      "shiftRemaining": 0,
+      "outputForce": 1412.6471642383508,
+      "torqueNm": 179.14807973461606,
+      "powerWatts": 112064.65742668096
+    },
+    {
+      "time": 38.9,
+      "prescribedSpeed": 69.99,
+      "gear": 5,
+      "rpm": 5988.888782238622,
+      "shiftRemaining": 0,
+      "outputForce": 1412.2030114448578,
+      "torqueNm": 179.0917534826847,
+      "powerWatts": 112318.28269434726
+    },
+    {
+      "time": 39,
+      "prescribedSpeed": 70.17,
+      "gear": 5,
+      "rpm": 6004.2909822786705,
+      "shiftRemaining": 0,
+      "outputForce": 1411.7446418905733,
+      "torqueNm": 179.03362429973117,
+      "powerWatts": 112570.59263802452
+    },
+    {
+      "time": 39.1,
+      "prescribedSpeed": 70.35000000000001,
+      "gear": 5,
+      "rpm": 6019.693182318719,
+      "shiftRemaining": 0,
+      "outputForce": 1411.2720555754986,
+      "torqueNm": 178.97369218575548,
+      "powerWatts": 112821.57853379128
+    },
+    {
+      "time": 39.2,
+      "prescribedSpeed": 70.53,
+      "gear": 5,
+      "rpm": 6035.095382358766,
+      "shiftRemaining": 0,
+      "outputForce": 1410.7852524996324,
+      "torqueNm": 178.91195714075764,
+      "powerWatts": 113071.23165772622
+    },
+    {
+      "time": 39.3,
+      "prescribedSpeed": 70.71,
+      "gear": 5,
+      "rpm": 6050.497582398813,
+      "shiftRemaining": 0,
+      "outputForce": 1410.2842326629752,
+      "torqueNm": 178.84841916473763,
+      "powerWatts": 113319.54328590792
+    },
+    {
+      "time": 39.4,
+      "prescribedSpeed": 70.89,
+      "gear": 5,
+      "rpm": 6065.8997824388625,
+      "shiftRemaining": 0,
+      "outputForce": 1409.7689960655264,
+      "torqueNm": 178.78307825769545,
+      "powerWatts": 113566.504694415
+    },
+    {
+      "time": 39.5,
+      "prescribedSpeed": 71.07000000000001,
+      "gear": 5,
+      "rpm": 6081.301982478911,
+      "shiftRemaining": 0,
+      "outputForce": 1409.2395427072875,
+      "torqueNm": 178.71593441963114,
+      "powerWatts": 113812.10715932604
+    },
+    {
+      "time": 39.6,
+      "prescribedSpeed": 71.25,
+      "gear": 5,
+      "rpm": 6096.704182518958,
+      "shiftRemaining": 0,
+      "outputForce": 1408.6958725882566,
+      "torqueNm": 178.64698765054465,
+      "powerWatts": 114056.34195671965
+    },
+    {
+      "time": 39.7,
+      "prescribedSpeed": 71.42999999999999,
+      "gear": 5,
+      "rpm": 6112.1063825590045,
+      "shiftRemaining": 0,
+      "outputForce": 1408.1379857084348,
+      "torqueNm": 178.57623795043602,
+      "powerWatts": 114299.20036267443
+    },
+    {
+      "time": 39.8,
+      "prescribedSpeed": 71.61,
+      "gear": 5,
+      "rpm": 6127.508582599053,
+      "shiftRemaining": 0,
+      "outputForce": 1407.5658820678223,
+      "torqueNm": 178.50368531930522,
+      "powerWatts": 114540.67365326903
+    },
+    {
+      "time": 39.9,
+      "prescribedSpeed": 71.79,
+      "gear": 5,
+      "rpm": 6142.910782639102,
+      "shiftRemaining": 0,
+      "outputForce": 1406.9795616664182,
+      "torqueNm": 178.42932975715223,
+      "powerWatts": 114780.75310458202
+    },
+    {
+      "time": 40,
+      "prescribedSpeed": 71.97,
+      "gear": 5,
+      "rpm": 6158.312982679148,
+      "shiftRemaining": 0,
+      "outputForce": 1406.379024504223,
+      "torqueNm": 178.35317126397712,
+      "powerWatts": 115019.42999269198
+    },
+    {
+      "time": 40.1,
+      "prescribedSpeed": 72.15,
+      "gear": 5,
+      "rpm": 6173.715182719197,
+      "shiftRemaining": 0,
+      "outputForce": 1405.764270581237,
+      "torqueNm": 178.27520983977982,
+      "powerWatts": 115256.69559367756
+    },
+    {
+      "time": 40.2,
+      "prescribedSpeed": 72.33,
+      "gear": 5,
+      "rpm": 6189.117382759246,
+      "shiftRemaining": 0,
+      "outputForce": 1405.1352998974598,
+      "torqueNm": 178.19544548456037,
+      "powerWatts": 115492.54118361737
+    },
+    {
+      "time": 40.3,
+      "prescribedSpeed": 72.51,
+      "gear": 5,
+      "rpm": 6204.519582799293,
+      "shiftRemaining": 0,
+      "outputForce": 1404.4921124528917,
+      "torqueNm": 178.1138781983188,
+      "powerWatts": 115726.95803858998
+    },
+    {
+      "time": 40.4,
+      "prescribedSpeed": 72.69,
+      "gear": 5,
+      "rpm": 6219.92178283934,
+      "shiftRemaining": 0,
+      "outputForce": 1403.8347082475325,
+      "torqueNm": 178.03050798105502,
+      "powerWatts": 115959.937434674
+    },
+    {
+      "time": 40.5,
+      "prescribedSpeed": 72.87,
+      "gear": 5,
+      "rpm": 6235.3239828793885,
+      "shiftRemaining": 0,
+      "outputForce": 1403.1630872813819,
+      "torqueNm": 177.9453348327691,
+      "powerWatts": 116191.47064794808
+    },
+    {
+      "time": 40.6,
+      "prescribedSpeed": 73.05000000000001,
+      "gear": 5,
+      "rpm": 6250.726182919437,
+      "shiftRemaining": 0,
+      "outputForce": 1402.4772495544405,
+      "torqueNm": 177.858358753461,
+      "powerWatts": 116421.54895449076
+    },
+    {
+      "time": 40.7,
+      "prescribedSpeed": 73.22999999999999,
+      "gear": 5,
+      "rpm": 6266.128382959483,
+      "shiftRemaining": 0,
+      "outputForce": 1401.777195066708,
+      "torqueNm": 177.76957974313078,
+      "powerWatts": 116650.16363038067
+    },
+    {
+      "time": 40.8,
+      "prescribedSpeed": 73.41,
+      "gear": 5,
+      "rpm": 6281.530582999533,
+      "shiftRemaining": 0,
+      "outputForce": 1401.062923818184,
+      "torqueNm": 177.67899780177837,
+      "powerWatts": 116877.30595169649
+    },
+    {
+      "time": 40.9,
+      "prescribedSpeed": 73.59,
+      "gear": 5,
+      "rpm": 6296.9327830395805,
+      "shiftRemaining": 0,
+      "outputForce": 1400.334435808869,
+      "torqueNm": 177.5866129294038,
+      "powerWatts": 117102.96719451669
+    },
+    {
+      "time": 41,
+      "prescribedSpeed": 73.77000000000001,
+      "gear": 5,
+      "rpm": 6312.33498307963,
+      "shiftRemaining": 0,
+      "outputForce": 1399.5917310387633,
+      "torqueNm": 177.49242512600708,
+      "powerWatts": 117327.13863491999
+    },
+    {
+      "time": 41.1,
+      "prescribedSpeed": 73.95,
+      "gear": 5,
+      "rpm": 6327.737183119676,
+      "shiftRemaining": 0,
+      "outputForce": 1398.834809507866,
+      "torqueNm": 177.3964343915882,
+      "powerWatts": 117549.8115489849
+    },
+    {
+      "time": 41.2,
+      "prescribedSpeed": 74.13,
+      "gear": 5,
+      "rpm": 6343.139383159723,
+      "shiftRemaining": 0,
+      "outputForce": 1398.063671216178,
+      "torqueNm": 177.29864072614717,
+      "powerWatts": 117770.97721279008
+    },
+    {
+      "time": 41.3,
+      "prescribedSpeed": 74.31,
+      "gear": 5,
+      "rpm": 6358.541583199771,
+      "shiftRemaining": 0,
+      "outputForce": 1397.2783161636987,
+      "torqueNm": 177.19904412968395,
+      "powerWatts": 117990.62690241415
+    },
+    {
+      "time": 41.4,
+      "prescribedSpeed": 74.49,
+      "gear": 5,
+      "rpm": 6373.94378323982,
+      "shiftRemaining": 0,
+      "outputForce": 1396.4787443504283,
+      "torqueNm": 177.09764460219859,
+      "powerWatts": 118208.7518939357
+    },
+    {
+      "time": 41.5,
+      "prescribedSpeed": 74.67,
+      "gear": 5,
+      "rpm": 6389.345983279869,
+      "shiftRemaining": 0,
+      "outputForce": 1395.664955776367,
+      "torqueNm": 176.99444214369106,
+      "powerWatts": 118425.34346343335
+    },
+    {
+      "time": 41.6,
+      "prescribedSpeed": 74.85000000000001,
+      "gear": 5,
+      "rpm": 6404.748183319916,
+      "shiftRemaining": 0,
+      "outputForce": 1394.8369504415145,
+      "torqueNm": 176.88943675416138,
+      "powerWatts": 118640.39288698565
+    },
+    {
+      "time": 41.7,
+      "prescribedSpeed": 75.03,
+      "gear": 5,
+      "rpm": 6420.150383359963,
+      "shiftRemaining": 0,
+      "outputForce": 1393.9947283458707,
+      "torqueNm": 176.78262843360955,
+      "powerWatts": 118853.89144067123
+    },
+    {
+      "time": 41.8,
+      "prescribedSpeed": 75.21,
+      "gear": 5,
+      "rpm": 6435.55258340001,
+      "shiftRemaining": 0,
+      "outputForce": 1393.1382894894361,
+      "torqueNm": 176.67401718203556,
+      "powerWatts": 119065.83040056872
+    },
+    {
+      "time": 41.9,
+      "prescribedSpeed": 75.39,
+      "gear": 5,
+      "rpm": 6450.954783440059,
+      "shiftRemaining": 0,
+      "outputForce": 1392.2676338722106,
+      "torqueNm": 176.56360299943938,
+      "powerWatts": 119276.20104275673
+    },
+    {
+      "time": 42,
+      "prescribedSpeed": 75.57000000000001,
+      "gear": 5,
+      "rpm": 6466.356983480107,
+      "shiftRemaining": 0,
+      "outputForce": 1391.3827614941936,
+      "torqueNm": 176.45138588582105,
+      "powerWatts": 119484.99464331387
+    },
+    {
+      "time": 42.1,
+      "prescribedSpeed": 75.75,
+      "gear": 5,
+      "rpm": 6481.759183520156,
+      "shiftRemaining": 0,
+      "outputForce": 1390.4836723553854,
+      "torqueNm": 176.33736584118057,
+      "powerWatts": 119692.2024783187
+    },
+    {
+      "time": 42.2,
+      "prescribedSpeed": 75.92999999999999,
+      "gear": 5,
+      "rpm": 6497.161383560203,
+      "shiftRemaining": 0,
+      "outputForce": 1389.5703664557866,
+      "torqueNm": 176.22154286551796,
+      "powerWatts": 119897.81582384984
+    },
+    {
+      "time": 42.3,
+      "prescribedSpeed": 76.11,
+      "gear": 5,
+      "rpm": 6512.563583600251,
+      "shiftRemaining": 0,
+      "outputForce": 1388.642843795396,
+      "torqueNm": 176.10391695883314,
+      "powerWatts": 120101.8259559859
+    },
+    {
+      "time": 42.4,
+      "prescribedSpeed": 76.29,
+      "gear": 5,
+      "rpm": 6527.9657836403,
+      "shiftRemaining": 0,
+      "outputForce": 1387.7011043742145,
+      "torqueNm": 175.98448812112616,
+      "powerWatts": 120304.22415080553
+    },
+    {
+      "time": 42.5,
+      "prescribedSpeed": 76.47,
+      "gear": 5,
+      "rpm": 6543.367983680347,
+      "shiftRemaining": 0,
+      "outputForce": 1386.7451481922424,
+      "torqueNm": 175.86325635239706,
+      "powerWatts": 120505.00168438723
+    },
+    {
+      "time": 42.6,
+      "prescribedSpeed": 76.65,
+      "gear": 5,
+      "rpm": 6558.770183720394,
+      "shiftRemaining": 0,
+      "outputForce": 1385.7749752494792,
+      "torqueNm": 175.7402216526458,
+      "powerWatts": 120704.14983280972
+    },
+    {
+      "time": 42.7,
+      "prescribedSpeed": 76.83,
+      "gear": 5,
+      "rpm": 6574.172383760442,
+      "shiftRemaining": 0,
+      "outputForce": 1384.7905855459242,
+      "torqueNm": 175.61538402187236,
+      "powerWatts": 120901.65987215155
+    },
+    {
+      "time": 42.8,
+      "prescribedSpeed": 77.01,
+      "gear": 5,
+      "rpm": 6589.574583800491,
+      "shiftRemaining": 0,
+      "outputForce": 1383.7919790815786,
+      "torqueNm": 175.48874346007673,
+      "powerWatts": 121097.52307849134
+    },
+    {
+      "time": 42.9,
+      "prescribedSpeed": 77.19,
+      "gear": 5,
+      "rpm": 6604.976783840538,
+      "shiftRemaining": 0,
+      "outputForce": 1382.779155856442,
+      "torqueNm": 175.360299967259,
+      "powerWatts": 121291.73072790768
+    },
+    {
+      "time": 43,
+      "prescribedSpeed": 77.37,
+      "gear": 5,
+      "rpm": 6620.378983880587,
+      "shiftRemaining": 0,
+      "outputForce": 1381.752115870514,
+      "torqueNm": 175.23005354341907,
+      "powerWatts": 121484.27409647919
+    },
+    {
+      "time": 43.1,
+      "prescribedSpeed": 77.55000000000001,
+      "gear": 5,
+      "rpm": 6635.781183920635,
+      "shiftRemaining": 0,
+      "outputForce": 1380.7108591237948,
+      "torqueNm": 175.09800418855698,
+      "powerWatts": 121675.14446028444
+    },
+    {
+      "time": 43.2,
+      "prescribedSpeed": 77.72999999999999,
+      "gear": 5,
+      "rpm": 6651.18338396068,
+      "shiftRemaining": 0,
+      "outputForce": 1379.6553856162852,
+      "torqueNm": 174.9641519026728,
+      "powerWatts": 121864.33309540206
+    },
+    {
+      "time": 43.3,
+      "prescribedSpeed": 77.91,
+      "gear": 5,
+      "rpm": 6666.585584000729,
+      "shiftRemaining": 0,
+      "outputForce": 1378.5856953479838,
+      "torqueNm": 174.82849668576637,
+      "powerWatts": 122051.83127791068
+    },
+    {
+      "time": 43.4,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 43.5,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 43.6,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 43.7,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 43.8,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 43.9,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.1,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.2,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.3,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.4,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.5,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.6,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.7,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.8,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 44.9,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.1,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.2,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.3,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.4,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.5,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.6,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.7,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.8,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 45.9,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.1,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.2,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.3,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.4,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.5,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.6,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.7,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.8,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 46.9,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.1,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.2,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.3,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.4,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.5,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.6,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.7,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.8,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 47.9,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.1,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.2,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.3,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.4,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.5,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.6,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.7,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.8,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 48.9,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.1,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.2,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.3,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.4,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.5,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.6,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.7,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.8,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 49.9,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    },
+    {
+      "time": 50,
+      "prescribedSpeed": 78,
+      "gear": 5,
+      "rpm": 6674.286684020754,
+      "shiftRemaining": 0,
+      "outputForce": 1378.0455189285367,
+      "torqueNm": 174.75999297817987,
+      "powerWatts": 122144.94372321121
+    }
+  ]
+}

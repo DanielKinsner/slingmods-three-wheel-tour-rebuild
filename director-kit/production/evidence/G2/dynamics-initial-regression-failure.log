@@ -1,0 +1,38 @@
+✔ loaded rest: three non-tensile contacts support stated loaded mass without drift (93.9003ms)
+✔ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (319.5213ms)
+✖ straight acceleration, lift-off coast and braking have coherent measured distances (3.7546ms)
+✔ left/right asphalt circles have correct turn signs, mirrored radii and sustained support (0.8471ms)
+✔ slalom follows alternating input in authoritative yaw response (0.3839ms)
+✔ controlled reverse engages near rest and uses signed physical velocity (0.4507ms)
+✔ surface friction reduces acceleration; optional traction help limits wheel overspeed; lift/brake recovers (0.3708ms)
+✔ one-wheel bump, curb, seam and landing excite suspension and recover without tunneling (0.6338ms)
+✔ authoritative AutoDrive executes all five ratios, cuts torque during transitions, and has consistent SI torque/power (1.1647ms)
+✔ render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error (49.4675ms)
+✔ reset clears forces/drivetrain/history, fixed-step rejection and pause clock do not advance state (4.5286ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 615.7748
+
+✖ failing tests:
+
+test at tests\driving.test.ts:27:1
+✖ straight acceleration, lift-off coast and braking have coherent measured distances (3.7546ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(brake.every(f=>f.speed>-0.05))
+  
+      at TestContext.<anonymous> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\driving.test.ts:33:9)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

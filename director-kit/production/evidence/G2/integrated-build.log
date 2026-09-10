@@ -1,0 +1,23 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 22 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                          0.77 kB │ gzip:     0.52 kB
+dist/assets/save-S_mbsQK_.css            0.86 kB │ gzip:     0.44 kB
+dist/assets/workbench-Z06iEFNX.css       1.31 kB │ gzip:     0.62 kB
+dist/assets/calibration-BtQ4tbUe.js      2.29 kB │ gzip:     1.21 kB
+dist/assets/index-CjK3tbNq.js            2.33 kB │ gzip:     1.16 kB
+dist/assets/save-DKm5AGge.js           650.24 kB │ gzip:   162.90 kB
+dist/assets/workbench-BFv4oZqm.js    2,870.01 kB │ gzip: 1,101.50 kB
+
+✓ built in 323ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
