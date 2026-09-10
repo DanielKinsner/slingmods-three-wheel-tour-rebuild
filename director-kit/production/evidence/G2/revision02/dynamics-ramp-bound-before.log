@@ -1,0 +1,25 @@
+✖ straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes (161.5953ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 428.4315
+
+✖ failing tests:
+
+test at tests\driving.test.ts:80:1
+✖ straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes (161.5953ms)
+  AssertionError [ERR_ASSERTION]: lane-40 yaw-0.10533605404718832 at5.883333333333318
+      at TestContext.<anonymous> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\driving.test.ts:85:112)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

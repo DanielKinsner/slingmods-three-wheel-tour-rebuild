@@ -1,0 +1,76 @@
+{
+  "created": "2026-09-10T22:19:20.9741184Z",
+  "build": "P02 repaired ramp + cockpit binding + continuous wallclock held reset",
+  "commands": [
+    "npm run build",
+    "npm test",
+    "node scripts/capture-driving.mjs",
+    "node scripts/record-driving.mjs",
+    "node scripts/record-stress.mjs",
+    "node scripts/test-presenter.mjs"
+  ],
+  "runtime": "Vite built snapshot on127.0.0.1:5187 (no HMR)",
+  "renderer": "Isolated Chrome153 SwiftShader; software rendering slower than real time; no hardware/controller claim",
+  "files": [
+    {
+      "path": "src/workbench.ts",
+      "sha256": "aa8560a8f85f069c15084e0ec7f57f134dded2b3f3e8a6849e38863c7a5aeb94",
+      "bytes": 12215
+    },
+    {
+      "path": "src/simulation/index.ts",
+      "sha256": "399b0be4770db9df97983af3930bf0ca1db1c1f78941a7897545c8f0fe926352",
+      "bytes": 13702
+    },
+    {
+      "path": "src/simulation/drivetrain.ts",
+      "sha256": "171e1b6a7b2cbcb246141ac014c613cbfdd425850529778d1b4efaa76fc79121",
+      "bytes": 2223
+    },
+    {
+      "path": "src/simulation/pad.ts",
+      "sha256": "d3939caeff211cb6f1228fce41b028b2460c89f8f615818932e260f13c506ed8",
+      "bytes": 1281
+    },
+    {
+      "path": "public/assets/slingshot-contact-layout.json",
+      "sha256": "35a5862b275de62e45b58e7a62b0b0b513371a336b4ca5f09eb66bc1c8e11da3",
+      "bytes": 828
+    },
+    {
+      "path": "public/assets/test-pad.glb",
+      "sha256": "fdcda36abd5366a4a5f12e6692973de6a6f06e6d3929f9e16c88f31146bda304",
+      "bytes": 106076
+    },
+    {
+      "path": "public/assets/vehicles/slingshot.glb",
+      "sha256": "5e3c7adfb0ef5470b5ce19f3d8049d8a0d99431eb3bf5636f966ca9f5e5ab143",
+      "bytes": 1325080
+    },
+    {
+      "path": "assets/blender/test-pad.blend",
+      "sha256": "9613e586503098bee69406aa75429003c6216b157594d42f578a830a34388fd7",
+      "bytes": 787555
+    },
+    {
+      "path": "dist\\assets\\calibration-BtQ4tbUe.js",
+      "sha256": "70cf26e1579af927eecf0f8e0ded2629961195c8edbd583ba946e9dd038fd5e1",
+      "bytes": 2295
+    },
+    {
+      "path": "dist\\assets\\index-CI2TW9x-.js",
+      "sha256": "54a572d6492eccf31d56a1cd96450ad71a79933e55103ca1b9c1c2f208f00a6f",
+      "bytes": 2335
+    },
+    {
+      "path": "dist\\assets\\save-DKm5AGge.js",
+      "sha256": "e0d0015747f7a5103b4a6e5fa0fa17e79ecbdad358e4adc8e4253e52c9be429e",
+      "bytes": 650249
+    },
+    {
+      "path": "dist\\assets\\workbench-BpN9fxOA.js",
+      "sha256": "147e4c38dc846167929f6e3285fb11c66dfe2d3a80c9dd9c0cbda27309de1c4e",
+      "bytes": 2872963
+    }
+  ]
+}

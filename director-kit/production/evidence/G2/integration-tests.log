@@ -1,0 +1,28 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ loaded rest: three non-tensile contacts support stated loaded mass without drift (114.6386ms)
+✔ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (553.876ms)
+✔ straight acceleration, lift-off coast and braking have coherent measured distances (0.7183ms)
+✔ left/right asphalt circles have correct turn signs, mirrored radii and sustained support (0.7698ms)
+✔ slalom follows alternating input in authoritative yaw response (0.3901ms)
+✔ controlled reverse engages near rest and uses signed physical velocity (0.4124ms)
+✔ surface friction reduces acceleration; optional traction help limits wheel overspeed; lift/brake recovers (0.4282ms)
+✔ one-wheel bump, curb, seam and landing excite suspension and recover without tunneling (0.4882ms)
+✔ authoritative AutoDrive executes all five ratios, cuts torque during transitions, and has consistent SI torque/power (0.9209ms)
+✔ incline launch and high-speed curb produce physical vertical motion then recover; full-speed steering stays bounded (0.4176ms)
+✔ straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes (70.6636ms)
+✔ render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error (79.9665ms)
+✔ reset clears forces/drivetrain/history, fixed-step rejection and pause clock do not advance state (7.5055ms)
+✔ new save round-trip touches only the new namespace (0.8733ms)
+✔ malformed or future schemas fall back without reading legacy data (0.1765ms)
+✔ actual Rapier world falls onto a collider and settles (59.3225ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 978.9474

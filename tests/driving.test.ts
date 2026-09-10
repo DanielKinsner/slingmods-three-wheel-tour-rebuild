@@ -77,6 +77,15 @@ test('incline launch and high-speed curb produce physical vertical motion then r
  assert.ok(curb.some(f=>f.speed>15));assert.ok(curb.some(f=>f.position.y>0.15));assert.ok(last(curb).position.z<14);assert.ok(last(curb).wheels.every(w=>w.contact));
  const dryFast=steer.filter(f=>f.speed>20&&f.wheels.every(w=>w.surface==='asphalt'));assert.ok(dryFast.length>60);assert.ok(dryFast.every(f=>upright(f)>0.98&&f.wheels.every(w=>w.contact)));assert.ok(dryFast.some(f=>f.angularVelocity.y>0.05));
 });
+test('straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes',async()=>{
+ const ramp=scenarios.find(s=>s.name==='incline-launch')!;
+ for(const x of [-40.1,-40,-39.9]){
+  const {frames}=await runScenario({...ramp,pose:{x,z:58}});
+  assert.ok(frames.some(f=>f.position.y>0.4),'must actually traverse the ramp');
+  for(const f of frames){const q=f.quaternion,yaw=Math.atan2(2*(q.w*q.y+q.x*q.z),1-2*(q.y*q.y+q.x*q.x));assert.ok(Math.abs(yaw)<3*Math.PI/180,`lane${x} yaw${yaw} at${f.time}`);assert.ok(Math.abs(f.position.x-x)<0.5,`lane${x} lateral drift at${f.time}`)}
+  assert.ok(last(frames).position.z<10&&last(frames).wheels.every(w=>w.contact),'must land and continue past ramp');
+ }
+});
 test('render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error',async()=>{
  const captures=[];
  for(const cap of [30,60,120,144]){const sim=await Simulation.create(),clock=new FixedClock();let ticks=0;for(let frame=0;frame<cap*12;frame++)clock.advance(1/cap,()=>{const t=ticks/60;sim.step({...neutral,throttle:t>2?0.7:0,steer:t>5?Math.sin(t)*0.3:0});ticks++});assert.equal(ticks,720);assert.equal(clock.droppedSeconds,0);captures.push(sim.telemetry());sim.dispose()}

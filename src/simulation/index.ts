@@ -31,7 +31,13 @@ export class Simulation {
   static async create():Promise<Simulation>{initialized??=RAPIER.init();await initialized;return new Simulation()}
   private constructor(){
     this.world=new RAPIER.World(v(0,-9.81,0));this.world.timestep=FIXED_DT;
-    for(const box of [PAD.ground,...PAD.obstacles])this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setFriction(0.45));
+    // A finite planar triangle surface has explicit face normals. The former700m-wide
+    // convex slab produced a near-horizontal cylinder contact normal on flat ground
+    // during a shallow landing (recorded in G2/revision02), injecting a spurious yaw impulse.
+    const [gx,gy,gz]=PAD.ground.center,[gw,gh,gl]=PAD.ground.size;
+    const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
+    this.world.createCollider(RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45));
+    for(const box of PAD.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setFriction(0.45));
     for(const ramp of PAD.ramps){
       const points:number[]=[];for(const x of [-ramp.width/2,ramp.width/2])for(const z of [-ramp.length/2,ramp.length/2]){points.push(x,-0.1,z,x,z<0?ramp.rise:0,z)}
       const shape=RAPIER.ColliderDesc.convexHull(new Float32Array(points));if(!shape)throw new Error('Invalid ramp hull');
@@ -40,8 +46,10 @@ export class Simulation {
     // Collider carries zero mass; explicit loaded mass/inertia makes the convention unambiguous.
     this.body=this.world.createRigidBody(RAPIER.RigidBodyDesc.dynamic().setTranslation(0,SPEC.comHeight+0.04,35).setCanSleep(false).setCcdEnabled(true).setAngularDamping(0.12).setAdditionalMassProperties(SPEC.mass,v(),v(700,950,330),{x:0,y:0,z:0,w:1}));
     this.world.createCollider(RAPIER.ColliderDesc.cuboid(0.63,0.16,1.45).setTranslation(0,-0.1,0).setDensity(0).setFriction(0.35).setRestitution(0.05),this.body);
-    // Wheel-shaped passive collision guards catch vertical curbs/barriers; support comes only from rays.
-    for(const w of layout.wheels)this.world.createCollider(RAPIER.ColliderDesc.cylinder(w.width/2,w.radius*0.68).setRotation({x:0,y:0,z:Math.SQRT1_2,w:Math.SQRT1_2}).setTranslation(w.center[0],w.center[1]-SPEC.comHeight,w.center[2]).setDensity(0).setFriction(0.1),this.body);
+    // Guards supply collision normal response only. They are rigidly attached, not
+    // spinning wheels: giving them tangential grip would add unintended locked-wheel
+    // friction on top of the custom tire law during compression/landing.
+    for(const w of layout.wheels)this.world.createCollider(RAPIER.ColliderDesc.cylinder(w.width/2,w.radius*0.68).setRotation({x:0,y:0,z:Math.SQRT1_2,w:Math.SQRT1_2}).setTranslation(w.center[0],w.center[1]-SPEC.comHeight,w.center[2]).setDensity(0).setFriction(0).setFrictionCombineRule(RAPIER.CoefficientCombineRule.Min),this.body);
     this.world.step();this.reset();
   }
   reset(pose:{x?:number;z?:number;y?:number;yaw?:number}={}):void {
