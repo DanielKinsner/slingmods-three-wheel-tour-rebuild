@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "gate_id": "G1",
+  "decision": "PASS",
+  "build_ref": "4e079c2aba9c8664fea2e65eb198921ef188d848",
+  "reviewed_at": "2026-09-10T22:11:37.368169+00:00",
+  "implementer_id": "/root and vehicle artist",
+  "reviewer_id": "/root/gate_review",
+  "review_mode": "independent_subagent",
+  "review_limitation": "Diagnostic clay recognition only. Software-rendered isolated runtime; no G3 surface/rider/lighting completion, physical-device performance or G2 driving approval. Ryker overall length is provisional for scale blockout.",
+  "blockers": [],
+  "criteria": {
+    "references": {
+      "status": "PASS",
+      "reason": "Inspected mapped exact-year AutoDrive multiview photographs, manual-only exterior lead, official secondary fleet images and source-page excerpts. Dimensions, US/Canada equipment distinction, research rights and unresolved Ryker length are explicit; all three scale blockouts exist in runtime.",
+      "evidence_ids": [
+        "dossier",
+        "ref_front",
+        "ref_cockpit",
+        "ref_controls",
+        "ref_manufacturer",
+        "hero_source",
+        "f3t_ref",
+        "ryker_ref",
+        "f3t_source",
+        "ryker_source",
+        "fleet_image",
+        "review"
+      ]
+    },
+    "hero_shape": {
+      "status": "PASS",
+      "reason": "Direct multiview comparison establishes recognizable Slingshot primary forms: swept wide wings and lamp signature, center prow, boarding dip, twin populated seats/hoops, high rear shoulders and exposed single rear wheel. Clay stage fidelity 4/5; detailed dashboard, creases and surfaces remain explicit G3 work.",
+      "evidence_ids": [
+        "runtime_front",
+        "runtime_side",
+        "runtime_rear",
+        "runtime_threequarter",
+        "runtime_rearquarter",
+        "runtime_cockpit",
+        "ref_front",
+        "ref_side",
+        "ref_rear",
+        "ref_threequarter",
+        "ref_rearquarter",
+        "ref_cockpit",
+        "review"
+      ]
+    },
+    "asset_contract": {
+      "status": "PASS",
+      "reason": "Read actual Blender source and parsed GLB; independently verified six byte counts/hashes, shared wheel centers, identity steer/spin hierarchy and named mounts. Live isolated runtime reproduced bounds within proposed 1 percent tolerance and correct pivots; estimated hardpoints are declared.",
+      "evidence_ids": [
+        "contract",
+        "asset",
+        "runtime",
+        "review"
+      ]
+    },
+    "source_export": {
+      "status": "PASS",
+      "reason": "Actual editable metric Blender scene and real GLB contain corresponding authored geometry without reference textures. Inspected source diagnostics versus six actual runtime images; revision02 repairs are visible and previous revision is retained.",
+      "evidence_ids": [
+        "contract",
+        "asset",
+        "export",
+        "revision",
+        "capture",
+        "blender_threequarter",
+        "blender_side",
+        "blender_rear",
+        "blender_cockpit",
+        "runtime_front",
+        "runtime_side",
+        "runtime_rear",
+        "runtime_threequarter",
+        "runtime_rearquarter",
+        "runtime_cockpit",
+        "review"
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "id": "review",
+      "kind": "source_manifest",
+      "path": "production/evidence/G1/reviewer-notes.md",
+      "description": "Independent direct inspection and explicitly bounded G1 decision",
+      "sha256": "fc2c51dc68e461091f90f3d07f3a1685b981a4ac04cd387aa991125290328a64"
+    },
+    {
+      "id": "contract",
+      "kind": "test_log",
+      "path": "production/evidence/G1/asset-contract-check.json",
+      "description": "Six independently verified source/export hashes and numerical contract checks",
+      "sha256": "fb81156683051b0e6d00a321384563997f0a87570deb88c59a0e33654c5a49e2"
+    },
+    {
+      "id": "asset",
+      "kind": "source_manifest",
+      "path": "production/evidence/G1/asset-manifest.json",
+      "description": "Geometry dimensions, contact layout, node families and estimated hardpoints",
+      "sha256": "84d9ba33345f14ee213a83b61caf685e871554e55f2a72b71b691316832b5186"
+    },
+    {
+      "id": "runtime",
+      "kind": "telemetry",
+      "path": "production/evidence/G1/runtime-inspection.json",
+      "description": "Actual browser bounds and runtime pivot presence",
+      "sha256": "2587a8ed8bdde515437f2013fd556ffb5c84ea4bd9aadd9c9369489b828c5da8"
+    },
+    {
+      "id": "fleet",
+      "kind": "telemetry",
+      "path": "production/evidence/G1/fleet-runtime.json",
+      "description": "Actual runtime fleet diagnostic load",
+      "sha256": "4db03fb85c5964babff669d9a3f7bde76cff6b17904cf7c327b1c49a25283a8e"
+    },
+    {
+      "id": "capture",
+      "kind": "test_log",
+      "path": "production/evidence/G1/capture.log",
+      "description": "Actual isolated browser capture output",
+      "sha256": "f315160e17d4ff1fcf672f2479e2a21e3c401d1e3aebcca8248db25229f7b63a"
+    },
+    {
+      "id": "export",
+      "kind": "test_log",
+      "path": "production/evidence/G1/blender-export.log",
+      "description": "Actual Blender source/export log",
+      "sha256": "5db392f41af99d45dcea1f91bc8b850fa2ad605765d1898044cab363bd5f0535"
+    },
+    {
+      "id": "revision",
+      "kind": "source_manifest",
+      "path": "production/evidence/G1/revision02.md",
+      "description": "Bounded primary-form repair with revision01 retained",
+      "sha256": "754eafeee24cc80e1ace94a7321abb3a3900f06317218ed6039ef06857767d12"
+    },
+    {
+      "id": "runtime_front",
+      "kind": "runtime_image",
+      "path": "production/evidence/G1/runtime-front.png",
+      "description": "Directly inspected actual runtime front diagnostic clay view",
+      "sha256": "6cd2939d732d7e0edf678f17e9cc7bf7829fda9adf0c8ec26c96b1a958be3ec8"
+    },
+    {
+      "id": "runtime_side",
+      "kind": "runtime_image",
+      "path": "production/evidence/G1/runtime-side.png",
+      "description": "Directly inspected actual runtime side diagnostic clay view",
+      "sha256": "9f321660f346623a7949beffe2895a02e0e6629e7d9ece7c9c0c30a3fedf7b08"
+    },
+    {
+      "id": "runtime_rear",
+      "kind": "runtime_image",
+      "path": "production/evidence/G1/runtime-rear.png",
+      "description": "Directly inspected actual runtime rear diagnostic clay view",
+      "sha256": "afbb6908454ae461dad168966112f1c2103f511c8b41d70f136750198dcf4ca2"
+    },
+    {
+      "id": "runtime_threequarter",
+      "kind": "runtime_image",
+      "path": "production/evidence/G1/runtime-threequarter.png",
+      "description": "Directly inspected actual runtime threequarter diagnostic clay view",
+      "sha256": "b3b41d23686ae573e82e3e4d9f9514a076a60de932f65348c503f511a97b3aba"
+    },
+    {
+      "id": "runtime_rearquarter",
+      "kind": "runtime_image",
+      "path": "production/evidence/G1/runtime-rearquarter.png",
+      "description": "Directly inspected actual runtime rearquarter diagnostic clay view",
+      "sha256": "f607c93addd9f50583ae5f5f35a390a9cc49471ef524ca73de951fdca6879384"
+    },
+    {
+      "id": "runtime_cockpit",
+      "kind": "runtime_image",
+      "path": "production/evidence/G1/runtime-cockpit.png",
+      "description": "Directly inspected actual runtime cockpit diagnostic clay view",
+      "sha256": "e4bdedfd4c52bfbc1a22034ed2821e0ba6fae356a8b594706ab6689b11528282"
+    },
+    {
+      "id": "fleet_image",
+      "kind": "runtime_image",
+      "path": "production/evidence/G1/runtime-fleet-scale.png",
+      "description": "Directly inspected actual runtime scale blockouts",
+      "sha256": "8a033ce4f12de869ea7a7454365e4ebe5143f56a807a157507016fde6bec9df5"
+    },
+    {
+      "id": "blender_threequarter",
+      "kind": "source_manifest",
+      "path": "production/evidence/G1/blender-diagnostic-threequarter.png",
+      "description": "Directly inspected Blender diagnostic threequarter render; source diagnostic only",
+      "sha256": "69363b2c3e9d82f902e320d1bc5e3b95574d0609715a9d58f25bf5d6f25438b5"
+    },
+    {
+      "id": "blender_side",
+      "kind": "source_manifest",
+      "path": "production/evidence/G1/blender-diagnostic-side.png",
+      "description": "Directly inspected Blender diagnostic side render; source diagnostic only",
+      "sha256": "d5fb4bf4a55a61c417cf4b43ca7f542eadd06d33c4ac0c232c782be66bf27048"
+    },
+    {
+      "id": "blender_rear",
+      "kind": "source_manifest",
+      "path": "production/evidence/G1/blender-diagnostic-rear.png",
+      "description": "Directly inspected Blender diagnostic rear render; source diagnostic only",
+      "sha256": "e253a399830fbaaa4ea0043f8acc07ed3a81b3c857b3f39402e35fe9c8ae0463"
+    },
+    {
+      "id": "blender_cockpit",
+      "kind": "source_manifest",
+      "path": "production/evidence/G1/blender-diagnostic-cockpit.png",
+      "description": "Directly inspected Blender diagnostic cockpit render; source diagnostic only",
+      "sha256": "aa3f7938f6ab2d96312d4a70b16faf88f00b98fc3bf63e5917fe1b58fa267257"
+    },
+    {
+      "id": "dossier",
+      "kind": "source_manifest",
+      "path": "references/README.md",
+      "description": "Exact-year research mapping, dimensions, uncertainties, US/Canada distinctions and rights boundary",
+      "sha256": "24cfb42bf6ef12d9500f3a19834ee2d2cae1e19ca3bb4faf1d73e0a5accd3d1f"
+    },
+    {
+      "id": "ref_front",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/fae0_l.jpg",
+      "description": "Directly inspected research-only reference front",
+      "sha256": "71346db0eb3ef89325c21049be0f0ebd5e65284387c921b7586ab3aa8646b502"
+    },
+    {
+      "id": "ref_side",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/4f06_l.jpg",
+      "description": "Directly inspected research-only reference side",
+      "sha256": "0f932ca96fc94b425d9f6469e48ebddd2ed87f270e6995ab0f6119a85af89cce"
+    },
+    {
+      "id": "ref_rear",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/7d1d_l.jpg",
+      "description": "Directly inspected research-only reference rear",
+      "sha256": "08fa17b321486a0e158c3719b0f239e86bb50e0929910b20dfaf218d0461cbbe"
+    },
+    {
+      "id": "ref_threequarter",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/d2cd_l.jpg",
+      "description": "Directly inspected research-only reference threequarter",
+      "sha256": "3dd88036224cfb4e3ac734c11a1f79c6bc46b06a67e1fa6b1ea6bc6cf473da5a"
+    },
+    {
+      "id": "ref_rearquarter",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/bd31_l.jpg",
+      "description": "Directly inspected research-only reference rearquarter",
+      "sha256": "ee06defb3c693487bfed4c8c96e8784c72ba98b5d6bffd791d96ab33c4b01849"
+    },
+    {
+      "id": "ref_cockpit",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/95c0_l.jpg",
+      "description": "Directly inspected research-only reference cockpit",
+      "sha256": "4855809989d82b1390629f62fe31bca5ba814b65369e68f0b03efb3e3aff5c7f"
+    },
+    {
+      "id": "ref_controls",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/deda_l.jpg",
+      "description": "Directly inspected research-only reference controls",
+      "sha256": "2dc38206bac1628fb580c5db7e176ff7e7014f00f1043b368791cff4caab9f76"
+    },
+    {
+      "id": "ref_manufacturer",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/manufacturer-threequarter.png",
+      "description": "Directly inspected research-only reference manufacturer",
+      "sha256": "64eb34fc02256104d89f5cd78cf7a00260bc5de4f3584e1226d2efa2aab0061e"
+    },
+    {
+      "id": "f3t_ref",
+      "kind": "source_manifest",
+      "path": "references/spyder-f3t-2024.png",
+      "description": "Retained source research inspected for exact-year identity/dimensions; not licensed game imagery",
+      "sha256": "32f835588333e07dc56aa64d9e9ed50b1a2a2151564f4d0a8957455366b9f4d2"
+    },
+    {
+      "id": "ryker_ref",
+      "kind": "source_manifest",
+      "path": "references/ryker-rally-2024.png",
+      "description": "Retained source research inspected for exact-year identity/dimensions; not licensed game imagery",
+      "sha256": "2249bccc94a7905dce1f0e28593ce775a008d33aa1d327bd46b17df78269f858"
+    },
+    {
+      "id": "f3t_source",
+      "kind": "source_manifest",
+      "path": "references/spyder-2024.html",
+      "description": "Retained source research inspected for exact-year identity/dimensions; not licensed game imagery",
+      "sha256": "7c05b70f73b39da14ca5b8c65cc5c13d21cfeb22ecb9ecb2f54e158df7df6115"
+    },
+    {
+      "id": "ryker_source",
+      "kind": "source_manifest",
+      "path": "references/ryker-2024.html",
+      "description": "Retained source research inspected for exact-year identity/dimensions; not licensed game imagery",
+      "sha256": "ae6ea5e56e5d1bd667dc5213c21e391c4cfb3f46a26d6c59dd3241c030f5342d"
+    },
+    {
+      "id": "hero_source",
+      "kind": "source_manifest",
+      "path": "references/slingshot-2024/motohunt-page.html",
+      "description": "Retained source research inspected for exact-year identity/dimensions; not licensed game imagery",
+      "sha256": "87e936dc8fb86485102da0ddfb63365913adc2bddaa492eb62e53ba8da4c745e"
+    }
+  ]
+}
