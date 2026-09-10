@@ -1,0 +1,126 @@
+{
+  "as_of": "2026-09-10",
+  "status": "Research seeds; verify relevant source again when implementing/publishing.",
+  "sources": [
+    {
+      "id": "H1",
+      "title": "SlingMods-Three-Wheel-Tour-Codex-Brief.md",
+      "url": null,
+      "kind": "user_library_historical_brief",
+      "date": "2026-09-09",
+      "note": "Read from user Library during planning. Historical source-level snapshot, not a verified current playtest. Not bundled or overwritten."
+    },
+    {
+      "id": "V1",
+      "title": "Polaris — 2024 Slingshot R AutoDrive, Radar Blue Fade, specifications",
+      "url": "https://slingshot.polaris.com/en-ca/2024/slingshot-r/slingshot-r/auto-slingshot-r-radar-blue-fade-2024-slg/",
+      "kind": "manufacturer",
+      "note": "Manufacturer search result exposed specification text. Later direct fetches returned 403. Recheck the exact market/equipment and retain a local reference before final geometry approval."
+    },
+    {
+      "id": "V2",
+      "title": "Can-Am — 2024 Spyder F3 family, F3-T section",
+      "url": "https://can-am.brp.com/on-road/us/en/models/previous-models/2024/spyder-f3.html",
+      "kind": "manufacturer",
+      "note": "Use the F3-T section, not F3-S or F3 Limited dimensions/weight/equipment."
+    },
+    {
+      "id": "V3",
+      "title": "Can-Am — 2024 Ryker, Rally section",
+      "url": "https://can-am.brp.com/on-road/us/en/models/previous-models/2024/ryker.html",
+      "kind": "manufacturer",
+      "note": "Rally overall length has conflicting imperial/metric values. Other dimensions and transmission recorded separately. Do not treat 2,532 mm as verified length."
+    },
+    {
+      "id": "P1",
+      "title": "TricLED Kit #1 Standard RGB UnderGlow, SM-133",
+      "url": "https://www.slingmods.com/polaris-slingshot-underglow-kit?vehicle=3",
+      "kind": "retailer_product",
+      "note": "2024 R explicitly listed. Base kit only. Optional Kit #5 halos are 2015–2019 only and must not be installed on this 2024 reference."
+    },
+    {
+      "id": "P2",
+      "title": "DDMWorks 3-Way Adjustable Sport Shocks, SM-3223",
+      "url": "https://www.slingmods.com/polaris-slingshot-3-way-adjustable-sport-shocks-coilovers-ddmworks?vehicle=3",
+      "kind": "retailer_product",
+      "note": "Set of three; 2024 R explicitly listed. Spring color is an option; exact color option must be resolved, not guessed."
+    },
+    {
+      "id": "P3",
+      "title": "Thermal R&D dual rear-exit Sport exhaust 2020–2024, SM-7720",
+      "url": "https://www.slingmods.com/polaris-slingshot-ceramic-coated-dual-rear-exit-sport-exhaust-system-2020-up?vehicle=3",
+      "kind": "retailer_product",
+      "note": "2024 R explicitly listed; 2025 is not this product. Tip inserts are an option. No verified numerical horsepower gain captured."
+    },
+    {
+      "id": "P4",
+      "title": "Thermal R&D Spyder F3-T/F3 Limited cat-back, SM-29043",
+      "url": "https://www.slingmods.com/canam-spyder-f3t-f3l-cat-back-exhaust-thermal?vehicle=1",
+      "kind": "retailer_product",
+      "note": "2024 F3-T explicitly listed. Page expressly excludes F3 base and F3-S. Numerical horsepower gain not established."
+    },
+    {
+      "id": "P5",
+      "title": "Baja Ron Ultra F3/ST/RS sway bar kit, SM-18320",
+      "url": "https://www.slingmods.com/canam-spyder-f3-st-rs-ultra-performance-sway-bar-kit-baja-ron?vehicle=1",
+      "kind": "retailer_product",
+      "note": "2024 F3-T explicitly listed. Color combo/end-link options need exact configuration. Actual stiffness curve not established."
+    },
+    {
+      "id": "P6",
+      "title": "Elka front shocks for Ryker Rally 2022+, SM-25561",
+      "url": "https://www.slingmods.com/elka-front-suspension-canam-ryker-rally?vehicle=4",
+      "kind": "retailer_product",
+      "note": "2024 Rally explicitly listed. Configurable stage and rider setup, not a single universal spring/damping specification."
+    },
+    {
+      "id": "P7",
+      "title": "EvolutionR rear storage Stealth Bags, SM-28919",
+      "url": "https://www.slingmods.com/polaris-slingshot-rear-storage-compartment-stealth-bags-evolutionr",
+      "kind": "retailer_product",
+      "note": "2024 R included in fitment; set of two. Cosmetic/utility, not a power upgrade."
+    },
+    {
+      "id": "T1",
+      "title": "Three.js WebGPURenderer documentation",
+      "url": "https://threejs.org/docs/pages/WebGPURenderer.html",
+      "kind": "official_technical",
+      "note": "Describes WebGPU backend and WebGL2 fallback. Does not certify arbitrary shader parity or this project performance."
+    },
+    {
+      "id": "T2",
+      "title": "Three.js GLTFLoader documentation",
+      "url": "https://threejs.org/docs/pages/GLTFLoader.html",
+      "kind": "official_technical",
+      "note": "Loading and supported extension reference. Match to installed Three.js version."
+    },
+    {
+      "id": "T3",
+      "title": "Rapier DynamicRayCastVehicleController API",
+      "url": "https://rapier.rs/javascript3d/classes/DynamicRayCastVehicleController.html",
+      "kind": "official_technical",
+      "note": "Per-wheel API and chassis controller building blocks. Does not prove a finished simcade tire/drivetrain model."
+    },
+    {
+      "id": "T4",
+      "title": "Blender glTF 2.0 exporter manual",
+      "url": "https://docs.blender.org/manual/en/latest/addons/scene_gltf2.html",
+      "kind": "official_technical_reference_to_recheck",
+      "note": "Current manual found via search; direct retrieval failed in this environment. Local agent must inspect installed exporter/current docs and prove material/export behavior using the calibration fixture."
+    },
+    {
+      "id": "T5",
+      "title": "Codex AGENTS.md instructions",
+      "url": "https://developers.openai.com/codex/guides/agents-md/",
+      "kind": "official_technical",
+      "note": "Resolved to official learn.chatgpt.com agent-configuration guide during research. Existing instruction precedence and discovery matter; keep the root directive concise."
+    },
+    {
+      "id": "T6",
+      "title": "Codex subagents guide",
+      "url": "https://developers.openai.com/codex/multi-agent/",
+      "kind": "official_technical",
+      "note": "Resolved to official learn.chatgpt.com subagents guide. Use supported local capabilities; do not fabricate configuration or availability."
+    }
+  ]
+}

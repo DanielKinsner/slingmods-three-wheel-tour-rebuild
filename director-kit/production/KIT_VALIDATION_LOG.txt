@@ -1,0 +1,32 @@
+REVISION 2 FRESH-START KIT VALIDATION
+
+These are synthetic validator tests, NOT game or Blender tests.
+
+$ python -m unittest discover -s tests -v
+test_blocker_prevents_pass (test_gate_validator.EvidenceIntegrityTests.test_blocker_prevents_pass) ... ok
+test_complete_dependency_chain (test_gate_validator.EvidenceIntegrityTests.test_complete_dependency_chain) ... ok
+test_criterion_needs_evidence (test_gate_validator.EvidenceIntegrityTests.test_criterion_needs_evidence) ... ok
+test_cycle_rejected (test_gate_validator.EvidenceIntegrityTests.test_cycle_rejected) ... ok
+test_dependency_cannot_be_skipped (test_gate_validator.EvidenceIntegrityTests.test_dependency_cannot_be_skipped) ... ok
+test_empty_file_rejected (test_gate_validator.EvidenceIntegrityTests.test_empty_file_rejected) ... ok
+test_hash_change_rejected (test_gate_validator.EvidenceIntegrityTests.test_hash_change_rejected) ... ok
+test_independent_reviewer_must_differ (test_gate_validator.EvidenceIntegrityTests.test_independent_reviewer_must_differ) ... ok
+test_malformed_review_rejected (test_gate_validator.EvidenceIntegrityTests.test_malformed_review_rejected) ... ok
+test_missing_criterion_rejected (test_gate_validator.EvidenceIntegrityTests.test_missing_criterion_rejected) ... ok
+test_missing_manifest_does_not_pass (test_gate_validator.EvidenceIntegrityTests.test_missing_manifest_does_not_pass) ... ok
+test_pending_decision_rejected (test_gate_validator.EvidenceIntegrityTests.test_pending_decision_rejected) ... ok
+test_same_agent_requires_disclosure (test_gate_validator.EvidenceIntegrityTests.test_same_agent_requires_disclosure) ... ok
+test_traversal_rejected (test_gate_validator.EvidenceIntegrityTests.test_traversal_rejected) ... ok
+test_unknown_gate_rejected (test_gate_validator.EvidenceIntegrityTests.test_unknown_gate_rejected) ... ok
+test_valid_synthetic_manifest (test_gate_validator.EvidenceIntegrityTests.test_valid_synthetic_manifest) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.012s
+
+OK
+
+$ python tools/check_gate.py --gate G0
+NOT READY: G0
+  - G0: review manifest missing (not reviewed)
+
+Expected exit code: 1 (no game evidence; G0 remains unapproved).

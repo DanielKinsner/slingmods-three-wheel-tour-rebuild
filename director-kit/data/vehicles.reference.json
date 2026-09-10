@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-10",
+  "purpose": "Reference seed, NOT validated runtime physics configuration. Unknown data must be estimated explicitly or sourced.",
+  "vehicles": [
+    {
+      "id": "slingshot_r_2024_autodrive",
+      "name": "2024 Polaris Slingshot R AutoDrive",
+      "source_ids": [
+        "V1"
+      ],
+      "art_status": "not_built",
+      "reference_status": "Reconfirm V1 reference locally; later direct fetch returned 403.",
+      "transmission": {
+        "type": "five_speed_automated_manual",
+        "source_id": "V1"
+      },
+      "facts": {
+        "wheelbase": {
+          "value": 2667,
+          "unit": "mm",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "length": {
+          "value": 3800,
+          "unit": "mm",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "width": {
+          "value": 1980,
+          "unit": "mm",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "height": {
+          "value": 1318,
+          "unit": "mm",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "front_track": {
+          "value": 1755,
+          "unit": "mm",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "curb_mass": {
+          "value": 756,
+          "unit": "kg",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": "Do not silently add fuel already included in the source mass convention."
+        },
+        "peak_power": {
+          "value": 203,
+          "unit": "hp",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "power_peak_rpm": {
+          "value": 8250,
+          "unit": "rpm",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "peak_torque": {
+          "value": 144,
+          "unit": "lb-ft",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "torque_peak_rpm": {
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "V1",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        }
+      },
+      "tire_sizes": {
+        "front": "225/45R18",
+        "rear": "305/30R20",
+        "source_id": "V1"
+      },
+      "game_design_role": "Low wide two-seat roadster; first hero.",
+      "unresolved_physics": [
+        "full torque curve",
+        "center of mass",
+        "inertia tensor",
+        "tire curves",
+        "stock damper/spring curves",
+        "loaded race mass",
+        "exact drive-reduction chain"
+      ],
+      "runtime_tune": null
+    },
+    {
+      "id": "spyder_f3t_2024",
+      "name": "2024 Can-Am Spyder F3-T",
+      "source_ids": [
+        "V2"
+      ],
+      "art_status": "not_built",
+      "reference_status": "Manufacturer F3-T section reviewed.",
+      "transmission": {
+        "type": "six_speed_SE6_semi_automatic",
+        "source_id": "V2"
+      },
+      "facts": {
+        "wheelbase": {
+          "value": 1709,
+          "unit": "mm",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "length": {
+          "value": 2596,
+          "unit": "mm",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "width": {
+          "value": 1497,
+          "unit": "mm",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "height": {
+          "value": 1241,
+          "unit": "mm",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "dry_mass": {
+          "value": 430,
+          "unit": "kg",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": "Dry, not loaded race mass."
+        },
+        "peak_power": {
+          "value": 115,
+          "unit": "hp",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "power_peak_rpm": {
+          "value": 7250,
+          "unit": "rpm",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "peak_torque": {
+          "value": 130.1,
+          "unit": "N-m",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "torque_peak_rpm": {
+          "value": 5000,
+          "unit": "rpm",
+          "source_id": "V2",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        }
+      },
+      "tire_sizes": {
+        "front": "165/55R15",
+        "rear": "225/50R15",
+        "source_id": "V2"
+      },
+      "game_design_role": "Muscular, touring-oriented machine with windshield and luggage.",
+      "unresolved_physics": [
+        "full torque curve",
+        "center of mass",
+        "inertia tensor",
+        "tire curves",
+        "stock damper/spring curves",
+        "loaded race mass",
+        "ratios"
+      ],
+      "runtime_tune": null
+    },
+    {
+      "id": "ryker_rally_900_2024",
+      "name": "2024 Can-Am Ryker Rally 900",
+      "source_ids": [
+        "V3"
+      ],
+      "art_status": "not_built",
+      "reference_status": "Rally section reviewed; overall length discrepancy remains.",
+      "transmission": {
+        "type": "CVT_with_reverse",
+        "source_id": "V3"
+      },
+      "facts": {
+        "wheelbase": {
+          "value": 1709,
+          "unit": "mm",
+          "source_id": "V3",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "length": {
+          "value": null,
+          "unit": "mm",
+          "source_id": "V3",
+          "status": "conflicting_source_values",
+          "note": "Page gives 92.6 inches and 2532 mm; 92.6 inches converts to 2352.04 mm. Likely transposition is an inference, not confirmed. Resolve before final dimension approval."
+        },
+        "width": {
+          "value": 1522,
+          "unit": "mm",
+          "source_id": "V3",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "height": {
+          "value": 1090,
+          "unit": "mm",
+          "source_id": "V3",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "dry_mass": {
+          "value": 303,
+          "unit": "kg",
+          "source_id": "V3",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": "Dry, not loaded race mass."
+        },
+        "peak_power": {
+          "value": 82,
+          "unit": "hp",
+          "source_id": "V3",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "power_peak_rpm": {
+          "value": 8000,
+          "unit": "rpm",
+          "source_id": "V3",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "peak_torque": {
+          "value": 79.1,
+          "unit": "N-m",
+          "source_id": "V3",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        },
+        "torque_peak_rpm": {
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "V3",
+          "status": "manufacturer_published_not_independently_measured",
+          "note": ""
+        }
+      },
+      "tire_sizes": {
+        "front": "145/60R16",
+        "rear": "205/55R15",
+        "source_id": "V3"
+      },
+      "stock_equipment_note": "Rally already includes Akrapovic exhaust; do not sell stock equipment as an aftermarket upgrade.",
+      "game_design_role": "Compact CVT machine; tune for approachable playful response without fictional gears.",
+      "unresolved_physics": [
+        "overall length source conflict",
+        "full torque curve",
+        "CVT ratio/engagement policy",
+        "center of mass",
+        "inertia tensor",
+        "tire curves",
+        "loaded race mass"
+      ],
+      "runtime_tune": null
+    }
+  ]
+}

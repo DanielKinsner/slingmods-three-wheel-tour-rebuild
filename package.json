@@ -1,0 +1,30 @@
+{
+  "name": "slingmods-three-wheel-tour-rebuild",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "tsx --test tests/*.test.ts",
+    "test:browser": "node scripts/capture-calibration.mjs",
+    "gate:g0": "python director-kit/tools/check_gate.py --gate G0",
+    "preview:accepted": "npm run gate:g0 && vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "0.20.0",
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.2",
+    "@types/three": "0.185.4",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vite": "8.3.0"
+  },
+  "private": true
+}

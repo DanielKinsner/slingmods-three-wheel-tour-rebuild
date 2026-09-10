@@ -1,0 +1,40 @@
+{
+  "command": "environment inventory",
+  "timestamp": "2026-09-10T21:48:53.5504206Z",
+  "root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "gitRoot": "C:/Users/SM - Dan/Documents/GitHub/slingmods-three-wheel-tour-rebuild",
+  "node": "v24.15.0",
+  "npm": "11.6.2",
+  "python": "Python 3.13.5",
+  "blender": ".tools/blender-4.5.2-windows-x64/blender.exe",
+  "blenderVersion": "4.5.2 LTS ab25eae04993",
+  "blenderZipSource": "https://mirror.blender.org/release/Blender4.5/blender-4.5.2-windows-x64.zip",
+  "blenderZipSha256": "A24EC8DC2EE097294624F90E210C3528DA5624320460F03270A387CA22A33734",
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "0.20.0",
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.2",
+    "@types/three": "0.185.4",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vite": "8.3.0"
+  },
+  "docs": [
+    "https://threejs.org/docs/",
+    "https://rapier.rs/docs/user_guides/javascript/getting_started_js/"
+  ],
+  "apiVerification": "Installed TypeScript declarations, GLTFLoader source, actual Blender glTF export, compiled app and executed Rapier world",
+  "commands": [
+    "npm ci",
+    "npm run build",
+    "npm test",
+    "npm run dev",
+    "npm run test:browser",
+    "python -m unittest discover -s director-kit/tests -v",
+    "npm run gate:g0",
+    "npm run preview:accepted"
+  ]
+}

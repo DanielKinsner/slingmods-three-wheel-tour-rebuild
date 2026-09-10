@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "status": "DESIGN_NOT_IMPLEMENTED",
+  "gate_policy": "All listed criteria and dependency reviews must pass. The script checks integrity, not visual truth.",
+  "gates": [
+    {
+      "id": "G0",
+      "name": "Fresh workbench",
+      "depends_on": [],
+      "criteria": [
+        {
+          "id": "workspace",
+          "description": "New standalone project directory and local Git root; zero legacy code/assets imported; old project and saves untouched"
+        },
+        {
+          "id": "toolchain",
+          "description": "Actual versions/commands and working Blender export-to-runtime calibration"
+        },
+        {
+          "id": "baseline",
+          "description": "Fresh calibration scene captured; new harness/physics smoke tests and serialization/storage-isolation tests run honestly"
+        },
+        {
+          "id": "workflow",
+          "description": "Isolated automation, safe integration gate check and production boundaries established"
+        }
+      ]
+    },
+    {
+      "id": "G1",
+      "name": "Vehicle recognition",
+      "depends_on": [
+        "G0"
+      ],
+      "criteria": [
+        {
+          "id": "references",
+          "description": "Exact-year fleet references, dimensions, uncertainties and scale blockouts"
+        },
+        {
+          "id": "hero_shape",
+          "description": "Slingshot primary geometry matches neutral multiview references"
+        },
+        {
+          "id": "asset_contract",
+          "description": "Runtime scale/axes/pivots/contact layout/mount naming verified"
+        },
+        {
+          "id": "source_export",
+          "description": "Editable Blender source and actual runtime GLB comparison evidence"
+        }
+      ]
+    },
+    {
+      "id": "G2",
+      "name": "Driving pad",
+      "depends_on": [
+        "G0"
+      ],
+      "criteria": [
+        {
+          "id": "three_contacts",
+          "description": "Real three-contact chassis/suspension/tire model; no spline-pinned player"
+        },
+        {
+          "id": "drive_controls",
+          "description": "Steering/braking/reverse/traction/surfaces and camera work coherently"
+        },
+        {
+          "id": "powertrain",
+          "description": "One authoritative drivetrain/RPM/gear/wheel telemetry source"
+        },
+        {
+          "id": "regression",
+          "description": "Rest/bump/seam/collision/frame-cap tests and inspected motion evidence"
+        }
+      ]
+    },
+    {
+      "id": "G3",
+      "name": "Runtime presentation",
+      "depends_on": [
+        "G1",
+        "G2"
+      ],
+      "criteria": [
+        {
+          "id": "hero_rider",
+          "description": "Finished hero/cockpit/rider/part mounts pass neutral runtime review"
+        },
+        {
+          "id": "materials_lights",
+          "description": "Garage and track sample pass actual day/night material/light comparison"
+        },
+        {
+          "id": "camera_audio",
+          "description": "Required slice cameras, lamps and telemetry-driven audio inspected"
+        },
+        {
+          "id": "performance",
+          "description": "Measured representative rendering profile meets stated desktop target on recorded physical hardware"
+        }
+      ]
+    },
+    {
+      "id": "G4",
+      "name": "Complete playable slice",
+      "depends_on": [
+        "G3"
+      ],
+      "criteria": [
+        {
+          "id": "race",
+          "description": "Finished benchmark course and three physics-constrained rivals; inspected full races"
+        },
+        {
+          "id": "progression",
+          "description": "Valid checkpoints/results, idempotent rewards, new-game save/load, and isolation from legacy storage verified"
+        },
+        {
+          "id": "three_parts",
+          "description": "SM-133/SM-3223/SM-7720 correctly fit, install, restore, save and show effects"
+        },
+        {
+          "id": "shop",
+          "description": "Safe exact-product build links; no live-site dependency or fabricated facts"
+        },
+        {
+          "id": "experience",
+          "description": "Full garage-race-upgrade-retry loop reviewed day/night with audio and performance evidence"
+        }
+      ]
+    },
+    {
+      "id": "G5",
+      "name": "Complete fleet",
+      "depends_on": [
+        "G4"
+      ],
+      "criteria": [
+        {
+          "id": "fleet_art",
+          "description": "All three finished vehicles/riders/LODs/reference comparisons pass"
+        },
+        {
+          "id": "distinct_dynamics",
+          "description": "F3-T SE6 and Ryker CVT behave distinctly with honest setup provenance"
+        },
+        {
+          "id": "fitment_catalog",
+          "description": "Curated release products/options/assets and exclusions verified per platform"
+        },
+        {
+          "id": "class_balance",
+          "description": "Each starting vehicle works with declared fair class/event rules and saved builds"
+        }
+      ]
+    },
+    {
+      "id": "G6",
+      "name": "Campaign",
+      "depends_on": [
+        "G5"
+      ],
+      "criteria": [
+        {
+          "id": "destinations",
+          "description": "Five destinations individually accepted with representative runtime evidence"
+        },
+        {
+          "id": "story",
+          "description": "Eight freshly authored chapters/roughly 24 connected events; no legacy script/ID/progress imports"
+        },
+        {
+          "id": "economy",
+          "description": "Campaign completable for each platform without real purchases; rewards/replays audited"
+        },
+        {
+          "id": "replayability",
+          "description": "Ghosts, personal records, photo mode and completed camera/input options tested"
+        }
+      ]
+    },
+    {
+      "id": "G7",
+      "name": "Release candidate",
+      "depends_on": [
+        "G6"
+      ],
+      "criteria": [
+        {
+          "id": "targets",
+          "description": "Declared target browsers/controllers/physical mobile tests and quality tiers actually verified"
+        },
+        {
+          "id": "regressions",
+          "description": "Full functional/performance/accessibility/save/load regression report inspected"
+        },
+        {
+          "id": "rights_security",
+          "description": "Public asset permissions, secrets and privacy/commerce boundaries reviewed with evidence"
+        },
+        {
+          "id": "release",
+          "description": "Reproducible build, rollback and confirmed authorized deployment route; no unapproved production promotion"
+        }
+      ]
+    }
+  ],
+  "kit_revision": 2
+}

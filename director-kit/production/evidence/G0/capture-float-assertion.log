@@ -1,0 +1,27 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 test:browser
+> node scripts/capture-calibration.mjs
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 0.8700000047683716
+- 0.87
+      ^
+
+    at file:///C:/Users/SM%20-%20Dan/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/capture-calibration.mjs:10:117
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at process.processImmediate (node:internal/timers:472:9) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0.8700000047683716,
+  expected: 0.87,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.15.0
