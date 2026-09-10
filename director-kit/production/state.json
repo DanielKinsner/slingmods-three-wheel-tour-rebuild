@@ -2,17 +2,19 @@
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
   "as_of": "2026-09-10",
-  "workspace_verified": false,
-  "branch": null,
-  "commit": null,
-  "current_gate": "G0",
-  "current_packet": "P00",
-  "next_action": "Create a NEW standalone slingmods-three-wheel-tour-rebuild directory and local Git repository outside the old project; execute fresh-start P00. Do not modify or import the old game.",
+  "workspace_verified": true,
+  "branch": "main",
+  "commit": "d8c5f9226e968f2c551225cf3ab2b79a5343da00",
+  "current_gate": "G1/G2",
+  "current_packet": "P01/P02",
+  "next_action": "Execute P01 exact-year references and Blender clay hero plus fleet scale blockouts; independently execute P02 test-pad dynamics using one contact manifest.",
   "game_implementation_in_this_kit": false,
-  "accepted_game_evidence": [],
+  "accepted_game_evidence": [
+    "production/evidence/G0/review.json"
+  ],
   "gates": {
     "G0": {
-      "status": "pending",
+      "status": "passed",
       "same_approach_revisions": 0,
       "approach_changes": 0
     },
@@ -61,11 +63,18 @@
     "Ryker Rally overall-length source discrepancy",
     "Product option values and authored asset dimensions"
   ],
-  "commands": {},
+  "commands": {
+    "build": "npm run build",
+    "test": "npm test",
+    "capture": "npm run test:browser",
+    "dev": "npm run dev",
+    "gate": "python director-kit/tools/check_gate.py --gate G0",
+    "blender": "pwsh -File scripts/blender.ps1"
+  },
   "rejected_approaches": [],
   "kit_revision": 2,
   "build_mode": "FRESH_START",
-  "workspace_root": null,
+  "workspace_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
   "new_repository_required": true,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1"

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "gate_id": "G0",
+  "decision": "PASS",
+  "build_ref": "d8c5f9226e968f2c551225cf3ab2b79a5343da00",
+  "reviewed_at": "2026-09-10T21:51:23.825621+00:00",
+  "implementer_id": "/root",
+  "reviewer_id": "/root/gate_review",
+  "review_mode": "independent_subagent",
+  "review_limitation": "Isolated SwiftShader browser and background Blender inspection; no physical GPU, controller, mobile or hands-on driving validation. Old unrelated application was not forensically audited.",
+  "blockers": [],
+  "criteria": {
+    "workspace": {
+      "status": "PASS",
+      "reason": "Verified new standalone Git root and initial checkpoint with no remote; source/import paths contain newly authored implementation, supplied-kit hashes match and save APIs only access fresh namespace in isolated contexts.",
+      "evidence_ids": [
+        "boundary",
+        "kit",
+        "tests",
+        "browser",
+        "review"
+      ]
+    },
+    "toolchain": {
+      "status": "PASS",
+      "reason": "Opened actual editable Blender scene and parsed real GLB, verified matching nodes, metric cube, animated wheel and material extensions; runtime loaded exported geometry with expected bounds and axes. Actual versions/build/export commands recorded.",
+      "evidence_ids": [
+        "environment",
+        "blender",
+        "assets",
+        "export",
+        "build",
+        "runtime",
+        "pivot",
+        "browser",
+        "review"
+      ]
+    },
+    "baseline": {
+      "status": "PASS",
+      "reason": "Directly inspected both calibration captures and live browser scene. Independently reran all three new tests covering serialization, namespace isolation and real Rapier world settling; inspected captured browser storage and pivot evidence.",
+      "evidence_ids": [
+        "runtime",
+        "pivot",
+        "browser",
+        "tests",
+        "float_failure",
+        "review"
+      ]
+    },
+    "workflow": {
+      "status": "PASS",
+      "reason": "Headless fresh Chromium context and background Blender preserve desktop control; loopback server, no remote/deploy script, and accepted-preview command gates execution on evidence validation. Inspected actual missing-review rejection and independently reran all 16 validator tests.",
+      "evidence_ids": [
+        "boundary",
+        "environment",
+        "guard",
+        "validator",
+        "review"
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "id": "boundary",
+      "kind": "source_manifest",
+      "path": "production/evidence/G0/fresh-start.md",
+      "description": "Fresh project boundary and restricted operations.",
+      "sha256": "5abac92670ebb38e348946e0f413c4d283b6a68814261508feae13074aec3bdc"
+    },
+    {
+      "id": "environment",
+      "kind": "source_manifest",
+      "path": "production/evidence/G0/environment.json",
+      "description": "Actual tools, pinned dependencies and commands.",
+      "sha256": "13d172eba81a0bb85600bb69df8b18deb3c8a252e04018d6e9448307101d2331"
+    },
+    {
+      "id": "blender",
+      "kind": "source_manifest",
+      "path": "production/evidence/G0/blender-manifest.json",
+      "description": "Authored Blender fixture inventory and export basis.",
+      "sha256": "eb20c55d52fd99382ef5e119601839559b237a3dd475895144e14709ae600999"
+    },
+    {
+      "id": "assets",
+      "kind": "source_manifest",
+      "path": "production/evidence/G0/source-export-hashes.json",
+      "description": "Reviewer-verified exact source/export/lockfile hashes and sizes.",
+      "sha256": "bc5502e252f35cfabdd2a956446852cac3e7a57944581c9d7fd755bbf4d7f708"
+    },
+    {
+      "id": "export",
+      "kind": "test_log",
+      "path": "production/evidence/G0/blender-export.log",
+      "description": "Actual Blender source save and GLB export output.",
+      "sha256": "90763ee64fbd274c8c206a517dd9ba146d4bfda6729547a5a50e36657e791e93"
+    },
+    {
+      "id": "runtime",
+      "kind": "runtime_image",
+      "path": "production/evidence/G0/calibration-runtime.png",
+      "description": "Directly inspected neutral runtime material, scale and axes fixture.",
+      "sha256": "5c79569507690a960d99b899f6b4ab3ba0781bd831982893aef925f3f016bd2a"
+    },
+    {
+      "id": "pivot",
+      "kind": "runtime_image",
+      "path": "production/evidence/G0/calibration-pivot-runtime.png",
+      "description": "Directly inspected changed runtime wheel pose.",
+      "sha256": "3d5d6f8e4e0b00f99ffcd21fe75d14544a19b77bd3e4669b3accc073769b9648"
+    },
+    {
+      "id": "browser",
+      "kind": "telemetry",
+      "path": "production/evidence/G0/browser-smoke.json",
+      "description": "Runtime bounds, axis conversion, material, pivot and storage assertions.",
+      "sha256": "29bae242f6a932067f1e99e148eb26866060d6d4b9521a915142095e58ac704c"
+    },
+    {
+      "id": "tests",
+      "kind": "test_log",
+      "path": "production/evidence/G0/tests.log",
+      "description": "Actual three-test save/storage/Rapier smoke outcome.",
+      "sha256": "8142e2201409c16dc140256db36a9201efc07d7a10015ef5ad6fcebe2450d4dc"
+    },
+    {
+      "id": "build",
+      "kind": "test_log",
+      "path": "production/evidence/G0/build.log",
+      "description": "TypeScript and Vite build output with disclosed bundle warning.",
+      "sha256": "5afc676fdc6bd5e725e4599e99a444d1ee0ab5cda024e3ccdb60ee6f306ffc63"
+    },
+    {
+      "id": "validator",
+      "kind": "test_log",
+      "path": "production/evidence/G0/validator-tests.log",
+      "description": "Actual 16-test evidence validator suite.",
+      "sha256": "ddb21fde4f9ac2e7c9f0266c74c1a7bade40a8cc508811dd1b49565b412bb8a8"
+    },
+    {
+      "id": "guard",
+      "kind": "test_log",
+      "path": "production/evidence/G0/pending-preview-gate.log",
+      "description": "Accepted preview refuses missing gate review.",
+      "sha256": "1f8ec83eb61f710f72bca4c9feb3445174d4b45066b6c0c91dc25165cbe160fe"
+    },
+    {
+      "id": "kit",
+      "kind": "source_manifest",
+      "path": "production/evidence/G0/supplied-kit-integrity.json",
+      "description": "24 supplied kit files match copied source before production state edits.",
+      "sha256": "bb65952882f3aa73ca222368633135668526ed7113b094198285e2dfd32d1488"
+    },
+    {
+      "id": "review",
+      "kind": "source_manifest",
+      "path": "production/evidence/G0/reviewer-notes.md",
+      "description": "Independent direct inspection, read-only reruns and explicit limits.",
+      "sha256": "22be832527cf78d2cf4172304dfb3c307191e7f7753e6d3da74bce4f54744ab8"
+    },
+    {
+      "id": "float_failure",
+      "kind": "test_log",
+      "path": "production/evidence/G0/capture-float-assertion.log",
+      "description": "Preserved initial float32 assertion failure and inspected correction.",
+      "sha256": "7c848c1a59b0b8efc298aa7cc64a0dd4c43865897a3d1786e078724a7a416677"
+    }
+  ]
+}
