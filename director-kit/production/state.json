@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "404dff91255eb0dadcaadeb81075f86508f36607",
   "current_gate": "G3",
-  "current_packet": "P03A1",
-  "next_action": "Stop after returning Astra-Review-03.zip for Astra review. Front fidelity remains HOLD; G3 pending. No next gameplay packet.",
+  "current_packet": "P03A2 + P03B1",
+  "next_action": "Complete frozen Review04 evidence/package, then stop for Astra; G3 pending. No next packet.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -58,9 +58,8 @@
     }
   },
   "blockers": [
-    "P03A1 front fidelity HOLD: broad outer-brow end-cap bands and segmented leading-edge transitions remain after bounded method changes.",
-    "Tire grooves read better but remain a coarse shoulder/zigzag approximation of the exact-year reference.",
-    "G3 remains pending; driver, audio/controller/full cameras, full workshop/course and hardware evidence are outside this packet."
+    "Broader vehicle fidelity held: rounded edge/subdued ridge and tire groove/machining approximation remain.",
+    "G3 pending: full workshop/driver/audio/campaign and hardware evidence not authorized."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
@@ -106,7 +105,9 @@
     "Instruments, infotainment and lamp emission are passive; no live mirror or nighttime beam system. Photo-guided shapes and materials remain approximations.",
     "Historical P03A local visual PASS was rejected by Astra Review02; that review remains preserved as history. P03A1 is a bounded best candidate with specific visual HOLD, not an accepted complete slice.",
     "P03A1 uses a 192,839-triangle showroom mesh on the pad as a disclosed exception to the 140k racing-LOD aim; no physical GPU-memory/FPS or LOD approval.",
-    "Review03 movies use silent frame-stepped runtime capture at12fps; software wall time is separately recorded. No human-driving or real-time-FPS claim."
+    "Review03 movies use silent frame-stepped runtime capture at12fps; software wall time is separately recorded. No human-driving or real-time-FPS claim.",
+    "P03A2 development default is211431 triangles/59 primitives, below250k showroom ceiling but above140k racing-LOD aim; same16 maps and source mip estimate76895573 bytes.",
+    "P03B1 uses noncolliding guide cones and a virtual controller for automated evidence; real navigator.getGamepads production reader exists, physical controller/performance/subjective fun not tested."
   ],
   "accepted_assets": [
     "assets/blender/calibration.blend",
@@ -126,13 +127,12 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "independent_tests": "30/30 npm tests and5/5 focused RPM checks pass; production TypeScript/Vite build passes with retained chunk warning.",
-    "gates": "Historical G0/G1/G2 and signed-RPM engineering acceptance preserved. P03A1 visual HOLD; G3 pending.",
-    "preservation": "Simulation, contacts, pad, shadow policy, P01/P03A source/export and historical gate evidence unchanged against b9fb622.",
-    "evidence": "Final 8 candidate stills, 5 recaptured baseline views and actual normal Rear view. Final browser/recording served-byte checks pass. Both SILENT movies fully decode; 13-second orbit bounds <=0.780001 NDC throughout, 20-second scripted pad/grass-edge maneuver ends at rest. See P03A1/review-final.json and media-verification.json.",
-    "environment": "Windows11 build26200; Blender4.5.2 LTS; Node24.15.0; isolated Chromium153.0.8010.12/SwiftShader. No desktop takeover or hardware FPS/subjective driving approval."
+    "independent_tests": "43/43 suite and5/5 focused RPM checks pass. Includes inspection framing, input and30/60/120/144 numerical camera consistency. Final frozen runtime capture pending.",
+    "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B1 independent progress allowed by Review03.",
+    "preservation": "No changes to simulation, contact layout, old pad, repaired shadow policy, P03A1 source/export/maps or bay against0db7ede7.",
+    "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard."
   },
-  "director_addendum": "director-addenda/review-02/CODEX_NEXT.md",
+  "director_addendum": "director-addenda/review-03/CODEX_NEXT.md",
   "drivetrain_addendum": {
     "status": "independently_passed",
     "commit": "9add1f9",
@@ -153,7 +153,7 @@
     "director_review": "Review02 accepts engineering and rejects the blanket visual PASS; historical local review preserved. Named visual corrections now P03A1."
   },
   "p03a1": {
-    "status": "review_candidate_visual_hold",
+    "status": "retained_candidate_visual_hold",
     "baseline_commit": "b9fb6227a2383093b671cd67148e7039b7a78e80",
     "reconciliation": "Tracked work matched submitted checkpoint. Existing untracked historical captures, ZIPs and material-lab source preserved. No resets/checkouts/scaffolding.",
     "scope": "Reference-locked fascia/wheel/cockpit, AA graphics, compact rig/framing; no dynamics changes or next gameplay packet.",
@@ -171,5 +171,20 @@
   },
   "historical_review_evidence": [
     "production/evidence/P03A/review-final.json"
-  ]
+  ],
+  "p03a2": {
+    "status": "local_shell_repair_and_integration_reviewed_provisional",
+    "candidates_evaluated": 1,
+    "candidate": "public/assets/vehicles/slingshot-p03a2.glb",
+    "review": "production/evidence/P03A2/review-integration.md",
+    "scope": "Only two brows replaced from separately reviewed boundary-controlled connected quad master; all717 other source parts and16 maps frozen",
+    "limits": "Rounded edge/subdued ridge and tire groove/machining fidelity remain approximate. Whole-vehicle fidelity held; G3 pending."
+  },
+  "p03b1": {
+    "status": "implemented_final_runtime_evidence_pending",
+    "scope": "Shared keyboard/standard gamepad reader, lifecycle/rearm, unsnapped near/far/look-back chase,18 Blender noncolliding practice cones",
+    "evidence": "production/evidence/Review04/",
+    "physics_changed": false,
+    "physical_controller_tested": false
+  }
 }
