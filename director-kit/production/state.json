@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
   "current_gate": "G3",
-  "current_packet": "P03A2 + P03B1 review-ready",
-  "next_action": "Return Astra-Review-04.zip then stop for Astra. G3 pending. No next packet.",
+  "current_packet": "P03B2 First Drive",
+  "next_action": "Finish frozen First Drive evidence, return Astra-Review-05.zip then stop for Astra. G3 pending.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -107,7 +107,8 @@
     "P03A1 uses a 192,839-triangle showroom mesh on the pad as a disclosed exception to the 140k racing-LOD aim; no physical GPU-memory/FPS or LOD approval.",
     "Review03 movies use silent frame-stepped runtime capture at12fps; software wall time is separately recorded. No human-driving or real-time-FPS claim.",
     "P03A2 development default is211431 triangles/59 primitives, below250k showroom ceiling but above140k racing-LOD aim; same16 maps and source mip estimate76895573 bytes.",
-    "P03B1 uses noncolliding guide cones and a virtual controller for automated evidence; real navigator.getGamepads production reader exists, physical controller/performance/subjective fun not tested."
+    "P03B1 uses noncolliding guide cones and a virtual controller for automated evidence; real navigator.getGamepads production reader exists, physical controller/performance/subjective fun not tested.",
+    "P03B2 sound is original local synthesis, not OEM exhaust recording. Audio source timbre remains held absent auditory review. Body fidelity and hardware/physical gamepad certification remain held."
   ],
   "accepted_assets": [
     "assets/blender/calibration.blend",
@@ -133,7 +134,7 @@
     "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard.",
     "evidence": "Review04-final:6 current runtime PNGs,30s normal-pipeline SILENT virtual-controller film,4s runtime reflection. Final browser source/served-byte verification and actual-keyboard focus/reset pass; bothfilms fullydecode. RESULTS.json records limits and walltime."
   },
-  "director_addendum": "director-addenda/review-03/CODEX_NEXT.md",
+  "director_addendum": "director-addenda/review-04/CODEX_NEXT.md",
   "drivetrain_addendum": {
     "status": "independently_passed",
     "commit": "9add1f9",
@@ -192,5 +193,21 @@
     "runtime_commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
     "review": "production/evidence/P03B1/review-final.md",
     "camera_limit": "Near held-lookback clips lower nose; rearward road/cones visible, release restores chase. No physical FPS or obstruction-transition/resize certification."
+  },
+  "p03b2": {
+    "status": "implemented_candidate_frozen_evidence_pending",
+    "scope": "Separate Blender driver, cockpit/near/far, quick held rearward cut, actual telemetry audio and faster pad demonstration",
+    "driver": "public/assets/drivers/test-driver.glb",
+    "attachment": "public/assets/drivers/test-driver-attachment.json",
+    "audio": "public/assets/audio/p03b2/provenance.json",
+    "asset_candidates": {
+      "driver_fit_corrections": 1,
+      "driver_materials": 1,
+      "audio_bank": 1
+    },
+    "aural_fidelity": "HOLD original local synthetic approximation; no genuine audition/hardware output certification",
+    "driver_fit": "Independent material01 runtime fit review supports candidate freeze",
+    "preliminary_speed_mph": 51.5066,
+    "g3_advance": false
   }
 }

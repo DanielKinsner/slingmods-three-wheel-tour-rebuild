@@ -1,0 +1,160 @@
+{
+  "candidate": 1,
+  "candidatesCreated": 1,
+  "method": "Original local Python/Numpy synthesis; no recording, service call, payment or OEM claim",
+  "permissionBasis": "New project-authored procedural audio; no third-party source samples",
+  "auralFidelity": "HOLD: provisional synthetic timbre; numerical checks are not an audition",
+  "parameters": {
+    "seed": 3042,
+    "sampleRate": 48000,
+    "engineRpmBeds": [
+      1200,
+      3600,
+      6200
+    ],
+    "periodSeconds": 2
+  },
+  "files": [
+    {
+      "name": "engine-1200-load",
+      "file": "engine-1200-load.wav",
+      "referenceRpmEstimate": 1200,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "loop": [
+        0,
+        2.0
+      ],
+      "method": "Periodic harmonic combustion pulse train, subharmonic and filtered mechanical noise; independent RPM/load beds",
+      "sha256": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.00213623046875
+    },
+    {
+      "name": "engine-1200-lift",
+      "file": "engine-1200-lift.wav",
+      "referenceRpmEstimate": 1200,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "loop": [
+        0,
+        2.0
+      ],
+      "method": "Periodic harmonic combustion pulse train, subharmonic and filtered mechanical noise; independent RPM/load beds",
+      "sha256": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.001861572265625
+    },
+    {
+      "name": "engine-3600-load",
+      "file": "engine-3600-load.wav",
+      "referenceRpmEstimate": 3600,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "loop": [
+        0,
+        2.0
+      ],
+      "method": "Periodic harmonic combustion pulse train, subharmonic and filtered mechanical noise; independent RPM/load beds",
+      "sha256": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.04827880859375
+    },
+    {
+      "name": "engine-3600-lift",
+      "file": "engine-3600-lift.wav",
+      "referenceRpmEstimate": 3600,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "loop": [
+        0,
+        2.0
+      ],
+      "method": "Periodic harmonic combustion pulse train, subharmonic and filtered mechanical noise; independent RPM/load beds",
+      "sha256": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.045440673828125
+    },
+    {
+      "name": "engine-6200-load",
+      "file": "engine-6200-load.wav",
+      "referenceRpmEstimate": 6200,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "loop": [
+        0,
+        2.0
+      ],
+      "method": "Periodic harmonic combustion pulse train, subharmonic and filtered mechanical noise; independent RPM/load beds",
+      "sha256": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.07080078125
+    },
+    {
+      "name": "engine-6200-lift",
+      "file": "engine-6200-lift.wav",
+      "referenceRpmEstimate": 6200,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "loop": [
+        0,
+        2.0
+      ],
+      "method": "Periodic harmonic combustion pulse train, subharmonic and filtered mechanical noise; independent RPM/load beds",
+      "sha256": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.066162109375
+    },
+    {
+      "name": "road",
+      "file": "road.wav",
+      "referenceRpmEstimate": null,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "loop": [
+        0,
+        2.0
+      ],
+      "method": "Periodic band-limited colored noise",
+      "sha256": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.020965576171875
+    },
+    {
+      "name": "wind",
+      "file": "wind.wav",
+      "referenceRpmEstimate": null,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "loop": [
+        0,
+        2.0
+      ],
+      "method": "Periodic low-mid colored noise",
+      "sha256": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.00799560546875
+    },
+    {
+      "name": "shift",
+      "file": "shift.wav",
+      "referenceRpmEstimate": null,
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 6720,
+      "loop": null,
+      "method": "Short decaying original mechanical noise impulse",
+      "sha256": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "samplePeak": 0.64996337890625,
+      "loopBoundaryDelta": 0.001251220703125
+    }
+  ]
+}

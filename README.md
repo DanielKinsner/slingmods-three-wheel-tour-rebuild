@@ -1,6 +1,6 @@
-# SlingMods: Three-Wheel Tour — P03A2 / P03B1
+# SlingMods: Three-Wheel Tour — First Drive (P03B2)
 
-Continue this standalone rebuild. Review03 permits bounded front-shell repair and independent controls/camera/practice development. P03A2 is the provisional default after local shell/integration review; broader vehicle fidelity remains held. G3 pending. See director-kit/director-addenda/review-03/CODEX_NEXT.md and production/state.json.
+Continue the existing rebuild. The current P03A2 Slingshot, bay/pad, maps and accepted physics are frozen. P03B2 adds a separate fitted Blender driver, cockpit, quick rearward glance and telemetry-driven game sound. Whole-car visual fidelity and G3 remain held/pending. Current authority: director-kit/director-addenda/review-04/CODEX_NEXT.md.
 
 ## Launch
 
@@ -11,46 +11,38 @@ npm run build
 npm run preview
 ```
 
-Open http://127.0.0.1:5187/. Inspect opens compact bay views/orbit/light sweep. Drive uses the same Slingshot on the existing pad with an18-cone practice guide: launch, gentle slalom, broad sweeper, stop box. Cones are noncolliding; no route constraint, race or scoring. Speed/gear remain visible; I toggles diagnostics. Dev: npm run dev, port5186.
+Open http://127.0.0.1:5187/. Inspect offers the retained unoccupied bay. Drive opens the same car with its helmeted driver on the existing pad. Use Enable sound in the driving page; silent play remains available. Mute and volume persist independently of camera preference. A controller gesture alone does not guarantee browser audio activation.
 
 | Action | Keyboard | Standard controller |
 |---|---|---|
-| Throttle / brake | W/S or up/down | RT/LT analog |
-| Steer | A/D or left/right | Left stick |
-| Near/far chase | C | Top face |
-| Held look-back | B | Left shoulder |
+| Throttle/brake | W/S or arrows | RT/LT analog |
+| Steer | A/D or arrows | Left stick |
+| Near → far → cockpit | C | Top face |
+| Quick held rearward glance | B | LB |
 | Request direction | X | Right face |
 | Reset practice start | Hold R one second | Hold bottom face one second |
-| Pause/resume | Escape | Menu/right center |
+| Pause/resume | Escape | Menu |
 
-Focus loss/disconnect pauses and clears controls; resume deliberately and release controls to rearm. Unknown mappings fall back to keyboard. A controller may need a button gesture before the browser exposes it. No physical-controller claim. Keyboard and controller share the retained60Hz physics and direction/braking interlock.
+Release controls and resume deliberately after blur/disconnect. Inspect returns to the bay. I toggles diagnostics; speed, gear and RPM stay visible. The18 cones are noncolliding practice guides. No race, campaign, AI, vehicle selector/customizer, live shop, upgrades or new track. Historical vehicle variants remain in the checkout; the compact Review05 archive includes only the current runtime car.
 
-## Sources and isolated verification
+## Authoring and checks
 
-Default: public/assets/vehicles/slingshot-p03a2.glb; editable assets/blender/vehicles/slingshot-p03a2.blend. Diagnostic proof01/master remain separate. P03A1, all other vehicle parts/maps, inspection bay and physics/shadow policy are preserved. New local construction uses independent boundary curves and connected quad lip/return; it does not certify final OEM fidelity.211431 triangles,59 primitives; same16 embedded maps; showroom asset on pad remains above racing-LOD target.
+Separate driver: assets/blender/drivers/test-driver.blend; public/assets/drivers/test-driver.glb and attachment JSON.28,411 triangles/4 material groups, compact original1K PBR maps. Actual wheel matrix drives bounded arm IK and alternating regrips; supporting hand may slide along the rim. No vehicle reshaping to fit the person. Helmet/head hide only in cockpit. Gaze and view switching are presentation choices, not measured OEM vision.
 
-With Blender4.5.2 installed (replace executable path if needed):
+Original local synthesis bank: public/assets/audio/p03b2/. Three estimated RPM bands each have loaded/lifted beds, plus road, wind and actual-shift transient. Provisional timbre; no authentic exhaust or auditory approval claim. Source settings/permission basis/hashes are in provenance.json. Runtime and offline evidence use the same Web Audio graph, source buffers and pure telemetry mapper. No paid service, external generation or client credentials.
+
+With Blender4.5.2/Python with numpy installed, the authoring scripts are scripts/driver_p03b2_build.py, scripts/driver_p03b2_materials.py and scripts/audio-p03b2.py. They regenerate their named driver/audio outputs; do not run regeneration over historical evidence unintentionally. Downloaded Blender and dependencies are excluded from review archives.
 
 ```powershell
-& '.tools/blender-4.5.2-windows-x64/blender.exe' -b --python scripts/vehicle_p03a2_proof01.py
-& '.tools/blender-4.5.2-windows-x64/blender.exe' -b --python scripts/vehicle_p03a2_integrate.py
-& '.tools/blender-4.5.2-windows-x64/blender.exe' -b --python scripts/practice-p03b1.py
 npm test
-npx tsx --test tests/drivetrain-wheel-speed.test.ts
-```
-
-Rebuild scripts regenerate only their named outputs; retain historical files before intentional regeneration. Blender/tools excluded from ZIP. Runtime maps are authored, not research photos. P03A1 .blend and retained export batcher are included dependencies.
-
-With isolated Playwright Chromium and FFmpeg installed:
-
-```powershell
+npx tsx --test tests/input.test.ts tests/drivetrain-wheel-speed.test.ts
 npx playwright install chromium
-node scripts/build-review04.mjs
-$env:EVIDENCE_DIR='director-kit/production/evidence/Review04-new'
-node --import tsx scripts/capture-review04.mjs
-$env:EVIDENCE_DIR='director-kit/production/evidence/Review04-browser-new'
+node scripts/build-review05.mjs
+$env:EVIDENCE_DIR='director-kit/production/evidence/Review05-new'
+node --import tsx scripts/capture-review05.mjs
+$env:EVIDENCE_DIR='director-kit/production/evidence/Review05-browser-new'
 $env:VERIFY_BUILD='1'
-node scripts/verify-p03b1-browser.mjs
+node scripts/verify-first-drive-audio.mjs
 ```
 
-Use fresh evidence directories. Build/capture audit expects Git checkout and running preview; ordinary ZIP launch needs no Git.30-second SILENT film uses virtual standard inputs through the real reader/session/unsnapped camera with controlled clock60Hz; GPU/HUD captured12fps. No desktop control, fabricated audio, snapped-camera shortcut, physical FPS or human driving claim. Separate real browser-keyboard focus/reset check. Node24.15/npm11.6.2, Windows11, Chromium153/SwiftShader, Blender4.5.2 LTS. Historical routes asset=p03a1/p03a/p01 and calibration remain; fleet is scale blockouts only. No upgrades, live infotainment, driver, campaign, races or audio implemented in this packet.
+Capture commands require a running preview, FFmpeg and a Git checkout; ordinary launch does not. Choose fresh output directories. Isolated Chromium uses SwiftShader and mutes physical output, without overriding autoplay policy. The35s film uses120Hz controlled ordinary presentation, retained60Hz physics and24fps raster. Full logical telemetry/input/camera/driver/lifecycle timeline schedules shared-graph OfflineAudioContext sound, then muxes it without stretching. This is offline runtime-graph evidence, not live hardware recording, a physical controller test or sustained FPS. Review guide/results record exact verdicts and limits. Stop for Astra after Review05; no deployment or G3 advancement.

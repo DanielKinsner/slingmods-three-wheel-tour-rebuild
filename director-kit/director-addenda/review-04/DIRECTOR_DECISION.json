@@ -1,0 +1,40 @@
+{
+  "review": "04",
+  "date": "2026-09-11",
+  "runtime_commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+  "packaging_commit": "30520ca2bef6f059d82ccad79ec73ce3abd6a075",
+  "project_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "p03a2": "accepted_local_repair_provisional_development_asset",
+  "p03b1": "accepted_bounded_input_and_low_speed_practice_with_lookback_usability_change_assigned",
+  "whole_vehicle_fidelity": "HOLD",
+  "G3": "pending",
+  "authorized_next": "P03B2_first_drive_driver_cockpit_audio_quick_lookback_faster_evidence",
+  "vehicle_body_revisions_authorized": false,
+  "new_project_authorized": false,
+  "deployment_authorized": false,
+  "new_spending_authorized": false,
+  "physical_controller_tested_independently": false,
+  "independent_tests": {
+    "input": 11,
+    "rpm": 5,
+    "passed": 16,
+    "failed": 0
+  },
+  "full_suite_reported_not_rerun": {
+    "passed": 43,
+    "failed": 0
+  },
+  "next_package": "Astra-Review-05.zip",
+  "overrides": [
+    "Allow P03B2 while final whole-car fidelity is held.",
+    "Allow an intentional cut or very short blend for discrete held look-back; retain normal follow damping."
+  ],
+  "preserve": [
+    "Current P03A2 vehicle body/maps",
+    "Accepted simulation and signed RPM fix",
+    "Input lifecycle/rearming",
+    "Contact layout and shadow repair",
+    "Current pad and inspection bay",
+    "Historical evidence and owner work"
+  ]
+}
