@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "asset": "/assets/vehicles/slingshot-p04a1.glb",
+  "basis": "runtime metres +X right +Y up -Z forward; moving semantic group local transforms identity, geometry in vehicle rest space",
+  "wheelCenter": [
+    0,
+    0.3455,
+    1.3335
+  ],
+  "armPivot": [
+    0.28,
+    0.32,
+    0.68
+  ],
+  "armHub": [
+    0.28,
+    0.3455,
+    1.3335
+  ],
+  "shockUpper": [
+    0.28,
+    0.8,
+    1.025
+  ],
+  "shockLower": [
+    0.28,
+    0.37285,
+    1.13745
+  ],
+  "groups": {
+    "arm": "rear_arm_visual",
+    "belt": "belt_visual",
+    "axle": "rear_axle_visual",
+    "caliper": "rear_caliper_visual",
+    "shockBody": "shock_body_visual",
+    "shockPiston": "shock_piston_visual",
+    "shockSpring": "shock_spring_visual"
+  },
+  "nodes": {
+    "armPivot": "rear_arm_pivot",
+    "hub": "rear_hub",
+    "shockUpper": "shock_upper",
+    "shockLower": "shock_lower"
+  },
+  "storageEnvelopes": [
+    {
+      "name": "left_reserved_storage",
+      "min": [
+        -0.59,
+        0.335,
+        0.77
+      ],
+      "max": [
+        -0.215,
+        0.84,
+        1.25
+      ]
+    },
+    {
+      "name": "right_outboard_reserved_storage",
+      "min": [
+        0.455,
+        0.335,
+        0.77
+      ],
+      "max": [
+        0.615,
+        0.84,
+        1.25
+      ]
+    },
+    {
+      "name": "right_upper_reserved_storage",
+      "min": [
+        0.215,
+        0.62,
+        0.705
+      ],
+      "max": [
+        0.615,
+        0.84,
+        0.905
+      ]
+    }
+  ],
+  "sleeves": {
+    "bodyLength": 0.31,
+    "pistonLength": 0.32,
+    "bodyAnchor": "shockUpper",
+    "pistonAnchor": "shockLower",
+    "mechanism": "Rigid opposite-end sleeves; overlapping length changes. Spring only scales axially."
+  },
+  "supportedHubY": [
+    0.108640625,
+    0.498640625
+  ],
+  "normalRecordedHubY": [
+    0.3194957733154296,
+    0.36697590947151176
+  ],
+  "authorEstimate": true,
+  "provenance": {
+    "contacts": "Existing public/assets/slingshot-contact-layout.json unchanged",
+    "referencePhotos": [
+      "7d1d_l.jpg",
+      "5a83_l.jpg",
+      "4f06_l.jpg",
+      "bd31_l.jpg"
+    ],
+    "storage": "2024 Polaris manual P/N9941119 section3.3.17 behind-seat access; larger right inner shock/belt relief estimated from rear photos",
+    "hardpoints": "Photo-informed author estimates, not OEM CAD measurements",
+    "export": "Blender local rear surgery plus exact baseline attribute preservation via vehicle_p04a1_preserve_export.py"
+  },
+  "limits": [
+    "Vertical-raycast wheel path is authoritative; arm/belt axial stretch is visual-only and must be measured",
+    "Storage AABBs are conservative reserved interior boxes, not assertions that complete irregular shell is an AABB",
+    "No front/cockpit/car-contact/physics/material-map changes",
+    "Geometry revision02: clearance/connectivity checks recorded separately; final global G3/G4 and OEM fidelity remain pending"
+  ]
+}

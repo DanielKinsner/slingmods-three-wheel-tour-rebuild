@@ -1,0 +1,492 @@
+{
+  "runtime_commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+  "packaging_commit": "3f200c43bf33262d6bf6aaeccd8805e2f0bb83ba",
+  "archive_entries": 262,
+  "manifest_verified_count": 261,
+  "manifest_errors": [],
+  "build_inputs_available": 179,
+  "build_input_errors": [],
+  "protected_comparisons": [
+    {
+      "path": "assets/blender/drivers/test-driver.blend",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "assets/blender/vehicles/slingshot-p03a2.blend",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-1200-lift.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-1200-load.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-3600-lift.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-3600-load.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-6200-lift.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-6200-load.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/provenance.json",
+      "equal": true,
+      "normalized_line_endings": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/road.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/shift.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/audio/p03b2/wind.wav",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/drivers/test-driver-attachment.json",
+      "equal": true,
+      "normalized_line_endings": true
+    },
+    {
+      "path": "public/assets/drivers/test-driver.glb",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/drivers/textures/basecolor.png",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/drivers/textures/normal.png",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/drivers/textures/orm.png",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/inspection-bay-p03a1.glb",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/slingshot-contact-layout.json",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/test-pad.glb",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "public/assets/vehicles/slingshot-p03a2.glb",
+      "equal": true,
+      "normalized_line_endings": false
+    },
+    {
+      "path": "src/audio/graph.ts",
+      "equal": true,
+      "normalized_line_endings": true
+    },
+    {
+      "path": "src/driving/input.ts",
+      "equal": true,
+      "normalized_line_endings": true
+    },
+    {
+      "path": "src/simulation/drivetrain.ts",
+      "equal": true,
+      "normalized_line_endings": true
+    },
+    {
+      "path": "src/simulation/pad.ts",
+      "equal": true,
+      "normalized_line_endings": false
+    }
+  ],
+  "route": {
+    "id": "biscayne-harbor",
+    "version": "1",
+    "length": 1230.86710531256,
+    "width": 11,
+    "runoff": 3
+  },
+  "centerline_points": 616,
+  "gates": 16,
+  "colliders": 750,
+  "assets": [
+    {
+      "path": "public/assets/harbor/harbor.glb",
+      "bytes": 19211796,
+      "primitives": 9,
+      "triangles": 118400,
+      "materials": 9,
+      "images": 9,
+      "material_names": [
+        "Harbor_Asphalt",
+        "Harbor_Runoff",
+        "Harbor_Concrete",
+        "Harbor_Land",
+        "Harbor_Water",
+        "Harbor_Dark_Rubber",
+        "Harbor_Luminaire",
+        "Harbor_Modular_Atlas",
+        "Harbor_Road_Paint"
+      ]
+    },
+    {
+      "path": "public/assets/drivers/test-driver.glb",
+      "bytes": 3717076,
+      "primitives": 4,
+      "triangles": 28411,
+      "materials": 4,
+      "images": 3,
+      "material_names": [
+        "Driver_Textile",
+        "Driver_Leather",
+        "Driver_Helmet",
+        "Driver_Visor"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "preset": "day",
+      "rows": 10200,
+      "first_logical_t": 0,
+      "last_logical_t": 84.99166666666666,
+      "attempt_ids": [
+        1
+      ],
+      "invalid_reasons": [
+        null
+      ],
+      "peak_mph": 51.5974282511229,
+      "gear_values": [
+        1,
+        2
+      ],
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      },
+      "checkpoint_events": [
+        {
+          "t": 0,
+          "phase": "countdown",
+          "checkpoint": 0
+        },
+        {
+          "t": 3,
+          "phase": "running",
+          "checkpoint": 0
+        },
+        {
+          "t": 9.25,
+          "phase": "running",
+          "checkpoint": 1
+        },
+        {
+          "t": 12.583333333333334,
+          "phase": "running",
+          "checkpoint": 2
+        },
+        {
+          "t": 17.1,
+          "phase": "running",
+          "checkpoint": 3
+        },
+        {
+          "t": 22.566666666666666,
+          "phase": "running",
+          "checkpoint": 4
+        },
+        {
+          "t": 26.25,
+          "phase": "running",
+          "checkpoint": 5
+        },
+        {
+          "t": 31.433333333333334,
+          "phase": "running",
+          "checkpoint": 6
+        },
+        {
+          "t": 36.13333333333333,
+          "phase": "running",
+          "checkpoint": 7
+        },
+        {
+          "t": 41.43333333333333,
+          "phase": "running",
+          "checkpoint": 8
+        },
+        {
+          "t": 47.86666666666667,
+          "phase": "running",
+          "checkpoint": 9
+        },
+        {
+          "t": 52.733333333333334,
+          "phase": "running",
+          "checkpoint": 10
+        },
+        {
+          "t": 57.96666666666667,
+          "phase": "running",
+          "checkpoint": 11
+        },
+        {
+          "t": 64.1,
+          "phase": "running",
+          "checkpoint": 12
+        },
+        {
+          "t": 67.66666666666667,
+          "phase": "running",
+          "checkpoint": 13
+        },
+        {
+          "t": 72.31666666666666,
+          "phase": "running",
+          "checkpoint": 14
+        },
+        {
+          "t": 77.06666666666666,
+          "phase": "running",
+          "checkpoint": 15
+        },
+        {
+          "t": 81.73333333333333,
+          "phase": "finished",
+          "checkpoint": 15
+        }
+      ],
+      "camera_modes": [
+        "cockpit",
+        "far",
+        "near",
+        "rearward"
+      ],
+      "timeline_sha256": "096041e904b246779b89bf3e1b0efc5ec9ecaa45d698ed98026c04fe6b864395",
+      "video_sha256": "e76ab45b20b4028d795d62496e6cc9187957a8de95830ad257b72eb4d704391d",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720,
+            "r_frame_rate": "24/1",
+            "duration": "85.000000",
+            "nb_frames": "2040"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "duration": "85.000000",
+            "nb_frames": "3986"
+          }
+        ],
+        "format": {
+          "duration": "85.000000"
+        }
+      }
+    },
+    {
+      "preset": "night",
+      "rows": 10200,
+      "first_logical_t": 0,
+      "last_logical_t": 84.99166666666666,
+      "attempt_ids": [
+        1
+      ],
+      "invalid_reasons": [
+        null
+      ],
+      "peak_mph": 51.5974282511229,
+      "gear_values": [
+        1,
+        2
+      ],
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      },
+      "checkpoint_events": [
+        {
+          "t": 0,
+          "phase": "countdown",
+          "checkpoint": 0
+        },
+        {
+          "t": 3,
+          "phase": "running",
+          "checkpoint": 0
+        },
+        {
+          "t": 9.25,
+          "phase": "running",
+          "checkpoint": 1
+        },
+        {
+          "t": 12.583333333333334,
+          "phase": "running",
+          "checkpoint": 2
+        },
+        {
+          "t": 17.1,
+          "phase": "running",
+          "checkpoint": 3
+        },
+        {
+          "t": 22.566666666666666,
+          "phase": "running",
+          "checkpoint": 4
+        },
+        {
+          "t": 26.25,
+          "phase": "running",
+          "checkpoint": 5
+        },
+        {
+          "t": 31.433333333333334,
+          "phase": "running",
+          "checkpoint": 6
+        },
+        {
+          "t": 36.13333333333333,
+          "phase": "running",
+          "checkpoint": 7
+        },
+        {
+          "t": 41.43333333333333,
+          "phase": "running",
+          "checkpoint": 8
+        },
+        {
+          "t": 47.86666666666667,
+          "phase": "running",
+          "checkpoint": 9
+        },
+        {
+          "t": 52.733333333333334,
+          "phase": "running",
+          "checkpoint": 10
+        },
+        {
+          "t": 57.96666666666667,
+          "phase": "running",
+          "checkpoint": 11
+        },
+        {
+          "t": 64.1,
+          "phase": "running",
+          "checkpoint": 12
+        },
+        {
+          "t": 67.66666666666667,
+          "phase": "running",
+          "checkpoint": 13
+        },
+        {
+          "t": 72.31666666666666,
+          "phase": "running",
+          "checkpoint": 14
+        },
+        {
+          "t": 77.06666666666666,
+          "phase": "running",
+          "checkpoint": 15
+        },
+        {
+          "t": 81.73333333333333,
+          "phase": "finished",
+          "checkpoint": 15
+        }
+      ],
+      "camera_modes": [
+        "cockpit",
+        "far",
+        "near",
+        "rearward"
+      ],
+      "timeline_sha256": "e8c2d4f7e924b23fc51482c233cffa90cffc0448f7d8d7936c39e1adf987e890",
+      "video_sha256": "ead9be9f7f34fd76800dd130439acf94130c16f928fb87e55705d3e057106bfc",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720,
+            "r_frame_rate": "24/1",
+            "duration": "25.000000",
+            "nb_frames": "600"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "duration": "25.000000",
+            "nb_frames": "1173"
+          }
+        ],
+        "format": {
+          "duration": "25.000000"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Full browser/physics suite not rerun: pinned dependencies unavailable and registry DNS fails.",
+    "No human playtest, physical controller test or auditory quality judgment.",
+    "Numeric results derived from submitted timeline, not independent Rapier execution."
+  ]
+}

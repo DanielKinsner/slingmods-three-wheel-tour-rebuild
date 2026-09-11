@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
   "current_gate": "G3",
-  "current_packet": "P04A Harbor Shakedown",
-  "next_action": "Await Astra Review06 decision. Stop implementation; do not advance G3/G4 or start another packet.",
+  "current_packet": "P04A1 Rear Assembly Integrity + P04A2 Waterfront",
+  "next_action": "Finish bounded rear integrity and waterfront review, package Review07, then stop for Astra; G3/G4 pending.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -111,7 +111,8 @@
     "P03B2 sound is original local synthesis, not OEM exhaust recording. Audio source timbre remains held absent auditory review. Body fidelity and hardware/physical gamepad certification remain held.",
     "P04A scenery is a modular provisional harbor with angular palms, repeated shed forms, sparse infield, road bands and oversized overview water reflections. No final environmental/vehicle polish approval.",
     "Historical first P04A SwiftShader fixture: frame means350/298/309ms at720p and significant stalls; preserved separately. Replacement RTX4080 D3D11 short720p runs mean16.887/16.666/16.666ms, p95 16.8ms; day max150ms. Not sustained hardware certification or proof of low-mode speed gain.",
-    "P04A cockpit uses fixed original eye with scene-specific gaze/FOV; lower hands are more cropped. Night practicals use a nearest-light pool; refined transitions remain visual review work."
+    "P04A cockpit uses fixed original eye with scene-specific gaze/FOV; lower hands are more cropped. Night practicals use a nearest-light pool; refined transitions remain visual review work.",
+    "Review06 director found a preserved actual rear tire/firewall intersection and missing rear articulation. P04A1 addresses this specific defect; older blanket vehicle freezes and local appearance claims did not certify rear integrity."
   ],
   "accepted_assets": [
     "assets/blender/calibration.blend",
@@ -146,7 +147,7 @@
     },
     "evidence": "Review06-final02, Review06-ui02 and Review06-performance02. Controlled24fps video is distinct from wall-clock GPU frame measurement. No physical-controller, human-driving or listening claim."
   },
-  "director_addendum": "director-addenda/review-05/CODEX_NEXT.md",
+  "director_addendum": "director-addenda/review-06/CODEX_NEXT.md",
   "drivetrain_addendum": {
     "status": "independently_passed",
     "commit": "9add1f9",
@@ -262,6 +263,26 @@
       "evidence": "Review05-final six runtime PNGs;35s ordinary pipeline film with aligned offline runtime-graph audio,20s audio-focused WAV,4200-state logical timeline; current build/served hashes. Separate ordinary browser sound lifecycle proof. Numerical audio PASS; no auditory approval.",
       "runtime_commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
       "historical_packet": "P03B2"
+    },
+    {
+      "packet": "P04A",
+      "runtime_commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+      "verification": {
+        "local_tests": "64/64 full;22/22 focused input/drivetrain;TypeScript/Vite build PASS. Expected original pitch-coherence failure retained separately.",
+        "independent_review": "Six browser regressions PASS. Land repair:72 frames across two renderers, two presets and two aspects PASS. Replacement movies/stills and179 inputs/45 served hashes/25 protected files checked; final scoped review in P04A/review-final.md.",
+        "gates": "G0/G1/G2 retained. G3/G4 pending. P04A authorized by Review05 despite whole-car/aural hold.",
+        "preservation": "25 protected files unchanged against2fd926c. Simulation changed only environment/box rotation/surface seam; optional session hooks. No force/tire/drivetrain/step,car/driver/sourcebank edits.",
+        "environment": {
+          "os": "Windows11 build26200",
+          "blender": "4.5.2 LTS background",
+          "node": "24.15.0",
+          "npm": "11.6.2",
+          "browser": "153.0.8010.12",
+          "renderer": "Final isolated headless Chromium ANGLE Direct3D11 NVIDIA RTX4080; repair cross-check also SwiftShader; physical output muted",
+          "dependencies": "Retained package-lock; no upgrade"
+        },
+        "evidence": "Review06-final02, Review06-ui02 and Review06-performance02. Controlled24fps video is distinct from wall-clock GPU frame measurement. No physical-controller, human-driving or listening claim."
+      }
     }
   ],
   "p04a": {
@@ -298,5 +319,31 @@
       "video_fps": 24
     },
     "final_post_film_checks": "PASS: valid record, mute/volume, camera, immediate retry and reload in original day context"
+  },
+  "p04a1": {
+    "status": "in_progress_export_clearance_pending",
+    "authorization": "Review06 overrides prior modeling freeze ONLY for rear body/storage/suspension and shared presenter",
+    "found_defect": "Actual exported tire surface penetrates closed rear firewall; axle/arm/shock previously chassis-static",
+    "old_collision_reproduced": {
+      "tire_vertices_inside": 200,
+      "deepest_margin_m": 0.06433869898319244
+    },
+    "protected": "Front/cockpit/materials/driver/contact/input/physics/audio-RPM/time-trial/route preserved",
+    "geometry_revision_limit": 2,
+    "runtime": "Shared rear presenter; authoritative wheel center; arm/belt axial approximation, hub-following axle/nonspinning caliper, fixed upper shock/telescopic sleeves",
+    "evidence": "production/evidence/P04A1",
+    "g3_advance": false,
+    "g4_advance": false
+  },
+  "p04a2": {
+    "status": "export_ready_runtime_review_pending",
+    "scope": [
+      "Palm crown construction",
+      "Road material scale/variation",
+      "Waterfront day/night lighting"
+    ],
+    "route_unchanged": true,
+    "land_exclusion_preserved": true,
+    "evidence": "production/evidence/P04A2"
   }
 }
