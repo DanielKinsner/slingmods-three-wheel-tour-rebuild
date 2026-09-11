@@ -1,0 +1,93 @@
+{
+  "status": "PASS structural only",
+  "protectedTransforms": [
+    "camera_cockpit",
+    "camera_nose",
+    "steering_control",
+    "front_left_spin",
+    "front_left_steer",
+    "front_right_spin",
+    "front_right_steer",
+    "mount_exhaust",
+    "mount_suspension_front_left",
+    "mount_suspension_front_right",
+    "mount_suspension_rear",
+    "mount_underglow_left",
+    "mount_underglow_right",
+    "rear_spin",
+    "rider_foot_left",
+    "rider_foot_right",
+    "rider_hand_left",
+    "rider_hand_right",
+    "rider_seat",
+    "vehicle_root"
+  ],
+  "baselineBlobsPreserved": [
+    {
+      "file": "assets/blender/vehicles/slingshot-p01.blend",
+      "blob": "99a64421edaa8582dae64358f79572c0db5262cc"
+    },
+    {
+      "file": "assets/blender/vehicles/slingshot-p03a.blend",
+      "blob": "1f7e2eb81fc40ad8c50c360d7466dbdacad72ecb"
+    },
+    {
+      "file": "public/assets/vehicles/slingshot.glb",
+      "blob": "96f44c9aebb82bf844affe92dad7e556b3c52cf9"
+    },
+    {
+      "file": "public/assets/vehicles/slingshot-p03a.glb",
+      "blob": "5e03d72af4eb7b77452f206ecaf213a7eb5e4248"
+    },
+    {
+      "file": "public/assets/slingshot-contact-layout.json",
+      "blob": "17fabc7a1cb2ae5564ca57f1be0cb2b4069c790b"
+    }
+  ],
+  "worldBounds": {
+    "min": [
+      -0.99269999563694,
+      0.0,
+      -2.1463053226470947
+    ],
+    "max": [
+      1.0068292617797852,
+      1.3127319812774658,
+      1.6790000200271606
+    ],
+    "size": [
+      1.9995292574167252,
+      1.3127319812774658,
+      3.8253053426742554
+    ]
+  },
+  "triangles": 192839,
+  "primitives": 59,
+  "materials": 20,
+  "embeddedImages": 16,
+  "uv0All": true,
+  "textureChannelsHaveUV": true,
+  "files": {
+    "assets/blender/vehicles/slingshot-p03a1.blend": {
+      "bytes": 8194157,
+      "sha256": "10c12099c1b0238737c07ab209ce454e39aa4963dd42c14d6550e527b1a5b5f1"
+    },
+    "public/assets/vehicles/slingshot-p03a1.glb": {
+      "bytes": 9433140,
+      "sha256": "f2a417f75028b534a334168670baac3a411d1a0731bd927d0e82a43c8006b1b9"
+    },
+    "scripts/vehicle_p03a1_build.py": {
+      "bytes": 19873,
+      "sha256": "f76ae6f2b947daa601033c72e5203397a80e41baff1e2c1acf4dfe4c7df3cc9f"
+    },
+    "scripts/vehicle_p03a1_materials.py": {
+      "bytes": 6161,
+      "sha256": "672bf08fb95d81d8f8bae57494d164bdad66941af7a5cb778e2a6935af0d262e"
+    }
+  },
+  "limits": [
+    "No visual acceptance by census",
+    "Contact model unchanged; small visual body-envelope changes permitted by Astra",
+    "No hardware FPS or racing LOD claim"
+  ]
+}

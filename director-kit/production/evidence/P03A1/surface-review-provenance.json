@@ -1,0 +1,5147 @@
+[
+  {
+    "created": "2026-09-11T15:47:08.295Z",
+    "asset": "p03a",
+    "diagnostic": "gloss",
+    "cameras": {
+      "front": [
+        [
+          0,
+          1.3,
+          -5.6
+        ],
+        [
+          0,
+          0.7,
+          -0.2
+        ],
+        30
+      ],
+      "threequarter": [
+        [
+          -4.15282,
+          0.83004,
+          -3.97128
+        ],
+        [
+          0,
+          0.5658,
+          -0.51932
+        ],
+        30
+      ],
+      "side": [
+        [
+          6.5,
+          1.4,
+          0
+        ],
+        [
+          0,
+          0.65,
+          0
+        ],
+        38
+      ],
+      "rearquarter": [
+        [
+          4.6,
+          2.8,
+          6
+        ],
+        [
+          0,
+          0.65,
+          0
+        ],
+        38
+      ],
+      "wheel": [
+        [
+          -2.1,
+          0.8,
+          -2.1
+        ],
+        [
+          -0.8,
+          0.32,
+          -1.2
+        ],
+        36
+      ],
+      "cockpit": [
+        [
+          -0.65,
+          1.9,
+          1.1
+        ],
+        [
+          -0.27,
+          0.65,
+          -0.5
+        ],
+        43
+      ],
+      "cabin": [
+        [
+          2.1,
+          1.9,
+          -1
+        ],
+        [
+          0,
+          0.7,
+          0.4
+        ],
+        42
+      ]
+    },
+    "sourceHashes": {
+      "src/workbench.ts": "d1976790948f535a72951b3676a87eeb645e4be6b515b2bbc40d8c964a4ab266",
+      "src/presentation/inspection.ts": "f5d752e886cb1e8db32941d2b8cb9d2ce6a46b270e65d6c02e939ce935ef8458",
+      "scripts/capture-p03a1-stills.mjs": "fba08899af482c3327ebac4bf8dc5784fad13186548837916945550bf6137f5f",
+      "public/assets/vehicles/slingshot-p03a.glb": "5ca79ccf1608491a4c82079d570d0928c85c3581f5ebcf7d557404864250cee2"
+    },
+    "errors": [],
+    "method": "Isolated runtime screenshots. Matched before/after camera and rig; front/photo perspective approximate, not a metric survey.",
+    "browser": "153.0.8010.12",
+    "selectedImages": [
+      {
+        "name": "front",
+        "sha256": "ced2484f1acf6553713e1aa1aeb1effc182dd3b2151b416f0311c2d36c7c531b",
+        "inspection": {
+          "assetStatistics": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 52,
+            "triangles": 176218,
+            "uvMeshes": 52,
+            "materials": [
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Glass",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Scale",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Silver",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Wind_Deflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Tail_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Clear_Optical_Cover",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "radar-blue_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "molded-polymer_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "instrument-scale_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "sport-seat_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 60118370
+          },
+          "shadowMode": "repaired",
+          "shadowCensus": [
+            {
+              "name": "body_static__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Glass",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Scale",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Silver",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Wind_Deflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Tail_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Clear_Optical_Cover",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "outer_field",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ground",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "wet",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "gravel",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "one-wheel-bump",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "curb",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "barrier",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-a",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-b",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "incline-launch",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker005",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker006",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker007",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker008",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker009",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker010",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker011",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker012",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_10",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_20",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_30",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker005",
+              "caster": false,
+              "receiver": true
+            }
+          ],
+          "bounds": [
+            1.995999999344349,
+            1.3127319812774658,
+            3.7989999055862427
+          ],
+          "nodes": [
+            {
+              "id": "front_left",
+              "steer": true,
+              "spin": true,
+              "position": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "front_right",
+              "steer": true,
+              "spin": true,
+              "position": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "rear",
+              "steer": false,
+              "spin": true,
+              "position": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "presentedPosition": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "telemetry": null,
+          "rearCaliper": {
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "steeringControlQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "cameraPosition": [
+            6.613092715395706e-16,
+            1.3000000000000003,
+            -5.6
+          ],
+          "cameraFov": 30,
+          "projectedBounds": {
+            "minX": -0.7207239997810567,
+            "maxX": 0.7156864832184364,
+            "minY": -0.9404493023446947,
+            "maxY": 0.4285006407186661,
+            "allInFront": true
+          },
+          "renderInfo": {
+            "frame": 36,
+            "calls": 111,
+            "triangles": 359184,
+            "points": 0,
+            "lines": 0
+          },
+          "renderer": "WebKit WebGL"
+        },
+        "passes": {
+          "sceneWithShadows": {
+            "frame": 37,
+            "calls": 111,
+            "triangles": 359184,
+            "points": 0,
+            "lines": 0
+          },
+          "heroColorPass": {
+            "frame": 38,
+            "calls": 55,
+            "triangles": 182918,
+            "points": 0,
+            "lines": 0
+          },
+          "method": "Renderer counters: full scene with shadows then same camera with environment meshes hidden and shadow pass disabled; restored immediately. No hardware frame-rate measurement."
+        }
+      },
+      {
+        "name": "threequarter",
+        "sha256": "6b41d38aa9dd15e6115c5420671173ed46ddecda4cb133d473778e09f122f0c1",
+        "inspection": {
+          "assetStatistics": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 52,
+            "triangles": 176218,
+            "uvMeshes": 52,
+            "materials": [
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Glass",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Scale",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Silver",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Wind_Deflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Tail_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Clear_Optical_Cover",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "radar-blue_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "molded-polymer_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "instrument-scale_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "sport-seat_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 60118370
+          },
+          "shadowMode": "repaired",
+          "shadowCensus": [
+            {
+              "name": "body_static__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Glass",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Scale",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Silver",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Wind_Deflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Tail_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Clear_Optical_Cover",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "outer_field",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ground",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "wet",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "gravel",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "one-wheel-bump",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "curb",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "barrier",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-a",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-b",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "incline-launch",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker005",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker006",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker007",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker008",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker009",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker010",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker011",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker012",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_10",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_20",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_30",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker005",
+              "caster": false,
+              "receiver": true
+            }
+          ],
+          "bounds": [
+            1.995999999344349,
+            1.3127319812774658,
+            3.7989999055862427
+          ],
+          "nodes": [
+            {
+              "id": "front_left",
+              "steer": true,
+              "spin": true,
+              "position": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "front_right",
+              "steer": true,
+              "spin": true,
+              "position": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "rear",
+              "steer": false,
+              "spin": true,
+              "position": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "presentedPosition": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "telemetry": null,
+          "rearCaliper": {
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "steeringControlQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "cameraPosition": [
+            -4.15282,
+            0.8300399999999994,
+            -3.9712799999999993
+          ],
+          "cameraFov": 30,
+          "projectedBounds": {
+            "minX": -0.909729140089031,
+            "maxX": 0.9630580960673797,
+            "minY": -0.6674619601924747,
+            "maxY": 0.6858086010618233,
+            "allInFront": true
+          },
+          "renderInfo": {
+            "frame": 40,
+            "calls": 111,
+            "triangles": 359184,
+            "points": 0,
+            "lines": 0
+          },
+          "renderer": "WebKit WebGL"
+        },
+        "passes": {
+          "sceneWithShadows": {
+            "frame": 41,
+            "calls": 111,
+            "triangles": 359184,
+            "points": 0,
+            "lines": 0
+          },
+          "heroColorPass": {
+            "frame": 42,
+            "calls": 55,
+            "triangles": 182918,
+            "points": 0,
+            "lines": 0
+          },
+          "method": "Renderer counters: full scene with shadows then same camera with environment meshes hidden and shadow pass disabled; restored immediately. No hardware frame-rate measurement."
+        }
+      }
+    ],
+    "folder": "before-gray",
+    "note": "Pre-material diagnostic capture; not the final mapped build. Only selected images packaged; complete original evidence preserved locally."
+  },
+  {
+    "created": "2026-09-11T15:59:49.561Z",
+    "asset": "p03a1",
+    "diagnostic": "gloss",
+    "cameras": {
+      "front": [
+        [
+          0,
+          1.3,
+          -5.6
+        ],
+        [
+          0,
+          0.7,
+          -0.2
+        ],
+        30
+      ],
+      "threequarter": [
+        [
+          -4.15282,
+          0.83004,
+          -3.97128
+        ],
+        [
+          0,
+          0.5658,
+          -0.51932
+        ],
+        30
+      ],
+      "side": [
+        [
+          6.5,
+          1.4,
+          0
+        ],
+        [
+          0,
+          0.65,
+          0
+        ],
+        38
+      ],
+      "rearquarter": [
+        [
+          4.6,
+          2.8,
+          6
+        ],
+        [
+          0,
+          0.65,
+          0
+        ],
+        38
+      ],
+      "wheel": [
+        [
+          -2.1,
+          0.8,
+          -2.1
+        ],
+        [
+          -0.8,
+          0.32,
+          -1.2
+        ],
+        36
+      ],
+      "cockpit": [
+        [
+          -0.65,
+          1.9,
+          1.1
+        ],
+        [
+          -0.27,
+          0.65,
+          -0.5
+        ],
+        43
+      ],
+      "cabin": [
+        [
+          2.1,
+          1.9,
+          -1
+        ],
+        [
+          0,
+          0.7,
+          0.4
+        ],
+        42
+      ]
+    },
+    "sourceHashes": {
+      "src/workbench.ts": "822229d04da41b1d1df74956f67ac3a61b8b47774f201d4af4ff6f7396e6bd2c",
+      "src/presentation/inspection.ts": "f5d752e886cb1e8db32941d2b8cb9d2ce6a46b270e65d6c02e939ce935ef8458",
+      "scripts/capture-p03a1-stills.mjs": "de78e1dfcd48e2614a724dbe3a31e20f2e5e27756b8de1f5a61914ba2bdd5671",
+      "public/assets/vehicles/slingshot-p03a1.glb": "d8cc2c066e25a62c72a88bc4f213c5bbd7c26c686a7740629a3908d4a6d3619e"
+    },
+    "errors": [],
+    "method": "Isolated runtime screenshots. Matched before/after camera and rig; front/photo perspective approximate, not a metric survey.",
+    "browser": "153.0.8010.12",
+    "selectedImages": [
+      {
+        "name": "front",
+        "sha256": "d938264a609c94839492f8727cc770c98c484f3f6e29bc00f1416bdd1102bc77",
+        "inspection": {
+          "assetStatistics": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 59,
+            "triangles": 192839,
+            "uvMeshes": 59,
+            "materials": [
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Glass",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Scale",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Silver",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Wind_Deflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Tail_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Clear_Optical_Cover",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "instrument-scale_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "sport-seat_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 54525964
+          },
+          "shadowMode": "repaired",
+          "shadowCensus": [
+            {
+              "name": "body_static__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "P03A1_cheek_to_lower_return_left001",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "P03A1_cheek_to_lower_return_left001_1",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Glass",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Scale",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Silver",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Wind_Deflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Tail_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Clear_Optical_Cover",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "outer_field",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ground",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "wet",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "gravel",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "one-wheel-bump",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "curb",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "barrier",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-a",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-b",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "incline-launch",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker005",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker006",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker007",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker008",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker009",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker010",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker011",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker012",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_10",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_20",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_30",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker005",
+              "caster": false,
+              "receiver": true
+            }
+          ],
+          "bounds": [
+            1.9995292574167252,
+            1.3127319812774658,
+            3.8253053426742554
+          ],
+          "nodes": [
+            {
+              "id": "front_left",
+              "steer": true,
+              "spin": true,
+              "position": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "front_right",
+              "steer": true,
+              "spin": true,
+              "position": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "rear",
+              "steer": false,
+              "spin": true,
+              "position": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "presentedPosition": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "telemetry": null,
+          "rearCaliper": {
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "steeringControlQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "cameraPosition": [
+            6.613092715395706e-16,
+            1.3000000000000003,
+            -5.6
+          ],
+          "cameraFov": 30,
+          "projectedBounds": {
+            "minX": -0.730080116000615,
+            "maxX": 0.7198345891211749,
+            "minY": -0.9503563863024945,
+            "maxY": 0.428606008832219,
+            "allInFront": true
+          },
+          "renderInfo": {
+            "frame": 36,
+            "calls": 125,
+            "triangles": 392426,
+            "points": 0,
+            "lines": 0
+          },
+          "renderer": "WebKit WebGL"
+        },
+        "passes": {
+          "sceneWithShadows": {
+            "frame": 37,
+            "calls": 125,
+            "triangles": 392426,
+            "points": 0,
+            "lines": 0
+          },
+          "heroColorPass": {
+            "frame": 38,
+            "calls": 62,
+            "triangles": 199539,
+            "points": 0,
+            "lines": 0
+          },
+          "method": "Renderer counters: full scene with shadows then same camera with environment meshes hidden and shadow pass disabled; restored immediately. No hardware frame-rate measurement."
+        }
+      },
+      {
+        "name": "threequarter",
+        "sha256": "b0a1a1f40ba635280f441d0929a9c77489c7e84697b284c152e35eca4684c128",
+        "inspection": {
+          "assetStatistics": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 59,
+            "triangles": 192839,
+            "uvMeshes": 59,
+            "materials": [
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Glass",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Scale",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Silver",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Wind_Deflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Tail_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Clear_Optical_Cover",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "instrument-scale_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "sport-seat_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 54525964
+          },
+          "shadowMode": "repaired",
+          "shadowCensus": [
+            {
+              "name": "body_static__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "P03A1_cheek_to_lower_return_left001",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "P03A1_cheek_to_lower_return_left001_1",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Glass",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Scale",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Silver",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Wind_Deflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Tail_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Clear_Optical_Cover",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "outer_field",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ground",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "wet",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "gravel",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "one-wheel-bump",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "curb",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "barrier",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-a",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-b",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "incline-launch",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker005",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker006",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker007",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker008",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker009",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker010",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker011",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker012",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_10",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_20",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_30",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker005",
+              "caster": false,
+              "receiver": true
+            }
+          ],
+          "bounds": [
+            1.9995292574167252,
+            1.3127319812774658,
+            3.8253053426742554
+          ],
+          "nodes": [
+            {
+              "id": "front_left",
+              "steer": true,
+              "spin": true,
+              "position": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "front_right",
+              "steer": true,
+              "spin": true,
+              "position": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "rear",
+              "steer": false,
+              "spin": true,
+              "position": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "presentedPosition": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "telemetry": null,
+          "rearCaliper": {
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "steeringControlQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "cameraPosition": [
+            -4.15282,
+            0.8300399999999994,
+            -3.9712799999999993
+          ],
+          "cameraFov": 30,
+          "projectedBounds": {
+            "minX": -0.9235129221030967,
+            "maxX": 0.9623603538001543,
+            "minY": -0.6710682853454524,
+            "maxY": 0.6879816968077259,
+            "allInFront": true
+          },
+          "renderInfo": {
+            "frame": 40,
+            "calls": 125,
+            "triangles": 392426,
+            "points": 0,
+            "lines": 0
+          },
+          "renderer": "WebKit WebGL"
+        },
+        "passes": {
+          "sceneWithShadows": {
+            "frame": 41,
+            "calls": 125,
+            "triangles": 392426,
+            "points": 0,
+            "lines": 0
+          },
+          "heroColorPass": {
+            "frame": 42,
+            "calls": 62,
+            "triangles": 199539,
+            "points": 0,
+            "lines": 0
+          },
+          "method": "Renderer counters: full scene with shadows then same camera with environment meshes hidden and shadow pass disabled; restored immediately. No hardware frame-rate measurement."
+        }
+      },
+      {
+        "name": "sweep-1",
+        "sha256": "e7546760b112c34a5c852fa26f1d933016ab2667f7763f6cec87017fedfb9613",
+        "inspection": {
+          "assetStatistics": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 59,
+            "triangles": 192839,
+            "uvMeshes": 59,
+            "materials": [
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Glass",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Scale",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Silver",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Wind_Deflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Tail_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Clear_Optical_Cover",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "instrument-scale_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "sport-seat_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 54525964
+          },
+          "shadowMode": "repaired",
+          "shadowCensus": [
+            {
+              "name": "body_static__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "P03A1_cheek_to_lower_return_left001",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "P03A1_cheek_to_lower_return_left001_1",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "body_static__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Glass",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Instrument_Scale",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Radar_Blue",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Seat_Silver",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "cockpit__Wind_Deflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "steering_control__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_left_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "front_right_steer__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Seat_Charcoal",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_brake__Tail_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Clear_Optical_Cover",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Optical_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_head__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Lens",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Amber_Reflector",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "lights_signals__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Gloss_Black_Wheel",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Recess_Black",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Rubber",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "rear_spin__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_left__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_front_right__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Brake_Caliper",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Machined_Aluminum",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Orange_Accent",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "suspension_rear__Textured_Polymer",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "outer_field",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "outer_field003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ground",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "wet",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "gravel",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "one-wheel-bump",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "curb",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "barrier",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-a",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "seam-b",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "incline-launch",
+              "caster": true,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "straight_lane_edge001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker005",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker006",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker007",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker008",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker009",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker010",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker011",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "ten_metre_marker012",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_10",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_20",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "skid_circle_30",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker001",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker002",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker003",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker004",
+              "caster": false,
+              "receiver": true
+            },
+            {
+              "name": "slalom_marker005",
+              "caster": false,
+              "receiver": true
+            }
+          ],
+          "bounds": [
+            1.9995292574167252,
+            1.3127319812774658,
+            3.8253053426742554
+          ],
+          "nodes": [
+            {
+              "id": "front_left",
+              "steer": true,
+              "spin": true,
+              "position": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                -0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "front_right",
+              "steer": true,
+              "spin": true,
+              "position": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "presentedPosition": [
+                0.8774999976158142,
+                0.3298499882221222,
+                -1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "steerQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "rear",
+              "steer": false,
+              "spin": true,
+              "position": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "presentedPosition": [
+                0,
+                0.34549999237060547,
+                1.3335000276565552
+              ],
+              "spinQuaternion": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "telemetry": null,
+          "rearCaliper": {
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "steeringControlQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "cameraPosition": [
+            -4.15282,
+            0.8300399999999994,
+            -3.9712799999999993
+          ],
+          "cameraFov": 30,
+          "projectedBounds": {
+            "minX": -0.9235129221030967,
+            "maxX": 0.9623603538001543,
+            "minY": -0.6710682853454524,
+            "maxY": 0.6879816968077259,
+            "allInFront": true
+          },
+          "renderInfo": {
+            "frame": 69,
+            "calls": 125,
+            "triangles": 392426,
+            "points": 0,
+            "lines": 0
+          },
+          "renderer": "WebKit WebGL"
+        },
+        "passes": {
+          "sceneWithShadows": {
+            "frame": 70,
+            "calls": 125,
+            "triangles": 392426,
+            "points": 0,
+            "lines": 0
+          },
+          "heroColorPass": {
+            "frame": 71,
+            "calls": 62,
+            "triangles": 199539,
+            "points": 0,
+            "lines": 0
+          },
+          "method": "Renderer counters: full scene with shadows then same camera with environment meshes hidden and shadow pass disabled; restored immediately. No hardware frame-rate measurement."
+        }
+      }
+    ],
+    "folder": "neutral-04",
+    "note": "Pre-material diagnostic capture; not the final mapped build. Only selected images packaged; complete original evidence preserved locally."
+  }
+]

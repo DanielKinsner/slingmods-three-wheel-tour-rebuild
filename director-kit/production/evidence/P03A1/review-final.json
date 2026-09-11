@@ -1,0 +1,52 @@
+{
+  "packet": "P03A1",
+  "reviewer": "/root/gate_review",
+  "review_mode": "independent_subagent",
+  "build_ref": "404dff91255eb0dadcaadeb81075f86508f36607",
+  "decision": "HOLD",
+  "g3": "pending",
+  "criteria": {
+    "front_fidelity": "HOLD: faceted outer-brow/end-cap transitions remain",
+    "wheel_tire": "PARTIAL: swept wheel improved; tire directional groove fidelity approximate",
+    "cockpit_seats": "EARNED named geometry and material improvements; no blanket cockpit certification",
+    "graphic_edges": "EARNED in inspected cabin/cockpit views",
+    "orbit": "EARNED fixed recorded viewport: full360, postclamp bounds <=0.7800000000000011",
+    "pad_presentation": "Reviewed scripted12fps frames; no recurring shadow bands in2Hz samples",
+    "engineering_preservation": "Verified unchanged protected paths vs b9fb622",
+    "provenance": "71 inputs,11 still/record served files,12 browser served files,8 still PNGs,2 movies,396raw frames all rehashed without mismatch"
+  },
+  "visual_method": "Actual PNG inspection; 2Hz sheets extracted from encoded movies (26orbit+40pad samples); pad8.5s full image; complete independent decode and ffprobe",
+  "limitations": [
+    "Front HOLD prevents overall fidelity acceptance",
+    "Tire groove pattern remains approximate",
+    "No real-time FPS, physical GPU, human handling, controller or G3 approval",
+    "Scripted advance snaps chase camera; film does not revalidate normal camera smoothing",
+    "Package archive assembly not reviewed here"
+  ],
+  "notes": "review-final.md",
+  "sha256": {
+    "assets/blender/vehicles/slingshot-p03a1.blend": "10c12099c1b0238737c07ab209ce454e39aa4963dd42c14d6550e527b1a5b5f1",
+    "public/assets/vehicles/slingshot-p03a1.glb": "f2a417f75028b534a334168670baac3a411d1a0731bd927d0e82a43c8006b1b9",
+    "scripts/vehicle_p03a1_build.py": "f76ae6f2b947daa601033c72e5203397a80e41baff1e2c1acf4dfe4c7df3cc9f",
+    "scripts/vehicle_p03a1_materials.py": "672bf08fb95d81d8f8bae57494d164bdad66941af7a5cb778e2a6935af0d262e",
+    "src/presentation/inspection.ts": "f5d752e886cb1e8db32941d2b8cb9d2ce6a46b270e65d6c02e939ce935ef8458",
+    "src/workbench.ts": "04df06fea0dfe3c621f07b681afc663952c63c655d686246e763f2879f85f6c0",
+    "scripts/record-p03a1.mjs": "0c80636b6794fcc0ebb1f82ead11c276971882fa5930954b04742c2c5a5b9e41",
+    "scripts/verify-p03a1-browser.mjs": "b5ca828ab4ff1e5ef6289c73bc662159b755637c27609b00e2270f7d35e6501f",
+    "scripts/build-review03.mjs": "f12d17e95043d80ab33ff464647c0d36d4304c7aff130acf04143fc707daed4c",
+    "director-kit/production/evidence/P03A1/final/stills.json": "823fadf4eba0d3a78fa3b37822b584e83f5ca2f1dbca214fe47372eb7c29330a",
+    "director-kit/production/evidence/P03A1/motion/recordings.json": "6b3bfabca75b5bd195ab201c572fd99076af946942ec63040bd9b038a8634ffa",
+    "director-kit/production/evidence/P03A1/motion/orbit-SILENT.mp4": "1c8e59cff1819e6c2406cbe368f696db3278becd88da6d2513efcf3ec5675697",
+    "director-kit/production/evidence/P03A1/motion/pad-SILENT.mp4": "84b73f590a189c23c6a478a47ff262beb5e1e3d0db05a2f9d4cc26ca456db3ea",
+    "director-kit/production/evidence/P03A1/verification-final/browser-verification.json": "6b4980a708cb51af8683b90ce67efefb0985cb8e0449a6d1dce793bb23c0a203",
+    "director-kit/production/evidence/P03A1/tests-final.log": "b6bc3a35e03309ea5ac097c262a988b3c19293486313bddd9ee5e2053bec6a26",
+    "director-kit/production/evidence/P03A1/final/bay.png": "0c157a58bfc05edf63af4cb1e6f3d81d42933a622771b782388bd676670a24d9",
+    "director-kit/production/evidence/P03A1/final/cabin.png": "794bfa8fdc07db979b849865a7c6d965afc664389ea23d635919ad6a21472a69",
+    "director-kit/production/evidence/P03A1/final/cockpit.png": "7561d6530a74619869072fded7cdd2c31037ac846502e6ce9ad3226e7652be8b",
+    "director-kit/production/evidence/P03A1/final/front.png": "3d0aceb1c53a3e66419f2b436a0103b47ba7437449487dd242f3d7757dd8a946",
+    "director-kit/production/evidence/P03A1/final/rearquarter.png": "af64bbdafdff744f4b7f516109b7f0421f717e8c5c1396e56488aaef4dcdaee8",
+    "director-kit/production/evidence/P03A1/final/side.png": "63d23b61654f98bba0edf4202aae3efa136d8ff4ed8e891e1b26a2306236619f",
+    "director-kit/production/evidence/P03A1/final/threequarter.png": "e4f12be97a8e977c663c2411ba94a614751046ecb97402a4c9e584965207648c",
+    "director-kit/production/evidence/P03A1/final/wheel.png": "192450df6337c6a2db0313e5062958e08ebef703720a0abed072e80338ca7513"
+  }
+}

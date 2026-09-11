@@ -1,20 +1,19 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-10",
+  "as_of": "2026-09-11",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "fbe89bf31cd81af7b77ec60358c0bcd65056e53a",
+  "commit": "404dff91255eb0dadcaadeb81075f86508f36607",
   "current_gate": "G3",
-  "current_packet": "P03A",
-  "next_action": "Stop after delivering Astra-Review-02.zip and await Astra review. No P03B/P03C, campaign or G3 advancement.",
+  "current_packet": "P03A1",
+  "next_action": "Stop after returning Astra-Review-03.zip for Astra review. Front fidelity remains HOLD; G3 pending. No next gameplay packet.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
     "production/evidence/G1/review.json",
     "production/evidence/G2/review.json",
-    "production/evidence/G2-addendum-01/review.json",
-    "production/evidence/P03A/review-final.json"
+    "production/evidence/G2-addendum-01/review.json"
   ],
   "gates": {
     "G0": {
@@ -59,7 +58,9 @@
     }
   },
   "blockers": [
-    "G3 intentionally remains pending: finished rider, complete camera/audio set, final garage/road sample and physical-hardware performance evidence are outside P03A."
+    "P03A1 front fidelity HOLD: broad outer-brow end-cap bands and segmented leading-edge transitions remain after bounded method changes.",
+    "Tire grooves read better but remain a coarse shoulder/zigzag approximation of the exact-year reference.",
+    "G3 remains pending; driver, audio/controller/full cameras, full workshop/course and hardware evidence are outside this packet."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
@@ -102,10 +103,10 @@
   "known_limitations": [
     "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
     "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
-    "P03A Slingshot surfaces/materials and compact inspection bay passed local review; the other two vehicles remain scale blockouts. No finished game or complete playable slice has passed.",
-    "P03A uses a 176,218-triangle showroom mesh on the pad as a disclosed exception to the racing-LOD aim; no LOD or measured GPU-memory/performance approval.",
-    "Both final movies are silent. Turntable is frame-stepped runtime capture with tight lower-edge cropping in some views; full neutral stills provide complete silhouettes.",
-    "Instruments, infotainment and lamp emission are passive; no live mirror or nighttime beam system. Photo-guided shapes and materials remain approximations."
+    "Instruments, infotainment and lamp emission are passive; no live mirror or nighttime beam system. Photo-guided shapes and materials remain approximations.",
+    "Historical P03A local visual PASS was rejected by Astra Review02; that review remains preserved as history. P03A1 is a bounded best candidate with specific visual HOLD, not an accepted complete slice.",
+    "P03A1 uses a 192,839-triangle showroom mesh on the pad as a disclosed exception to the 140k racing-LOD aim; no physical GPU-memory/FPS or LOD approval.",
+    "Review03 movies use silent frame-stepped runtime capture at12fps; software wall time is separately recorded. No human-driving or real-time-FPS claim."
   ],
   "accepted_assets": [
     "assets/blender/calibration.blend",
@@ -125,13 +126,13 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "independent_tests": "Final independent npm test 29/29 and TypeScript no-emit pass; production build passes with existing chunk-size warning.",
-    "gates": "Historical G0/G1/G2 passed and preserved; signed-RPM addendum and narrowed P03A independently passed. G3 remains pending.",
-    "preservation": "Historical G0/G1/G2, P01 source/export, pad and contact layout unchanged against b073e1e. Existing correct standalone repository retained.",
-    "evidence": "Seven final runtime stills, actual Rear view, synchronized 145-frame full turn/light sweep, actual keyboard pad movie; both movies fully decoded and silent. 49 build-input and 11 served hashes verified.",
-    "environment": "Windows 11 build 26200; Blender 4.5.2 LTS; Node 24.15.0; isolated Chromium 153.0.8010.12/SwiftShader. No physical hardware FPS or subjective handling approval."
+    "independent_tests": "30/30 npm tests and5/5 focused RPM checks pass; production TypeScript/Vite build passes with retained chunk warning.",
+    "gates": "Historical G0/G1/G2 and signed-RPM engineering acceptance preserved. P03A1 visual HOLD; G3 pending.",
+    "preservation": "Simulation, contacts, pad, shadow policy, P01/P03A source/export and historical gate evidence unchanged against b9fb622.",
+    "evidence": "Final 8 candidate stills, 5 recaptured baseline views and actual normal Rear view. Final browser/recording served-byte checks pass. Both SILENT movies fully decode; 13-second orbit bounds <=0.780001 NDC throughout, 20-second scripted pad/grass-edge maneuver ends at rest. See P03A1/review-final.json and media-verification.json.",
+    "environment": "Windows11 build26200; Blender4.5.2 LTS; Node24.15.0; isolated Chromium153.0.8010.12/SwiftShader. No desktop takeover or hardware FPS/subjective driving approval."
   },
-  "director_addendum": "director-addenda/review-01/CODEX_NEXT.md",
+  "director_addendum": "director-addenda/review-02/CODEX_NEXT.md",
   "drivetrain_addendum": {
     "status": "independently_passed",
     "commit": "9add1f9",
@@ -140,7 +141,7 @@
   },
   "fresh_start_requirement": "Fulfilled by this existing standalone repository; continue here without scaffolding, resetting or importing legacy assets.",
   "p03a": {
-    "status": "independently_passed_narrowed_checkpoint",
+    "status": "historical_local_pass_director_visual_rejected",
     "visual_review": "production/evidence/P03A/review-final.md",
     "asset": "public/assets/vehicles/slingshot-p03a.glb",
     "sha256": "5ca79ccf1608491a4c82079d570d0928c85c3581f5ebcf7d557404864250cee2",
@@ -148,6 +149,27 @@
     "scope": "One Slingshot, compact inspection bay and same-asset test pad only; stop for Astra review; G3 pending",
     "review": "production/evidence/P03A/review-final.json",
     "runtime_commit": "fbe89bf31cd81af7b77ec60358c0bcd65056e53a",
-    "evidence": "production/evidence/P03A/final-02/"
-  }
+    "evidence": "production/evidence/P03A/final-02/",
+    "director_review": "Review02 accepts engineering and rejects the blanket visual PASS; historical local review preserved. Named visual corrections now P03A1."
+  },
+  "p03a1": {
+    "status": "review_candidate_visual_hold",
+    "baseline_commit": "b9fb6227a2383093b671cd67148e7039b7a78e80",
+    "reconciliation": "Tracked work matched submitted checkpoint. Existing untracked historical captures, ZIPs and material-lab source preserved. No resets/checkouts/scaffolding.",
+    "scope": "Reference-locked fascia/wheel/cockpit, AA graphics, compact rig/framing; no dynamics changes or next gameplay packet.",
+    "visual_blocker": "Outer brow retains broad flat end-cap bands and segmented leading-edge transitions after bounded construction attempts. Preserve best geometry; no blanket visual PASS.",
+    "candidate": "public/assets/vehicles/slingshot-p03a1.glb",
+    "runtime_commit": "404dff91255eb0dadcaadeb81075f86508f36607",
+    "sha256": "f2a417f75028b534a334168670baac3a411d1a0731bd927d0e82a43c8006b1b9",
+    "review": "production/evidence/P03A1/review-final.json",
+    "evidence": "production/evidence/P03A1/final/",
+    "material_result": "Close graphic AA earned in final cabin/cockpit views; seat upholstery separation improved. Tire pattern remains approximate.",
+    "geometry_method": "After two subdivision/sweep attempts, switched named front regions to connected sectional surfaces; fourth neutral candidate retained after bounded correction. Outer brow remains HOLD.",
+    "normal_entry": "Compact inspection bay, same candidate Drive route",
+    "gate_advance": false,
+    "motion": "SILENT 13-second orbit and 20-second frame-stepped pad/grass-edge maneuver; no human or real-time performance claim."
+  },
+  "historical_review_evidence": [
+    "production/evidence/P03A/review-final.json"
+  ]
 }

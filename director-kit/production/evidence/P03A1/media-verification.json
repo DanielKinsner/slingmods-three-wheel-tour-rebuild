@@ -1,0 +1,71 @@
+{
+  "runtimeCommit": "404dff91255eb0dadcaadeb81075f86508f36607",
+  "method": "Independent ffprobe metadata and full ffmpeg decode of both encoded movies; frame and input SHA256 recheck. Visual sample review is separately recorded by the read-only reviewer.",
+  "movies": [
+    {
+      "file": "orbit-SILENT.mp4",
+      "sha256": "1c8e59cff1819e6c2406cbe368f696db3278becd88da6d2513efcf3ec5675697",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 960,
+            "r_frame_rate": "12/1",
+            "nb_frames": "156"
+          }
+        ],
+        "format": {
+          "duration": "13.000000",
+          "size": "4592798"
+        }
+      },
+      "fullDecodeExitCode": 0,
+      "audio": "SILENT, no audio stream",
+      "framesRehashed": 156,
+      "captureAndEncodeWallMs": 235696,
+      "maximumAbsoluteProjectedBound": 0.7800000000000011
+    },
+    {
+      "file": "pad-SILENT.mp4",
+      "sha256": "84b73f590a189c23c6a478a47ff262beb5e1e3d0db05a2f9d4cc26ca456db3ea",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 960,
+            "r_frame_rate": "12/1",
+            "nb_frames": "240"
+          }
+        ],
+        "format": {
+          "duration": "20.000000",
+          "size": "1528649"
+        }
+      },
+      "fullDecodeExitCode": 0,
+      "audio": "SILENT, no audio stream",
+      "framesRehashed": 240,
+      "captureAndEncodeWallMs": 134391,
+      "maxSpeedMps": 19.16285037458401,
+      "finalSpeedMps": -2.1731635783253085e-09,
+      "stages": [
+        "accelerate",
+        "braking",
+        "far camera exit",
+        "final braking",
+        "left corner",
+        "rest",
+        "right corner"
+      ]
+    }
+  ],
+  "stableInputCount": 71,
+  "servedFileCount": 11,
+  "errors": []
+}
