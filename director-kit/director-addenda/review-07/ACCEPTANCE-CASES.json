@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "packet": "P04B1",
+  "status": "future_requirements_not_passed_tests",
+  "note": "These are planned next-build checks. Do not count them as executed by Astra or use unit mocks to claim browser persistence/hardware behavior. Existing 26 independent tests are separately recorded.",
+  "cases": [
+    {
+      "id": "P04B1-01",
+      "title": "First valid completion",
+      "status": "planned_not_executed",
+      "method": "unit + ordinary browser",
+      "setup": "New career, 0 credits, no chapter flag",
+      "action": "Complete one valid Harbor attempt through normal race rules",
+      "expected": "800 credits total; one durable receipt and first-completion flag; no separate 100-credit payout",
+      "evidence": "Attempt UUID, validity result, before/after durable record and UI"
+    },
+    {
+      "id": "P04B1-02",
+      "title": "Repeated result delivery",
+      "status": "planned_not_executed",
+      "method": "unit + browser reload",
+      "setup": "The first attempt has been rewarded",
+      "action": "Redeliver its result, reopen results, reload and revisit receipt",
+      "expected": "Balance remains 800; one receipt; first chapter does not repeat",
+      "evidence": "Same UUID across calls; ledger and visible result state"
+    },
+    {
+      "id": "P04B1-03",
+      "title": "Valid replay",
+      "status": "planned_not_executed",
+      "method": "unit + ordinary browser",
+      "setup": "First reward claimed and kit purchased; balance 200",
+      "action": "Complete a new valid attempt with a fresh UUID",
+      "expected": "Exactly +100, balance 300; old chapter reward does not repeat",
+      "evidence": "New UUID and receipt; visible result"
+    },
+    {
+      "id": "P04B1-04",
+      "title": "Invalid and incomplete attempts",
+      "status": "planned_not_executed",
+      "method": "unit + browser",
+      "setup": "Any career balance",
+      "action": "Test checkpoint skip, backward finish, restart, and leaving before a valid finish",
+      "expected": "No award for each; existing records unchanged except explicit valid outcomes",
+      "evidence": "Each invalid reason/attempt and unchanged ledger"
+    },
+    {
+      "id": "P04B1-05",
+      "title": "Shared day/night first reward",
+      "status": "planned_not_executed",
+      "method": "unit + browser",
+      "setup": "Unclaimed first-completion flag",
+      "action": "Finish unique valid day and night attempts",
+      "expected": "800 once and 100 once, regardless of ordering; never two 800 bonuses",
+      "evidence": "Two unique receipts, shared chapter state"
+    },
+    {
+      "id": "P04B1-06",
+      "title": "Existing-save preservation",
+      "status": "planned_not_executed",
+      "method": "browser with disclosed old fixture",
+      "setup": "Populate the current rebuild v1 records and settings, no career store",
+      "action": "Install feature, open bay, reload; later complete a fresh valid attempt",
+      "expected": "Old PB/settings preserved; no retroactive credits from old PB; fresh valid race may claim first bonus",
+      "evidence": "Before/after settings and records, explicit old fixture provenance"
+    },
+    {
+      "id": "P04B1-07",
+      "title": "Attempt IDs survive lifecycle boundaries",
+      "status": "planned_not_executed",
+      "method": "unit + two browser pages",
+      "setup": "Two tabs and independent race instances",
+      "action": "Create/restart attempts, reload one page",
+      "expected": "New real attempts have distinct UUIDs; already-finished receipt IDs stay stable; no instance-counter collision",
+      "evidence": "IDs and lifecycle trace"
+    },
+    {
+      "id": "P04B1-08",
+      "title": "Insufficient funds",
+      "status": "planned_not_executed",
+      "method": "unit + browser",
+      "setup": "0 credits and unowned kit",
+      "action": "Try buying base kit",
+      "expected": "No negative balance, no ownership/equipped mutation; clear message",
+      "evidence": "Record before/after and normal UI"
+    },
+    {
+      "id": "P04B1-09",
+      "title": "Atomic buy and install",
+      "status": "planned_not_executed",
+      "method": "unit + ordinary browser",
+      "setup": "800 credits; unowned compatible kit",
+      "action": "Buy & install once",
+      "expected": "200 credits, owned and equipped together; one transaction; shown balance matches durable state",
+      "evidence": "Receipt and before/after record, visible kit"
+    },
+    {
+      "id": "P04B1-10",
+      "title": "Repeated purchase",
+      "status": "planned_not_executed",
+      "method": "unit + browser",
+      "setup": "Already owns kit",
+      "action": "Double activate pending button; retry old purchase; request new purchase ID",
+      "expected": "No second deduction or duplicate asset; ownership prevents a charge under a new request ID",
+      "evidence": "Transactions and asset/presenter count"
+    },
+    {
+      "id": "P04B1-11",
+      "title": "Fitment and catalog validation",
+      "status": "planned_not_executed",
+      "method": "unit",
+      "setup": "Authoritative local product record",
+      "action": "Submit wrong vehicle/slot, unknown product, overridden price or effect",
+      "expected": "Reject incompatible/unknown transactions; fixed 600-credit price and zero physics modifiers respected",
+      "evidence": "Negative-case store tests; no shipping phantom products"
+    },
+    {
+      "id": "P04B1-12",
+      "title": "Concurrent award and purchase",
+      "status": "planned_not_executed",
+      "method": "two real browser tabs sharing IndexedDB",
+      "setup": "Shared fresh career then enough funds for only one kit",
+      "action": "Race two different first-valid receipts; race duplicate/simultaneous purchase commands",
+      "expected": "First completion remains single; readwrite serialization prevents lost credits/overspend; both tabs refresh from committed state",
+      "evidence": "Two-tab browser trace and committed records, not only mock-store tests"
+    },
+    {
+      "id": "P04B1-13",
+      "title": "Storage blocked at boot",
+      "status": "planned_not_executed",
+      "method": "unit + browser",
+      "setup": "Denied/unavailable IndexedDB",
+      "action": "Play and purchase through a disclosed session-only store",
+      "expected": "Explicit Session only notice; coherent in-session balance/ownership; no assertion it will survive reload",
+      "evidence": "Error injection method, UI notice and state"
+    },
+    {
+      "id": "P04B1-14",
+      "title": "Transaction failure after boot",
+      "status": "planned_not_executed",
+      "method": "unit + browser fault injection",
+      "setup": "Working durable career",
+      "action": "Abort/fail a purchase transaction",
+      "expected": "No spent-but-unowned state or false durable success; safe error or explicitly disclosed session-only transition",
+      "evidence": "Commit failure and before/after state, recovery behavior"
+    },
+    {
+      "id": "P04B1-15",
+      "title": "Temporary unowned preview",
+      "status": "planned_not_executed",
+      "method": "ordinary browser",
+      "setup": "Unowned kit",
+      "action": "Preview, change color, cancel; repeat with back/scene change/race start",
+      "expected": "No spend/ownership change; temporary geometry/lights removed; race cannot retain unowned preview",
+      "evidence": "Capture and asset/light counts before/after"
+    },
+    {
+      "id": "P04B1-16",
+      "title": "Owned state and stock comparison",
+      "status": "planned_not_executed",
+      "method": "ordinary browser",
+      "setup": "Owned kit with second color and brightness",
+      "action": "Equip, stock-compare, exit comparison, unequip/re-equip and reload",
+      "expected": "Ownership is retained, no re-charge; saved color/settings/equipment restore; stock comparison never erases them",
+      "evidence": "Normal menu capture plus stored state"
+    },
+    {
+      "id": "P04B1-17",
+      "title": "Ordinary earn/build/night flow",
+      "status": "planned_not_executed",
+      "method": "ordinary input UI capture",
+      "setup": "New career or truthfully disclosed fixture",
+      "action": "Valid race, reward, return, preview/cancel, buy/install, choose color, drive night, reload",
+      "expected": "All actual menus connected; no hidden forced equip or forged finish; 0 -> 800 -> 200 visible",
+      "evidence": "Progression video, companion full valid lap trace, scene transition receipts"
+    },
+    {
+      "id": "P04B1-18",
+      "title": "Lighting and mounting",
+      "status": "planned_not_executed",
+      "method": "runtime stills + source inspection",
+      "setup": "Same camera/exposure/road, stock versus equipped",
+      "action": "Capture matched A/B, daylight, underside mounting detail, second color and moving corner",
+      "expected": "Correct base kit scope; no moving-wheel/storage intersection; restrained local spill; readable pavement; normal body opacity",
+      "evidence": "Purposeful matched stills and separate editable Blender source/descriptor"
+    },
+    {
+      "id": "P04B1-19",
+      "title": "No physics effect",
+      "status": "planned_not_executed",
+      "method": "same-input simulation + browser",
+      "setup": "Identical initial state/inputs/time step, kit off/on",
+      "action": "Run matching trajectory including corners and brake",
+      "expected": "Identical physics telemetry and compatible records; no product-specific power/grip/mass modifier",
+      "evidence": "Input/trajectory comparison with tolerances if representation-only floats differ"
+    },
+    {
+      "id": "P04B1-20",
+      "title": "Presenter lifecycle and costs",
+      "status": "planned_not_executed",
+      "method": "browser resource inspection",
+      "setup": "Bay/pad/harbor and repeat transitions",
+      "action": "Equip/unequip and change scenes repeatedly",
+      "expected": "No cumulative object/material/light/event/audio duplication; dormant kit has bounded overhead",
+      "evidence": "Matched resource counts; before/after draw/triangle numbers"
+    },
+    {
+      "id": "P04B1-21",
+      "title": "Menu input and return-to-driving",
+      "status": "planned_not_executed",
+      "method": "keyboard + virtual controller browser",
+      "setup": "Existing input mappings",
+      "action": "Navigate Build, confirm/cancel, adjust color, leave menu while controls held",
+      "expected": "Visible focus, usable confirm/back; no accidental purchase/reverse/throttle; neutral-release behavior preserved",
+      "evidence": "Actual ordinary input path capture; hardware access clearly labeled"
+    },
+    {
+      "id": "P04B1-22",
+      "title": "External product link",
+      "status": "planned_not_executed",
+      "method": "browser interception and source inspection",
+      "setup": "Curated SM-133 HTTPS URL",
+      "action": "Activate View real product deliberately",
+      "expected": "Only verified allowed URL; noopener/noreferrer; no auto-opening, cart writes, user IDs, live-price claim or real purchase requirement",
+      "evidence": "Inspect opened URL/target without submitting a real shopping transaction"
+    },
+    {
+      "id": "P04B1-23",
+      "title": "Original chapter fragment",
+      "status": "planned_not_executed",
+      "method": "unit + browser",
+      "setup": "No story flags",
+      "action": "First entry, valid result, first equip; dismiss each; replay/reload",
+      "expected": "Short skippable text plays at intended safe points once; dismissal does not block reward; no paid/new voice use",
+      "evidence": "Flags and ordinary UI sequence"
+    },
+    {
+      "id": "P04B1-24",
+      "title": "Frozen foundation regression",
+      "status": "planned_not_executed",
+      "method": "hashes + full local suite/build",
+      "setup": "Review07 baseline and any documented newer owner changes",
+      "action": "Compare protected inputs, run full suite and build",
+      "expected": "Accepted rear/driver/physics/route/audio preserved; no weakened tests; report exact differences and unrun cases",
+      "evidence": "SHA manifest, local command output, before/after tests"
+    },
+    {
+      "id": "P04B1-25",
+      "title": "Night evidence and measured budget",
+      "status": "planned_not_executed",
+      "method": "ordinary-path logical capture + separate wall-clock excerpt",
+      "setup": "Same 1280x720 baseline and reported hardware",
+      "action": "Complete installed-kit night lap; capture separate 10\u201315 second real-time excerpt and matched kit on/off stats",
+      "expected": "Valid lap with honest provenance; no sustained-FPS/mobile claim from short/software capture; report stalls and rendering cost",
+      "evidence": "Full night trace/video; separate wall-clock timing and render statistics"
+    }
+  ]
+}

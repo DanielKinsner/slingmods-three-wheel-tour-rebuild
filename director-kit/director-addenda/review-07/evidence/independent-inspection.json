@@ -1,0 +1,48 @@
+{
+  "runtimeCommit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+  "packagingCommit": "b51c846c173f4bdfd9772d265e80e0b472f66dac",
+  "manifestFilesChecked": 353,
+  "manifestMismatches": [],
+  "capturedInputsChecked": 211,
+  "capturedInputMismatches": [],
+  "protectedFilesChecked": 32,
+  "protectedBaselineMismatches": [],
+  "previousArchiveMismatches": [],
+  "asset": {
+    "sha256": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c",
+    "bytes": 20520076,
+    "renderedTriangles": 210899,
+    "renderedPrimitives": 72,
+    "images": 16
+  },
+  "tireEnvelope": {
+    "tireMesh": "rear_spin__Rubber",
+    "radialBoundM": 0.345500042547332,
+    "hubHeightRangeM": [
+      0.108640625,
+      0.498640625
+    ],
+    "lo": [
+      -0.15616999698638917,
+      -0.23686941754733204,
+      0.9879899574526679
+    ],
+    "hi": [
+      0.15616999698638917,
+      0.8441506675473319,
+      1.679010042547332
+    ],
+    "padM": 1e-05,
+    "fixedMeshesChecked": 43,
+    "fixedTrianglesChecked": 143615,
+    "triangleIntersections": [],
+    "minimumSATSeparationLowerBoundM": 0.0068493434199228265,
+    "nearestMesh": "rear_body_static__Textured_Polymer",
+    "fixedMeshBoundsContainingRestWheelCenter": [],
+    "enclosureCheckScope": "Bounds prefilter only. An empty list rules out an individual closed fixed mesh enclosing the rest hub; not a manifold or arbitrary multi-mesh solid-union validation.",
+    "storageSamples": 972,
+    "sampledTireVerticesInsideReservedVolumes": [],
+    "scope": "Conservative complete exported tire envelope vs ALL fixed car triangles. Valid for rig-defined vertical travel and all spins. Does not certify other moving links, physical crash/body flex, or exact OEM construction. Storage test is vertex sampling; not solid-volume proof."
+  },
+  "method": "Independent numpy/scipy world-space GLB parser and full triangle/box SAT, not a rerun of submitted Blender BVH script. Inputs read-only; test output written outside project."
+}

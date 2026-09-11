@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "Astra-Review-07",
+  "date": "2026-09-11",
+  "inputArchive": "Astra-Review-07.zip",
+  "reviewedRuntimeCommit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+  "reviewedPackagingCommit": "b51c846c173f4bdfd9772d265e80e0b472f66dac",
+  "projectRoot": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "kind": "scoped_director_addendum_not_production_state_replacement",
+  "decisions": [
+    {
+      "packet": "P04A1",
+      "status": "accepted_for_continued_development",
+      "scope": "Specific fixed-body/tire clearance and connected rear articulation. Not finished vehicle/OEM certification."
+    },
+    {
+      "packet": "P04A2",
+      "status": "retained_provisional",
+      "scope": "Keep current scene as development baseline; palm silhouettes and overall environment remain visually held."
+    },
+    {
+      "packet": "P04B1",
+      "status": "authorized",
+      "scope": "One cosmetic real-product earn/preview/buy/install/persist/link loop, with a small new story fragment."
+    }
+  ],
+  "globalGates": {
+    "G3": "pending_unchanged",
+    "G4": "pending_unchanged"
+  },
+  "freeze": [
+    "repaired car geometry and rear rig",
+    "driver asset and fit",
+    "physics and contact positions",
+    "race route/colliders and validity math",
+    "accepted sound bank and mapper"
+  ],
+  "allowedNew": [
+    "separate Blender underglow accessory",
+    "shared cosmetic presenter",
+    "local career ledger and receipts",
+    "compact garage Build UI",
+    "short original Rae text beats",
+    "user-initiated real-product link"
+  ],
+  "retainedLimits": [
+    "Final visuals/aural quality not approved",
+    "Vertical-wheel/visual-arm approximation: about 0.182% axial change in supplied lap, 5.020% at declared extreme",
+    "No physical-controller playtest or sustained hardware benchmark independently executed",
+    "Local full tests/build and moving-link BVH not independently rerun"
+  ],
+  "independentlyExecuted": {
+    "nodeFocusedTests": 26,
+    "passed": 26,
+    "protectedFilesComparedToPreviousArchive": 32,
+    "packageFilesHashed": 353,
+    "capturedInputsHashed": 211,
+    "fixedTrianglesTestedAgainstFullTireEnvelope": 143615,
+    "fixedTriangleIntersections": 0
+  },
+  "nextPacket": "packets/P04B1-MAKE-IT-YOURS.md",
+  "nextReview": "Astra-Review-08.zip",
+  "safety": "Do not reset HEAD, overwrite newer work, replace the current ledger with this addendum, touch old projects or deployments, use the desktop, or incur spending."
+}
