@@ -1,0 +1,41 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ integrated RPM: straight, signed wheel phase and bounded engine coupling (123.8424ms)
+✔ integrated RPM: reverse, signed wheel phase and bounded engine coupling (41.3647ms)
+✔ integrated RPM: wet-traction-recovery, signed wheel phase and bounded engine coupling (41.8561ms)
+✔ integrated RPM: moving-reverse-interlock, signed wheel phase and bounded engine coupling (35.7649ms)
+✔ integrated RPM: wet-braking-rpm, signed wheel phase and bounded engine coupling (32.3102ms)
+✔ integrated RPM: rolling-and-shifts-rpm, signed wheel phase and bounded engine coupling (48.0477ms)
+✔ fixture: stationary zero-throttle engine stays at idle (0.6924ms)
+✔ fixture: freely rolling rear wheel raises coupled engine RPM above idle (0.1513ms)
+✔ fixture: positive rear wheel overspeed raises RPM above rolling baseline (0.1172ms)
+✔ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.1329ms)
+✔ reverse wheel lock cancels signed rolling rotation while reverse wheelspin raises RPM (0.1326ms)
+✔ loaded rest: three non-tensile contacts support stated loaded mass without drift (126.3326ms)
+✔ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (569.7206ms)
+✔ straight acceleration, lift-off coast and braking have coherent measured distances (0.7232ms)
+✔ left/right asphalt circles have correct turn signs, mirrored radii and sustained support (0.8814ms)
+✔ slalom follows alternating input in authoritative yaw response (0.4338ms)
+✔ controlled reverse engages near rest and uses signed physical velocity (0.5982ms)
+✔ surface friction reduces acceleration; optional traction help limits wheel overspeed; lift/brake recovers (0.6662ms)
+✔ one-wheel bump, curb, seam and landing excite suspension and recover without tunneling (0.5946ms)
+✔ authoritative AutoDrive executes all five ratios, cuts torque during transitions, and has consistent SI torque/power (0.9958ms)
+✔ incline launch and high-speed curb produce physical vertical motion then recover; full-speed steering stays bounded (0.7363ms)
+✔ straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes (72.0265ms)
+✔ render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error (75.8016ms)
+✔ reset clears forces/drivetrain/history, fixed-step rejection and pause clock do not advance state (7.1669ms)
+✔ pad ground and markings receive vehicle shadows without entering the caster set (1.7865ms)
+✔ explicit diagnostic caster isolation cannot remove shadows from the restored normal policy (0.2927ms)
+✔ new save round-trip touches only the new namespace (0.8889ms)
+✔ malformed or future schemas fall back without reading legacy data (0.1784ms)
+✔ actual Rapier world falls onto a collider and settles (60.5629ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1012.611

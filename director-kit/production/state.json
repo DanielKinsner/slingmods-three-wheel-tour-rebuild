@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "d047c56ba78a6b85a7d1c470d836a696f0753af8",
   "current_gate": "G3",
-  "current_packet": "P03",
-  "next_action": "Begin P03 in assets/blender/vehicles and scripts with a new versioned Slingshot source/export, preserving accepted G1 clay. Use G1 reviewer-notes.md and exact-year references to refine cabin/dashboard, hood ridges, lamp sections and rear shell; author a driver contact rig with hands on steering control and feet on pedals. Export to a separate candidate GLB and inspect neutral runtime multiviews before replacing accepted assets. Then complete P03 materials/UV/LOD, garage, day/night 150-250 m sample, drivetrain audio and cameras. Capture in-engine clips with audio and identify hardware/profile limitations for independent G3 review before P04.",
+  "current_packet": "P03A",
+  "next_action": "Finish only the P03A optical cleanup and local review, then verify normal bay entry and same-asset pad, freeze a local checkpoint, capture and package Astra-Review-02.zip. Stop at that review package. G3 remains pending; no P03B/P03C or campaign work.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -56,7 +56,9 @@
       "approach_changes": 0
     }
   },
-  "blockers": [],
+  "blockers": [
+    "Final frozen-build route/animation verification, motion capture and independent packet review remain to be recorded. G3 is outside this packet."
+  ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
     "Physical target-device, GPU performance and controller testing remain unperformed.",
@@ -68,7 +70,7 @@
     "build": "npm run build",
     "test": "npm test",
     "dev": "npm run dev",
-    "preview": "npm run preview:accepted",
+    "preview": "npm run preview",
     "gate_g0": "npm run gate:g0",
     "gate_g1": "npm run gate:g1",
     "gate_g2": "npm run gate:g2",
@@ -78,7 +80,8 @@
     "record_stress": "npm run record:stress",
     "presenter": "npm run test:presenter",
     "calibration": "Set EVIDENCE_DIR to a new folder before npm run test:browser; never overwrite accepted evidence",
-    "blender": ".tools/blender-4.5.2-windows-x64/blender.exe --background --factory-startup --python scripts/vehicle_build.py"
+    "blender": ".tools/blender-4.5.2-windows-x64/blender.exe --background --factory-startup --python scripts/vehicle_build.py",
+    "capture_p03a": "Use new EVIDENCE_DIR, node scripts/build-review.mjs then npm run capture:p03a"
   },
   "rejected_approaches": [
     "P01 revision01: flat center lamp, missing raised hood inlet and tubular splitter. Repaired in revision02; G1 independently accepted.",
@@ -90,7 +93,7 @@
   "kit_revision": 2,
   "build_mode": "FRESH_START",
   "workspace_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
-  "new_repository_required": true,
+  "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
   "commit_meaning": "Implementation and capture checkpoint preceding this review-and-ledger commit. Accepted G2 runtime source is 8f115fcd44ab0d950e73fd7d24307aae1190e602; d047c56 corrects capture framing and documents the workflow without changing runtime source.",
@@ -115,5 +118,21 @@
     "gates": "G0, G1 and G2 independent PASS; all three evidence-integrity validators pass",
     "preservation": "Separate new Git root; supplied original kit hashes unchanged; no legacy source/assets or saves imported",
     "evidence": "Actual Blender source/export checks, runtime stills, four final motion videos, 21 telemetry scenarios, fixed-step scheduling and keyboard/pause/reset tests"
+  },
+  "director_addendum": "director-addenda/review-01/CODEX_NEXT.md",
+  "drivetrain_addendum": {
+    "status": "independently_passed",
+    "commit": "9add1f9",
+    "evidence": "production/evidence/G2-addendum-01/review.json",
+    "scope": "Signed-speed correction; existing tick-start body-forward coupling approximation retained and quantified"
+  },
+  "fresh_start_requirement": "Fulfilled by this existing standalone repository; continue here without scaffolding, resetting or importing legacy assets.",
+  "p03a": {
+    "status": "local_surface_material_review_passed_final_motion_pending",
+    "visual_review": "production/evidence/P03A/review-material04.md",
+    "asset": "public/assets/vehicles/slingshot-p03a.glb",
+    "sha256": "5ca79ccf1608491a4c82079d570d0928c85c3581f5ebcf7d557404864250cee2",
+    "normal_entry": "inspection bay",
+    "scope": "One Slingshot and same-asset test pad only; G3 pending"
   }
 }

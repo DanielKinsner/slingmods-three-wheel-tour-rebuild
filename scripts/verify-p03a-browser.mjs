@@ -1,0 +1,24 @@
+import {chromium} from '@playwright/test';
+import {writeFile,mkdir,readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';import assert from 'node:assert/strict';
+const dir=process.env.EVIDENCE_DIR;if(!dir)throw new Error('Set a fresh EVIDENCE_DIR; historical evidence must remain untouched');await mkdir(dir,{recursive:false});
+const report={commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceHashes:Object.fromEntries(await Promise.all(['src/main.ts','src/workbench.ts','src/presentation/shadows.ts','src/presentation/statistics.ts','scripts/verify-p03a-browser.mjs'].map(async p=>[p,createHash('sha256').update(await readFile(p)).digest('hex')]))),environment:'Isolated headless Chromium / SwiftShader / Windows',comparisons:[],contracts:[],errors:[]};
+const b=await chromium.launch({headless:true,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});report.browser=b.version();
+try{const page=await b.newPage({viewport:{width:1440,height:1000}});page.on('pageerror',e=>report.errors.push(e.message));
+for(const asset of ['p01','p03a']){const file='public/assets/vehicles/'+(asset==='p01'?'slingshot.glb':'slingshot-p03a.glb');const entry={asset,file,sha256:createHash('sha256').update(await readFile(file)).digest('hex'),views:[]};
+ await page.goto('http://127.0.0.1:5187/?scene=vehicle&test=1&asset='+asset);await page.waitForFunction(()=>window.__TWT?.ready,null,{timeout:90000});
+ for(const view of ['threequarter','side','rearquarter','cockpit']){await page.evaluate(v=>window.__TWT.captureView(v),view);entry.views.push({view,inspect:await page.evaluate(()=>window.__TWT.inspect()),passes:await page.evaluate(()=>window.__TWT.measurePasses())})}report.comparisons.push(entry);
+}
+await page.goto('http://127.0.0.1:5187/?scene=pad&test=1&asset=p03a');await page.waitForFunction(()=>window.__TWT?.ready,null,{timeout:90000});
+for(const steer of [1,-1]){await page.evaluate(()=>window.__TWT.reset({z:0}));const initial=await page.evaluate(()=>window.__TWT.inspect());const inspected=await page.evaluate(steer=>{window.__TWT.advance({steer,throttle:.2,brake:0,reverse:false},1);return window.__TWT.inspect()},steer);
+ const wheels=inspected.telemetry.wheels;assert.ok(Math.abs(inspected.steeringControlQuaternion[2]-Math.sin(inspected.telemetry.steer*10/2))<1e-6);
+ for(let i=0;i<3;i++){const n=inspected.nodes[i],w=wheels[i];assert.ok(Math.abs(n.presentedPosition[1]-w.localCenter.y)<1e-6);assert.ok(Math.abs(n.spinQuaternion[0]-Math.sin(-w.spin/2))<1e-6);assert.ok(Math.abs(n.spinQuaternion[3]-Math.cos(-w.spin/2))<1e-6);if(i<2){assert.equal(Math.sign(w.steer),steer);assert.ok(Math.abs(n.steerQuaternion[1]-Math.sin(w.steer/2))<1e-6)}else assert.equal(w.steer,0);assert.notDeepEqual(n.spinQuaternion,initial.nodes[i].spinQuaternion)}assert.ok(Math.abs(inspected.rearCaliper.position[1]-inspected.rearCaliper.base[1]-(wheels[2].localCenter.y-inspected.nodes[2].position[1]))<1e-6);assert.deepEqual(inspected.rearCaliper.quaternion,initial.rearCaliper.quaternion);report.contracts.push({steer,inspected});}
+if(process.env.CHECK_DEFAULT!=='0'){await page.goto('http://127.0.0.1:5187/?test=1');await page.waitForFunction(()=>window.__TWT?.ready,null,{timeout:90000});
+assert.equal(await page.evaluate(()=>window.__TWT.mode),'bay');assert.equal(await page.evaluate(()=>window.__TWT.asset),'slingshot-p03a.glb');
+await page.locator('#inspect-action').click();assert.equal(await page.locator('.view-tools').isVisible(),true);await page.locator('[data-view=cockpit]').click();
+await page.locator('.drive-action').click();await page.waitForFunction(()=>window.__TWT?.ready&&window.__TWT.mode==='pad',null,{timeout:90000});assert.equal(await page.evaluate(()=>window.__TWT.asset),'slingshot-p03a.glb');
+await page.locator('#inspect-action').click();await page.waitForFunction(()=>window.__TWT?.ready&&window.__TWT.mode==='bay',null,{timeout:90000});
+await page.goto('http://127.0.0.1:5187/?scene=calibration');await page.waitForFunction(()=>window.__TWT?.ready,null,{timeout:90000});assert.equal(await page.evaluate(()=>window.__TWT.asset),'calibration.glb');
+report.routes='PASS normal bay, Inspect toolbar/cockpit, Drive same P03A asset, pad Inspect returns bay, explicit calibration';}
+assert.deepEqual(report.errors,[]);await writeFile(dir+'/browser-verification.json',JSON.stringify(report,null,2));console.log('PASS same-view renderer census; actual P03A wheel spin, suspension position, front and cockpit steering presentation');
+}finally{await b.close()}

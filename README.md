@@ -1,22 +1,52 @@
-# SlingMods: Three-Wheel Tour
+# SlingMods: Three-Wheel Tour — P03A
 
-Fresh local rebuild directed by the kit in `director-kit/`. No legacy game imports or deployment target.
+Existing standalone Three.js / TypeScript / Rapier rebuild. Astra review01 narrows this checkpoint to one surfaced Slingshot, a compact inspection bay, the same asset on the existing pad, the signed-wheel RPM correction, and shadow repair. G3 remains pending. See `director-kit/director-addenda/review-01/CODEX_NEXT.md` and `director-kit/production/state.json`.
+
+## Local launch
+
+Node 24.15.0 and npm 11.6.2 were used on Windows 11 Pro. From the existing repository:
 
 ```powershell
+Set-Location -LiteralPath 'C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild'
 npm ci
-npm test
 npm run build
-npm run dev
+npm run preview
 ```
 
-Local development: http://127.0.0.1:5186 . Open `/?scene=vehicle` for the accepted Slingshot clay inspection or `/?scene=pad` for the driving prototype. The default route retains the original calibration fixture. `/?scene=vehicle&asset=fleet` shows the three scale blockouts; these are diagnostic assets, not three finished vehicles.
+Open http://127.0.0.1:5187/. The normal entry opens the locally reviewed P03A inspection bay. `Inspect` exposes front/side/rear/cockpit/material views and a moving light. `Drive` takes the same GLB to the pad. Diagnostics are toggled separately. Development server: `npm run dev`, http://127.0.0.1:5186/.
 
-Drive: W/up throttle, S/down brake, A/D or arrows steer, X request reverse (brakes before engaging), C near/far chase, hold R for one continuous second to reset, Escape pause. Changing focus pauses and clears held keys; Escape resumes. Mouse orbit/zoom operates only in the inspection view. No physical controller tests or controller implementation are claimed at this stage.
+Explicit routes remain `/?scene=bay&asset=p03a`, `/?scene=vehicle&asset=p03a` (neutral inspection), `/?scene=pad&asset=p03a`, `/?scene=calibration`, and `/?scene=vehicle&asset=p01` (preserved clay). The pre-existing `asset=fleet` contains scale blockouts only; it is not additional finished-vehicle work.
 
-`npm run test:browser` captures Blender calibration into the G0 evidence location; accepted evidence must not be overwritten casually. To rerun without changing an accepted manifest, set `EVIDENCE_DIR` to a fresh folder and optionally `TWT_URL` to the calibration URL of a built snapshot. `npm run preview:accepted` validates G1 and G2 (including G0) before starting the built server at http://127.0.0.1:5187. G1 has its own independent validator command, `npm run gate:g1`. No public deployment is configured.
+Drive with W/up, brake with S/down, steer with A/D or left/right, X requests reverse after braking to near rest, C changes near/far chase, hold R continuously for one second to reset, Escape pauses/resumes. Losing focus pauses and clears held input. Inspect views support orbit/zoom. No controller support or physical controller test is claimed.
 
-Runtime captures use a stable build served at port5187 to avoid Vite HMR changing a frame during review. After `npm run build`, the isolated commands are `npm run capture:vehicle`, `npm run capture:driving`, `npm run record:driving`, `npm run record:stress` and `npm run test:presenter`. Each records actual outcomes and provenance under `director-kit/production/evidence`. Recordings deliberately use SwiftShader and run slower than wall-clock real time; they are correctness/motion evidence, not hardware performance results. Frame-cap injection verifies fixed-step scheduling and final rendered poses; it does not claim the software renderer sustained120/144FPS.
+## Source and verification
 
-The P02 physics model is an explicitly estimated simcade model. The main unresolved high-energy limit is the large hop/roll after hitting an18cm curb near48mph; ordinary-speed curb and incline behavior are separate reviewed traces. Current rendered geometry is clay. Finished rider contact, cabin/surface refinement, garage, audio, hardware performance, race, catalog and campaign work require their later gates.
+Editable hero: `assets/blender/vehicles/slingshot-p03a.blend`; runtime: `public/assets/vehicles/slingshot-p03a.glb`; authored maps: `public/assets/textures/p03a/`. The accepted P01 source/export and physical contact layout remain unchanged. Bay source/export is `assets/blender/inspection-bay-p03a.blend` / `public/assets/inspection-bay-p03a.glb`.
 
-Rebuild the actual calibration asset with `.tools/blender-4.5.2-windows-x64/blender.exe --background --factory-startup --python scripts/calibration.py`. The portable executable is a local ignored tool; editable `.blend` and GLB are versioned. See `director-kit/production/state.json` for the exact continuation point and gate reviews for limitations.
+Background Blender 4.5.2 LTS reproduction, using the ignored local portable installation:
+
+```powershell
+& '.tools/blender-4.5.2-windows-x64/blender.exe' --background --factory-startup --python scripts/vehicle_p03a_build.py -- --finish
+& '.tools/blender-4.5.2-windows-x64/blender.exe' --background --factory-startup --python scripts/inspection_bay.py
+```
+
+These commands regenerate the named P03A outputs; they do not modify P01. The Blender download is excluded from the ZIP. A separately installed Blender 4.5.2 executable can replace that path. All runtime maps are newly authored; reference photos are research, not game textures.
+
+`npm test` runs the normal simulation/save/shadow suite. `npm run build` includes TypeScript checking. To independently capture a built preview with installed isolated Playwright Chromium:
+
+```powershell
+npx playwright install chromium
+node scripts/build-review.mjs
+$env:EVIDENCE_DIR='director-kit/production/evidence/P03A/a-new-capture-folder'
+npm run capture:p03a
+```
+
+The capture tool refuses an existing output folder. It records actual runtime PNGs, silent video, source/served hashes, telemetry and renderer counters. `scripts/verify-p03a-browser.mjs` similarly requires a new `EVIDENCE_DIR` and tests default/Inspect/Drive/calibration routes, actual wheel/steering presentation and comparable renderer counts. It does not use desktop input.
+
+Historical capture scripts may use fixed G0/G1/G2 locations. Do not run them over accepted evidence. `npm run preview:accepted` / `gate:g0` / `gate:g1` / `gate:g2` validate historical evidence integrity only, not current aesthetics or handling. The small review ZIP intentionally omits the full historical archive, so use `npm run preview` there; full historical gate validation requires the intact repository archive.
+
+## Explicit limits
+
+P03A is a local inspection/driving checkpoint, not a finished game. No rider, interactive garage/workshop, race, opponents, upgrades/shop/campaign, night road sample, engine/tire audio or new driving camera suite is implemented. Instruments and infotainment are visual approximations, with no fabricated live readout claim. Broad environment lighting approximates a studio; it is not a measured physical lighting simulation.
+
+The pad uses the same showroom-detail mesh. A racing LOD, texture compression and physical GPU performance remain unvalidated. Silent SwiftShader recordings can run slower than real time and do not establish hardware frame rate or subjective handling quality. Physics coefficients are simcade estimates; the existing severe high-speed curb hop remains a known limitation. The RPM fix preserves the documented tick-start coupling approximation, idle/clutch and shift model. G3 must remain pending for later P03B/P03C evidence.

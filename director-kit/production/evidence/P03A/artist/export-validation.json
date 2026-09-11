@@ -1,0 +1,458 @@
+{
+  "status": "PASS structural checks only",
+  "checks": [
+    "vehicle_root transform preserved",
+    "front_left_steer transform preserved",
+    "front_left_spin transform preserved",
+    "front_right_steer transform preserved",
+    "front_right_spin transform preserved",
+    "rear_spin transform preserved",
+    "All original named mounts, camera and rider contact transforms retained",
+    "Every exported primitive contains UV0",
+    "Hero color primitive target <= 70 met",
+    "All five primary mapped materials export basecolor, metallic-roughness and tangent-space normal channels",
+    "Each texture channel references an exported UV set",
+    "Transparent windshield and clearcoat paint serialized",
+    "Whole exported GLB world bounds within 1 percent of accepted P01"
+  ],
+  "wholeExportedWorldBounds": {
+    "min": [
+      -0.994499996304512,
+      0.0,
+      -2.119999885559082
+    ],
+    "max": [
+      1.0015000030398369,
+      1.3127319812774658,
+      1.6790000200271606
+    ],
+    "size": [
+      1.995999999344349,
+      1.3127319812774658,
+      3.7989999055862427
+    ]
+  },
+  "primitives": 52,
+  "triangles": 176218,
+  "materials": 20,
+  "images": 16,
+  "uv0_primitives": 52,
+  "preserved_baselines": [
+    {
+      "file": "assets/blender/vehicles/slingshot-p01.blend",
+      "gitBlob": "99a64421edaa8582dae64358f79572c0db5262cc"
+    },
+    {
+      "file": "public/assets/vehicles/slingshot.glb",
+      "gitBlob": "96f44c9aebb82bf844affe92dad7e556b3c52cf9"
+    },
+    {
+      "file": "public/assets/slingshot-contact-layout.json",
+      "gitBlob": "17fabc7a1cb2ae5564ca57f1be0cb2b4069c790b"
+    }
+  ],
+  "files": {
+    "assets/blender/vehicles/slingshot-p03a.blend": {
+      "bytes": 5451362,
+      "sha256": "8daadbe0db678e2767579e8b0ec3b52c2a14ac6719dc3aa64d982f77dff41e25"
+    },
+    "public/assets/vehicles/slingshot-p03a.glb": {
+      "bytes": 7726756,
+      "sha256": "5ca79ccf1608491a4c82079d570d0928c85c3581f5ebcf7d557404864250cee2"
+    },
+    "scripts/vehicle_p03a_build.py": {
+      "bytes": 28814,
+      "sha256": "e49ed25c447068574a3f5c7d7b309c043ce00257f975cab7ba8e75b7e327f31d"
+    },
+    "scripts/vehicle_p03a_materials.py": {
+      "bytes": 14786,
+      "sha256": "24e6eb8c6bb311337cc6aa097242c33d7d7f3f17fc411c6e670978c2be122697"
+    }
+  },
+  "extensions": [
+    "KHR_materials_clearcoat"
+  ],
+  "runtimeAestheticApproval": "required separately",
+  "mappedMaterialChannels": [
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Radar_Blue",
+      "role": "basecolor",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Radar_Blue",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Radar_Blue",
+      "role": "normal",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Instrument_Scale",
+      "role": "basecolor",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Radar_Blue",
+      "role": "basecolor",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Radar_Blue",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Radar_Blue",
+      "role": "normal",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Seat_Charcoal",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Seat_Charcoal",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Seat_Charcoal",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "basecolor",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "normal",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "basecolor",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "normal",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Seat_Charcoal",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Seat_Charcoal",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Seat_Charcoal",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "basecolor",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Rubber",
+      "role": "normal",
+      "uv": "TEXCOORD_1"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Machined_Aluminum",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "basecolor",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "metallicRoughness",
+      "uv": "TEXCOORD_0"
+    },
+    {
+      "material": "P03A_Textured_Polymer",
+      "role": "normal",
+      "uv": "TEXCOORD_0"
+    }
+  ]
+}
