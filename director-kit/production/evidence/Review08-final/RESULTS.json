@@ -1,0 +1,153 @@
+{
+  "runtimeCommit": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
+  "status": "FUNCTIONAL_LOOP_PASS_LIGHTING_AND_PERFORMANCE_HOLD",
+  "credits": [
+    0,
+    800,
+    200,
+    300
+  ],
+  "receipts": {
+    "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+      "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+      "kind": "award",
+      "amount": 800,
+      "balance": 800,
+      "first": true,
+      "at": "2026-09-11T23:22:28.006Z"
+    },
+    "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+      "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+      "kind": "purchase",
+      "amount": -600,
+      "balance": 200,
+      "first": true,
+      "at": "2026-09-11T23:23:01.763Z"
+    },
+    "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+      "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+      "kind": "award",
+      "amount": 100,
+      "balance": 300,
+      "first": false,
+      "at": "2026-09-11T23:24:35.069Z"
+    }
+  },
+  "inventory": {
+    "owned": true,
+    "equipped": true,
+    "appearance": {
+      "color": "cyan",
+      "brightness": 0.7,
+      "enabled": true
+    },
+    "chapters": {
+      "entry": true,
+      "firstCompletion": true,
+      "firstBuild": true
+    }
+  },
+  "attempts": [
+    {
+      "preset": "day",
+      "attemptId": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      }
+    },
+    {
+      "preset": "night",
+      "attemptId": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      }
+    }
+  ],
+  "exactPhysicsOffOn": true,
+  "physicsRowsPerRun": 10200,
+  "protectedInputCount": 41,
+  "sourceInputs": 230,
+  "tests": {
+    "full": "72/72",
+    "directorSubset": "26/26",
+    "careerBrowser": "14 checks PASS",
+    "existingUI": "6 checks PASS",
+    "lifecycle": "12 equip cycles and7scene loads PASS",
+    "oldSave": "Current-route old PB/settings and new ordinary reward PASS"
+  },
+  "media": {
+    "audition": "Not performed; numerical checks and sampled visual inspection only",
+    "media": [
+      {
+        "file": "progression-silent.mp4",
+        "seconds": 22.5,
+        "frames": 540,
+        "fps": "24/1",
+        "audio": "Explicitly silent",
+        "decode": "PASS",
+        "sha256": "0fea04879b8a0fd48e72e98c4c1af28dbb0b8c68249fe733805258e719a0a0eb"
+      },
+      {
+        "file": "night-game-audio.mp4",
+        "seconds": 85.0,
+        "frames": 2040,
+        "fps": "24/1",
+        "audio": "Aligned offline game graph",
+        "decode": "PASS",
+        "sha256": "aa18cebe123bd52893d9ea8ac3281e08772243bb6e8eabbb618b1bc30764246a",
+        "encodedTruePeakDbTP": -15.3,
+        "audioSeconds": 85.0
+      },
+      {
+        "file": "night-wall-clock-silent.mp4",
+        "seconds": 12.0,
+        "frames": 300,
+        "fps": "25/1",
+        "audio": "Explicitly silent",
+        "decode": "PASS",
+        "sha256": "b0732bb90c4b8e182cd2f9e1be781ebe4a10cfd3d9bc886d9d9ef3ec7472f56c"
+      }
+    ]
+  },
+  "profile": [
+    {
+      "equipped": false,
+      "elapsedSeconds": 12.017700000017882,
+      "frameMs": {
+        "mean": 21.45749999999999,
+        "p50": 16.699999999999818,
+        "p95": 16.799999999999272,
+        "max": 2699.8
+      }
+    },
+    {
+      "equipped": true,
+      "elapsedSeconds": 12.010600000023842,
+      "frameMs": {
+        "mean": 27.18597285067875,
+        "p50": 16.699999999999818,
+        "p95": 16.700000000000728,
+        "max": 4666.500000000001
+      }
+    }
+  ],
+  "holds": [
+    "Harbor near-chase underglow lacks strong readability under existing practical/headlight wash; no further lighting iteration after two evaluated constructions.",
+    "Capture-inclusive wall-clock stalls2699.8ms stock and4666.5ms equipped; cause not isolated, no sustained performance certification.",
+    "Photometry/2024 physical routing remain approximations; normal car/environment/aural/device holds retained."
+  ]
+}
