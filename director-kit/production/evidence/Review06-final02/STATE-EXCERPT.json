@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "project": "SlingMods: Three-Wheel Tour",
+  "as_of": "2026-09-11",
+  "workspace_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "branch": "main",
+  "commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+  "commit_meaning": "Frozen captured P04A runtime; later package-only commit recorded by archive manifest",
+  "current_gate": "G3",
+  "current_packet": "P04A Harbor Shakedown",
+  "next_action": "Await Astra Review06 decision. Stop implementation; do not advance G3/G4 or start another packet.",
+  "gates": {
+    "G0": {
+      "status": "passed",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G1": {
+      "status": "passed",
+      "same_approach_revisions": 1,
+      "approach_changes": 0
+    },
+    "G2": {
+      "status": "passed",
+      "same_approach_revisions": 0,
+      "approach_changes": 2
+    },
+    "G3": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G4": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G5": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G6": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G7": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    }
+  },
+  "blockers": [
+    "Broader vehicle fidelity held: rounded edge/subdued ridge and tire groove/machining approximation remain.",
+    "G3/G4 pending: final vehicle/aural/environment fidelity and hardware/physical controls remain held. P04A bounded event was explicitly authorized; no full campaign or originalP04 approval."
+  ],
+  "known_limitations": [
+    "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
+    "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
+    "Historical before P04A: Instruments, infotainment and lamp emission are passive; no live mirror or nighttime beam system. Photo-guided shapes and materials remain approximations. P04A adds actual harbor headlight beams and brake emission; instruments/mirrors remain simplified.",
+    "Historical P03A local visual PASS was rejected by Astra Review02; that review remains preserved as history. P03A1 is a bounded best candidate with specific visual HOLD, not an accepted complete slice.",
+    "P03A1 uses a 192,839-triangle showroom mesh on the pad as a disclosed exception to the 140k racing-LOD aim; no physical GPU-memory/FPS or LOD approval.",
+    "Review03 movies use silent frame-stepped runtime capture at12fps; software wall time is separately recorded. No human-driving or real-time-FPS claim.",
+    "P03A2 development default is211431 triangles/59 primitives, below250k showroom ceiling but above140k racing-LOD aim; same16 maps and source mip estimate76895573 bytes.",
+    "P03B1 uses noncolliding guide cones and a virtual controller for automated evidence; real navigator.getGamepads production reader exists, physical controller/performance/subjective fun not tested.",
+    "P03B2 sound is original local synthesis, not OEM exhaust recording. Audio source timbre remains held absent auditory review. Body fidelity and hardware/physical gamepad certification remain held.",
+    "P04A scenery is a modular provisional harbor with angular palms, repeated shed forms, sparse infield, road bands and oversized overview water reflections. No final environmental/vehicle polish approval.",
+    "Historical first P04A SwiftShader fixture: frame means350/298/309ms at720p and significant stalls; preserved separately. Replacement RTX4080 D3D11 short720p runs mean16.887/16.666/16.666ms, p95 16.8ms; day max150ms. Not sustained hardware certification or proof of low-mode speed gain.",
+    "P04A cockpit uses fixed original eye with scene-specific gaze/FOV; lower hands are more cropped. Night practicals use a nearest-light pool; refined transitions remain visual review work."
+  ],
+  "verification": {
+    "local_tests": "64/64 full;22/22 focused input/drivetrain;TypeScript/Vite build PASS. Expected original pitch-coherence failure retained separately.",
+    "independent_review": "Six browser regressions PASS. Land repair:72 frames across two renderers, two presets and two aspects PASS. Replacement movies/stills and179 inputs/45 served hashes/25 protected files checked; final scoped review in P04A/review-final.md.",
+    "gates": "G0/G1/G2 retained. G3/G4 pending. P04A authorized by Review05 despite whole-car/aural hold.",
+    "preservation": "25 protected files unchanged against2fd926c. Simulation changed only environment/box rotation/surface seam; optional session hooks. No force/tire/drivetrain/step,car/driver/sourcebank edits.",
+    "environment": {
+      "os": "Windows11 build26200",
+      "blender": "4.5.2 LTS background",
+      "node": "24.15.0",
+      "npm": "11.6.2",
+      "browser": "153.0.8010.12",
+      "renderer": "Final isolated headless Chromium ANGLE Direct3D11 NVIDIA RTX4080; repair cross-check also SwiftShader; physical output muted",
+      "dependencies": "Retained package-lock; no upgrade"
+    },
+    "evidence": "Review06-final02, Review06-ui02 and Review06-performance02. Controlled24fps video is distinct from wall-clock GPU frame measurement. No physical-controller, human-driving or listening claim."
+  },
+  "p04a": {
+    "status": "implemented_review_package_ready_awaiting_astra",
+    "authorization": "Review05 explicitly allows small environment/event before final G3/G4 approval; no full originalP04",
+    "audio_correction": "Exact sanitizedRPM/source-reference ratio; original regression1fail2pass retained, corrected3pass",
+    "route_length_m": 1230.86710531256,
+    "road_width_m": 11,
+    "route_gate": "Realphysics78.7192s valid ordered lap at60/120Hz before dressing",
+    "g3_advance": false,
+    "g4_advance": false,
+    "runtime_commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+    "runoff_each_side_m": 3,
+    "lighting": [
+      "day",
+      "night"
+    ],
+    "scope": "One Blender harbor and one standing-start valid lap/result/compatible best/retry; retained current car/driver/physics; no campaign",
+    "physical_controller_tested": false,
+    "human_driving_tested": false,
+    "auditioned": false,
+    "evidence": "production/evidence/Review06-final02/",
+    "review": "production/evidence/P04A/review-final.md",
+    "harness_note": "Initial post-film fixture removed active pad and triggered correct disconnect pause; corrected fixture maintains pad. Earlier footage and failedcheck preserved; replacement capture120Hzpresentation/60Hzphysics/24fps via isolatedDirect3D11RTX4080.",
+    "prior_runtime_commit": "8ffcad7a630c3a2a045194e1287195826fdeb545",
+    "prior_evidence": "production/evidence/Review06-final/",
+    "land_repair": "Blender exact Boolean removes land beneath road/runoff;18480 actual exported corridor rays have0land hits,1232outside rays Y0;route/all8othermaterialgeometry/all9imagesunchanged. Replaces depth-offset workaround.",
+    "environment_triangles": 118400,
+    "valid_lap_ms": 78719.20388459373,
+    "day_night_laps_valid": true,
+    "capture_rates": {
+      "presentation_hz": 120,
+      "physics_hz": 60,
+      "video_fps": 24
+    },
+    "final_post_film_checks": "PASS: valid record, mute/volume, camera, immediate retry and reload in original day context"
+  },
+  "excerpt_notice": "Current Review06 state excerpt. Complete historical ledger and evidence are preserved in the existing repository; this compact archive deliberately omits redundant history."
+}

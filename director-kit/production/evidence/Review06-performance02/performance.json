@@ -1,0 +1,1343 @@
+[
+  {
+    "preset": "day",
+    "quality": "standard",
+    "method": "10s actual wall-clock requestAnimationFrame with held keyboard throttle,1280x720 identified headless Direct3D11 renderer. First3 intervals discarded; dt clamp remains ordinary so low rendering rate can slow logical simulation. Short isolated offscreen observation, not human gameplay or a sustained performance certification.",
+    "wallSeconds": 10.024,
+    "loadMs": 3110.5999999940395,
+    "frames": 603,
+    "frameMs": {
+      "p50": 16.69999999999891,
+      "p95": 16.799999999999272,
+      "maximum": 150,
+      "mean": 16.887064676616912
+    },
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "renderInfo": {
+      "frame": 641,
+      "calls": 138,
+      "triangles": 661787,
+      "points": 0,
+      "lines": 0
+    },
+    "statistics": {
+      "car": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 59,
+        "triangles": 211431,
+        "uvMeshes": 59,
+        "materials": [
+          {
+            "name": "P03A_Gloss_Black_Wheel",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Orange_Accent",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Radar_Blue",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Textured_Polymer",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Recess_Black",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Glass",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Scale",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Charcoal",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Silver",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Wind_Deflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Rubber",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Brake_Caliper",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Tail_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Clear_Optical_Cover",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Reflector",
+            "type": "MeshPhysicalMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "radar-blue_basecolor",
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 22369622
+          },
+          {
+            "name": "radar-blue_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "molded-polymer_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "instrument-scale_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "sport-seat_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 93672804
+      },
+      "driver": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 4,
+        "triangles": 28411,
+        "uvMeshes": 4,
+        "materials": [
+          {
+            "name": "Driver_Textile",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Leather",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Helmet",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "Driver_Visor",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 16777218
+      },
+      "world": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 9,
+        "triangles": 118400,
+        "uvMeshes": 9,
+        "materials": [
+          {
+            "name": "Harbor_Asphalt",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Runoff",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Concrete",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Land",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Water",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Dark_Rubber",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Luminaire",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Modular_Atlas",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Road_Paint",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "asphalt_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "asphalt_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "asphalt_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 50331654
+      }
+    },
+    "lightBudget": {
+      "preset": "day",
+      "quality": "standard",
+      "shadowMaps": 1,
+      "shadowResolution": 1024,
+      "stockBeams": 2,
+      "pooledPracticals": 4
+    },
+    "simulationSeconds": 10.000000000000076,
+    "race": {
+      "phase": "running",
+      "paused": false,
+      "invalidReason": null,
+      "elapsedMs": 7000.000000000038,
+      "countdown": 0,
+      "checkpoint": 0,
+      "total": 15,
+      "result": null,
+      "attempt": 1
+    }
+  },
+  {
+    "preset": "night",
+    "quality": "standard",
+    "method": "10s actual wall-clock requestAnimationFrame with held keyboard throttle,1280x720 identified headless Direct3D11 renderer. First3 intervals discarded; dt clamp remains ordinary so low rendering rate can slow logical simulation. Short isolated offscreen observation, not human gameplay or a sustained performance certification.",
+    "wallSeconds": 10.028,
+    "loadMs": 577.7000000178814,
+    "frames": 603,
+    "frameMs": {
+      "p50": 16.699999999999818,
+      "p95": 16.799999999999272,
+      "maximum": 16.80000000000109,
+      "mean": 16.666003316749567
+    },
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "renderInfo": {
+      "frame": 641,
+      "calls": 138,
+      "triangles": 661787,
+      "points": 0,
+      "lines": 0
+    },
+    "statistics": {
+      "car": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 59,
+        "triangles": 211431,
+        "uvMeshes": 59,
+        "materials": [
+          {
+            "name": "P03A_Gloss_Black_Wheel",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Orange_Accent",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Radar_Blue",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Textured_Polymer",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Recess_Black",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Glass",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Scale",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Charcoal",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Silver",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Wind_Deflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Rubber",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Brake_Caliper",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Tail_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Clear_Optical_Cover",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Reflector",
+            "type": "MeshPhysicalMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "radar-blue_basecolor",
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 22369622
+          },
+          {
+            "name": "radar-blue_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "molded-polymer_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "instrument-scale_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "sport-seat_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 93672804
+      },
+      "driver": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 4,
+        "triangles": 28411,
+        "uvMeshes": 4,
+        "materials": [
+          {
+            "name": "Driver_Textile",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Leather",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Helmet",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "Driver_Visor",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 16777218
+      },
+      "world": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 9,
+        "triangles": 118400,
+        "uvMeshes": 9,
+        "materials": [
+          {
+            "name": "Harbor_Asphalt",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Runoff",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Concrete",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Land",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Water",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Dark_Rubber",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Luminaire",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Modular_Atlas",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Road_Paint",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "asphalt_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "asphalt_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "asphalt_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 50331654
+      }
+    },
+    "lightBudget": {
+      "preset": "night",
+      "quality": "standard",
+      "shadowMaps": 1,
+      "shadowResolution": 1024,
+      "stockBeams": 2,
+      "pooledPracticals": 4
+    },
+    "simulationSeconds": 10.000000000000076,
+    "race": {
+      "phase": "running",
+      "paused": false,
+      "invalidReason": null,
+      "elapsedMs": 7000.000000000038,
+      "countdown": 0,
+      "checkpoint": 0,
+      "total": 15,
+      "result": null,
+      "attempt": 1
+    }
+  },
+  {
+    "preset": "night",
+    "quality": "low",
+    "method": "10s actual wall-clock requestAnimationFrame with held keyboard throttle,1280x720 identified headless Direct3D11 renderer. First3 intervals discarded; dt clamp remains ordinary so low rendering rate can slow logical simulation. Short isolated offscreen observation, not human gameplay or a sustained performance certification.",
+    "wallSeconds": 10.025,
+    "loadMs": 2243.4000000059605,
+    "frames": 603,
+    "frameMs": {
+      "p50": 16.699999999999818,
+      "p95": 16.799999999999272,
+      "maximum": 16.80000000000109,
+      "mean": 16.666003316749574
+    },
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "renderInfo": {
+      "frame": 641,
+      "calls": 138,
+      "triangles": 661787,
+      "points": 0,
+      "lines": 0
+    },
+    "statistics": {
+      "car": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 59,
+        "triangles": 211431,
+        "uvMeshes": 59,
+        "materials": [
+          {
+            "name": "P03A_Gloss_Black_Wheel",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Orange_Accent",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Radar_Blue",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Textured_Polymer",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Recess_Black",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Glass",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Scale",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Charcoal",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Silver",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Wind_Deflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Rubber",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Brake_Caliper",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Tail_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Clear_Optical_Cover",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Reflector",
+            "type": "MeshPhysicalMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "radar-blue_basecolor",
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 22369622
+          },
+          {
+            "name": "radar-blue_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "molded-polymer_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "instrument-scale_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "sport-seat_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 93672804
+      },
+      "driver": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 4,
+        "triangles": 28411,
+        "uvMeshes": 4,
+        "materials": [
+          {
+            "name": "Driver_Textile",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Leather",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Helmet",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "Driver_Visor",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 16777218
+      },
+      "world": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 9,
+        "triangles": 118400,
+        "uvMeshes": 9,
+        "materials": [
+          {
+            "name": "Harbor_Asphalt",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Runoff",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Concrete",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Land",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Water",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Dark_Rubber",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Luminaire",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Modular_Atlas",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Harbor_Road_Paint",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "asphalt_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "asphalt_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "asphalt_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "concrete_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "harbor_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 50331654
+      }
+    },
+    "lightBudget": {
+      "preset": "night",
+      "quality": "low",
+      "shadowMaps": 1,
+      "shadowResolution": 512,
+      "stockBeams": 2,
+      "pooledPracticals": 2
+    },
+    "simulationSeconds": 10.000000000000076,
+    "race": {
+      "phase": "running",
+      "paused": false,
+      "invalidReason": null,
+      "elapsedMs": 7000.000000000038,
+      "countdown": 0,
+      "checkpoint": 0,
+      "total": 15,
+      "result": null,
+      "attempt": 1
+    }
+  }
+]

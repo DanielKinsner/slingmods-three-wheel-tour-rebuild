@@ -1,0 +1,786 @@
+✖ engine pitch: every contributing bed follows the one commanded engine RPM (5.649ms)
+✔ engine pitch: finite nonnegative layer parameters and nonzero coverage across operating range (3.0661ms)
+✔ engine pitch: lifecycle master muting and no-road-at-rest remain intact (0.1765ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 115.1795
+
+✖ failing tests:
+
+test at tests\audio-pitch-coherence.test.mjs:13:1
+✖ engine pitch: every contributing bed follows the one commanded engine RPM (5.649ms)
+  AssertionError [ERR_ASSERTION]: A nonzero bed must not be clamped to a different effective engine speed. Retune it or fade it out with continuous coverage.
+  + actual - expected
+  
+  + [
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.018574141472213743,
+  +     name: 'engine-3600-load',
+  +     rpm: 1500,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.04643535368053436,
+  +     name: 'engine-3600-lift',
+  +     rpm: 1500,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.0534006567326145,
+  +     name: 'engine-3600-load',
+  +     rpm: 1500,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.02321767684026718,
+  +     name: 'engine-3600-lift',
+  +     rpm: 1500,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.08822717199301527,
+  +     name: 'engine-3600-load',
+  +     rpm: 1500,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.03979998003018188,
+  +     name: 'engine-3600-load',
+  +     rpm: 1800,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.09949995007545472,
+  +     name: 'engine-3600-lift',
+  +     rpm: 1800,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.11442494258677291,
+  +     name: 'engine-3600-load',
+  +     rpm: 1800,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.04974997503772736,
+  +     name: 'engine-3600-lift',
+  +     rpm: 1800,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.18904990514336395,
+  +     name: 'engine-3600-load',
+  +     rpm: 1800,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.05118190167576213,
+  +     name: 'engine-3600-load',
+  +     rpm: 1980,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.12795475418940533,
+  +     name: 'engine-3600-lift',
+  +     rpm: 1980,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.1471479673178161,
+  +     name: 'engine-3600-load',
+  +     rpm: 1980,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.06397737709470266,
+  +     name: 'engine-3600-lift',
+  +     rpm: 1980,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.2431140329598701,
+  +     name: 'engine-3600-load',
+  +     rpm: 1980,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.055459136888719174,
+  +     name: 'engine-1200-load',
+  +     rpm: 2100,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.13864784222179793,
+  +     name: 'engine-1200-lift',
+  +     rpm: 2100,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.057656605307269945,
+  +     name: 'engine-3600-load',
+  +     rpm: 2100,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.14414151326817487,
+  +     name: 'engine-3600-lift',
+  +     rpm: 2100,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.15944501855506762,
+  +     name: 'engine-1200-load',
+  +     rpm: 2100,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.06932392111089897,
+  +     name: 'engine-1200-lift',
+  +     rpm: 2100,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.16576274025840107,
+  +     name: 'engine-3600-load',
+  +     rpm: 2100,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.07207075663408744,
+  +     name: 'engine-3600-lift',
+  +     rpm: 2100,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.2634309002214161,
+  +     name: 'engine-1200-load',
+  +     rpm: 2100,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.27386887520953224,
+  +     name: 'engine-3600-load',
+  +     rpm: 2100,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.05013896118999371,
+  +     name: 'engine-1200-load',
+  +     rpm: 2200,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.12534740297498428,
+  +     name: 'engine-1200-lift',
+  +     rpm: 2200,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.06216510750092419,
+  +     name: 'engine-3600-load',
+  +     rpm: 2200,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.15541276875231047,
+  +     name: 'engine-3600-lift',
+  +     rpm: 2200,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.0046458562382883685,
+  +     name: 'engine-6200-load',
+  +     rpm: 2200,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.011614640595720921,
+  +     name: 'engine-6200-lift',
+  +     rpm: 2200,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.14414951342123192,
+  +     name: 'engine-1200-load',
+  +     rpm: 2200,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.06267370148749214,
+  +     name: 'engine-1200-lift',
+  +     rpm: 2200,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.17872468406515704,
+  +     name: 'engine-3600-load',
+  +     rpm: 2200,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.07770638437615524,
+  +     name: 'engine-3600-lift',
+  +     rpm: 2200,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.013356836685079058,
+  +     name: 'engine-6200-load',
+  +     rpm: 2200,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.005807320297860461,
+  +     name: 'engine-6200-lift',
+  +     rpm: 2200,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.23816006565247014,
+  +     name: 'engine-1200-load',
+  +     rpm: 2200,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 2340,
+  +     gain: 0.2952842606293899,
+  +     name: 'engine-3600-load',
+  +     rpm: 2200,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.02206781713186975,
+  +     name: 'engine-6200-load',
+  +     rpm: 2200,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.0424797153115439,
+  +     name: 'engine-1200-load',
+  +     rpm: 2340,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.10619928827885977,
+  +     name: 'engine-1200-lift',
+  +     rpm: 2340,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.010883666111188217,
+  +     name: 'engine-6200-load',
+  +     rpm: 2340,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.027209165277970543,
+  +     name: 'engine-6200-lift',
+  +     rpm: 2340,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.12212918152068872,
+  +     name: 'engine-1200-load',
+  +     rpm: 2340,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.053099644139429886,
+  +     name: 'engine-1200-lift',
+  +     rpm: 2340,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.03129054006966612,
+  +     name: 'engine-6200-load',
+  +     rpm: 2340,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.013604582638985271,
+  +     name: 'engine-6200-lift',
+  +     rpm: 2340,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.20177864772983356,
+  +     name: 'engine-1200-load',
+  +     rpm: 2340,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.05169741402814403,
+  +     name: 'engine-6200-load',
+  +     rpm: 2340,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.03924759729013068,
+  +     name: 'engine-1200-load',
+  +     rpm: 2400,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.09811899322532669,
+  +     name: 'engine-1200-lift',
+  +     rpm: 2400,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.01328224432778088,
+  +     name: 'engine-6200-load',
+  +     rpm: 2400,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.0332056108194522,
+  +     name: 'engine-6200-lift',
+  +     rpm: 2400,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.11283684220912568,
+  +     name: 'engine-1200-load',
+  +     rpm: 2400,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.049059496612663345,
+  +     name: 'engine-1200-lift',
+  +     rpm: 2400,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.038186452442370025,
+  +     name: 'engine-6200-load',
+  +     rpm: 2400,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.0166028054097261,
+  +     name: 'engine-6200-lift',
+  +     rpm: 2400,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.1864260871281207,
+  +     name: 'engine-1200-load',
+  +     rpm: 2400,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.06309066055695918,
+  +     name: 'engine-6200-load',
+  +     rpm: 2400,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.013380835700466717,
+  +     name: 'engine-1200-load',
+  +     rpm: 3000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.03345208925116679,
+  +     name: 'engine-1200-lift',
+  +     rpm: 3000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.028939465917750908,
+  +     name: 'engine-6200-load',
+  +     rpm: 3000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.07234866479437728,
+  +     name: 'engine-6200-lift',
+  +     rpm: 3000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.038469902638841806,
+  +     name: 'engine-1200-load',
+  +     rpm: 3000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.016726044625583397,
+  +     name: 'engine-1200-lift',
+  +     rpm: 3000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.08320096451353386,
+  +     name: 'engine-6200-load',
+  +     rpm: 3000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.03617433239718864,
+  +     name: 'engine-6200-lift',
+  +     rpm: 3000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 1980,
+  +     gain: 0.0635589695772169,
+  +     name: 'engine-1200-load',
+  +     rpm: 3000,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.1374624631093168,
+  +     name: 'engine-6200-load',
+  +     rpm: 3000,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.03558507288707161,
+  +     name: 'engine-6200-load',
+  +     rpm: 3600,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.08896268221767903,
+  +     name: 'engine-6200-lift',
+  +     rpm: 3600,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.10230708455033087,
+  +     name: 'engine-6200-load',
+  +     rpm: 3600,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.044481341108839514,
+  +     name: 'engine-6200-lift',
+  +     rpm: 3600,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 4030,
+  +     gain: 0.16902909621359014,
+  +     name: 'engine-6200-load',
+  +     rpm: 3600,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.03820305586977717,
+  +     name: 'engine-3600-load',
+  +     rpm: 6000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.09550763967444292,
+  +     name: 'engine-3600-lift',
+  +     rpm: 6000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.10983378562560935,
+  +     name: 'engine-3600-load',
+  +     rpm: 6000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.04775381983722146,
+  +     name: 'engine-3600-lift',
+  +     rpm: 6000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.18146451538144154,
+  +     name: 'engine-3600-load',
+  +     rpm: 6000,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.035585072887071606,
+  +     name: 'engine-3600-load',
+  +     rpm: 6200,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.08896268221767901,
+  +     name: 'engine-3600-lift',
+  +     rpm: 6200,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.10230708455033086,
+  +     name: 'engine-3600-load',
+  +     rpm: 6200,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.04448134110883951,
+  +     name: 'engine-3600-lift',
+  +     rpm: 6200,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.16902909621359014,
+  +     name: 'engine-3600-load',
+  +     rpm: 6200,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.03178366695153959,
+  +     name: 'engine-3600-load',
+  +     rpm: 7000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.07945916737884899,
+  +     name: 'engine-3600-lift',
+  +     rpm: 7000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.09137804248567633,
+  +     name: 'engine-3600-load',
+  +     rpm: 7000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.039729583689424496,
+  +     name: 'engine-3600-lift',
+  +     rpm: 7000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.15097241801981306,
+  +     name: 'engine-3600-load',
+  +     rpm: 7000,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.025830813450005454,
+  +     name: 'engine-3600-load',
+  +     rpm: 8000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.06457703362501364,
+  +     name: 'engine-3600-lift',
+  +     rpm: 8000,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.07426358866876567,
+  +     name: 'engine-3600-load',
+  +     rpm: 8000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.03228851681250682,
+  +     name: 'engine-3600-lift',
+  +     rpm: 8000,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.1226963638875259,
+  +     name: 'engine-3600-load',
+  +     rpm: 8000,
+  +     throttle: 1
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.02220474968995966,
+  +     name: 'engine-3600-load',
+  +     rpm: 8500,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.05551187422489915,
+  +     name: 'engine-3600-lift',
+  +     rpm: 8500,
+  +     throttle: 0
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.06383865535863402,
+  +     name: 'engine-3600-load',
+  +     rpm: 8500,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.027755937112449575,
+  +     name: 'engine-3600-lift',
+  +     rpm: 8500,
+  +     throttle: 0.5
+  +   },
+  +   {
+  +     effectiveRpm: 5940,
+  +     gain: 0.10547256102730838,
+  +     name: 'engine-3600-load',
+  +     rpm: 8500,
+  +     throttle: 1
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\audio-pitch-coherence.test.mjs:21:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [
+      { rpm: 1500, throttle: 0, name: 'engine-3600-load', gain: 0.018574141472213743, effectiveRpm: 2340 },   { rpm: 1500, throttle: 0, name: 'engine-3600-lift', gain: 0.04643535368053436, effectiveRpm: 2340 },
+      { rpm: 1500, throttle: 0.5, name: 'engine-3600-load', gain: 0.0534006567326145, effectiveRpm: 2340 },   { rpm: 1500, throttle: 0.5, name: 'engine-3600-lift', gain: 0.02321767684026718, effectiveRpm: 2340 },
+      { rpm: 1500, throttle: 1, name: 'engine-3600-load', gain: 0.08822717199301527, effectiveRpm: 2340 },    { rpm: 1800, throttle: 0, name: 'engine-3600-load', gain: 0.03979998003018188, effectiveRpm: 2340 },
+      { rpm: 1800, throttle: 0, name: 'engine-3600-lift', gain: 0.09949995007545472, effectiveRpm: 2340 },    { rpm: 1800, throttle: 0.5, name: 'engine-3600-load', gain: 0.11442494258677291, effectiveRpm: 2340 },
+      { rpm: 1800, throttle: 0.5, name: 'engine-3600-lift', gain: 0.04974997503772736, effectiveRpm: 2340 },  { rpm: 1800, throttle: 1, name: 'engine-3600-load', gain: 0.18904990514336395, effectiveRpm: 2340 },
+      { rpm: 1980, throttle: 0, name: 'engine-3600-load', gain: 0.05118190167576213, effectiveRpm: 2340 },    { rpm: 1980, throttle: 0, name: 'engine-3600-lift', gain: 0.12795475418940533, effectiveRpm: 2340 },
+      { rpm: 1980, throttle: 0.5, name: 'engine-3600-load', gain: 0.1471479673178161, effectiveRpm: 2340 },   { rpm: 1980, throttle: 0.5, name: 'engine-3600-lift', gain: 0.06397737709470266, effectiveRpm: 2340 },
+      { rpm: 1980, throttle: 1, name: 'engine-3600-load', gain: 0.2431140329598701, effectiveRpm: 2340 },     { rpm: 2100, throttle: 0, name: 'engine-1200-load', gain: 0.055459136888719174, effectiveRpm: 1980 },
+      { rpm: 2100, throttle: 0, name: 'engine-1200-lift', gain: 0.13864784222179793, effectiveRpm: 1980 },    { rpm: 2100, throttle: 0, name: 'engine-3600-load', gain: 0.057656605307269945, effectiveRpm: 2340 },
+      { rpm: 2100, throttle: 0, name: 'engine-3600-lift', gain: 0.14414151326817487, effectiveRpm: 2340 },    { rpm: 2100, throttle: 0.5, name: 'engine-1200-load', gain: 0.15944501855506762, effectiveRpm: 1980 },
+      { rpm: 2100, throttle: 0.5, name: 'engine-1200-lift', gain: 0.06932392111089897, effectiveRpm: 1980 },  { rpm: 2100, throttle: 0.5, name: 'engine-3600-load', gain: 0.16576274025840107, effectiveRpm: 2340 },
+      { rpm: 2100, throttle: 0.5, name: 'engine-3600-lift', gain: 0.07207075663408744, effectiveRpm: 2340 },  { rpm: 2100, throttle: 1, name: 'engine-1200-load', gain: 0.2634309002214161, effectiveRpm: 1980 },
+      { rpm: 2100, throttle: 1, name: 'engine-3600-load', gain: 0.27386887520953224, effectiveRpm: 2340 },    { rpm: 2200, throttle: 0, name: 'engine-1200-load', gain: 0.05013896118999371, effectiveRpm: 1980 },
+      { rpm: 2200, throttle: 0, name: 'engine-1200-lift', gain: 0.12534740297498428, effectiveRpm: 1980 },    { rpm: 2200, throttle: 0, name: 'engine-3600-load', gain: 0.06216510750092419, effectiveRpm: 2340 },
+      { rpm: 2200, throttle: 0, name: 'engine-3600-lift', gain: 0.15541276875231047, effectiveRpm: 2340 },    { rpm: 2200, throttle: 0, name: 'engine-6200-load', gain: 0.0046458562382883685, effectiveRpm: 4030 },
+      { rpm: 2200, throttle: 0, name: 'engine-6200-lift', gain: 0.011614640595720921, effectiveRpm: 4030 },   { rpm: 2200, throttle: 0.5, name: 'engine-1200-load', gain: 0.14414951342123192, effectiveRpm: 1980 },
+      { rpm: 2200, throttle: 0.5, name: 'engine-1200-lift', gain: 0.06267370148749214, effectiveRpm: 1980 },  { rpm: 2200, throttle: 0.5, name: 'engine-3600-load', gain: 0.17872468406515704, effectiveRpm: 2340 },
+      { rpm: 2200, throttle: 0.5, name: 'engine-3600-lift', gain: 0.07770638437615524, effectiveRpm: 2340 },  { rpm: 2200, throttle: 0.5, name: 'engine-6200-load', gain: 0.013356836685079058, effectiveRpm: 4030 },
+      { rpm: 2200, throttle: 0.5, name: 'engine-6200-lift', gain: 0.005807320297860461, effectiveRpm: 4030 }, { rpm: 2200, throttle: 1, name: 'engine-1200-load', gain: 0.23816006565247014, effectiveRpm: 1980 },
+      { rpm: 2200, throttle: 1, name: 'engine-3600-load', gain: 0.2952842606293899, effectiveRpm: 2340 },     { rpm: 2200, throttle: 1, name: 'engine-6200-load', gain: 0.02206781713186975, effectiveRpm: 4030 },
+      { rpm: 2340, throttle: 0, name: 'engine-1200-load', gain: 0.0424797153115439, effectiveRpm: 1980 },     { rpm: 2340, throttle: 0, name: 'engine-1200-lift', gain: 0.10619928827885977, effectiveRpm: 1980 },
+      { rpm: 2340, throttle: 0, name: 'engine-6200-load', gain: 0.010883666111188217, effectiveRpm: 4030 },   { rpm: 2340, throttle: 0, name: 'engine-6200-lift', gain: 0.027209165277970543, effectiveRpm: 4030 },
+      { rpm: 2340, throttle: 0.5, name: 'engine-1200-load', gain: 0.12212918152068872, effectiveRpm: 1980 },  { rpm: 2340, throttle: 0.5, name: 'engine-1200-lift', gain: 0.053099644139429886, effectiveRpm: 1980 },
+      { rpm: 2340, throttle: 0.5, name: 'engine-6200-load', gain: 0.03129054006966612, effectiveRpm: 4030 },  { rpm: 2340, throttle: 0.5, name: 'engine-6200-lift', gain: 0.013604582638985271, effectiveRpm: 4030 },
+      { rpm: 2340, throttle: 1, name: 'engine-1200-load', gain: 0.20177864772983356, effectiveRpm: 1980 },    { rpm: 2340, throttle: 1, name: 'engine-6200-load', gain: 0.05169741402814403, effectiveRpm: 4030 },
+      { rpm: 2400, throttle: 0, name: 'engine-1200-load', gain: 0.03924759729013068, effectiveRpm: 1980 },    { rpm: 2400, throttle: 0, name: 'engine-1200-lift', gain: 0.09811899322532669, effectiveRpm: 1980 },
+      { rpm: 2400, throttle: 0, name: 'engine-6200-load', gain: 0.01328224432778088, effectiveRpm: 4030 },    { rpm: 2400, throttle: 0, name: 'engine-6200-lift', gain: 0.0332056108194522, effectiveRpm: 4030 },
+      { rpm: 2400, throttle: 0.5, name: 'engine-1200-load', gain: 0.11283684220912568, effectiveRpm: 1980 },  { rpm: 2400, throttle: 0.5, name: 'engine-1200-lift', gain: 0.049059496612663345, effectiveRpm: 1980 },
+      { rpm: 2400, throttle: 0.5, name: 'engine-6200-load', gain: 0.038186452442370025, effectiveRpm: 4030 }, { rpm: 2400, throttle: 0.5, name: 'engine-6200-lift', gain: 0.0166028054097261, effectiveRpm: 4030 },
+      { rpm: 2400, throttle: 1, name: 'engine-1200-load', gain: 0.1864260871281207, effectiveRpm: 1980 },     { rpm: 2400, throttle: 1, name: 'engine-6200-load', gain: 0.06309066055695918, effectiveRpm: 4030 },
+      { rpm: 3000, throttle: 0, name: 'engine-1200-load', gain: 0.013380835700466717, effectiveRpm: 1980 },   { rpm: 3000, throttle: 0, name: 'engine-1200-lift', gain: 0.03345208925116679, effectiveRpm: 1980 },
+      { rpm: 3000, throttle: 0, name: 'engine-6200-load', gain: 0.028939465917750908, effectiveRpm: 4030 },   { rpm: 3000, throttle: 0, name: 'engine-6200-lift', gain: 0.07234866479437728, effectiveRpm: 4030 },
+      { rpm: 3000, throttle: 0.5, name: 'engine-1200-load', gain: 0.038469902638841806, effectiveRpm: 1980 }, { rpm: 3000, throttle: 0.5, name: 'engine-1200-lift', gain: 0.016726044625583397, effectiveRpm: 1980 },
+      { rpm: 3000, throttle: 0.5, name: 'engine-6200-load', gain: 0.08320096451353386, effectiveRpm: 4030 },  { rpm: 3000, throttle: 0.5, name: 'engine-6200-lift', gain: 0.03617433239718864, effectiveRpm: 4030 },
+      { rpm: 3000, throttle: 1, name: 'engine-1200-load', gain: 0.0635589695772169, effectiveRpm: 1980 },     { rpm: 3000, throttle: 1, name: 'engine-6200-load', gain: 0.1374624631093168, effectiveRpm: 4030 },
+      { rpm: 3600, throttle: 0, name: 'engine-6200-load', gain: 0.03558507288707161, effectiveRpm: 4030 },    { rpm: 3600, throttle: 0, name: 'engine-6200-lift', gain: 0.08896268221767903, effectiveRpm: 4030 },
+      { rpm: 3600, throttle: 0.5, name: 'engine-6200-load', gain: 0.10230708455033087, effectiveRpm: 4030 },  { rpm: 3600, throttle: 0.5, name: 'engine-6200-lift', gain: 0.044481341108839514, effectiveRpm: 4030 },
+      { rpm: 3600, throttle: 1, name: 'engine-6200-load', gain: 0.16902909621359014, effectiveRpm: 4030 },    { rpm: 6000, throttle: 0, name: 'engine-3600-load', gain: 0.03820305586977717, effectiveRpm: 5940 },
+      { rpm: 6000, throttle: 0, name: 'engine-3600-lift', gain: 0.09550763967444292, effectiveRpm: 5940 },    { rpm: 6000, throttle: 0.5, name: 'engine-3600-load', gain: 0.10983378562560935, effectiveRpm: 5940 },
+      { rpm: 6000, throttle: 0.5, name: 'engine-3600-lift', gain: 0.04775381983722146, effectiveRpm: 5940 },  { rpm: 6000, throttle: 1, name: 'engine-3600-load', gain: 0.18146451538144154, effectiveRpm: 5940 },
+      { rpm: 6200, throttle: 0, name: 'engine-3600-load', gain: 0.035585072887071606, effectiveRpm: 5940 },   { rpm: 6200, throttle: 0, name: 'engine-3600-lift', gain: 0.08896268221767901, effectiveRpm: 5940 },
+      { rpm: 6200, throttle: 0.5, name: 'engine-3600-load', gain: 0.10230708455033086, effectiveRpm: 5940 },  { rpm: 6200, throttle: 0.5, name: 'engine-3600-lift', gain: 0.04448134110883951, effectiveRpm: 5940 },
+      { rpm: 6200, throttle: 1, name: 'engine-3600-load', gain: 0.16902909621359014, effectiveRpm: 5940 },    { rpm: 7000, throttle: 0, name: 'engine-3600-load', gain: 0.03178366695153959, effectiveRpm: 5940 },
+      { rpm: 7000, throttle: 0, name: 'engine-3600-lift', gain: 0.07945916737884899, effectiveRpm: 5940 },    { rpm: 7000, throttle: 0.5, name: 'engine-3600-load', gain: 0.09137804248567633, effectiveRpm: 5940 },
+      { rpm: 7000, throttle: 0.5, name: 'engine-3600-lift', gain: 0.039729583689424496, effectiveRpm: 5940 }, { rpm: 7000, throttle: 1, name: 'engine-3600-load', gain: 0.15097241801981306, effectiveRpm: 5940 },
+      { rpm: 8000, throttle: 0, name: 'engine-3600-load', gain: 0.025830813450005454, effectiveRpm: 5940 },   { rpm: 8000, throttle: 0, name: 'engine-3600-lift', gain: 0.06457703362501364, effectiveRpm: 5940 },
+      { rpm: 8000, throttle: 0.5, name: 'engine-3600-load', gain: 0.07426358866876567, effectiveRpm: 5940 },  { rpm: 8000, throttle: 0.5, name: 'engine-3600-lift', gain: 0.03228851681250682, effectiveRpm: 5940 },
+      { rpm: 8000, throttle: 1, name: 'engine-3600-load', gain: 0.1226963638875259, effectiveRpm: 5940 },     { rpm: 8500, throttle: 0, name: 'engine-3600-load', gain: 0.02220474968995966, effectiveRpm: 5940 },
+      { rpm: 8500, throttle: 0, name: 'engine-3600-lift', gain: 0.05551187422489915, effectiveRpm: 5940 },    { rpm: 8500, throttle: 0.5, name: 'engine-3600-load', gain: 0.06383865535863402, effectiveRpm: 5940 },
+      { rpm: 8500, throttle: 0.5, name: 'engine-3600-lift', gain: 0.027755937112449575, effectiveRpm: 5940 }, { rpm: 8500, throttle: 1, name: 'engine-3600-load', gain: 0.10547256102730838, effectiveRpm: 5940 }
+    ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

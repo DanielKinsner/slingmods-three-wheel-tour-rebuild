@@ -1,0 +1,120 @@
+{
+  "reviewer": "independent_subagent /root/gate_review",
+  "buildRef": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+  "scope": "Bounded repair of intermittent green land plane over asphalt at the reproduced corner; final P04A review and G3/G4 remain pending.",
+  "decision": "PASS_SCOPED_LAND_REPAIR",
+  "method": {
+    "ordinaryPath": "Unmodified normal input/session trajectory, 60 Hz to reproduce the original failing telemetry exactly; no pose edits.",
+    "logicalSeconds": [
+      45.25,
+      45.916666666666664
+    ],
+    "frames": {
+      "first": 543,
+      "last": 551,
+      "cadenceHz": 12,
+      "total": 72
+    },
+    "matrix": [
+      {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "preset": "day",
+        "viewport": [
+          1280,
+          720
+        ],
+        "actualCameraAspect": 1.7777777777777777
+      },
+      {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "preset": "day",
+        "viewport": [
+          1680,
+          720
+        ],
+        "actualCameraAspect": 2.3333333333333335
+      },
+      {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "preset": "night",
+        "viewport": [
+          1280,
+          720
+        ],
+        "actualCameraAspect": 1.7777777777777777
+      },
+      {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "preset": "night",
+        "viewport": [
+          1680,
+          720
+        ],
+        "actualCameraAspect": 2.3333333333333335
+      },
+      {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "preset": "day",
+        "viewport": [
+          1280,
+          720
+        ],
+        "actualCameraAspect": 1.7777777777777777
+      },
+      {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "preset": "day",
+        "viewport": [
+          1680,
+          720
+        ],
+        "actualCameraAspect": 2.3333333333333335
+      },
+      {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "preset": "night",
+        "viewport": [
+          1280,
+          720
+        ],
+        "actualCameraAspect": 1.7777777777777777
+      },
+      {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "preset": "night",
+        "viewport": [
+          1680,
+          720
+        ],
+        "actualCameraAspect": 2.3333333333333335
+      }
+    ],
+    "visualInspection": "All nine captured moments in each of eight 3x3 contact sheets (72 frames), plus full-size frame 547 in SwiftShader day 16:9/day 21:9/night 16:9 and D3D11 day 16:9/night 21:9. Compared with the previously inspected original day frame 547 and night frame 127, which showed the green plane.",
+    "listening": false,
+    "performanceMeasurement": false
+  },
+  "findings": {
+    "road": "No green foreground plane or missing asphalt in the inspected dense matrix, including the exact previous failing pose.",
+    "wideFraming": "Fresh 1680x720 contexts report actual aspect 2.3333333333333335; corner, exit, and HUD remain visible.",
+    "physics": "All 72 captured telemetry states exactly match the prior 60 Hz trajectory.",
+    "residuals": "Soft asphalt bands, coarse environment props, and strong hood highlights remain visible; this repair does not establish final surface polish."
+  },
+  "verification": {
+    "stableBuildInputs": 179,
+    "servedRecords": 13,
+    "captureImageHashesVerified": 72,
+    "pageErrors": [],
+    "harborGLBSHA256": "67bdc8e0fea6b5fdb9b0ab692803c9806cee0cc74d6b0cd650b4537e4a9ae40f",
+    "artistEvidence": "Read source verifier and its report: 18480 exported corridor rays without land hits, 1232 outside rays at Y=0, eight non-land triangle attribute groups, nine embedded images, and complete route JSON unchanged. This reviewer did not rerun the artist ray verifier; independent runtime reproduction above is separate evidence."
+  },
+  "evidenceHashes": {
+    "land-repair-runtime/capture.json": "3b47f5242d11c69de28e1b2ca15aec793ca9d46a5ea0c190d34aae6864f92dca",
+    "artist/dressed03-export-validation.json": "7eb28642f1ac0c7b3f1254b63229308550d02f192862c17c350ecd6117af810a",
+    "artist/dressed03-land-construction.json": "fa928fb45cd0e1d59b5045071c3477685df5525452fe2da8f89b2a1da2ffaa97"
+  },
+  "limits": [
+    "Sampling covers this bounded failing segment, not every course pose.",
+    "No human playback/listening, physical controller, or performance claim from this capture.",
+    "Replacement complete films and final packet metadata still require review. G3/G4 remain pending."
+  ]
+}

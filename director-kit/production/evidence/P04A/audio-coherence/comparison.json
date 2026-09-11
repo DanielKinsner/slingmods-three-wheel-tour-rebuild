@@ -1,0 +1,186 @@
+{
+  "before": {
+    "parameters": {
+      "rpm": 2400,
+      "speed": 0,
+      "load": 1,
+      "layers": [
+        {
+          "name": "engine-1200-load",
+          "rate": 1.65,
+          "gain": 0.1864260871281207
+        },
+        {
+          "name": "engine-1200-lift",
+          "rate": 1.65,
+          "gain": 0
+        },
+        {
+          "name": "engine-3600-load",
+          "rate": 0.6666666666666666,
+          "gain": 0.32506135203771136
+        },
+        {
+          "name": "engine-3600-lift",
+          "rate": 0.6666666666666666,
+          "gain": 0
+        },
+        {
+          "name": "engine-6200-load",
+          "rate": 0.65,
+          "gain": 0.06309066055695918
+        },
+        {
+          "name": "engine-6200-lift",
+          "rate": 0.65,
+          "gain": 0
+        },
+        {
+          "name": "road",
+          "rate": 1,
+          "gain": 0
+        },
+        {
+          "name": "wind",
+          "rate": 1,
+          "gain": 0
+        }
+      ],
+      "master": 0.55,
+      "cutoff": 6500,
+      "shiftGain": 0.18,
+      "reset": false
+    },
+    "sampleRate": 48000,
+    "duration": 4,
+    "peak": 0.16280697286128998,
+    "effectiveRpms": [
+      {
+        "name": "engine-1200-load",
+        "rpm": 1980
+      },
+      {
+        "name": "engine-3600-load",
+        "rpm": 2400
+      },
+      {
+        "name": "engine-6200-load",
+        "rpm": 4030
+      }
+    ],
+    "spectrum": {
+      "method": "2.5s Hann window after1s settling; strongest local peaks20\u20131000Hz,0.4Hz bins",
+      "peaksHz": [
+        80.0,
+        160.0,
+        66.0,
+        40.0,
+        240.0,
+        132.0,
+        320.0,
+        400.0,
+        198.0,
+        32.8,
+        480.0,
+        264.0
+      ]
+    },
+    "samplePeak": 0.16280697286128998,
+    "wavSha256": "78a0b7fa20311f6c153d0470e59d322140b0fb6eaed6220f507daf3c10aab2b1"
+  },
+  "after": {
+    "parameters": {
+      "rpm": 2400,
+      "speed": 0,
+      "load": 1,
+      "layers": [
+        {
+          "name": "engine-1200-load",
+          "rate": 2,
+          "gain": 0.1864260871281207
+        },
+        {
+          "name": "engine-1200-lift",
+          "rate": 2,
+          "gain": 0
+        },
+        {
+          "name": "engine-3600-load",
+          "rate": 0.6666666666666666,
+          "gain": 0.32506135203771136
+        },
+        {
+          "name": "engine-3600-lift",
+          "rate": 0.6666666666666666,
+          "gain": 0
+        },
+        {
+          "name": "engine-6200-load",
+          "rate": 0.3870967741935484,
+          "gain": 0.06309066055695918
+        },
+        {
+          "name": "engine-6200-lift",
+          "rate": 0.3870967741935484,
+          "gain": 0
+        },
+        {
+          "name": "road",
+          "rate": 1,
+          "gain": 0
+        },
+        {
+          "name": "wind",
+          "rate": 1,
+          "gain": 0
+        }
+      ],
+      "master": 0.55,
+      "cutoff": 6500,
+      "shiftGain": 0.18,
+      "reset": false
+    },
+    "sampleRate": 48000,
+    "duration": 4,
+    "peak": 0.16591335833072662,
+    "effectiveRpms": [
+      {
+        "name": "engine-1200-load",
+        "rpm": 2400
+      },
+      {
+        "name": "engine-3600-load",
+        "rpm": 2400
+      },
+      {
+        "name": "engine-6200-load",
+        "rpm": 2400
+      }
+    ],
+    "spectrum": {
+      "method": "2.5s Hann window after1s settling; strongest local peaks20\u20131000Hz,0.4Hz bins",
+      "peaksHz": [
+        80.0,
+        40.0,
+        160.0,
+        240.0,
+        560.0,
+        640.0,
+        480.0,
+        720.0,
+        320.0,
+        800.0,
+        400.0,
+        880.0
+      ]
+    },
+    "samplePeak": 0.16962368786334991,
+    "wavSha256": "74ff96c0d7a1c94bbfaa13b621bf7c82526a935f999413249350a50dd5b67928"
+  },
+  "method": "Same actual shared WebAudio graph/source bank at2400RPM,4s48k mono offline. Before reconstructs only the exact old .65..1.65 rate clamp; after uses actual corrected mapper. Not listening.",
+  "inputs": {
+    "src/audio/mapper.ts": "8676c12f0cc00abf0bdf169d5c8816144ae3bf4cd1f6320c4657d4e011049c1a",
+    "src/audio/graph.ts": "ab84a1f87e39bf64cadef625156b7cdcbf7fe9ca57c38fbd516499abe6826612",
+    "public/assets/audio/p03b2/provenance.json": "c684689447e881f4a695431c2e12c7d8b7701b4e0b30b807dc9c484cd76a373b"
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "runtimeCommit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+  "sourceInputsVerified": 179,
+  "method": "Isolated headless Chromium ANGLE Direct3D11 RTX4080, local control agent through real standard-device InputResolver, DrivingSession,60Hz physics and ordinary interpolated presentation/camera/driver/audio.24fps controlled raster; no pose edits after ordinary initial start/reset. Same graph/bank/corrected mapper offline audio from every logical120Hz presentation state. Controlled capture is not wall-clock FPS, physical-controller or live-speaker proof.",
+  "tests": {
+    "full": "64/64 PASS",
+    "focusedInputDrivetrain": "22/22 PASS",
+    "build": "TypeScript/Vite PASS",
+    "independentBrowserChecks": "6/6 PASS"
+  },
+  "runs": [
+    {
+      "preset": "day",
+      "logicalSeconds": 85,
+      "videoLogicalOffset": 0,
+      "videoSeconds": 85,
+      "encodedHz": 24,
+      "timelineHz": 120,
+      "wallCaptureSeconds": 86.085,
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      },
+      "record": {
+        "timeMs": 78719.20388459373,
+        "recordedAt": "2026-09-11T20:58:47.382Z"
+      },
+      "peakMph": 51.5974282511229,
+      "maxRoadDistance": 0.6155977807508503,
+      "events": [
+        {
+          "time": "before logical0",
+          "type": "actual Enable sound button click and enabled-state confirmation"
+        },
+        {
+          "time": "before logical0",
+          "type": "actual Start lap button click; ordinary session.reset to shared start; no later reset in movie"
+        },
+        {
+          "time": 0,
+          "type": "phase",
+          "value": "countdown"
+        },
+        {
+          "time": 3,
+          "type": "phase",
+          "value": "running"
+        },
+        {
+          "time": 6.933333333333334,
+          "type": "actual-shift-start"
+        },
+        {
+          "time": 7.183333333333334,
+          "type": "gear",
+          "from": 1,
+          "to": 2
+        },
+        {
+          "time": 16,
+          "type": "view",
+          "value": "far"
+        },
+        {
+          "time": 16.2,
+          "type": "view",
+          "value": "cockpit"
+        },
+        {
+          "time": 20,
+          "type": "view",
+          "value": "rearward"
+        },
+        {
+          "time": 20.2,
+          "type": "view",
+          "value": "cockpit"
+        },
+        {
+          "time": 23,
+          "type": "view",
+          "value": "near"
+        },
+        {
+          "time": 39.5,
+          "type": "view",
+          "value": "far"
+        },
+        {
+          "time": 39.7,
+          "type": "view",
+          "value": "cockpit"
+        },
+        {
+          "time": 46,
+          "type": "view",
+          "value": "rearward"
+        },
+        {
+          "time": 46.2,
+          "type": "view",
+          "value": "cockpit"
+        },
+        {
+          "time": 48,
+          "type": "view",
+          "value": "near"
+        },
+        {
+          "time": 81.73333333333333,
+          "type": "phase",
+          "value": "finished"
+        },
+        {
+          "time": 82.91666666666667,
+          "type": "actual-shift-start"
+        },
+        {
+          "time": 83.16666666666667,
+          "type": "gear",
+          "from": 2,
+          "to": 1
+        }
+      ],
+      "sha256": {
+        "timeline": "096041e904b246779b89bf3e1b0efc5ec9ecaa45d698ed98026c04fe6b864395",
+        "movie": "e76ab45b20b4028d795d62496e6cc9187957a8de95830ad257b72eb4d704391d"
+      },
+      "audio": {
+        "samplePeak": 0.17179706692695618,
+        "nonfinite": 0,
+        "clipped": 0,
+        "duration": 85,
+        "method": "OfflineAudioContext using identical runtime graph factory, source buffers, mapper and full logical timeline; not live hardware capture"
+      },
+      "timelineRows": 10200,
+      "physicsHz": 60,
+      "attempts": [
+        1
+      ],
+      "afterStartResets": 0,
+      "invalidations": [],
+      "finalCheckpoint": 15,
+      "gears": [
+        1,
+        2
+      ],
+      "cameraModes": [
+        "cockpit",
+        "far",
+        "near",
+        "rearward"
+      ],
+      "steerRange": [
+        -0.06476383803611604,
+        0.07348861331110752
+      ],
+      "maxBrake": 1,
+      "movingBrakingSamples": 2436
+    },
+    {
+      "preset": "night",
+      "logicalSeconds": 85,
+      "videoLogicalOffset": 35,
+      "videoSeconds": 25,
+      "encodedHz": 24,
+      "timelineHz": 120,
+      "wallCaptureSeconds": 48.279,
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      },
+      "record": {
+        "timeMs": 78719.20388459373,
+        "recordedAt": "2026-09-11T20:59:41.047Z"
+      },
+      "peakMph": 51.5974282511229,
+      "maxRoadDistance": 0.6155977807508503,
+      "events": [
+        {
+          "time": "before logical0",
+          "type": "actual Enable sound button click and enabled-state confirmation"
+        },
+        {
+          "time": "before logical0",
+          "type": "actual Start lap button click; ordinary session.reset to shared start; no later reset in movie"
+        },
+        {
+          "time": 0,
+          "type": "phase",
+          "value": "countdown"
+        },
+        {
+          "time": 3,
+          "type": "phase",
+          "value": "running"
+        },
+        {
+          "time": 6.933333333333334,
+          "type": "actual-shift-start"
+        },
+        {
+          "time": 7.183333333333334,
+          "type": "gear",
+          "from": 1,
+          "to": 2
+        },
+        {
+          "time": 16,
+          "type": "view",
+          "value": "far"
+        },
+        {
+          "time": 16.2,
+          "type": "view",
+          "value": "cockpit"
+        },
+        {
+          "time": 20,
+          "type": "view",
+          "value": "rearward"
+        },
+        {
+          "time": 20.2,
+          "type": "view",
+          "value": "cockpit"
+        },
+        {
+          "time": 23,
+          "type": "view",
+          "value": "near"
+        },
+        {
+          "time": 39.5,
+          "type": "view",
+          "value": "far"
+        },
+        {
+          "time": 39.7,
+          "type": "view",
+          "value": "cockpit"
+        },
+        {
+          "time": 46,
+          "type": "view",
+          "value": "rearward"
+        },
+        {
+          "time": 46.2,
+          "type": "view",
+          "value": "cockpit"
+        },
+        {
+          "time": 48,
+          "type": "view",
+          "value": "near"
+        },
+        {
+          "time": 81.73333333333333,
+          "type": "phase",
+          "value": "finished"
+        },
+        {
+          "time": 82.91666666666667,
+          "type": "actual-shift-start"
+        },
+        {
+          "time": 83.16666666666667,
+          "type": "gear",
+          "from": 2,
+          "to": 1
+        }
+      ],
+      "sha256": {
+        "timeline": "e8c2d4f7e924b23fc51482c233cffa90cffc0448f7d8d7936c39e1adf987e890",
+        "movie": "ead9be9f7f34fd76800dd130439acf94130c16f928fb87e55705d3e057106bfc"
+      },
+      "audio": {
+        "samplePeak": 0.17179706692695618,
+        "nonfinite": 0,
+        "clipped": 0,
+        "duration": 85,
+        "method": "OfflineAudioContext using identical runtime graph factory, source buffers, mapper and full logical timeline; not live hardware capture"
+      },
+      "timelineRows": 10200,
+      "physicsHz": 60,
+      "attempts": [
+        1
+      ],
+      "afterStartResets": 0,
+      "invalidations": [],
+      "finalCheckpoint": 15,
+      "gears": [
+        1,
+        2
+      ],
+      "cameraModes": [
+        "cockpit",
+        "far",
+        "near",
+        "rearward"
+      ],
+      "steerRange": [
+        -0.06476383803611604,
+        0.07348861331110752
+      ],
+      "maxBrake": 1,
+      "movingBrakingSamples": 2436
+    }
+  ],
+  "postFilmChecks": {
+    "retainedRecord": {
+      "timeMs": 78719.20388459373,
+      "recordedAt": "2026-09-11T20:58:47.382Z"
+    },
+    "retry": {
+      "phase": "countdown",
+      "paused": false,
+      "invalidReason": null,
+      "elapsedMs": 0,
+      "countdown": 2.9,
+      "checkpoint": 0,
+      "total": 15,
+      "result": null,
+      "attempt": 2
+    },
+    "reloadedRecord": {
+      "timeMs": 78719.20388459373,
+      "recordedAt": "2026-09-11T20:58:47.382Z"
+    },
+    "reloadedSettings": {
+      "enabled": false,
+      "paused": false,
+      "mute": true,
+      "volume": 0.35,
+      "cockpit": false,
+      "reset": false
+    },
+    "cameraBefore": "near",
+    "cameraAfter": "far",
+    "camera": "far",
+    "method": "Real valid result, changed sound/camera, immediate retry and reload in same isolated storage context; outside movie"
+  },
+  "pageErrors": [],
+  "performanceEvidence": "../Review06-performance02/performance.json",
+  "mediaValidation": "media-check.json",
+  "independentReview": "../P04A/review-final.json",
+  "gateStatus": {
+    "G3": "pending",
+    "G4": "pending"
+  },
+  "held": [
+    "Final vehicle/environment polish",
+    "Authentic engine timbre and human audition",
+    "Physical controller and human driving",
+    "Broad hardware/resolution certification"
+  ]
+}

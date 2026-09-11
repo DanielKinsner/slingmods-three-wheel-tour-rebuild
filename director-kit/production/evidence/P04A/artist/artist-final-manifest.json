@@ -1,0 +1,115 @@
+{
+  "status": "Artist asset frozen; final runtime visual/performance acceptance separate",
+  "provenance": "Original local Blender geometry and deterministic original PBR maps; no outside model, scan, map or texture",
+  "files": {
+    "scripts/harbor_build.py": {
+      "bytes": 8324,
+      "sha256": "616be1fe26b48006fc47d2fa0fd79b9e61b25d294bcb03fb9bd5f3dea952f1f2"
+    },
+    "scripts/harbor_census.py": {
+      "bytes": 1864,
+      "sha256": "1e21bdc0a7a9a8d0c5d7a99d2e82d9d045df62acd6ab9ab4d41da457687d643e"
+    },
+    "scripts/harbor_dress.py": {
+      "bytes": 12683,
+      "sha256": "43e103233ef724802e6885d8873b2134251d34dd948092fca4ab96d1af00c8bf"
+    },
+    "scripts/harbor_inspect.py": {
+      "bytes": 3228,
+      "sha256": "0f34dcfd73eeae73e94843b785dfff0b22b12636198414fea9320204319d170a"
+    },
+    "scripts/harbor_land_cut.py": {
+      "bytes": 2899,
+      "sha256": "9643e9d7d76d6d562f2a37bafbf047a12200384720964ea9e70219f56b1a57fd"
+    },
+    "scripts/harbor_land_verify.py": {
+      "bytes": 4541,
+      "sha256": "c97bff6106c004aa62278bf18faa1896af964640027aa94ca435dae7dba859d8"
+    },
+    "scripts/harbor_materials.py": {
+      "bytes": 4527,
+      "sha256": "8a564989165ce413e7d78671f3172a030788117f4f408edc523177cab28cf741"
+    },
+    "scripts/harbor_validate.py": {
+      "bytes": 2856,
+      "sha256": "02af014957e4d7e45628400eaf58e5cf30e85e18437306499b246fa3bbd1f3de"
+    },
+    "assets/blender/harbor/harbor.blend": {
+      "bytes": 34307866,
+      "sha256": "44bc615ef937ca5d6c2275194ff847b326520930778a479f1209dac09a69d7e1"
+    },
+    "public/assets/harbor/harbor.glb": {
+      "bytes": 19211796,
+      "sha256": "67bdc8e0fea6b5fdb9b0ab692803c9806cee0cc74d6b0cd650b4537e4a9ae40f"
+    },
+    "public/assets/harbor/route.json": {
+      "bytes": 232099,
+      "sha256": "c6ea6764b11f8aa2110ee1f3c9fe41393908665e64f53d34de25cc55ce1a4e19"
+    },
+    "public/assets/harbor/textures/asphalt_basecolor.png": {
+      "bytes": 1692292,
+      "sha256": "d53132a3523abea5ab275df92d3c12db43e1b9e87bc24f1f70cda9ef904fe8c7"
+    },
+    "public/assets/harbor/textures/asphalt_normal.png": {
+      "bytes": 2168083,
+      "sha256": "f05d20a2c40caabc204b03af3520421b9c691e5ae39488112ff4fa06ef88500f"
+    },
+    "public/assets/harbor/textures/asphalt_orm.png": {
+      "bytes": 1156982,
+      "sha256": "ffd80c8ad2f68833c4a9e70aeafc3957550db3df9908c3b85c4c984475cce875"
+    },
+    "public/assets/harbor/textures/concrete_basecolor.png": {
+      "bytes": 1477193,
+      "sha256": "c0901f2d98e437692d2d44242239546c5aa9976c92ac13052911ab7e9c2505aa"
+    },
+    "public/assets/harbor/textures/concrete_normal.png": {
+      "bytes": 1667010,
+      "sha256": "8fefad8a06c28e6f5f290cedf551f8f040b245080a50ef0d0c85613e7bee1e6a"
+    },
+    "public/assets/harbor/textures/concrete_orm.png": {
+      "bytes": 1086387,
+      "sha256": "567091fa75ba63a837ad654c452c2dfccf1658a0b2a43ee4a2ae3e9d534e7d59"
+    },
+    "public/assets/harbor/textures/harbor_basecolor.png": {
+      "bytes": 1339355,
+      "sha256": "a520d07c49d5576d7c358e74fbfd49efffcdadad7273f7142aea1e9a93c9aec1"
+    },
+    "public/assets/harbor/textures/harbor_normal.png": {
+      "bytes": 457026,
+      "sha256": "7f76e5a7677be5431781d50234919cafae35acd76904c064f65b35056f92757e"
+    },
+    "public/assets/harbor/textures/harbor_orm.png": {
+      "bytes": 21526,
+      "sha256": "802f4af7e45fe4b312b67c6952a38ad9a76feed8659147aad6a8b737117316d2"
+    }
+  },
+  "runtime": {
+    "triangles": 118400,
+    "primitives": 9,
+    "materials": [
+      "Harbor_Asphalt",
+      "Harbor_Runoff",
+      "Harbor_Concrete",
+      "Harbor_Land",
+      "Harbor_Water",
+      "Harbor_Dark_Rubber",
+      "Harbor_Luminaire",
+      "Harbor_Modular_Atlas",
+      "Harbor_Road_Paint"
+    ],
+    "images": 9,
+    "textureRecords": 15,
+    "uniqueImageRGBA8WithMipsBytes": 50331648
+  },
+  "sourceDependencies": [
+    "Existing Blender4.5.2 bundled Python/numpy",
+    "harbor_build.py imports harbor_dress.py, harbor_land_cut.py and harbor_materials.py when HARBOR_DRESS=1"
+  ],
+  "limits": [
+    "Automated route completion is separate from human/controller enjoyment",
+    "No detailed city/interiors/yacht fleet; small modular harbor scene",
+    "Passive mirrors and instrument visuals belong to frozen vehicle backlog",
+    "Runtime shadow/light budgets and wall-clock frame measurements remain lead-owned",
+    "No hardware GPU-memory claim from decoded image estimate"
+  ]
+}

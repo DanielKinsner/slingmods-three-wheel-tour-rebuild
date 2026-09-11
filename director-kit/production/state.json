@@ -4,10 +4,10 @@
   "as_of": "2026-09-11",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "8ffcad7a630c3a2a045194e1287195826fdeb545",
+  "commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
   "current_gate": "G3",
   "current_packet": "P04A Harbor Shakedown",
-  "next_action": "Finish Review06 evidence/package, then await Astra. Do not advance G3/G4 or start another packet.",
+  "next_action": "Await Astra Review06 decision. Stop implementation; do not advance G3/G4 or start another packet.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -110,7 +110,7 @@
     "P03B1 uses noncolliding guide cones and a virtual controller for automated evidence; real navigator.getGamepads production reader exists, physical controller/performance/subjective fun not tested.",
     "P03B2 sound is original local synthesis, not OEM exhaust recording. Audio source timbre remains held absent auditory review. Body fidelity and hardware/physical gamepad certification remain held.",
     "P04A scenery is a modular provisional harbor with angular palms, repeated shed forms, sparse infield, road bands and oversized overview water reflections. No final environmental/vehicle polish approval.",
-    "P04A actual SwiftShader frame means350/298/309ms at720p; significant stalls. Low shadow cost reduces light budgets but has not established hardware speed improvement.",
+    "Historical first P04A SwiftShader fixture: frame means350/298/309ms at720p and significant stalls; preserved separately. Replacement RTX4080 D3D11 short720p runs mean16.887/16.666/16.666ms, p95 16.8ms; day max150ms. Not sustained hardware certification or proof of low-mode speed gain.",
     "P04A cockpit uses fixed original eye with scene-specific gaze/FOV; lower hands are more cropped. Night practicals use a nearest-light pool; refined transitions remain visual review work."
   ],
   "accepted_assets": [
@@ -132,7 +132,7 @@
   ],
   "verification": {
     "local_tests": "64/64 full;22/22 focused input/drivetrain;TypeScript/Vite build PASS. Expected original pitch-coherence failure retained separately.",
-    "independent_review": "Frozen UI sixchecks and177build-input/112source/89served hashes independently verified; final media review pending.",
+    "independent_review": "Six browser regressions PASS. Land repair:72 frames across two renderers, two presets and two aspects PASS. Replacement movies/stills and179 inputs/45 served hashes/25 protected files checked; final scoped review in P04A/review-final.md.",
     "gates": "G0/G1/G2 retained. G3/G4 pending. P04A authorized by Review05 despite whole-car/aural hold.",
     "preservation": "25 protected files unchanged against2fd926c. Simulation changed only environment/box rotation/surface seam; optional session hooks. No force/tire/drivetrain/step,car/driver/sourcebank edits.",
     "environment": {
@@ -141,10 +141,10 @@
       "node": "24.15.0",
       "npm": "11.6.2",
       "browser": "153.0.8010.12",
-      "renderer": "isolated headless Chromium SwiftShader; physical output muted",
+      "renderer": "Final isolated headless Chromium ANGLE Direct3D11 NVIDIA RTX4080; repair cross-check also SwiftShader; physical output muted",
       "dependencies": "Retained package-lock; no upgrade"
     },
-    "evidence": "Review06-final and Review06-ui/Review06-performance. Diagnostic software capture, no physical/human/listening claim."
+    "evidence": "Review06-final02, Review06-ui02 and Review06-performance02. Controlled24fps video is distinct from wall-clock GPU frame measurement. No physical-controller, human-driving or listening claim."
   },
   "director_addendum": "director-addenda/review-05/CODEX_NEXT.md",
   "drivetrain_addendum": {
@@ -265,7 +265,7 @@
     }
   ],
   "p04a": {
-    "status": "runtime_frozen_final_evidence_in_progress",
+    "status": "implemented_review_package_ready_awaiting_astra",
     "authorization": "Review05 explicitly allows small environment/event before final G3/G4 approval; no full originalP04",
     "audio_correction": "Exact sanitizedRPM/source-reference ratio; original regression1fail2pass retained, corrected3pass",
     "route_length_m": 1230.86710531256,
@@ -273,7 +273,7 @@
     "route_gate": "Realphysics78.7192s valid ordered lap at60/120Hz before dressing",
     "g3_advance": false,
     "g4_advance": false,
-    "runtime_commit": "8ffcad7a630c3a2a045194e1287195826fdeb545",
+    "runtime_commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
     "runoff_each_side_m": 3,
     "lighting": [
       "day",
@@ -283,8 +283,20 @@
     "physical_controller_tested": false,
     "human_driving_tested": false,
     "auditioned": false,
-    "evidence": "production/evidence/Review06-final/",
+    "evidence": "production/evidence/Review06-final02/",
     "review": "production/evidence/P04A/review-final.md",
-    "harness_note": "Day film valid; original post-film fixture removed controller and correctly paused, causing retry selector timeout. Supplemental capture/replay source recorded separately; frozen runtime unchanged."
+    "harness_note": "Initial post-film fixture removed active pad and triggered correct disconnect pause; corrected fixture maintains pad. Earlier footage and failedcheck preserved; replacement capture120Hzpresentation/60Hzphysics/24fps via isolatedDirect3D11RTX4080.",
+    "prior_runtime_commit": "8ffcad7a630c3a2a045194e1287195826fdeb545",
+    "prior_evidence": "production/evidence/Review06-final/",
+    "land_repair": "Blender exact Boolean removes land beneath road/runoff;18480 actual exported corridor rays have0land hits,1232outside rays Y0;route/all8othermaterialgeometry/all9imagesunchanged. Replaces depth-offset workaround.",
+    "environment_triangles": 118400,
+    "valid_lap_ms": 78719.20388459373,
+    "day_night_laps_valid": true,
+    "capture_rates": {
+      "presentation_hz": 120,
+      "physics_hz": 60,
+      "video_fps": 24
+    },
+    "final_post_film_checks": "PASS: valid record, mute/volume, camera, immediate retry and reload in original day context"
   }
 }

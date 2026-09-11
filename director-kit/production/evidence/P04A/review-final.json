@@ -1,0 +1,182 @@
+{
+  "reviewer": "independent_subagent /root/gate_review",
+  "buildRef": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+  "decision": "P04A_IMPLEMENTED_REVIEW_READY_WITH_EXPLICIT_HOLDS",
+  "gateAdvancement": false,
+  "componentVerdicts": {
+    "eventAndPersistence": {
+      "decision": "PASS_BOUNDED",
+      "evidence": "Both 10200-state ordinary-path runs preserve one attempt, initial-only reset, all 15 ordered gates, no invalid reason, and valid 78719.20388459373 ms results. Exact day/night physics equality. Original day storage survives mute=true, volume=.35, near-to-far, attempt-2 countdown retry, and reload with record timestamp/value retained."
+    },
+    "inputAndLifecycle": {
+      "decision": "PASS_BOUNDED",
+      "evidence": "Frozen six-case independent harness replay passes native preset activation, quick Enter/Escape/Backspace, actual held/repeating W pause and reset quarantine, denied storage acquisition, and virtual standard-controller menu/camera/rearward lifecycle. Physical gamepad was not tested."
+    },
+    "foundationAndAudioMapping": {
+      "decision": "PASS_BOUNDED",
+      "evidence": "179 source hashes, 45 served hashes, eight PNGs, both movies/timelines, and 25 protected files verified; protected files independently compared with baseline git objects, normalizing line endings only where report explicitly records text normalization. Earlier reviewed exact RPM/reference mapping retained; shared graph/bank unchanged. Frozen logs report 64/64 full and 22/22 focused tests, build success."
+    },
+    "landRepair": {
+      "decision": "PASS_BOUNDED",
+      "evidence": "Independent 72-frame dual-renderer/aspect/preset diagnosis clear; replacement encoded day1086-1102 and night246-262 all clear including old problem pose1094/254. No foreground green plane or road hole."
+    },
+    "cameraHUDAndNightLegibility": {
+      "decision": "PASS_BOUNDED",
+      "evidence": "Both corner approaches and exits remain visible in sampled ordinary near/cockpit/rearward transitions; fresh 21:9 diagnosis has verified actual aspect. Night beams illuminate the driving corridor; sampled warm/cool practical transitions remain readable without a road blackout or evident local abrupt pool pop. Passive gauges/mirrors and lower cockpit cropping remain disclosed."
+    },
+    "environmentFinish": {
+      "decision": "HOLD_FINAL_POLISH",
+      "evidence": "Readable prototype harbor, but coarse angular palms, repeated warehouse forms, sparse grass areas, visible asphalt bands, oversized pale water reflections in overview, and strong hood highlights prevent a final polished environment claim. No broader construction work is requested by this review."
+    },
+    "audioTimbre": {
+      "decision": "HOLD_UNHEARD",
+      "evidence": "No listening performed. Exact pitch-ratio arithmetic and encoded media numeric checks do not establish convincing engine timbre, mix, spatial impression, or live speaker output."
+    },
+    "performanceAndHardware": {
+      "decision": "PASS_SHORT_GPU_OBSERVATION_HOLD_BROAD_CERTIFICATION",
+      "evidence": "Identified RTX 4080 D3D11 at1280x720: three isolated10s actual-RAF runs, mean16.887/16.666/16.666ms, p9516.8ms; day maximum150ms. This supports the measured short configuration only, not sustained full-course 60FPS, other hardware, physical-controller feel, or production certification."
+    },
+    "G3": {
+      "decision": "PENDING"
+    },
+    "G4": {
+      "decision": "PENDING"
+    }
+  },
+  "inspection": {
+    "method": "Decoded encoded MP4 frame samples/contact sheets inspected with view_image; all final eight PNGs opened individually. No human realtime playback or listening claimed.",
+    "day": [
+      {
+        "frames": "0,120,...,1920",
+        "seconds": "0,5,...,80"
+      },
+      {
+        "frames": "360..576 step12",
+        "seconds": "15..24 step.5"
+      },
+      {
+        "frames": "948..1164 step12",
+        "seconds": "39.5..48.5 step.5"
+      },
+      {
+        "frames": "1086..1102 every frame",
+        "seconds": "45.25..45.9167"
+      },
+      {
+        "frames": "1944..2028 step12",
+        "seconds": "81..84.5 step.5"
+      }
+    ],
+    "night": [
+      {
+        "frames": "0,24,...,576",
+        "videoSeconds": "0..24 step1",
+        "logicalOffsetSeconds": 35
+      },
+      {
+        "frames": "132..179 every frame",
+        "videoSeconds": "5.5..7.4583"
+      },
+      {
+        "frames": "246..262 every frame",
+        "videoSeconds": "10.25..10.9167"
+      }
+    ],
+    "fullSizeProblemFrames": [
+      "day1094 (45.5833s)",
+      "night254 (10.5833s; logical45.5833s)"
+    ],
+    "timeline": "All20400 state rows numerically checked; both120Hz timelines continuous, physics60Hz with max position step.38446045168213494m, exact day/night telemetry equality."
+  },
+  "selectedMedia": [
+    {
+      "file": "day-game-audio.mp4",
+      "videoSeconds": 85,
+      "audioSeconds": 85,
+      "frames": 2040,
+      "encodedHz": 24,
+      "decoded": "PASS",
+      "samplePeakDbFS": -15.300373725990315,
+      "encodedAudioTruePeakDbTP": -15.3,
+      "truePeakMethod": "FFmpeg ebur128 peak=true oversampled estimate on actual encoded AAC",
+      "sourceWavSeconds": 85,
+      "sha256": "e76ab45b20b4028d795d62496e6cc9187957a8de95830ad257b72eb4d704391d"
+    },
+    {
+      "file": "night-game-audio.mp4",
+      "videoSeconds": 25,
+      "audioSeconds": 25,
+      "frames": 600,
+      "encodedHz": 24,
+      "decoded": "PASS",
+      "samplePeakDbFS": -15.300373725990315,
+      "encodedAudioTruePeakDbTP": -16,
+      "truePeakMethod": "FFmpeg ebur128 peak=true oversampled estimate on actual encoded AAC",
+      "sourceWavSeconds": 85,
+      "sha256": "ead9be9f7f34fd76800dd130439acf94130c16f928fb87e55705d3e057106bfc"
+    }
+  ],
+  "verificationCounts": {
+    "source": 179,
+    "served": 45,
+    "protectedBaselineFiles": 25,
+    "stills": 8,
+    "uiChecks": 6,
+    "dayStates": 10200,
+    "nightStates": 10200
+  },
+  "postFilmChecks": {
+    "retainedRecord": {
+      "timeMs": 78719.20388459373,
+      "recordedAt": "2026-09-11T20:58:47.382Z"
+    },
+    "retry": {
+      "phase": "countdown",
+      "paused": false,
+      "invalidReason": null,
+      "elapsedMs": 0,
+      "countdown": 2.9,
+      "checkpoint": 0,
+      "total": 15,
+      "result": null,
+      "attempt": 2
+    },
+    "reloadedRecord": {
+      "timeMs": 78719.20388459373,
+      "recordedAt": "2026-09-11T20:58:47.382Z"
+    },
+    "reloadedSettings": {
+      "enabled": false,
+      "paused": false,
+      "mute": true,
+      "volume": 0.35,
+      "cockpit": false,
+      "reset": false
+    },
+    "cameraBefore": "near",
+    "cameraAfter": "far",
+    "camera": "far",
+    "method": "Real valid result, changed sound/camera, immediate retry and reload in same isolated storage context; outside movie"
+  },
+  "provenance": "Selected media are fresh Review06-final02 at e1fafb5, with complete original capture metadata and successful post-film checks. Preserved Review06-final 8ffcad7 12fps attempt had the now-repaired green artifact and later harness disconnect timeout; its recovered metadata is historical and is not substituted into the selected replacement evidence.",
+  "evidenceHashes": {
+    "Review06-final02/capture.json": "3ada4256e59e2bb7ef72d8df7bdb4f91a4786488c6bc0fe4ff42296362599992",
+    "Review06-final02/build-inputs.json": "5013d3066e98a3a9acf2bad0083b00b4a2c6b9a6debc1bde601739058bfa09ba",
+    "Review06-final02/media-check.json": "2170e714e6f5827eae664dcf3103dcb55fa533b1ce5988d9275f19f6cc1270df",
+    "Review06-final02/protected-foundation.json": "227711a7b88716c92469d74e85cc38f853a515cafd12d11b955f56ba8917f74d",
+    "Review06-ui02/review-functional.json": "d1d063d981b6ffc48883fc80fbbdb1b8e1cb375c8edadb0b884ed0f7cc3f103e",
+    "Review06-performance02/performance.json": "0de93e0e8b5fc03714fd753bf5fed89e3ba0c9c9e027fe67bed690f3ba834e80",
+    "P04A/land-repair-review.json": "67be91ee2e2b9227e4b3bb22b9620f8b8ae26966bbf1652be066689da6c76d7d",
+    "P04A/reviewer-wide/review-wide.json": "c3e0ba6570e5d4a676f8475df342e4a7a2565e911d74e19a0a635d81c53157fa",
+    "P04A/audio-coherence/comparison.json": "a299b6d7c0ba3ec4eaf99717a0f6ed8436f0cbc66df2b26ed7ea3473bb3e7072",
+    "P04A/tests-frozen02.log": "ec56a216b23567486765819e9833ceaa1d11e23d0809fe061976d1b47f69ccbc",
+    "P04A/input-rpm-frozen02.log": "74ee0f27e5a188aed8264c4a3e62c5ba7689f9d8674a66b44d744ca8faff5c0a",
+    "P04A/build-frozen02.log": "ca363e504141d9ab5c408802d897767a786cb0265d67155e1159c2bc5e1c70c3"
+  },
+  "limits": [
+    "Controlled24fps capture with120Hz ordinary presentation and60Hz physics is not real-time playback/performance proof.",
+    "Offline audio uses the runtime graph/bank/mapper and logical timeline; it is not live hardware audio recording.",
+    "Visual sample coverage is explicit; uninspected frames are not claimed as individually reviewed.",
+    "Return the scoped packet for Astra review; no G3/G4 advancement or expansion authorization."
+  ]
+}

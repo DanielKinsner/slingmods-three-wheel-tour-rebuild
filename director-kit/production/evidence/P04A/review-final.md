@@ -1,0 +1,15 @@
+# Independent P04A final review
+
+**Implemented and ready for scoped Astra review, with explicit finish/audio/hardware holds. G3 and G4 remain pending.** Frozen runtime: e1fafb5ec4d371635bfbeca51663fc67734a40ca; selected evidence: Review06-final02.
+
+Event, input, persistence, foundation preservation, and the bounded land repair pass. I verified 179 input hashes, 45 served hashes, all eight PNGs, both movie/timeline hashes, and 25 protected files against baseline git objects. Both 10,200-state timelines use the ordinary input/session path, preserve attempt 1 with only the initial reset, cross all 15 ordered gates, and finish valid at 1:18.7192038846. Their physics telemetry matches exactly. The original day storage retains the result value/timestamp through mute, volume .35, near→far camera, retry countdown, and reload. The frozen six-case browser replay passes; full/focused logs report 64/64 and 22/22 tests plus successful build.
+
+I opened all eight final PNGs and inspected decoded movie samples: day every 5 seconds through 80 seconds; both corner/camera intervals at half-second cadence; finish 81–84.5 seconds at half-second cadence; night every second; every frame at night 5.5–7.4583 seconds; and every encoded frame around the old failing segment (day 1086–1102, night 246–262), including full-size 1094/254. This is explicit frame sampling, not human realtime playback. The green foreground plane is absent. The prior independent 72-frame SwiftShader/D3D11, day/night, 16:9/21:9 repair matrix also passed with exact old physics states.
+
+Corner approaches/exits and HUD remain readable. The stock night beams light the corridor; inspected practical-light transitions show no local abrupt pool pop or blackout. Both 24 fps movies fully decode according to the verified media report: day 85 s / 2040 frames, night 25 s / 600 frames, aligned AAC; encoded true peaks −15.3/−16dBTP. No listening was performed, so convincing engine timbre/mix and live speaker output remain held despite the corrected RPM/reference arithmetic.
+
+Environment finish remains provisional: angular palms, repeated warehouse forms, sparse grass, asphalt bands, large pale overview-water reflections, and strong hood highlights remain visible. Passive instruments/mirrors and lower cockpit cropping are not promoted to completed features. The fresh wide-aspect check passes the bounded apex/HUD requirement.
+
+The identified RTX 4080 D3D11 short actual-RAF observations support the measured 1280×720 configuration: mean 16.887/16.666/16.666 ms and p95 16.8 ms across three 10 s cases; day had a 150 ms maximum. This is not sustained full-course 60 FPS, broad hardware, physical-controller, or live-audio certification. Controlled movie timing is a separate lane.
+
+The old 8ffcad7 12 fps attempt and its green artifact/post-film harness failure remain preserved historically. The selected e1fafb5 replacement has complete original metadata, successful original-context post-film checks, and no metadata recovery. Exact hashes, inspection frame ranges, and per-component decisions are in review-final.json. No scope expansion or gate advancement is granted.

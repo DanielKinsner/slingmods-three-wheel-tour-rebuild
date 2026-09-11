@@ -1,0 +1,30 @@
+✔ integrated RPM: straight, signed wheel phase and bounded engine coupling (123.8429ms)
+✔ integrated RPM: reverse, signed wheel phase and bounded engine coupling (33.2598ms)
+✔ integrated RPM: wet-traction-recovery, signed wheel phase and bounded engine coupling (39.7145ms)
+✔ integrated RPM: moving-reverse-interlock, signed wheel phase and bounded engine coupling (36.9652ms)
+✔ integrated RPM: wet-braking-rpm, signed wheel phase and bounded engine coupling (31.5536ms)
+✔ integrated RPM: rolling-and-shifts-rpm, signed wheel phase and bounded engine coupling (48.1569ms)
+✔ fixture: stationary zero-throttle engine stays at idle (0.6507ms)
+✔ fixture: freely rolling rear wheel raises coupled engine RPM above idle (0.1479ms)
+✔ fixture: positive rear wheel overspeed raises RPM above rolling baseline (0.0937ms)
+✔ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.1375ms)
+✔ reverse wheel lock cancels signed rolling rotation while reverse wheelspin raises RPM (0.1269ms)
+✔ input: signed fractional stick, rescaled deadzone, analog triggers and finite sanitation (1.397ms)
+✔ input: changed meaningful ownership, noisy drift and unsupported mappings (0.3656ms)
+✔ input: rising camera/direction edges and continuous monotonic reset hold fires once (0.2521ms)
+✔ input: pause/menu poll, neutral resume, interrupted hold, blur and held-button quarantine (0.3042ms)
+✔ input: disconnect/index reuse and held throttle require neutral plus deliberate resume (0.175ms)
+✔ input: held new controller gesture does not trigger camera/throttle on scene entry (0.1055ms)
+✔ input: a deliberate slow analog ramp takes ownership without per-frame threshold starvation (1.5245ms)
+✔ input: a fresh menu edge can reclaim keyboard while another key remains held (0.1562ms)
+✔ keyboard event buffer: short released taps survive a frame and held repeats do not retoggle (0.27ms)
+✔ keyboard reset uses monotonic down time and a fresh hold after interruption (0.2781ms)
+✔ keyboard release and repress between rendered frames restarts continuous reset hold (0.1583ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 462.9667
