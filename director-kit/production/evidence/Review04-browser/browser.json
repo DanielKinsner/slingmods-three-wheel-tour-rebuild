@@ -1,0 +1,278 @@
+{
+  "method": "Isolated Chromium; controlled virtual device samples through the ordinary InputResolver/DrivingSession/normalFrame and unsnapped camera. Separate real browser keyboard check.",
+  "checks": [
+    {
+      "name": "fractional actual wheel and cockpit steering",
+      "axis": -0.4,
+      "input": {
+        "throttle": 0.22,
+        "brake": 0,
+        "steer": 0.26711771360551995,
+        "reverse": false,
+        "tractionControl": true
+      },
+      "steer": 0.13748397569325255,
+      "wheels": [
+        {
+          "id": "front_left",
+          "steerQuaternion": [
+            0,
+            0.07191430020855512,
+            0,
+            0.9974108147726862
+          ],
+          "spinQuaternion": [
+            -0.5591863327942457,
+            0,
+            0,
+            0.8290420044944183
+          ]
+        },
+        {
+          "id": "front_right",
+          "steerQuaternion": [
+            0,
+            0.06573669380648932,
+            0,
+            0.9978370042684286
+          ],
+          "spinQuaternion": [
+            -0.6024301295566702,
+            0,
+            0,
+            0.7981716225238363
+          ]
+        },
+        {
+          "id": "rear",
+          "spinQuaternion": [
+            -0.553818491735611,
+            0,
+            0,
+            0.832637423018983
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fractional actual wheel and cockpit steering",
+      "axis": 0.4,
+      "input": {
+        "throttle": 0.22,
+        "brake": 0,
+        "steer": -0.26711771360551995,
+        "reverse": false,
+        "tractionControl": true
+      },
+      "steer": -0.1336606964607056,
+      "wheels": [
+        {
+          "id": "front_left",
+          "steerQuaternion": [
+            0,
+            -0.06398675018471217,
+            0,
+            0.9979507481838967
+          ],
+          "spinQuaternion": [
+            -0.5912962368731473,
+            0,
+            0,
+            -0.8064544378076512
+          ]
+        },
+        {
+          "id": "front_right",
+          "steerQuaternion": [
+            0,
+            -0.06982771731402374,
+            0,
+            0.9975590658676371
+          ],
+          "spinQuaternion": [
+            -0.6579874131091068,
+            0,
+            0,
+            -0.7530289265293768
+          ]
+        },
+        {
+          "id": "rear",
+          "spinQuaternion": [
+            -0.7212013210163554,
+            0,
+            0,
+            -0.6927255261387903
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ordinary direction interlock",
+      "speed": 3.5925419582396207,
+      "gear": 1,
+      "reversePending": true,
+      "throttle": 0,
+      "brake": 0.6
+    },
+    {
+      "name": "ordinary camera switch/lookback/release",
+      "switchStepM": 0.22565811762286067,
+      "lookTarget": [
+        0.17092600715312792,
+        0.8499999487344938,
+        82.97910370795057
+      ],
+      "releasedTarget": [
+        0.23326350682508573,
+        0.8499999487400071,
+        81.28024707234316
+      ]
+    },
+    {
+      "name": "blur and neutral resume",
+      "pass": true
+    },
+    {
+      "name": "actual keyboard interrupted hold, child-context browser blur, resume and fresh continuous reset",
+      "interruptedTime": 2.8166666666666615,
+      "heldWallMs": 1234,
+      "resetTime": 0,
+      "position": {
+        "x": 0,
+        "y": 0.025000014305114726,
+        "z": 88
+      }
+    }
+  ],
+  "errors": [],
+  "build": {
+    "commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+    "created": "2026-09-11T17:28:57.474Z",
+    "command": "node scripts/build-review04.mjs (npm run build)",
+    "inputs": {
+      "index.html": "b2dd9e3c4e8ee60fd65300b9eaa4b9f40e4e3af555dcf89a23c0127b8a779960",
+      "package-lock.json": "6e13f8ddde428622a8199eee39bbc5a37471957c5bd6760bd57592f4059fea4f",
+      "package.json": "029e4601f92cd73c97f26683422f149cb2f9917bc36801fc0d88889acf257ae0",
+      "public/assets/calibration.glb": "861f30f03891d4593969ce93e301afa7757cd3e276c49a602be376be11ba4dcf",
+      "public/assets/inspection-bay-p03a.glb": "58614b46d2a687da3f38e43e78c50b98bbf5e75537bf2db9885f1af7fcf83b24",
+      "public/assets/inspection-bay-p03a1.glb": "97780bd9dd188edf5e430ed04d02bedb3d962435c7c9c2f5c44f07175357c53e",
+      "public/assets/pad-layout.json": "4458ea707df606a5ea3660ff1e87ca1d4e0b6868053512da40b693932f23c06c",
+      "public/assets/practice-p03b1.glb": "f5ee6c03cf812a39bee174c128181fbe6470a22d2034874c8ff133105821d721",
+      "public/assets/practice-p03b1.json": "90bb59c2841414f9a519c0a8c960079df04cbf491f04eeb11209c0b032b4ecc4",
+      "public/assets/slingshot-contact-layout.json": "35a5862b275de62e45b58e7a62b0b0b513371a336b4ca5f09eb66bc1c8e11da3",
+      "public/assets/test-pad.glb": "fdcda36abd5366a4a5f12e6692973de6a6f06e6d3929f9e16c88f31146bda304",
+      "public/assets/textures/bay-p03a1/microcement_base.png": "d00dd95d0ba81c6bca015c90578bdf610c45448154dd6f4c1509c5b2479f7373",
+      "public/assets/textures/bay-p03a1/microcement_normal.png": "5e914a6c4fb4940c5e9cc36a25fe2bf5511c2945f215397db0dd14a71b706666",
+      "public/assets/textures/bay-p03a1/microcement_roughness.png": "4ae0cf31faf2f1e50a1884b711e719942200a53200c6ef4cf634bf9146617354",
+      "public/assets/textures/bay/microcement_base.png": "6d8eee5ed788740a9b9585a77312ffb62b65437753d45e2b699c8cb031b6d4d5",
+      "public/assets/textures/bay/microcement_normal.png": "5e914a6c4fb4940c5e9cc36a25fe2bf5511c2945f215397db0dd14a71b706666",
+      "public/assets/textures/bay/microcement_roughness.png": "4ae0cf31faf2f1e50a1884b711e719942200a53200c6ef4cf634bf9146617354",
+      "public/assets/textures/p03a/instrument-scale_basecolor.png": "044111f6221108be869f78c11dacb98f73e7cc352af22af1072258b99647ac84",
+      "public/assets/textures/p03a/machined-alloy_basecolor.png": "f3e3137d107c2e8791b3153415e27439a788aa0756d537bb403ebe5f47b86c06",
+      "public/assets/textures/p03a/machined-alloy_normal.png": "d9c93c854f3258616b0683232e6912d4bff6a460f79b31223181011479465dfb",
+      "public/assets/textures/p03a/machined-alloy_orm.png": "f79f16d7ae96ef464506dca034fb99e74ffa42eb666b6d62f46fb5948eec7126",
+      "public/assets/textures/p03a/molded-polymer_basecolor.png": "2c48d71daa44fb62e4357384476bee7b135c40f65fc1c00c1916c245cc018629",
+      "public/assets/textures/p03a/molded-polymer_normal.png": "c2bd912cf356ee18e2de2243f258ee9cc48c1dd5d4709bb088dd7e501aa84eca",
+      "public/assets/textures/p03a/molded-polymer_orm.png": "d857e98e00457e06994bdfe40d23df0dc5e3ee1236d82a81a66979cedeab0afc",
+      "public/assets/textures/p03a/radar-blue_basecolor.png": "9c2eb68d2fd3abb66a2166617281310d3cf4cc693ccca3cc4ed004d599e420b8",
+      "public/assets/textures/p03a/radar-blue_normal.png": "621d76fd2971b80c3023561840a60c8516c13fb106b67cf366ade31b49621025",
+      "public/assets/textures/p03a/radar-blue_orm.png": "45ba10e7ba3dd36237635ba67dc8c5b042c4a4f49e5dcd136ebfdfc2fcb9ecce",
+      "public/assets/textures/p03a/road-tire_basecolor.png": "935be6da538d31240ed23fabb246597d09b8785e0879c38f6103b6344c1dc88b",
+      "public/assets/textures/p03a/road-tire_normal.png": "993942667ff59140dcce1587ef633578816aaa9ea7684d8b2d32862d22c5ba93",
+      "public/assets/textures/p03a/road-tire_orm.png": "2c3df05a40e4ad2524d8d8a18ee9808405465e8c3d3f002ef667398e9799f3c9",
+      "public/assets/textures/p03a/sport-seat_basecolor.png": "50365bf8b708c54eca508bb2f70bb2a050a87a1ab367265d639135fe7bae5c1f",
+      "public/assets/textures/p03a/sport-seat_normal.png": "19ca43b9e9206bbe22011e4653ee7c6c77fe15969e428e1b32c6163b8ccf1f00",
+      "public/assets/textures/p03a/sport-seat_orm.png": "3b2a4ca416855ef0cc24d7b872cf95db027c1575400f79940ab0800f07a51303",
+      "public/assets/textures/p03a1/instrument-scale_basecolor.png": "044111f6221108be869f78c11dacb98f73e7cc352af22af1072258b99647ac84",
+      "public/assets/textures/p03a1/machined-alloy_basecolor.png": "f3e3137d107c2e8791b3153415e27439a788aa0756d537bb403ebe5f47b86c06",
+      "public/assets/textures/p03a1/machined-alloy_normal.png": "d9c93c854f3258616b0683232e6912d4bff6a460f79b31223181011479465dfb",
+      "public/assets/textures/p03a1/machined-alloy_orm.png": "f79f16d7ae96ef464506dca034fb99e74ffa42eb666b6d62f46fb5948eec7126",
+      "public/assets/textures/p03a1/molded-polymer_basecolor.png": "2c48d71daa44fb62e4357384476bee7b135c40f65fc1c00c1916c245cc018629",
+      "public/assets/textures/p03a1/molded-polymer_normal.png": "c2bd912cf356ee18e2de2243f258ee9cc48c1dd5d4709bb088dd7e501aa84eca",
+      "public/assets/textures/p03a1/molded-polymer_orm.png": "d857e98e00457e06994bdfe40d23df0dc5e3ee1236d82a81a66979cedeab0afc",
+      "public/assets/textures/p03a1/radar-blue_basecolor.png": "6327b43b64220ab8186296145fc7f6f8d3c1c3468865228e3b47bfff7d581b70",
+      "public/assets/textures/p03a1/radar-blue_normal.png": "621d76fd2971b80c3023561840a60c8516c13fb106b67cf366ade31b49621025",
+      "public/assets/textures/p03a1/radar-blue_orm.png": "45ba10e7ba3dd36237635ba67dc8c5b042c4a4f49e5dcd136ebfdfc2fcb9ecce",
+      "public/assets/textures/p03a1/road-tire_basecolor.png": "6eba2948f14cea63c92114519988e00c13a31b3ffc161efa604f264facbaa0a1",
+      "public/assets/textures/p03a1/road-tire_normal.png": "6e79dd38c493362db44e27e5d4f39eeaee3890f6dfdc89f96b0a6dd9afa3755c",
+      "public/assets/textures/p03a1/road-tire_orm.png": "6283356f6f071d60fac2a1f173184af674b79d0ee2508eb228fd2ea8b9873102",
+      "public/assets/textures/p03a1/sport-seat_basecolor.png": "50365bf8b708c54eca508bb2f70bb2a050a87a1ab367265d639135fe7bae5c1f",
+      "public/assets/textures/p03a1/sport-seat_normal.png": "19ca43b9e9206bbe22011e4653ee7c6c77fe15969e428e1b32c6163b8ccf1f00",
+      "public/assets/textures/p03a1/sport-seat_orm.png": "3b2a4ca416855ef0cc24d7b872cf95db027c1575400f79940ab0800f07a51303",
+      "public/assets/vehicles/scale-blockouts.glb": "78a17b36da6a5c0e2c29dca7cb106356944208613ad156ad5c4a5be8aa77cfd5",
+      "public/assets/vehicles/slingshot-p03a.glb": "5ca79ccf1608491a4c82079d570d0928c85c3581f5ebcf7d557404864250cee2",
+      "public/assets/vehicles/slingshot-p03a1.glb": "f2a417f75028b534a334168670baac3a411d1a0731bd927d0e82a43c8006b1b9",
+      "public/assets/vehicles/slingshot-p03a2-proof01.glb": "fcbf1b6d3737a75d9feba4dceb6ba4ebd559d833ec96aafcc8128ca70dc028ad",
+      "public/assets/vehicles/slingshot-p03a2.glb": "a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af",
+      "public/assets/vehicles/slingshot.glb": "5e3c7adfb0ef5470b5ce19f3d8049d8a0d99431eb3bf5636f966ca9f5e5ab143",
+      "scripts/build-review04.mjs": "0429863938d12b5fd64feecf0915dfd273ddd66a847f3a6ee56f892bcf5a917d",
+      "scripts/capture-review04.mjs": "864936364787f4fb6e84910c0ea1ed5df4f94016ca62801da998125680d92a10",
+      "scripts/verify-p03b1-browser.mjs": "04d8887a37fcc2fbe59f18924b0db0e5812cbd5f3ac6ecd79e1f39a70d0c39d4",
+      "src/build.d.ts": "fe2b9cbff3c0ec7157f979ed01e6aa4a3d7e74716e67746c1d010ea42859d432",
+      "src/calibration.ts": "0f62fd1b604d8761598410a082011c38e01c8d3152b90d901a5b7521af8766fe",
+      "src/driving/input.ts": "a2bfee228d7f89ee91328566ab03ffb6ba5b05169f5abf09d4266f96ccb81263",
+      "src/driving/session.ts": "817926885dd8aed9c559fb4bcad9afe2bcab94a284078126ed53fe062ffe7d46",
+      "src/main.ts": "5fb3975d38b2f89242f69ffa909e555843fe77adf10cc8b99bc0838cd30c8747",
+      "src/presentation/chase.ts": "3a15252d7974ac97d912ab0469b06bd0394d030de5a115fe091da293dd120203",
+      "src/presentation/inspection.ts": "f5d752e886cb1e8db32941d2b8cb9d2ce6a46b270e65d6c02e939ce935ef8458",
+      "src/presentation/shadows.ts": "66d954641f911813175e3945eff6b3c81834d6aa76a2424c851595f9100f4d21",
+      "src/presentation/statistics.ts": "ec73d406122e5782670df19c48a625a8959d03aee52346550c3b19d572111a8e",
+      "src/save.ts": "c79057d8722408de82abdc0bfb0266b0c4d448758fb4fb37f4185c910fe0aa77",
+      "src/simulation/drivetrain.ts": "361624e7a0ca8f6594f8c21cf195486c76462040f68afcf9a9f9dd1e2f65d6cc",
+      "src/simulation/index.ts": "52b231ecbf5f56568f7473b221c915e464810ef501f955cbee790965a7865c3a",
+      "src/simulation/pad.ts": "d3939caeff211cb6f1228fce41b028b2460c89f8f615818932e260f13c506ed8",
+      "src/simulation/scenarios.ts": "fcf0592ca210e958e2686b4116e7adca098a04879abd7a0a7d519a8613f74e84",
+      "src/style.css": "cf7084cd145b9d922405a1cb03fce9b8ba12450a575d006d76514c23babeee2a",
+      "src/workbench.css": "a5d6a1951ab23c47109baccc1e045a961c863036ebf9abe46e32a3a5f9fa6040",
+      "src/workbench.ts": "07c57f743c8a8e4ae5579a9fde56f25fe85f04ae156c661bd205cc5725cdb99e",
+      "tests/drivetrain-integrated.test.ts": "89f31bbce3ff9cc02273c94c6805dabe86df8c435c59506ac09051328bd5dae5",
+      "tests/drivetrain-wheel-speed.test.ts": "4fc917580e23a3439f5c41a49071b317ca1feda217c5e9a407f2d589e8c21446",
+      "tests/driving-session-camera.test.ts": "ede38b9fa93043864a75fc38bbc15e5aad51edc2ab7831436f0665949ba69c70",
+      "tests/driving.test.ts": "cbb2b57e98d68756f2950d076d1193001bed7e2111cc6eaad34bae473ba5c967",
+      "tests/fixtures/practice-trace.ts": "0b290a0c46c6f9c25ed3184ff5d87612bb5c0b65c3fc57c9703c3f81413ce3ee",
+      "tests/input.test.ts": "2196b8e320d196ad4432c21d3d514191dd53177313504a24c0f7c6c96c0c5f68",
+      "tests/inspection-framing.test.ts": "68d1aa949048f59e80d130a794f9d8ed3a876c7cd6c99fc8487ea82b427169b6",
+      "tests/shadow-casters.test.ts": "97c67eb507f7c930013534d9dbdc068a46e75e5e692689231593fba78480eb28",
+      "tests/smoke.test.ts": "b82e3e0caabd73ad0b4b0ac31f3d4b4ed2a97bad2c0b60ff341534570a78c8d8",
+      "tsconfig.json": "b4ca80e916cc1a3220a20a62f3892800caf4338e8edce8ce1cbc81d2c1e574d9",
+      "vite.config.ts": "e281dacdfae13ba98b97f62317775e0efbae527fccd7da498e03d9277fd24b58"
+    },
+    "method": "SHA256 snapshot immediately before compile; input equality checked after successful compile. Served bytes checked separately during capture."
+  },
+  "served": {
+    "dist/review-build.json": "9bde7d132ff094bf7095dc91b9cc5c16265ff76f20c4aa5cddcf527a588676f7",
+    "dist/index.html": "436d84e62a174b7d9ace6c117690a228ea6437b9de6d32f27a24194b579525e6",
+    "dist/assets/calibration-DEe9fh9f.js": "ea37e231a4e4dd3aae771decb6cf3c3ab838f099602fe308245316543eb119de",
+    "dist/assets/index-rI5A2GWI.js": "56b1f6d0f29bd0e6072e97fd411a3382434a6e8f47caccae03deed8dec8316aa",
+    "dist/assets/save-Clkzk0mx.js": "b964a9bf2f031b1dd82a35f7d06cfcbad83020738385fe38657026aa13ff94fd",
+    "dist/assets/save-S_mbsQK_.css": "31fd99fc37503ad8018ef4de9b0b3cf084429b0f5d532f7e7dc3f2b946c206e1",
+    "dist/assets/workbench-DLVxeRX0.js": "817289daa88871bad9c462ed1fa63726e553c57219858df8d2e9b51bea8ab504",
+    "dist/assets/workbench-Dn6g75nO.css": "482f283386756a9cf5cd1aeb3d6969a3e5936c1f25d65a5eacabaca6c75807fc",
+    "public/assets/vehicles/slingshot-p03a2.glb": "a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af",
+    "public/assets/practice-p03b1.glb": "f5ee6c03cf812a39bee174c128181fbe6470a22d2034874c8ff133105821d721"
+  },
+  "browser": "153.0.8010.12",
+  "platform": {
+    "gamepadAPI": "function",
+    "secureContext": true,
+    "exposedPads": 0
+  },
+  "focusBefore": {
+    "focused": true,
+    "hidden": false,
+    "paused": false
+  },
+  "focusAway": {
+    "method": "Actual browser focus transferred to an isolated child iframe; no desktop input or synthetic blur event. Headless tab-switch visibility unavailable.",
+    "activeElement": "IFRAME",
+    "paused": true
+  },
+  "sourceHashes": {
+    "src/workbench.ts": "07c57f743c8a8e4ae5579a9fde56f25fe85f04ae156c661bd205cc5725cdb99e",
+    "src/driving/input.ts": "a2bfee228d7f89ee91328566ab03ffb6ba5b05169f5abf09d4266f96ccb81263",
+    "src/driving/session.ts": "817926885dd8aed9c559fb4bcad9afe2bcab94a284078126ed53fe062ffe7d46",
+    "src/presentation/chase.ts": "3a15252d7974ac97d912ab0469b06bd0394d030de5a115fe091da293dd120203",
+    "scripts/verify-p03b1-browser.mjs": "04d8887a37fcc2fbe59f18924b0db0e5812cbd5f3ac6ecd79e1f39a70d0c39d4"
+  }
+}

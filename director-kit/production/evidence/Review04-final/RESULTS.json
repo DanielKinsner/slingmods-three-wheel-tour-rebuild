@@ -1,0 +1,295 @@
+{
+  "runtimeCommit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+  "status": "PASS bounded engineering checks; local shell repair provisional; whole-vehicle visual HOLD; G3 pending",
+  "tests": {
+    "suite": {
+      "command": "npm test",
+      "passed": 43,
+      "failed": 0
+    },
+    "rpm": {
+      "command": "npx tsx --test tests/drivetrain-wheel-speed.test.ts",
+      "passed": 5,
+      "failed": 0
+    },
+    "build": {
+      "command": "node scripts/build-review04.mjs",
+      "pass": true,
+      "warning": "Retained Vite >500kB chunk warning"
+    },
+    "camera": {
+      "method": "One input/session trace at60Hz authoritative physics; interpolated same chassis poses at30/60/120/144 presentation schedules; no hardware FPS claim",
+      "tolerances": {
+        "positionM": 0.45,
+        "targetM": 0.15,
+        "fovDeg": 0.15,
+        "ordinaryMaxStepM": 1.5
+      },
+      "deviations": [
+        {
+          "hz": 30,
+          "position": 0.3573212608889445,
+          "target": 0.049070477742350245,
+          "fov": 0.00589905024441606
+        },
+        {
+          "hz": 60,
+          "position": 0,
+          "target": 0,
+          "fov": 0
+        },
+        {
+          "hz": 120,
+          "position": 0.1795575450789942,
+          "target": 0.02566349827836819,
+          "fov": 0.005960118738329356
+        },
+        {
+          "hz": 144,
+          "position": 0.2095386400859097,
+          "target": 0.030027426263582832,
+          "fov": 0.008943639609071852
+        }
+      ]
+    }
+  },
+  "environment": {
+    "os": "Windows11 build26200",
+    "node": "24.15.0",
+    "npm": "11.6.2",
+    "blender": "4.5.2 LTS background",
+    "browser": "Chromium153.0.8010.12 isolated headless SwiftShader",
+    "physicalController": false,
+    "desktopInput": false
+  },
+  "preservation": {
+    "baseline": "0db7ede7ea5e4f8a1d2edbf947e583ab40e15193",
+    "unchangedPaths": [
+      "src/simulation",
+      "src/presentation/shadows.ts",
+      "public/assets/slingshot-contact-layout.json",
+      "public/assets/test-pad.glb",
+      "assets/blender/test-pad.blend",
+      "assets/blender/vehicles/slingshot-p03a1.blend",
+      "public/assets/vehicles/slingshot-p03a1.glb",
+      "public/assets/textures",
+      "assets/blender/inspection-bay-p03a1.blend",
+      "public/assets/inspection-bay-p03a1.glb",
+      "package.json",
+      "package-lock.json"
+    ],
+    "exactGitTreeDiffEmpty": true
+  },
+  "limits": [
+    "G3 pending and broader vehicle fidelity held",
+    "No audio, driver, physical GPU/FPS or subjective fun verdict",
+    "Numerical camera comparison excludes explicit reset/scene snap; it does not establish obstruction-transition or resize quality",
+    "Noncolliding18-cone practice guide; no spline constraint, lap or race system",
+    "Near held-lookback clips the lower nose and uses much of the lower frame; rearward road/cones remain visible and release restores chase. Retained as disclosed framing limitation."
+  ],
+  "resolvedFailures": [
+    "Accumulated analog activity fixed slow ramp ownership starvation",
+    "Action edges separated from analog arbitration baseline",
+    "Real quick keyboard tap could be lost between rendered frames; press events now latched",
+    "Keyboard reset release/repress between frames now restarts continuous hold"
+  ],
+  "captureAttemptHistory": "Preliminary browser01 navigation timeout; browser02 showed headless tab switching does not emit blur; actual focused iframe subsequently exercised real browser blur. Browser03 exposed lost quick Escape tap. Browser04 passed but predates final reset timer correction. Preliminary Review04 capture aborted before final checkpoint, preserved locally. Only final frozen evidence is packaged.",
+  "browser": {
+    "method": "Isolated Chromium; controlled virtual device samples through the ordinary InputResolver/DrivingSession/normalFrame and unsnapped camera. Separate real browser keyboard check.",
+    "checks": [
+      {
+        "name": "fractional actual wheel and cockpit steering",
+        "axis": -0.4,
+        "input": {
+          "throttle": 0.22,
+          "brake": 0,
+          "steer": 0.26711771360551995,
+          "reverse": false,
+          "tractionControl": true
+        },
+        "steer": 0.13748397569325255,
+        "wheels": [
+          {
+            "id": "front_left",
+            "steerQuaternion": [
+              0,
+              0.07191430020855512,
+              0,
+              0.9974108147726862
+            ],
+            "spinQuaternion": [
+              -0.5591863327942457,
+              0,
+              0,
+              0.8290420044944183
+            ]
+          },
+          {
+            "id": "front_right",
+            "steerQuaternion": [
+              0,
+              0.06573669380648932,
+              0,
+              0.9978370042684286
+            ],
+            "spinQuaternion": [
+              -0.6024301295566702,
+              0,
+              0,
+              0.7981716225238363
+            ]
+          },
+          {
+            "id": "rear",
+            "spinQuaternion": [
+              -0.553818491735611,
+              0,
+              0,
+              0.832637423018983
+            ]
+          }
+        ]
+      },
+      {
+        "name": "fractional actual wheel and cockpit steering",
+        "axis": 0.4,
+        "input": {
+          "throttle": 0.22,
+          "brake": 0,
+          "steer": -0.26711771360551995,
+          "reverse": false,
+          "tractionControl": true
+        },
+        "steer": -0.1336606964607056,
+        "wheels": [
+          {
+            "id": "front_left",
+            "steerQuaternion": [
+              0,
+              -0.06398675018471217,
+              0,
+              0.9979507481838967
+            ],
+            "spinQuaternion": [
+              -0.5912962368731473,
+              0,
+              0,
+              -0.8064544378076512
+            ]
+          },
+          {
+            "id": "front_right",
+            "steerQuaternion": [
+              0,
+              -0.06982771731402374,
+              0,
+              0.9975590658676371
+            ],
+            "spinQuaternion": [
+              -0.6579874131091068,
+              0,
+              0,
+              -0.7530289265293768
+            ]
+          },
+          {
+            "id": "rear",
+            "spinQuaternion": [
+              -0.7212013210163554,
+              0,
+              0,
+              -0.6927255261387903
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ordinary direction interlock",
+        "speed": 3.5925419582396207,
+        "gear": 1,
+        "reversePending": true,
+        "throttle": 0,
+        "brake": 0.6
+      },
+      {
+        "name": "ordinary camera switch/lookback/release",
+        "switchStepM": 0.22565811762286067,
+        "lookTarget": [
+          0.17092600715312792,
+          0.8499999487344938,
+          82.97910370795057
+        ],
+        "releasedTarget": [
+          0.23326350682508573,
+          0.8499999487400071,
+          81.28024707234316
+        ]
+      },
+      {
+        "name": "blur and neutral resume",
+        "pass": true
+      },
+      {
+        "name": "actual keyboard interrupted hold, child-context browser blur, resume and fresh continuous reset",
+        "interruptedTime": 2.8166666666666615,
+        "heldWallMs": 1234,
+        "resetTime": 0,
+        "position": {
+          "x": 0,
+          "y": 0.025000014305114726,
+          "z": 88
+        }
+      }
+    ],
+    "platform": {
+      "gamepadAPI": "function",
+      "secureContext": true,
+      "exposedPads": 0
+    },
+    "focusAway": {
+      "method": "Actual browser focus transferred to an isolated child iframe; no desktop input or synthetic blur event. Headless tab-switch visibility unavailable.",
+      "activeElement": "IFRAME",
+      "paused": true
+    },
+    "errors": [],
+    "buildCommit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+    "servedFilesVerified": 10
+  },
+  "media": [
+    {
+      "file": "shell-reflection-SILENT.mp4",
+      "duration": "4.000000",
+      "frames": "48",
+      "rate": "12/1",
+      "audioStreams": 0,
+      "decode": "PASS",
+      "wallSeconds": 25.796
+    },
+    {
+      "file": "practice-driving-SILENT.mp4",
+      "duration": "30.000000",
+      "frames": "360",
+      "rate": "12/1",
+      "audioStreams": 0,
+      "decode": "PASS",
+      "wallSeconds": 163.272
+    }
+  ],
+  "capture": {
+    "pipeline": "Actual runtime, isolated headless Chromium SwiftShader. SILENT. Virtual standard device reader through ordinary InputResolver, DrivingSession fixed60Hz and normalFrame/unsnapped ChaseCamera. Controlled30s logical clock; rasterized12fps, all60Hz camera updates retained. No physical controller, hardware FPS or human-driving claim.",
+    "logicalSeconds": 30,
+    "encodedSeconds": 30,
+    "captureHz": 12,
+    "sampledClockRangeSeconds": [
+      0,
+      29.916666666666668
+    ],
+    "simulationTicks": 1734,
+    "simulationAdvancedSeconds": 28.9,
+    "initialSettlingSeconds": 2,
+    "wallSeconds": 163.272,
+    "virtualInput": true,
+    "audio": "SILENT, no audio streams",
+    "servedFilesVerified": 13
+  }
+}

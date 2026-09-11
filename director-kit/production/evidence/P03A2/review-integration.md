@@ -1,0 +1,9 @@
+# P03A2 integrated candidate review
+
+**Local repair and bounded integration accepted for provisional development use. Whole-vehicle fidelity remains held; G3 pending.** Reviewer /root/gate_review, independent_subagent. Actual GLB SHA256 a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af; editable integrated Blender source 6c0dd156527401cd0f916ef97b8d25bc7e885d41faf600f4669f9f8ab11552a9. Both independently hashed and matched integration records.
+
+Opened all four actual integration-runtime PNGs: front, three-quarter, side and rear-quarter. Both mirrored brows retain the proof01 repair: the broad planar terminal bands and segmented leading returns are removed. Current mapped output has no newly visible mirror seam, hole, overlap, gross graphic stretching or loss of adjacent control parts in these views. The front is visibly more continuous. Existing-map graphic boundaries and unchanged side/rear context remain consistent with the retained candidate.
+
+This supports selecting P03A2 as the explicitly provisional normal development asset. It does not pass the whole front or vehicle for final fidelity. The long edge remains rounded and the upper ridge subdued against the reference; tire groove/machining fidelity and broader vehicle completion remain explicit limitations. Do not reopen unrelated cosmetic work. Preserve P03A1, unilateral proof01 and its editable master. One local candidate was evaluated; integration is the allowed mirror/adapt step.
+
+The integrated report records 211,431 triangles, 59 primitives, unchanged overall bounds and reused maps. This remains below the 250k showroom ceiling, not the 140k racing-LOD aim. Source/export validation and frozen-neighbor records are supporting engineering evidence; visual inspection is the basis of the limited appearance decision. Final normal-path input/camera evidence, frozen build provenance and package review are separate pending checks.

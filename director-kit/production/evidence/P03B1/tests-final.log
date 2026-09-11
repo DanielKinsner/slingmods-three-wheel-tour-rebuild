@@ -1,0 +1,55 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ integrated RPM: straight, signed wheel phase and bounded engine coupling (150.6683ms)
+✔ integrated RPM: reverse, signed wheel phase and bounded engine coupling (46.1681ms)
+✔ integrated RPM: wet-traction-recovery, signed wheel phase and bounded engine coupling (42.4808ms)
+✔ integrated RPM: moving-reverse-interlock, signed wheel phase and bounded engine coupling (58.6417ms)
+✔ integrated RPM: wet-braking-rpm, signed wheel phase and bounded engine coupling (44.1026ms)
+✔ integrated RPM: rolling-and-shifts-rpm, signed wheel phase and bounded engine coupling (59.6364ms)
+✔ fixture: stationary zero-throttle engine stays at idle (0.746ms)
+✔ fixture: freely rolling rear wheel raises coupled engine RPM above idle (0.169ms)
+✔ fixture: positive rear wheel overspeed raises RPM above rolling baseline (0.0946ms)
+✔ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.1557ms)
+✔ reverse wheel lock cancels signed rolling rotation while reverse wheelspin raises RPM (0.148ms)
+✔ ordinary session: direction request goes through retained braking interlock; reset/pause do not latch throttle (152.8936ms)
+✔ camera: same fixed-physics maneuver across 30/60/120/144Hz presentation, finite horizon and continuous switches (143.7982ms)
+✔ loaded rest: three non-tensile contacts support stated loaded mass without drift (141.9655ms)
+✔ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (623.4385ms)
+✔ straight acceleration, lift-off coast and braking have coherent measured distances (0.9104ms)
+✔ left/right asphalt circles have correct turn signs, mirrored radii and sustained support (0.872ms)
+✔ slalom follows alternating input in authoritative yaw response (0.5459ms)
+✔ controlled reverse engages near rest and uses signed physical velocity (0.472ms)
+✔ surface friction reduces acceleration; optional traction help limits wheel overspeed; lift/brake recovers (0.5422ms)
+✔ one-wheel bump, curb, seam and landing excite suspension and recover without tunneling (1.3192ms)
+✔ authoritative AutoDrive executes all five ratios, cuts torque during transitions, and has consistent SI torque/power (0.907ms)
+✔ incline launch and high-speed curb produce physical vertical motion then recover; full-speed steering stays bounded (0.5622ms)
+✔ straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes (68.6338ms)
+✔ render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error (75.9122ms)
+✔ reset clears forces/drivetrain/history, fixed-step rejection and pause clock do not advance state (7.1873ms)
+✔ input: signed fractional stick, rescaled deadzone, analog triggers and finite sanitation (1.1691ms)
+✔ input: changed meaningful ownership, noisy drift and unsupported mappings (0.3953ms)
+✔ input: rising camera/direction edges and continuous monotonic reset hold fires once (0.2702ms)
+✔ input: pause/menu poll, neutral resume, interrupted hold, blur and held-button quarantine (0.502ms)
+✔ input: disconnect/index reuse and held throttle require neutral plus deliberate resume (0.1846ms)
+✔ input: held new controller gesture does not trigger camera/throttle on scene entry (0.1327ms)
+✔ input: a deliberate slow analog ramp takes ownership without per-frame threshold starvation (1.7324ms)
+✔ input: a fresh menu edge can reclaim keyboard while another key remains held (0.167ms)
+✔ keyboard event buffer: short released taps survive a frame and held repeats do not retoggle (0.2567ms)
+✔ keyboard reset uses monotonic down time and a fresh hold after interruption (0.2199ms)
+✔ keyboard release and repress between rendered frames restarts continuous reset hold (0.1511ms)
+✔ whole-vehicle framing respects perspective margin through the complete orbit (23.0968ms)
+✔ pad ground and markings receive vehicle shadows without entering the caster set (2.6581ms)
+✔ explicit diagnostic caster isolation cannot remove shadows from the restored normal policy (0.5834ms)
+✔ new save round-trip touches only the new namespace (0.9548ms)
+✔ malformed or future schemas fall back without reading legacy data (0.2006ms)
+✔ actual Rapier world falls onto a collider and settles (79.3982ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 43
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1110.2388

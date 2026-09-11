@@ -4,10 +4,10 @@
   "as_of": "2026-09-11",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "404dff91255eb0dadcaadeb81075f86508f36607",
+  "commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
   "current_gate": "G3",
-  "current_packet": "P03A2 + P03B1",
-  "next_action": "Complete frozen Review04 evidence/package, then stop for Astra; G3 pending. No next packet.",
+  "current_packet": "P03A2 + P03B1 review-ready",
+  "next_action": "Return Astra-Review-04.zip then stop for Astra. G3 pending. No next packet.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -127,10 +127,11 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "independent_tests": "43/43 suite and5/5 focused RPM checks pass. Includes inspection framing, input and30/60/120/144 numerical camera consistency. Final frozen runtime capture pending.",
+    "independent_tests": "43/43 suite,5/5 focused RPM, TypeScript/Vite build pass;11inputtests independently reviewed. Numeric30/60/120/144camera comparison passes documented tolerances.",
     "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B1 independent progress allowed by Review03.",
     "preservation": "No changes to simulation, contact layout, old pad, repaired shadow policy, P03A1 source/export/maps or bay against0db7ede7.",
-    "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard."
+    "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard.",
+    "evidence": "Review04-final:6 current runtime PNGs,30s normal-pipeline SILENT virtual-controller film,4s runtime reflection. Final browser source/served-byte verification and actual-keyboard focus/reset pass; bothfilms fullydecode. RESULTS.json records limits and walltime."
   },
   "director_addendum": "director-addenda/review-03/CODEX_NEXT.md",
   "drivetrain_addendum": {
@@ -178,13 +179,18 @@
     "candidate": "public/assets/vehicles/slingshot-p03a2.glb",
     "review": "production/evidence/P03A2/review-integration.md",
     "scope": "Only two brows replaced from separately reviewed boundary-controlled connected quad master; all717 other source parts and16 maps frozen",
-    "limits": "Rounded edge/subdued ridge and tire groove/machining fidelity remain approximate. Whole-vehicle fidelity held; G3 pending."
+    "limits": "Rounded edge/subdued ridge and tire groove/machining fidelity remain approximate. Whole-vehicle fidelity held; G3 pending.",
+    "runtime_commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+    "sha256": "a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af"
   },
   "p03b1": {
-    "status": "implemented_final_runtime_evidence_pending",
+    "status": "bounded_controls_camera_practice_review_ready",
     "scope": "Shared keyboard/standard gamepad reader, lifecycle/rearm, unsnapped near/far/look-back chase,18 Blender noncolliding practice cones",
-    "evidence": "production/evidence/Review04/",
+    "evidence": "production/evidence/Review04-final/",
     "physics_changed": false,
-    "physical_controller_tested": false
+    "physical_controller_tested": false,
+    "runtime_commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+    "review": "production/evidence/P03B1/review-final.md",
+    "camera_limit": "Near held-lookback clips lower nose; rearward road/cones visible, release restores chase. No physical FPS or obstruction-transition/resize certification."
   }
 }
