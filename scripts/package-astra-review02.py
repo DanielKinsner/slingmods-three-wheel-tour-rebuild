@@ -27,12 +27,13 @@ addendum=Path('director-kit/production/evidence/G2-addendum-01')
 for p in addendum.iterdir():
  if p.is_file():add(p)
 p03=Path('director-kit/production/evidence/P03A')
-for name in ['REVIEW-ME-FIRST.md','REVIEW.md','review-final.md','review-final.json','STATISTICS.md','final-test.log','final-build.log','final-asset-census.json','review-surface05.md','review-material04.md']:
+for name in ['REVIEW-ME-FIRST.md','REVIEW.md','review-final.md','review-final.json','STATISTICS.md','final-test.log','final-build-02.log','final-asset-census.json','review-surface05.md','review-material04.md','CAPTURE-CORRECTION.md']:
  add(p03/name)
 add(p03/'REVIEW-ME-FIRST.md','REVIEW-ME-FIRST.md')
-for folder in ['final-01','verification-final']:
+for folder in ['final-02','verification-final-02']:
  for p in (p03/folder).iterdir():
   if p.is_file():add(p)
+for name in ['turntable-runtime-stepped-SILENT.mp4','provenance.json']:add(p03/'final-02'/'turntable'/name)
 for name in ['DIAGNOSIS.md','band-reproduced.png','keyboard-legacy-SILENT.webm','keyboard-repaired-SILENT.webm','keyboard-legacy.json','keyboard-repaired.json']:
  add(p03/'shadows'/name)
 for name in ['texture-manifest.json','asset-census.json','export-validation.json','construction-checkpoints.md','source-optical-visibility.json']:

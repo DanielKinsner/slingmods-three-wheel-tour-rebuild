@@ -41,7 +41,7 @@ $env:EVIDENCE_DIR='director-kit/production/evidence/P03A/a-new-capture-folder'
 npm run capture:p03a
 ```
 
-The capture tool refuses an existing output folder. It records actual runtime PNGs, silent video, source/served hashes, telemetry and renderer counters. `scripts/verify-p03a-browser.mjs` similarly requires a new `EVIDENCE_DIR` and tests default/Inspect/Drive/calibration routes, actual wheel/steering presentation and comparable renderer counts. It does not use desktop input.
+The capture tool refuses an existing output folder. It records actual runtime PNGs, a frame-stepped full orbit encoded at 12 fps, an actual keyboard driving video, source/served hashes, telemetry and renderer counters. The orbit synchronizes every CDP screenshot before encoding; it does not claim real-time capture performance. Bay orbit/zoom and the Rear preset remain in front of the rear wall. `scripts/verify-p03a-browser.mjs` similarly requires a new `EVIDENCE_DIR` and tests default/Inspect/Drive/calibration routes, actual wheel/steering presentation and comparable renderer counts. It does not use desktop input.
 
 Historical capture scripts may use fixed G0/G1/G2 locations. Do not run them over accepted evidence. `npm run preview:accepted` / `gate:g0` / `gate:g1` / `gate:g2` validate historical evidence integrity only, not current aesthetics or handling. The small review ZIP intentionally omits the full historical archive, so use `npm run preview` there; full historical gate validation requires the intact repository archive.
 

@@ -1,7 +1,7 @@
 import {readFileSync,readdirSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';import {execFileSync,spawnSync} from 'node:child_process';import assert from 'node:assert/strict';
 function files(dir){return readdirSync(dir,{withFileTypes:true}).flatMap(d=>d.isDirectory()?files(dir+'/'+d.name):[dir+'/'+d.name])}
-const paths=[...files('src'),...files('public'),'package.json','package-lock.json','index.html','vite.config.ts','tsconfig.json','scripts/build-review.mjs','scripts/capture-p03a-review.mjs','scripts/verify-p03a-browser.mjs'];
+const paths=[...files('src'),...files('public'),'package.json','package-lock.json','index.html','vite.config.ts','tsconfig.json','scripts/build-review.mjs','scripts/record-p03a-turntable.mjs','scripts/capture-p03a-review.mjs','scripts/verify-p03a-browser.mjs'];
 function snapshot(){return Object.fromEntries(paths.sort().map(p=>[p,createHash('sha256').update(readFileSync(p)).digest('hex')]))}
 const before=snapshot(),commit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
 const result=spawnSync('npm run build',{shell:true,cwd:process.cwd(),stdio:'inherit'});if(result.status!==0)process.exit(result.status??1);

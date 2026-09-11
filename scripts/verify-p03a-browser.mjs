@@ -16,6 +16,11 @@ for(const steer of [1,-1]){await page.evaluate(()=>window.__TWT.reset({z:0}));co
 if(process.env.CHECK_DEFAULT!=='0'){await page.goto('http://127.0.0.1:5187/?test=1');await page.waitForFunction(()=>window.__TWT?.ready,null,{timeout:90000});
 assert.equal(await page.evaluate(()=>window.__TWT.mode),'bay');assert.equal(await page.evaluate(()=>window.__TWT.asset),'slingshot-p03a.glb');
 await page.locator('#inspect-action').click();assert.equal(await page.locator('.view-tools').isVisible(),true);await page.locator('[data-view=cockpit]').click();
+await page.locator('[data-view=rearquarter]').click();const rearView=await page.evaluate(()=>window.__TWT.inspect());assert.ok(rearView.cameraPosition[2]<=4.450001);assert.ok(rearView.renderInfo.triangles>100000);
+const rearImage=await page.context().newCDPSession(page);await writeFile(dir+'/normal-inspect-rear.png',Buffer.from((await rearImage.send('Page.captureScreenshot',{format:'png',fromSurface:true})).data,'base64'));
+for(const a of [0,Math.PI/2,Math.PI,Math.PI*1.5,Math.PI*2]){const camera=await page.evaluate(a=>{window.__TWT.orbitView(a,9,2.2);return window.__TWT.inspect().cameraPosition},a);assert.ok(camera[2]<=4.450001)}
+report.rearCamera='PASS actual Rear button and five orbit angles requested at9m; camera remains in front of rear wall. See normal-inspect-rear.png for visible vehicle.';
+
 await page.locator('.drive-action').click();await page.waitForFunction(()=>window.__TWT?.ready&&window.__TWT.mode==='pad',null,{timeout:90000});assert.equal(await page.evaluate(()=>window.__TWT.asset),'slingshot-p03a.glb');
 await page.locator('#inspect-action').click();await page.waitForFunction(()=>window.__TWT?.ready&&window.__TWT.mode==='bay',null,{timeout:90000});
 await page.goto('http://127.0.0.1:5187/?scene=calibration');await page.waitForFunction(()=>window.__TWT?.ready,null,{timeout:90000});assert.equal(await page.evaluate(()=>window.__TWT.asset),'calibration.glb');
