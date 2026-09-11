@@ -1,6 +1,6 @@
-# SlingMods: Three-Wheel Tour — First Drive (P03B2)
+# SlingMods: Three-Wheel Tour — Harbor Shakedown (P04A)
 
-Continue the existing rebuild. The current P03A2 Slingshot, bay/pad, maps and accepted physics are frozen. P03B2 adds a separate fitted Blender driver, cockpit, quick rearward glance and telemetry-driven game sound. Whole-car visual fidelity and G3 remain held/pending. Current authority: director-kit/director-addenda/review-04/CODEX_NEXT.md.
+Continue this existing rebuild. The current Slingshot, fitted driver and accepted driving equations are retained. P04A adds Biscayne Harbor, one standing-start timed lap, ordered checkpoint validation, personal best, immediate retry and selectable late-afternoon/night presets. Current authority: director-kit/director-addenda/review-05/CODEX_NEXT.md. G3/G4 remain pending; final vehicle fidelity, aural realism and hardware validation are held.
 
 ## Launch
 
@@ -11,40 +11,44 @@ npm run build
 npm run preview
 ```
 
-Open http://127.0.0.1:5187/. Inspect offers the retained unoccupied bay. Drive opens the same car with its helmeted driver on the existing pad. Use Enable sound in the driving page; silent play remains available. Mute and volume persist independently of camera preference. A controller gesture alone does not guarantee browser audio activation.
+Open http://127.0.0.1:5187/. In the existing bay choose Late afternoon or Harbor night, then Start Shakedown. On the grid, Enable sound if wanted, then Start lap. Complete all15 checkpoints and the finish. The result offers Retry now and Return to bay. Day and night have separate compatible best times. No account or network service is required.
 
 | Action | Keyboard | Standard controller |
 |---|---|---|
-| Throttle/brake | W/S or arrows | RT/LT analog |
-| Steer | A/D or arrows | Left stick |
+| Throttle / brake | W / S or up / down | RT / LT |
+| Steer | A / D or left / right | Left stick |
 | Near → far → cockpit | C | Top face |
-| Quick held rearward glance | B | LB |
+| Held rearward glance | B | LB |
 | Request direction | X | Right face |
-| Reset practice start | Hold R one second | Hold bottom face one second |
-| Pause/resume | Escape | Menu |
+| Restart entire attempt | Hold R one second | Hold bottom face one second |
+| Pause / resume | Escape | Menu |
+| Start / retry / continue menu | Enter | Bottom face |
+| Return to bay from menu | Backspace | Right face |
 
-Release controls and resume deliberately after blur/disconnect. Inspect returns to the bay. I toggles diagnostics; speed, gear and RPM stay visible. The18 cones are noncolliding practice guides. No race, campaign, AI, vehicle selector/customizer, live shop, upgrades or new track. Historical vehicle variants remain in the checkout; the compact Review05 archive includes only the current runtime car.
+Release controls before resuming after pause, focus loss, controller disconnect or reset. The clock runs on fixed physics steps, pauses with the session and stops at the interpolated finish crossing. Countdown is three seconds; timing starts at GO. Visit gates in order and remain within the road/runoff. More than0.35seconds with two tires beyond runoff invalidates a record. Invalid practice laps never replace a best. Settings writes preserve records; inaccessible browser storage permits play and discloses failed result persistence.
 
-## Authoring and checks
+The compact inspection bay remains at `?scene=bay`; Drive there opens the original pad at `?scene=pad`. The calibration fixture remains at `?scene=calibration`. Harbor presets use `?scene=harbor&preset=day` or `night`; `&quality=low` reduces shadow/light cost. I toggles diagnostics. No campaign, AI opponents, ghosts, upgrades, shop, other playable vehicles or dynamic weather.
 
-Separate driver: assets/blender/drivers/test-driver.blend; public/assets/drivers/test-driver.glb and attachment JSON.28,411 triangles/4 material groups, compact original1K PBR maps. Actual wheel matrix drives bounded arm IK and alternating regrips; supporting hand may slide along the rim. No vehicle reshaping to fit the person. Helmet/head hide only in cockpit. Gaze and view switching are presentation choices, not measured OEM vision.
+## Assets and foundation
 
-Original local synthesis bank: public/assets/audio/p03b2/. Three estimated RPM bands each have loaded/lifted beds, plus road, wind and actual-shift transient. Provisional timbre; no authentic exhaust or auditory approval claim. Source settings/permission basis/hashes are in provenance.json. Runtime and offline evidence use the same Web Audio graph, source buffers and pure telemetry mapper. No paid service, external generation or client credentials.
+The flat closed course measures1230.867m with11m roadway and3m runoff per side. Its Blender export supplies road sampling, physical surfaces, start, gates, oriented colliders and camera obstruction. Player motion is free physics, never attached to the route. Waterfront, warehouses, freight, palms, fences, lamps, quay and water use original local Blender geometry and generated original PBR maps. Authoring source: assets/blender/harbor/harbor.blend; current driver: assets/blender/drivers/test-driver.blend. Course generation uses scripts/harbor_build.py with HARBOR_DRESS=1 and imports harbor_dress.py/harbor_materials.py. Blender4.5.2 with its Python/numpy was used. Authoring can replace named outputs: use an isolated copy when reproducing historical candidates.
 
-With Blender4.5.2/Python with numpy installed, the authoring scripts are scripts/driver_p03b2_build.py, scripts/driver_p03b2_materials.py and scripts/audio-p03b2.py. They regenerate their named driver/audio outputs; do not run regeneration over historical evidence unintentionally. Downloaded Blender and dependencies are excluded from review archives.
+Stock headlight lenses now drive actual road-facing beams at night; nearby harbor practicals illuminate road and brake lenses respond to braking. One bounded shadow map is used. Harbor cockpit pitch/FOV is adjusted to see the apex; the eye anchor, grips, character and car geometry are unchanged. Mirrors and instruments remain simplified.
+
+The bounded sound repair uses sanitized RPM / source reference RPM for every engine layer. The original bank and graph are retained. This corrects conflicting pitches caused by the old independent rate clamp. It is still an original synthetic approximation, with no human audition or authentic exhaust claim.
+
+## Verification and capture
 
 ```powershell
 npm test
-npx tsx --test tests/input.test.ts tests/drivetrain-wheel-speed.test.ts
-npx playwright install chromium
-node scripts/build-review05.mjs
-$env:EVIDENCE_DIR='director-kit/production/evidence/Review05-new'
-node --import tsx scripts/capture-review05.mjs
-$env:EVIDENCE_DIR='director-kit/production/evidence/Review05-browser-new'
-$env:VERIFY_BUILD='1'
-node scripts/verify-first-drive-audio-final.mjs
-$env:DIAGNOSTIC_DIR='director-kit/production/evidence/Review05-diagnostics-new'
-node scripts/verify-review05-diagnostics.mjs
+npx tsx --test tests/input.test.ts tests/drivetrain-wheel-speed.test.ts tests/drivetrain-integrated.test.ts
 ```
 
-Capture commands require a running preview, FFmpeg and a Git checkout; ordinary launch does not. Choose fresh output directories. Isolated Chromium uses SwiftShader and mutes physical output, without overriding autoplay policy. The35s film uses120Hz controlled ordinary presentation, retained60Hz physics and24fps raster. Full logical telemetry/input/camera/driver/lifecycle timeline schedules shared-graph OfflineAudioContext sound, then muxes it without stretching. This is offline runtime-graph evidence, not live hardware recording, a physical controller test or sustained FPS. Review guide/results record exact verdicts and limits. Stop for Astra after Review05; no deployment or G3 advancement.
+The final local suite has64 passing tests, including course direction/order, lap lifecycle, save corruption/unavailability, surface/collision alignment and the preserved pad regressions. The focused selection has22 passing checks. The independent frozen browser regression covers keyboard edges, held-key pause/reset, denied storage and virtual standard-controller lifecycle. Physical-controller/human driving and listening were not performed.
+
+For a new isolated evidence run, install Playwright Chromium if absent, provide FFmpeg on PATH, use a Git checkout and running preview, then run scripts/build-review06.mjs followed by scripts/capture-review06.mjs with EVIDENCE_DIR set to a fresh directory. The build manifest verifies source and served bytes. The script uses a labeled local test controller through ordinary InputResolver/DrivingSession/physics/presentation. It does not ship as an AI opponent. Captures use120Hz logical presentation,60Hz physics and24fps controlled raster. The85second daytime movie is one continuous countdown-to-result attempt. The25second night movie is logical35–60seconds from a separately completed full85second timeline. Audio is rendered from those exact states using the same graph/bank/mapper and muxed without stretching; it is not live speaker capture.
+
+The initial forced SwiftShader wall-clock fixture showed substantial stalls. The final isolated browser can use the local RTX4080 through ANGLE Direct3D11; renderer-specific measurements are supplied separately. Controlled capture is not sustained FPS proof. Lower shadow cost reduces resource budgets but has not established a hardware performance gain. See the compact Review06 guide, source manifest, per-frame logs, numerical media checks and separate review for exact evidence and remaining limitations. Do not advance G3/G4 or proceed beyond this packet without Astra's next direction.
+
+
+An initial capture helper removed the virtual pad during a post-film settings check and correctly triggered disconnect pause. That failed fixture and footage remain historical evidence; the current helper keeps the pad connected. A Blender land-corridor cut also removes depth competition beneath the road/runoff, while preserving the complete physical route, road surfaces, props/maps and vehicle foundation. Final replacement evidence is under Review06-final02.

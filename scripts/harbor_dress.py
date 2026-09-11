@@ -8,6 +8,8 @@ def dress(ctx):
  # The broad physics ground remains a safety plane; visible land ends at the guarded quay.
  old=bpy.data.objects.get('venue_ground');objects.remove(old);bpy.data.objects.remove(old,do_unlink=True)
  land=boxes('Harbor_land',[dict(center=[206,-.125,-50],size=[468,.25,720],yaw=0)],kit);land['atlas_tile']=6
+ from harbor_land_cut import cut_land_corridor
+ cut_land_corridor(land,route,E)
  water=mesh('Marina_water', [rv(p)for p in [(-520,-.28,-410),(-28,-.28,-410),(-28,-.28,310),(-520,-.28,310)]],[(0,1,2,3)],kit);water['atlas_tile']=5
  # Atlas mapping uses per-module faces; long modules are divided into scale-aware bays.
  def box(name,center,size,tile=0,yaw=0,m=None,collision=False):

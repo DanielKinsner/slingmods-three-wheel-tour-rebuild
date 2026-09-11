@@ -1,7 +1,7 @@
 from pathlib import Path
 import json,hashlib,zipfile,subprocess,re
 ROOT=Path.cwd().resolve();assert str(ROOT)==r'C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild'
-BASE=Path('director-kit/production/evidence');FINAL=BASE/'Review06-final';files={}
+BASE=Path('director-kit/production/evidence');FINAL=BASE/'Review06-final02';files={}
 def add(p,name=None):
  p=Path(p);assert p.is_file(),p;assert not any(s in {'.git','node_modules','.tools','dist','__pycache__'}for s in p.parts);assert not p.name.startswith('.env') and p.suffix not in {'.blend1','.bak','.key','.pem'};files[name or p.as_posix()]=p
 for folder in ['src','scripts','tests']:
@@ -18,10 +18,10 @@ for p in Path('director-kit/director-addenda/review-05').glob('*'):
 for p in FINAL.glob('*'):
  if p.is_file()and p.name not in {'STATE-EXCERPT.json','day-silent.mp4','night-silent.mp4','day-aligned-full.wav','night-aligned-full.wav'}and p.suffix in {'.md','.json','.png','.mp4'}:add(p)
 add(FINAL/'REVIEW-ME-FIRST.md','REVIEW-ME-FIRST.md');add(FINAL/'STATE-EXCERPT.json','director-kit/production/state.json')
-for name in ['review-final.md','review-final.json','tests-frozen.log','input-rpm-frozen.log','audio-pitch-original.log','audio-pitch-corrected.log','build-frozen.log','harbor-route-probe.json','harbor-route-probe-120-night.json','gameplay-implementation.md','artist/artist-final-manifest.json','artist/dressed02-export.json','artist/route01-geometry-check.json','artist/dressed02-validation.json','artist/construction.md','route-contract.md','audio-coherence/comparison.json','audio-coherence/before.wav','audio-coherence/after.wav']:
+for name in ['review-final.md','review-final.json','tests-frozen02.log','input-rpm-frozen02.log','audio-pitch-original.log','audio-pitch-corrected.log','build-frozen02.log','harbor-route-probe.json','harbor-route-probe-120-night.json','gameplay-implementation.md','artist/artist-final-manifest.json','artist/dressed03-export.json','artist/dressed03-export-validation.json','artist/dressed03-land-construction.json','artist/route01-geometry-check.json','artist/dressed02-validation.json','artist/construction.md','route-contract.md','audio-coherence/comparison.json','audio-coherence/before.wav','audio-coherence/after.wav']:
  p=BASE/'P04A'/name
  add(p)
-for folder in ['Review06-ui','Review06-performance']:
+for folder in ['Review06-ui02','Review06-performance02']:
  for p in (BASE/folder).glob('*'):
   if p.is_file()and p.suffix in {'.json','.md'}:add(p)
 assert len([n for n in files if n.startswith('director-kit/production/evidence')and n.endswith('.png')])==8

@@ -4,10 +4,10 @@
   "as_of": "2026-09-11",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+  "commit": "8ffcad7a630c3a2a045194e1287195826fdeb545",
   "current_gate": "G3",
   "current_packet": "P04A Harbor Shakedown",
-  "next_action": "Complete bounded Harbor Shakedown runtime/evidence, return Astra-Review-06.zip, then stop. G3/G4 pending.",
+  "next_action": "Finish Review06 evidence/package, then await Astra. Do not advance G3/G4 or start another packet.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -59,7 +59,7 @@
   },
   "blockers": [
     "Broader vehicle fidelity held: rounded edge/subdued ridge and tire groove/machining approximation remain.",
-    "G3 pending: broader slice not authorized or complete. P03B2 original synthetic sound has no auditory approval."
+    "G3/G4 pending: final vehicle/aural/environment fidelity and hardware/physical controls remain held. P04A bounded event was explicitly authorized; no full campaign or originalP04 approval."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
@@ -98,17 +98,20 @@
   "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
-  "commit_meaning": "Final runtime/capture checkpoint; subsequent review-and-ledger commit changes no runtime build inputs. ZIP manifest records that later packaging checkpoint.",
+  "commit_meaning": "Frozen captured P04A runtime; later package-only commit recorded by archive manifest",
   "known_limitations": [
     "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
     "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
-    "Instruments, infotainment and lamp emission are passive; no live mirror or nighttime beam system. Photo-guided shapes and materials remain approximations.",
+    "Historical before P04A: Instruments, infotainment and lamp emission are passive; no live mirror or nighttime beam system. Photo-guided shapes and materials remain approximations. P04A adds actual harbor headlight beams and brake emission; instruments/mirrors remain simplified.",
     "Historical P03A local visual PASS was rejected by Astra Review02; that review remains preserved as history. P03A1 is a bounded best candidate with specific visual HOLD, not an accepted complete slice.",
     "P03A1 uses a 192,839-triangle showroom mesh on the pad as a disclosed exception to the 140k racing-LOD aim; no physical GPU-memory/FPS or LOD approval.",
     "Review03 movies use silent frame-stepped runtime capture at12fps; software wall time is separately recorded. No human-driving or real-time-FPS claim.",
     "P03A2 development default is211431 triangles/59 primitives, below250k showroom ceiling but above140k racing-LOD aim; same16 maps and source mip estimate76895573 bytes.",
     "P03B1 uses noncolliding guide cones and a virtual controller for automated evidence; real navigator.getGamepads production reader exists, physical controller/performance/subjective fun not tested.",
-    "P03B2 sound is original local synthesis, not OEM exhaust recording. Audio source timbre remains held absent auditory review. Body fidelity and hardware/physical gamepad certification remain held."
+    "P03B2 sound is original local synthesis, not OEM exhaust recording. Audio source timbre remains held absent auditory review. Body fidelity and hardware/physical gamepad certification remain held.",
+    "P04A scenery is a modular provisional harbor with angular palms, repeated shed forms, sparse infield, road bands and oversized overview water reflections. No final environmental/vehicle polish approval.",
+    "P04A actual SwiftShader frame means350/298/309ms at720p; significant stalls. Low shadow cost reduces light budgets but has not established hardware speed improvement.",
+    "P04A cockpit uses fixed original eye with scene-specific gaze/FOV; lower hands are more cropped. Night practicals use a nearest-light pool; refined transitions remain visual review work."
   ],
   "accepted_assets": [
     "assets/blender/calibration.blend",
@@ -128,9 +131,10 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "independent_tests": "51/51 full suite;16/16 focused input and RPM; TypeScript/Vite build PASS. Separate final evidence review in P03B2/review-final.md.",
-    "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B2 authorized independently of whole-car visual HOLD.",
-    "preservation": "Current car source/export/maps, pad/bay, contact, all simulation and existing input/session/shadow policy unchanged against30520ca2.",
+    "local_tests": "64/64 full;22/22 focused input/drivetrain;TypeScript/Vite build PASS. Expected original pitch-coherence failure retained separately.",
+    "independent_review": "Frozen UI sixchecks and177build-input/112source/89served hashes independently verified; final media review pending.",
+    "gates": "G0/G1/G2 retained. G3/G4 pending. P04A authorized by Review05 despite whole-car/aural hold.",
+    "preservation": "25 protected files unchanged against2fd926c. Simulation changed only environment/box rotation/surface seam; optional session hooks. No force/tire/drivetrain/step,car/driver/sourcebank edits.",
     "environment": {
       "os": "Windows11 build26200",
       "blender": "4.5.2 LTS background",
@@ -140,7 +144,7 @@
       "renderer": "isolated headless Chromium SwiftShader; physical output muted",
       "dependencies": "Retained package-lock; no upgrade"
     },
-    "evidence": "Review05-final six runtime PNGs;35s ordinary pipeline film with aligned offline runtime-graph audio,20s audio-focused WAV,4200-state logical timeline; current build/served hashes. Separate ordinary browser sound lifecycle proof. Numerical audio PASS; no auditory approval."
+    "evidence": "Review06-final and Review06-ui/Review06-performance. Diagnostic software capture, no physical/human/listening claim."
   },
   "director_addendum": "director-addenda/review-05/CODEX_NEXT.md",
   "drivetrain_addendum": {
@@ -241,16 +245,46 @@
       "preservation": "No changes to simulation, contact layout, old pad, repaired shadow policy, P03A1 source/export/maps or bay against0db7ede7.",
       "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard.",
       "evidence": "Review04-final:6 current runtime PNGs,30s normal-pipeline SILENT virtual-controller film,4s runtime reflection. Final browser source/served-byte verification and actual-keyboard focus/reset pass; bothfilms fullydecode. RESULTS.json records limits and walltime."
+    },
+    {
+      "independent_tests": "51/51 full suite;16/16 focused input and RPM; TypeScript/Vite build PASS. Separate final evidence review in P03B2/review-final.md.",
+      "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B2 authorized independently of whole-car visual HOLD.",
+      "preservation": "Current car source/export/maps, pad/bay, contact, all simulation and existing input/session/shadow policy unchanged against30520ca2.",
+      "environment": {
+        "os": "Windows11 build26200",
+        "blender": "4.5.2 LTS background",
+        "node": "24.15.0",
+        "npm": "11.6.2",
+        "browser": "153.0.8010.12",
+        "renderer": "isolated headless Chromium SwiftShader; physical output muted",
+        "dependencies": "Retained package-lock; no upgrade"
+      },
+      "evidence": "Review05-final six runtime PNGs;35s ordinary pipeline film with aligned offline runtime-graph audio,20s audio-focused WAV,4200-state logical timeline; current build/served hashes. Separate ordinary browser sound lifecycle proof. Numerical audio PASS; no auditory approval.",
+      "runtime_commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+      "historical_packet": "P03B2"
     }
   ],
   "p04a": {
-    "status": "in_progress_route_gate_passed",
+    "status": "runtime_frozen_final_evidence_in_progress",
     "authorization": "Review05 explicitly allows small environment/event before final G3/G4 approval; no full originalP04",
     "audio_correction": "Exact sanitizedRPM/source-reference ratio; original regression1fail2pass retained, corrected3pass",
-    "route_length_m": 1230.867,
+    "route_length_m": 1230.86710531256,
     "road_width_m": 11,
     "route_gate": "Realphysics78.7192s valid ordered lap at60/120Hz before dressing",
     "g3_advance": false,
-    "g4_advance": false
+    "g4_advance": false,
+    "runtime_commit": "8ffcad7a630c3a2a045194e1287195826fdeb545",
+    "runoff_each_side_m": 3,
+    "lighting": [
+      "day",
+      "night"
+    ],
+    "scope": "One Blender harbor and one standing-start valid lap/result/compatible best/retry; retained current car/driver/physics; no campaign",
+    "physical_controller_tested": false,
+    "human_driving_tested": false,
+    "auditioned": false,
+    "evidence": "production/evidence/Review06-final/",
+    "review": "production/evidence/P04A/review-final.md",
+    "harness_note": "Day film valid; original post-film fixture removed controller and correctly paused, causing retry selector timeout. Supplemental capture/replay source recorded separately; frozen runtime unchanged."
   }
 }
