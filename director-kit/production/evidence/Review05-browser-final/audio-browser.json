@@ -1,0 +1,209 @@
+{
+  "method": "Isolated headless Chromium ordinary autoplay policy; --mute-audio prevents physical output, graph analyser checks actual browser processing. No autoplay-disable flag, no hardware audition.",
+  "checks": [
+    {
+      "name": "Drive navigation requires driving-document audio gesture; running non-silent graph afterclick",
+      "audio": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "graph": {
+          "contextState": "running",
+          "contextTime": 0.5306666666666666,
+          "persistentLoops": 8,
+          "shiftCount": 0,
+          "masterTarget": 0.55,
+          "rms": 0.050974074336084876,
+          "parameters": {
+            "rpm": 950,
+            "speed": 4.431467056244359e-9,
+            "load": 0,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 0.7916666666666666,
+                "gain": 0.08
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 0.7916666666666666,
+                "gain": 0.2
+              },
+              {
+                "name": "engine-3600-load",
+                "rate": 0.65,
+                "gain": 0
+              },
+              {
+                "name": "engine-3600-lift",
+                "rate": 0.65,
+                "gain": 0
+              },
+              {
+                "name": "engine-6200-load",
+                "rate": 0.65,
+                "gain": 0
+              },
+              {
+                "name": "engine-6200-lift",
+                "rate": 0.65,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 2.7510298934116265e-11
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 2.261096937692801e-18
+              }
+            ],
+            "master": 0.55,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        }
+      }
+    },
+    {
+      "name": "mute and pause fade actual graph",
+      "mutedRms": 0,
+      "pausedRms": 0
+    },
+    {
+      "name": "actual AudioContext suspend exposes resume; ordinary button recovers",
+      "pass": true
+    },
+    {
+      "name": "actual child-context browser blur clears input and fades graph",
+      "rms": 0
+    },
+    {
+      "name": "missing audio bank remains a silent playable vehicle with retry affordance",
+      "failure": "Sound unavailable — retry"
+    }
+  ],
+  "errors": [],
+  "build": {
+    "commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+    "created": "2026-09-11T18:20:28.282Z",
+    "inputs": {
+      "index.html": "b2dd9e3c4e8ee60fd65300b9eaa4b9f40e4e3af555dcf89a23c0127b8a779960",
+      "package-lock.json": "6e13f8ddde428622a8199eee39bbc5a37471957c5bd6760bd57592f4059fea4f",
+      "package.json": "029e4601f92cd73c97f26683422f149cb2f9917bc36801fc0d88889acf257ae0",
+      "public/assets/audio/p03b2/engine-1200-lift.wav": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+      "public/assets/audio/p03b2/engine-1200-load.wav": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+      "public/assets/audio/p03b2/engine-3600-lift.wav": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+      "public/assets/audio/p03b2/engine-3600-load.wav": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+      "public/assets/audio/p03b2/engine-6200-lift.wav": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+      "public/assets/audio/p03b2/engine-6200-load.wav": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+      "public/assets/audio/p03b2/provenance.json": "c684689447e881f4a695431c2e12c7d8b7701b4e0b30b807dc9c484cd76a373b",
+      "public/assets/audio/p03b2/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "public/assets/audio/p03b2/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "public/assets/audio/p03b2/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "public/assets/drivers/test-driver-attachment.json": "575ffd3446db5859aa408fc4d627ee81503a896bb69db5867b4de7f6cdef9a8d",
+      "public/assets/drivers/test-driver.glb": "c9909f146ec2fd17e1205abfef3c48e1b2f0006cde83af3382000a66995d75e5",
+      "public/assets/drivers/textures/basecolor.png": "a8e14b6ca8d52f244f100e656005ea47a22a893e78e8b862a973bba84a909cc9",
+      "public/assets/drivers/textures/normal.png": "42f887ae9d90ce677f7daf02da0c90da09a702f822c762f0a9f31e2229264a0f",
+      "public/assets/drivers/textures/orm.png": "220a752fe1b963960114380b4eab724f91fb8bb26bb4b1e61467e0f42888749a",
+      "public/assets/inspection-bay-p03a1.glb": "97780bd9dd188edf5e430ed04d02bedb3d962435c7c9c2f5c44f07175357c53e",
+      "public/assets/practice-p03b1.glb": "f5ee6c03cf812a39bee174c128181fbe6470a22d2034874c8ff133105821d721",
+      "public/assets/slingshot-contact-layout.json": "35a5862b275de62e45b58e7a62b0b0b513371a336b4ca5f09eb66bc1c8e11da3",
+      "public/assets/test-pad.glb": "fdcda36abd5366a4a5f12e6692973de6a6f06e6d3929f9e16c88f31146bda304",
+      "public/assets/vehicles/slingshot-p03a2.glb": "a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af",
+      "scripts/build-review05.mjs": "dd23dfc1fd9e4d49fab0eeb968ad37962b4494502cb65fe2c73ab9c85ac91d7a",
+      "scripts/capture-review05.mjs": "c01b21bf9e685c4c1328952ee5f0385230111efaefe04cf124fd1bfdaee06e2a",
+      "scripts/verify-first-drive-audio.mjs": "78849efb79a0041f8388084568dc01e74b7b7347f256be14ab6c2241f469e62c",
+      "src/audio/game-audio.ts": "f08d20cf8e70fefbd9540bcbe1640d2ba2f165927e3b15794194674aeafd77e3",
+      "src/audio/graph.ts": "ab84a1f87e39bf64cadef625156b7cdcbf7fe9ca57c38fbd516499abe6826612",
+      "src/audio/mapper.ts": "afc08d005f6efda903456415b59389bbfe06cf96f1d538d0dbd512c17890c658",
+      "src/build.d.ts": "fe2b9cbff3c0ec7157f979ed01e6aa4a3d7e74716e67746c1d010ea42859d432",
+      "src/calibration.ts": "0f62fd1b604d8761598410a082011c38e01c8d3152b90d901a5b7521af8766fe",
+      "src/driving/input.ts": "a2bfee228d7f89ee91328566ab03ffb6ba5b05169f5abf09d4266f96ccb81263",
+      "src/driving/session.ts": "817926885dd8aed9c559fb4bcad9afe2bcab94a284078126ed53fe062ffe7d46",
+      "src/main.ts": "5fb3975d38b2f89242f69ffa909e555843fe77adf10cc8b99bc0838cd30c8747",
+      "src/presentation/chase.ts": "3a15252d7974ac97d912ab0469b06bd0394d030de5a115fe091da293dd120203",
+      "src/presentation/driver.ts": "b2eedde548148069f73fee171a78ed7d3edd04b33a9fbda9cbe581ac3d53e145",
+      "src/presentation/driving-camera.ts": "51f19be15ba96940e7697bd8c41c40b5464e0abe67d1fdea9dc252c1415b0c73",
+      "src/presentation/inspection.ts": "f5d752e886cb1e8db32941d2b8cb9d2ce6a46b270e65d6c02e939ce935ef8458",
+      "src/presentation/shadows.ts": "66d954641f911813175e3945eff6b3c81834d6aa76a2424c851595f9100f4d21",
+      "src/presentation/statistics.ts": "ec73d406122e5782670df19c48a625a8959d03aee52346550c3b19d572111a8e",
+      "src/save.ts": "fb5a9978b5f8db23cd171268a473281e55efd8bd711e2529dac5149a72781184",
+      "src/simulation/drivetrain.ts": "361624e7a0ca8f6594f8c21cf195486c76462040f68afcf9a9f9dd1e2f65d6cc",
+      "src/simulation/index.ts": "52b231ecbf5f56568f7473b221c915e464810ef501f955cbee790965a7865c3a",
+      "src/simulation/pad.ts": "d3939caeff211cb6f1228fce41b028b2460c89f8f615818932e260f13c506ed8",
+      "src/simulation/scenarios.ts": "fcf0592ca210e958e2686b4116e7adca098a04879abd7a0a7d519a8613f74e84",
+      "src/style.css": "cf7084cd145b9d922405a1cb03fce9b8ba12450a575d006d76514c23babeee2a",
+      "src/workbench.css": "6f29d307c2b893d2086fd1992c77fc8207548fe5549cb1f096b79b109cf60476",
+      "src/workbench.ts": "60e1c770cb7a11cf8cd734b236902f754e0ec97bdfe4c7ca8130d54129398ae4",
+      "tests/audio.test.ts": "cbc1bf7abf0d29bd353009b792df43e7592b06503c91e808d5a5fee49d29f5e5",
+      "tests/driver.test.ts": "7f5cc8c6d9ca857173713abdcf940e5045293546f42c473abba57b03d3df0e91",
+      "tests/drivetrain-integrated.test.ts": "89f31bbce3ff9cc02273c94c6805dabe86df8c435c59506ac09051328bd5dae5",
+      "tests/drivetrain-wheel-speed.test.ts": "4fc917580e23a3439f5c41a49071b317ca1feda217c5e9a407f2d589e8c21446",
+      "tests/driving-session-camera.test.ts": "ede38b9fa93043864a75fc38bbc15e5aad51edc2ab7831436f0665949ba69c70",
+      "tests/driving.test.ts": "cbb2b57e98d68756f2950d076d1193001bed7e2111cc6eaad34bae473ba5c967",
+      "tests/first-drive-camera.test.ts": "c2988e6c23cd9386a275c4b3b88b2028630e58e085cfe8de08685203aea5abd5",
+      "tests/fixtures/first-drive-trace.ts": "3a627bda0f6ed972e51a208192f4990050b67eb1698034e81a8647f6fcbb0431",
+      "tests/fixtures/practice-trace.ts": "0b290a0c46c6f9c25ed3184ff5d87612bb5c0b65c3fc57c9703c3f81413ce3ee",
+      "tests/input.test.ts": "2196b8e320d196ad4432c21d3d514191dd53177313504a24c0f7c6c96c0c5f68",
+      "tests/inspection-framing.test.ts": "68d1aa949048f59e80d130a794f9d8ed3a876c7cd6c99fc8487ea82b427169b6",
+      "tests/shadow-casters.test.ts": "97c67eb507f7c930013534d9dbdc068a46e75e5e692689231593fba78480eb28",
+      "tests/smoke.test.ts": "b82e3e0caabd73ad0b4b0ac31f3d4b4ed2a97bad2c0b60ff341534570a78c8d8",
+      "tsconfig.json": "b4ca80e916cc1a3220a20a62f3892800caf4338e8edce8ce1cbc81d2c1e574d9",
+      "vite.config.ts": "e281dacdfae13ba98b97f62317775e0efbae527fccd7da498e03d9277fd24b58"
+    },
+    "method": "Selected P03B2 runtime, tests and evidence inputs; unchanged before/after TypeScript/Vite build. Historical unused public variants are excluded from this review manifest."
+  },
+  "served": {
+    "dist/review-build.json": "e0869095b09c6b574976ed62b3295048267df4e8f9f5fb6ee6119970d7f1b104",
+    "dist/index.html": "a0ce5101a1598fa265cba34687c6a824e4b803fb035836aefc08680cbf25417e",
+    "dist/assets/calibration-DTOA9Q2U.js": "bbd071170377abceff205e412de58c3a509db9600fc692d96ff367249a66e9ab",
+    "dist/assets/index-cxrE78QF.js": "8aa82b0f622757789de24135088544ba0515738abe9ee3ef0830568a0e20bda2",
+    "dist/assets/save-BbkIcGJN.js": "388bc37411b7faca981105a68c44cb578d789da74aab895d3850dc34a0f81a7d",
+    "dist/assets/save-S_mbsQK_.css": "31fd99fc37503ad8018ef4de9b0b3cf084429b0f5d532f7e7dc3f2b946c206e1",
+    "dist/assets/workbench-BO_-eGnH.css": "04a4fdeca7204ebecb74574d412d12f818a0e0ba62bcd9281065cbb4e24ec097",
+    "dist/assets/workbench-BUSJgUTJ.js": "17f398ff867d35918278ee3c67e9419bfee83f2f33bd437c7d83c4fde45ecc05",
+    "public/assets/audio/p03b2/engine-1200-lift.wav": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+    "public/assets/audio/p03b2/engine-1200-load.wav": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+    "public/assets/audio/p03b2/engine-3600-lift.wav": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+    "public/assets/audio/p03b2/engine-3600-load.wav": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+    "public/assets/audio/p03b2/engine-6200-lift.wav": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+    "public/assets/audio/p03b2/engine-6200-load.wav": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+    "public/assets/audio/p03b2/provenance.json": "c684689447e881f4a695431c2e12c7d8b7701b4e0b30b807dc9c484cd76a373b",
+    "public/assets/audio/p03b2/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+    "public/assets/audio/p03b2/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+    "public/assets/audio/p03b2/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+    "public/assets/drivers/test-driver-attachment.json": "575ffd3446db5859aa408fc4d627ee81503a896bb69db5867b4de7f6cdef9a8d",
+    "public/assets/drivers/test-driver.glb": "c9909f146ec2fd17e1205abfef3c48e1b2f0006cde83af3382000a66995d75e5",
+    "public/assets/drivers/textures/basecolor.png": "a8e14b6ca8d52f244f100e656005ea47a22a893e78e8b862a973bba84a909cc9",
+    "public/assets/drivers/textures/normal.png": "42f887ae9d90ce677f7daf02da0c90da09a702f822c762f0a9f31e2229264a0f",
+    "public/assets/drivers/textures/orm.png": "220a752fe1b963960114380b4eab724f91fb8bb26bb4b1e61467e0f42888749a",
+    "public/assets/inspection-bay-p03a1.glb": "97780bd9dd188edf5e430ed04d02bedb3d962435c7c9c2f5c44f07175357c53e",
+    "public/assets/practice-p03b1.glb": "f5ee6c03cf812a39bee174c128181fbe6470a22d2034874c8ff133105821d721",
+    "public/assets/slingshot-contact-layout.json": "35a5862b275de62e45b58e7a62b0b0b513371a336b4ca5f09eb66bc1c8e11da3",
+    "public/assets/test-pad.glb": "fdcda36abd5366a4a5f12e6692973de6a6f06e6d3929f9e16c88f31146bda304",
+    "public/assets/vehicles/slingshot-p03a2.glb": "a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af"
+  },
+  "blurBeforeWait": {
+    "active": "IFRAME",
+    "inputPaused": false,
+    "audioMaster": 0
+  },
+  "browser": "153.0.8010.12",
+  "harness": {
+    "file": "scripts/verify-first-drive-audio-final.mjs",
+    "sha256": "51603ceea9a957e0f76e8d0d2cf594e056475649ee345b7fdf67fce5e8b830a8",
+    "change": "Observe committed lifecycle state and settled analyser response instead of a fixed350ms render wait; all assertions retained"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "status": "PASS source-to-finish geometry/rig preservation; visible material review separate",
+  "geometryAttributeChecks": [
+    {
+      "mesh": "Tailored_jacket_torso",
+      "attribute": "POSITION",
+      "exactEqual": true
+    },
+    {
+      "mesh": "Tailored_jacket_torso",
+      "attribute": "NORMAL",
+      "exactEqual": true
+    },
+    {
+      "mesh": "Tailored_jacket_torso",
+      "attribute": "JOINTS_0",
+      "exactEqual": true
+    },
+    {
+      "mesh": "Tailored_jacket_torso",
+      "attribute": "WEIGHTS_0",
+      "exactEqual": true
+    },
+    {
+      "mesh": "Tailored_jacket_torso",
+      "attribute": "POSITION",
+      "exactEqual": true
+    },
+    {
+      "mesh": "Tailored_jacket_torso",
+      "attribute": "NORMAL",
+      "exactEqual": true
+    },
+    {
+      "mesh": "Tailored_jacket_torso",
+      "attribute": "JOINTS_0",
+      "exactEqual": true
+    },
+    {
+      "mesh": "Tailored_jacket_torso",
+      "attribute": "WEIGHTS_0",
+      "exactEqual": true
+    },
+    {
+      "mesh": "driver_helmet_shell",
+      "attribute": "POSITION",
+      "exactEqual": true
+    },
+    {
+      "mesh": "driver_helmet_shell",
+      "attribute": "NORMAL",
+      "exactEqual": true
+    },
+    {
+      "mesh": "driver_helmet_shell",
+      "attribute": "JOINTS_0",
+      "exactEqual": true
+    },
+    {
+      "mesh": "driver_helmet_shell",
+      "attribute": "WEIGHTS_0",
+      "exactEqual": true
+    },
+    {
+      "mesh": "driver_helmet_shell",
+      "attribute": "POSITION",
+      "exactEqual": true
+    },
+    {
+      "mesh": "driver_helmet_shell",
+      "attribute": "NORMAL",
+      "exactEqual": true
+    },
+    {
+      "mesh": "driver_helmet_shell",
+      "attribute": "JOINTS_0",
+      "exactEqual": true
+    },
+    {
+      "mesh": "driver_helmet_shell",
+      "attribute": "WEIGHTS_0",
+      "exactEqual": true
+    }
+  ],
+  "checkedUVVertices": 19541,
+  "finiteUVInUnitSquare": true,
+  "exactTriangleCornerAttributeEquality": true,
+  "vertexSplitNote": "Helmet stripe introduces UV-only vertex splits; expanded triangle position/normal/joint/weight attributes remain byte-value identical",
+  "exactAttachmentKeys": [
+    "arms",
+    "eye",
+    "feet",
+    "boneRest",
+    "exportedBoneLocalTRS",
+    "seatAnchor"
+  ],
+  "images": 3,
+  "textures": 12,
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "exportWarningExplanation": "Exporter reported multiple texture nodes per shared atlas texture. Every node uses identical Linear interpolation and default repeat sampling; exported shared samplers are recorded here. No invalid mesh warning."
+}

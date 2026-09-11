@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "project": "SlingMods: Three-Wheel Tour",
+  "as_of": "2026-09-11",
+  "workspace_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "workspace_verified": true,
+  "branch": "main",
+  "commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+  "commit_meaning": "Final runtime/capture checkpoint; subsequent review-and-ledger commit changes no runtime build inputs. ZIP manifest records that later packaging checkpoint.",
+  "current_gate": "G3",
+  "current_packet": "P03B2 First Drive",
+  "next_action": "Return Astra-Review-05.zip, then stop for Astra. Aural character HOLD; whole-vehicle visual HOLD; G3 pending.",
+  "gates": {
+    "G0": {
+      "status": "passed",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G1": {
+      "status": "passed",
+      "same_approach_revisions": 1,
+      "approach_changes": 0
+    },
+    "G2": {
+      "status": "passed",
+      "same_approach_revisions": 0,
+      "approach_changes": 2
+    },
+    "G3": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G4": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G5": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G6": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G7": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    }
+  },
+  "director_addendum": "director-addenda/review-04/CODEX_NEXT.md",
+  "p03b2": {
+    "status": "implemented_review_ready_aural_fidelity_hold",
+    "scope": "Separate Blender driver, cockpit/near/far, quick held rearward cut, actual telemetry audio and faster pad demonstration",
+    "driver": "public/assets/drivers/test-driver.glb",
+    "attachment": "public/assets/drivers/test-driver-attachment.json",
+    "audio": "public/assets/audio/p03b2/provenance.json",
+    "asset_candidates": {
+      "driver_fit_corrections": 1,
+      "driver_materials": 1,
+      "audio_bank": 1
+    },
+    "aural_fidelity": "HOLD original local synthetic approximation; no genuine audition/hardware output certification",
+    "driver_fit": "Separate final review PASS for bounded driver presentation;300-state large-steer diagnostic with98 releasing states, zero simultaneous release. Finger articulation and support sliding simplified.",
+    "g3_advance": false,
+    "runtime_commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+    "evidence": "production/evidence/Review05-final/",
+    "review": "production/evidence/P03B2/review-final.md",
+    "browser_audio": "production/evidence/Review05-browser-final/audio-browser.json",
+    "actual_peak_mph": 51.50663612298599,
+    "actual_gears": [
+      1,
+      2
+    ],
+    "actual_forward_upshift_seconds": 6.85,
+    "film_seconds": 35,
+    "encoded_fps": 24,
+    "audio_method": "Shared graph/mapper/buffers OfflineAudioContext from full logical timeline; ordinary browser lifecycle independently exercised; no live hardware audio/listening claim",
+    "physics_changed": false,
+    "physical_controller_tested": false,
+    "independent_components": "Driver, cockpit/quick glance, faster run, audio control integration PASS within packet; aural source/timbre HOLD."
+  },
+  "verification": {
+    "independent_tests": "51/51 full suite;16/16 focused input and RPM; TypeScript/Vite build PASS. Separate final evidence review in P03B2/review-final.md.",
+    "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B2 authorized independently of whole-car visual HOLD.",
+    "preservation": "Current car source/export/maps, pad/bay, contact, all simulation and existing input/session/shadow policy unchanged against30520ca2.",
+    "environment": {
+      "os": "Windows11 build26200",
+      "blender": "4.5.2 LTS background",
+      "node": "24.15.0",
+      "npm": "11.6.2",
+      "browser": "153.0.8010.12",
+      "renderer": "isolated headless Chromium SwiftShader; physical output muted",
+      "dependencies": "Retained package-lock; no upgrade"
+    },
+    "evidence": "Review05-final six runtime PNGs;35s ordinary pipeline film with aligned offline runtime-graph audio,20s audio-focused WAV,4200-state logical timeline; current build/served hashes. Separate ordinary browser sound lifecycle proof. Numerical audio PASS; no auditory approval."
+  },
+  "blockers": [
+    "Broader vehicle fidelity held: rounded edge/subdued ridge and tire groove/machining approximation remain.",
+    "G3 pending: broader slice not authorized or complete. P03B2 original synthetic sound has no auditory approval."
+  ],
+  "excerpt_notice": "Current ledger excerpt for compact Astra-Review-05. Full historical ledger, prior decisions and evidence remain in existing repository unchanged.",
+  "retained_acceptance": {
+    "P03A2": "Named local shell repair provisional development use; whole-car visual HOLD. Current GLB a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af",
+    "P03B1": "Input/practice foundation retained; P03B2 supersedes held glance with deliberate cut.",
+    "drivetrain": {
+      "status": "independently_passed",
+      "commit": "9add1f9",
+      "evidence": "production/evidence/G2-addendum-01/review.json",
+      "scope": "Signed-speed correction; existing tick-start body-forward coupling approximation retained and quantified"
+    }
+  },
+  "limits": [
+    "No genuine auditory audition: original synthetic engine character HOLD, not OEM exhaust. No new spending.",
+    "No physical controller, hardware FPS/GPU memory or installed-speaker output certification.",
+    "Whole-car fidelity remains held; G3 pending. No campaign/race/shop/upgrades/night driving.",
+    "Earlier fixed350ms blur read failed while graph already muted and input snapshot awaited RAF; preserved locally. Final observed-state retry retains assertions.",
+    "Attachment/contact distances use configured hand anchors; not finger collision simulation. Supporting hand may slide while opposite hand deliberately regrips."
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "packet": "P03B2 First Drive",
+  "runtimeCommit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+  "root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "g3": "pending",
+  "verification": {
+    "fullSuite": "51/51 PASS",
+    "focusedInputAndRPM": "16/16 PASS (11 input,5 signed wheel-speed RPM)",
+    "build": "TypeScript/Vite PASS; existing chunk-size warning",
+    "cameraQuickGlance": "100/200/500ms x30/60/120/144Hz xnear/far/cockpit; direct cut at first presentation update; cycle while held restores updated preference; all assertions pass",
+    "driverContact": "Main4200-state timeline covers stable grips only (no regrip at max wheel angle0.490245rad); supporting hand anchor maximum6.8691e-8m. Alternating regrip covered by focused unit tests and separate final-diagnostics.json; anchor gaps are not complete mesh collision measurement.",
+    "maxSupportingRimGapMeters": 6.869100636979466e-08,
+    "browserAudio": "PASS ordinary gesture unlock, actual analyser signal, mute/pause/blur, suspend/recover, missing-bank silent fallback; final harness observes settled state",
+    "media": "PASS full35s video/audio decode,840frames24fps, zero nonfinite/clipped samples; truepeak -15.6dBTP; pause/mute windows zeroRMS",
+    "independentSupplementalRegrip": {
+      "samples": 300,
+      "releasingSamples": 98,
+      "maxSupportingRimGap": 1.4172220278543327e-07,
+      "simultaneousRelease": 0,
+      "maxWheelAngle": 5.299999999977322
+    },
+    "framing": "Fresh1280x720 and1680x720 contexts verified actual projection aspect16:9/21:9, visible cockpit hands/road and rearward cut. Originalcapture.framing resize snapshot was premature; supplemental final-diagnostics.json is authoritative."
+  },
+  "environment": {
+    "os": "Windows11 build26200",
+    "blender": "4.5.2 LTS background",
+    "node": "24.15.0",
+    "npm": "11.6.2",
+    "browser": "153.0.8010.12",
+    "renderer": "isolated headless Chromium SwiftShader; physical output muted",
+    "dependencies": "Retained package-lock; no upgrade"
+  },
+  "capture": {
+    "method": "Isolated Chromium SwiftShader, virtual standard input via ordinary normalFrame\u2192InputResolver\u2192fixed60Hz simulation\u2192interpolated pose\u2192driver/camera/audio.120Hz controlled presentation timeline,24fps raster. Intentional camera mode/glance cuts only. Game audio rendered offline using identical graph/mapper/buffers and full logical timeline, then muxed without stretching. Physical output muted; no hardware capture/listening/FPS claim.",
+    "logicalSeconds": 35,
+    "wallCaptureSeconds": 561.142,
+    "timelineStates": 4200,
+    "timelineHz": 120,
+    "physicsHz": 60,
+    "encodedFrames": 840,
+    "encodedHz": 24,
+    "events": [
+      {
+        "time": 0,
+        "type": "enable-sound",
+        "method": "Actual button gesture in this isolated driving document before controlled timeline starts"
+      },
+      {
+        "time": 4,
+        "type": "view",
+        "view": "far"
+      },
+      {
+        "time": 6.6,
+        "type": "actual-shift-start",
+        "gear": 1
+      },
+      {
+        "time": 6.8,
+        "type": "view",
+        "view": "cockpit"
+      },
+      {
+        "time": 6.85,
+        "type": "gear",
+        "from": 1,
+        "to": 2
+      },
+      {
+        "time": 7.2,
+        "type": "view",
+        "view": "rearward"
+      },
+      {
+        "time": 7.4,
+        "type": "view",
+        "view": "cockpit"
+      },
+      {
+        "time": 10.333333333333334,
+        "type": "actual-shift-start",
+        "gear": 2
+      },
+      {
+        "time": 10.583333333333334,
+        "type": "gear",
+        "from": 2,
+        "to": 1
+      },
+      {
+        "time": 13,
+        "type": "view",
+        "view": "near"
+      },
+      {
+        "time": 20,
+        "type": "view",
+        "view": "far"
+      },
+      {
+        "time": 21,
+        "type": "view",
+        "view": "cockpit"
+      },
+      {
+        "time": 21.2,
+        "type": "view",
+        "view": "rearward"
+      },
+      {
+        "time": 21.4,
+        "type": "view",
+        "view": "cockpit"
+      },
+      {
+        "time": 24,
+        "type": "pause"
+      },
+      {
+        "time": 25,
+        "type": "resume"
+      },
+      {
+        "time": 26,
+        "type": "mute",
+        "method": "Actual game sound control"
+      },
+      {
+        "time": 27,
+        "type": "unmute",
+        "method": "Actual game sound control"
+      },
+      {
+        "time": 29,
+        "type": "reset"
+      },
+      {
+        "time": 31,
+        "type": "view",
+        "view": "near"
+      },
+      {
+        "time": 31.5,
+        "type": "view",
+        "view": "rearward"
+      },
+      {
+        "time": 31.7,
+        "type": "view",
+        "view": "near"
+      }
+    ],
+    "envelope": {
+      "peakMph": 51.50663612298599,
+      "gears": [
+        1,
+        2
+      ],
+      "x": [
+        -0.8428220512396288,
+        0.3854890580169968
+      ],
+      "z": [
+        -51.91283744949594,
+        88.00010742614623
+      ],
+      "advancingSimulationTicks": 2038
+    },
+    "setup": "Main run fresh isolated context/save; default practice start z88 and2s stationary settling before timeline0. Diagnostic fit/aspect/barrier resets are outside film. Only intentional ordinary-input reset at29s inside continuous film.",
+    "audioFocus": "First20s actual telemetry with separately declared review-only mute18\u201319s. Offline same runtime graph/mapper/buffers, no live-hardware-audio claim.",
+    "canonicalMuteEdges": [
+      {
+        "time": 25.966666666666665,
+        "type": "mute"
+      },
+      {
+        "time": 26.966666666666665,
+        "type": "unmute"
+      }
+    ],
+    "eventAnnotation": "capture.events UI mute labels26/27 are raster labels; full timeline life.mute changes25.9666667/26.9666667 because click precedes pending subframe updates. Audio follows exact full timeline life. Difference33.3ms (<one24fps frame). Original captured files retained.",
+    "closeObstacle": "Existing1.2m barrier lies below retained near-follow sightline in declared setup; close-clearance observation only, not an activated-clamp demonstration. Unit callback tests exercise bounds response."
+  },
+  "driver": {
+    "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+    "meshes": 4,
+    "triangles": 28411,
+    "uvMeshes": 4,
+    "materials": [
+      {
+        "name": "Driver_Textile",
+        "type": "MeshStandardMaterial"
+      },
+      {
+        "name": "Driver_Leather",
+        "type": "MeshStandardMaterial"
+      },
+      {
+        "name": "Driver_Helmet",
+        "type": "MeshPhysicalMaterial"
+      },
+      {
+        "name": "Driver_Visor",
+        "type": "MeshStandardMaterial"
+      }
+    ],
+    "textures": [
+      {
+        "name": "basecolor",
+        "width": 1024,
+        "height": 1024,
+        "colorSpace": "srgb",
+        "estimatedRGBA8WithMips": 5592406
+      },
+      {
+        "name": "normal",
+        "width": 1024,
+        "height": 1024,
+        "colorSpace": "",
+        "estimatedRGBA8WithMips": 5592406
+      },
+      {
+        "name": "orm",
+        "width": 1024,
+        "height": 1024,
+        "colorSpace": "",
+        "estimatedRGBA8WithMips": 5592406
+      }
+    ],
+    "estimatedTextureBytes": 16777218
+  },
+  "preservation": {
+    "baseline": "30520ca2bef6f059d82ccad79ec73ce3abd6a075",
+    "unchangedPaths": [
+      "src/simulation",
+      "src/driving",
+      "src/presentation/shadows.ts",
+      "public/assets/vehicles/slingshot-p03a2.glb",
+      "assets/blender/vehicles/slingshot-p03a2.blend",
+      "public/assets/textures/p03a1",
+      "public/assets/test-pad.glb",
+      "public/assets/practice-p03b1.glb",
+      "public/assets/inspection-bay-p03a1.glb",
+      "public/assets/slingshot-contact-layout.json",
+      "assets/blender/test-pad.blend",
+      "assets/blender/inspection-bay-p03a1.blend",
+      "assets/blender/practice-p03b1.blend",
+      "public/assets/textures/bay"
+    ],
+    "gitDiff": "empty"
+  },
+  "limitations": [
+    "No genuine auditory audition: original synthetic engine character HOLD, not OEM exhaust. No new spending.",
+    "No physical controller, hardware FPS/GPU memory or installed-speaker output certification.",
+    "Whole-car fidelity remains held; G3 pending. No campaign/race/shop/upgrades/night driving.",
+    "Earlier fixed350ms blur read failed while graph already muted and input snapshot awaited RAF; preserved locally. Final observed-state retry retains assertions.",
+    "Attachment/contact distances use configured hand anchors; not finger collision simulation. Supporting hand may slide while opposite hand deliberately regrips."
+  ],
+  "sha256": {
+    "capture.json": "7c4361e04cc2d45add9d1752ca7215a346c2a9838663790ee7d2a00644ed0a7c",
+    "timeline.json": "103107148b43f15b3e868d413c483f1c53520810dd2b2868d7c9efe848a47863",
+    "build-inputs.json": "e0869095b09c6b574976ed62b3295048267df4e8f9f5fb6ee6119970d7f1b104",
+    "media-check.json": "d6af03d2bb295ebb7a077ebf4568b153ac21c4e2dacab2313c44490077800078",
+    "first-drive-game-audio.mp4": "e5c62db63ae0da4ed372ec3432a05e497375bc7b5a755e53f871d6b5e0c8080a",
+    "audio-focus.wav": "509a25314775c58be8b5695c870c2c00814550c65a857ea3f202b7748e159ada",
+    "../P03B2/final-diagnostics.json": "cb18e6fb05e99162e7113708b8de850820e0a71e6a2201387a56e100b262c31b"
+  },
+  "independentReview": {
+    "file": "../P03B2/review-final.md",
+    "verdict": "Driver presentation, cockpit/quick-glance controls, faster ordinary-path run and audio-system integration PASS within P03B2; aural source/timbre HOLD; whole-vehicle fidelity HOLD; G3 pending.",
+    "sha256": "8ce3f35de4d52b036fca2bc97dfa43e85c95fcf4fb24102c7bf4a7d601a6d811"
+  }
+}

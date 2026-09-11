@@ -1,0 +1,142 @@
+{
+  "audition": "Unavailable: no human/tool auditory audition performed; numerical checks do not certify timbre",
+  "sourceBank": [
+    {
+      "file": "engine-1200-lift.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.001861572265625,
+      "maximumAdjacentDelta": 0.080230712890625,
+      "rms": 0.2357385325387172,
+      "sha256": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216"
+    },
+    {
+      "file": "engine-1200-load.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.00213623046875,
+      "maximumAdjacentDelta": 0.08251953125,
+      "rms": 0.22512715982892045,
+      "sha256": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a"
+    },
+    {
+      "file": "engine-3600-lift.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.045440673828125,
+      "maximumAdjacentDelta": 0.10491943359375,
+      "rms": 0.24084793465563492,
+      "sha256": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e"
+    },
+    {
+      "file": "engine-3600-load.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.04827880859375,
+      "maximumAdjacentDelta": 0.11138916015625,
+      "rms": 0.23038727868238743,
+      "sha256": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286"
+    },
+    {
+      "file": "engine-6200-lift.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.066162109375,
+      "maximumAdjacentDelta": 0.14886474609375,
+      "rms": 0.2283716322606007,
+      "sha256": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de"
+    },
+    {
+      "file": "engine-6200-load.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.07080078125,
+      "maximumAdjacentDelta": 0.151397705078125,
+      "rms": 0.20916244310046936,
+      "sha256": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae"
+    },
+    {
+      "file": "road.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.020965576171875,
+      "maximumAdjacentDelta": 0.1175537109375,
+      "rms": 0.15596552762636992,
+      "sha256": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc"
+    },
+    {
+      "file": "shift.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.001251220703125,
+      "maximumAdjacentDelta": 0.188690185546875,
+      "rms": 0.09409117836611293,
+      "sha256": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa"
+    },
+    {
+      "file": "wind.wav",
+      "finite": true,
+      "peak": 0.64996337890625,
+      "loopEdgeDelta": 0.00799560546875,
+      "maximumAdjacentDelta": 0.055419921875,
+      "rms": 0.15874368498303063,
+      "sha256": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d"
+    }
+  ],
+  "wav": [
+    {
+      "file": "first-drive-aligned.wav",
+      "duration": 35.0,
+      "sampleRate": 48000,
+      "channels": 2,
+      "samplePeakDbFS": -15.571511466225909,
+      "oversampledTruePeakDbTP": -15.6,
+      "truePeakMethod": "FFmpeg ebur128 peak=true oversampled estimate, distinct from source sample peak",
+      "mutePauseWindows": [
+        {
+          "seconds": [
+            24.3,
+            24.7
+          ],
+          "rms": 0.0
+        },
+        {
+          "seconds": [
+            26.3,
+            26.7
+          ],
+          "rms": 0.0
+        }
+      ],
+      "sha256": "4e28e3b10c2e11fdfe27941881072076fa553ca88928fbdeb816e6dee26905a1"
+    },
+    {
+      "file": "audio-focus.wav",
+      "duration": 20.0,
+      "sampleRate": 48000,
+      "channels": 2,
+      "samplePeakDbFS": -15.571511466225909,
+      "oversampledTruePeakDbTP": -15.6,
+      "truePeakMethod": "FFmpeg ebur128 peak=true oversampled estimate, distinct from source sample peak",
+      "mutePauseWindows": [
+        {
+          "seconds": [
+            18.3,
+            18.7
+          ],
+          "rms": 0.0
+        }
+      ],
+      "sha256": "509a25314775c58be8b5695c870c2c00814550c65a857ea3f202b7748e159ada"
+    }
+  ],
+  "movie": {
+    "file": "first-drive-game-audio.mp4",
+    "videoSeconds": "35.000000",
+    "audioSeconds": "35.000000",
+    "videoRate": "24/1",
+    "videoFrames": "840",
+    "decode": "PASS",
+    "sha256": "e5c62db63ae0da4ed372ec3432a05e497375bc7b5a755e53f871d6b5e0c8080a"
+  }
+}

@@ -4,10 +4,10 @@
   "as_of": "2026-09-11",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+  "commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
   "current_gate": "G3",
   "current_packet": "P03B2 First Drive",
-  "next_action": "Finish frozen First Drive evidence, return Astra-Review-05.zip then stop for Astra. G3 pending.",
+  "next_action": "Return Astra-Review-05.zip, then stop for Astra. Aural character HOLD; whole-vehicle visual HOLD; G3 pending.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -59,14 +59,14 @@
   },
   "blockers": [
     "Broader vehicle fidelity held: rounded edge/subdued ridge and tire groove/machining approximation remain.",
-    "G3 pending: full workshop/driver/audio/campaign and hardware evidence not authorized."
+    "G3 pending: broader slice not authorized or complete. P03B2 original synthetic sound has no auditory approval."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
     "Physical target-device, GPU performance and controller testing remain unperformed.",
     "Ryker Rally overall-length source discrepancy: 2.35204 m is provisional blockout scale only.",
     "Mass, tire, suspension and drivetrain coefficients are documented simulation estimates; real vehicle handling is not established.",
-    "Finished rider, interactive garage, audio and course sample remain future P03 work; no G3 or complete-slice claim."
+    "P03B2 driver/camera/audio are implemented for bounded review; authentic engine character, physical controls/output/performance and full garage/campaign remain unverified or unimplemented."
   ],
   "commands": {
     "build": "npm run build",
@@ -128,11 +128,19 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "independent_tests": "43/43 suite,5/5 focused RPM, TypeScript/Vite build pass;11inputtests independently reviewed. Numeric30/60/120/144camera comparison passes documented tolerances.",
-    "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B1 independent progress allowed by Review03.",
-    "preservation": "No changes to simulation, contact layout, old pad, repaired shadow policy, P03A1 source/export/maps or bay against0db7ede7.",
-    "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard.",
-    "evidence": "Review04-final:6 current runtime PNGs,30s normal-pipeline SILENT virtual-controller film,4s runtime reflection. Final browser source/served-byte verification and actual-keyboard focus/reset pass; bothfilms fullydecode. RESULTS.json records limits and walltime."
+    "independent_tests": "51/51 full suite;16/16 focused input and RPM; TypeScript/Vite build PASS. Separate final evidence review in P03B2/review-final.md.",
+    "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B2 authorized independently of whole-car visual HOLD.",
+    "preservation": "Current car source/export/maps, pad/bay, contact, all simulation and existing input/session/shadow policy unchanged against30520ca2.",
+    "environment": {
+      "os": "Windows11 build26200",
+      "blender": "4.5.2 LTS background",
+      "node": "24.15.0",
+      "npm": "11.6.2",
+      "browser": "153.0.8010.12",
+      "renderer": "isolated headless Chromium SwiftShader; physical output muted",
+      "dependencies": "Retained package-lock; no upgrade"
+    },
+    "evidence": "Review05-final six runtime PNGs;35s ordinary pipeline film with aligned offline runtime-graph audio,20s audio-focused WAV,4200-state logical timeline; current build/served hashes. Separate ordinary browser sound lifecycle proof. Numerical audio PASS; no auditory approval."
   },
   "director_addendum": "director-addenda/review-04/CODEX_NEXT.md",
   "drivetrain_addendum": {
@@ -195,7 +203,7 @@
     "camera_limit": "Near held-lookback clips lower nose; rearward road/cones visible, release restores chase. No physical FPS or obstruction-transition/resize certification."
   },
   "p03b2": {
-    "status": "implemented_candidate_frozen_evidence_pending",
+    "status": "implemented_review_ready_aural_fidelity_hold",
     "scope": "Separate Blender driver, cockpit/near/far, quick held rearward cut, actual telemetry audio and faster pad demonstration",
     "driver": "public/assets/drivers/test-driver.glb",
     "attachment": "public/assets/drivers/test-driver-attachment.json",
@@ -206,8 +214,33 @@
       "audio_bank": 1
     },
     "aural_fidelity": "HOLD original local synthetic approximation; no genuine audition/hardware output certification",
-    "driver_fit": "Independent material01 runtime fit review supports candidate freeze",
-    "preliminary_speed_mph": 51.5066,
-    "g3_advance": false
-  }
+    "driver_fit": "Separate final review PASS for bounded driver presentation;300-state large-steer diagnostic with98 releasing states, zero simultaneous release. Finger articulation and support sliding simplified.",
+    "g3_advance": false,
+    "runtime_commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+    "evidence": "production/evidence/Review05-final/",
+    "review": "production/evidence/P03B2/review-final.md",
+    "browser_audio": "production/evidence/Review05-browser-final/audio-browser.json",
+    "actual_peak_mph": 51.50663612298599,
+    "actual_gears": [
+      1,
+      2
+    ],
+    "actual_forward_upshift_seconds": 6.85,
+    "film_seconds": 35,
+    "encoded_fps": 24,
+    "audio_method": "Shared graph/mapper/buffers OfflineAudioContext from full logical timeline; ordinary browser lifecycle independently exercised; no live hardware audio/listening claim",
+    "physics_changed": false,
+    "physical_controller_tested": false,
+    "independent_components": "Driver, cockpit/quick glance, faster run, audio control integration PASS within packet; aural source/timbre HOLD."
+  },
+  "verification_history": [
+    {
+      "runtime_commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+      "independent_tests": "43/43 suite,5/5 focused RPM, TypeScript/Vite build pass;11inputtests independently reviewed. Numeric30/60/120/144camera comparison passes documented tolerances.",
+      "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B1 independent progress allowed by Review03.",
+      "preservation": "No changes to simulation, contact layout, old pad, repaired shadow policy, P03A1 source/export/maps or bay against0db7ede7.",
+      "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard.",
+      "evidence": "Review04-final:6 current runtime PNGs,30s normal-pipeline SILENT virtual-controller film,4s runtime reflection. Final browser source/served-byte verification and actual-keyboard focus/reset pass; bothfilms fullydecode. RESULTS.json records limits and walltime."
+    }
+  ]
 }

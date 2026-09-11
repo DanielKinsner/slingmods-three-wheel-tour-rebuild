@@ -1,0 +1,24 @@
+✔ fixture: stationary zero-throttle engine stays at idle (0.7003ms)
+✔ fixture: freely rolling rear wheel raises coupled engine RPM above idle (0.1399ms)
+✔ fixture: positive rear wheel overspeed raises RPM above rolling baseline (0.0989ms)
+✔ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.1353ms)
+✔ reverse wheel lock cancels signed rolling rotation while reverse wheelspin raises RPM (0.1244ms)
+✔ input: signed fractional stick, rescaled deadzone, analog triggers and finite sanitation (1.0529ms)
+✔ input: changed meaningful ownership, noisy drift and unsupported mappings (0.3435ms)
+✔ input: rising camera/direction edges and continuous monotonic reset hold fires once (0.2371ms)
+✔ input: pause/menu poll, neutral resume, interrupted hold, blur and held-button quarantine (0.3164ms)
+✔ input: disconnect/index reuse and held throttle require neutral plus deliberate resume (0.1613ms)
+✔ input: held new controller gesture does not trigger camera/throttle on scene entry (0.1073ms)
+✔ input: a deliberate slow analog ramp takes ownership without per-frame threshold starvation (1.4915ms)
+✔ input: a fresh menu edge can reclaim keyboard while another key remains held (0.1423ms)
+✔ keyboard event buffer: short released taps survive a frame and held repeats do not retoggle (0.3458ms)
+✔ keyboard reset uses monotonic down time and a fresh hold after interruption (0.2397ms)
+✔ keyboard release and repress between rendered frames restarts continuous reset hold (0.155ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.1345

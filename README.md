@@ -42,7 +42,9 @@ $env:EVIDENCE_DIR='director-kit/production/evidence/Review05-new'
 node --import tsx scripts/capture-review05.mjs
 $env:EVIDENCE_DIR='director-kit/production/evidence/Review05-browser-new'
 $env:VERIFY_BUILD='1'
-node scripts/verify-first-drive-audio.mjs
+node scripts/verify-first-drive-audio-final.mjs
+$env:DIAGNOSTIC_DIR='director-kit/production/evidence/Review05-diagnostics-new'
+node scripts/verify-review05-diagnostics.mjs
 ```
 
 Capture commands require a running preview, FFmpeg and a Git checkout; ordinary launch does not. Choose fresh output directories. Isolated Chromium uses SwiftShader and mutes physical output, without overriding autoplay policy. The35s film uses120Hz controlled ordinary presentation, retained60Hz physics and24fps raster. Full logical telemetry/input/camera/driver/lifecycle timeline schedules shared-graph OfflineAudioContext sound, then muxes it without stretching. This is offline runtime-graph evidence, not live hardware recording, a physical controller test or sustained FPS. Review guide/results record exact verdicts and limits. Stop for Astra after Review05; no deployment or G3 advancement.
