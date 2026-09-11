@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
   "current_gate": "G3",
-  "current_packet": "P03B2 First Drive",
-  "next_action": "Return Astra-Review-05.zip, then stop for Astra. Aural character HOLD; whole-vehicle visual HOLD; G3 pending.",
+  "current_packet": "P04A Harbor Shakedown",
+  "next_action": "Complete bounded Harbor Shakedown runtime/evidence, return Astra-Review-06.zip, then stop. G3/G4 pending.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -142,7 +142,7 @@
     },
     "evidence": "Review05-final six runtime PNGs;35s ordinary pipeline film with aligned offline runtime-graph audio,20s audio-focused WAV,4200-state logical timeline; current build/served hashes. Separate ordinary browser sound lifecycle proof. Numerical audio PASS; no auditory approval."
   },
-  "director_addendum": "director-addenda/review-04/CODEX_NEXT.md",
+  "director_addendum": "director-addenda/review-05/CODEX_NEXT.md",
   "drivetrain_addendum": {
     "status": "independently_passed",
     "commit": "9add1f9",
@@ -242,5 +242,15 @@
       "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard.",
       "evidence": "Review04-final:6 current runtime PNGs,30s normal-pipeline SILENT virtual-controller film,4s runtime reflection. Final browser source/served-byte verification and actual-keyboard focus/reset pass; bothfilms fullydecode. RESULTS.json records limits and walltime."
     }
-  ]
+  ],
+  "p04a": {
+    "status": "in_progress_route_gate_passed",
+    "authorization": "Review05 explicitly allows small environment/event before final G3/G4 approval; no full originalP04",
+    "audio_correction": "Exact sanitizedRPM/source-reference ratio; original regression1fail2pass retained, corrected3pass",
+    "route_length_m": 1230.867,
+    "road_width_m": 11,
+    "route_gate": "Realphysics78.7192s valid ordered lap at60/120Hz before dressing",
+    "g3_advance": false,
+    "g4_advance": false
+  }
 }

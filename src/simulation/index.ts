@@ -1,6 +1,6 @@
 import RAPIER from '@dimforge/rapier3d-compat';
 import layout from '../../public/assets/slingshot-contact-layout.json';
-import { PAD, surfaceAt } from './pad';
+import {PAD_ENVIRONMENT,type EnvironmentDefinition} from '../course/environment';
 import {AutoDrive,DRIVETRAIN,wheelAngularSpeed} from './drivetrain';
 export {PAD} from './pad';
 export type Vec3={x:number;y:number;z:number};
@@ -28,17 +28,17 @@ export class Simulation {
   private time=0;private steering=0;private drivetrain=new AutoDrive();
   private spin=[0,0,0];private overspeed=[0,0,0];private wheels:WheelTelemetry[]=[];
   private throttle=0;private brake=0;private disposed=false;
-  static async create():Promise<Simulation>{initialized??=RAPIER.init();await initialized;return new Simulation()}
-  private constructor(){
+  static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT):Promise<Simulation>{initialized??=RAPIER.init();await initialized;return new Simulation(environment)}
+  private constructor(readonly environment:EnvironmentDefinition){
     this.world=new RAPIER.World(v(0,-9.81,0));this.world.timestep=FIXED_DT;
     // A finite planar triangle surface has explicit face normals. The former700m-wide
     // convex slab produced a near-horizontal cylinder contact normal on flat ground
     // during a shallow landing (recorded in G2/revision02), injecting a spurious yaw impulse.
-    const [gx,gy,gz]=PAD.ground.center,[gw,gh,gl]=PAD.ground.size;
+    const [gx,gy,gz]=environment.ground.center,[gw,gh,gl]=environment.ground.size;
     const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
     this.world.createCollider(RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45));
-    for(const box of PAD.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setFriction(0.45));
-    for(const ramp of PAD.ramps){
+    for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation({x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));
+    for(const ramp of environment.ramps){
       const points:number[]=[];for(const x of [-ramp.width/2,ramp.width/2])for(const z of [-ramp.length/2,ramp.length/2]){points.push(x,-0.1,z,x,z<0?ramp.rise:0,z)}
       const shape=RAPIER.ColliderDesc.convexHull(new Float32Array(points));if(!shape)throw new Error('Invalid ramp hull');
       this.world.createCollider(shape.setTranslation(ramp.center[0],ramp.center[1],ramp.center[2]).setFriction(0.45));
@@ -113,7 +113,7 @@ export class Simulation {
         const rawFwd=rotate(v(-Math.sin(steer),0,-Math.cos(steer)),q);
         const tireFwd=normalized(add(rawFwd,scale(normal,-dot(rawFwd,normal))));
         const tireRight=normalized(v(tireFwd.y*normal.z-tireFwd.z*normal.y,tireFwd.z*normal.x-tireFwd.x*normal.z,tireFwd.x*normal.y-tireFwd.y*normal.x));
-        long=dot(pointVel,tireFwd);const lateral=dot(pointVel,tireRight);const surf=surfaceAt(point.x,point.z);surface=surf.id;
+        long=dot(pointVel,tireFwd);const lateral=dot(pointVel,tireRight);const surf=this.environment.surfaceAt(point.x,point.z);surface=surf.id;
         muLimit=load*surf.mu;slipAngle=Math.atan2(lateral,Math.max(Math.abs(long),2));
         let drive=rear?engineForce:0;
         if(control.tractionControl!==false)drive=clamp(drive,-muLimit*0.92,muLimit*0.92);

@@ -1,12 +1,13 @@
 import './style.css';
 import './workbench.css';
+import {mountHarborEntry} from './harbor-entry';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {Simulation} from './simulation';
 import {scenarios,type DrivingScenario} from './simulation/scenarios';
-import {loadSave,writeSave} from './save';
+import {loadSave,writeSave,browserStorage} from './save';
 import {configureShadows,type ShadowMode} from './presentation/shadows';
 import {assetStatistics,measurePasses} from './presentation/statistics';
 import {inspectionEnvironment,fitInspectionCamera,projectedBounds} from './presentation/inspection';
@@ -48,7 +49,7 @@ if(query.has('diagnostic'))asset.scene.traverse(o=>{if(o instanceof THREE.Mesh){
 const rearCaliper=asset.scene.getObjectByName('suspension_rear__Brake_Caliper'),rearCaliperBase=rearCaliper?.position.clone();
 const steeringControl=asset.scene.getObjectByName('steering_control');const steeringBase=steeringControl?.quaternion.clone();const steeringAxis=new THREE.Vector3(0,0,1); // Blender XZ rim exports to runtime XY; 10:1 display ratio is an estimate.
 let sim=driving?await Simulation.create():null;
-let current=sim?.telemetry(),previous=current;let accumulator=0,manual=query.has('test')&&!query.has('clock'),paused=false,cap=Number(query.get('cap')||60),last=performance.now(),lastDraw=last;let cameraMode:DrivingView=loadSave(localStorage).settings.camera,reverse=false;
+let current=sim?.telemetry(),previous=current;let accumulator=0,manual=query.has('test')&&!query.has('clock'),paused=false,cap=Number(query.get('cap')||60),last=performance.now(),lastDraw=last;let cameraMode:DrivingView=loadSave(browserStorage()).settings.camera,reverse=false;
 let activeScenario:DrivingScenario|undefined;let sweeping=false,sweepAngle=0;
 const input={throttle:0,brake:0,steer:0,reverse:false,tractionControl:true};const keyboard=new KeyboardBuffer();const keys=keyboard.held;
 const controlledClock=query.has('test')&&query.get('clock')==='controlled';
@@ -113,7 +114,7 @@ function draw(dt:number,snap=false,present=true){
 if(driving){sim!.reset(PRACTICE_START);for(let i=0;i<120;i++)step(input);session!.sync();draw(1/60,true)}else{view(query.get('view')??(vehicleFile==='scale-blockouts.glb'?'fleet':bay?'bay':'threequarter'));updateHUD()}
 function normalFrame(now:number,present=true){
  if(!session)return;const result=session.frame(now);inputState=result;current=result.current;previous=result.previous;accumulator=result.alpha/60;paused=result.paused;reverse=result.control.reverse;lookBack=result.lookBack;
- if(result.camera){cameraMode=nextDrivingView(cameraMode);const saved=loadSave(localStorage);saved.settings.camera=cameraMode;writeSave(localStorage,saved)}
+ if(result.camera){cameraMode=nextDrivingView(cameraMode);const saved=loadSave(browserStorage());saved.settings.camera=cameraMode;writeSave(browserStorage(),saved)}
  normalPresenting=true;draw(result.dt,result.reset,present);normalPresenting=false;
 }
 const debug={ready:true,suspendAudio:async()=>{if(!query.has('test'))throw new Error('Test context required');await gameAudio?.suspendContext()},renderOfflineAudio:async(timeline:Parameters<typeof renderOfflineGameAudio>[0],duration:number)=>{if(!query.has('test'))throw new Error('Test context required');return renderOfflineGameAudio(timeline,duration)},normalFrame:(now:number,present=true)=>{if(!controlledClock)throw new Error('Controlled clock requires an isolated test context');normalFrame(now,present);return debug.inspect()},setDeviceSample:(sample:{keys:string[];pads:DeviceSample['pads'];focused?:boolean}|null)=>{if(!query.has('test'))throw new Error('Device injection is test-only');virtualSample=sample?{keys:new Set(sample.keys),pads:sample.pads,focused:sample.focused!==false}:undefined},reviewOrbit,referenceCamera:(position:number[],target:number[],fov=38)=>{if(!query.has('test'))throw new Error('Test context required');camera.fov=fov;camera.updateProjectionMatrix();camera.position.fromArray(position);controls.target.fromArray(target);camera.lookAt(controls.target);controls.update();render();return projectedBounds(camera,new THREE.Box3().setFromObject(vehicle,true))},diagnosticFrame:(t:any,cameraPosition?:number[])=>{if(!query.has('test'))throw new Error('Diagnostic frame requires test context');manual=true;current=t;previous=t;draw(1/60,true);if(cameraPosition){camera.position.fromArray(cameraPosition);render()}},playScenario:(name:string)=>{const selected=scenarios.find(s=>s.name===name);if(!selected||!sim)throw new Error('Unknown driving scenario');activeScenario=selected;sim.reset(selected.pose);current=sim.telemetry();previous=current;manual=false;paused=false;accumulator=0;draw(1/60,true);return selected.seconds},mode:driving?'pad':bay?'bay':'vehicle',asset:vehicleFile,view,orbitView:(angle:number,radius=7.2,height=2.3)=>{if(driving)return;camera.position.set(Math.sin(angle)*radius,height,-Math.cos(angle)*radius);controls.target.set(0,.6,0);camera.lookAt(controls.target);controls.update();render()},lightSweep:(angle:number)=>{scene.environmentRotation.y=angle;sun.position.set(vehicle.position.x+8*Math.cos(angle),vehicle.position.y+14,vehicle.position.z+8*Math.sin(angle));render()},setShadows:(mode:ShadowMode)=>{shadowMode=mode;shadowCensus=configureShadows(vehicle,pad.scene,mode,bay);renderer.shadowMap.needsUpdate=true;draw(1/60,true);return shadowCensus},measurePasses:()=>measurePasses(renderer,scene,camera,pad.scene),inspect:()=>({assetStatistics:assetStatistics(asset.scene),shadowMode,shadowCensus,bounds:new THREE.Box3().setFromObject(asset.scene,true).getSize(new THREE.Vector3()).toArray(),nodes:bindings.map(b=>({id:b.id,steer:!!b.steer,spin:!!b.spin,position:b.basePos?.toArray(),presentedPosition:b.positionNode?.position.toArray(),spinQuaternion:b.spin?.quaternion.toArray(),steerQuaternion:b.steer?.quaternion.toArray()})),telemetry:current??null,rearCaliper:rearCaliper?{base:rearCaliperBase?.toArray(),position:rearCaliper.position.toArray(),quaternion:rearCaliper.quaternion.toArray()}:null,steeringControlQuaternion:steeringControl?.quaternion.toArray(),driverStatistics,driver:driver?.inspect(),driverProjection:driver?Object.fromEntries(Object.entries(driver.inspect().arms??{}).map(([side,a])=>[side,new THREE.Vector3().fromArray((a as any).contact).project(camera).toArray()])):null,cameraMode,activeView:chase.activeView,audio:gameAudio?.inspect(),audioFrame,inputState:inputState?{...inputState,current:undefined,previous:undefined}:null,cameraTarget:chase.target.toArray(),cameraPosition:camera.position.toArray(),cameraFov:camera.fov,projectedBounds:projectedBounds(camera,new THREE.Box3().setFromObject(vehicle,true)),renderInfo:renderer.info.render,renderer:renderer.getContext().getParameter(renderer.getContext().RENDERER)}),telemetry:()=>current,reset:(p?:any)=>{activeScenario=undefined;sim?.reset(p);current=sim?.telemetry();previous=current;accumulator=0;session?.sync();draw(1/60,true)},advance:(control:typeof input,seconds:number)=>{manual=true;for(let i=0;i<Math.round(seconds*60);i++)step(control);draw(seconds,true);return current},renderFrame:(control:typeof input,delta:number,present=true)=>{manual=true;accumulator+=delta;while(accumulator+1e-10>=1/60){step(control);accumulator-=1/60}if(present)draw(delta);return current},captureView:view,setCamera:(name:DrivingView)=>{cameraMode=name;draw(1/60,true)}};(window as any).__TWT=debug;
@@ -127,3 +128,5 @@ addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updat
 
 
 
+
+if(bay)mountHarborEntry();

@@ -1,0 +1,213 @@
+{
+  "method": "Independent archive/GLB/telemetry and numeric media inspection of supplied bytes; no game rerun or auditory audition",
+  "archive_sha256": "a8d57256d7d8d3a297067497dc2b0bbdae18e39a486ff252f87d7cabb6d3f93e",
+  "runtime_commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+  "packaging_commit": "2fd926c38c7bf3b959d0fe3726e522ade1f8d483",
+  "package_entries_verified": 195,
+  "package_mismatches": [],
+  "build_inputs_verified": 63,
+  "build_input_mismatches": [],
+  "protected_files_compared": 29,
+  "protected_file_changes": [],
+  "protected_paths": [
+    "assets/blender/vehicles/slingshot-p03a2.blend",
+    "public/assets/inspection-bay-p03a1.glb",
+    "public/assets/practice-p03b1.glb",
+    "public/assets/slingshot-contact-layout.json",
+    "public/assets/test-pad.glb",
+    "public/assets/textures/p03a1/instrument-scale_basecolor.png",
+    "public/assets/textures/p03a1/machined-alloy_basecolor.png",
+    "public/assets/textures/p03a1/machined-alloy_normal.png",
+    "public/assets/textures/p03a1/machined-alloy_orm.png",
+    "public/assets/textures/p03a1/molded-polymer_basecolor.png",
+    "public/assets/textures/p03a1/molded-polymer_normal.png",
+    "public/assets/textures/p03a1/molded-polymer_orm.png",
+    "public/assets/textures/p03a1/radar-blue_basecolor.png",
+    "public/assets/textures/p03a1/radar-blue_normal.png",
+    "public/assets/textures/p03a1/radar-blue_orm.png",
+    "public/assets/textures/p03a1/road-tire_basecolor.png",
+    "public/assets/textures/p03a1/road-tire_normal.png",
+    "public/assets/textures/p03a1/road-tire_orm.png",
+    "public/assets/textures/p03a1/sport-seat_basecolor.png",
+    "public/assets/textures/p03a1/sport-seat_normal.png",
+    "public/assets/textures/p03a1/sport-seat_orm.png",
+    "public/assets/vehicles/slingshot-p03a2.glb",
+    "src/driving/input.ts",
+    "src/driving/session.ts",
+    "src/presentation/shadows.ts",
+    "src/simulation/drivetrain.ts",
+    "src/simulation/index.ts",
+    "src/simulation/pad.ts",
+    "src/simulation/scenarios.ts"
+  ],
+  "assets": [
+    {
+      "file": "public/assets/drivers/test-driver.glb",
+      "triangles": 28411,
+      "primitives": 4,
+      "materials": 4,
+      "images": 3,
+      "skins": 1,
+      "bytes": 3717076
+    },
+    {
+      "file": "public/assets/vehicles/slingshot-p03a2.glb",
+      "triangles": 211431,
+      "primitives": 59,
+      "materials": 20,
+      "images": 16,
+      "skins": 0,
+      "bytes": 9940912
+    }
+  ],
+  "telemetry": {
+    "states": 4200,
+    "first_time": 0,
+    "last_time": 34.99166666666667,
+    "peak_mph_using_capture_conversion": 51.50663612298599,
+    "gears": [
+      1,
+      2
+    ],
+    "gear_events": [
+      {
+        "time": 6.85,
+        "from": 1,
+        "to": 2
+      },
+      {
+        "time": 10.583333333333334,
+        "from": 2,
+        "to": 1
+      }
+    ],
+    "view_events": [
+      {
+        "time": 0,
+        "view": "near"
+      },
+      {
+        "time": 4,
+        "view": "far"
+      },
+      {
+        "time": 6.8,
+        "view": "cockpit"
+      },
+      {
+        "time": 7.2,
+        "view": "rearward"
+      },
+      {
+        "time": 7.4,
+        "view": "cockpit"
+      },
+      {
+        "time": 13,
+        "view": "near"
+      },
+      {
+        "time": 20,
+        "view": "far"
+      },
+      {
+        "time": 21,
+        "view": "cockpit"
+      },
+      {
+        "time": 21.2,
+        "view": "rearward"
+      },
+      {
+        "time": 21.4,
+        "view": "cockpit"
+      },
+      {
+        "time": 31,
+        "view": "near"
+      },
+      {
+        "time": 31.5,
+        "view": "rearward"
+      },
+      {
+        "time": 31.7,
+        "view": "near"
+      }
+    ],
+    "reset_times": [
+      29
+    ],
+    "x_range": [
+      -0.8428220512396288,
+      0.3854890580169968
+    ],
+    "main_film_regrip_states": 0,
+    "max_absolute_displayed_wheel_angle": 0.4902447352975837,
+    "maximum_supporting_rim_gap": 6.869100636979466e-08
+  },
+  "video_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "r_frame_rate": "24/1",
+        "duration": "35.000000",
+        "nb_frames": "840"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "35.000000",
+        "nb_frames": "1642"
+      }
+    ],
+    "format": {
+      "duration": "35.000000",
+      "size": "2921236"
+    }
+  },
+  "full_movie_decode": "passed",
+  "movie_audio": {
+    "finite": true,
+    "sample_peak": 0.16593846678733826,
+    "sample_peak_dbfs": -15.601058959960938,
+    "windows": {
+      "active": {
+        "start_s": 3.5,
+        "end_s": 8.5,
+        "rms": 0.04380170628428459,
+        "rms_dbfs": -27.170179426714427
+      },
+      "pause": {
+        "start_s": 24.35,
+        "end_s": 24.85,
+        "rms": 0.0,
+        "rms_dbfs": null
+      },
+      "mute": {
+        "start_s": 26.2,
+        "end_s": 26.8,
+        "rms": 2.715753666393539e-08,
+        "rms_dbfs": -151.32219250946355
+      }
+    },
+    "no_listening_or_true_peak_claim": true
+  },
+  "focus_wav": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "frames": 960000,
+    "sample_width": 2,
+    "sample_peak": 0.16650390625,
+    "sample_peak_dbfs": -15.571511466225909,
+    "duration": 20.0
+  }
+}

@@ -6,7 +6,7 @@ export const ENGINE_RPMS=[1200,3600,6200] as const;
 export function mapAudio(t:VehicleTelemetry,life:AudioLife){
  const rpm=clamp(finite(t.rpm,950),950,8500),speed=Math.abs(finite(t.speed)),load=clamp(t.throttle)*(t.shifting?.25:1),contact=t.wheels.filter(w=>w.contact),slip=contact.reduce((a,w)=>a+Math.min(1,Math.abs(finite(w.slipRatio))*.6+Math.abs(finite(w.slipAngle))*.8),0)/Math.max(1,contact.length);
  const raw=ENGINE_RPMS.map(r=>Math.max(0,1-Math.abs(Math.log(rpm/r))/1.08)),norm=Math.sqrt(raw.reduce((a,x)=>a+x*x,0))||1;
- const weights=raw.map(x=>x/norm),layers=ENGINE_RPMS.flatMap((ref,i)=>[{name:`engine-${ref}-load`,rate:clamp(rpm/ref,.65,1.65),gain:weights[i]*(.08+.30*load)},{name:`engine-${ref}-lift`,rate:clamp(rpm/ref,.65,1.65),gain:weights[i]*(.20*(1-load))}]);
+ const weights=raw.map(x=>x/norm),layers=ENGINE_RPMS.flatMap((ref,i)=>[{name:`engine-${ref}-load`,rate:rpm/ref,gain:weights[i]*(.08+.30*load)},{name:`engine-${ref}-lift`,rate:rpm/ref,gain:weights[i]*(.20*(1-load))}]);
  const roadSpeed=contact.reduce((a,w)=>a+Math.abs(finite(w.longitudinalSpeed)),0)/Math.max(1,contact.length);
  const surface=contact.some(w=>w.surface==='gravel')?1.35:contact.some(w=>w.surface==='wet')?.85:1;
  layers.push({name:'road',rate:1,gain:contact.length?clamp(roadSpeed/28)*(.06+.10*slip)*surface:0},{name:'wind',rate:1,gain:clamp(speed/32)**1.7*.13});

@@ -1,0 +1,11 @@
+from pathlib import Path
+import json,subprocess,wave,hashlib,re,numpy as np
+p=Path('director-kit/production/evidence/Review06-final');result={'audition':'None; numerical checks are not listening','media':[]}
+for preset,duration,frames in [('day',85,1020),('night',25,300)]:
+ movie=p/(preset+'-game-audio.mp4');data=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-of','json',str(movie)],text=True));v=next(s for s in data['streams']if s['codec_type']=='video');a=next(s for s in data['streams']if s['codec_type']=='audio');assert int(v['nb_frames'])==frames and v['avg_frame_rate']=='12/1';assert abs(float(v['duration'])-duration)<.05 and abs(float(a['duration'])-duration)<.05
+ subprocess.run(['ffmpeg','-v','error','-i',str(movie),'-f','null','-'],capture_output=True,check=True)
+ with wave.open(str(p/(preset+'-aligned-full.wav')),'rb')as w:x=np.frombuffer(w.readframes(w.getnframes()),dtype='<i2').astype(float)/32768;seconds=w.getnframes()/w.getframerate()
+ assert seconds==85 and np.isfinite(x).all() and abs(x).max()<1 and np.mean(x*x)>1e-7
+ peak=subprocess.run(['ffmpeg','-hide_banner','-i',str(movie),'-af','ebur128=peak=true','-f','null','-'],capture_output=True,text=True,check=True);tp=float(re.findall(r'Peak:\s*([-\d.]+) dBFS',peak.stderr)[-1]);assert tp<=-1,tp
+ result['media'].append({'file':movie.name,'videoSeconds':float(v['duration']),'audioSeconds':float(a['duration']),'frames':frames,'encodedHz':12,'decoded':'PASS','samplePeakDbFS':float(20*np.log10(abs(x).max())),'encodedAudioTruePeakDbTP':tp,'truePeakMethod':'FFmpeg ebur128 peak=true oversampled estimate on actual encoded AAC','sourceWavSeconds':seconds,'sha256':hashlib.sha256(movie.read_bytes()).hexdigest()})
+(p/'media-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8');print(json.dumps(result,indent=2))
