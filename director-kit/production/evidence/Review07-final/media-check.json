@@ -1,0 +1,49 @@
+{
+  "audition": "None; numerical checks are not listening",
+  "media": [
+    {
+      "file": "day-game-audio.mp4",
+      "videoSeconds": 85.0,
+      "audioSeconds": 85.0,
+      "frames": 2040,
+      "encodedHz": 24,
+      "decoded": "PASS",
+      "samplePeakDbFS": -15.300373725990315,
+      "encodedAudioTruePeakDbTP": -15.3,
+      "truePeakMethod": "FFmpeg ebur128 peak=true oversampled estimate on actual encoded AAC",
+      "sourceWavSeconds": 85.0,
+      "sha256": "56ba87540d29d14f8a8298f79949ead648aca19f8ef1fc22c7f710d2b533b95f"
+    },
+    {
+      "file": "night-game-audio.mp4",
+      "videoSeconds": 25.0,
+      "audioSeconds": 25.0,
+      "frames": 600,
+      "encodedHz": 24,
+      "decoded": "PASS",
+      "samplePeakDbFS": -15.300373725990315,
+      "encodedAudioTruePeakDbTP": -16.0,
+      "truePeakMethod": "FFmpeg ebur128 peak=true oversampled estimate on actual encoded AAC",
+      "sourceWavSeconds": 85.0,
+      "sha256": "d7aff8f91af6887117a0771156d0885cda32c2732bc3502fd29d660986237c0c"
+    },
+    {
+      "file": "rear-motion-silent.mp4",
+      "duration": 18,
+      "frames": 432,
+      "encodedHz": 24,
+      "audio": "Explicitly silent; no audio stream",
+      "decoded": "PASS",
+      "sha256": "1c57e0bc876f67cef77a1127aeee3fb44ad75fce7b3caefb5473e7afc86bbe28"
+    },
+    {
+      "file": "rear-bay-orbit-silent.mp4",
+      "duration": 8,
+      "frames": 192,
+      "encodedHz": 24,
+      "audio": "Explicitly silent; no audio stream",
+      "decoded": "PASS",
+      "sha256": "aac43e6c62f0008f4e319c860dc9d9cc9d3e30b54d5fc1438a980fb228e83887"
+    }
+  ]
+}

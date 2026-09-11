@@ -1,0 +1,129 @@
+{
+  "beforeCommit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+  "afterCommit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+  "beforeFileSha256": "0de93e0e8b5fc03714fd753bf5fed89e3ba0c9c9e027fe67bed690f3ba834e80",
+  "method": "10s actual wall-clock requestAnimationFrame with held keyboard throttle,1280x720 identified headless Direct3D11 renderer. First3 intervals discarded; dt clamp remains ordinary so low rendering rate can slow logical simulation. Short isolated offscreen observation, not human gameplay or a sustained performance certification.",
+  "limits": "Separate short wall-clock observations, same fixture and renderer; scheduling/load cache vary. Counts include rendering passes, not unique asset triangles. Combined rear and harbor changes, not attribution to foliage alone. No spare capacity or sustained hardware approval.",
+  "comparisons": [
+    {
+      "preset": "day",
+      "quality": "standard",
+      "before": {
+        "loadMs": 3110.5999999940395,
+        "frameMs": {
+          "p50": 16.69999999999891,
+          "p95": 16.799999999999272,
+          "maximum": 150,
+          "mean": 16.887064676616912
+        },
+        "renderInfo": {
+          "frame": 641,
+          "calls": 138,
+          "triangles": 661787,
+          "points": 0,
+          "lines": 0
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "after": {
+        "loadMs": 3020,
+        "frameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "maximum": 133.29999999999973,
+          "mean": 16.859800664451825
+        },
+        "renderInfo": {
+          "frame": 640,
+          "calls": 164,
+          "triangles": 808819,
+          "points": 0,
+          "lines": 0
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "drawCallDelta": 26,
+      "renderedTriangleDelta": 147032
+    },
+    {
+      "preset": "night",
+      "quality": "standard",
+      "before": {
+        "loadMs": 577.7000000178814,
+        "frameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "maximum": 16.80000000000109,
+          "mean": 16.666003316749567
+        },
+        "renderInfo": {
+          "frame": 641,
+          "calls": 138,
+          "triangles": 661787,
+          "points": 0,
+          "lines": 0
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "after": {
+        "loadMs": 2377.199999988079,
+        "frameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.700000000000728,
+          "maximum": 16.80000000000109,
+          "mean": 16.666056572379375
+        },
+        "renderInfo": {
+          "frame": 639,
+          "calls": 164,
+          "triangles": 808819,
+          "points": 0,
+          "lines": 0
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "drawCallDelta": 26,
+      "renderedTriangleDelta": 147032
+    },
+    {
+      "preset": "night",
+      "quality": "low",
+      "before": {
+        "loadMs": 2243.4000000059605,
+        "frameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "maximum": 16.80000000000109,
+          "mean": 16.666003316749574
+        },
+        "renderInfo": {
+          "frame": 641,
+          "calls": 138,
+          "triangles": 661787,
+          "points": 0,
+          "lines": 0
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "after": {
+        "loadMs": 2259.5,
+        "frameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.700000000000728,
+          "maximum": 16.80000000000109,
+          "mean": 16.666112956810636
+        },
+        "renderInfo": {
+          "frame": 640,
+          "calls": 164,
+          "triangles": 808819,
+          "points": 0,
+          "lines": 0
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "drawCallDelta": 26,
+      "renderedTriangleDelta": 147032
+    }
+  ]
+}

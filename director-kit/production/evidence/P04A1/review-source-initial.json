@@ -1,0 +1,33 @@
+{
+  "scope": "Independent source review before rear candidate export; no geometry or global gate approval",
+  "decision": "AWAIT_EXPORTED_ASSET",
+  "head": "3f200c43bf33262d6bf6aaeccd8805e2f0bb83ba",
+  "workingTree": true,
+  "reviewedSourceHashes": {
+    "src/presentation/rear.ts": "56431efb6c3ab36bab2b29c6bf1c18405a6735e6c532e8fd72a283a1de5efa92",
+    "src/presentation/rear-diagnostic.ts": "be2f278a3a78e35b30c69f7ab9cd835db31d1c8f909c8a32f2830d57c0490ece",
+    "src/presentation/hero.ts": "d1c8465693f7e227619dd750624f44d5a7b5238116589436dfd6f898b4d3228d",
+    "src/workbench.ts": "d7393f8094bd4fc766882aff01664948efe77a22e89477215c5522f8bdadac56",
+    "src/presentation/vehicle-asset.ts": "1ea38cf7abdaeb07e131e31bb3bcbbc509beefbd5391c6fc8b1e719c565d8dac",
+    "src/presentation/harbor-lighting.ts": "f280a3072ea1b09f7f9d53f7e36b022203c87c2a912ebd8c99d362632fab06f0",
+    "public/assets/vehicles/slingshot-p04a1-rear-rig.json": "5bd2c27e3dd7f875defbddf86fcb6809ba19f367f6abd5842d8e9b207feacb83",
+    "tests/rear-presentation.test.ts": "1ed74b3412a735132d25b97a67c49e552fb5eca53d58879296181c09962fc4fe"
+  },
+  "checks": {
+    "sharedPresenter": "Both workbench and Harbor invoke RearPresenter after wheel telemetry/spin presentation; common current-asset registry.",
+    "affineTransforms": "Arm/belt retain authored chassis pivot, align the hub by axial stretch; spring scales axially, rigid body/piston anchor opposite ends. Matrix preservation avoids rotated-stretch decomposition shear.",
+    "isolatedUnitExecution": "3/3 rear-presentation tests independently executed, including all supported heights, four spin quarters, reverse sweep, chassis transform, explicit missing-group error."
+  },
+  "openEvidence": [
+    "Group endpoints are nominated coordinates transformed through real group matrices, not yet independently located mesh endpoints. Actual exported geometry and semantic attachment origins must agree.",
+    "Actual tire/body/storage intersection tests must cover triangle surfaces, not only sampled vertices or AABB overlap, at all travel extremes, spin quarters, intermediate and prior lap heights.",
+    "Check non-spinning axle/caliper geometry physically aligns with the wheel/disc, belt ends remain coherent, and rigid shock sleeves overlap without bottoming or separation across travel.",
+    "Need actual daylight enclosed-body and diagnostic views, modes bay/pad/Harbor, and normal braking/motion.",
+    "Capture source stability must be paired with served JS/CSS/build-ref verification; served GLB/sidecar alone is insufficient. Parent notified."
+  ],
+  "limits": [
+    "Rear geometry candidate was not yet available for this review.",
+    "Hardpoints are author estimates, not OEM CAD measurements.",
+    "G3/G4 remain pending."
+  ]
+}

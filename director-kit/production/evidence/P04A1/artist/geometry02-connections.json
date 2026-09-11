@@ -1,0 +1,74 @@
+{
+  "glbSha256": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c",
+  "method": "Actual exported mesh ray intersections along pins and bracket/deck support columns; conceptual hardpoints remain author estimates",
+  "pins": [
+    {
+      "name": "upperShock",
+      "actualMeshAxialEnds": [
+        0.2279999852180481,
+        0.3320000171661377
+      ],
+      "eyeOrPivotCenter": [
+        0.28,
+        0.8,
+        1.025
+      ],
+      "connected": true
+    },
+    {
+      "name": "lowerShock",
+      "actualMeshAxialEnds": [
+        0.23000001907348633,
+        0.32999998331069946
+      ],
+      "eyeOrPivotCenter": [
+        0.28,
+        0.37285,
+        1.13745
+      ],
+      "connected": true
+    },
+    {
+      "name": "armPivot",
+      "actualMeshAxialEnds": [
+        0.1599999964237213,
+        0.4000000059604645
+      ],
+      "eyeOrPivotCenter": [
+        0.28,
+        0.32,
+        0.68
+      ],
+      "connected": true
+    }
+  ],
+  "upperBracketDeck": [
+    {
+      "x": 0.245,
+      "actualBracketTopY": 0.8939999938011169,
+      "actualDeckUndersideY": 0.882417619228363,
+      "overlapM": 0.011582374572753906
+    },
+    {
+      "x": 0.315,
+      "actualBracketTopY": 0.8939999938011169,
+      "actualDeckUndersideY": 0.8805006742477417,
+      "overlapM": 0.013499319553375244
+    }
+  ],
+  "conservativeContinuousTireEnvelope": {
+    "min": [
+      -0.15616999698638917,
+      -0.236869375,
+      0.9879900352859498
+    ],
+    "max": [
+      0.15616999698638917,
+      0.8441506097412109,
+      1.6790100200271607
+    ],
+    "fixedTriangleAabbCandidates": [],
+    "minimumConservativeGapM": 0.0068494012260437165,
+    "note": "If zero candidates, every fixed triangle is separated from entire swept tire box, stronger than sampled tire-only overlaps. Does not certify full moving-mechanism continuous sweep."
+  }
+}

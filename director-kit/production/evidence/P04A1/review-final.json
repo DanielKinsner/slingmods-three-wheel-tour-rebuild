@@ -1,0 +1,153 @@
+{
+  "runtimeCommit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+  "reviewer": "Lead in separate final review phase; NOT independent final signoff",
+  "status": "LOCAL_STRUCTURE_CHECKS_PASS_VISUAL_APPROVAL_HOLD",
+  "sourceInputsVerified": 211,
+  "protectedFilesVerified": 32,
+  "protectedComponentComparisons": 687,
+  "protectedExportComparisons": 55,
+  "geometryRevisions": 2,
+  "rearRuntimeMetrics": {
+    "wheelCenterError": 2.8689592360540838e-08,
+    "axleCenterError": 1.5099951489990673e-14,
+    "armEndpointError": 1.5099237218637718e-14,
+    "shockEndpointError": 1.2883012860950867e-14,
+    "sweepPoses": 324,
+    "motionFrames": 432,
+    "ordinaryFrames": 192,
+    "movingBrakingFrames": 45,
+    "peakPadSpeedMps": 18.60945570383086,
+    "finalPadSpeedMps": 5.7403302752437174e-09,
+    "maxVisualArmAxialChangeM": 0.03283237482604007
+  },
+  "fullLaps": [
+    {
+      "preset": "day",
+      "rows": 10200,
+      "allPhysicsTelemetryExactReview06": true,
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      },
+      "lastCheckpoint": 15,
+      "maxRearWheelCenterErrorM": 2.76566405332947e-08,
+      "maxAxleErrorM": 2.875636232694573e-13,
+      "maxArmEndpointErrorM": 3.219954221515065e-13,
+      "maxShockEndpointErrorM": 3.170789183648875e-13,
+      "maxAbsArmLengthChangeM": 0.001188898283002171,
+      "views": [
+        "cockpit",
+        "far",
+        "near",
+        "rearward"
+      ],
+      "gears": [
+        1,
+        2
+      ],
+      "movingBrakingRows": 2436
+    },
+    {
+      "preset": "night",
+      "rows": 10200,
+      "allPhysicsTelemetryExactReview06": true,
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      },
+      "lastCheckpoint": 15,
+      "maxRearWheelCenterErrorM": 2.76566405332947e-08,
+      "maxAxleErrorM": 2.875636232694573e-13,
+      "maxArmEndpointErrorM": 3.219954221515065e-13,
+      "maxShockEndpointErrorM": 3.170789183648875e-13,
+      "maxAbsArmLengthChangeM": 0.001188898283002171,
+      "views": [
+        "cockpit",
+        "far",
+        "near",
+        "rearward"
+      ],
+      "gears": [
+        1,
+        2
+      ],
+      "movingBrakingRows": 2436
+    }
+  ],
+  "tests": {
+    "full": "67/67",
+    "directorSubset": "26/26",
+    "build": "PASS",
+    "browserChecks": "6/6",
+    "media": "4/4 decode/duration/frame checks"
+  },
+  "visualInspection": {
+    "method": "Lead examined current 14 runtime stills at contact-sheet scale, six rear motion samples, seven day motion samples, five night motion samples and full-size maximum-droop frame. Full encoded streams were decoded numerically; no claim every frame was visually watched or audio auditioned. Earlier candidate full-size images were also examined but do not replace current provenance.",
+    "observations": [
+      "Known solid firewall no longer crosses central tire; rear suspension/pulley stays distinct from tire and opaque storage walls.",
+      "Full injected droop is visible above floor after capture-only fixture correction.",
+      "Upper shock and arm hardpoint contacts are established by actual exported pin/deck ray tests; dark beauty views alone do not establish every connection.",
+      "Rear storage remains squared and visibly provisional; OEM shape fidelity held.",
+      "Road/apex cues remain readable in day and night; strong hood highlights and light pools remain.",
+      "Palm silhouettes are curved but too thin at 720p. Repeated buildings, sparse infield and overview water highlights remain."
+    ]
+  },
+  "changedImplementationFiles": [
+    "assets/blender/harbor/harbor-p04a.blend",
+    "assets/blender/harbor/harbor.blend",
+    "assets/blender/vehicles/slingshot-p04a1.blend",
+    "public/assets/harbor/harbor.glb",
+    "public/assets/harbor/textures/p04a2/asphalt_basecolor.png",
+    "public/assets/harbor/textures/p04a2/asphalt_normal.png",
+    "public/assets/harbor/textures/p04a2/asphalt_orm.png",
+    "public/assets/harbor/textures/p04a2/concrete_basecolor.png",
+    "public/assets/harbor/textures/p04a2/concrete_normal.png",
+    "public/assets/harbor/textures/p04a2/concrete_orm.png",
+    "public/assets/vehicles/slingshot-p04a1-rear-rig.json",
+    "public/assets/vehicles/slingshot-p04a1.glb",
+    "scripts/build-review07.mjs",
+    "scripts/capture-rear07.mjs",
+    "scripts/capture-review07.mjs",
+    "scripts/capture-waterfront07.mjs",
+    "scripts/harbor-browser-driver07.mjs",
+    "scripts/harbor_waterfront.py",
+    "scripts/harbor_waterfront_inspect.py",
+    "scripts/harbor_waterfront_verify.py",
+    "scripts/package-astra-review07.py",
+    "scripts/validate-review07-media.py",
+    "scripts/vehicle_p04a1_attachment_probe.py",
+    "scripts/vehicle_p04a1_attribute_probe.py",
+    "scripts/vehicle_p04a1_build.py",
+    "scripts/vehicle_p04a1_compare.py",
+    "scripts/vehicle_p04a1_connections.py",
+    "scripts/vehicle_p04a1_hash_probe.py",
+    "scripts/vehicle_p04a1_old_diagnostic.py",
+    "scripts/vehicle_p04a1_preserve_export.py",
+    "scripts/vehicle_p04a1_probe.py",
+    "scripts/vehicle_p04a1_validate.py",
+    "scripts/verify-rear-kinematics.ts",
+    "src/harbor.ts",
+    "src/presentation/harbor-lighting.ts",
+    "src/presentation/hero.ts",
+    "src/presentation/rear-diagnostic.ts",
+    "src/presentation/rear.ts",
+    "src/presentation/vehicle-asset.ts",
+    "src/workbench.ts",
+    "tests/rear-presentation.test.ts"
+  ],
+  "separateReview": "Initial independent source and lighting checks retained. Specialist sessions stopped at usage limit; no paid continuation. Final visual signoff remains held.",
+  "g3Advanced": false,
+  "g4Advanced": false
+}

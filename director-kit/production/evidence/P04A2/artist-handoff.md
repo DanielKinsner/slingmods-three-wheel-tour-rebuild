@@ -1,0 +1,23 @@
+# P04A2 waterfront surgical pass
+
+Current outputs remain assets/blender/harbor/harbor.blend and public/assets/harbor/harbor.glb. Previous accepted land-repaired source preserved at assets/blender/harbor/harbor-p04a.blend; previous GLB, route and external maps preserved under this evidence directory before/. No source regeneration or road height adjustment occurred.
+
+Run existing Blender4.5.2 --background --python scripts/harbor_waterfront.py from the rebuild root. The script always opens the archived land-cut source, so reruns cannot accumulate foliage or repeated texture nodes. Reproduction needs harbor-p04a.blend (packed original maps), current local Blender/numpy and this script. Current harbor.blend remains independently editable. No external texture/model downloads, spend or credentials. Verification script compares the before GLB to current GLB; it requires the local before/ snapshot, which may stay out of the compact final archive.
+
+Exactly three changes:
+
+- Replaced61 rectangular segmented palm crowns with continuous curved midribs, narrow tapered curved leaflets and three deterministic crown variants, including shorter upright center fronds. Trunks/anchors/positions unchanged. Mesh foliage is double-sided through the existing atlas material; no alpha sorting or extra foliage material. First artist oblique view was too sparse; increased coherent crown fill in the same local pass. Actual runtime visual judgment remains separate from the attached Blender diagnostic images.
+- Asphalt UVs now use world XY at2m/tile (1024px original map; approximately1.95mm texel). Original isotropic aggregate and very low-amplitude periodic random cloud replace directional sinusoidal bands. Concrete loses artificial tile-border seams and uses restrained mineral variation; paint roughness reuses the concrete roughness map while preserving marking geometry/color. No road/land/curb/paint vertex moves. Six original PNG maps under public/assets/harbor/textures/p04a2/; original maps retained.
+- src/presentation/harbor-lighting.ts only: lower day ambient/sun wash, warmer sun/cooler fill and slightly deeper sky; night sky/fill supports continuous road cues while moon intensity reduces. Four standard/two low practical pools remain; practical cone .85→1.10rad, penumbra.7→.92, range33→48m, peak2400→1900, with distance-based smoothfade before pool reassignment. No wall-clock state or new reflection effects. Stock car beams, approved vehicle materials, brake-emission behavior and shadow-map budget unchanged. Matched current-runtime lighting judgment and measured wall-clock renderer cost remain lead/reviewer work.
+
+## Exact protection / resources
+
+route.json is byte-identical SHA256 c6ea6764b11f8aa2110ee1f3c9fe41393908665e64f53d34de25cc55ce1a4e19. All3,108 non-frond source mesh vertex arrays/faces/transforms match the preserved source. Current GLB protected material POSITION triangle streams match before for asphalt/runoff/concrete/land/water/dark/luminaire/paint. Modular atlas primitive necessarily changes only foliage; nonfoliage exactness separately established in source.18,480 exported land-corridor rays have zero hits;1,232 just-outside rays retain y0. No collider, route sample, reset or gate writes.
+
+GLB118,400→192,448triangles (+74,048 from replacement frond construction);9→9primitives/materials;9→10embeddedimages;15→16texture records;19,211,796→23,049,440bytes (+3,837,644). Additional embedded image is the exporter-packed paint roughness use, not a new downloaded source. No FPS/GPU-memory claim from these counts. Exact hashes in waterfront01-export.json, resource-diff.json and waterfront-export-validation.json. Current GLB SHA01b74c9ec465077304e158ac7e97e1ca1493e61ad48533d3bbb0a59b3109a1c1.
+
+## Verification and limitations
+
+Blender background export and explicit geometry/land validation pass.3/3 course edge/seam/physical barrier checks pass; TypeScript noEmit passes. A fresh ordinary InputResolver/DrivingSession/Rapier full-lap probe passes again (unchanged78.7192038846s,15gates); see harbor-unchanged-route-lap.json. This does not substitute for root's new ordinary-path full day/night runtime films, matched before/after images or separate reviewer. Before runtime references are existing Review06-final02 images with e1fafb5 attribution. Artist diagnostics here are explicitly Blender renders, not runtime evidence.
+
+No commits made by artist. G3/G4 pending; whole-environment visual quality remains provisional. Sparse infield, repeated buildings, passive mirrors/instruments and car/aural backlog remain beyond this packet.

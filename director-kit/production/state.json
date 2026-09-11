@@ -4,10 +4,10 @@
   "as_of": "2026-09-11",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+  "commit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
   "current_gate": "G3",
-  "current_packet": "P04A1 Rear Assembly Integrity + P04A2 Waterfront",
-  "next_action": "Finish bounded rear integrity and waterfront review, package Review07, then stop for Astra; G3/G4 pending.",
+  "current_packet": "P04A1 + P04A2 implemented for Astra Review07; final visual approval held",
+  "next_action": "STOP for Astra Review07 decision. No next packet or G3/G4 advancement.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -59,7 +59,8 @@
   },
   "blockers": [
     "Broader vehicle fidelity held: rounded edge/subdued ridge and tire groove/machining approximation remain.",
-    "G3/G4 pending: final vehicle/aural/environment fidelity and hardware/physical controls remain held. P04A bounded event was explicitly authorized; no full campaign or originalP04 approval."
+    "G3/G4 pending: final vehicle/aural/environment fidelity and hardware/physical controls remain held. P04A bounded event was explicitly authorized; no full campaign or originalP04 approval.",
+    "Review07: final independent visual review unavailable after specialist usage limit; lead review and structural evidence supplied. Rear OEM storage shape, environment polish, audio timbre and physical-control approval remain held."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
@@ -98,7 +99,7 @@
   "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
-  "commit_meaning": "Frozen captured P04A runtime; later package-only commit recorded by archive manifest",
+  "commit_meaning": "Frozen Review07 captured runtime source; later metadata-only packaging commit recorded in ZIP manifest",
   "known_limitations": [
     "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
     "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
@@ -112,7 +113,9 @@
     "P04A scenery is a modular provisional harbor with angular palms, repeated shed forms, sparse infield, road bands and oversized overview water reflections. No final environmental/vehicle polish approval.",
     "Historical first P04A SwiftShader fixture: frame means350/298/309ms at720p and significant stalls; preserved separately. Replacement RTX4080 D3D11 short720p runs mean16.887/16.666/16.666ms, p95 16.8ms; day max150ms. Not sustained hardware certification or proof of low-mode speed gain.",
     "P04A cockpit uses fixed original eye with scene-specific gaze/FOV; lower hands are more cropped. Night practicals use a nearest-light pool; refined transitions remain visual review work.",
-    "Review06 director found a preserved actual rear tire/firewall intersection and missing rear articulation. P04A1 addresses this specific defect; older blanket vehicle freezes and local appearance claims did not certify rear integrity."
+    "Review06 director found a preserved actual rear tire/firewall intersection and missing rear articulation. P04A1 addresses this specific defect; older blanket vehicle freezes and local appearance claims did not certify rear integrity.",
+    "Review07 resolves old actual rear tire/firewall overlap and chassis-static rear links without wheel/contact/physics edits; two local spatial revisions exhausted. Current rear storage remains boxy/provisional. Vertical-raycast visual linkage approximation and sampled moving-mechanism sweep limits are disclosed in P04A1/review-final.md.",
+    "P04A2 reduces bands and replaces palm crowns but thin silhouettes, repeated buildings, sparse infield and strong highlights remain. Review07 short720pD3D11 means16.860/16.666/16.666ms;daymax133.3ms;not sustained hardware/physical-controller or listening approval."
   ],
   "accepted_assets": [
     "assets/blender/calibration.blend",
@@ -132,20 +135,13 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "local_tests": "64/64 full;22/22 focused input/drivetrain;TypeScript/Vite build PASS. Expected original pitch-coherence failure retained separately.",
-    "independent_review": "Six browser regressions PASS. Land repair:72 frames across two renderers, two presets and two aspects PASS. Replacement movies/stills and179 inputs/45 served hashes/25 protected files checked; final scoped review in P04A/review-final.md.",
-    "gates": "G0/G1/G2 retained. G3/G4 pending. P04A authorized by Review05 despite whole-car/aural hold.",
-    "preservation": "25 protected files unchanged against2fd926c. Simulation changed only environment/box rotation/surface seam; optional session hooks. No force/tire/drivetrain/step,car/driver/sourcebank edits.",
-    "environment": {
-      "os": "Windows11 build26200",
-      "blender": "4.5.2 LTS background",
-      "node": "24.15.0",
-      "npm": "11.6.2",
-      "browser": "153.0.8010.12",
-      "renderer": "Final isolated headless Chromium ANGLE Direct3D11 NVIDIA RTX4080; repair cross-check also SwiftShader; physical output muted",
-      "dependencies": "Retained package-lock; no upgrade"
-    },
-    "evidence": "Review06-final02, Review06-ui02 and Review06-performance02. Controlled24fps video is distinct from wall-clock GPU frame measurement. No physical-controller, human-driving or listening claim."
+    "local_tests": "67/67 full,26/26 director subset,TypeScript/Vite PASS",
+    "ui": "6/6 isolated browser regressions PASS",
+    "media": "Four final videos decode,frame count,duration PASS; aligned offline game audio not auditioned",
+    "preservation": "32 protected file hashes,687 retained source component comparisons,55 protected export comparisons PASS;all10200physicsrows per preset exactly match Review06",
+    "rear": "324 runtime poses;41 supported and4852recorded exported heights x4spins;actual pin/deck connections;continuous tire envelope clear",
+    "review": "Lead separate final phase; independent source/lighting review retained, final independent visual signoff held after quota limit",
+    "evidence": "Review07-final,Review07-rear,Review07-ui,Review07-performance,P04A1/review-final.md,P04A2/review-final.md"
   },
   "director_addendum": "director-addenda/review-06/CODEX_NEXT.md",
   "drivetrain_addendum": {
@@ -283,6 +279,19 @@
         },
         "evidence": "Review06-final02, Review06-ui02 and Review06-performance02. Controlled24fps video is distinct from wall-clock GPU frame measurement. No physical-controller, human-driving or listening claim."
       }
+    },
+    {
+      "packet": "P04A1 + P04A2",
+      "runtime_commit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+      "verification": {
+        "local_tests": "67/67 full,26/26 director subset,TypeScript/Vite PASS",
+        "ui": "6/6 isolated browser regressions PASS",
+        "media": "Four final videos decode,frame count,duration PASS; aligned offline game audio not auditioned",
+        "preservation": "32 protected file hashes,687 retained source component comparisons,55 protected export comparisons PASS;all10200physicsrows per preset exactly match Review06",
+        "rear": "324 runtime poses;41 supported and4852recorded exported heights x4spins;actual pin/deck connections;continuous tire envelope clear",
+        "review": "Lead separate final phase; independent source/lighting review retained, final independent visual signoff held after quota limit",
+        "evidence": "Review07-final,Review07-rear,Review07-ui,Review07-performance,P04A1/review-final.md,P04A2/review-final.md"
+      }
     }
   ],
   "p04a": {
@@ -321,7 +330,7 @@
     "final_post_film_checks": "PASS: valid record, mute/volume, camera, immediate retry and reload in original day context"
   },
   "p04a1": {
-    "status": "in_progress_export_clearance_pending",
+    "status": "local_structure_checks_pass_final_visual_hold_awaiting_astra",
     "authorization": "Review06 overrides prior modeling freeze ONLY for rear body/storage/suspension and shared presenter",
     "found_defect": "Actual exported tire surface penetrates closed rear firewall; axle/arm/shock previously chassis-static",
     "old_collision_reproduced": {
@@ -333,10 +342,31 @@
     "runtime": "Shared rear presenter; authoritative wheel center; arm/belt axial approximation, hub-following axle/nonspinning caliper, fixed upper shock/telescopic sleeves",
     "evidence": "production/evidence/P04A1",
     "g3_advance": false,
-    "g4_advance": false
+    "g4_advance": false,
+    "runtime_commit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+    "geometry_revisions": 2,
+    "source": "assets/blender/vehicles/slingshot-p04a1.blend",
+    "asset": "public/assets/vehicles/slingshot-p04a1.glb",
+    "review": "production/evidence/P04A1/review-final.md",
+    "rear_runtime_metrics": {
+      "wheelCenterError": 2.8689592360540838e-08,
+      "axleCenterError": 1.5099951489990673e-14,
+      "armEndpointError": 1.5099237218637718e-14,
+      "shockEndpointError": 1.2883012860950867e-14,
+      "sweepPoses": 324,
+      "motionFrames": 432,
+      "ordinaryFrames": 192,
+      "movingBrakingFrames": 45,
+      "peakPadSpeedMps": 18.60945570383086,
+      "finalPadSpeedMps": 5.7403302752437174e-09,
+      "maxVisualArmAxialChangeM": 0.03283237482604007
+    },
+    "visual_compromise": "Normal lap arm axial change1.189mm/.182%;supported extreme32.832mm/5.020%;wheel center remains authoritative",
+    "separate_final_review": "HOLD quota limit; lead-only final review",
+    "known_rest_collision": "Resolved in actual exported geometry; preceding finding preserved historically"
   },
   "p04a2": {
-    "status": "export_ready_runtime_review_pending",
+    "status": "implemented_awaiting_astra_visual_polish_hold",
     "scope": [
       "Palm crown construction",
       "Road material scale/variation",
@@ -344,6 +374,15 @@
     ],
     "route_unchanged": true,
     "land_exclusion_preserved": true,
-    "evidence": "production/evidence/P04A2"
+    "evidence": "production/evidence/P04A2",
+    "runtime_commit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+    "review": "production/evidence/P04A2/review-final.md",
+    "visual_holds": [
+      "Thin palm crowns",
+      "Repeated buildings and sparse infield",
+      "Strong hood/overview water highlights and practical pools"
+    ],
+    "g3_advance": false,
+    "g4_advance": false
   }
 }

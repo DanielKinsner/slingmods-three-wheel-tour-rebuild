@@ -1,0 +1,502 @@
+{
+  "method": "Canonical per-triangle corner POSITION/NORMAL/TANGENT/UV attribute tuples, rounded 1e-6, sorted corner order and triangle order. Retained full attributes, not AABB-only; deleted rear shell batch must be a strict subset, new rear pulley material batches strict supersets. Existing Boolean triangulation may have alternative coplanar diagonals.",
+  "oldSha256": "a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af",
+  "newSha256": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c",
+  "checks": [
+    {
+      "name": "body_static__Gloss_Black_Wheel",
+      "oldTriangles": 800,
+      "newTriangles": 800,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "body_static__Machined_Aluminum",
+      "oldTriangles": 120,
+      "newTriangles": 120,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "body_static__Orange_Accent",
+      "oldTriangles": 80,
+      "newTriangles": 80,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "body_static__Radar_Blue",
+      "oldTriangles": 40396,
+      "newTriangles": 40396,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "body_static__Radar_Blue_Textured_Polymer",
+      "oldTriangles": 544,
+      "newTriangles": 544,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "body_static__Radar_Blue_Textured_Polymer:1",
+      "oldTriangles": 152,
+      "newTriangles": 152,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "body_static__Recess_Black",
+      "oldTriangles": 1276,
+      "newTriangles": 1276,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "body_static__Textured_Polymer",
+      "oldTriangles": 33944,
+      "newTriangles": 26796,
+      "removedCanonicalTriangles": 7148,
+      "addedCanonicalTriangles": 0,
+      "allowed": "rear deletions",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Gloss_Black_Wheel",
+      "oldTriangles": 564,
+      "newTriangles": 564,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Instrument_Glass",
+      "oldTriangles": 188,
+      "newTriangles": 188,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Instrument_Scale",
+      "oldTriangles": 188,
+      "newTriangles": 188,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Machined_Aluminum",
+      "oldTriangles": 4300,
+      "newTriangles": 4300,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Radar_Blue",
+      "oldTriangles": 2824,
+      "newTriangles": 2824,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Recess_Black",
+      "oldTriangles": 752,
+      "newTriangles": 752,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Seat_Charcoal",
+      "oldTriangles": 18608,
+      "newTriangles": 18608,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Seat_Silver",
+      "oldTriangles": 6177,
+      "newTriangles": 6177,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Textured_Polymer",
+      "oldTriangles": 15732,
+      "newTriangles": 15732,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "cockpit__Wind_Deflector",
+      "oldTriangles": 5760,
+      "newTriangles": 5760,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "steering_control__Gloss_Black_Wheel",
+      "oldTriangles": 1128,
+      "newTriangles": 1128,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "steering_control__Machined_Aluminum",
+      "oldTriangles": 968,
+      "newTriangles": 968,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "steering_control__Seat_Charcoal",
+      "oldTriangles": 2560,
+      "newTriangles": 2560,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "steering_control__Textured_Polymer",
+      "oldTriangles": 708,
+      "newTriangles": 708,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_left_spin__Gloss_Black_Wheel",
+      "oldTriangles": 9076,
+      "newTriangles": 9076,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_left_spin__Machined_Aluminum",
+      "oldTriangles": 6248,
+      "newTriangles": 6248,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_left_spin__Recess_Black",
+      "oldTriangles": 800,
+      "newTriangles": 800,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_left_spin__Rubber",
+      "oldTriangles": 3584,
+      "newTriangles": 3584,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_left_spin__Textured_Polymer",
+      "oldTriangles": 256,
+      "newTriangles": 256,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_left_steer__Brake_Caliper",
+      "oldTriangles": 188,
+      "newTriangles": 188,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_right_spin__Gloss_Black_Wheel",
+      "oldTriangles": 9076,
+      "newTriangles": 9076,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_right_spin__Machined_Aluminum",
+      "oldTriangles": 6248,
+      "newTriangles": 6248,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_right_spin__Recess_Black",
+      "oldTriangles": 800,
+      "newTriangles": 800,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_right_spin__Rubber",
+      "oldTriangles": 3584,
+      "newTriangles": 3584,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_right_spin__Textured_Polymer",
+      "oldTriangles": 256,
+      "newTriangles": 256,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "front_right_steer__Brake_Caliper",
+      "oldTriangles": 188,
+      "newTriangles": 188,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_brake__Seat_Charcoal",
+      "oldTriangles": 328,
+      "newTriangles": 328,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_brake__Tail_Lens",
+      "oldTriangles": 120,
+      "newTriangles": 120,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_head__Clear_Optical_Cover",
+      "oldTriangles": 564,
+      "newTriangles": 564,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_head__Gloss_Black_Wheel",
+      "oldTriangles": 456,
+      "newTriangles": 456,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_head__Optical_Lens",
+      "oldTriangles": 3492,
+      "newTriangles": 3492,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_head__Optical_Reflector",
+      "oldTriangles": 104,
+      "newTriangles": 104,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_head__Recess_Black",
+      "oldTriangles": 6,
+      "newTriangles": 6,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_signals__Amber_Lens",
+      "oldTriangles": 376,
+      "newTriangles": 376,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_signals__Amber_Reflector",
+      "oldTriangles": 80,
+      "newTriangles": 80,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "lights_signals__Recess_Black",
+      "oldTriangles": 4,
+      "newTriangles": 4,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "rear_spin__Gloss_Black_Wheel",
+      "oldTriangles": 9076,
+      "newTriangles": 9076,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "rear additions",
+      "status": "PASS"
+    },
+    {
+      "name": "rear_spin__Machined_Aluminum",
+      "oldTriangles": 6248,
+      "newTriangles": 6248,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "rear additions",
+      "status": "PASS"
+    },
+    {
+      "name": "rear_spin__Recess_Black",
+      "oldTriangles": 800,
+      "newTriangles": 800,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "rear_spin__Rubber",
+      "oldTriangles": 3584,
+      "newTriangles": 3584,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "rear_spin__Textured_Polymer",
+      "oldTriangles": 256,
+      "newTriangles": 256,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "suspension_front_left__Machined_Aluminum",
+      "oldTriangles": 176,
+      "newTriangles": 176,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "suspension_front_left__Orange_Accent",
+      "oldTriangles": 1920,
+      "newTriangles": 1920,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "suspension_front_left__Textured_Polymer",
+      "oldTriangles": 44,
+      "newTriangles": 44,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "suspension_front_right__Machined_Aluminum",
+      "oldTriangles": 176,
+      "newTriangles": 176,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "suspension_front_right__Orange_Accent",
+      "oldTriangles": 1920,
+      "newTriangles": 1920,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    },
+    {
+      "name": "suspension_front_right__Textured_Polymer",
+      "oldTriangles": 44,
+      "newTriangles": 44,
+      "removedCanonicalTriangles": 0,
+      "addedCanonicalTriangles": 0,
+      "allowed": "none",
+      "status": "PASS"
+    }
+  ]
+}

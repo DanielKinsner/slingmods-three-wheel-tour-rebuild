@@ -1,0 +1,112 @@
+{
+  "runtimeCommit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+  "sourceInputsVerified": 211,
+  "runs": [
+    {
+      "preset": "day",
+      "rows": 10200,
+      "allPhysicsTelemetryExactReview06": true,
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      },
+      "lastCheckpoint": 15,
+      "maxRearWheelCenterErrorM": 2.76566405332947e-08,
+      "maxAxleErrorM": 2.875636232694573e-13,
+      "maxArmEndpointErrorM": 3.219954221515065e-13,
+      "maxShockEndpointErrorM": 3.170789183648875e-13,
+      "maxAbsArmLengthChangeM": 0.001188898283002171,
+      "views": [
+        "cockpit",
+        "far",
+        "near",
+        "rearward"
+      ],
+      "gears": [
+        1,
+        2
+      ],
+      "movingBrakingRows": 2436
+    },
+    {
+      "preset": "night",
+      "rows": 10200,
+      "allPhysicsTelemetryExactReview06": true,
+      "result": {
+        "timeMs": 78719.20388459373,
+        "valid": true,
+        "invalidReason": null,
+        "previousBestMs": null,
+        "bestMs": 78719.20388459373,
+        "differenceMs": null,
+        "firstRecord": true,
+        "newBest": true
+      },
+      "lastCheckpoint": 15,
+      "maxRearWheelCenterErrorM": 2.76566405332947e-08,
+      "maxAxleErrorM": 2.875636232694573e-13,
+      "maxArmEndpointErrorM": 3.219954221515065e-13,
+      "maxShockEndpointErrorM": 3.170789183648875e-13,
+      "maxAbsArmLengthChangeM": 0.001188898283002171,
+      "views": [
+        "cockpit",
+        "far",
+        "near",
+        "rearward"
+      ],
+      "gears": [
+        1,
+        2
+      ],
+      "movingBrakingRows": 2436
+    }
+  ],
+  "postFilmChecks": {
+    "retainedRecord": {
+      "timeMs": 78719.20388459373,
+      "recordedAt": "2026-09-11T22:16:20.726Z"
+    },
+    "retry": {
+      "phase": "countdown",
+      "paused": false,
+      "invalidReason": null,
+      "elapsedMs": 0,
+      "countdown": 2.9,
+      "checkpoint": 0,
+      "total": 15,
+      "result": null,
+      "attempt": 2
+    },
+    "reloadedRecord": {
+      "timeMs": 78719.20388459373,
+      "recordedAt": "2026-09-11T22:16:20.726Z"
+    },
+    "reloadedSettings": {
+      "enabled": false,
+      "paused": false,
+      "mute": true,
+      "volume": 0.35,
+      "cockpit": false,
+      "reset": false
+    },
+    "cameraBefore": "near",
+    "cameraAfter": "far",
+    "camera": "far",
+    "method": "Real valid result, changed sound/camera, immediate retry and reload in same isolated storage context; outside movie"
+  },
+  "captureRates": {
+    "presentationHz": 120,
+    "physicsHz": 60,
+    "videoFps": 24
+  },
+  "pageErrors": [],
+  "separateFinalReviewerAvailable": false,
+  "G3": "pending",
+  "G4": "pending"
+}

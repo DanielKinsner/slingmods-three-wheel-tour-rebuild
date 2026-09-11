@@ -1,0 +1,34 @@
+✔ engine pitch: every contributing bed follows the one commanded engine RPM (1.505ms)
+✔ engine pitch: finite nonnegative layer parameters and nonzero coverage across operating range (2.2554ms)
+✔ engine pitch: lifecycle master muting and no-road-at-rest remain intact (0.1749ms)
+✔ fixture: stationary zero-throttle engine stays at idle (0.6616ms)
+✔ fixture: freely rolling rear wheel raises coupled engine RPM above idle (0.742ms)
+✔ fixture: positive rear wheel overspeed raises RPM above rolling baseline (0.2054ms)
+✔ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.2063ms)
+✔ reverse wheel lock cancels signed rolling rotation while reverse wheelspin raises RPM (0.15ms)
+✔ countdown holds normal controls, initial crossing is not finish; ordered lap interpolates and commits once (4.7129ms)
+✔ backward finish, missing gate, teleport and interior shortcut cannot earn a best (3.5808ms)
+✔ two tires beyond runoff require over .35 seconds; invalid retains practice clock, never records (2.1791ms)
+✔ pause freezes countdown and lap clock; retry clears invalid and retains prior compatible best (2.0662ms)
+✔ directed plane test spans a whole tick and rejects crossing beyond the gate width (0.1601ms)
+✔ valid record survives volume/mute/camera writes and route/light/rules remain distinct (1.9252ms)
+✔ old settings migrate, malformed records drop, corrupt/unavailable storage remains safe (0.2948ms)
+✔ input: signed fractional stick, rescaled deadzone, analog triggers and finite sanitation (1.2807ms)
+✔ input: changed meaningful ownership, noisy drift and unsupported mappings (0.3728ms)
+✔ input: rising camera/direction edges and continuous monotonic reset hold fires once (0.2462ms)
+✔ input: pause/menu poll, neutral resume, interrupted hold, blur and held-button quarantine (0.3049ms)
+✔ input: disconnect/index reuse and held throttle require neutral plus deliberate resume (0.1683ms)
+✔ input: held new controller gesture does not trigger camera/throttle on scene entry (0.1183ms)
+✔ input: a deliberate slow analog ramp takes ownership without per-frame threshold starvation (1.5529ms)
+✔ input: a fresh menu edge can reclaim keyboard while another key remains held (0.1661ms)
+✔ keyboard event buffer: short released taps survive a frame and held repeats do not retoggle (0.5046ms)
+✔ keyboard reset uses monotonic down time and a fresh hold after interruption (0.2084ms)
+✔ keyboard release and repress between rendered frames restarts continuous reset hold (0.1467ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 149.1134
