@@ -4,15 +4,17 @@
   "as_of": "2026-09-10",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "d047c56ba78a6b85a7d1c470d836a696f0753af8",
+  "commit": "fbe89bf31cd81af7b77ec60358c0bcd65056e53a",
   "current_gate": "G3",
   "current_packet": "P03A",
-  "next_action": "Finish only the P03A optical cleanup and local review, then verify normal bay entry and same-asset pad, freeze a local checkpoint, capture and package Astra-Review-02.zip. Stop at that review package. G3 remains pending; no P03B/P03C or campaign work.",
+  "next_action": "Stop after delivering Astra-Review-02.zip and await Astra review. No P03B/P03C, campaign or G3 advancement.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
     "production/evidence/G1/review.json",
-    "production/evidence/G2/review.json"
+    "production/evidence/G2/review.json",
+    "production/evidence/G2-addendum-01/review.json",
+    "production/evidence/P03A/review-final.json"
   ],
   "gates": {
     "G0": {
@@ -57,14 +59,14 @@
     }
   },
   "blockers": [
-    "Final frozen-build route/animation verification, motion capture and independent packet review remain to be recorded. G3 is outside this packet."
+    "G3 intentionally remains pending: finished rider, complete camera/audio set, final garage/road sample and physical-hardware performance evidence are outside P03A."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
     "Physical target-device, GPU performance and controller testing remain unperformed.",
     "Ryker Rally overall-length source discrepancy: 2.35204 m is provisional blockout scale only.",
     "Mass, tire, suspension and drivetrain coefficients are documented simulation estimates; real vehicle handling is not established.",
-    "Finished rider, materials, garage, audio and course sample remain P03 work; no G3 or complete-slice claim."
+    "Finished rider, interactive garage, audio and course sample remain future P03 work; no G3 or complete-slice claim."
   ],
   "commands": {
     "build": "npm run build",
@@ -91,16 +93,19 @@
     "Initial cockpit captures were framed away from a car at z=35 and did not establish steering visuals. Preserved under G2/presenter-revision01; corrected capture reset to z=0 and independent reviewer inspected both final steering views."
   ],
   "kit_revision": 2,
-  "build_mode": "FRESH_START",
+  "build_mode": "EXISTING_REBUILD",
   "workspace_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
   "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
-  "commit_meaning": "Implementation and capture checkpoint preceding this review-and-ledger commit. Accepted G2 runtime source is 8f115fcd44ab0d950e73fd7d24307aae1190e602; d047c56 corrects capture framing and documents the workflow without changing runtime source.",
+  "commit_meaning": "Final runtime/capture checkpoint; subsequent review-and-ledger commit changes no runtime build inputs. ZIP manifest records that later packaging checkpoint.",
   "known_limitations": [
     "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
     "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
-    "The accepted Slingshot is recognizable diagnostic clay; the other two vehicles are scale blockouts. No finished game or complete playable slice has passed."
+    "P03A Slingshot surfaces/materials and compact inspection bay passed local review; the other two vehicles remain scale blockouts. No finished game or complete playable slice has passed.",
+    "P03A uses a 176,218-triangle showroom mesh on the pad as a disclosed exception to the racing-LOD aim; no LOD or measured GPU-memory/performance approval.",
+    "Both final movies are silent. Turntable is frame-stepped runtime capture with tight lower-edge cropping in some views; full neutral stills provide complete silhouettes.",
+    "Instruments, infotainment and lamp emission are passive; no live mirror or nighttime beam system. Photo-guided shapes and materials remain approximations."
   ],
   "accepted_assets": [
     "assets/blender/calibration.blend",
@@ -111,13 +116,20 @@
     "public/assets/vehicles/scale-blockouts.glb",
     "assets/blender/test-pad.blend",
     "public/assets/test-pad.glb",
-    "public/assets/slingshot-contact-layout.json"
+    "public/assets/slingshot-contact-layout.json",
+    "assets/blender/vehicles/slingshot-p03a.blend",
+    "public/assets/vehicles/slingshot-p03a.glb",
+    "assets/blender/inspection-bay-p03a.blend",
+    "public/assets/inspection-bay-p03a.glb",
+    "public/assets/textures/p03a/",
+    "public/assets/textures/bay/"
   ],
   "verification": {
-    "independent_tests": "16/16 integrated tests passed, including 13 driving checks",
-    "gates": "G0, G1 and G2 independent PASS; all three evidence-integrity validators pass",
-    "preservation": "Separate new Git root; supplied original kit hashes unchanged; no legacy source/assets or saves imported",
-    "evidence": "Actual Blender source/export checks, runtime stills, four final motion videos, 21 telemetry scenarios, fixed-step scheduling and keyboard/pause/reset tests"
+    "independent_tests": "Final independent npm test 29/29 and TypeScript no-emit pass; production build passes with existing chunk-size warning.",
+    "gates": "Historical G0/G1/G2 passed and preserved; signed-RPM addendum and narrowed P03A independently passed. G3 remains pending.",
+    "preservation": "Historical G0/G1/G2, P01 source/export, pad and contact layout unchanged against b073e1e. Existing correct standalone repository retained.",
+    "evidence": "Seven final runtime stills, actual Rear view, synchronized 145-frame full turn/light sweep, actual keyboard pad movie; both movies fully decoded and silent. 49 build-input and 11 served hashes verified.",
+    "environment": "Windows 11 build 26200; Blender 4.5.2 LTS; Node 24.15.0; isolated Chromium 153.0.8010.12/SwiftShader. No physical hardware FPS or subjective handling approval."
   },
   "director_addendum": "director-addenda/review-01/CODEX_NEXT.md",
   "drivetrain_addendum": {
@@ -128,11 +140,14 @@
   },
   "fresh_start_requirement": "Fulfilled by this existing standalone repository; continue here without scaffolding, resetting or importing legacy assets.",
   "p03a": {
-    "status": "local_surface_material_review_passed_final_motion_pending",
-    "visual_review": "production/evidence/P03A/review-material04.md",
+    "status": "independently_passed_narrowed_checkpoint",
+    "visual_review": "production/evidence/P03A/review-final.md",
     "asset": "public/assets/vehicles/slingshot-p03a.glb",
     "sha256": "5ca79ccf1608491a4c82079d570d0928c85c3581f5ebcf7d557404864250cee2",
     "normal_entry": "inspection bay",
-    "scope": "One Slingshot and same-asset test pad only; G3 pending"
+    "scope": "One Slingshot, compact inspection bay and same-asset test pad only; stop for Astra review; G3 pending",
+    "review": "production/evidence/P03A/review-final.json",
+    "runtime_commit": "fbe89bf31cd81af7b77ec60358c0bcd65056e53a",
+    "evidence": "production/evidence/P03A/final-02/"
   }
 }

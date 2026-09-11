@@ -1,0 +1,184 @@
+{
+  "review_mode": "independent_subagent",
+  "reviewer": "/root/gate_review",
+  "created": "2026-09-11T00:25:58.354Z",
+  "packet": "P03A",
+  "runtime_commit": "fbe89bf31cd81af7b77ec60358c0bcd65056e53a",
+  "decision": "PASS",
+  "scope": "Narrow P03A local asset/bay/pad acceptance. Review ZIP assembly remains the integration lead task; ZIP bytes are not certified by this review.",
+  "g3": "pending",
+  "criteria": [
+    {
+      "id": "surfaces",
+      "status": "PASS",
+      "finding": "Neutral front, side, rear-quarter, three-quarter and cockpit views retain the exact-year reference identity with reconstructed primary panels, boarding cutout, seat/cowl/console and open optical housings. Prior neutral/glossy checkpoint preceded full maps. Photo-based approximation, not OEM CAD.",
+      "evidence": [
+        "final-02/neutral-front.png",
+        "final-02/neutral-side.png",
+        "final-02/neutral-rearquarter.png",
+        "final-02/neutral-threequarter.png",
+        "final-02/cockpit.png",
+        "review-surface05.md",
+        "review-material04.md"
+      ]
+    },
+    {
+      "id": "light_sweep",
+      "status": "PASS",
+      "finding": "Corrected full 360-degree runtime orbit exposes hood/shoulder/side/rear surfaces under changing reflections without a new obvious primary pinching/intersection blocker. All 145 raw frame hashes and sequential angles match manifest. Tight front/three-quarter framing crops some lower edges; full stills supply silhouette coverage.",
+      "evidence": [
+        "final-02/turntable/turntable-runtime-stepped-SILENT.mp4",
+        "final-02/turntable/provenance.json",
+        "CAPTURE-CORRECTION.md"
+      ]
+    },
+    {
+      "id": "materials",
+      "status": "PASS",
+      "finding": "Blue paint and dark/orange graphics, matte polymer/rubber/upholstery, machined wheel faces, glass and visible lamp cells read distinctly. Actual mapped runtime export inspected. Spokes, graphics, lens details and upholstery remain simplified; instruments are passive.",
+      "evidence": [
+        "final-02/material-detail.png",
+        "final-02/cockpit.png",
+        "final-02/bay.png",
+        "artist/texture-manifest.json",
+        "artist/export-validation.json"
+      ]
+    },
+    {
+      "id": "bay_routes_and_animation",
+      "status": "PASS",
+      "finding": "Normal bay, Inspect, Drive same GLB, return bay and explicit calibration verified. Actual Rear screenshot now shows vehicle; shared inspection camera boundary fixes prior wall occlusion. Final assertions cover wheel spin, front/cockpit steering, suspension and nonspinning rear-caliper travel.",
+      "evidence": [
+        "verification-final-02/browser-verification.json",
+        "verification-final-02/normal-inspect-rear.png",
+        "final-02/capture-report.json"
+      ]
+    },
+    {
+      "id": "pad_shadow",
+      "status": "PASS",
+      "finding": "Final actual keyboard pad movie shows acceleration, both steering directions, braking to rest and near/far chase change with intact asset and vehicle shadow. No large moving bands seen across full-duration 2 Hz samples. Controlled legacy/repaired policy evidence supports caster/receiver repair; exact GPU precision mechanism remains unproved.",
+      "evidence": [
+        "final-02/pad-driving-SILENT.webm",
+        "final-02/capture-report.json",
+        "shadows/DIAGNOSIS.md"
+      ]
+    },
+    {
+      "id": "rpm_regression",
+      "status": "PASS",
+      "finding": "Independent targeted addendum remains valid; same drivetrain/simulation source hashes. Signed rolling plus overspeed correction retained, no test weakening. Final independent normal-suite rerun 29/29 and TypeScript no-emit pass. Body-forward tick-start engine coupling remains an explicit estimate with quantified contact-speed discrepancy.",
+      "evidence": [
+        "../G2-addendum-01/review.md",
+        "../G2-addendum-01/review.json"
+      ]
+    },
+    {
+      "id": "export_and_provenance",
+      "status": "PASS",
+      "finding": "Editable Blender and authored maps retained. 52 primitives, 176218 triangles, 16 embedded maps, 7726756-byte GLB; exact census and 18 protected transforms retained. Same-view color submissions fall from 214 to 55 (cockpit160 to49). All49 build inputs match disk and frozen commit after CRLF normalization; all11 served manifest/JS/CSS/GLB hashes independently fetched and match. Historical G0/G1/G2, P01, pad and contact files unchanged against b073e1e.",
+      "evidence": [
+        "final-asset-census.json",
+        "STATISTICS.md",
+        "final-02/capture-report.json",
+        "verification-final-02/browser-verification.json"
+      ]
+    }
+  ],
+  "blocking_findings": [],
+  "verification": {
+    "tests": "Independent npm test: 29/29 pass; npx tsc --noEmit exit0 on final frozen source.",
+    "visual_method": "All seven final PNGs and final Rear PNG viewed directly. Corrected MP4 decoded and visually sampled at4Hz across12.083333s (48 samples); actual keyboard WebM decoded and visually sampled at2Hz across42.8s (86 samples). Not normal-speed human playback or hands-on play.",
+    "orbit_manifest": "All145 raw frame hashes, angle sequence, movie hash and capture-script hash independently checked.",
+    "provenance": "49 current build-input hashes checked; frozen Git blobs match with16CRLF-only text differences; 11 served hashes independently fetched and checked.",
+    "preservation": "git diff b073e1e HEAD for historical G0/G1/G2, P01 blend/GLB, pad GLB and contact layout returned no changes."
+  },
+  "limitations": [
+    "Windows isolated headless Chromium153.0.8010.12/SwiftShader; no physical GPU/FPS, controller or subjective handling approval.",
+    "Orbit is frame-stepped runtime screenshots encoded at12fps, not real-time performance; tight lower-edge cropping disclosed. Pad42.8s includes loading/software pacing; eight stages requested11.5simulation seconds.",
+    "Both movies are silent. Rider, audio, broader cameras, interactive garage, course/race/upgrade content and G3 remain pending.",
+    "Photo-derived modeled geometry/graphics/materials remain approximations; passive instruments and simplified optics are not functional infotainment/night beams.",
+    "176218 showroom triangles exceed140k racing-LOD aim; same detailed asset on pad is disclosed P03A exception. Runtime73.33MiB texture figure is allocation estimate, not measured GPU residency.",
+    "Shadow caster-policy repair is observed; exact transient GPU mechanism not isolated.",
+    "Original b67734 partial movie and Rear-wall failure remain preserved and rejected as historical evidence."
+  ],
+  "sha256": {
+    "index.html": "b2dd9e3c4e8ee60fd65300b9eaa4b9f40e4e3af555dcf89a23c0127b8a779960",
+    "package-lock.json": "6e13f8ddde428622a8199eee39bbc5a37471957c5bd6760bd57592f4059fea4f",
+    "package.json": "029e4601f92cd73c97f26683422f149cb2f9917bc36801fc0d88889acf257ae0",
+    "public/assets/calibration.glb": "861f30f03891d4593969ce93e301afa7757cd3e276c49a602be376be11ba4dcf",
+    "public/assets/inspection-bay-p03a.glb": "58614b46d2a687da3f38e43e78c50b98bbf5e75537bf2db9885f1af7fcf83b24",
+    "public/assets/pad-layout.json": "4458ea707df606a5ea3660ff1e87ca1d4e0b6868053512da40b693932f23c06c",
+    "public/assets/slingshot-contact-layout.json": "35a5862b275de62e45b58e7a62b0b0b513371a336b4ca5f09eb66bc1c8e11da3",
+    "public/assets/test-pad.glb": "fdcda36abd5366a4a5f12e6692973de6a6f06e6d3929f9e16c88f31146bda304",
+    "public/assets/textures/bay/microcement_base.png": "6d8eee5ed788740a9b9585a77312ffb62b65437753d45e2b699c8cb031b6d4d5",
+    "public/assets/textures/bay/microcement_normal.png": "5e914a6c4fb4940c5e9cc36a25fe2bf5511c2945f215397db0dd14a71b706666",
+    "public/assets/textures/bay/microcement_roughness.png": "4ae0cf31faf2f1e50a1884b711e719942200a53200c6ef4cf634bf9146617354",
+    "public/assets/textures/p03a/instrument-scale_basecolor.png": "044111f6221108be869f78c11dacb98f73e7cc352af22af1072258b99647ac84",
+    "public/assets/textures/p03a/machined-alloy_basecolor.png": "f3e3137d107c2e8791b3153415e27439a788aa0756d537bb403ebe5f47b86c06",
+    "public/assets/textures/p03a/machined-alloy_normal.png": "d9c93c854f3258616b0683232e6912d4bff6a460f79b31223181011479465dfb",
+    "public/assets/textures/p03a/machined-alloy_orm.png": "f79f16d7ae96ef464506dca034fb99e74ffa42eb666b6d62f46fb5948eec7126",
+    "public/assets/textures/p03a/molded-polymer_basecolor.png": "2c48d71daa44fb62e4357384476bee7b135c40f65fc1c00c1916c245cc018629",
+    "public/assets/textures/p03a/molded-polymer_normal.png": "c2bd912cf356ee18e2de2243f258ee9cc48c1dd5d4709bb088dd7e501aa84eca",
+    "public/assets/textures/p03a/molded-polymer_orm.png": "d857e98e00457e06994bdfe40d23df0dc5e3ee1236d82a81a66979cedeab0afc",
+    "public/assets/textures/p03a/radar-blue_basecolor.png": "9c2eb68d2fd3abb66a2166617281310d3cf4cc693ccca3cc4ed004d599e420b8",
+    "public/assets/textures/p03a/radar-blue_normal.png": "621d76fd2971b80c3023561840a60c8516c13fb106b67cf366ade31b49621025",
+    "public/assets/textures/p03a/radar-blue_orm.png": "45ba10e7ba3dd36237635ba67dc8c5b042c4a4f49e5dcd136ebfdfc2fcb9ecce",
+    "public/assets/textures/p03a/road-tire_basecolor.png": "935be6da538d31240ed23fabb246597d09b8785e0879c38f6103b6344c1dc88b",
+    "public/assets/textures/p03a/road-tire_normal.png": "993942667ff59140dcce1587ef633578816aaa9ea7684d8b2d32862d22c5ba93",
+    "public/assets/textures/p03a/road-tire_orm.png": "2c3df05a40e4ad2524d8d8a18ee9808405465e8c3d3f002ef667398e9799f3c9",
+    "public/assets/textures/p03a/sport-seat_basecolor.png": "50365bf8b708c54eca508bb2f70bb2a050a87a1ab367265d639135fe7bae5c1f",
+    "public/assets/textures/p03a/sport-seat_normal.png": "19ca43b9e9206bbe22011e4653ee7c6c77fe15969e428e1b32c6163b8ccf1f00",
+    "public/assets/textures/p03a/sport-seat_orm.png": "3b2a4ca416855ef0cc24d7b872cf95db027c1575400f79940ab0800f07a51303",
+    "public/assets/vehicles/scale-blockouts.glb": "78a17b36da6a5c0e2c29dca7cb106356944208613ad156ad5c4a5be8aa77cfd5",
+    "public/assets/vehicles/slingshot-p03a.glb": "5ca79ccf1608491a4c82079d570d0928c85c3581f5ebcf7d557404864250cee2",
+    "public/assets/vehicles/slingshot.glb": "5e3c7adfb0ef5470b5ce19f3d8049d8a0d99431eb3bf5636f966ca9f5e5ab143",
+    "scripts/build-review.mjs": "ffdaf21c41d0aa8597bf9e10a49b42b4c3014408917fe195d5376e8749d83b50",
+    "scripts/capture-p03a-review.mjs": "30baad402448bb8a615d63a1bf552bf2d51715001c2ebcaed0e039944a9a3067",
+    "scripts/record-p03a-turntable.mjs": "07804f931609c43dae597c05e4a82b2f7ac07ce02d6d3059b9c54c164353f41c",
+    "scripts/verify-p03a-browser.mjs": "d2cf09a79f7576f80432b723db4fa5471114ed1ed046ee7f0e60b7f7ce27210c",
+    "src/build.d.ts": "fe2b9cbff3c0ec7157f979ed01e6aa4a3d7e74716e67746c1d010ea42859d432",
+    "src/calibration.ts": "0f62fd1b604d8761598410a082011c38e01c8d3152b90d901a5b7521af8766fe",
+    "src/main.ts": "5fb3975d38b2f89242f69ffa909e555843fe77adf10cc8b99bc0838cd30c8747",
+    "src/presentation/shadows.ts": "66d954641f911813175e3945eff6b3c81834d6aa76a2424c851595f9100f4d21",
+    "src/presentation/statistics.ts": "ec73d406122e5782670df19c48a625a8959d03aee52346550c3b19d572111a8e",
+    "src/save.ts": "c79057d8722408de82abdc0bfb0266b0c4d448758fb4fb37f4185c910fe0aa77",
+    "src/simulation/drivetrain.ts": "361624e7a0ca8f6594f8c21cf195486c76462040f68afcf9a9f9dd1e2f65d6cc",
+    "src/simulation/index.ts": "52b231ecbf5f56568f7473b221c915e464810ef501f955cbee790965a7865c3a",
+    "src/simulation/pad.ts": "d3939caeff211cb6f1228fce41b028b2460c89f8f615818932e260f13c506ed8",
+    "src/simulation/scenarios.ts": "fcf0592ca210e958e2686b4116e7adca098a04879abd7a0a7d519a8613f74e84",
+    "src/style.css": "cf7084cd145b9d922405a1cb03fce9b8ba12450a575d006d76514c23babeee2a",
+    "src/workbench.css": "dd9e56c4f15bb3457b3b4b23ce282536ac21b22db3f939a4719d2a80059685a5",
+    "src/workbench.ts": "f0421f65225dcf7c3b1ed1414856b9d19470934b49224d7425eede12fe8fe152",
+    "tsconfig.json": "b4ca80e916cc1a3220a20a62f3892800caf4338e8edce8ce1cbc81d2c1e574d9",
+    "vite.config.ts": "e281dacdfae13ba98b97f62317775e0efbae527fccd7da498e03d9277fd24b58",
+    "assets/blender/vehicles/slingshot-p03a.blend": "8daadbe0db678e2767579e8b0ec3b52c2a14ac6719dc3aa64d982f77dff41e25",
+    "assets/blender/vehicles/slingshot-p03a-material-lab.blend": "0eccda45eb550f6250a993717e37d21ec0e006809d5b75e2379eb6885a5bc99d",
+    "assets/blender/vehicles/slingshot-p01.blend": "da45923fa8e55055d372c44ce07b4c9455aa913aa7c93d2d5998792c74f9edc1",
+    "dist/review-build.json": "1a5f88ce6a3ea2ae909c4a64205e70122df5cc51d5bdf178736ab89724f6101d",
+    "director-kit/production/evidence/P03A/final-02/neutral-front.png": "74c3810737ab8cd5493ee9e39f8a8f070b74a401ceb68136cbbec85f63b2ef72",
+    "director-kit/production/evidence/P03A/final-02/neutral-side.png": "ea5a857202b598eb9c6ad9263721ea5983abb3f9e1e6f8dfa0b344057c7695e0",
+    "director-kit/production/evidence/P03A/final-02/neutral-rearquarter.png": "01eb37c49666f61c7f0c39ef1c7378bb4439aacde03461026d9b2a4e6b8016fb",
+    "director-kit/production/evidence/P03A/final-02/neutral-threequarter.png": "2510f1f4203564349574b19b0781910975a1e8f1b5426c864e759f1e50d99702",
+    "director-kit/production/evidence/P03A/final-02/cockpit.png": "4fa6e3668ac62ae8e0099351bcab338ae64c5ee18c5cf49ea02c5707e5f312e0",
+    "director-kit/production/evidence/P03A/review-surface05.md": "dfd8352df487b25e38fa4b65a8d17fccffc0e0c6d26dc683066244a6107d03da",
+    "director-kit/production/evidence/P03A/review-material04.md": "161861d529de1aa7e68766d9f76b65151006e2910c25a556f59fee48735d0510",
+    "director-kit/production/evidence/P03A/final-02/turntable/turntable-runtime-stepped-SILENT.mp4": "492f5e32e9654afc8ae56f103a7ef81a622128ab594f4b29a342d0457d75505f",
+    "director-kit/production/evidence/P03A/final-02/turntable/provenance.json": "ac2a92ae0b6e96b56a52deb94ad2ab2e66298073c2e6e3c4487a1c54e4af05bf",
+    "director-kit/production/evidence/P03A/CAPTURE-CORRECTION.md": "ca04d63a11ce30e3a6dbc0a3c42848c5706326631815b930f70d32f3f8f1681d",
+    "director-kit/production/evidence/P03A/final-02/material-detail.png": "6dccbab654f1351c8cb5d15d6198511ca2ca509b4fba0e6fc8f170751746eec0",
+    "director-kit/production/evidence/P03A/final-02/bay.png": "e0be780a15bedc3de9fb6c8f89144bf8b3d049100f8e7a985cb219726c0ef0b1",
+    "director-kit/production/evidence/P03A/artist/texture-manifest.json": "80faa6ddc1f1d7836c621b370e44f947d1651d871377bf71a35f3f453c90775c",
+    "director-kit/production/evidence/P03A/artist/export-validation.json": "083f4f9aa71a8a9b745a2a73152c4908fab090a52fbb9fa4377dd78a4643f7ca",
+    "director-kit/production/evidence/P03A/verification-final-02/browser-verification.json": "325e6fb2d0b335b1b975b8b32766dcf17cf650d7933c1d229b3f3426428d2f1e",
+    "director-kit/production/evidence/P03A/verification-final-02/normal-inspect-rear.png": "782948026704ebdc9f02e9d52e0eb333d12946338fc4a0f5ea4c3060141694bb",
+    "director-kit/production/evidence/P03A/final-02/capture-report.json": "0317b091b6e141e44f9834df7dc51def9436ce78843545b60dc100d947a63506",
+    "director-kit/production/evidence/P03A/final-02/pad-driving-SILENT.webm": "8d62754eb607cbfe58aa228bf244ee20a5171f78e8034283f07a1fdfc678cce2",
+    "director-kit/production/evidence/P03A/shadows/DIAGNOSIS.md": "2b0c7108963b6ebf22c97b245d721f6010e8acdaa5f9cd8bdb24bf6ff6481c0b",
+    "director-kit/production/evidence/P03A/../G2-addendum-01/review.md": "a8fe9d216203f9acea8b3f0c985da003184c23de1034255548fd0b33e3d09b91",
+    "director-kit/production/evidence/P03A/../G2-addendum-01/review.json": "d13ae7bf060b00915896796205c9e1c502d2a831cd6d733fd1bfce73a916c745",
+    "director-kit/production/evidence/P03A/final-asset-census.json": "466d3269bbd57b03a389fc9e14933aadc420076a6552513ccb47c9980daf04da",
+    "director-kit/production/evidence/P03A/STATISTICS.md": "28a9d0bf50948d50251b298a264387a2e7b5ebc7623bc1e4773a615fec723bf5",
+    "director-kit/production/evidence/P03A/final-02/media-verification.json": "98f68a6868ec98a47ab537fd8706550156e18c0acbbb1fcd34c4463aacdf62a9"
+  }
+}
