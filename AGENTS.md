@@ -1,3 +1,9 @@
+# ACTIVE ASSIGNMENT — P05 First Night at the Harbor
+
+Read director-kit/director-addenda/review-09/CODEX_NEXT.md and its required packets. These explicitly supersede older scope freezes. One lead and at most two narrowly scoped workers; one final Review10. Preserve physics constants, accepted assets, saves and stable lights; G3/G4 remain pending.
+
+# Historical assignments — context only, not active scope restrictions
+
 Follow director-kit/AGENTS.md and director-kit/FRESH_START_POLICY.md. This is the new standalone implementation. All gate evidence belongs under director-kit/production/evidence. Do not modify the supplied sibling kit or import legacy game assets. Use background Blender and isolated headless browser tests. Independent reviewer required by the kit; at most three active workers, non-overlapping ownership.
 
 The fresh-start requirement is already fulfilled by THIS standalone repository. Continue here; do not scaffold another project. The previous assignment was director-kit/director-addenda/review-01/CODEX_NEXT.md (Astra review01): targeted RPM correction plus P03A vehicle surfaces/maps, compact material-inspection bay and same-asset pad/shadow proof. Preserve P01 and historical evidence. No rider, full original P03, campaign, races, other vehicles or G3 PASS in this packet.

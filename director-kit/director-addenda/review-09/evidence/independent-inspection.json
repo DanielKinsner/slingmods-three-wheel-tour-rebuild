@@ -1,0 +1,513 @@
+{
+  "artifact": "Astra Review09 independent analysis",
+  "method": "Recomputed from supplied raw files; no local browser/GPU benchmark. Percentiles use linear interpolation. Reading recorded results is not rerunning their race physics.",
+  "runtimeCommit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+  "packagingCommit": "ba8aeca94ab5151cbd9546909c9615f58175f898",
+  "manifest": {
+    "verifiedEntries": 328,
+    "mismatches": []
+  },
+  "capturedInputs": {
+    "count": 241,
+    "mismatches": [],
+    "missing": [],
+    "packagingOverrides": {
+      "scripts/package-astra-review09.py": "0dec12107a7e6077da7270f3aeabea3bb2f2fd7f29472ed9ea5047ca6ec6c753"
+    }
+  },
+  "protected": {
+    "previous": "Astra-Review-08.zip",
+    "verifiedCount": 41,
+    "verified": [
+      "public/assets/audio/p03b2/engine-1200-lift.wav",
+      "public/assets/audio/p03b2/engine-1200-load.wav",
+      "public/assets/audio/p03b2/engine-3600-lift.wav",
+      "public/assets/audio/p03b2/engine-3600-load.wav",
+      "public/assets/audio/p03b2/engine-6200-lift.wav",
+      "public/assets/audio/p03b2/engine-6200-load.wav",
+      "public/assets/audio/p03b2/provenance.json",
+      "public/assets/audio/p03b2/road.wav",
+      "public/assets/audio/p03b2/shift.wav",
+      "public/assets/audio/p03b2/wind.wav",
+      "public/assets/drivers/test-driver-attachment.json",
+      "public/assets/drivers/test-driver.glb",
+      "public/assets/drivers/textures/basecolor.png",
+      "public/assets/drivers/textures/normal.png",
+      "public/assets/drivers/textures/orm.png",
+      "public/assets/harbor/harbor.glb",
+      "public/assets/harbor/route.json",
+      "public/assets/slingshot-contact-layout.json",
+      "public/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "public/assets/vehicles/slingshot-p04a1.glb",
+      "src/audio/game-audio.ts",
+      "src/audio/graph.ts",
+      "src/audio/mapper.ts",
+      "src/course/environment.ts",
+      "src/driving/input.ts",
+      "src/driving/session.ts",
+      "src/presentation/driver.ts",
+      "src/presentation/driving-camera.ts",
+      "src/presentation/hero.ts",
+      "src/presentation/rear.ts",
+      "src/race/attempt.ts",
+      "src/save.ts",
+      "src/simulation/drivetrain.ts",
+      "src/simulation/index.ts",
+      "src/simulation/pad.ts",
+      "src/simulation/scenarios.ts",
+      "src/career/catalog.ts",
+      "src/career/store.ts",
+      "src/career/client.ts",
+      "src/career/build-ui.ts",
+      "public/assets/products/tricled-sm133-base.glb"
+    ],
+    "mismatches": [],
+    "unavailableForIndependentComparison": [
+      "assets/blender/harbor/harbor.blend",
+      "assets/blender/vehicles/slingshot-p03a2.blend",
+      "assets/blender/vehicles/slingshot-p04a1.blend",
+      "public/assets/vehicles/slingshot-p03a2.glb"
+    ]
+  },
+  "servedAssetMismatches": [],
+  "runs": [
+    {
+      "name": "scored-equipped1080",
+      "commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+      "browser": "153.0.8010.12",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "drawingBuffer": [
+        1920,
+        1080
+      ],
+      "DPR": 1,
+      "recording": false,
+      "expandedGLDiagnostic": false,
+      "oldFullInspection": false,
+      "preserveDrawingBuffer": false,
+      "racingIntervals": 9410,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "worstRacingMs": 16.800000000017462,
+      "above33_4Ms": 0,
+      "above50Ms": 0,
+      "above100Ms": 0,
+      "allPhaseMaxMs": 100.10000000000014,
+      "racingShaderCounts": [
+        14
+      ],
+      "residentSpotCounts": [
+        6
+      ],
+      "residentAreaCounts": [
+        2
+      ],
+      "timestampMismatchRows": 0,
+      "overflow": 0,
+      "sourceLoadMs": 1846.5,
+      "preparationMs": 1081.9000000001397,
+      "raceResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "scored-equipped1080-repeat",
+      "commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+      "browser": "153.0.8010.12",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "drawingBuffer": [
+        1920,
+        1080
+      ],
+      "DPR": 1,
+      "recording": false,
+      "expandedGLDiagnostic": false,
+      "oldFullInspection": false,
+      "preserveDrawingBuffer": false,
+      "racingIntervals": 9410,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "worstRacingMs": 16.800000000017462,
+      "above33_4Ms": 0,
+      "above50Ms": 0,
+      "above100Ms": 0,
+      "allPhaseMaxMs": 100,
+      "racingShaderCounts": [
+        14
+      ],
+      "residentSpotCounts": [
+        6
+      ],
+      "residentAreaCounts": [
+        2
+      ],
+      "timestampMismatchRows": 0,
+      "overflow": 0,
+      "sourceLoadMs": 2187.8000000000466,
+      "preparationMs": 1359.8999999999069,
+      "raceResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "scored-equipped720",
+      "commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+      "browser": "153.0.8010.12",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "drawingBuffer": [
+        1280,
+        720
+      ],
+      "DPR": 1,
+      "recording": false,
+      "expandedGLDiagnostic": false,
+      "oldFullInspection": false,
+      "preserveDrawingBuffer": false,
+      "racingIntervals": 9410,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "worstRacingMs": 16.800000000017462,
+      "above33_4Ms": 0,
+      "above50Ms": 0,
+      "above100Ms": 0,
+      "allPhaseMaxMs": 100,
+      "racingShaderCounts": [
+        14
+      ],
+      "residentSpotCounts": [
+        6
+      ],
+      "residentAreaCounts": [
+        2
+      ],
+      "timestampMismatchRows": 0,
+      "overflow": 0,
+      "sourceLoadMs": 2402.100000000093,
+      "preparationMs": 1477.6000000000931,
+      "raceResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "scored-stock1080",
+      "commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+      "browser": "153.0.8010.12",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "drawingBuffer": [
+        1920,
+        1080
+      ],
+      "DPR": 1,
+      "recording": false,
+      "expandedGLDiagnostic": false,
+      "oldFullInspection": false,
+      "preserveDrawingBuffer": false,
+      "racingIntervals": 9410,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "worstRacingMs": 16.800000000017462,
+      "above33_4Ms": 0,
+      "above50Ms": 0,
+      "above100Ms": 0,
+      "allPhaseMaxMs": 116.69999999999982,
+      "racingShaderCounts": [
+        14
+      ],
+      "residentSpotCounts": [
+        6
+      ],
+      "residentAreaCounts": [
+        2
+      ],
+      "timestampMismatchRows": 0,
+      "overflow": 0,
+      "sourceLoadMs": 2146,
+      "preparationMs": 1245.8000000000466,
+      "raceResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "scored-stock720",
+      "commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+      "browser": "153.0.8010.12",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "drawingBuffer": [
+        1280,
+        720
+      ],
+      "DPR": 1,
+      "recording": false,
+      "expandedGLDiagnostic": false,
+      "oldFullInspection": false,
+      "preserveDrawingBuffer": false,
+      "racingIntervals": 9409,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "worstRacingMs": 33.19999999999709,
+      "above33_4Ms": 0,
+      "above50Ms": 0,
+      "above100Ms": 0,
+      "allPhaseMaxMs": 100,
+      "racingShaderCounts": [
+        14
+      ],
+      "residentSpotCounts": [
+        6
+      ],
+      "residentAreaCounts": [
+        2
+      ],
+      "timestampMismatchRows": 0,
+      "overflow": 0,
+      "sourceLoadMs": 1847,
+      "preparationMs": 1080.8000000000466,
+      "raceResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "aggregate": {
+    "scoredRuns": 5,
+    "reportedValidLaps": 10,
+    "racingIntervals": 47049,
+    "p95Ms": 16.70000000001164,
+    "p99Ms": 16.80000000000291,
+    "worstMs": 33.19999999999709,
+    "over33_4Ms": 0,
+    "allPhaseMaxMs": 116.69999999999982
+  },
+  "baselines": [
+    {
+      "name": "baseline-clean",
+      "recording": false,
+      "preserveDrawingBuffer": false,
+      "maxRenderSubmissionMs": 3982.7999999999884,
+      "maxRAFIntervalMs": 3983.2000000000007,
+      "worstRenderRafMs": 10286.5,
+      "programTransitions": [
+        {
+          "wall": 4652.600000000035,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        },
+        {
+          "wall": 14271.100000000035,
+          "event": "program-count",
+          "data": {
+            "from": 14,
+            "to": 27
+          }
+        }
+      ],
+      "blockingInfoCallsInWorstRender": 0,
+      "blockingInfoCalls": [],
+      "limit": "Historical baseline byte snapshot not independently preserved; causal support is trace plus changed source, not a freshly rerun baseline."
+    },
+    {
+      "name": "baseline-diagnostic-gl",
+      "recording": false,
+      "preserveDrawingBuffer": false,
+      "maxRenderSubmissionMs": 3954.8000000000466,
+      "maxRAFIntervalMs": 3949.8999999999996,
+      "worstRenderRafMs": 10215,
+      "programTransitions": [
+        {
+          "wall": 4611.199999999953,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        },
+        {
+          "wall": 14173.400000000023,
+          "event": "program-count",
+          "data": {
+            "from": 14,
+            "to": 27
+          }
+        }
+      ],
+      "blockingInfoCallsInWorstRender": 13,
+      "blockingInfoCalls": [
+        {
+          "name": "getProgramInfoLog",
+          "start": 10221.400000000023,
+          "ms": 235.5
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 10458.29999999993,
+          "ms": 342.60000000009313
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 10803.29999999993,
+          "ms": 223.20000000006985
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 11028,
+          "ms": 239.79999999993015
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 11269.699999999953,
+          "ms": 240
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 11511.400000000023,
+          "ms": 343.5999999999767
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 11858,
+          "ms": 392.5999999999767
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 12253.79999999993,
+          "ms": 249
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 12504.599999999977,
+          "ms": 420.5999999999767
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 12926.699999999953,
+          "ms": 259.0999999999767
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 13187.400000000023,
+          "ms": 247.39999999990687
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 13437.199999999953,
+          "ms": 366
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 13805,
+          "ms": 367.5
+        }
+      ],
+      "limit": "Historical baseline byte snapshot not independently preserved; causal support is trace plus changed source, not a freshly rerun baseline."
+    }
+  ],
+  "notIndependentlyReexecuted": [
+    "74-test full suite",
+    "browser reload/UI suite",
+    "10200-step kit on/off physics comparison",
+    "hardware timing",
+    "audio audition"
+  ]
+}

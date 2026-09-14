@@ -1,0 +1,106 @@
+{
+  "packet": "P05",
+  "meaning": "Requirements, not executed tests; all statuses begin not_run. Internal results belong in local evidence, not repeated user handoffs.",
+  "cases": [
+    {
+      "id": "P05-01",
+      "requirement": "Original single-vehicle facade passes the existing full suite and before/after input-telemetry parity with unchanged physical constants.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-02",
+      "requirement": "One world contains four dynamic vehicles. One world step per fixed tick. Independent vehicle drivetrain, suspension, spin and telemetry; despawn does not destroy shared resources.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-03",
+      "requirement": "Symmetric contact response, no kinematic immunity, and road-only support queries. A vehicle is not a suspension road or checkpoint ground hit.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-04",
+      "requirement": "Four-car grid has nonoverlapping collider/tire footprints, all behind the first line. Simulation/race not advanced during loading/intro; countdown synchronized.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-05",
+      "requirement": "Production AI only emits controls; normal route following never writes pose/speed. Curvature braking, headway, overtaking intent and bounded recovery demonstrated.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-06",
+      "requirement": "At least two seeded physics-driven full-field races complete normally; rivals do not need hidden resets, off-route shortcuts or retirement to finish.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-07",
+      "requirement": "Blocked racing line, side-by-side entry, overtake opportunity and light contact cases produce sane control/recovery. Legitimately stranded AI becomes labeled DNF, not a teleported winner.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-08",
+      "requirement": "Two laps and ordered direction-sensitive gates per participant. Skip/backward/cut/relocation invalidation. Lap wrap/lapped-car rank cannot fabricate a lead.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-09",
+      "requirement": "Close finish order comes from common time plus crossing fraction, not update iteration order. Repeated terminal updates/results are idempotent.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-10",
+      "requirement": "Player receives prompt valid result; still-running/retired rivals are explicitly labeled, with no invented times. Retry uses fresh attempt IDs and no duplicate reward.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-11",
+      "requirement": "Fresh and prior careers follow chapter flow. Existing solo reward 800/100, kit price600 and solo PB keys remain intact. No purchase required to race.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-12",
+      "requirement": "Crew placement300/200/150/100 and first-podium400 bonus are atomic/idempotent/event-specific. Invalid/incomplete no award. Concurrent tab and failed-write retry tested.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-13",
+      "requirement": "Safe repeatable current-rebuild save migration preserves money, receipt IDs/timestamps, ownership, appearance, old chapter flags, PB/settings. Older tab and unavailable/corrupt storage handled without silent wipes.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-14",
+      "requirement": "Rivals have distinct identifiers, independent driver/rear motion and no player material mutation. Geometry/textures share safely and release without leaks.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-15",
+      "requirement": "Near/far/cockpit/look-back, keyboard and virtual-controller menus, blur/disconnect/pause/neutral-resume tested with all cars. No hidden player autopilot.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-16",
+      "requirement": "Player audio remains telemetry-driven; at most two spatially attenuated rivals reuse buffers; mute/volume/pause and audio activation cover all buses. Audio proof labeled honestly.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-17",
+      "requirement": "Stable light slots/material preparation before grid; no recurrence of light-count compilation stalls. Player kit retains appearance and no physics effects. No uncontrolled rival shadow/light multiplication.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-18",
+      "requirement": "Production-like unrecorded four-car native-RAF matrix at1080/720,stock/equipped,repeat heaviest,first/retry. Actual device/config/loading/all outliers and timing drops retained; targets evaluated, not assumed.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-19",
+      "requirement": "Root entry, complete first chapter, result, saved build and immediate replay work through ordinary UI. Captured current runtime has matched hashes; no diagnostic URLs required for play.",
+      "status": "not_run"
+    },
+    {
+      "id": "P05-20",
+      "requirement": "Local end-to-end review performed and critical defects repaired. One final Review10 package, with executed/reported/unavailable distinctions and exact launch path. No broad G3/G4 pass fabricated.",
+      "status": "not_run"
+    }
+  ]
+}
