@@ -21,3 +21,22 @@ for directory in sorted(base.glob('verified-scored-*'))+[base/'stock720-followup
  summary.append(entry)
 (base/'performance-summary.json').write_text(json.dumps({'method':'Fresh isolated Windows Chromium D3D11 RTX4080, native RAF, DPR1, actual buffers, stable standard quality. Audio graph active; commandline output muted. No recorder, readback, diagnostic clock or full inspection in scored racing loop. Virtual player input is disclosed. Driver/OS shader caches not cleared. All raw phases/outliers retained. CPU submission and resource counts are not GPU time or bytes. Loading includes preparation; do not sum overlapping durations. Percentiles use nearest rank. targetMet is a conservative mechanical check: p95<=20, p99<=33.4 and zero active intervals>100ms; the director asks that recurring stalls be absent and every outlier investigated. Neither clean followups nor this strict check overwrite the original matrix.','runs':[r for r in summary if r['name'].startswith('verified-scored-')],'followups':[r for r in summary if not r['name'].startswith('verified-scored-')]},indent=2))
 for r in summary: print(r['name'],r['racingIntervals'],r['targetMet'],r['programCounts'])
+
+# Observed passes are changes in actual pairwise race progress, never rival intent counters.
+traffic=[]
+for directory in sorted(base.glob('verified-scored-*'))+[base/'video-verified']:
+ path=directory/'run.json'
+ if not path.exists():continue
+ d=json.loads(path.read_text());trace=d['trace'];events=[];encounters=[];previous=None
+ for row in trace:
+  if row['race']['phase']!='running':previous=None;continue
+  player=row['field']['player'];standing={x['id']:x for x in row['race']['standings']}
+  for name in ['maya','jett','nico']:
+   peer=row['field'][name];gap=math.hypot(peer['position']['x']-player['position']['x'],peer['position']['z']-player['position']['z'])
+   if gap<11:encounters.append({'elapsedMs':row['race']['elapsedMs'],'id':name,'centerDistanceM':gap,'playerSpeedMps':player['speed'],'playerBrake':player['brake'],'playerSteer':player['steer']})
+   if previous and previous['attemptId']==row['attemptId'] and row['race']['elapsedMs']>3000:
+    prior={x['id']:x for x in previous['race']['standings']};a=prior['player']['progress']-prior[name]['progress'];b=standing['player']['progress']-standing[name]['progress']
+    if a*b<0 and all(x['status']=='running' for x in [standing['player'],standing[name],prior['player'],prior[name]]):events.append({'fromElapsedMs':previous['race']['elapsedMs'],'toElapsedMs':row['race']['elapsedMs'],'rival':name,'direction':'player passed rival' if b>0 else 'rival passed player','progressBeforeM':a,'progressAfterM':b,'centerDistanceAfterM':gap})
+  previous=row
+ traffic.append({'name':directory.name,'observedPairwiseOrderChanges':events,'closeEncounterSamples':encounters,'sampleMethod':'Actual approximately1Hz field/race telemetry, ordinary virtual player input and unchanged production rivals. Conservative observed progress-order crossings; does not infer unseen transient passes or equate controller intent counts with completed passes. Center distances are not bumper clearance.'})
+(base/'traffic-review.json').write_text(json.dumps(traffic,indent=2))

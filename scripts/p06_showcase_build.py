@@ -70,6 +70,13 @@ def material(name,double=False,emit=0):
  if emit:n.links.new(tex['basecolor'].outputs['Color'],bs.inputs['Emission Color']);bs.inputs['Emission Strength'].default_value=emit
  return m
 mats={'atlas':material('Showcase_Shared_Atlas'),'foliage':material('Showcase_Foliage_Atlas',True),'windows':material('Showcase_Practical_Atlas',False,1.1)}
+# Dedicated repeatable floor maps avoid neighbouring atlas colours entering coarse mips.
+floorimages={}
+for key,array in [('basecolor',base),('orm',orm),('normal',normal)]:
+ im=bpy.data.images.new('showcase_epoxy_'+key,width=T,height=T,alpha=True);im.colorspace_settings.name='sRGB'if key=='basecolor'else'Non-Color';crop=array[2*T:3*T,3*T:4*T].copy();im.pixels.foreach_set(crop.ravel());im.filepath_raw=str(OUT/'textures'/('epoxy_'+key+'.png'));im.file_format='PNG';im.save();im.pack();floorimages[key]=im
+epoxy=bpy.data.materials.new('Showcase_Garage_Epoxy');epoxy.use_nodes=True;nt=epoxy.node_tree;bs=nt.nodes.get('Principled BSDF');et={}
+for key,im in floorimages.items():node=nt.nodes.new('ShaderNodeTexImage');node.image=im;et[key]=node
+nt.links.new(et['basecolor'].outputs['Color'],bs.inputs['Base Color']);es=nt.nodes.new('ShaderNodeSeparateColor');nt.links.new(et['orm'].outputs['Color'],es.inputs['Color']);nt.links.new(es.outputs['Green'],bs.inputs['Roughness']);nt.links.new(es.outputs['Blue'],bs.inputs['Metallic']);en=nt.nodes.new('ShaderNodeNormalMap');en.inputs['Strength'].default_value=.45;nt.links.new(et['normal'].outputs['Color'],en.inputs['Color']);nt.links.new(en.outputs['Normal'],bs.inputs['Normal']);mats['epoxy']=epoxy
 watermat=bpy.data.materials.new('Showcase_Moving_Water');watermat.use_nodes=True;wbs=watermat.node_tree.nodes.get('Principled BSDF');wbs.inputs['Base Color'].default_value=(.025,.13,.17,1);wbs.inputs['Roughness'].default_value=.38;wbs.inputs['Metallic'].default_value=.08
 waterfield=.32*np.sin(xx*math.tau/T*5+np.sin(yy*math.tau/T*3))+.18*np.cos(yy*math.tau/T*6+xx*math.tau/T);waternormal=np.ones((T,T,4),np.float32);waternormal[:,:,0]=.5+(np.roll(waterfield,-1,1)-np.roll(waterfield,1,1))*3;waternormal[:,:,1]=.5+(np.roll(waterfield,-1,0)-np.roll(waterfield,1,0))*3
 wi=bpy.data.images.new('showcase_water_normal',width=T,height=T,alpha=True);wi.colorspace_settings.name='Non-Color';wi.pixels.foreach_set(waternormal.ravel());wi.filepath_raw=str(OUT/'textures/water_normal.png');wi.file_format='PNG';wi.save();wi.pack();wt=watermat.node_tree.nodes.new('ShaderNodeTexImage');wt.image=wi;wn=watermat.node_tree.nodes.new('ShaderNodeNormalMap');wn.inputs['Strength'].default_value=.55;watermat.node_tree.links.new(wt.outputs['Color'],wn.inputs['Color']);watermat.node_tree.links.new(wn.outputs['Normal'],wbs.inputs['Normal']);mats['water']=watermat
@@ -199,20 +206,20 @@ for poly in water.data.polygons:
   co=water.data.vertices[water.data.loops[li].vertex_index].co;water.data.uv_layers.active.data[li].uv=(co.x/12,co.y/12)
 # Compact garage in the SAME origin: Blender XY -> runtime XZ. Rear wall at runtime +6.8.
 module='bay';box('floor_slab',(0,-.08,0),(14,.15,15),11)
-# Shared atlas repeated through real UV-mapped six-tenths-metre faces: no giant stretched floor map.
-fv=[];ff=[]
-for iz in range(25):
- for ix in range(24):
-  x=-7+14*ix/24;z=-7.5+15*iz/25;j=len(fv);fv.extend([(x,0,z),(x+14/24,0,z),(x+14/24,0,z+.6),(x,0,z+.6)]);ff.append((j,j+3,j+2,j+1))
-mesh('epoxy_aggregate_metres',fv,ff,11);box('rear_architecture',(0,2.3,6.8),(14,.2,4.6),12,bevel=.03)
+# One continuous plane, metre UVs and ordinary mip filtering. No per-face atlas jumps.
+floor=mesh('epoxy_aggregate_metres',[(-7,0,-7.5),(7,0,-7.5),(7,0,7.5),(-7,0,7.5)],[(0,3,2,1)],0,'epoxy')
+for poly in floor.data.polygons:
+ for li in poly.loop_indices:
+  co=floor.data.vertices[floor.data.loops[li].vertex_index].co;floor.data.uv_layers.active.data[li].uv=(co.x/.6,co.y/.6)
+box('rear_architecture',(0,2.3,6.8),(14,.2,4.6),12,bevel=.03)
 for x in [-5.5,-2.8,0,2.8,5.5]:box('wall_reveal',(x,2.25,6.675),(.022,4.4,.028),9)
 box('left_service_wall',(-6.85,2.3,2),( .18,4.6,9.5),12)
 box('bench_top',(-4.35,1.05,5.85),(4.4,.12,1.1),2,bevel=.04)
 for x in [-5.75,-4.35,-2.95]:box('closed_cabinet',(x,.49,5.85),(1.32,.95,1.02),1,bevel=.02);box('recessed_pull',(x,.85,5.30),(.48,.025,.035),15)
 box('organized_service_panel',(-4.5,2.05,6.65),(3.9,1.3,.08),7);box('red_tool_rail',(-4.5,1.77,6.58),(3.9,.06,.09),5)
-box('garage_brand_backing',(.8,2.8,6.64),(5,.9,.12),9,bevel=.03)
+box('garage_brand_backing',(-.7,1.5,6.64),(3.9,.72,.12),9,bevel=.03)
 # Bay lettering faces toward centre (-Z), so reverse front-facing module text by rotating mesh.
-text('garage_brand','SLINGMODS',(.8,2.56,6.55),.57)
+text('garage_brand','SLINGMODS',(-.7,1.31,6.55),.44)
 for o in parts[module][-1:]:o.rotation_euler.z=math.pi
 for x in [-2.5,2.8]:box('broad_ceiling_frame',(x,3.92,0),(1.35,.12,5.2),1,bevel=.035);box('broad_diffuser',(x,3.845,0),(1.18,.025,5.02),15,'windows')
 # Service opening is framed glazed depth, with an original physical exterior courtyard vignette.
