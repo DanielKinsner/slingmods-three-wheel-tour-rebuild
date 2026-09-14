@@ -14,7 +14,7 @@ for p in Path('director-kit/director-addenda/review-08').rglob('*'):
 for p in b.rglob('*'):
  if p.is_file() and p.suffix in ['.md','.json','.log'] and not any(x in ['agent','raw-video'] for x in p.parts):add(p)
 for p in (b/'final-stills').glob('*.png'):add(p)
-add(b/'smoke-final/bay-installed.png');add(b/'video-final/night-drive-silent.mp4')
+add(b/'smoke-frozen/bay-installed.png');add(b/'video-final/night-drive-silent.mp4')
 assert len([n for n in files if n.endswith('.png')])==8
 add(b/'REVIEW-ME-FIRST.md','REVIEW-ME-FIRST.md');add(b/'STATE-EXCERPT.json','director-kit/production/state.json')
 for n,p in files.items():
