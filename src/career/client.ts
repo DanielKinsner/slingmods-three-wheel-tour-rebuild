@@ -18,7 +18,7 @@ export type CareerClient=Awaited<ReturnType<typeof careerClient>>;
 /** Recovery is deliberate: preserve the unreadable record, allow export, and explicitly choose temporary play. */
 function recoveryChoice(error:CareerDataError):Promise<CareerStore>{return new Promise(resolve=>{
  const panel=document.createElement('section');panel.id='career-recovery';panel.setAttribute('role','alertdialog');panel.setAttribute('aria-label','Career recovery');
- Object.assign(panel.style,{position:'fixed',inset:'20% 15%',zIndex:'1000',background:'#17212b',color:'white',padding:'32px',font:'16px/1.6 system-ui',overflow:'auto'});
+ Object.assign(panel.style,{position:'fixed',inset:'20% 15%',zIndex:'10000',background:'#17212b',color:'white',padding:'32px',font:'16px/1.6 system-ui',overflow:'auto'});
  const heading=document.createElement('h2'),message=document.createElement('p'),exportButton=document.createElement('button'),temporary=document.createElement('button'),refresh=document.createElement('button');
  heading.textContent='Your saved career is protected';message.textContent=error.message+' Export the record for recovery, refresh to a compatible build, or explicitly play a temporary career. Temporary play does not replace your stored career.';
  exportButton.textContent='Export saved record';exportButton.disabled=error.raw===undefined;exportButton.onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(error.raw,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='slingmods-career-recovery.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};

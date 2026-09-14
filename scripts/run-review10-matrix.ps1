@@ -1,11 +1,11 @@
 $ErrorActionPreference='Stop'
 if((Get-Location).Path -ne 'C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild'){throw 'Wrong project root'}
 $cases=@(
- @{Name='final-scored-equipped1080';Width='1920';Equipped='1';Races='2';Seed='11'},
- @{Name='final-scored-stock1080';Width='1920';Equipped='0';Races='1';Seed='97'},
- @{Name='final-scored-equipped720';Width='1280';Equipped='1';Races='1';Seed='11'},
- @{Name='final-scored-stock720';Width='1280';Equipped='0';Races='1';Seed='97'},
- @{Name='final-scored-equipped1080-repeat';Width='1920';Equipped='1';Races='2';Seed='11'}
+ @{Name='verified-scored-equipped1080';Width='1920';Equipped='1';Races='2';Seed='11'},
+ @{Name='verified-scored-stock1080';Width='1920';Equipped='0';Races='1';Seed='97'},
+ @{Name='verified-scored-equipped720';Width='1280';Equipped='1';Races='1';Seed='11'},
+ @{Name='verified-scored-stock720';Width='1280';Equipped='0';Races='1';Seed='97'},
+ @{Name='verified-scored-equipped1080-repeat';Width='1920';Equipped='1';Races='2';Seed='11'}
 )
 foreach($case in $cases){
  $env:EVIDENCE_DIR='director-kit/production/evidence/P05/'+$case.Name

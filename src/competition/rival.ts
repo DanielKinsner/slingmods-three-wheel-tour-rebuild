@@ -1,3 +1,4 @@
+import {stabilizeRival} from './stability';
 import type {CourseRoute} from '../course/environment';
 import type {VehicleControl,VehicleTelemetry} from '../simulation';
 import {RaceRoad} from './road';
@@ -32,7 +33,7 @@ export class RivalController {
   if(this.recoveries>=4){this.retiredReason='Stranded after three physical recovery attempts';return {throttle:0,brake:1,steer:0,reverse:false,tractionControl:true}}
   const look=this.mode==='pass'&&speed<7?3+speed*.4:7+speed*.55,t=this.road.sample(p.progress+look),tx=t.x-t.dz*this.lane,tz=t.z+t.dx*this.lane,dx=tx-v.position.x,dz=tz-v.position.z,forward=-Math.sin(yaw)*dx-Math.cos(yaw)*dz,left=-Math.cos(yaw)*dx+Math.sin(yaw)*dz,angle=Math.atan2(left,forward),wheelbase=2.667,maxSteer=Math.min(.53/(1+speed*.037),Math.atan(5.4*wheelbase/Math.max(speed*speed,1))),desired=Math.atan2(2*wheelbase*Math.sin(angle),Math.hypot(dx,dz)),steer=clamp(desired/maxSteer*1.12,-1,1);
   if(this.mode==='recover'){this.stats.recoveryTicks++;this.recoverySeconds+=dt;const rearOccupied=Object.entries(peers).some(([id,o])=>{if(id===this.id)return false;const dx=o.position.x-v.position.x,dz=o.position.z-v.position.z;return dx*p.dx+dz*p.dz<0&&Math.hypot(dx,dz)<7});if(this.recoverySeconds>2.5){this.mode='follow';this.targetLane=this.preference;return {throttle:0,brake:1,steer:0,reverse:false,tractionControl:true}}return {throttle:rearOccupied?0:.4,brake:rearOccupied?1:0,steer:-steer,reverse:true,tractionControl:true}}
-  const error=this.targetSpeed-v.speed,throttle=clamp(error*.36+.15,0,1),brake=clamp(-error*.25,0,1);if(brake>.1)this.stats.brakingTicks++;return {throttle,brake,steer,reverse:false,tractionControl:true};
+  const error=this.targetSpeed-v.speed,throttle=clamp(error*.36+.15,0,1),brake=clamp(-error*.25,0,1);if(brake>.1)this.stats.brakingTicks++;return stabilizeRival(v,{throttle,brake,steer,reverse:false,tractionControl:true});
  }
  inspect(){return {id:this.id,seed:this.seed,mode:this.mode,targetSpeed:this.targetSpeed,targetLane:this.targetLane,lane:this.lane,nearestGap:Number.isFinite(this.nearestGap)?this.nearestGap:null,retiredReason:this.retiredReason,recoveries:this.recoveries,...this.stats}}
 }
