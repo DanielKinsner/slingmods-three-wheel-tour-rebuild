@@ -1,4 +1,8 @@
-# ACTIVE ASSIGNMENT — P06 Harbor Showcase
+# ACTIVE ASSIGNMENT — P06B Environment Quality Lock
+
+Read director-kit/director-addenda/review-11/CODEX_NEXT.md and required packets. Replace presentation-only scenery, road UV/materials, terrain, foliage, outdoor lighting and compact showroom finishes using verified free CC0 sources and editable Blender assets. Preserve physical course/collision, car/rear/driver, physics/input, rivals/rules/chapter/products/rewards/saves. One lead plus two bounded workers, independent local review. Benchmark then rollout and full runtime/performance validation in one run. Return Astra-Review-12.zip. Local recoverable commits permitted; NO remote changes, spending, deployment or desktop takeover. G3/G4 remain pending. This supersedes older push and rendering-freeze instructions.
+
+# PRIOR ASSIGNMENT — P06 Harbor Showcase
 
 Read director-kit/director-addenda/review-10/CODEX_NEXT.md and its required packets. P06 authorizes harbor/compact garage Blender art, lighting, UI, audio capture and measured rendering work while preserving hero/rear/driver geometry, route/collisions, physics, race rules, products and saves. One lead and at most two narrowly scoped workers; one final Review11. G3/G4 remain pending. The user's latest explicit instruction overrides the packet's no-push rule: finish on main and push the intended work to the confirmed remote; no deployment or spending. Review ignore rules while preserving local historical evidence and editable assets. The rebuild currently has no remote; obtain its intended destination before adding one.
 
