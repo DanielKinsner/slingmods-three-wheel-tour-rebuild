@@ -5,7 +5,7 @@ export interface DrivingSessionHooks {resetPose?:{x:number;z:number;y:number;yaw
 /** Both requestAnimationFrame and the isolated clock harness enter here. No alternate tire or input path. */
 export class DrivingSession {
  readonly input=new InputResolver();current:VehicleTelemetry;previous:VehicleTelemetry;accumulator=0;ticks=0;private lastNow:number|undefined;
- constructor(readonly simulation:Simulation,public reader:DeviceReader,readonly hooks:DrivingSessionHooks={}){this.current=this.previous=simulation.telemetry()}
+ constructor(readonly simulation:Pick<Simulation,'reset'|'step'|'telemetry'>,public reader:DeviceReader,readonly hooks:DrivingSessionHooks={}){this.current=this.previous=simulation.telemetry()}
  sync(){this.current=this.previous=this.simulation.telemetry();this.accumulator=0}
  reset(){this.hooks.onReset?.();this.simulation.reset(this.hooks.resetPose??PRACTICE_START);this.input.reset();this.sync()}
  frame(now:number){

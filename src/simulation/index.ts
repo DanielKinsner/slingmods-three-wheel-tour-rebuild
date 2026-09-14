@@ -24,25 +24,14 @@ let initialized:Promise<void>|undefined;
 /** Exactly three custom suspension/tire channels. Rapier owns all body integration and collisions. */
 export class Simulation {
   private world:RAPIER.World;
+  private owner?:RaceWorld;
   private body:RAPIER.RigidBody;
   private time=0;private steering=0;private drivetrain=new AutoDrive();
   private spin=[0,0,0];private overspeed=[0,0,0];private wheels:WheelTelemetry[]=[];
   private throttle=0;private brake=0;private disposed=false;
-  static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT):Promise<Simulation>{initialized??=RAPIER.init();await initialized;return new Simulation(environment)}
-  private constructor(readonly environment:EnvironmentDefinition){
-    this.world=new RAPIER.World(v(0,-9.81,0));this.world.timestep=FIXED_DT;
-    // A finite planar triangle surface has explicit face normals. The former700m-wide
-    // convex slab produced a near-horizontal cylinder contact normal on flat ground
-    // during a shallow landing (recorded in G2/revision02), injecting a spurious yaw impulse.
-    const [gx,gy,gz]=environment.ground.center,[gw,gh,gl]=environment.ground.size;
-    const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
-    this.world.createCollider(RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45));
-    for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation({x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));
-    for(const ramp of environment.ramps){
-      const points:number[]=[];for(const x of [-ramp.width/2,ramp.width/2])for(const z of [-ramp.length/2,ramp.length/2]){points.push(x,-0.1,z,x,z<0?ramp.rise:0,z)}
-      const shape=RAPIER.ColliderDesc.convexHull(new Float32Array(points));if(!shape)throw new Error('Invalid ramp hull');
-      this.world.createCollider(shape.setTranslation(ramp.center[0],ramp.center[1],ramp.center[2]).setFriction(0.45));
-    }
+  static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT):Promise<Simulation>{initialized??=RAPIER.init();await initialized;const owner=new RaceWorld(environment);const car=owner.addVehicle('player');owner.initialize();car.owner=owner;return car}
+  constructor(readonly environment:EnvironmentDefinition, world:RAPIER.World){
+    this.world=world;
     // Collider carries zero mass; explicit loaded mass/inertia makes the convention unambiguous.
     this.body=this.world.createRigidBody(RAPIER.RigidBodyDesc.dynamic().setTranslation(0,SPEC.comHeight+0.04,35).setCanSleep(false).setCcdEnabled(true).setAngularDamping(0.12).setAdditionalMassProperties(SPEC.mass,v(),v(700,950,330),{x:0,y:0,z:0,w:1}));
     this.world.createCollider(RAPIER.ColliderDesc.cuboid(0.63,0.16,1.45).setTranslation(0,-0.1,0).setDensity(0).setFriction(0.35).setRestitution(0.05),this.body);
@@ -50,7 +39,7 @@ export class Simulation {
     // spinning wheels: giving them tangential grip would add unintended locked-wheel
     // friction on top of the custom tire law during compression/landing.
     for(const w of layout.wheels)this.world.createCollider(RAPIER.ColliderDesc.cylinder(w.width/2,w.radius*0.68).setRotation({x:0,y:0,z:Math.SQRT1_2,w:Math.SQRT1_2}).setTranslation(w.center[0],w.center[1]-SPEC.comHeight,w.center[2]).setDensity(0).setFriction(0).setFrictionCombineRule(RAPIER.CoefficientCombineRule.Min),this.body);
-    this.world.step();this.reset();
+    this.reset();
   }
   reset(pose:{x?:number;z?:number;y?:number;yaw?:number}={}):void {
     const yaw=pose.yaw??0;const q={x:0,y:Math.sin(yaw/2),z:0,w:Math.cos(yaw/2)};
@@ -60,6 +49,10 @@ export class Simulation {
     this.wheels=layout.wheels.map(w=>({id:w.id,contact:false,load:0,travel:0,slipRatio:0,slipAngle:0,spin:0,steer:0,localCenter:v(...w.center as [number,number,number]),surface:'air',angularSpeed:0,longitudinalSpeed:0,longitudinalForce:0,lateralForce:0,gripLimit:0,driveTorque:0}));
   }
   step(control:VehicleControl,dt=FIXED_DT):void {
+    if(!this.owner)throw Error('Shared vehicles must be advanced by RaceWorld.step');
+    this.owner.step({player:control},dt);
+  }
+  applyForces(control:VehicleControl,dt=FIXED_DT):void {
     if(this.disposed)throw new Error('Simulation disposed');
     if(Math.abs(dt-FIXED_DT)>1e-9)throw new Error('Authoritative simulation accepts only fixed 1/60 second ticks');
     this.throttle=clamp(finite(control.throttle),0,1);this.brake=clamp(finite(control.brake),0,1);
@@ -85,7 +78,7 @@ export class Simulation {
       for(const fraction of [-0.85,-0.45,0,0.45,0.85]){
         const offset=fraction*wheel.radius,arc=Math.sqrt(wheel.radius**2-offset**2);
         const sampleRay=new RAPIER.Ray(add(origin,scale(envelopeForward,offset)),scale(up,-1));
-        const sampleHit=this.world.castRayAndGetNormal(sampleRay,SPEC.restLength+SPEC.travel+arc,true,undefined,undefined,undefined,this.body);
+        const sampleHit=this.world.castRayAndGetNormal(sampleRay,SPEC.restLength+SPEC.travel+arc,true,undefined,undefined,undefined,this.body,collider=>!collider.parent()&&!collider.isSensor());
         if(sampleHit&&dot(sampleHit.normal,up)>0.25&&sampleHit.timeOfImpact-arc<length){length=sampleHit.timeOfImpact-arc;hit=sampleHit;ray=sampleRay}
       }
       const contact=Boolean(hit);length=clamp(length,0,SPEC.restLength+SPEC.travel);
@@ -139,13 +132,52 @@ export class Simulation {
     this.wheels=newWheels;
     // Aerodynamic drag is a COM force. Load transfer is solely rigid-body response at tire contacts.
     const vmag=Math.hypot(velocity.x,velocity.y,velocity.z);this.body.addForce(scale(velocity,-0.43*vmag),true);
-    this.world.step();this.time+=dt;
+  }
+  publishTick(dt:number){this.time+=dt;
   }
   telemetry():VehicleTelemetry {
     const q=this.body.rotation(),p=this.body.translation(),velocity=this.body.linvel();
     return {time:this.time,position:add(p,rotate(v(0,-SPEC.comHeight,0),q)),quaternion:{...q},velocity:{...velocity},angularVelocity:{...this.body.angvel()},speed:dot(velocity,rotate(v(0,0,-1),q)),rpm:this.drivetrain.rpm,engineWheelAngularSpeed:this.drivetrain.inputWheelAngularSpeed,gear:this.drivetrain.gear,shifting:this.drivetrain.shiftRemaining>0,shiftRemaining:this.drivetrain.shiftRemaining,steer:this.steering,throttle:this.throttle,brake:this.brake,reversePending:this.drivetrain.reversePending,wheels:this.wheels.map(w=>({...w,localCenter:{...w.localCenter}}))};
   }
-  dispose():void{if(!this.disposed){this.world.free();this.disposed=true}}
+  dispose():void{if(!this.disposed){if(this.owner)this.owner.dispose();else this.world.removeRigidBody(this.body);this.disposed=true}}
+  markDisposed(){this.disposed=true}
+}
+
+
+/** One environment and one authoritative integration per tick; identical solo tire/drivetrain forces. */
+export class RaceWorld {
+ readonly world:RAPIER.World;
+ readonly participants=new Map<string,Simulation>();
+ steps=0;private disposed=false;private initialized=false;
+ static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT){initialized??=RAPIER.init();await initialized;return new RaceWorld(environment)}
+ constructor(readonly environment:EnvironmentDefinition){
+    this.world=new RAPIER.World(v(0,-9.81,0));this.world.timestep=FIXED_DT;
+    // A finite planar triangle surface has explicit face normals. The former700m-wide
+    // convex slab produced a near-horizontal cylinder contact normal on flat ground
+    // during a shallow landing (recorded in G2/revision02), injecting a spurious yaw impulse.
+    const [gx,gy,gz]=environment.ground.center,[gw,gh,gl]=environment.ground.size;
+    const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
+    this.world.createCollider(RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45));
+    for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation({x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));
+    for(const ramp of environment.ramps){
+      const points:number[]=[];for(const x of [-ramp.width/2,ramp.width/2])for(const z of [-ramp.length/2,ramp.length/2]){points.push(x,-0.1,z,x,z<0?ramp.rise:0,z)}
+      const shape=RAPIER.ColliderDesc.convexHull(new Float32Array(points));if(!shape)throw new Error('Invalid ramp hull');
+      this.world.createCollider(shape.setTranslation(ramp.center[0],ramp.center[1],ramp.center[2]).setFriction(0.45));
+    }
+
+ }
+ initialize(){if(this.initialized)return;this.world.step();for(const car of this.participants.values())car.reset();this.initialized=true}
+ addVehicle(id:string,pose:{x?:number;z?:number;y?:number;yaw?:number}={}){if(this.disposed||this.participants.has(id))throw Error('Invalid participant registration');const car=new Simulation(this.environment,this.world);car.reset(pose);this.participants.set(id,car);return car}
+ get(id:string){const car=this.participants.get(id);if(!car)throw Error('Unknown participant '+id);return car}
+ step(controls:Record<string,VehicleControl>,dt=FIXED_DT){
+  if(this.disposed)throw Error('RaceWorld disposed');if(Math.abs(dt-FIXED_DT)>1e-9)throw Error('Authoritative simulation accepts only fixed 1/60 second ticks');
+  if(!this.initialized){const poses=[...this.participants].map(([id,c])=>[id,c.telemetry()] as const);this.initialize();for(const [id,t]of poses){const q=t.quaternion;this.get(id).reset({x:t.position.x,y:t.position.y,z:t.position.z,yaw:Math.atan2(2*(q.w*q.y+q.x*q.z),1-2*(q.y*q.y+q.z*q.z))})}}
+  for(const [id,car]of this.participants){const control=controls[id];if(!control)throw Error('Missing control for '+id);car.applyForces(control,dt)}
+  this.world.step();this.steps++;for(const car of this.participants.values())car.publishTick(dt);
+ }
+ telemetry(){return Object.fromEntries([...this.participants].map(([id,c])=>[id,c.telemetry()]))}
+ removeVehicle(id:string){const car=this.get(id);car.dispose();this.participants.delete(id)}
+ dispose(){if(!this.disposed){for(const car of this.participants.values())car.markDisposed();this.participants.clear();this.world.free();this.disposed=true}}
 }
 
 /** Bounded render-clock adapter. Background/pause transitions must call clear(). */
