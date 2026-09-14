@@ -115,6 +115,12 @@ def text(name,body,p,size,tile=15):
  c=bpy.data.curves.new(name,'FONT');c.body=body;c.align_x='CENTER';c.size=size;c.extrude=.003;o=bpy.data.objects.new(module+'_'+name,c);bpy.context.collection.objects.link(o);o.location=rv(p);o.rotation_euler=(math.pi/2,0,0);bpy.context.view_layer.objects.active=o;bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.ops.object.convert(target='MESH');o=bpy.context.object;o.data.materials.append(mats[TILES[tile]]);uv=o.data.uv_layers.new();
  for d in uv.data:d.uv=((tile%4+.5)/4,(tile//4+.5)/4)
  parts.setdefault(module,[]).append(o);objects.append(o)
+def planting_ground(name,rx,rz):
+ count=64;outline=[(rx*math.cos(j*math.tau/count),rz*math.sin(j*math.tau/count))for j in range(count)]
+ mesh(name,[(0,.025,0)]+[(x,.021,z)for x,z in outline],[(0,j+1,(j+1)%count+1)for j in range(count)],13)
+ ring=[]
+ for x,z in outline:ring.extend([(x,.009,z),(x,.047,z),(x*.992,.047,z*.992),(x*.992,.009,z*.992)])
+ mesh(name+'_thin_metal_edging',ring,[(j*4+k,((j+1)%count)*4+k,((j+1)%count)*4+(k+1)%4,j*4+(k+1)%4)for j in range(count)for k in range(4)],12)
 def facade(w,d,h,service=False):
  # Real wall openings: front is piers and spandrels around recessed glazing, not paint on a box.
  box('stepped_plinth',(0,.12,0),(w,.24,d),4,bevel=.035)
@@ -180,9 +186,20 @@ module='quay';box('paving',(0,.045,0),(14,.09,7.9),4);q=box('waterline_retaining
 box('quay_cast_cap',(-7.1,.15,0),(.43,.12,7.98),4)
 for z in [-3.5,3.5]:beam('rail_post',(-6.6,.1,z),(-6.6,1.1,z),.042)
 for h in [.62,1.1]:beam('rail',(-6.6,h,-3.95),(-6.6,h,3.95),.031)
-module='skiff';rows=[(-4,.6,.35),(-3.6,1.35,.55),(0,1.5,.6),(2.8,1.1,.9),(4.4,.02,1.1)];v=[]
-for z,w,h in rows:v.extend([(-w,h,z),(-w*.72,-.12,z),(w*.72,-.12,z),(w,h,z)])
-mesh('sheer_hull',v,[(j*4+k,j*4+k+1,j*4+k+5,j*4+k+4)for j in range(4)for k in range(3)]+[(0,3,2,1),(16,17,18,19)],8)
+module='skiff';stations=[];v=[];section=9
+# Swept planing hull: curved beam taper, raised bow sheer, rounded chine and immersed keel.
+for j in range(25):
+ t=j/24;z=-4+8.4*t;width=1.28+.20*math.sin(t/.28*math.pi/2) if t<.28 else max(.022,1.48*max(0,1-((t-.28)/.72)**2.15)**.6);h=.61+.54*t**3;rise=.46*t**3
+ ring=[(-width,h),(-width*.99,h-.22),(-width*.87,.05+rise*.2),(-width*.62,-.16+rise*.5),(0,-.31+rise),(width*.62,-.16+rise*.5),(width*.87,.05+rise*.2),(width*.99,h-.22),(width,h)]
+ v.extend([(x,y,z)for x,y in ring]);stations.append((z,width,h))
+hull=mesh('swept_planing_hull',v,[(j*section+k,j*section+k+1,(j+1)*section+k+1,(j+1)*section+k)for j in range(24)for k in range(section-1)]+[tuple(reversed(range(section))),tuple(range(24*section,25*section))],8,smooth=True)
+for side in [-1,1]:
+ rim=[]
+ for z,w,h in stations:rim.extend([(side*w,h+.022,z),(side*max(0,w-.06),h+.022,z)])
+ mesh('continuous_gunwale_rail',rim,[(j*2,j*2+1,j*2+3,j*2+2)for j in range(24)],1)
+fore=[]
+for z,w,h in stations[19:]:fore.extend([(-w*.94,h-.025,z),(w*.94,h-.025,z)])
+mesh('foredeck',fore,[(j*2,j*2+1,j*2+3,j*2+2)for j in range(5)],8)
 box('open_cockpit',(0,.59,-.1),(2.3,.12,4.8),9);box('console',(0,1.14,.1),(.9,.95,1.05),8);box('windshield',(0,1.72,.2),(.98,.4,.05),6)
 for z in [-2.2,1.65]:box('bench',(0,.83,z),(2.15,.32,.55),8)
 beam('bimini_archL',(-1.1,.8,-1),(-1.1,2.1,1),.035);beam('bimini_archR',(1.1,.8,-1),(1.1,2.1,1),.035);box('canvas_shade',(0,2.15,0),(2.5,.07,3.4),1);box('outboard',(0,.15,-4.1),(.65,1.1,.7),12)
@@ -301,11 +318,10 @@ for side in [-1,1]:
  box('cast_vertical_joint',(side*.231,.4,0),(.002,.795,.018),9)
  box('cap_reveal',(side*.231,.74,0),(.002,.010,1),9)
 # Sparse individually modeled pebbled soil pockets and planting boundary live beyond collision walls.
-module='plantingbed';verts=[(0,.045,0)]+[(3.2*math.cos(j*math.tau/12),.012,2.25*math.sin(j*math.tau/12)) for j in range(12)]
-mesh('irregular_mulch_bed',verts,[(0,j+1,(j+1)%12+1)for j in range(12)],13)
+module='plantingbed';planting_ground('mulch_tree_pocket',3.2,2.25)
 # Complete planted groups: palmetto fan leaves, narrow grass blades and mulch base.
 module='plantgroup'
-mesh('rounded_planting_bed',[(0,.026,0)]+[(4.5*math.cos(j*math.tau/24),.013,2.6*math.sin(j*math.tau/24))for j in range(24)],[(0,j+1,(j+1)%24+1)for j in range(24)],13)
+planting_ground('contained_mulch_planting_group',4.5,2.6)
 for cluster,(cx,cz) in enumerate([(-2,0),(.5,.4),(2.6,-.6)]):
  for frond in range(9):
   angle=frond*math.tau/9+cluster*.6;d=Vector((math.cos(angle),0,math.sin(angle)));side=Vector((-d.z,0,d.x));base=Vector((cx,.04,cz));hub=base+d*.42+Vector((0,.65,0));beam('palmetto_stem',base,hub,.016,3,5)

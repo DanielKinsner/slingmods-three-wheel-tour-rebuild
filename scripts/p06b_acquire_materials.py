@@ -39,6 +39,9 @@ for asset,scale in assets.items():
    a=np.asarray(im,dtype=float);gray=a.mean(axis=2);tone=np.clip(175+(gray-gray.mean())*.48,0,255)
    im=Image.fromarray(np.uint8(np.clip(tone[:,:,None]*np.array([1.02,1.015,1.0]),0,255)))
    notes+=' Neutral pale mineral finish derived from source plaster microvariation; removes brown tint, no illumination baked.'
+  if asset=='leafy_grass' and channel=='Diffuse':
+   a=np.asarray(im,dtype=float)*np.array([.50,.43,.38]);im=Image.fromarray(np.uint8(np.clip(a,0,255)))
+   notes+=' Dark leaf-mulch calibration: RGB multipliers0.50/0.43/0.38 retain actual photographed leaf/soil structure in bounded planting beds, not pale whole-lawn discs.'
   if asset=='sparse_grass' and channel=='Diffuse':
    a=np.asarray(im,dtype=float)*np.array([.78,1.35,.78]);im=Image.fromarray(np.uint8(np.clip(a,0,255)))
    notes+=' Color-calibrated growing turf alternate: red/blue0.78 green1.35; original sparse grass photo structure retained.'
