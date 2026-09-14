@@ -1,0 +1,30 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 76 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                              0.72 kB │ gzip:     0.48 kB
+dist/assets/save-S_mbsQK_.css                0.86 kB │ gzip:     0.44 kB
+dist/assets/crew-CydNNodD.css                1.53 kB │ gzip:     0.70 kB
+dist/assets/workbench-DuS9sGzO.css           7.43 kB │ gzip:     2.34 kB
+dist/assets/game-audio-DFagKZS_.css         10.92 kB │ gzip:     3.08 kB
+dist/assets/calibration-D-vRYZmf.js          2.33 kB │ gzip:     1.24 kB
+dist/assets/index-BZSH2h6s.js                2.98 kB │ gzip:     1.42 kB
+dist/assets/harbor-CDbN9Aa0.js              11.15 kB │ gzip:     4.93 kB
+dist/assets/RoomEnvironment-CGmmJM42.js     21.82 kB │ gzip:     5.22 kB
+dist/assets/harbor-lighting-D49PXhhY.js     22.56 kB │ gzip:     9.34 kB
+dist/assets/crew-CO7BwKu9.js                32.96 kB │ gzip:    12.77 kB
+dist/assets/workbench-3VUVhCfX.js           42.05 kB │ gzip:    14.59 kB
+dist/assets/save-BgsSFkRX.js               638.30 kB │ gzip:   161.17 kB
+dist/assets/game-audio-8w9nuOFk.js       3,175.22 kB │ gzip: 1,226.54 kB
+
+✓ built in 521ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

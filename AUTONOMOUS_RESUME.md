@@ -1,4 +1,4 @@
-# P06B handoff — integrated review candidate
+# P06B handoff — Review12 delivered
 
 Work only in C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild. No restart, remote changes, spending, deployment or desktop takeover. G3/G4 pending.
 
@@ -9,3 +9,5 @@ Frozen runtime9348fa90311c5fbdfd74529feb50548582cdca17. P06B art/renderer integr
 Current evidence and reports: director-kit/production/evidence/P06B. Read REVIEW-ME-FIRST.md, PERFORMANCE-REVIEW.md and the independent final art/media reviews. Correct stills are final-visual-02; correct silent daylight film is day-final-02. The misleading first fixture/omitted-token captures are rejected and retained locally. Film video-final has actual synchronized live stereo audio. Additional evidence-only tool hashes are separate from the unchanged frozen runtime.
 
 Package with python scripts/package-astra-review12.py after confirming frozen hashes. Create Astra-Review-12.zip, number if it exists, verify all manifest entries/CRC and extracted npm build/tests. package-result.json records final exact path/size/hash when complete. Historical assets/evidence and the three initial unrelated untracked files remain in place. Branch main is local; no remote is configured or changed.
+
+Delivered Astra-Review-12.zip:466,223,855 bytes, SHA256 e4685e6fe73ff5cd57738d3966956840dfa13b3499a70c5c87378af871c270f8. Full CRC/manifest verification and isolated extracted offline install/build/119 tests passed. Read P06B/DELIVERY-RECEIPT.json for exact paths and log hashes. Do not repackage or resume implementation without the next user/director instruction.
