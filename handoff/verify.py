@@ -7,6 +7,7 @@ import subprocess
 root = Path(__file__).resolve().parents[1]
 manifest = json.loads((root / 'handoff/TRANSFER-MANIFEST.json').read_text(encoding='utf-8'))
 frozen = json.loads((root / 'director-kit/production/evidence/P06B/build-inputs-verified.json').read_text(encoding='utf-8'))
+line_endings = json.loads((root / 'handoff/LINE-ENDING-REFERENCE.json').read_text(encoding='utf-8'))['files']
 doc_changes = {'README.md', 'AGENTS.md', 'AUTONOMOUS_RESUME.md', '.gitignore'}
 failures, normalized = [], []
 
@@ -19,9 +20,10 @@ def check(path, expected):
     if hashlib.sha256(data).hexdigest() == expected:
         return
     # Windows text checkout and Unix LF checkout can differ without content drift.
-    if p.suffix in {'.ts', '.mjs', '.js', '.json', '.py', '.md', '.html', '.css', '.ps1'}:
+    if path in line_endings and not path.startswith('director-kit/production/evidence/'):
         lf = data.replace(b'\r\n', b'\n')
-        if any(hashlib.sha256(v).hexdigest() == expected for v in (lf, lf.replace(b'\n', b'\r\n'))):
+        reference = line_endings[path]
+        if reference['originalSHA256'] == expected and hashlib.sha256(lf).hexdigest() == reference['normalizedLFSHA256']:
             normalized.append(path)
             return
     failures.append(path + ': hash differs')
