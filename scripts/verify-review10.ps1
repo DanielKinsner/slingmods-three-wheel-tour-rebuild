@@ -21,7 +21,7 @@ foreach($kind in @('ui','controller','audio')){
 $env:HARBOR_UI_DIR='director-kit/production/evidence/P05/solo-ui-verified';$env:VERIFY_BUILD='1'
 & node scripts/verify-harbor-ui.mjs
 if($LASTEXITCODE -ne 0){throw 'Solo UI failed'}
-& powershell -NoProfile -File scripts/run-review10-matrix.ps1
+& pwsh -NoProfile -File scripts/run-review10-matrix.ps1
 if($LASTEXITCODE -ne 0){throw 'Matrix failed'}
 $env:EVIDENCE_DIR='director-kit/production/evidence/P05/video-verified';$env:WIDTH='1280';$env:EQUIPPED='1';$env:RACES='1';$env:SEED='11';$env:RECORD='1'
 & node scripts/profile-review10.mjs *> 'director-kit/production/evidence/P05/video-verified.log'
