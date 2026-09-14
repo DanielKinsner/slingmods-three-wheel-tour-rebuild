@@ -8,3 +8,33 @@ __pycache__/
 *.log
 !director-kit/production/evidence/**/*.log
 director-kit/production/evidence/**/video-temp/
+
+# Local director deliveries and extracted delivery staging are not game source.
+/*.zip
+/Astra-Review-contents/
+/Astra-Review-*/
+/SlingMods-Astra-Review-*/
+
+# Generated evidence is retained locally and curated into review ZIPs.
+# Small authoritative reports/fixtures can be explicitly added by the director.
+/director-kit/production/evidence/**
+/director-kit/director-addenda/**/evidence/
+**/raw-video/
+**/video-temp/
+**/frames/
+**/node_modules/
+**/__pycache__/
+*.pyc
+*.blend2
+*.blend3
+*.bak
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.log
+!director-kit/production/evidence/**/*.log
+
+# Blender incremental backups are local recovery files.
+*.blend[0-9]*

@@ -1,0 +1,10 @@
+# Primary technical references
+Consulted September 14, 2026. These describe implementation capabilities, not proof that this project used them correctly. Match the actual locked package (Review10: Three.js 0.186.0) before relying on current documentation. No dependency upgrade is requested.
+
+- Three.js `InstancedMesh`: https://threejs.org/docs/pages/InstancedMesh.html — shared geometry/material instances can reduce draw calls. Group bounds require attention when instance transforms change. Spatially partition this project's instances rather than retaining the whole harbor as one always-visible batch.
+- Three.js `LOD`: https://threejs.org/docs/pages/LOD.html — distance-based detail selection with hysteresis. Author usable levels; toggling a full detail object off is not a finished low-detail asset.
+- Three.js `SpotLight`: https://threejs.org/docs/pages/SpotLight.html — angle, penumbra, inverse-distance falloff, intensity and target. The current docs warn that a spotlight map is disabled when castShadow is false; verify the actual renderer before choosing a cookie technique. These units are not a claim to have measured the real Slingshot's lamps.
+- MDN `MediaStreamAudioDestinationNode`: https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioDestinationNode — an audio-graph destination supplies an audio track usable by a recorder. Capturing that track does not automatically synchronize it with a separate browser video.
+- MDN `HTMLCanvasElement.captureStream`: https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/captureStream — a canvas stream represents the canvas, not the DOM HUD layered above it. Preserve the real interface in the delivered evidence.
+
+All scene layout, palette, workflow, quality targets and resource guardrails in this kit are director decisions. Exact mechanical, track, fitment and product data remain the accepted repository sources. Do not invent endorsements, product measurements, horsepower gains or new compatibility from a visual design brief.

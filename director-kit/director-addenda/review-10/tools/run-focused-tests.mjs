@@ -1,0 +1,14 @@
+import {existsSync,mkdirSync,writeFileSync} from 'node:fs';
+import {resolve,dirname,join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
+const root=process.argv[2]&&resolve(process.argv[2]);
+const out=process.argv[3]&&resolve(process.argv[3]);
+if(!root||!out)throw new Error('Usage: node run-focused-tests.mjs <Review10 root> <output directory>');
+const cases=['input.test.ts','drivetrain-wheel-speed.test.ts','audio-pitch-coherence.test.mjs','harbor-race.test.ts','harbor-save.test.ts','career.test.ts','chapter.test.ts','competition-rules.test.ts','competition-stability.test.ts','crew-menu.test.ts'];
+for(const f of cases)if(!existsSync(join(root,'tests',f)))throw new Error(`Missing test: ${f}`);
+const loader=join(dirname(fileURLToPath(import.meta.url)),'ts-loader.mjs');
+const result=spawnSync(process.execPath,['--no-warnings','--loader',loader,'--test',...cases.map(f=>join(root,'tests',f))],{cwd:root,encoding:'utf8',timeout:120000,maxBuffer:16*1024*1024});
+mkdirSync(out,{recursive:true});
+const log=(result.stdout??'')+(result.stderr??'')+(result.error?String(result.error):'');
+writeFileSync(join(out,'independent-tests.log'),log);process.stdout.write(log);process.exitCode=result.status??1;

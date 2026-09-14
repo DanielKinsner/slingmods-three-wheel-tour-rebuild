@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {proximityCues} from '../src/crew-proximity';
+test('traffic cue excludes distant, useful forward view and nonfinite positions',()=>{assert.deepEqual(proximityCues([{id:'maya',right:0,forward:20},{id:'jett',right:0,forward:8},{id:'nico',right:NaN,forward:0}],'near'),[]);assert.deepEqual(proximityCues([{id:'maya',right:12,forward:0},{id:'jett',right:0,forward:2}],'far'),[])});
+test('real close traffic maps to sides and rear, nearest occupant only',()=>{const cues=proximityCues([{id:'maya',right:-3,forward:0},{id:'jett',right:3,forward:-1},{id:'nico',right:0,forward:-6}],'near');assert.deepEqual(cues.map(x=>[x.id,x.side]),[['maya','left'],['jett','right'],['nico','rear']]);assert.deepEqual(proximityCues([{id:'maya',right:-5,forward:0},{id:'nico',right:-3,forward:0}],'near').map(x=>x.id),['nico'])});
+test('held rearward view suppresses cars behind without hiding unseen side traffic',()=>{assert.deepEqual(proximityCues([{id:'maya',right:0,forward:-4},{id:'jett',right:3,forward:-2}],'rearward'),[]);assert.equal(proximityCues([{id:'nico',right:3,forward:0}],'rearward')[0]?.side,'right')});
+
+test('actual useful camera visibility suppresses otherwise close off-axis cues',()=>{assert.deepEqual(proximityCues([{id:'maya',right:-3,forward:-2,inView:true}],'far'),[]);assert.equal(proximityCues([{id:'maya',right:-3,forward:-2,inView:false}],'far')[0]?.side,'left')});

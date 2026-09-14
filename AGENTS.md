@@ -1,6 +1,6 @@
-# ACTIVE ASSIGNMENT — P05 First Night at the Harbor
+# ACTIVE ASSIGNMENT — P06 Harbor Showcase
 
-Read director-kit/director-addenda/review-09/CODEX_NEXT.md and its required packets. These explicitly supersede older scope freezes. One lead and at most two narrowly scoped workers; one final Review10. Preserve physics constants, accepted assets, saves and stable lights; G3/G4 remain pending.
+Read director-kit/director-addenda/review-10/CODEX_NEXT.md and its required packets. P06 authorizes harbor/compact garage Blender art, lighting, UI, audio capture and measured rendering work while preserving hero/rear/driver geometry, route/collisions, physics, race rules, products and saves. One lead and at most two narrowly scoped workers; one final Review11. G3/G4 remain pending. The user's latest explicit instruction overrides the packet's no-push rule: finish on main and push the intended work to the confirmed remote; no deployment or spending. Review ignore rules while preserving local historical evidence and editable assets. The rebuild currently has no remote; obtain its intended destination before adding one.
 
 # Historical assignments — context only, not active scope restrictions
 
