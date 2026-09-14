@@ -1,0 +1,371 @@
+{
+  "method": "Diagnostic-only fixture transforms: shader no-op, water mesh hidden, overview near-plane comparison. Never production or performance evidence.",
+  "before": {
+    "kit.glb": "fc19b0d06f315ad3967708a3dc6ac79fdc03b9e7f7dba5b818325d4106fed1ac",
+    "foundation.glb": "f803cd1fc618e7739f4b1353fb7f36b0538db4238a20ddf3f46f12985e4f3316",
+    "scene-layout.json": "a040b292e6067f3087253726e3ea54bf11ba62d888ed491571d3e8c7c1b4ede9"
+  },
+  "after": {
+    "kit.glb": "fc19b0d06f315ad3967708a3dc6ac79fdc03b9e7f7dba5b818325d4106fed1ac",
+    "foundation.glb": "f803cd1fc618e7739f4b1353fb7f36b0538db4238a20ddf3f46f12985e4f3316",
+    "scene-layout.json": "a040b292e6067f3087253726e3ea54bf11ba62d888ed491571d3e8c7c1b4ede9"
+  },
+  "assetsIdentical": true,
+  "rows": [
+    {
+      "label": "shader-enabled",
+      "filename": "shader-enabled-normal.png",
+      "bundleSHA256": "3a5d247b4b7b1a901119013c32eda16508fea7c3c80e8d36fde1f13e55a960df",
+      "near": 0.06,
+      "hide": false,
+      "water": [
+        {
+          "name": "showcase_chunk_water:0:0__lod0__Showcase_Moving_Water",
+          "visible": true,
+          "box": [
+            -6000,
+            -0.2800000011920929,
+            -6000
+          ],
+          "max": [
+            -28,
+            -0.2800000011920929,
+            6000
+          ]
+        }
+      ],
+      "depthBits": 24,
+      "extensions": [
+        "EXT_clip_control",
+        "EXT_color_buffer_float",
+        "EXT_color_buffer_half_float",
+        "EXT_conservative_depth",
+        "EXT_depth_clamp",
+        "EXT_disjoint_timer_query_webgl2",
+        "EXT_float_blend",
+        "EXT_polygon_offset_clamp",
+        "EXT_render_snorm",
+        "EXT_texture_compression_bptc",
+        "EXT_texture_compression_rgtc",
+        "EXT_texture_filter_anisotropic",
+        "EXT_texture_mirror_clamp_to_edge",
+        "EXT_texture_norm16",
+        "KHR_parallel_shader_compile",
+        "NV_shader_noperspective_interpolation",
+        "OES_draw_buffers_indexed",
+        "OES_sample_variables",
+        "OES_shader_multisample_interpolation",
+        "OES_texture_float_linear",
+        "OVR_multiview2",
+        "WEBGL_blend_func_extended",
+        "WEBGL_clip_cull_distance",
+        "WEBGL_compressed_texture_s3tc",
+        "WEBGL_compressed_texture_s3tc_srgb",
+        "WEBGL_debug_renderer_info",
+        "WEBGL_debug_shaders",
+        "WEBGL_lose_context",
+        "WEBGL_multi_draw",
+        "WEBGL_polygon_mode",
+        "WEBGL_provoking_vertex",
+        "WEBGL_stencil_texturing"
+      ],
+      "reversed": false
+    },
+    {
+      "label": "shader-enabled",
+      "filename": "shader-enabled-near-half-metre.png",
+      "bundleSHA256": "3a5d247b4b7b1a901119013c32eda16508fea7c3c80e8d36fde1f13e55a960df",
+      "near": 0.5,
+      "hide": false,
+      "water": [
+        {
+          "name": "showcase_chunk_water:0:0__lod0__Showcase_Moving_Water",
+          "visible": true,
+          "box": [
+            -6000,
+            -0.2800000011920929,
+            -6000
+          ],
+          "max": [
+            -28,
+            -0.2800000011920929,
+            6000
+          ]
+        }
+      ],
+      "depthBits": 24,
+      "extensions": [
+        "EXT_clip_control",
+        "EXT_color_buffer_float",
+        "EXT_color_buffer_half_float",
+        "EXT_conservative_depth",
+        "EXT_depth_clamp",
+        "EXT_disjoint_timer_query_webgl2",
+        "EXT_float_blend",
+        "EXT_polygon_offset_clamp",
+        "EXT_render_snorm",
+        "EXT_texture_compression_bptc",
+        "EXT_texture_compression_rgtc",
+        "EXT_texture_filter_anisotropic",
+        "EXT_texture_mirror_clamp_to_edge",
+        "EXT_texture_norm16",
+        "KHR_parallel_shader_compile",
+        "NV_shader_noperspective_interpolation",
+        "OES_draw_buffers_indexed",
+        "OES_sample_variables",
+        "OES_shader_multisample_interpolation",
+        "OES_texture_float_linear",
+        "OVR_multiview2",
+        "WEBGL_blend_func_extended",
+        "WEBGL_clip_cull_distance",
+        "WEBGL_compressed_texture_s3tc",
+        "WEBGL_compressed_texture_s3tc_srgb",
+        "WEBGL_debug_renderer_info",
+        "WEBGL_debug_shaders",
+        "WEBGL_lose_context",
+        "WEBGL_multi_draw",
+        "WEBGL_polygon_mode",
+        "WEBGL_provoking_vertex",
+        "WEBGL_stencil_texturing"
+      ],
+      "reversed": false
+    },
+    {
+      "label": "shader-enabled",
+      "filename": "shader-enabled-water-hidden.png",
+      "bundleSHA256": "3a5d247b4b7b1a901119013c32eda16508fea7c3c80e8d36fde1f13e55a960df",
+      "near": 0.06,
+      "hide": true,
+      "water": [
+        {
+          "name": "showcase_chunk_water:0:0__lod0__Showcase_Moving_Water",
+          "visible": true,
+          "box": [
+            -6000,
+            -0.2800000011920929,
+            -6000
+          ],
+          "max": [
+            -28,
+            -0.2800000011920929,
+            6000
+          ]
+        }
+      ],
+      "depthBits": 24,
+      "extensions": [
+        "EXT_clip_control",
+        "EXT_color_buffer_float",
+        "EXT_color_buffer_half_float",
+        "EXT_conservative_depth",
+        "EXT_depth_clamp",
+        "EXT_disjoint_timer_query_webgl2",
+        "EXT_float_blend",
+        "EXT_polygon_offset_clamp",
+        "EXT_render_snorm",
+        "EXT_texture_compression_bptc",
+        "EXT_texture_compression_rgtc",
+        "EXT_texture_filter_anisotropic",
+        "EXT_texture_mirror_clamp_to_edge",
+        "EXT_texture_norm16",
+        "KHR_parallel_shader_compile",
+        "NV_shader_noperspective_interpolation",
+        "OES_draw_buffers_indexed",
+        "OES_sample_variables",
+        "OES_shader_multisample_interpolation",
+        "OES_texture_float_linear",
+        "OVR_multiview2",
+        "WEBGL_blend_func_extended",
+        "WEBGL_clip_cull_distance",
+        "WEBGL_compressed_texture_s3tc",
+        "WEBGL_compressed_texture_s3tc_srgb",
+        "WEBGL_debug_renderer_info",
+        "WEBGL_debug_shaders",
+        "WEBGL_lose_context",
+        "WEBGL_multi_draw",
+        "WEBGL_polygon_mode",
+        "WEBGL_provoking_vertex",
+        "WEBGL_stencil_texturing"
+      ],
+      "reversed": false
+    },
+    {
+      "label": "shader-disabled",
+      "filename": "shader-disabled-normal.png",
+      "bundleSHA256": "5f5edede5a3919909ee8ded2ffbc17880a5848cd57e689ee75b53a2a6e70becc",
+      "near": 0.06,
+      "hide": false,
+      "water": [
+        {
+          "name": "showcase_chunk_water:0:0__lod0__Showcase_Moving_Water",
+          "visible": true,
+          "box": [
+            -6000,
+            -0.2800000011920929,
+            -6000
+          ],
+          "max": [
+            -28,
+            -0.2800000011920929,
+            6000
+          ]
+        }
+      ],
+      "depthBits": 24,
+      "extensions": [
+        "EXT_clip_control",
+        "EXT_color_buffer_float",
+        "EXT_color_buffer_half_float",
+        "EXT_conservative_depth",
+        "EXT_depth_clamp",
+        "EXT_disjoint_timer_query_webgl2",
+        "EXT_float_blend",
+        "EXT_polygon_offset_clamp",
+        "EXT_render_snorm",
+        "EXT_texture_compression_bptc",
+        "EXT_texture_compression_rgtc",
+        "EXT_texture_filter_anisotropic",
+        "EXT_texture_mirror_clamp_to_edge",
+        "EXT_texture_norm16",
+        "KHR_parallel_shader_compile",
+        "NV_shader_noperspective_interpolation",
+        "OES_draw_buffers_indexed",
+        "OES_sample_variables",
+        "OES_shader_multisample_interpolation",
+        "OES_texture_float_linear",
+        "OVR_multiview2",
+        "WEBGL_blend_func_extended",
+        "WEBGL_clip_cull_distance",
+        "WEBGL_compressed_texture_s3tc",
+        "WEBGL_compressed_texture_s3tc_srgb",
+        "WEBGL_debug_renderer_info",
+        "WEBGL_debug_shaders",
+        "WEBGL_lose_context",
+        "WEBGL_multi_draw",
+        "WEBGL_polygon_mode",
+        "WEBGL_provoking_vertex",
+        "WEBGL_stencil_texturing"
+      ],
+      "reversed": false
+    },
+    {
+      "label": "shader-disabled",
+      "filename": "shader-disabled-near-half-metre.png",
+      "bundleSHA256": "5f5edede5a3919909ee8ded2ffbc17880a5848cd57e689ee75b53a2a6e70becc",
+      "near": 0.5,
+      "hide": false,
+      "water": [
+        {
+          "name": "showcase_chunk_water:0:0__lod0__Showcase_Moving_Water",
+          "visible": true,
+          "box": [
+            -6000,
+            -0.2800000011920929,
+            -6000
+          ],
+          "max": [
+            -28,
+            -0.2800000011920929,
+            6000
+          ]
+        }
+      ],
+      "depthBits": 24,
+      "extensions": [
+        "EXT_clip_control",
+        "EXT_color_buffer_float",
+        "EXT_color_buffer_half_float",
+        "EXT_conservative_depth",
+        "EXT_depth_clamp",
+        "EXT_disjoint_timer_query_webgl2",
+        "EXT_float_blend",
+        "EXT_polygon_offset_clamp",
+        "EXT_render_snorm",
+        "EXT_texture_compression_bptc",
+        "EXT_texture_compression_rgtc",
+        "EXT_texture_filter_anisotropic",
+        "EXT_texture_mirror_clamp_to_edge",
+        "EXT_texture_norm16",
+        "KHR_parallel_shader_compile",
+        "NV_shader_noperspective_interpolation",
+        "OES_draw_buffers_indexed",
+        "OES_sample_variables",
+        "OES_shader_multisample_interpolation",
+        "OES_texture_float_linear",
+        "OVR_multiview2",
+        "WEBGL_blend_func_extended",
+        "WEBGL_clip_cull_distance",
+        "WEBGL_compressed_texture_s3tc",
+        "WEBGL_compressed_texture_s3tc_srgb",
+        "WEBGL_debug_renderer_info",
+        "WEBGL_debug_shaders",
+        "WEBGL_lose_context",
+        "WEBGL_multi_draw",
+        "WEBGL_polygon_mode",
+        "WEBGL_provoking_vertex",
+        "WEBGL_stencil_texturing"
+      ],
+      "reversed": false
+    },
+    {
+      "label": "shader-disabled",
+      "filename": "shader-disabled-water-hidden.png",
+      "bundleSHA256": "5f5edede5a3919909ee8ded2ffbc17880a5848cd57e689ee75b53a2a6e70becc",
+      "near": 0.06,
+      "hide": true,
+      "water": [
+        {
+          "name": "showcase_chunk_water:0:0__lod0__Showcase_Moving_Water",
+          "visible": true,
+          "box": [
+            -6000,
+            -0.2800000011920929,
+            -6000
+          ],
+          "max": [
+            -28,
+            -0.2800000011920929,
+            6000
+          ]
+        }
+      ],
+      "depthBits": 24,
+      "extensions": [
+        "EXT_clip_control",
+        "EXT_color_buffer_float",
+        "EXT_color_buffer_half_float",
+        "EXT_conservative_depth",
+        "EXT_depth_clamp",
+        "EXT_disjoint_timer_query_webgl2",
+        "EXT_float_blend",
+        "EXT_polygon_offset_clamp",
+        "EXT_render_snorm",
+        "EXT_texture_compression_bptc",
+        "EXT_texture_compression_rgtc",
+        "EXT_texture_filter_anisotropic",
+        "EXT_texture_mirror_clamp_to_edge",
+        "EXT_texture_norm16",
+        "KHR_parallel_shader_compile",
+        "NV_shader_noperspective_interpolation",
+        "OES_draw_buffers_indexed",
+        "OES_sample_variables",
+        "OES_shader_multisample_interpolation",
+        "OES_texture_float_linear",
+        "OVR_multiview2",
+        "WEBGL_blend_func_extended",
+        "WEBGL_clip_cull_distance",
+        "WEBGL_compressed_texture_s3tc",
+        "WEBGL_compressed_texture_s3tc_srgb",
+        "WEBGL_debug_renderer_info",
+        "WEBGL_debug_shaders",
+        "WEBGL_lose_context",
+        "WEBGL_multi_draw",
+        "WEBGL_polygon_mode",
+        "WEBGL_provoking_vertex",
+        "WEBGL_stencil_texturing"
+      ],
+      "reversed": false
+    }
+  ],
+  "errors": []
+}

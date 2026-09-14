@@ -1,4 +1,8 @@
-# P06B handoff — Review12 delivered
+# Current resume entry
+
+Read HANDOFF.md and AGENTS.md. The 2026-09-14 user request authorizes a private Git handoff on main to DanielKinsner/slingmods-three-wheel-tour-rebuild. It supersedes the no-remote rule below only for that transfer. Review12 implementation is complete for review; await the next director packet before changing gameplay or art. The former local-only/no-remote statements below describe delivery history, not current remote state.
+
+# P06B handoff â€” Review12 delivered
 
 Work only in C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild. No restart, remote changes, spending, deployment or desktop takeover. G3/G4 pending.
 

@@ -1,6 +1,6 @@
-# SlingMods: Three-Wheel Tour — Environment Quality Lock (P06B)
+# SlingMods: Three-Wheel Tour â€” Environment Quality Lock (P06B)
 
-Continue this existing rebuild. The active director packet is `director-kit/director-addenda/review-11/CODEX_NEXT.md`. P06B reauthors presentation with free CC0 photo PBR materials, metre-scaled road UVs, connected harbor paving and shoreline, swept palm geometry with three levels of detail, an outdoor HDR sky/probe, water response, and a finished compact inspection room. The existing first chapter, vehicle and game systems remain intact. G3/G4 remain pending; this is a local review build, not a release or the full campaign.
+For another machine or agent, start with [HANDOFF.md](HANDOFF.md). Continue this existing rebuild. The active director packet is `director-kit/director-addenda/review-11/CODEX_NEXT.md`. P06B reauthors presentation with free CC0 photo PBR materials, metre-scaled road UVs, connected harbor paving and shoreline, swept palm geometry with three levels of detail, an outdoor HDR sky/probe, water response, and a finished compact inspection room. The existing first chapter, vehicle and game systems remain intact. G3/G4 remain pending; this is a local review build, not a release or the full campaign.
 
 ## Install and run
 
@@ -23,7 +23,7 @@ Time trial remains a separate one-lap event with day/night presets and separate 
 |---|---|---|
 | Throttle / brake | W / S or up / down | RT / LT |
 | Steer | A / D or left / right | Left stick |
-| Near → far → cockpit | C | Top face |
+| Near â†’ far â†’ cockpit | C | Top face |
 | Held rearward glance | B | LB |
 | Request direction | X | Right face |
 | Restart entire attempt | Hold R one second | Hold bottom face one second |
@@ -54,7 +54,7 @@ npx tsx scripts/parity-p06b.ts
 
 Current P06B evidence is under `director-kit/production/evidence/P06B/`; its frozen `build-inputs-verified.json`, current performance summary and review report identify exact source/assets and limits. The full P05 ledger/evidence remains local and in history; its original 366.6ms outlier and 33.4/50ms heavy repeat remain unresolved historical observations. Do not overwrite old evidence directories. Build freezing uses `scripts/build-review12.mjs`; fresh output directories are mandatory for capture/test scripts. Controlled-clock rule/UI/lifecycle tests are separate from clean native-RAF measurements and continuous wall-clock audio/video.
 
-Generated movies, traces, dependencies, dist, review ZIPs, caches and Blender backups are local artifacts, excluded from new Git commits and curated into the review ZIP. Editable assets and shipped public files are source. G3/G4 and release approval remain pending Astra.
+Selected Review12 movies, traces, screenshots and provenance are tracked for the cross-machine handoff. Redundant captures, dependencies, dist, review ZIPs, caches and Blender backups remain local and ignored. Editable assets and shipped public files are source. G3/G4 and release approval remain pending Astra.
 
 ## P06B source reproduction
 
@@ -68,4 +68,4 @@ python scripts/p06b_validate_assets.py
 python scripts/validate-review12.py
 ```
 
-The review ZIP includes the new packed Blender sources, downloaded material source files and the unchanged harbor Blender foundation used by the authoring script. Blender itself is excluded. Source acquisition is unnecessary for ordinary install/play. The ground repair keeps the exact road/runoff domain open and the existing collision envelope unchanged. Outdoor depth uses reversed depth when supported and logarithmic depth otherwise, preserving the 0.06 m cockpit near plane. No remote changes are authorized for P06B.
+The review ZIP includes the new packed Blender sources, downloaded material source files and the unchanged harbor Blender foundation used by the authoring script. Blender itself is excluded. Source acquisition is unnecessary for ordinary install/play. The ground repair keeps the exact road/runoff domain open and the existing collision envelope unchanged. Outdoor depth uses reversed depth when supported and logarithmic depth otherwise, preserving the 0.06 m cockpit near plane. P06B originally prohibited remote changes; the later user instruction explicitly authorizes this private main-branch handoff. It does not authorize deployment or further feature work.

@@ -1,4 +1,14 @@
-# ACTIVE ASSIGNMENT — P06B Environment Quality Lock
+# Current handoff authority — 2026-09-14
+
+Read `HANDOFF.md` first. This is the existing standalone rebuild, already implemented through P06B and delivered for Review12. Do not repeat kickoff or create another game project. Resolve all paths relative to this checkout, not the originating machine's username.
+
+The user explicitly authorized merging/pushing the complete handoff to main and selected the private repository `DanielKinsner/slingmods-three-wheel-tour-rebuild`. This overrides the older no-remote instruction only for this handoff. No deployment, spending, desktop takeover, unrelated history rewriting or new feature work is authorized. Implementation is paused awaiting Astra's next packet; do not automatically execute the last completed packet again. G3/G4 remain pending and the environment visual target is NOT met.
+
+Preserve vehicle/rear/driver, shared physics, route/rules, products/ownership/saves and historical evidence. Source, editable Blender assets, director packets and selected current runtime evidence are in Git. `HANDOFF.md` describes local-only archives/tools/personal browser saves and next-machine validation. Use isolated browser tests and background Blender; do not control the user's desktop. Older absolute capture paths are historical provenance, not instructions to use the old workspace.
+
+The sections below record historical authorizations; this current header and the user's latest instruction take precedence.
+
+# COMPLETED ASSIGNMENT — P06B Environment Quality Lock
 
 Read director-kit/director-addenda/review-11/CODEX_NEXT.md and required packets. Replace presentation-only scenery, road UV/materials, terrain, foliage, outdoor lighting and compact showroom finishes using verified free CC0 sources and editable Blender assets. Preserve physical course/collision, car/rear/driver, physics/input, rivals/rules/chapter/products/rewards/saves. One lead plus two bounded workers, independent local review. Benchmark then rollout and full runtime/performance validation in one run. Return Astra-Review-12.zip. Local recoverable commits permitted; NO remote changes, spending, deployment or desktop takeover. G3/G4 remain pending. This supersedes older push and rendering-freeze instructions.
 
