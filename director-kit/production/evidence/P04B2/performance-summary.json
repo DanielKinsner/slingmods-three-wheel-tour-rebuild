@@ -1,0 +1,2271 @@
+{
+  "method": "All native RAF rows retained in each run.json. Racing includes phaseCode=2 only; all-frame and loading data are also reported. No outliers trimmed. CPU clocks are not GPU timing. Fresh browser processes do not clear OS/driver cache. No known workload ran concurrently with scored browser trials.",
+  "runs": [
+    {
+      "run": "baseline-clean",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1280,
+        720
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 4548.5,
+      "preparation": null,
+      "allFrames": {
+        "frames": 1092,
+        "elapsedMs": 26042.799999999977,
+        "p50": 16.699999999999818,
+        "p95": 16.700000000000728,
+        "p99": 16.80000000000109,
+        "max": 3983.2000000000007,
+        "over33_4": 3,
+        "over50": 3,
+        "over100": 3,
+        "clampedCatchupMs": 7649.600000000001,
+        "meanCpuFrameMs": 6.1884615384625405,
+        "maxCpuFrameMs": 3984.1999999999534,
+        "meanCollectorMs": 0.005769230769060198
+      },
+      "racing": null,
+      "laps": [],
+      "programEvents": [
+        {
+          "wall": 4652.600000000035,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        },
+        {
+          "wall": 14271.100000000035,
+          "event": "program-count",
+          "data": {
+            "from": 14,
+            "to": 27
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            4670.1,
+            3849.8,
+            4.100000000034925,
+            2.199999999953434,
+            6,
+            0,
+            14,
+            5,
+            2,
+            0
+          ],
+          "precedingRow": [
+            820.3,
+            -56.10000000002333,
+            3.3999999999650754,
+            1.8999999999650754,
+            0,
+            0,
+            14,
+            5,
+            2,
+            0.20000000001164153
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            4820,
+            116.60000000000036,
+            3.300000000046566,
+            1.3999999999650754,
+            13,
+            0,
+            14,
+            5,
+            2,
+            0
+          ],
+          "precedingRow": [
+            4703.4,
+            33.29999999999927,
+            3,
+            1.900000000023283,
+            7,
+            0,
+            14,
+            5,
+            2,
+            0
+          ]
+        },
+        {
+          "rowIndex": 332,
+          "row": [
+            14269.7,
+            3983.2000000000007,
+            2.7999999999883585,
+            1,
+            347,
+            2483.333333333333,
+            27,
+            6,
+            2,
+            0
+          ],
+          "precedingRow": [
+            10286.5,
+            16.600000000000364,
+            3984.1999999999534,
+            3982.7999999999884,
+            341,
+            2383.333333333334,
+            27,
+            6,
+            2,
+            0.1000000000349246
+          ]
+        }
+      ],
+      "meanDriverMs": 0.101562500000321,
+      "validResults": [],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "baseline-diagnostic",
+      "recorded": false,
+      "diagnostic": true,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1280,
+        720
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 4452.400000000023,
+      "preparation": null,
+      "allFrames": {
+        "frames": 1094,
+        "elapsedMs": 25944.80000000001,
+        "p50": 16.69999999999891,
+        "p95": 16.799999999999272,
+        "p99": 16.80000000000291,
+        "max": 3916.5,
+        "over33_4": 3,
+        "over50": 3,
+        "over100": 3,
+        "clampedCatchupMs": 7516.4,
+        "meanCpuFrameMs": 5.781718464351495,
+        "maxCpuFrameMs": 3927.1999999999534,
+        "meanCollectorMs": 0.0037477148080225934
+      },
+      "racing": null,
+      "laps": [],
+      "programEvents": [
+        {
+          "wall": 4544.5,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        },
+        {
+          "wall": 14063.699999999953,
+          "event": "program-count",
+          "data": {
+            "from": 14,
+            "to": 27
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            4552.5,
+            3783.2,
+            3.6000000000349246,
+            1.900000000023283,
+            6,
+            0,
+            14,
+            5,
+            2,
+            0
+          ],
+          "precedingRow": [
+            769.3,
+            -37.499999999988404,
+            2.7999999999883585,
+            1.7000000000116415,
+            0,
+            0,
+            14,
+            5,
+            2,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            4685.8,
+            116.69999999999982,
+            3.5,
+            1.599999999976717,
+            12,
+            0,
+            14,
+            5,
+            2,
+            0
+          ],
+          "precedingRow": [
+            4569.1,
+            16.600000000000364,
+            2.6000000000349246,
+            1.7999999999883585,
+            6,
+            0,
+            14,
+            5,
+            2,
+            0
+          ]
+        },
+        {
+          "rowIndex": 331,
+          "row": [
+            14052.1,
+            3916.5,
+            3.5,
+            1.5,
+            344,
+            2483.333333333333,
+            27,
+            6,
+            2,
+            0
+          ],
+          "precedingRow": [
+            10135.6,
+            16.700000000000728,
+            3927.1999999999534,
+            3926,
+            338,
+            2383.333333333334,
+            27,
+            6,
+            2,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.08614678899100725,
+      "validResults": [],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "baseline-diagnostic-gl",
+      "recorded": false,
+      "diagnostic": true,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1280,
+        720
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 4515.900000000023,
+      "preparation": null,
+      "allFrames": {
+        "frames": 731,
+        "elapsedMs": 20001.000000000022,
+        "p50": 16.699999999999818,
+        "p95": 16.700000000000728,
+        "p99": 16.80000000000109,
+        "max": 3949.8999999999996,
+        "over33_4": 3,
+        "over50": 3,
+        "over100": 3,
+        "clampedCatchupMs": 7633.099999999999,
+        "meanCpuFrameMs": 7.988782489741738,
+        "maxCpuFrameMs": 3956.8000000000466,
+        "meanCollectorMs": 0.00465116279120729
+      },
+      "racing": null,
+      "laps": [],
+      "programEvents": [
+        {
+          "wall": 4611.199999999953,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        },
+        {
+          "wall": 14173.400000000023,
+          "event": "program-count",
+          "data": {
+            "from": 14,
+            "to": 27
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            4615.2,
+            3849.8999999999996,
+            4.099999999976717,
+            2.099999999976717,
+            6,
+            0,
+            14,
+            5,
+            2,
+            0
+          ],
+          "precedingRow": [
+            765.3,
+            -48.29999999997676,
+            3.099999999976717,
+            1.900000000023283,
+            0,
+            0,
+            14,
+            5,
+            2,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            4765.2,
+            133.30000000000018,
+            3,
+            1.400000000023283,
+            13,
+            0,
+            14,
+            5,
+            2,
+            0
+          ],
+          "precedingRow": [
+            4631.9,
+            16.699999999999818,
+            3,
+            2.099999999976717,
+            7,
+            0,
+            14,
+            5,
+            2,
+            0.09999999997671694
+          ]
+        },
+        {
+          "rowIndex": 331,
+          "row": [
+            14164.9,
+            3949.8999999999996,
+            2.800000000046566,
+            1.1000000000931323,
+            345,
+            2483.333333333333,
+            27,
+            6,
+            2,
+            0.09999999997671694
+          ],
+          "precedingRow": [
+            10215,
+            16.700000000000728,
+            3956.8000000000466,
+            3954.8000000000466,
+            339,
+            2383.333333333334,
+            27,
+            6,
+            2,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.08349381017587064,
+      "validResults": [],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "cycle1-clean",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1280,
+        720
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 1706,
+      "preparation": {
+        "ms": 967.9000000000233,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 83.40000000002328
+          },
+          {
+            "name": "compile-async",
+            "ms": 787.4000000000233
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 96.09999999997672
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0.10000000009313226
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 1448,
+        "elapsedMs": 24140.8,
+        "p50": 16.69999999999891,
+        "p95": 16.700000000000728,
+        "p99": 16.800000000000182,
+        "max": 83.40000000000009,
+        "over33_4": 2,
+        "over50": 2,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 1.7792817679542092,
+        "maxCpuFrameMs": 8.099999999976717,
+        "meanCollectorMs": 0.005041436463959762
+      },
+      "racing": null,
+      "laps": [],
+      "programEvents": [
+        {
+          "wall": 1799.8000000000466,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            1787.7,
+            83.40000000000009,
+            3.400000000023283,
+            1.599999999976717,
+            5,
+            0,
+            14,
+            6,
+            2,
+            0.09999999997671694
+          ],
+          "precedingRow": [
+            1704.3,
+            -91.70000000000005,
+            3.300000000046566,
+            2.1000000000931323,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0.09999999997671694
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            1871.1,
+            50.09999999999991,
+            2.199999999953434,
+            1.1999999999534339,
+            10,
+            0,
+            14,
+            6,
+            2,
+            0
+          ],
+          "precedingRow": [
+            1821,
+            33.299999999999955,
+            2.5,
+            1.6000000000931323,
+            7,
+            0,
+            14,
+            6,
+            2,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.07673130194029971,
+      "validResults": [],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "cycle1-full1080",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1920,
+        1080
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 1765.5,
+      "preparation": {
+        "ms": 1028,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 88.5
+          },
+          {
+            "name": "compile-async",
+            "ms": 838.5
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 100.30000000004657
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 9800,
+        "elapsedMs": 163339.80000000002,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 99.90000000000009,
+        "over33_4": 2,
+        "over50": 2,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 1.8589693877554845,
+        "maxCpuFrameMs": 16,
+        "meanCollectorMs": 0.004561224489850562
+      },
+      "racing": {
+        "frames": 9410,
+        "elapsedMs": 156827.1,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 16.800000000017462,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 1.855664187035433,
+        "maxCpuFrameMs": 16,
+        "meanCollectorMs": 0.004473963868259932
+      },
+      "laps": [
+        {
+          "attempt": 1,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.59999999999,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 2.1120510095652483,
+            "maxCpuFrameMs": 16,
+            "meanCollectorMs": 0.005270988310243851
+          }
+        },
+        {
+          "attempt": 2,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.50000000001,
+            "p50": 16.69999999999709,
+            "p95": 16.79999999998836,
+            "p99": 16.80000000000291,
+            "max": 16.800000000017462,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 1.5992773645056173,
+            "maxCpuFrameMs": 4.800000000046566,
+            "meanCollectorMs": 0.0036769394262760133
+          }
+        }
+      ],
+      "programEvents": [
+        {
+          "wall": 1876.0999999999767,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            1869.4,
+            99.90000000000009,
+            3.700000000069849,
+            1.7000000000698492,
+            5,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            1769.5,
+            -103.59999999997672,
+            2.599999999976717,
+            1.599999999976717,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            1952.8,
+            66.70000000000005,
+            3,
+            1.6000000000931323,
+            10,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            1886.1,
+            16.699999999999818,
+            2.5,
+            1.599999999976717,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.16560646349013763,
+      "validResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "final-stock1080",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": false,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1920,
+        1080
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 1715.7999999998137,
+      "preparation": {
+        "ms": 984.1000000000931,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 94.60000000009313
+          },
+          {
+            "name": "compile-async",
+            "ms": 797.7999999998137
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 90.5
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 9797,
+        "elapsedMs": 163283.10000000003,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 100,
+        "over33_4": 2,
+        "over50": 1,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 3.252097580892281,
+        "maxCpuFrameMs": 19.899999999906868,
+        "meanCollectorMs": 0.005767071552848793
+      },
+      "racing": {
+        "frames": 9410,
+        "elapsedMs": 156827.0,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 16.800000000017462,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 3.2238150903292735,
+        "maxCpuFrameMs": 19.899999999906868,
+        "meanCollectorMs": 0.005685441020537686
+      },
+      "laps": [
+        {
+          "attempt": 1,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.5,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 3.0068225292243977,
+            "maxCpuFrameMs": 19.899999999906868,
+            "meanCollectorMs": 0.005611052072689127
+          }
+        },
+        {
+          "attempt": 2,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.5,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.800000000017462,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 3.4408076514341492,
+            "maxCpuFrameMs": 17.199999999953434,
+            "meanCollectorMs": 0.0057598299683862455
+          }
+        }
+      ],
+      "programEvents": [
+        {
+          "wall": 1834.4000000001397,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            1838,
+            100,
+            3.699999999953434,
+            1.6000000000931323,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            1738,
+            -93.69999999995343,
+            2.300000000046566,
+            1.3999999999068677,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0.19999999995343387,
+            0,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            1904.6,
+            49.899999999999864,
+            2.699999999953434,
+            1.3000000000465661,
+            9,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            1854.7,
+            16.700000000000045,
+            2.6000000000931323,
+            1.6999999999534339,
+            7,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.30514367522079633,
+      "validResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "scored-equipped1080",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1920,
+        1080
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 1846.5,
+      "preparation": {
+        "ms": 1081.9000000001397,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 98
+          },
+          {
+            "name": "compile-async",
+            "ms": 879.8999999999069
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 103.10000000009313
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 9798,
+        "elapsedMs": 163410.1,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 100.10000000000014,
+        "over33_4": 2,
+        "over50": 2,
+        "over100": 1,
+        "clampedCatchupMs": 0.10000000000013642,
+        "meanCpuFrameMs": 3.366227801593188,
+        "maxCpuFrameMs": 9.599999999860302,
+        "meanCollectorMs": 0.008787507654918056
+      },
+      "racing": {
+        "frames": 9410,
+        "elapsedMs": 156827.1,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 16.800000000017462,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 3.4172369819352952,
+        "maxCpuFrameMs": 9.599999999860302,
+        "meanCollectorMs": 0.00875664187073668
+      },
+      "laps": [
+        {
+          "attempt": 1,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.5,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 1.6808926673754991,
+            "maxCpuFrameMs": 6.900000000139698,
+            "meanCollectorMs": 0.004697130711879839
+          }
+        },
+        {
+          "attempt": 2,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.6,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.800000000017462,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 5.153581296495092,
+            "maxCpuFrameMs": 9.599999999860302,
+            "meanCollectorMs": 0.01281615302959352
+          }
+        }
+      ],
+      "programEvents": [
+        {
+          "wall": 1953.8999999999069,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            1950.2,
+            100.10000000000014,
+            3.3999999999068677,
+            1.6999999999534339,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            1850.1,
+            0,
+            3.4000000001396984,
+            2.300000000046566,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            2033.5,
+            66.70000000000005,
+            4.599999999860302,
+            2.2000000001862645,
+            10,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            1966.8,
+            16.59999999999991,
+            2,
+            1.4000000001396984,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.21798936387802226,
+      "validResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "scored-equipped1080-repeat",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1920,
+        1080
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 2187.8000000000466,
+      "preparation": {
+        "ms": 1359.8999999999069,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 120.5
+          },
+          {
+            "name": "compile-async",
+            "ms": 1135.5
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 103.10000000009313
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 9795,
+        "elapsedMs": 163343.5,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 100,
+        "over33_4": 2,
+        "over50": 1,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.2234099030095824,
+        "maxCpuFrameMs": 10.900000000139698,
+        "meanCollectorMs": 0.0048392036752875145
+      },
+      "racing": {
+        "frames": 9410,
+        "elapsedMs": 156827.0,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 16.800000000017462,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.237587672686422,
+        "maxCpuFrameMs": 10.900000000139698,
+        "meanCollectorMs": 0.004835281615228641
+      },
+      "laps": [
+        {
+          "attempt": 1,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.5,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 2.0439532412314545,
+            "maxCpuFrameMs": 10.900000000139698,
+            "meanCollectorMs": 0.004675876726638863
+          }
+        },
+        {
+          "attempt": 2,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.5,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.800000000017462,
+            "max": 16.800000000017462,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 2.4312221041413897,
+            "maxCpuFrameMs": 8.599999999860302,
+            "meanCollectorMs": 0.004994686503818419
+          }
+        }
+      ],
+      "programEvents": [
+        {
+          "wall": 2297.399999999907,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            2299.7,
+            100,
+            4.900000000139698,
+            2.0999999998603016,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            2199.7,
+            0,
+            2.5,
+            1.5999999998603016,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            2366.4,
+            50,
+            2.800000000046566,
+            1.3999999999068677,
+            10,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            2316.4,
+            16.700000000000273,
+            2.5,
+            1.6000000000931323,
+            7,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.2064839435469995,
+      "validResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "scored-equipped720",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1280,
+        720
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 2402.100000000093,
+      "preparation": {
+        "ms": 1477.6000000000931,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 125.5
+          },
+          {
+            "name": "compile-async",
+            "ms": 1242.7000000001863
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 108.60000000009313
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 9809,
+        "elapsedMs": 163593.4,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 100,
+        "over33_4": 2,
+        "over50": 2,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.04092160260699,
+        "maxCpuFrameMs": 10.100000000093132,
+        "meanCollectorMs": 0.004709960240614361
+      },
+      "racing": {
+        "frames": 9410,
+        "elapsedMs": 156827.1,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 16.800000000017462,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.0227630180629874,
+        "maxCpuFrameMs": 10.100000000093132,
+        "meanCollectorMs": 0.004665249734315289
+      },
+      "laps": [
+        {
+          "attempt": 1,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.59999999999,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 2.1387885228397203,
+            "maxCpuFrameMs": 10.100000000093132,
+            "meanCollectorMs": 0.004973432519270244
+          }
+        },
+        {
+          "attempt": 2,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.50000000001,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.800000000017462,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 1.9067375132862545,
+            "maxCpuFrameMs": 5,
+            "meanCollectorMs": 0.004357066949360334
+          }
+        }
+      ],
+      "programEvents": [
+        {
+          "wall": 2542.6999999997206,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            2536.4,
+            100,
+            5.2000000001862645,
+            2.2999999998137355,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            2436.4,
+            0,
+            3,
+            1.7999999998137355,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            2619.7,
+            66.59999999999991,
+            3.2999999998137355,
+            1.8999999999068677,
+            10,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            2553.1,
+            16.699999999999818,
+            2.5,
+            1.7000000001862645,
+            7,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.17325902443244118,
+      "validResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "scored-stock1080",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": false,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1920,
+        1080
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 2146,
+      "preparation": {
+        "ms": 1245.8000000000466,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 114.30000000004657
+          },
+          {
+            "name": "compile-async",
+            "ms": 1014.6000000000931
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 116.19999999995343
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 9807,
+        "elapsedMs": 163593.5,
+        "p50": 16.69999999999709,
+        "p95": 16.79999999998836,
+        "p99": 16.80000000000291,
+        "max": 116.69999999999982,
+        "over33_4": 2,
+        "over50": 2,
+        "over100": 1,
+        "clampedCatchupMs": 16.699999999999818,
+        "meanCpuFrameMs": 2.332639951055079,
+        "maxCpuFrameMs": 14.600000000093132,
+        "meanCollectorMs": 0.005516467828731299
+      },
+      "racing": {
+        "frames": 9410,
+        "elapsedMs": 156827.00000000003,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 16.800000000017462,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.308607863974223,
+        "maxCpuFrameMs": 14.600000000093132,
+        "meanCollectorMs": 0.005451647183406548
+      },
+      "laps": [
+        {
+          "attempt": 1,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.5,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 2.443443145590273,
+            "maxCpuFrameMs": 14.600000000093132,
+            "meanCollectorMs": 0.0063124335806927665
+          }
+        },
+        {
+          "attempt": 2,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.50000000001,
+            "p50": 16.69999999999709,
+            "p95": 16.79999999998836,
+            "p99": 16.80000000000291,
+            "max": 16.800000000017462,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 2.173772582358173,
+            "maxCpuFrameMs": 8.5,
+            "meanCollectorMs": 0.004590860786120329
+          }
+        }
+      ],
+      "programEvents": [
+        {
+          "wall": 2259.1999999999534,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            2256.6,
+            116.69999999999982,
+            5.399999999906868,
+            2.1000000000931323,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            2139.9,
+            0,
+            3.800000000046566,
+            2.5,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0.10000000009313226,
+            0,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            2356.6,
+            83.29999999999973,
+            4.400000000139698,
+            2.300000000046566,
+            12,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            2273.3,
+            16.700000000000273,
+            4.800000000046566,
+            3,
+            7,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.19415132924207298,
+      "validResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "scored-stock720",
+      "recorded": false,
+      "diagnostic": false,
+      "equipped": false,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1280,
+        720
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 1847,
+      "preparation": {
+        "ms": 1080.8000000000466,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 94.79999999981374
+          },
+          {
+            "name": "compile-async",
+            "ms": 887
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 98.10000000009313
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 9796,
+        "elapsedMs": 163376.8,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 100,
+        "over33_4": 2,
+        "over50": 1,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.1864740710475257,
+        "maxCpuFrameMs": 10.799999999813735,
+        "meanCollectorMs": 0.0051857901183728974
+      },
+      "racing": {
+        "frames": 9409,
+        "elapsedMs": 156827.09999999998,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 33.19999999999709,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.1967265384191763,
+        "maxCpuFrameMs": 10.799999999813735,
+        "meanCollectorMs": 0.0051227548092202604
+      },
+      "laps": [
+        {
+          "attempt": 1,
+          "stats": {
+            "frames": 4705,
+            "elapsedMs": 78413.6,
+            "p50": 16.69999999999709,
+            "p95": 16.79999999998836,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 1.8832306057359236,
+            "maxCpuFrameMs": 6.2999999998137355,
+            "meanCollectorMs": 0.004442082890868583
+          }
+        },
+        {
+          "attempt": 2,
+          "stats": {
+            "frames": 4704,
+            "elapsedMs": 78413.49999999999,
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 33.19999999999709,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 2.510289115645942,
+            "maxCpuFrameMs": 10.799999999813735,
+            "meanCollectorMs": 0.005803571428234853
+          }
+        }
+      ],
+      "programEvents": [
+        {
+          "wall": 1946.1000000000931,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            1949.7,
+            100,
+            5.7999999998137355,
+            3.800000000046566,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            1849.7,
+            0,
+            2.699999999953434,
+            1.6000000000931323,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0.09999999986030161,
+            0,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            2016.4,
+            50,
+            3.3999999999068677,
+            1.5999999998603016,
+            10,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            1966.4,
+            16.700000000000045,
+            3,
+            2,
+            7,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.18913777232738976,
+      "validResults": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        },
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78402.53931382658,
+          "bestMs": 78402.53931382658,
+          "differenceMs": 0,
+          "firstRecord": false,
+          "newBest": false
+        }
+      ],
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "run": "video-final",
+      "recorded": true,
+      "diagnostic": false,
+      "equipped": true,
+      "buffer": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "size": [
+        1280,
+        720
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 2227.899999999907,
+      "preparation": {
+        "ms": 1388.2999999998137,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 122.29999999981374
+          },
+          {
+            "name": "compile-async",
+            "ms": 1161.7000000001863
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 103
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 14,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "allFrames": {
+        "frames": 1720,
+        "elapsedMs": 28782.2,
+        "p50": 16.69999999999891,
+        "p95": 16.700000000000728,
+        "p99": 16.800000000000182,
+        "max": 100,
+        "over33_4": 2,
+        "over50": 2,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.7833139534801417,
+        "maxCpuFrameMs": 7.300000000279397,
+        "meanCollectorMs": 0.006627906977231506
+      },
+      "racing": {
+        "frames": 1500,
+        "elapsedMs": 24999.0,
+        "p50": 16.69999999999891,
+        "p95": 16.700000000000728,
+        "p99": 16.800000000000182,
+        "max": 16.80000000000291,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "clampedCatchupMs": 0,
+        "meanCpuFrameMs": 2.75613333332104,
+        "maxCpuFrameMs": 7.300000000279397,
+        "meanCollectorMs": 0.006000000000620882
+      },
+      "laps": [
+        {
+          "attempt": 1,
+          "stats": {
+            "frames": 1500,
+            "elapsedMs": 24999.0,
+            "p50": 16.69999999999891,
+            "p95": 16.700000000000728,
+            "p99": 16.800000000000182,
+            "max": 16.80000000000291,
+            "over33_4": 0,
+            "over50": 0,
+            "over100": 0,
+            "clampedCatchupMs": 0,
+            "meanCpuFrameMs": 2.75613333332104,
+            "maxCpuFrameMs": 7.300000000279397,
+            "meanCollectorMs": 0.006000000000620882
+          }
+        }
+      ],
+      "programEvents": [
+        {
+          "wall": 2356.899999999907,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 14
+          }
+        }
+      ],
+      "outliers": [
+        {
+          "rowIndex": 1,
+          "row": [
+            2346.7,
+            100,
+            4.899999999906868,
+            2,
+            6,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            2246.7,
+            0,
+            3.1000000000931323,
+            1.7999999998137355,
+            0,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rowIndex": 3,
+          "row": [
+            2430.1,
+            66.69999999999982,
+            4.2000000001862645,
+            3,
+            11,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "precedingRow": [
+            2363.4,
+            16.700000000000273,
+            3.1000000000931323,
+            1.8999999999068677,
+            7,
+            0,
+            14,
+            6,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "meanDriverMs": 0.10421364985472724,
+      "validResults": [],
+      "errors": [],
+      "overflow": 0
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-11",
+  "as_of": "2026-09-14T15:40:11.229856+00:00",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
+  "commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
   "current_gate": "G3",
-  "current_packet": "P04B1 Make It Yours: functional loop delivered; lighting/performance HOLD for Astra Review08",
-  "next_action": "STOP for Astra Review08 decision. No additional packet, content, spending or G3/G4 advancement.",
+  "current_packet": "P04B2 Night Drive: measured shader repair and readable existing kit; local evidence complete for Astra",
+  "next_action": "STOP for Astra Review09. No additional content, spending, deployment or G3/G4 advancement.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -61,7 +61,7 @@
     "Broader vehicle fidelity held: rounded edge/subdued ridge and tire groove/machining approximation remain.",
     "G3/G4 pending: final vehicle/aural/environment fidelity and hardware/physical controls remain held. P04A bounded event was explicitly authorized; no full campaign or originalP04 approval.",
     "Review07: final independent visual review unavailable after specialist usage limit; lead review and structural evidence supplied. Rear OEM storage shape, environment polish, audio timbre and physical-control approval remain held.",
-    "Review08: product loop functions, but Harbor underglow readability and severe measured wall-clock stalls remain held for Astra. Do not advance campaign or G3/G4."
+    "Review09 awaits Astra: local night-readability and racing performance targets met; daylight strength/fine occlusion, driver-cache/hardware breadth and global G3/G4 fidelity/aural approval remain limited."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
@@ -100,7 +100,7 @@
   "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
-  "commit_meaning": "Frozen Review08 runtime/source; later metadata-only packaging commit in ZIP manifest",
+  "commit_meaning": "Frozen Review09 runtime; later packaging-only commit in ZIP manifest",
   "known_limitations": [
     "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
     "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
@@ -138,15 +138,14 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "tests": "72/72full;26/26director;TypeScript/Vite PASS",
-    "browser": "14career checks,6existing UI checks,12equipcycles7scenevisits,old-save fresh-lap check PASS",
-    "ordinary_loop": "Native0->800->200->300,distinct valid day/night UUIDs,secondcolor/equipment persisted after reload",
-    "physics": "All10200telemetryrows offday/onnight exactly identical;41protectedinputs unchanged",
-    "visual": "FunctionalPASS; nightunderlightreadabilityHOLD after two lightingconstructions; lead separate final review",
-    "performance": "12second capture-inclusive wall-clock mean21.4575msstock/27.186mson,stalls2699.8/4666.5ms;causeunresolved",
-    "evidence": "Review08-final,Review08-browser,Review08-ui,Review08-profile,P04B1"
+    "tests": "74/74 full source; TS/Vite build PASS",
+    "browser": "6 retained UI regressions; owned/unowned native menu/reload/power/stock checks PASS",
+    "performance": "5 final unrecorded full first-lap/retry trials, 10 valid laps; p95 16.7ms, p99 16.8ms, max racing33.2ms; stable14programs; all outliers and loading preserved",
+    "physics": "10200 exact off/on telemetry objects;45 protected inputs unchanged",
+    "visual": "Readable red/cyan matched near-chase and actual silent25s night motion; fine occlusion/daylight/photometry limits retained",
+    "evidence": "production/evidence/P04B2"
   },
-  "director_addendum": "director-addenda/review-06/CODEX_NEXT.md",
+  "director_addendum": "director-addenda/review-08/CODEX_NEXT.md",
   "drivetrain_addendum": {
     "status": "independently_passed",
     "commit": "9add1f9",
@@ -184,7 +183,13 @@
     "motion": "SILENT 13-second orbit and 20-second frame-stepped pad/grass-edge maneuver; no human or real-time performance claim."
   },
   "historical_review_evidence": [
-    "production/evidence/P03A/review-final.json"
+    "production/evidence/P03A/review-final.json",
+    {
+      "review": "Review08",
+      "packet": "P04B1",
+      "runtime": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
+      "holds": "Night-readability and wall-clock stalls authorized for P04B2 investigation; original evidence retained."
+    }
   ],
   "p03a2": {
     "status": "local_shell_repair_and_integration_reviewed_provisional",
@@ -299,6 +304,19 @@
     {
       "packet": "P04B1",
       "runtime_commit": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
+      "verification": {
+        "tests": "72/72full;26/26director;TypeScript/Vite PASS",
+        "browser": "14career checks,6existing UI checks,12equipcycles7scenevisits,old-save fresh-lap check PASS",
+        "ordinary_loop": "Native0->800->200->300,distinct valid day/night UUIDs,secondcolor/equipment persisted after reload",
+        "physics": "All10200telemetryrows offday/onnight exactly identical;41protectedinputs unchanged",
+        "visual": "FunctionalPASS; nightunderlightreadabilityHOLD after two lightingconstructions; lead separate final review",
+        "performance": "12second capture-inclusive wall-clock mean21.4575msstock/27.186mson,stalls2699.8/4666.5ms;causeunresolved",
+        "evidence": "Review08-final,Review08-browser,Review08-ui,Review08-profile,P04B1"
+      }
+    },
+    {
+      "review": "Review08",
+      "commit": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
       "verification": {
         "tests": "72/72full;26/26director;TypeScript/Vite PASS",
         "browser": "14career checks,6existing UI checks,12equipcycles7scenevisits,old-save fresh-lap check PASS",
@@ -432,6 +450,29 @@
       "Underglow weak in bright Harbor chase view",
       "Large wall-clock capture stalls, cause unresolved",
       "2024 routing/photometry approximate; no new OEM or physical-controller/listening approval"
+    ],
+    "director_review08": "Functional career/product loop accepted for continued development; retained unchanged in P04B2."
+  },
+  "p04b2": {
+    "status": "local_evidence_complete_awaiting_astra",
+    "runtime_commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+    "evaluated_fix_cycles": 2,
+    "luminance_sweeps": 1,
+    "root_cause": "New spotlight-count shader variants synchronizing on first use",
+    "repair": "Stable resident practical/area slots; explicit renderer preparation before play",
+    "default_nits_per_emitter": 900,
+    "geometry_changed": false,
+    "physics_changed": false,
+    "economy_changed": false,
+    "g3_advance": false,
+    "g4_advance": false,
+    "review": "production/evidence/P04B2/final-review.md",
+    "remaining_limits": [
+      "Fine area-light occlusion and product photometry approximate",
+      "Daylight glow conspicuous within shadow",
+      "Ready-menu bootstrap intervals up to116.7ms retained, cause not isolated",
+      "Fresh browser does not imply driver-cache-cold; no physical controller or human audio approval",
+      "Baseline measurement seams were not separately committed/hashed; final trials have exact frozen provenance"
     ]
   }
 }

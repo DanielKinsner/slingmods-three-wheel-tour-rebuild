@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "packet": "P04B2",
+  "status": "executed_local_review09_awaiting_astra",
+  "note": "Local evidence mapping. Not Astra approval or global gate passage. Baseline bytes, renderer-cache, diagnostic HUD, daylight and fine-occlusion limits are explicit.",
+  "cases": [
+    {
+      "id": "B2-01",
+      "title": "Cold baseline",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "A new isolated context, ordinary RAF/controller, no recording, production buffer settings. Export raw intervals including initial preparation separately.",
+      "expected": "Actual source/renderer/device/drawing-buffer IDs and all sample outliers; no captured-smoothness claim.",
+      "executed_evidence": "baseline-clean + baseline-diagnostic-gl; instrumented baseline parent SHA and byte-reproduction limit disclosed"
+    },
+    {
+      "id": "B2-02",
+      "title": "Causal hitch diagnosis",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Trace one repeatable first-encounter stall with light-slot/program event markers. Compare an equivalent minimally observed run.",
+      "expected": "Measured cause or clearly unresolved hypothesis; no unsupported blame assigned to accessory, OS or GPU.",
+      "executed_evidence": "13 blocking info-log calls, light/program transition, clean repaired A/B"
+    },
+    {
+      "id": "B2-03",
+      "title": "Stable lighting variants",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Cross 55m practical boundaries and prepared kit power/equip changes.",
+      "expected": "No repeated new program compilation driven solely by slot count; emitting and resident slots counted separately.",
+      "executed_evidence": "stable 14 programs and resident slots across all final laps; native menu cycles"
+    },
+    {
+      "id": "B2-04",
+      "title": "Preparation and race timing",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Load cold config and start countdown after preparation.",
+      "expected": "Preparation timed and visible, no throttle/race time consumed before ready; unchanged valid result and reward rules.",
+      "executed_evidence": "explicit preparation stages, zero pre-ready race elapsed, menu guard"
+    },
+    {
+      "id": "B2-05",
+      "title": "Visible night upgrade",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Matched stock/red/cyan normal near-chase at streetlit and less-lit poses, plus ordinary motion.",
+      "expected": "Clear localized installed-color difference without exposure/world-light/material changes or billboard/bloom trick.",
+      "executed_evidence": "matched stock/red/cyan and normal wall-clock motion; fine-occlusion/daylight limits remain"
+    },
+    {
+      "id": "B2-06",
+      "title": "Saved product behavior",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Owned build reload, temporary comparison, light power/color/brightness, preview cancel and night entry.",
+      "expected": "No duplicate charges/receipts; all durable settings preserved; unowned preview never reaches playable equipment.",
+      "executed_evidence": "smoke-frozen: old earned save, receipts and settings; native power/color/stock/reload"
+    },
+    {
+      "id": "B2-07",
+      "title": "First lap and immediate retry",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Stock/equipped full-course runs in real time, including cold first playable lap then warm retry.",
+      "expected": "On named 4080 target host: planned p95<=20ms, p99<=33.4ms, no app-attributed >100ms. All outliers retained and actual limits disclosed.",
+      "executed_evidence": "five scored configurations, ten valid full laps; all planned racing thresholds met"
+    },
+    {
+      "id": "B2-08",
+      "title": "Production versus recorder",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Separate short real-time video run after scored no-recording measurements.",
+      "expected": "Unedited elapsed-time motion; no controlled-clock substitute; recorder impact and audio provenance explicit.",
+      "executed_evidence": "video-final is separate actual elapsed-time recording; no audio stream"
+    },
+    {
+      "id": "B2-09",
+      "title": "Bounded resources",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Repeated on/off, equip, camera and scene operations after warmup.",
+      "expected": "Stable resource/program residency with no leaked emitters; no new per-vehicle shadow maps.",
+      "executed_evidence": "87 geometries/36 textures stable; twelve native cycles and unit lifecycle checks"
+    },
+    {
+      "id": "B2-10",
+      "title": "Foundation retained",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Hash current car/rear/driver/route/contact/physics/audio and compare matched cosmetic on/off inputs.",
+      "expected": "Unchanged assets/rules and matching physics; any allowed integration changes itemized.",
+      "executed_evidence": "45 frozen hashes and exact 10200-row off/on comparison"
+    },
+    {
+      "id": "B2-11",
+      "title": "Local tests/build",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Run existing full and focused tests plus changed-light lifecycle checks on actual source.",
+      "expected": "Real logs/versioned results; pending or mocked cases not counted as browser/hardware passes.",
+      "executed_evidence": "74 source tests, six retained UI regressions and frozen TS/Vite build"
+    },
+    {
+      "id": "B2-12",
+      "title": "Honest result",
+      "status": "LOCAL_EVIDENCE_COMPLETE_WITH_STATED_LIMITS",
+      "procedure": "Review final ordinary render and profile without expanding scope.",
+      "expected": "At most two evaluated fix cycles; return best state and explicit residual holds; G3/G4 remain pending.",
+      "executed_evidence": "two bounded implementation stages, explicit provenance/photometry/hardware limits; G3/G4 pending"
+    }
+  ]
+}

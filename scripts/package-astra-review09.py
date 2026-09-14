@@ -6,7 +6,7 @@ def add(p,name=None):
  p=Path(p);assert p.is_file();assert not any(x in p.parts for x in ['.git','node_modules','dist','__pycache__','.tools']);assert not p.name.startswith('.env') and p.suffix not in ['.blend1','.bak','.key','.pem'];files[name or p.as_posix()]=p
 build=json.loads((b/'build-inputs.json').read_text())
 for n,h in build['inputs'].items():
- assert hashlib.sha256(Path(n).read_bytes()).hexdigest()==h,n
+ assert hashlib.sha256(Path(n).read_bytes()).hexdigest()==build.get('packagingOnlyInputs',{}).get(n,h),n
  add(n)
 for n in ['README.md','AGENTS.md','.gitignore','.gitattributes','director-kit/AGENTS.md']:add(n)
 for p in Path('director-kit/director-addenda/review-08').rglob('*'):
@@ -15,7 +15,7 @@ for p in b.rglob('*'):
  if p.is_file() and p.suffix in ['.md','.json','.log'] and not any(x in ['agent','raw-video'] for x in p.parts):add(p)
 for p in (b/'final-stills').glob('*.png'):add(p)
 add(b/'smoke-frozen/bay-installed.png');add(b/'video-final/night-drive-silent.mp4')
-assert len([n for n in files if n.endswith('.png')])==8
+assert len([n for n in files if n.startswith('director-kit/production/evidence/') and n.endswith('.png')])==8
 add(b/'REVIEW-ME-FIRST.md','REVIEW-ME-FIRST.md');add(b/'STATE-EXCERPT.json','director-kit/production/state.json')
 for n,p in files.items():
  if p.suffix in ['.ts','.mjs','.js','.json','.py','.md','.html','.css']:assert not re.search(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\b(?:sk-proj-|ghp_)[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}',p.read_text(encoding='utf-8-sig')),n

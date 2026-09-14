@@ -1,0 +1,2103 @@
+{
+  "status": "PASS",
+  "method": "Matched ordinary controller/physics paths with controlled time solely for deterministic comparison, not performance proof. Preparation consumes zero race time. Full 10200 telemetry objects exactly equal; no tolerance relaxation.",
+  "rows": 10200,
+  "results": [
+    {
+      "equipped": false,
+      "final": {
+        "attemptId": "5225cb20-71c8-49e0-8733-d3a202bcb0cf",
+        "career": {
+          "version": 1,
+          "revision": 7,
+          "credits": 400,
+          "owned": true,
+          "equipped": false,
+          "appearance": {
+            "color": "cyan",
+            "brightness": 0.7,
+            "enabled": true
+          },
+          "chapters": {
+            "entry": true,
+            "firstCompletion": true,
+            "firstBuild": true
+          },
+          "receipts": {
+            "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+              "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+              "kind": "award",
+              "amount": 800,
+              "balance": 800,
+              "first": true,
+              "at": "2026-09-11T23:22:28.006Z"
+            },
+            "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+              "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+              "kind": "purchase",
+              "amount": -600,
+              "balance": 200,
+              "first": true,
+              "at": "2026-09-11T23:23:01.763Z"
+            },
+            "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+              "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+              "kind": "award",
+              "amount": 100,
+              "balance": 300,
+              "first": false,
+              "at": "2026-09-11T23:24:35.069Z"
+            },
+            "5225cb20-71c8-49e0-8733-d3a202bcb0cf": {
+              "id": "5225cb20-71c8-49e0-8733-d3a202bcb0cf",
+              "kind": "award",
+              "amount": 100,
+              "balance": 400,
+              "first": false,
+              "at": "2026-09-14T15:13:36.432Z"
+            }
+          }
+        },
+        "careerDurable": true,
+        "rewardPending": false,
+        "rewardText": "+100 game credits · Balance 400",
+        "product": {
+          "equipped": false,
+          "appearance": {
+            "color": "cyan",
+            "brightness": 0.7,
+            "enabled": true
+          },
+          "attached": false,
+          "lights": 0,
+          "residentLights": 2,
+          "emitterNits": [
+            0,
+            0
+          ],
+          "nominalLumens": [
+            0,
+            0
+          ],
+          "extraShadowMaps": 0,
+          "meshes": 2,
+          "triangles": 2368,
+          "lightOrigins": [
+            [
+              -0.61,
+              0.122,
+              -0.04
+            ],
+            [
+              0.61,
+              0.122,
+              -0.04
+            ]
+          ],
+          "method": "Two downward narrow rectangular area lights aligned with chassis-mounted side strips, plus emissive Blender diffusers. Actual receiver geometry/normals and distance falloff; no glow decal or new shadow maps. Artistic approximation: no fine underside/barrier occluder shadows, not measured photometry."
+        },
+        "memory": {
+          "geometries": 87,
+          "textures": 36
+        },
+        "commit": "dc62adfd1e79-working",
+        "preset": "night",
+        "quality": "standard",
+        "telemetry": {
+          "time": 84.9833333333298,
+          "position": {
+            "x": 0.1597700884219346,
+            "y": 6.937982510724083e-7,
+            "z": -26.13061291348213
+          },
+          "quaternion": {
+            "x": 4.4950641608920705e-7,
+            "y": -0.0009304790874011815,
+            "z": -1.7711716537860411e-9,
+            "w": -0.9999996423721313
+          },
+          "velocity": {
+            "x": 5.184780604849948e-9,
+            "y": -0.000002120139924954856,
+            "z": 0.000005704987870558398
+          },
+          "angularVelocity": {
+            "x": 0.00000971697227214463,
+            "y": -2.5129600006792985e-13,
+            "z": -7.624960218777233e-9
+          },
+          "speed": -0.0000057049857345150915,
+          "rpm": 950,
+          "engineWheelAngularSpeed": -0.000020852809603942883,
+          "gear": 1,
+          "shifting": false,
+          "shiftRemaining": 0,
+          "steer": 0,
+          "throttle": 0,
+          "brake": 1,
+          "reversePending": false,
+          "wheels": [
+            {
+              "id": "front_left",
+              "contact": true,
+              "load": 2084.5905014004557,
+              "travel": 7.347311292149605e-7,
+              "slipRatio": 5.656243300423436e-7,
+              "slipAngle": -2.1484146766397874e-9,
+              "spin": 3842.0127921686462,
+              "steer": 0,
+              "localCenter": {
+                "x": -0.8775,
+                "y": 0.3298507347311292,
+                "z": -1.3335
+              },
+              "surface": "asphalt",
+              "angularSpeed": -0.000004672732429445613,
+              "longitudinalSpeed": -0.0000015413007918526352,
+              "longitudinalForce": 0.01179095105767266,
+              "lateralForce": 0.000031349953795948425,
+              "gripLimit": 2188.8200264704788,
+              "driveTorque": 0
+            },
+            {
+              "id": "front_right",
+              "contact": true,
+              "load": 2084.5904553067185,
+              "travel": 7.347311292149605e-7,
+              "slipRatio": 5.656256776116869e-7,
+              "slipAngle": -2.1484147310384705e-9,
+              "spin": 3808.5962703938944,
+              "steer": 0,
+              "localCenter": {
+                "x": 0.8775,
+                "y": 0.3298507347311292,
+                "z": -1.3335
+              },
+              "surface": "asphalt",
+              "angularSpeed": -0.000004672743458655569,
+              "longitudinalSpeed": -0.0000015413044298375392,
+              "longitudinalForce": 0.011790978888257175,
+              "lateralForce": 0.000031349953896542024,
+              "gripLimit": 2188.8199780720547,
+              "driveTorque": 0
+            },
+            {
+              "id": "rear",
+              "contact": true,
+              "load": 4169.251051052479,
+              "travel": -0.0000021474361420192878,
+              "slipRatio": 4.43061048545813e-7,
+              "slipAngle": -2.150971008882595e-9,
+              "spin": 3652.2869812497224,
+              "steer": 0,
+              "localCenter": {
+                "x": 0,
+                "y": 0.34549785256385795,
+                "z": 1.3335
+              },
+              "surface": "asphalt",
+              "angularSpeed": -0.0000055252242346859346,
+              "longitudinalSpeed": -0.0000015413021465825824,
+              "longitudinalForce": 0.02358192284271351,
+              "lateralForce": 0.00006277556697697018,
+              "gripLimit": 4377.713603605103,
+              "driveTorque": 0
+            }
+          ]
+        },
+        "race": {
+          "phase": "finished",
+          "paused": false,
+          "invalidReason": null,
+          "elapsedMs": 78719.20388459373,
+          "countdown": 0,
+          "checkpoint": 15,
+          "total": 15,
+          "result": {
+            "timeMs": 78719.20388459373,
+            "valid": true,
+            "invalidReason": null,
+            "previousBestMs": 78719.20388459373,
+            "bestMs": 78719.20388459373,
+            "differenceMs": 0,
+            "firstRecord": false,
+            "newBest": false
+          },
+          "attempt": 1
+        },
+        "camera": {
+          "mode": "near",
+          "active": "near",
+          "position": [
+            0.17168022988850257,
+            2.6499972903522586,
+            -19.73061651411197
+          ],
+          "target": [
+            0.15809526160986476,
+            0.8499960262864182,
+            -27.03059447060976
+          ],
+          "fov": 38.0275380156483,
+          "aspect": 1.7777777777777777
+        },
+        "rear": {
+          "wheelCenter": [
+            0,
+            0.34549785256385795,
+            1.3335
+          ],
+          "visibleWheelCenter": [
+            0,
+            0.345497852563858,
+            1.3335000276565552
+          ],
+          "wheelCenterError": 2.7656555268151806e-8,
+          "hub": [
+            2.7755575615628914e-17,
+            0.345497852563858,
+            1.3334999999999972
+          ],
+          "armPivot": [
+            0.2800000000000001,
+            0.32,
+            0.6800000000000033
+          ],
+          "armHub": [
+            0.28,
+            0.34549785256385795,
+            1.3335
+          ],
+          "shockUpper": [
+            0.2799999999999999,
+            0.8,
+            1.0249999999999986
+          ],
+          "shockLower": [
+            0.28,
+            0.37284849678770055,
+            1.1374501146624674
+          ],
+          "axleCenter": [
+            0,
+            0.345497852563858,
+            1.3335000000000008
+          ],
+          "axleCenterError": 8.899114524108741e-16,
+          "armEndpointError": 8.899114524108741e-16,
+          "shockEndpointError": 2.2259902427727487e-15,
+          "armLength": 0.6539972404264165,
+          "armLengthChange": -8.372713067306137e-8,
+          "armScale": 0.9999998719763407,
+          "shockLength": 0.4417051448467957,
+          "wheelSpin": 3652.2869812497224,
+          "groups": {
+            "arm": [
+              1,
+              0,
+              0,
+              0,
+              -1.167960737920076e-25,
+              0.9999999997999998,
+              0.0000032760704443482447,
+              0,
+              2.168404067801469e-19,
+              -0.0000032860459709474488,
+              0.9999998721655755,
+              0,
+              -2.0847552370264826e-25,
+              0.0000022345752603292157,
+              -9.61415133615695e-7,
+              1
+            ],
+            "belt": [
+              1,
+              0,
+              0,
+              0,
+              -1.167960737920076e-25,
+              0.9999999997999998,
+              0.0000032760704443482447,
+              0,
+              2.168404067801469e-19,
+              -0.0000032860459709474488,
+              0.9999998721655755,
+              0,
+              -2.0847552370264826e-25,
+              0.0000022345752603292157,
+              -9.61415133615695e-7,
+              1
+            ],
+            "axle": [
+              1,
+              0,
+              0,
+              0,
+              -8.271806125530277e-25,
+              1,
+              0,
+              0,
+              2.168404344971009e-19,
+              0,
+              1,
+              0,
+              1.776317543374025e-30,
+              -0.000002147436142019291,
+              0,
+              1
+            ],
+            "caliper": [
+              1,
+              0,
+              0,
+              0,
+              -8.271806125530277e-25,
+              1,
+              0,
+              0,
+              2.168404344971009e-19,
+              0,
+              1,
+              0,
+              1.776317543374025e-30,
+              -0.000002147436142019291,
+              0,
+              1
+            ],
+            "shockBody": [
+              1,
+              0,
+              0,
+              0,
+              -6.937460114983958e-25,
+              0.9999999999998107,
+              6.1535848405736e-7,
+              0,
+              2.1684043449756884e-19,
+              -6.1535848405736e-7,
+              0.9999999999998107,
+              0,
+              -1.0674816051931848e-25,
+              6.307425975959868e-7,
+              -4.922865932677212e-7,
+              1
+            ],
+            "shockPiston": [
+              1,
+              0,
+              0,
+              0,
+              -6.937460114983958e-25,
+              0.9999999999998107,
+              6.1535848405736e-7,
+              0,
+              2.1684043449756884e-19,
+              -6.1535848405736e-7,
+              0.9999999999998107,
+              0,
+              -2.4886920998657312e-26,
+              -8.032727211726465e-7,
+              -1.147737298534679e-7,
+              1
+            ],
+            "shockSpring": [
+              1,
+              0,
+              0,
+              0,
+              -8.72970243155652e-25,
+              1.0000031395844944,
+              -2.1115542267469145e-7,
+              0,
+              2.168404816795069e-19,
+              -0.0000014418744566369046,
+              1.0000002175849418,
+              0,
+              -1.1730261722888711e-26,
+              -0.0000010337462773568651,
+              -5.4100227409037416e-8,
+              1
+            ]
+          }
+        },
+        "asset": "slingshot-p04a1.glb",
+        "driver": {
+          "arms": {
+            "left": {
+              "gap": 1.0811651918641352e-7,
+              "rimGap": 1.0811651918641352e-7,
+              "regripping": false,
+              "release": 0,
+              "angle": 0,
+              "target": [
+                -0.36521413227411476,
+                0.7100006788435719,
+                -26.12163658434137
+              ],
+              "contact": [
+                -0.36521408877811345,
+                0.7100006875065709,
+                -26.12163668294275
+              ],
+              "elbow": [
+                -0.4964130860057498,
+                0.7031363606542598,
+                -25.892347016417617
+              ]
+            },
+            "right": {
+              "gap": 6.316253104301192e-8,
+              "rimGap": 6.316253104301192e-8,
+              "regripping": false,
+              "release": 0,
+              "angle": 0,
+              "target": [
+                -0.035214703696307914,
+                0.7100006797113665,
+                -26.122250700226985
+              ],
+              "contact": [
+                -0.03521472406215101,
+                0.7100006910477279,
+                -26.12225075893154
+              ],
+              "elbow": [
+                0.09683670967583133,
+                0.70313645230168,
+                -25.89345096239701
+              ]
+            }
+          },
+          "headVisible": true,
+          "bodyPitch": 3.563096607520989e-7,
+          "wheelAngle": 0,
+          "eye": [
+            -0.36,
+            1.145,
+            0.405
+          ]
+        },
+        "driverProjection": {
+          "left": [
+            -0.12847183359072056,
+            -0.15369848431736266,
+            0.9820848673290254
+          ],
+          "right": [
+            -0.04771812180344529,
+            -0.15369848786177726,
+            0.9820848672228314
+          ]
+        },
+        "audio": {
+          "enabled": false,
+          "loading": false,
+          "failure": "",
+          "life": {
+            "enabled": false,
+            "paused": false,
+            "mute": false,
+            "volume": 0.55,
+            "cockpit": false,
+            "reset": false
+          }
+        },
+        "audioFrame": {
+          "life": {
+            "enabled": false,
+            "paused": false,
+            "mute": false,
+            "volume": 0.55,
+            "cockpit": false,
+            "reset": false
+          },
+          "parameters": {
+            "rpm": 950,
+            "speed": 0.0000057049857345150915,
+            "load": 0,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 0.7916666666666666,
+                "gain": 0.08
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 0.7916666666666666,
+                "gain": 0.2
+              },
+              {
+                "name": "engine-3600-load",
+                "rate": 0.2638888888888889,
+                "gain": 0
+              },
+              {
+                "name": "engine-3600-lift",
+                "rate": 0.2638888888888889,
+                "gain": 0
+              },
+              {
+                "name": "engine-6200-load",
+                "rate": 0.1532258064516129,
+                "gain": 0
+              },
+              {
+                "name": "engine-6200-lift",
+                "rate": 0.1532258064516129,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 3.3027927200092392e-9
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 4.373419589386991e-13
+              }
+            ],
+            "master": 0,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          },
+          "shift": false
+        },
+        "lighting": {
+          "headlightPositions": [
+            [
+              -0.6580445148297321,
+              0.49405820506934095,
+              -28.238791042634116
+            ],
+            [
+              0.969732579483822,
+              0.4940582093498823,
+              -28.241820271430555
+            ]
+          ],
+          "beamIntensities": [
+            1600,
+            1600
+          ],
+          "brakeEmission": [
+            3.5
+          ],
+          "practicalIndices": [
+            1,
+            0,
+            2,
+            38
+          ],
+          "residentPracticals": 4,
+          "emittingPracticals": 3
+        },
+        "lightBudget": {
+          "preset": "night",
+          "quality": "standard",
+          "shadowMaps": 1,
+          "shadowResolution": 1024,
+          "stockBeams": 2,
+          "pooledPracticals": 4
+        },
+        "ticks": 5099,
+        "inputState": {
+          "control": {
+            "throttle": 1,
+            "brake": 0,
+            "steer": 0.033736674556189665,
+            "reverse": false,
+            "tractionControl": true
+          },
+          "paused": false,
+          "armed": true,
+          "activeDevice": "pad:0:P04A local physics control agent (not opponent)",
+          "status": "Controller connected",
+          "camera": false,
+          "reset": false,
+          "lookBack": false,
+          "resetProgress": 0,
+          "dt": 0.008333333333328483,
+          "ticks": 5099,
+          "alpha": 0.4999999999994765
+        },
+        "record": {
+          "timeMs": 78719.20388459373,
+          "recordedAt": "2026-09-11T23:24:35.063Z"
+        },
+        "persisted": true,
+        "renderInfo": {
+          "frame": 36,
+          "calls": 164,
+          "triangles": 808819,
+          "points": 0,
+          "lines": 0
+        },
+        "frameTimes": [],
+        "loadMs": 2018.5,
+        "statistics": {
+          "car": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 72,
+            "triangles": 210899,
+            "uvMeshes": 72,
+            "materials": [
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Glass",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Scale",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Silver",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Wind_Deflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Tail_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Clear_Optical_Cover",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Reflector",
+                "type": "MeshPhysicalMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "molded-polymer_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "radar-blue_basecolor",
+                "width": 2048,
+                "height": 2048,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 22369622
+              },
+              {
+                "name": "radar-blue_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "radar-blue_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "radar-blue_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "instrument-scale_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "sport-seat_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 93672804
+          },
+          "driver": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 4,
+            "triangles": 28411,
+            "uvMeshes": 4,
+            "materials": [
+              {
+                "name": "Driver_Textile",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Driver_Leather",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Driver_Helmet",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "Driver_Visor",
+                "type": "MeshStandardMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 16777218
+          },
+          "world": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 9,
+            "triangles": 192448,
+            "uvMeshes": 9,
+            "materials": [
+              {
+                "name": "Harbor_Asphalt",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Runoff",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Concrete",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Land",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Water",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Dark_Rubber",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Luminaire",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Modular_Atlas",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Road_Paint",
+                "type": "MeshStandardMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "asphalt_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "asphalt_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "asphalt_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "concrete_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "concrete_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "concrete_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "harbor_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "harbor_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "harbor_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "concrete_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 55924060
+          }
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      }
+    },
+    {
+      "equipped": true,
+      "final": {
+        "attemptId": "6f6faeb7-79cd-45f2-b595-510aed87e1e3",
+        "career": {
+          "version": 1,
+          "revision": 7,
+          "credits": 400,
+          "owned": true,
+          "equipped": true,
+          "appearance": {
+            "color": "cyan",
+            "brightness": 0.7,
+            "enabled": true
+          },
+          "chapters": {
+            "entry": true,
+            "firstCompletion": true,
+            "firstBuild": true
+          },
+          "receipts": {
+            "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+              "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+              "kind": "award",
+              "amount": 800,
+              "balance": 800,
+              "first": true,
+              "at": "2026-09-11T23:22:28.006Z"
+            },
+            "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+              "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+              "kind": "purchase",
+              "amount": -600,
+              "balance": 200,
+              "first": true,
+              "at": "2026-09-11T23:23:01.763Z"
+            },
+            "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+              "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+              "kind": "award",
+              "amount": 100,
+              "balance": 300,
+              "first": false,
+              "at": "2026-09-11T23:24:35.069Z"
+            },
+            "6f6faeb7-79cd-45f2-b595-510aed87e1e3": {
+              "id": "6f6faeb7-79cd-45f2-b595-510aed87e1e3",
+              "kind": "award",
+              "amount": 100,
+              "balance": 400,
+              "first": false,
+              "at": "2026-09-14T15:13:45.456Z"
+            }
+          }
+        },
+        "careerDurable": true,
+        "rewardPending": false,
+        "rewardText": "+100 game credits · Balance 400",
+        "product": {
+          "equipped": true,
+          "appearance": {
+            "color": "cyan",
+            "brightness": 0.7,
+            "enabled": true
+          },
+          "attached": true,
+          "lights": 2,
+          "residentLights": 2,
+          "emitterNits": [
+            1050,
+            1050
+          ],
+          "nominalLumens": [
+            150.08958902525237,
+            150.08958902525237
+          ],
+          "extraShadowMaps": 0,
+          "meshes": 2,
+          "triangles": 2368,
+          "lightOrigins": [
+            [
+              -0.61,
+              0.122,
+              -0.04
+            ],
+            [
+              0.61,
+              0.122,
+              -0.04
+            ]
+          ],
+          "method": "Two downward narrow rectangular area lights aligned with chassis-mounted side strips, plus emissive Blender diffusers. Actual receiver geometry/normals and distance falloff; no glow decal or new shadow maps. Artistic approximation: no fine underside/barrier occluder shadows, not measured photometry."
+        },
+        "memory": {
+          "geometries": 87,
+          "textures": 36
+        },
+        "commit": "dc62adfd1e79-working",
+        "preset": "night",
+        "quality": "standard",
+        "telemetry": {
+          "time": 84.9833333333298,
+          "position": {
+            "x": 0.1597700884219346,
+            "y": 6.937982510724083e-7,
+            "z": -26.13061291348213
+          },
+          "quaternion": {
+            "x": 4.4950641608920705e-7,
+            "y": -0.0009304790874011815,
+            "z": -1.7711716537860411e-9,
+            "w": -0.9999996423721313
+          },
+          "velocity": {
+            "x": 5.184780604849948e-9,
+            "y": -0.000002120139924954856,
+            "z": 0.000005704987870558398
+          },
+          "angularVelocity": {
+            "x": 0.00000971697227214463,
+            "y": -2.5129600006792985e-13,
+            "z": -7.624960218777233e-9
+          },
+          "speed": -0.0000057049857345150915,
+          "rpm": 950,
+          "engineWheelAngularSpeed": -0.000020852809603942883,
+          "gear": 1,
+          "shifting": false,
+          "shiftRemaining": 0,
+          "steer": 0,
+          "throttle": 0,
+          "brake": 1,
+          "reversePending": false,
+          "wheels": [
+            {
+              "id": "front_left",
+              "contact": true,
+              "load": 2084.5905014004557,
+              "travel": 7.347311292149605e-7,
+              "slipRatio": 5.656243300423436e-7,
+              "slipAngle": -2.1484146766397874e-9,
+              "spin": 3842.0127921686462,
+              "steer": 0,
+              "localCenter": {
+                "x": -0.8775,
+                "y": 0.3298507347311292,
+                "z": -1.3335
+              },
+              "surface": "asphalt",
+              "angularSpeed": -0.000004672732429445613,
+              "longitudinalSpeed": -0.0000015413007918526352,
+              "longitudinalForce": 0.01179095105767266,
+              "lateralForce": 0.000031349953795948425,
+              "gripLimit": 2188.8200264704788,
+              "driveTorque": 0
+            },
+            {
+              "id": "front_right",
+              "contact": true,
+              "load": 2084.5904553067185,
+              "travel": 7.347311292149605e-7,
+              "slipRatio": 5.656256776116869e-7,
+              "slipAngle": -2.1484147310384705e-9,
+              "spin": 3808.5962703938944,
+              "steer": 0,
+              "localCenter": {
+                "x": 0.8775,
+                "y": 0.3298507347311292,
+                "z": -1.3335
+              },
+              "surface": "asphalt",
+              "angularSpeed": -0.000004672743458655569,
+              "longitudinalSpeed": -0.0000015413044298375392,
+              "longitudinalForce": 0.011790978888257175,
+              "lateralForce": 0.000031349953896542024,
+              "gripLimit": 2188.8199780720547,
+              "driveTorque": 0
+            },
+            {
+              "id": "rear",
+              "contact": true,
+              "load": 4169.251051052479,
+              "travel": -0.0000021474361420192878,
+              "slipRatio": 4.43061048545813e-7,
+              "slipAngle": -2.150971008882595e-9,
+              "spin": 3652.2869812497224,
+              "steer": 0,
+              "localCenter": {
+                "x": 0,
+                "y": 0.34549785256385795,
+                "z": 1.3335
+              },
+              "surface": "asphalt",
+              "angularSpeed": -0.0000055252242346859346,
+              "longitudinalSpeed": -0.0000015413021465825824,
+              "longitudinalForce": 0.02358192284271351,
+              "lateralForce": 0.00006277556697697018,
+              "gripLimit": 4377.713603605103,
+              "driveTorque": 0
+            }
+          ]
+        },
+        "race": {
+          "phase": "finished",
+          "paused": false,
+          "invalidReason": null,
+          "elapsedMs": 78719.20388459373,
+          "countdown": 0,
+          "checkpoint": 15,
+          "total": 15,
+          "result": {
+            "timeMs": 78719.20388459373,
+            "valid": true,
+            "invalidReason": null,
+            "previousBestMs": 78719.20388459373,
+            "bestMs": 78719.20388459373,
+            "differenceMs": 0,
+            "firstRecord": false,
+            "newBest": false
+          },
+          "attempt": 1
+        },
+        "camera": {
+          "mode": "near",
+          "active": "near",
+          "position": [
+            0.17168022988850257,
+            2.6499972903522586,
+            -19.73061651411197
+          ],
+          "target": [
+            0.15809526160986476,
+            0.8499960262864182,
+            -27.03059447060976
+          ],
+          "fov": 38.0275380156483,
+          "aspect": 1.7777777777777777
+        },
+        "rear": {
+          "wheelCenter": [
+            0,
+            0.34549785256385795,
+            1.3335
+          ],
+          "visibleWheelCenter": [
+            0,
+            0.345497852563858,
+            1.3335000276565552
+          ],
+          "wheelCenterError": 2.7656555268151806e-8,
+          "hub": [
+            2.7755575615628914e-17,
+            0.345497852563858,
+            1.3334999999999972
+          ],
+          "armPivot": [
+            0.2800000000000001,
+            0.32,
+            0.6800000000000033
+          ],
+          "armHub": [
+            0.28,
+            0.34549785256385795,
+            1.3335
+          ],
+          "shockUpper": [
+            0.2799999999999999,
+            0.8,
+            1.0249999999999986
+          ],
+          "shockLower": [
+            0.28,
+            0.37284849678770055,
+            1.1374501146624674
+          ],
+          "axleCenter": [
+            0,
+            0.345497852563858,
+            1.3335000000000008
+          ],
+          "axleCenterError": 8.899114524108741e-16,
+          "armEndpointError": 8.899114524108741e-16,
+          "shockEndpointError": 2.2259902427727487e-15,
+          "armLength": 0.6539972404264165,
+          "armLengthChange": -8.372713067306137e-8,
+          "armScale": 0.9999998719763407,
+          "shockLength": 0.4417051448467957,
+          "wheelSpin": 3652.2869812497224,
+          "groups": {
+            "arm": [
+              1,
+              0,
+              0,
+              0,
+              -1.167960737920076e-25,
+              0.9999999997999998,
+              0.0000032760704443482447,
+              0,
+              2.168404067801469e-19,
+              -0.0000032860459709474488,
+              0.9999998721655755,
+              0,
+              -2.0847552370264826e-25,
+              0.0000022345752603292157,
+              -9.61415133615695e-7,
+              1
+            ],
+            "belt": [
+              1,
+              0,
+              0,
+              0,
+              -1.167960737920076e-25,
+              0.9999999997999998,
+              0.0000032760704443482447,
+              0,
+              2.168404067801469e-19,
+              -0.0000032860459709474488,
+              0.9999998721655755,
+              0,
+              -2.0847552370264826e-25,
+              0.0000022345752603292157,
+              -9.61415133615695e-7,
+              1
+            ],
+            "axle": [
+              1,
+              0,
+              0,
+              0,
+              -8.271806125530277e-25,
+              1,
+              0,
+              0,
+              2.168404344971009e-19,
+              0,
+              1,
+              0,
+              1.776317543374025e-30,
+              -0.000002147436142019291,
+              0,
+              1
+            ],
+            "caliper": [
+              1,
+              0,
+              0,
+              0,
+              -8.271806125530277e-25,
+              1,
+              0,
+              0,
+              2.168404344971009e-19,
+              0,
+              1,
+              0,
+              1.776317543374025e-30,
+              -0.000002147436142019291,
+              0,
+              1
+            ],
+            "shockBody": [
+              1,
+              0,
+              0,
+              0,
+              -6.937460114983958e-25,
+              0.9999999999998107,
+              6.1535848405736e-7,
+              0,
+              2.1684043449756884e-19,
+              -6.1535848405736e-7,
+              0.9999999999998107,
+              0,
+              -1.0674816051931848e-25,
+              6.307425975959868e-7,
+              -4.922865932677212e-7,
+              1
+            ],
+            "shockPiston": [
+              1,
+              0,
+              0,
+              0,
+              -6.937460114983958e-25,
+              0.9999999999998107,
+              6.1535848405736e-7,
+              0,
+              2.1684043449756884e-19,
+              -6.1535848405736e-7,
+              0.9999999999998107,
+              0,
+              -2.4886920998657312e-26,
+              -8.032727211726465e-7,
+              -1.147737298534679e-7,
+              1
+            ],
+            "shockSpring": [
+              1,
+              0,
+              0,
+              0,
+              -8.72970243155652e-25,
+              1.0000031395844944,
+              -2.1115542267469145e-7,
+              0,
+              2.168404816795069e-19,
+              -0.0000014418744566369046,
+              1.0000002175849418,
+              0,
+              -1.1730261722888711e-26,
+              -0.0000010337462773568651,
+              -5.4100227409037416e-8,
+              1
+            ]
+          }
+        },
+        "asset": "slingshot-p04a1.glb",
+        "driver": {
+          "arms": {
+            "left": {
+              "gap": 1.0811651918641352e-7,
+              "rimGap": 1.0811651918641352e-7,
+              "regripping": false,
+              "release": 0,
+              "angle": 0,
+              "target": [
+                -0.36521413227411476,
+                0.7100006788435719,
+                -26.12163658434137
+              ],
+              "contact": [
+                -0.36521408877811345,
+                0.7100006875065709,
+                -26.12163668294275
+              ],
+              "elbow": [
+                -0.4964130860057498,
+                0.7031363606542598,
+                -25.892347016417617
+              ]
+            },
+            "right": {
+              "gap": 6.316253104301192e-8,
+              "rimGap": 6.316253104301192e-8,
+              "regripping": false,
+              "release": 0,
+              "angle": 0,
+              "target": [
+                -0.035214703696307914,
+                0.7100006797113665,
+                -26.122250700226985
+              ],
+              "contact": [
+                -0.03521472406215101,
+                0.7100006910477279,
+                -26.12225075893154
+              ],
+              "elbow": [
+                0.09683670967583133,
+                0.70313645230168,
+                -25.89345096239701
+              ]
+            }
+          },
+          "headVisible": true,
+          "bodyPitch": 3.563096607520989e-7,
+          "wheelAngle": 0,
+          "eye": [
+            -0.36,
+            1.145,
+            0.405
+          ]
+        },
+        "driverProjection": {
+          "left": [
+            -0.12847183359072056,
+            -0.15369848431736266,
+            0.9820848673290254
+          ],
+          "right": [
+            -0.04771812180344529,
+            -0.15369848786177726,
+            0.9820848672228314
+          ]
+        },
+        "audio": {
+          "enabled": false,
+          "loading": false,
+          "failure": "",
+          "life": {
+            "enabled": false,
+            "paused": false,
+            "mute": false,
+            "volume": 0.55,
+            "cockpit": false,
+            "reset": false
+          }
+        },
+        "audioFrame": {
+          "life": {
+            "enabled": false,
+            "paused": false,
+            "mute": false,
+            "volume": 0.55,
+            "cockpit": false,
+            "reset": false
+          },
+          "parameters": {
+            "rpm": 950,
+            "speed": 0.0000057049857345150915,
+            "load": 0,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 0.7916666666666666,
+                "gain": 0.08
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 0.7916666666666666,
+                "gain": 0.2
+              },
+              {
+                "name": "engine-3600-load",
+                "rate": 0.2638888888888889,
+                "gain": 0
+              },
+              {
+                "name": "engine-3600-lift",
+                "rate": 0.2638888888888889,
+                "gain": 0
+              },
+              {
+                "name": "engine-6200-load",
+                "rate": 0.1532258064516129,
+                "gain": 0
+              },
+              {
+                "name": "engine-6200-lift",
+                "rate": 0.1532258064516129,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 3.3027927200092392e-9
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 4.373419589386991e-13
+              }
+            ],
+            "master": 0,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          },
+          "shift": false
+        },
+        "lighting": {
+          "headlightPositions": [
+            [
+              -0.6580445148297321,
+              0.49405820506934095,
+              -28.238791042634116
+            ],
+            [
+              0.969732579483822,
+              0.4940582093498823,
+              -28.241820271430555
+            ]
+          ],
+          "beamIntensities": [
+            1600,
+            1600
+          ],
+          "brakeEmission": [
+            3.5
+          ],
+          "practicalIndices": [
+            1,
+            0,
+            2,
+            38
+          ],
+          "residentPracticals": 4,
+          "emittingPracticals": 3
+        },
+        "lightBudget": {
+          "preset": "night",
+          "quality": "standard",
+          "shadowMaps": 1,
+          "shadowResolution": 1024,
+          "stockBeams": 2,
+          "pooledPracticals": 4
+        },
+        "ticks": 5099,
+        "inputState": {
+          "control": {
+            "throttle": 1,
+            "brake": 0,
+            "steer": 0.033736674556189665,
+            "reverse": false,
+            "tractionControl": true
+          },
+          "paused": false,
+          "armed": true,
+          "activeDevice": "pad:0:P04A local physics control agent (not opponent)",
+          "status": "Controller connected",
+          "camera": false,
+          "reset": false,
+          "lookBack": false,
+          "resetProgress": 0,
+          "dt": 0.008333333333328483,
+          "ticks": 5099,
+          "alpha": 0.4999999999994765
+        },
+        "record": {
+          "timeMs": 78719.20388459373,
+          "recordedAt": "2026-09-11T23:24:35.063Z"
+        },
+        "persisted": true,
+        "renderInfo": {
+          "frame": 36,
+          "calls": 166,
+          "triangles": 811187,
+          "points": 0,
+          "lines": 0
+        },
+        "frameTimes": [],
+        "loadMs": 531.3000000000466,
+        "statistics": {
+          "car": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 72,
+            "triangles": 210899,
+            "uvMeshes": 72,
+            "materials": [
+              {
+                "name": "P03A_Textured_Polymer",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Gloss_Black_Wheel",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Orange_Accent",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Radar_Blue",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Recess_Black",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Glass",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Instrument_Scale",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Machined_Aluminum",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Charcoal",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Seat_Silver",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Wind_Deflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Rubber",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Brake_Caliper",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Tail_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Clear_Optical_Cover",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Optical_Reflector",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Lens",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "P03A_Amber_Reflector",
+                "type": "MeshPhysicalMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "molded-polymer_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "molded-polymer_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "radar-blue_basecolor",
+                "width": 2048,
+                "height": 2048,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 22369622
+              },
+              {
+                "name": "radar-blue_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "radar-blue_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "radar-blue_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "instrument-scale_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_basecolor",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_normal",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "machined-alloy_orm",
+                "width": 512,
+                "height": 512,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 1398102
+              },
+              {
+                "name": "sport-seat_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "sport-seat_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "road-tire_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 93672804
+          },
+          "driver": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 4,
+            "triangles": 28411,
+            "uvMeshes": 4,
+            "materials": [
+              {
+                "name": "Driver_Textile",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Driver_Leather",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Driver_Helmet",
+                "type": "MeshPhysicalMaterial"
+              },
+              {
+                "name": "Driver_Visor",
+                "type": "MeshStandardMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 16777218
+          },
+          "world": {
+            "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+            "meshes": 9,
+            "triangles": 192448,
+            "uvMeshes": 9,
+            "materials": [
+              {
+                "name": "Harbor_Asphalt",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Runoff",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Concrete",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Land",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Water",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Dark_Rubber",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Luminaire",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Modular_Atlas",
+                "type": "MeshStandardMaterial"
+              },
+              {
+                "name": "Harbor_Road_Paint",
+                "type": "MeshStandardMaterial"
+              }
+            ],
+            "textures": [
+              {
+                "name": "asphalt_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "asphalt_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "asphalt_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "concrete_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "concrete_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "concrete_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "harbor_basecolor",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "srgb",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "harbor_normal",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "harbor_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              },
+              {
+                "name": "concrete_orm",
+                "width": 1024,
+                "height": 1024,
+                "colorSpace": "",
+                "estimatedRGBA8WithMips": 5592406
+              }
+            ],
+            "estimatedTextureBytes": 55924060
+          }
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      }
+    }
+  ]
+}
