@@ -166,12 +166,13 @@ export class RaceWorld {
     }
 
  }
- initialize(){if(this.initialized)return;this.world.step();for(const car of this.participants.values())car.reset();this.initialized=true}
+ initialize(){if(this.initialized)return;const poses=[...this.participants].map(([id,c])=>[id,c.telemetry()] as const);this.world.step();for(const [id,t]of poses){const q=t.quaternion;this.get(id).reset({x:t.position.x,y:t.position.y,z:t.position.z,yaw:Math.atan2(2*(q.w*q.y+q.x*q.z),1-2*(q.y*q.y+q.z*q.z))})}this.initialized=true}
  addVehicle(id:string,pose:{x?:number;z?:number;y?:number;yaw?:number}={}){if(this.disposed||this.participants.has(id))throw Error('Invalid participant registration');const car=new Simulation(this.environment,this.world);car.reset(pose);this.participants.set(id,car);return car}
  get(id:string){const car=this.participants.get(id);if(!car)throw Error('Unknown participant '+id);return car}
  step(controls:Record<string,VehicleControl>,dt=FIXED_DT){
   if(this.disposed)throw Error('RaceWorld disposed');if(Math.abs(dt-FIXED_DT)>1e-9)throw Error('Authoritative simulation accepts only fixed 1/60 second ticks');
-  if(!this.initialized){const poses=[...this.participants].map(([id,c])=>[id,c.telemetry()] as const);this.initialize();for(const [id,t]of poses){const q=t.quaternion;this.get(id).reset({x:t.position.x,y:t.position.y,z:t.position.z,yaw:Math.atan2(2*(q.w*q.y+q.x*q.z),1-2*(q.y*q.y+q.z*q.z))})}}
+  this.initialize();
+  for(const id of this.participants.keys())if(!controls[id])throw Error('Missing control for '+id);
   for(const [id,car]of this.participants){const control=controls[id];if(!control)throw Error('Missing control for '+id);car.applyForces(control,dt)}
   this.world.step();this.steps++;for(const car of this.participants.values())car.publishTick(dt);
  }

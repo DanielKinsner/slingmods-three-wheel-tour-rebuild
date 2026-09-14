@@ -4,6 +4,7 @@ if (mode === 'calibration') {
   document.querySelector('#title')!.textContent='Materials. Scale. Motion.';
   document.querySelector('#subtitle')!.textContent='Blender to glTF to Three.js - neutral calibration fixture';
   await import('./calibration');
-} else if(mode==='harbor') await import('./harbor');
+} else if(mode==='crew') await import('./crew');
+else if(mode==='harbor') await import('./harbor');
 else await import('./workbench');
 export {};

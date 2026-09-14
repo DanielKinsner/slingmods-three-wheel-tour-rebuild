@@ -1,0 +1,12 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+import routeData from '../public/assets/harbor/route.json';
+import {createCourseEnvironment,type CourseRoute}from '../src/course/environment';import {RaceWorld,FIXED_DT,type VehicleControl}from '../src/simulation';import {RivalController}from '../src/competition';
+const route=routeData as CourseRoute,hold:VehicleControl={throttle:0,brake:1,steer:0,reverse:false};
+const cases=[];
+for(const scenario of ['blocked-line','side-by-side','light-contact']){
+ const world=await RaceWorld.create(createCourseEnvironment(route));world.addVehicle('jett',{x:scenario==='side-by-side'?-1.4:0,z:scenario==='light-contact'?33.3:40,y:.025,yaw:0});world.addVehicle('maya',{x:scenario==='side-by-side'?1.4:0,z:scenario==='side-by-side'?40:30,y:.025,yaw:0});
+ const jett=new RivalController(route,'jett',23),maya=new RivalController(route,'maya',23),trace:unknown[]=[];let minDistance=Infinity,maxSide=0,mayaMoved=0;
+ for(let tick=0;tick<60*25;tick++){const before=world.telemetry(),jc=jett.control(before.jett,before),mc=maya.control(before.maya,before);let controls:Record<string,VehicleControl>={jett:jc,maya:mc};if(scenario==='blocked-line')controls.maya=hold;if(scenario==='light-contact'&&tick<90){controls={jett:{throttle:.7,brake:0,steer:0,reverse:false},maya:hold}}world.step(controls,FIXED_DT);const now=world.telemetry();minDistance=Math.min(minDistance,Math.hypot(now.jett.position.x-now.maya.position.x,now.jett.position.z-now.maya.position.z));maxSide=Math.max(maxSide,Math.abs(now.jett.position.x));if(scenario==='light-contact'&&tick<90)mayaMoved=Math.max(mayaMoved,Math.abs(now.maya.position.z-30));if(tick%15===0)trace.push({tick,telemetry:now,controls,controller:jett.inspect()})}
+ const final=world.telemetry();console.log(scenario,JSON.stringify({position:final.jett.position,controller:jett.inspect()}));assert.equal(jett.inspect().retiredReason,null,scenario);assert.ok(final.jett.position.z< -100,`${scenario}: physical follower continued down course`);if(scenario==='blocked-line'){assert.ok(maxSide>2.4,'Uses passing corridor');assert.ok(jett.inspect().passes>0)}if(scenario==='light-contact')assert.ok(mayaMoved>.02,'Dynamic lead receives contact displacement');const result={scenario,minDistance,maxSide,mayaMoved,final,controller:jett.inspect(),trace};cases.push(result);world.dispose();console.log(JSON.stringify({...result,trace:trace.length}));
+}
+fs.writeFileSync('director-kit/production/evidence/P05/competition/adversarial-physical.json',JSON.stringify({cases}));
