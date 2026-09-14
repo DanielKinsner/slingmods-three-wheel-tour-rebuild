@@ -1,0 +1,78 @@
+{
+  "project": "SlingMods: Three-Wheel Tour",
+  "as_of": "2026-09-14T18:03:28.146117+00:00",
+  "branch": "main",
+  "commit": "7fe1e881b0712be2fa09b4c4eec6baa9d0ebb0d6",
+  "current_gate": "G3",
+  "current_packet": "P05 First Night at the Harbor: integrated first chapter; performance acceptance held; awaiting Astra",
+  "next_action": "STOP after Astra-Review-10.zip. Await Astra; no unsupported G3/G4 advancement, new content, spending or deployment.",
+  "gates": {
+    "G0": {
+      "status": "passed",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G1": {
+      "status": "passed",
+      "same_approach_revisions": 1,
+      "approach_changes": 0
+    },
+    "G2": {
+      "status": "passed",
+      "same_approach_revisions": 0,
+      "approach_changes": 2
+    },
+    "G3": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G4": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G5": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G6": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G7": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    }
+  },
+  "P05": {
+    "status": "integrated_review_ready_performance_held",
+    "runtime_commit": "7fe1e881b0712be2fa09b4c4eec6baa9d0ebb0d6",
+    "milestones": {
+      "I0": "locally_complete",
+      "I1": "locally_complete",
+      "I2": "locally_complete",
+      "I3": "locally_complete",
+      "I4": "locally_complete",
+      "I5": "tests_repairs_media_complete_performance_acceptance_held"
+    },
+    "acceptance": "production/evidence/P05/acceptance-results.json",
+    "review": "production/evidence/P05/final-review.md",
+    "performance": "production/evidence/P05/performance-summary.json",
+    "held": [
+      "P05-18 performance acceptance: original outlier unexplained and original heavy repeat missed targets",
+      "G3",
+      "G4",
+      "final art and aural approval",
+      "human fun/playtest",
+      "physical-controller/foreground responsiveness",
+      "other hardware/mobile",
+      "full campaign and release"
+    ]
+  },
+  "is_excerpt": true,
+  "source": "director-kit/production/state.json; full historical ledger retained in actual repository."
+}

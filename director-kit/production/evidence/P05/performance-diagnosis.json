@@ -1,0 +1,628 @@
+{
+  "status": "HELD: original isolated racing stall unresolved; no confirmed runtime repair from this trace",
+  "runtime": "7fe1e881b071",
+  "runs": {
+    "verified-scored-stock1080": {
+      "sourceSha256": "9d3687ee61400110361f9c7656d2527816988bf74c510068b40d7bfc7b6989ee",
+      "racingRows": 9854,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 50,
+      "above100Ms": 0,
+      "clippedCatchupMs": 0,
+      "config": {
+        "width": 1920,
+        "equipped": false,
+        "record": false,
+        "seed": 97,
+        "browser": "153.0.8010.12"
+      },
+      "drawingBuffer": [
+        1920,
+        1080
+      ],
+      "runtime": "7fe1e881b071",
+      "diagnosticTraceEnabled": false
+    },
+    "verified-scored-equipped1080": {
+      "sourceSha256": "33c69cf64b14f916e71f981af0e41c4b262d96d3d94b08186861f7208e10b367",
+      "racingRows": 19787,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 66.70000000000437,
+      "above100Ms": 0,
+      "clippedCatchupMs": 0,
+      "config": {
+        "width": 1920,
+        "equipped": true,
+        "record": false,
+        "seed": 11,
+        "browser": "153.0.8010.12"
+      },
+      "drawingBuffer": [
+        1920,
+        1080
+      ],
+      "runtime": "7fe1e881b071",
+      "diagnosticTraceEnabled": false
+    },
+    "verified-scored-stock720": {
+      "sourceSha256": "ac9c73aabe6bab9da9bbdec5dc251697228fe3b46cf13a932da7c5084f93d064",
+      "racingRows": 9823,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 366.59999999999854,
+      "above100Ms": 1,
+      "clippedCatchupMs": 266.59999999999854,
+      "config": {
+        "width": 1280,
+        "equipped": false,
+        "record": false,
+        "seed": 97,
+        "browser": "153.0.8010.12"
+      },
+      "drawingBuffer": [
+        1280,
+        720
+      ],
+      "runtime": "7fe1e881b071",
+      "diagnosticTraceEnabled": false
+    },
+    "verified-scored-equipped720": {
+      "sourceSha256": "8494a54b8f7f1856f95acdf90c44beb7e108df6d84e559ee311dda19f351c36f",
+      "racingRows": 9794,
+      "p95Ms": 16.799999999999272,
+      "p99Ms": 33.30000000000109,
+      "maxMs": 66.69999999999709,
+      "above100Ms": 0,
+      "clippedCatchupMs": 0,
+      "config": {
+        "width": 1280,
+        "equipped": true,
+        "record": false,
+        "seed": 11,
+        "browser": "153.0.8010.12"
+      },
+      "drawingBuffer": [
+        1280,
+        720
+      ],
+      "runtime": "7fe1e881b071",
+      "diagnosticTraceEnabled": false
+    },
+    "verified-scored-equipped1080-repeat": {
+      "sourceSha256": "d636d7e215333a8af0b36202ab0b0490797d3a3621051296b17fc7ca29309bfd",
+      "racingRows": 17082,
+      "p95Ms": 33.40000000002328,
+      "p99Ms": 50,
+      "maxMs": 83.39999999999782,
+      "above100Ms": 0,
+      "clippedCatchupMs": 0,
+      "config": {
+        "width": 1920,
+        "equipped": true,
+        "record": false,
+        "seed": 11,
+        "browser": "153.0.8010.12"
+      },
+      "drawingBuffer": [
+        1920,
+        1080
+      ],
+      "runtime": "7fe1e881b071",
+      "diagnosticTraceEnabled": false
+    },
+    "diagnostic-stock720": {
+      "sourceSha256": "3519f92afb6c509d245a1ad31911da05f29bc0ea3e8ce421d3d84f8a283f8ebf",
+      "racingRows": 9948,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 16.800000000017462,
+      "above100Ms": 0,
+      "clippedCatchupMs": 0,
+      "config": {
+        "width": 1280,
+        "equipped": false,
+        "record": false,
+        "seed": 97,
+        "browser": "153.0.8010.12"
+      },
+      "drawingBuffer": [
+        1280,
+        720
+      ],
+      "runtime": "7fe1e881b071",
+      "diagnosticTraceEnabled": true
+    },
+    "stock720-followup": {
+      "sourceSha256": "09ee4d3072ff6dc8aefc331f09c81bae61b9523c9c7830fc85a441bd35dd1f7b",
+      "racingRows": 9948,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 16.800000000017462,
+      "above100Ms": 0,
+      "clippedCatchupMs": 0,
+      "config": {
+        "width": 1280,
+        "equipped": false,
+        "record": false,
+        "seed": 97,
+        "browser": "153.0.8010.12"
+      },
+      "drawingBuffer": [
+        1280,
+        720
+      ],
+      "runtime": "7fe1e881b071",
+      "diagnosticTraceEnabled": false
+    }
+  },
+  "sourceTrace": {
+    "path": "director-kit\\production\\evidence\\P05\\diagnostic-stock720\\diagnostic-trace.json",
+    "bytes": 426765809,
+    "sha256": "762ff71e7aa5e15b8d2899cb34ce8a3278edf64cec64c4ea7179585f8071d916",
+    "parsedEvents": 2708588,
+    "eventsWithThreadDuration": 1143797,
+    "phaseCounts": {
+      "M": 34,
+      "X": 1371766,
+      "I": 224969,
+      "R": 53,
+      "B": 8,
+      "s": 444104,
+      "f": 444104,
+      "C": 6112,
+      "b": 102838,
+      "e": 102836,
+      "n": 11764
+    },
+    "gcFamilyEventCount": 66040,
+    "mainRendererThread": [
+      38340,
+      51492
+    ]
+  },
+  "alignment": {
+    "method": "Crew navigationStart trace timestamp + native RAF timestamps relative to navigation; event phase determined by event start. Boundary classification can vary within one callback. Long waits are far outside race boundaries.",
+    "crewNavigationTraceUs": 10187224590,
+    "racingStartRafMs": 5851,
+    "racingEndRafMs": 171644.3,
+    "bayNavigationTraceUs": 10371479904
+  },
+  "mainThreadOuterGC": {
+    "crew-loading/MinorGC": {
+      "count": 22,
+      "maxElapsedMs": 1.157,
+      "elapsedSumMs": 9.906,
+      "threadTimeSamples": 22,
+      "maxThreadMs": 0.76,
+      "threadSumMs": 6.88
+    },
+    "crew-loading/MajorGC": {
+      "count": 2,
+      "maxElapsedMs": 1.76,
+      "elapsedSumMs": 3.112,
+      "threadTimeSamples": 2,
+      "maxThreadMs": 1.589,
+      "threadSumMs": 2.766
+    },
+    "outside-racing/MinorGC": {
+      "count": 65,
+      "maxElapsedMs": 7.085,
+      "elapsedSumMs": 31.29600000000001,
+      "threadTimeSamples": 65,
+      "maxThreadMs": 6.315,
+      "threadSumMs": 25.993000000000006
+    },
+    "outside-racing/MajorGC": {
+      "count": 4,
+      "maxElapsedMs": 1.791,
+      "elapsedSumMs": 6.239000000000001,
+      "threadTimeSamples": 4,
+      "maxThreadMs": 1.465,
+      "threadSumMs": 5.073
+    },
+    "racing/MinorGC": {
+      "count": 576,
+      "maxElapsedMs": 1.329,
+      "elapsedSumMs": 213.77099999999987,
+      "threadTimeSamples": 576,
+      "maxThreadMs": 1.089,
+      "threadSumMs": 175.60000000000016
+    },
+    "racing/MajorGC": {
+      "count": 40,
+      "maxElapsedMs": 5.77,
+      "elapsedSumMs": 69.13700000000001,
+      "threadTimeSamples": 40,
+      "maxThreadMs": 4.846,
+      "threadSumMs": 56.762
+    },
+    "bay-entry/MinorGC": {
+      "count": 2,
+      "maxElapsedMs": 0.772,
+      "elapsedSumMs": 1.233,
+      "threadTimeSamples": 2,
+      "maxThreadMs": 0.492,
+      "threadSumMs": 0.759
+    }
+  },
+  "selectedEventFamilyStats": {
+    "crew-loading/FunctionCall": {
+      "count": 159,
+      "maxElapsedMs": 5.404,
+      "elapsedSumMs": 31.515000000000004,
+      "threadTimeSamples": 159,
+      "maxThreadMs": 5.218,
+      "threadSumMs": 30.581
+    },
+    "crew-loading/CommandBufferHelper::Finish": {
+      "count": 106,
+      "maxElapsedMs": 317.714,
+      "elapsedSumMs": 627.405,
+      "threadTimeSamples": 106,
+      "maxThreadMs": 0.956,
+      "threadSumMs": 2.431999999999999
+    },
+    "crew-loading/GLES2Implementation::GetProgramiv": {
+      "count": 412,
+      "maxElapsedMs": 317.716,
+      "elapsedSumMs": 477.2329999999917,
+      "threadTimeSamples": 42,
+      "maxThreadMs": 0.956,
+      "threadSumMs": 1.4889999999999979
+    },
+    "outside-racing/FunctionCall": {
+      "count": 1914,
+      "maxElapsedMs": 49.827,
+      "elapsedSumMs": 4236.89299999999,
+      "threadTimeSamples": 1908,
+      "maxThreadMs": 9.744,
+      "threadSumMs": 4083.0299999999925
+    },
+    "racing/FunctionCall": {
+      "count": 19905,
+      "maxElapsedMs": 15.788,
+      "elapsedSumMs": 37410.18999999852,
+      "threadTimeSamples": 19905,
+      "maxThreadMs": 15.619,
+      "threadSumMs": 36603.14000000039
+    },
+    "bay-entry/FunctionCall": {
+      "count": 31,
+      "maxElapsedMs": 3.855,
+      "elapsedSumMs": 11.445999999999998,
+      "threadTimeSamples": 31,
+      "maxThreadMs": 3.188,
+      "threadSumMs": 10.317999999999996
+    },
+    "bay-entry/CommandBufferHelper::Finish": {
+      "count": 94,
+      "maxElapsedMs": 350.389,
+      "elapsedSumMs": 2550.3039999999996,
+      "threadTimeSamples": 94,
+      "maxThreadMs": 1.122,
+      "threadSumMs": 3.9629999999999996
+    },
+    "bay-entry/GLES2Implementation::GetProgramiv": {
+      "count": 215,
+      "maxElapsedMs": 350.395,
+      "elapsedSumMs": 2537.478000000003,
+      "threadTimeSamples": 33,
+      "maxThreadMs": 1.124,
+      "threadSumMs": 3.364
+    }
+  },
+  "racingCompleteEventsAtLeast16Ms": 0,
+  "largestCompleteEvents": [
+    {
+      "name": "v8.evaluateModule",
+      "region": "crew-loading",
+      "elapsedMs": 441.442,
+      "threadMs": 30.279,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 122.366
+    },
+    {
+      "name": "GLES2Implementation::GetProgramiv",
+      "region": "bay-entry",
+      "elapsedMs": 350.395,
+      "threadMs": 0.261,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 186100.197
+    },
+    {
+      "name": "ImplementationBase::WaitForCmd",
+      "region": "bay-entry",
+      "elapsedMs": 350.39,
+      "threadMs": 0.258,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 186100.201
+    },
+    {
+      "name": "CommandBufferHelper::Finish",
+      "region": "bay-entry",
+      "elapsedMs": 350.389,
+      "threadMs": 0.258,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 186100.201
+    },
+    {
+      "name": "CommandBufferProxyImpl::WaitForGetOffset",
+      "region": "bay-entry",
+      "elapsedMs": 350.349,
+      "threadMs": 0.246,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 186100.217
+    },
+    {
+      "name": "Scheduler::RunTask",
+      "region": "bay-entry",
+      "elapsedMs": 348.142,
+      "threadMs": 2.471,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 186102.419
+    },
+    {
+      "name": "GpuChannel::ExecuteDeferredRequest",
+      "region": "bay-entry",
+      "elapsedMs": 348.138,
+      "threadMs": 2.47,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 186102.42
+    },
+    {
+      "name": "WebGL",
+      "region": "bay-entry",
+      "elapsedMs": 348.072,
+      "threadMs": 2.405,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 186102.424
+    },
+    {
+      "name": "CommandBuffer::Flush",
+      "region": "bay-entry",
+      "elapsedMs": 348.071,
+      "threadMs": 2.405,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 186102.425
+    },
+    {
+      "name": "CommandBufferStub::OnAsyncFlush",
+      "region": "bay-entry",
+      "elapsedMs": 348.07,
+      "threadMs": 2.405,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 186102.426
+    },
+    {
+      "name": "CommandBufferService:PutChanged",
+      "region": "bay-entry",
+      "elapsedMs": 348.05,
+      "threadMs": 2.398,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 186102.429
+    },
+    {
+      "name": "GLES2Implementation::GetProgramiv",
+      "region": "crew-loading",
+      "elapsedMs": 317.716,
+      "threadMs": 0.956,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 241.294
+    },
+    {
+      "name": "ImplementationBase::WaitForCmd",
+      "region": "crew-loading",
+      "elapsedMs": 317.714,
+      "threadMs": 0.956,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 241.295
+    },
+    {
+      "name": "CommandBufferHelper::Finish",
+      "region": "crew-loading",
+      "elapsedMs": 317.714,
+      "threadMs": 0.956,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 241.295
+    },
+    {
+      "name": "CommandBufferProxyImpl::WaitForGetOffset",
+      "region": "crew-loading",
+      "elapsedMs": 317.688,
+      "threadMs": 0.955,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 241.299
+    },
+    {
+      "name": "Scheduler::RunTask",
+      "region": "crew-loading",
+      "elapsedMs": 317.312,
+      "threadMs": 1.215,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 241.642
+    },
+    {
+      "name": "GpuChannel::ExecuteDeferredRequest",
+      "region": "crew-loading",
+      "elapsedMs": 317.309,
+      "threadMs": 1.213,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 241.642
+    },
+    {
+      "name": "WebGL",
+      "region": "crew-loading",
+      "elapsedMs": 317.284,
+      "threadMs": 1.188,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 241.644
+    },
+    {
+      "name": "CommandBuffer::Flush",
+      "region": "crew-loading",
+      "elapsedMs": 317.282,
+      "threadMs": 1.188,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 241.645
+    },
+    {
+      "name": "CommandBufferStub::OnAsyncFlush",
+      "region": "crew-loading",
+      "elapsedMs": 317.277,
+      "threadMs": 1.188,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 241.645
+    },
+    {
+      "name": "CommandBufferService:PutChanged",
+      "region": "crew-loading",
+      "elapsedMs": 317.254,
+      "threadMs": 1.178,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 241.646
+    },
+    {
+      "name": "GLES2Implementation::GetProgramiv",
+      "region": "bay-entry",
+      "elapsedMs": 299.387,
+      "threadMs": 0.029,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 184857.301
+    },
+    {
+      "name": "ImplementationBase::WaitForCmd",
+      "region": "bay-entry",
+      "elapsedMs": 299.384,
+      "threadMs": 0.027,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 184857.303
+    },
+    {
+      "name": "CommandBufferHelper::Finish",
+      "region": "bay-entry",
+      "elapsedMs": 299.384,
+      "threadMs": 0.027,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 184857.303
+    },
+    {
+      "name": "CommandBufferProxyImpl::WaitForGetOffset",
+      "region": "bay-entry",
+      "elapsedMs": 299.372,
+      "threadMs": 0.022,
+      "threadName": "CrRendererMain",
+      "relativeToCrewNavigationMs": 184857.313
+    },
+    {
+      "name": "Scheduler::RunTask",
+      "region": "bay-entry",
+      "elapsedMs": 299.269,
+      "threadMs": 2.633,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 184857.338
+    },
+    {
+      "name": "GpuChannel::ExecuteDeferredRequest",
+      "region": "bay-entry",
+      "elapsedMs": 299.264,
+      "threadMs": 2.63,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 184857.339
+    },
+    {
+      "name": "WebGL",
+      "region": "bay-entry",
+      "elapsedMs": 299.2,
+      "threadMs": 2.566,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 184857.343
+    },
+    {
+      "name": "CommandBuffer::Flush",
+      "region": "bay-entry",
+      "elapsedMs": 299.199,
+      "threadMs": 2.566,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 184857.344
+    },
+    {
+      "name": "CommandBufferStub::OnAsyncFlush",
+      "region": "bay-entry",
+      "elapsedMs": 299.199,
+      "threadMs": 2.566,
+      "threadName": "CrGpuMain",
+      "relativeToCrewNavigationMs": 184857.344
+    }
+  ],
+  "selection": {
+    "path": "director-kit\\production\\evidence\\P05\\trace-selection.json.gz",
+    "sha256": "b26f908c1e6aebab131792742c351ccd246228d27d7ba9b3f75e44cb718e7239",
+    "events": 734,
+    "bytes": 19849
+  },
+  "hostContext": {
+    "sourceSha256": "2b3cfbf0cc77ac9241f278f8767e3ef32494023dd70aa53df79732bab23a2a0e",
+    "sample": {
+      "StartUtc": "2026-09-14T17:42:06.0527605Z",
+      "EndUtc": "2026-09-14T17:42:08.7187504Z",
+      "Method": "Read-only process CPU delta during separate video run. Not sampled during earlier outlier; no causal attribution for that historical event.",
+      "TopCpu": [
+        {
+          "Name": "Adobe Premiere Pro",
+          "Id": 10048,
+          "CpuSeconds": 19.921875
+        },
+        {
+          "Name": "chrome-headless-shell",
+          "Id": 47344,
+          "CpuSeconds": 2.9375
+        },
+        {
+          "Name": "chrome-headless-shell",
+          "Id": 49964,
+          "CpuSeconds": 2.453125
+        },
+        {
+          "Name": "chrome-headless-shell",
+          "Id": 47464,
+          "CpuSeconds": 2.296875
+        },
+        {
+          "Name": "ffmpeg-win64",
+          "Id": 45976,
+          "CpuSeconds": 1.953125
+        },
+        {
+          "Name": "Discord",
+          "Id": 23740,
+          "CpuSeconds": 1.421875
+        },
+        {
+          "Name": "claude",
+          "Id": 33688,
+          "CpuSeconds": 0.703125
+        },
+        {
+          "Name": "Discord",
+          "Id": 23124,
+          "CpuSeconds": 0.6875
+        }
+      ],
+      "Gpu": [
+        "name, utilization.gpu [%], temperature.gpu, clocks.current.graphics [MHz], pstate",
+        "NVIDIA GeForce RTX 4080, 38 %, 59, 2100 MHz, P2"
+      ]
+    },
+    "attribution": "Measured during later video only, not original failing interval or full heavy repeat; establishes contemporaneous contention in that later sample only."
+  },
+  "conclusions": [
+    "Original366.6ms active-racing interval and266.6ms clipped catchup remain real and retained.",
+    "Neither diagnostic run nor clean stock720 followup reproduced the stall; each max racing interval16.8ms. This does not explain the original.",
+    "Diagnostic main-thread racing GC maximum5.77ms; no evidence links GC/audio allocation to historical366.6ms.",
+    "Diagnostic long GetProgramiv/Finish/GPU elapsed spans occur outside racing during loading/scene entry. Tiny matching tdur values demonstrate waiting/non-CPU elapsed portions, not a350ms CPU calculation. GPU service thread time is CPU time on that thread, not GPU device execution duration.",
+    "Heaviest repeated1080p workload misses requested p95/p99 targets in retained clean results. Later Premiere activity is a plausible environmental confounder, not evidence of original-cause attribution.",
+    "No runtime changes justified by this diagnostic. Next step: repeat fixed configuration during an observed idle-host window and collect diagnostic trace if a stall recurs, then fix only a traced app cause. Do not stop user applications without authorization."
+  ]
+}

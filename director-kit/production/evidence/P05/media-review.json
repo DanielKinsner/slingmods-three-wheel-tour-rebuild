@@ -1,0 +1,210 @@
+{
+  "runtimeCommit": "7fe1e881b0712be2fa09b4c4eec6baa9d0ebb0d6",
+  "sourceManifest": "build-inputs-verified.json",
+  "stills": {
+    "fresh-verified/fresh-chapter.png": {
+      "sha256": "8530ac5765af8102a2fdf10ed87812109ca30652e9e047ebf5494b6213d16a1a",
+      "bytes": 445760,
+      "leadViewed": true
+    },
+    "video-verified/grid.png": {
+      "sha256": "3c45b04f98073100bda0190ad00e8f2102e6fff8f117783b6368b3796c729b19",
+      "bytes": 691568,
+      "leadViewed": true
+    },
+    "video-verified/contest.png": {
+      "sha256": "963e316a8d7adef06f843fae70d192a6dc7e4c34006a394aa94a8c8bac80e1c3",
+      "bytes": 544829,
+      "leadViewed": true
+    },
+    "video-verified/cockpit.png": {
+      "sha256": "86006c89673c41c4aa4bf5fe42d3435f04c130177a6b3ce2b013ef51ec110aa0",
+      "bytes": 513866,
+      "leadViewed": true
+    },
+    "video-verified/final-lap.png": {
+      "sha256": "5760e29ec36a63d0075ad9402016678bebcadf91d0778279d7dc2f44646d3c33",
+      "bytes": 519710,
+      "leadViewed": true
+    },
+    "video-verified/result.png": {
+      "sha256": "e8e34d0401574114b50b70ce628a01870e6d84562f6ee86628ff23230d041eda",
+      "bytes": 629788,
+      "leadViewed": true
+    },
+    "video-verified/saved-build.png": {
+      "sha256": "f619603a5ef6d4e65b052c2ef7516549d6a4ec8e2a27a8ea3b3d481d8315b681",
+      "bytes": 342256,
+      "leadViewed": true
+    },
+    "day-verified/day-time-trial.png": {
+      "sha256": "8bc221d67cd450c1d046a16a6fa8b61bc1e8b91492b3735ad0d9719c3ccafa9a",
+      "bytes": 626262,
+      "leadViewed": true
+    }
+  },
+  "continuous": {
+    "file": "video-verified/complete-race-SILENT.mp4",
+    "sha256": "b91e0e44f18ef52476388485921257a042e0942070bc87faa21953017034ad6b",
+    "bytes": 43707964,
+    "durationSeconds": 199.12,
+    "frames": 4978,
+    "fps": 25,
+    "buffer": [
+      1280,
+      720
+    ],
+    "audio": "SILENT; actual game graphs active, isolated recorder has no audio stream",
+    "method": "Continuous native wall-clock isolated Playwright capture. Explicit virtual player input label; three production rival controllers in shared dynamic world; no controlled clock, pose placement, supplied winner, cuts or soundtrack. Capture timings are not performance scores.",
+    "validation": "ffprobe confirms H264 video-only and duration/frame count; full FFmpeg decode returned zero with no errors. Lead inspected six-second sampled contact sheet across whole recording, selected native stills, and rearward frame at movie44.1s. Not a human continuous-motion viewing or audio audition.",
+    "cameraEvents": [
+      {
+        "wall": 4139.300000000745,
+        "event": "phase-camera",
+        "data": {
+          "state": "ready/0/near",
+          "ticks": 0,
+          "elapsedMs": 0
+        }
+      },
+      {
+        "wall": 12870.800000000745,
+        "event": "phase-camera",
+        "data": {
+          "state": "countdown/1/near",
+          "ticks": 0,
+          "elapsedMs": 0
+        }
+      },
+      {
+        "wall": 15895.10000000149,
+        "event": "phase-camera",
+        "data": {
+          "state": "running/1/near",
+          "ticks": 180,
+          "elapsedMs": 0
+        }
+      },
+      {
+        "wall": 31923,
+        "event": "phase-camera",
+        "data": {
+          "state": "running/1/far",
+          "ticks": 1142,
+          "elapsedMs": 16033.333333333108
+        }
+      },
+      {
+        "wall": 38907,
+        "event": "phase-camera",
+        "data": {
+          "state": "running/1/cockpit",
+          "ticks": 1561,
+          "elapsedMs": 23016.66666666691
+        }
+      },
+      {
+        "wall": 43892.300000000745,
+        "event": "phase-camera",
+        "data": {
+          "state": "running/1/rearward",
+          "ticks": 1861,
+          "elapsedMs": 28016.666666667275
+        }
+      },
+      {
+        "wall": 44693.90000000037,
+        "event": "phase-camera",
+        "data": {
+          "state": "running/1/cockpit",
+          "ticks": 1909,
+          "elapsedMs": 28816.666666667334
+        }
+      },
+      {
+        "wall": 55411.300000000745,
+        "event": "phase-camera",
+        "data": {
+          "state": "running/1/near",
+          "ticks": 2552,
+          "elapsedMs": 39533.33333333331
+        }
+      },
+      {
+        "wall": 181794.6000000015,
+        "event": "phase-camera",
+        "data": {
+          "state": "finished/1/near",
+          "ticks": 10135,
+          "elapsedMs": 165916.66666666165
+        }
+      }
+    ],
+    "lookbackViewed": {
+      "movieSeconds": 44.1,
+      "hudRaceSeconds": 28.35,
+      "view": "rearward with pursuing rival; returns to cockpit via held-button release"
+    },
+    "finalField": [
+      {
+        "id": "maya",
+        "place": 1,
+        "status": "finished",
+        "lap": 2,
+        "nextGate": 1,
+        "progress": 2461.73421062512,
+        "timeMs": 162674.67684626055,
+        "invalidReason": null,
+        "valid": true
+      },
+      {
+        "id": "jett",
+        "place": 2,
+        "status": "finished",
+        "lap": 2,
+        "nextGate": 1,
+        "progress": 2461.73421062512,
+        "timeMs": 164459.50658576208,
+        "invalidReason": null,
+        "valid": true
+      },
+      {
+        "id": "player",
+        "place": 3,
+        "status": "finished",
+        "lap": 2,
+        "nextGate": 1,
+        "progress": 2461.73421062512,
+        "timeMs": 165906.11721285697,
+        "invalidReason": null,
+        "valid": true
+      },
+      {
+        "id": "nico",
+        "place": 4,
+        "status": "finished",
+        "lap": 2,
+        "nextGate": 1,
+        "progress": 2461.73421062512,
+        "timeMs": 169930.38542769797,
+        "invalidReason": null,
+        "valid": true
+      }
+    ],
+    "finalCredits": 850
+  },
+  "flow": {
+    "file": "fresh-verified/chapter-flow-EDITED-SILENT.mp4",
+    "sha256": "440e7a434ca95b65bb13d2836529a6090e58048c8b392cdc8fb7fdaacb6908d7",
+    "durationSeconds": 18,
+    "frames": 450,
+    "audio": "SILENT",
+    "method": "Six real runtime stills from controlled-time functional fresh career. Prominent edited/stills/controlled-time/silent overlay reviewed in decoded movie frame at10s. Not continuous gameplay or performance proof.",
+    "inputHashes": "fresh-verified/flow-video.json"
+  },
+  "limits": [
+    "No human audio audition, physical controller, foreground responsiveness or fun approval.",
+    "Material/headlight overexposure and sparse scenery are named visual debt, not silently approved.",
+    "Day still proves ordinary existing day start and driving, not a new full lap; separate solo regression evidence covers rules/UI."
+  ]
+}

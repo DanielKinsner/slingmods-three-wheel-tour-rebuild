@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-14T15:40:11.229856+00:00",
+  "as_of": "2026-09-14T18:03:28.146117+00:00",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+  "commit": "7fe1e881b0712be2fa09b4c4eec6baa9d0ebb0d6",
   "current_gate": "G3",
-  "current_packet": "P04B2 Night Drive: measured shader repair and readable existing kit; local evidence complete for Astra",
-  "next_action": "STOP for Astra Review09. No additional content, spending, deployment or G3/G4 advancement.",
+  "current_packet": "P05 First Night at the Harbor: integrated first chapter; performance acceptance held; awaiting Astra",
+  "next_action": "STOP after Astra-Review-10.zip. Await Astra; no unsupported G3/G4 advancement, new content, spending or deployment.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -473,6 +473,31 @@
       "Ready-menu bootstrap intervals up to116.7ms retained, cause not isolated",
       "Fresh browser does not imply driver-cache-cold; no physical controller or human audio approval",
       "Baseline measurement seams were not separately committed/hashed; final trials have exact frozen provenance"
+    ]
+  },
+  "P05": {
+    "status": "integrated_review_ready_performance_held",
+    "runtime_commit": "7fe1e881b0712be2fa09b4c4eec6baa9d0ebb0d6",
+    "milestones": {
+      "I0": "locally_complete",
+      "I1": "locally_complete",
+      "I2": "locally_complete",
+      "I3": "locally_complete",
+      "I4": "locally_complete",
+      "I5": "tests_repairs_media_complete_performance_acceptance_held"
+    },
+    "acceptance": "production/evidence/P05/acceptance-results.json",
+    "review": "production/evidence/P05/final-review.md",
+    "performance": "production/evidence/P05/performance-summary.json",
+    "held": [
+      "P05-18 performance acceptance: original outlier unexplained and original heavy repeat missed targets",
+      "G3",
+      "G4",
+      "final art and aural approval",
+      "human fun/playtest",
+      "physical-controller/foreground responsiveness",
+      "other hardware/mobile",
+      "full campaign and release"
     ]
   }
 }

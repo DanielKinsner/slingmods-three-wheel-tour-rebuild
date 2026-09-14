@@ -1,0 +1,211 @@
+{
+  "runtimeCommit": "7fe1e881b0712be2fa09b4c4eec6baa9d0ebb0d6",
+  "scope": "P05 bounded local engineering/functional acceptance; director/human art/audio/fun and G3/G4 remain held. Executed local results, not edits to director requirements.",
+  "cases": [
+    {
+      "id": "P05-01",
+      "requirement": "Original single-vehicle facade passes the existing full suite and before/after input-telemetry parity with unchanged physical constants.",
+      "status": "locally_verified",
+      "evidence": [
+        "parity.json",
+        "tests-verified.log"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-02",
+      "requirement": "One world contains four dynamic vehicles. One world step per fixed tick. Independent vehicle drivetrain, suspension, spin and telemetry; despawn does not destroy shared resources.",
+      "status": "locally_verified",
+      "evidence": [
+        "tests-verified.log",
+        "performance-summary.json"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-03",
+      "requirement": "Symmetric contact response, no kinematic immunity, and road-only support queries. A vehicle is not a suspension road or checkpoint ground hit.",
+      "status": "locally_verified",
+      "evidence": [
+        "tests-verified.log",
+        "support-check.json"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-04",
+      "requirement": "Four-car grid has nonoverlapping collider/tire footprints, all behind the first line. Simulation/race not advanced during loading/intro; countdown synchronized.",
+      "status": "locally_verified",
+      "evidence": [
+        "tests-verified.log",
+        "ui-verified/report.json",
+        "video-verified/grid.png"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-05",
+      "requirement": "Production AI only emits controls; normal route following never writes pose/speed. Curvature braking, headway, overtaking intent and bounded recovery demonstrated.",
+      "status": "locally_verified",
+      "evidence": [
+        "competition-repaired/adversarial-physical.json",
+        "tests-verified.log"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-06",
+      "requirement": "At least two seeded physics-driven full-field races complete normally; rivals do not need hidden resets, off-route shortcuts or retirement to finish.",
+      "status": "locally_verified",
+      "evidence": [
+        "competition-repaired/podium-11.json",
+        "competition-repaired/field-player-97.json",
+        "performance-summary.json"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-07",
+      "requirement": "Blocked racing line, side-by-side entry, overtake opportunity and light contact cases produce sane control/recovery. Legitimately stranded AI becomes labeled DNF, not a teleported winner.",
+      "status": "locally_verified",
+      "evidence": [
+        "competition-repaired/adversarial-physical.json",
+        "tests-verified.log"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-08",
+      "requirement": "Two laps and ordered direction-sensitive gates per participant. Skip/backward/cut/relocation invalidation. Lap wrap/lapped-car rank cannot fabricate a lead.",
+      "status": "locally_verified",
+      "evidence": [
+        "tests-verified.log",
+        "competition-repaired/rules-tests.log"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-09",
+      "requirement": "Close finish order comes from common time plus crossing fraction, not update iteration order. Repeated terminal updates/results are idempotent.",
+      "status": "locally_verified",
+      "evidence": [
+        "tests-verified.log",
+        "competition-repaired/rules-tests.log"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-10",
+      "requirement": "Player receives prompt valid result; still-running/retired rivals are explicitly labeled, with no invented times. Retry uses fresh attempt IDs and no duplicate reward.",
+      "status": "locally_verified",
+      "evidence": [
+        "ui-verified/report.json",
+        "fresh-verified/fresh-flow.json"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-11",
+      "requirement": "Fresh and prior careers follow chapter flow. Existing solo reward 800/100, kit price600 and solo PB keys remain intact. No purchase required to race.",
+      "status": "locally_verified",
+      "evidence": [
+        "fresh-verified/fresh-flow.json",
+        "tests-verified.log"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-12",
+      "requirement": "Crew placement300/200/150/100 and first-podium400 bonus are atomic/idempotent/event-specific. Invalid/incomplete no award. Concurrent tab and failed-write retry tested.",
+      "status": "locally_verified",
+      "evidence": [
+        "tests-verified.log",
+        "ui-verified/report.json"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-13",
+      "requirement": "Safe repeatable current-rebuild save migration preserves money, receipt IDs/timestamps, ownership, appearance, old chapter flags, PB/settings. Older tab and unavailable/corrupt storage handled without silent wipes.",
+      "status": "locally_verified",
+      "evidence": [
+        "tests-verified.log",
+        "fresh-verified/fresh-flow.json"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-14",
+      "requirement": "Rivals have distinct identifiers, independent driver/rear motion and no player material mutation. Geometry/textures share safely and release without leaks.",
+      "status": "locally_verified",
+      "evidence": [
+        "verified-scored-equipped1080/run.json",
+        "video-verified/contest.png",
+        "reviewer-competition-final.md"
+      ],
+      "limits": "Material/rig identity and resource isolation verified; final art approval held."
+    },
+    {
+      "id": "P05-15",
+      "requirement": "Near/far/cockpit/look-back, keyboard and virtual-controller menus, blur/disconnect/pause/neutral-resume tested with all cars. No hidden player autopilot.",
+      "status": "locally_verified",
+      "evidence": [
+        "ui-verified/report.json",
+        "controller-verified/controller.json",
+        "solo-ui-verified/review-functional.json"
+      ],
+      "limits": "Keyboard and virtual standard-controller only; no physical controller or foreground responsiveness claim."
+    },
+    {
+      "id": "P05-16",
+      "requirement": "Player audio remains telemetry-driven; at most two spatially attenuated rivals reuse buffers; mute/volume/pause and audio activation cover all buses. Audio proof labeled honestly.",
+      "status": "locally_verified",
+      "evidence": [
+        "audio-verified/audio.json",
+        "video-verified/video.json"
+      ],
+      "limits": "Actual signal/mixer/lifecycle tests. Continuous recording SILENT; no human audition."
+    },
+    {
+      "id": "P05-17",
+      "requirement": "Stable light slots/material preparation before grid; no recurrence of light-count compilation stalls. Player kit retains appearance and no physics effects. No uncontrolled rival shadow/light multiplication.",
+      "status": "locally_verified",
+      "evidence": [
+        "performance-summary.json",
+        "preserved-foundation-verified.json"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-18",
+      "requirement": "Production-like unrecorded four-car native-RAF matrix at1080/720,stock/equipped,repeat heaviest,first/retry. Actual device/config/loading/all outliers and timing drops retained; targets evaluated, not assumed.",
+      "status": "held_performance_acceptance",
+      "evidence": [
+        "performance-summary.json",
+        "performance-review.md"
+      ],
+      "limits": "Matrix executed; original heavy repeat misses p95/p99 and original 366.6ms racing stall remains unexplained. Clean followups do not erase these observations. Performance acceptance held; see diagnosis and resume report."
+    },
+    {
+      "id": "P05-19",
+      "requirement": "Root entry, complete first chapter, result, saved build and immediate replay work through ordinary UI. Captured current runtime has matched hashes; no diagnostic URLs required for play.",
+      "status": "locally_verified",
+      "evidence": [
+        "fresh-verified/fresh-flow.json",
+        "video-verified/run.json"
+      ],
+      "limits": "See evidence method labels; deterministic tests are not native-RAF proof."
+    },
+    {
+      "id": "P05-20",
+      "requirement": "Local end-to-end review performed and critical defects repaired. One final Review10 package, with executed/reported/unavailable distinctions and exact launch path. No broad G3/G4 pass fabricated.",
+      "status": "review_complete_with_open_performance_finding",
+      "evidence": [
+        "reviewer-competition-final.md",
+        "reviewer-career-final.md",
+        "final-review.md"
+      ],
+      "limits": "Separate source reviewers plus lead runtime/media review; no G3/G4 or human-fun approval."
+    }
+  ]
+}

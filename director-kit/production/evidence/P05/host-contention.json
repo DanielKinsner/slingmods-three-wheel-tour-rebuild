@@ -1,0 +1,51 @@
+{
+  "StartUtc": "2026-09-14T17:42:06.0527605Z",
+  "EndUtc": "2026-09-14T17:42:08.7187504Z",
+  "Method": "Read-only process CPU delta during separate video run. Not sampled during earlier outlier; no causal attribution for that historical event.",
+  "TopCpu": [
+    {
+      "Name": "Adobe Premiere Pro",
+      "Id": 10048,
+      "CpuSeconds": 19.921875
+    },
+    {
+      "Name": "chrome-headless-shell",
+      "Id": 47344,
+      "CpuSeconds": 2.9375
+    },
+    {
+      "Name": "chrome-headless-shell",
+      "Id": 49964,
+      "CpuSeconds": 2.453125
+    },
+    {
+      "Name": "chrome-headless-shell",
+      "Id": 47464,
+      "CpuSeconds": 2.296875
+    },
+    {
+      "Name": "ffmpeg-win64",
+      "Id": 45976,
+      "CpuSeconds": 1.953125
+    },
+    {
+      "Name": "Discord",
+      "Id": 23740,
+      "CpuSeconds": 1.421875
+    },
+    {
+      "Name": "claude",
+      "Id": 33688,
+      "CpuSeconds": 0.703125
+    },
+    {
+      "Name": "Discord",
+      "Id": 23124,
+      "CpuSeconds": 0.6875
+    }
+  ],
+  "Gpu": [
+    "name, utilization.gpu [%], temperature.gpu, clocks.current.graphics [MHz], pstate",
+    "NVIDIA GeForce RTX 4080, 38 %, 59, 2100 MHz, P2"
+  ]
+}

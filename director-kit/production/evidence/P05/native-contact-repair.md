@@ -1,0 +1,11 @@
+# Native repeat failure and bounded repair
+
+The first attempt in `final-scored-equipped1080-repeat/run.json` at runtime76d3668089d1dac31b9b3f82fc93b9d597a17e3f invalidated Maya at approximately71.5 race seconds, lap1/progress1070.5309: two tires beyond runoff. The second attempt finished normally. The original JSON SHA256 is5dfc8c2d46e483ebf82bfc1680f495eb4849b21bbd44866e1cb918c9cbc4d5ee. Its complete bytes are also retained in failed-native-repeat.json.gz. This is not a passed full-field repeat.
+
+At70s Maya had0.4037rad sideslip and-1.1827rad/s yaw rate. At71s she was moving9.636m/s across the ground but only3.520m/s along her forward axis, with1.1968rad sideslip, throttle1.0 and steer0.4084. The low-forward-speed/full-power response is directly measured. The evidence driver had maintained approximately3.1m following distance during braking; a tailgating collision is consistent with the trace, but contact-pair events were not collected and that initiating cause remains an inference.
+
+Production correction: a rival moving faster than4m/s with more than0.3rad sideslip now cuts throttle, uses ordinary brake input and steering toward travel direction. It changes controls only. Player tire/drivetrain constants, car positions, body collisions and race validation are unchanged. An exact native telemetry snapshot regression covers this case. The evidence-only driver now checks occupied corridors and braking headway, holding a passing lane rather than blindly following the center line. Its close-gap regression requires no throttle and full braking. It remains outside the shipped runtime.
+
+The runner had asserted only the final retry field. It now stores terminal field snapshots for every attempt and requires every participant of every attempt to finish valid. No successful retry can hide the earlier failure. New evidence uses fresh verified-scored directories. Old runs and the old video remain local; the failed attempt is included compactly in this review.
+
+Post-repair deterministic full fields: seed11 player third165826.615ms; seed97 with different starting order and player input held across two ticks finishes fourth167782.807ms. All rivals finish with no recovery resets or retirement. Native repetitions are reported separately in performance-summary.json, not inferred from these deterministic tests.
