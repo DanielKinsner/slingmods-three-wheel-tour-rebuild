@@ -1,4 +1,4 @@
-import {loadShowcaseBay} from './presentation/showcase';
+import {loadShowcaseBay,disposeShowcaseBay} from './presentation/showcase';
 import {ChapterUI} from './career/chapter-ui';
 import {prepareRenderer,preparationVeil} from './presentation/prepare';
 import {careerClient} from './career/client';
@@ -32,9 +32,9 @@ const workbenchStarted=performance.now(),prepVeil=preparationVeil(document.query
 const scene=new THREE.Scene();scene.background=new THREE.Color(bay?'#58616a':'#bac5cc');scene.fog=bay?null:new THREE.Fog('#bac5cc',150,330);
 const camera=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.05,700);
 const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:query.has('captureBuffer')});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.94;document.querySelector('#viewport')!.appendChild(renderer.domElement);
-const pmrem=new THREE.PMREMGenerator(renderer),env=driving?new RoomEnvironment():inspectionEnvironment(bay);scene.environment=pmrem.fromScene(env,.04).texture;env.traverse(o=>{if(o instanceof THREE.Mesh){o.geometry.dispose();const materials=Array.isArray(o.material)?o.material:[o.material];materials.forEach(m=>m.dispose())}});pmrem.dispose();scene.environmentIntensity=driving?.55:bay?.95:.7;scene.environmentRotation.y=0;
-scene.add(new THREE.HemisphereLight(0xebf3ff,driving?0x6d6960:0x77746f,driving?1.6:bay?1.05:1.1));const sun=new THREE.DirectionalLight(driving?0xfff3dc:0xfff9ef,driving?3.2:bay?.8:1.8);sun.position.set(bay?-3:8,bay?5:14,bay?-4:5);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-12,right:12,top:12,bottom:-12,near:.1,far:55});sun.shadow.normalBias=.016;scene.add(sun);scene.add(sun.target);
-if(!driving){const fill=new THREE.DirectionalLight(0xe5edff,bay?.65:.7);fill.position.set(-5,3,-4);scene.add(fill)}
+const pmrem=new THREE.PMREMGenerator(renderer),env=driving?new RoomEnvironment():inspectionEnvironment(bay);const inspectionProbe=pmrem.fromScene(env,.04);scene.environment=inspectionProbe.texture;env.traverse(o=>{if(o instanceof THREE.Mesh){o.geometry.dispose();const materials=Array.isArray(o.material)?o.material:[o.material];materials.forEach(m=>m.dispose())}});pmrem.dispose();scene.environmentIntensity=driving?.55:bay?.8:.7;scene.environmentRotation.y=0;
+scene.add(new THREE.HemisphereLight(0xebf3ff,driving?0x6d6960:0x77746f,driving?1.6:bay?.65:1.1));const sun=new THREE.DirectionalLight(driving?0xfff3dc:0xfff9ef,driving?3.2:bay?1.6:1.8);sun.position.set(bay?-3:8,bay?5:14,bay?-4:5);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:bay?-7:-12,right:bay?7:12,top:bay?7:12,bottom:bay?-7:-12,near:.1,far:55});sun.shadow.normalBias=bay?.008:.016;scene.add(sun);scene.add(sun.target);
+if(!driving){const fill=new THREE.DirectionalLight(0xe5edff,bay?.35:.7);fill.position.set(-5,3,-4);scene.add(fill)}
 if(bay){for(const [x,power]of [[-2.5,38],[2.8,26]]){const light=new THREE.SpotLight(0xf8f7f3,power,14,.92,.95,2);light.position.set(x,3.83,0);light.target.position.set(x*.15,0,-.3);scene.add(light,light.target)}}
 const proofAsset=query.has('test')&&/^p03a2-proof0[12]$/.test(query.get('asset')??'')?`slingshot-${query.get('asset')}.glb`:undefined;
 const loader=new GLTFLoader();const vehicleFile=proofAsset??(['p03a2','p04a1'].includes(query.get('asset')??'')?CURRENT_VEHICLE:query.get('asset')==='fleet'?'scale-blockouts.glb':query.get('asset')==='p01'?'slingshot.glb':query.get('asset')==='p03a'?'slingshot-p03a.glb':query.get('asset')==='p03a1'?'slingshot-p03a1.glb':CURRENT_VEHICLE);
@@ -140,7 +140,7 @@ function frame(now:number){const elapsed=Math.min((now-last)/1000,.1);last=now;
  if(!driving&&!controlledClock){buildUI?.frame(readDevices());chapterUI?.frame(readDevices())}
  if(driving&&!manual&&!controlledClock){if(activeScenario&&!paused){accumulator+=elapsed;while(accumulator>=1/60){step(input);accumulator-=1/60}draw(elapsed)}else normalFrame(now)}else if(!driving&&!manual)draw(elapsed);
  if(sweeping&&!driving){sweepAngle+=elapsed*.35;scene.environmentRotation.y=sweepAngle;sun.position.set(8*Math.cos(sweepAngle),14,8*Math.sin(sweepAngle));render()}requestAnimationFrame(frame)}requestAnimationFrame(frame);
-addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);if(buildUI?.inspect().open)fitBuild();draw(1/60)});addEventListener('pagehide',()=>{chapterUI?.dispose();buildUI?.dispose();unsubCareer();career.close();product?.dispose();sim?.dispose();renderer.dispose();controls.dispose()});
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);if(buildUI?.inspect().open)fitBuild();draw(1/60)});addEventListener('pagehide',()=>{chapterUI?.dispose();buildUI?.dispose();unsubCareer();career.close();product?.dispose();sim?.dispose();if(pad.scene.userData.showcase)disposeShowcaseBay(pad.scene);scene.environment=null;inspectionProbe.dispose();renderer.dispose();controls.dispose()});
 
 
 

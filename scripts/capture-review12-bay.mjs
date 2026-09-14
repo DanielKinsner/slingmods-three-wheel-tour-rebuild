@@ -1,0 +1,9 @@
+import{chromium}from'@playwright/test';import fs from'node:fs/promises';
+const dir=process.env.EVIDENCE_DIR;if(!dir)throw Error('Fresh EVIDENCE_DIR required');await fs.mkdir(dir,{recursive:false});
+const saved=JSON.parse(await fs.readFile('director-kit/production/evidence/P04B2/fixtures/review08-earned.json','utf8'));
+const browser=await chromium.launch({headless:true,args:['--use-angle=d3d11','--mute-audio']}),context=await browser.newContext({viewport:{width:1280,height:720},deviceScaleFactor:1,storageState:saved}),page=await context.newPage(),errors=[],rows=[];page.on('pageerror',e=>errors.push(e.message));
+try{await page.goto('http://127.0.0.1:5187/?scene=bay&test=1');await page.waitForFunction(()=>window.__TWT?.ready,null,{timeout:120000});const manifest=await(await page.request.get('http://127.0.0.1:5187/review-build.json')).json();await page.screenshot({path:dir+'/chapter.png'});await page.locator('#chapter-build').click();
+ const capture=async name=>{await page.evaluate(()=>window.__TWT.referenceCamera([4.2,2.4,-6.3],[0,.6,0],38));await page.waitForTimeout(150);await page.screenshot({path:dir+'/'+name+'.png'});rows.push({name,...await page.evaluate(()=>window.__TWT.inspect())})};
+ await capture('installed-day');await page.locator('#stock-compare').click();await capture('stock-day');await page.locator('#bay-night').click();await capture('stock-night');await page.locator('#stock-compare').click();await capture('installed-night');
+ if(errors.length)throw Error(errors.join('\n'));await fs.writeFile(dir+'/bay.json',JSON.stringify({manifest,method:'Actual isolated ordinary Build UI, saved earned-v1 fixture migrated by runtime. Stock comparison is preview only. Same explicit camera position4.2/2.4/-6.3,target0/.6/0,FOV38 and established Build view offset,1280x720 DPR1. No personal profile or ownership fabrication.',rows,errors},null,2));
+}finally{await context.close();await browser.close()}

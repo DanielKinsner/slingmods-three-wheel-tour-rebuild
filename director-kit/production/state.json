@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "8d3931f40bf472666c7f2595cfa2650bb2b81980",
   "current_gate": "G3",
-  "current_packet": "P06 Harbor Showcase \u2014 integrated local review delivered; G3/G4 pending",
-  "next_action": "Review Astra-Review-11.zip; confirm intended Git remote to complete user-authorized main push. No unsupported gate advance, deployment or scope expansion.",
+  "current_packet": "P06B Environment Quality Lock \u2014 internal benchmark repair",
+  "next_action": "Inspect corrected integrated benchmark, then full harbor/showroom rollout, runtime review, native performance, protected-game regression, Review12. No remote changes.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -528,5 +528,13 @@
     "G4": "pending",
     "remotePush": "BLOCKED pending confirmed Git destination; no origin configured",
     "historicalFailuresPreserved": true
+  },
+  "p06b": {
+    "status": "in_progress",
+    "baselineCommit": "d9acdf23816562ea1edba2cf230648f0ec3f6aae",
+    "evidence": "production/evidence/P06B",
+    "benchmark01": "repair_required",
+    "gates": "G3/G4 pending",
+    "remoteChanges": "forbidden"
   }
 }
