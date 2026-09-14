@@ -24,7 +24,7 @@ for r in summary: print(r['name'],r['racingIntervals'],r['targetMet'],r['program
 
 # Observed passes are changes in actual pairwise race progress, never rival intent counters.
 traffic=[]
-for directory in sorted(base.glob('verified-scored-*'))+[base/'video-verified']:
+for directory in sorted(base.glob('verified-scored-*'))+[base/'video-final']:
  path=directory/'run.json'
  if not path.exists():continue
  d=json.loads(path.read_text());trace=d['trace'];events=[];encounters=[];previous=None
