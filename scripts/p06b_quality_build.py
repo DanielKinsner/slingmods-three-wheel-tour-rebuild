@@ -261,7 +261,7 @@ for iz in range(rows):
  for x,y in [(front,-.60),(front-4,.08),(front-18,.23),(-390,.23)]:sv.append((x,-.60+(y+.60)*endfade,z))
 shore=mesh('continuous_vegetated_farbank',sv,[(i,i+4,i+5,i+1)for iz in range(rows-1)for ix in range(3)for i in [iz*4+ix]],0,kind='turf')
 bm=bmesh.new();bm.from_mesh(shore.data);bm.normal_update();bmesh.ops.reverse_faces(bm,faces=[f for f in bm.faces if f.normal.z<0]);bm.to_mesh(shore.data);bm.free()
-module='water';water=mesh('marina_surface',[(-6000,-.28,-6000),(-28,-.28,-6000),(-28,-.28,6000),(-6000,-.28,6000)],[(0,3,2,1)],0,'water')
+module='water';water=mesh('marina_surface',[(-12000,-.28,-12000),(-28,-.28,-12000),(-28,-.28,12000),(-12000,-.28,12000)],[(0,3,2,1)],0,'water')
 for poly in water.data.polygons:
  for li in poly.loop_indices:
   co=water.data.vertices[water.data.loops[li].vertex_index].co;water.data.uv_layers.active.data[li].uv=(co.x/12,co.y/12)
@@ -345,13 +345,24 @@ for x in [-1.35,1.35]:
  box('support_runner',(x,.12,0),(.18,.24,6.3),1)
  for z in [-2,2]:beam('angled_support',(x,.18,z),(x*.65,.90,z),.065,1,8)
 for z in [-2,2]:box('rubber_hull_saddle',(0,.85,z),(1.7,.12,.4),9)
-# Farland ties the inland skyline into an actual continuous terrain, outside physical bounds.
-module='farland';vv=[];fx=25;fz=31
-for iz in range(fz):
- z=-1100+iz*80
- for ix in range(fx):
-  x=380+ix*80;fade=min(1,(x-380)/160);vv.append((x,-.06+fade*(1.4+.9*math.sin(x*.006)+.65*math.sin(z*.008)),z))
-mesh('inland_horizon_ground',vv,[(i,i+fx,i+fx+1,i+1)for iz in range(fz-1)for ix in range(fx-1)for i in [iz*fx+ix]],0,kind='turf',smooth=True)
+# Close the distant mainland around the finite accepted local ground. Nonoverlapping strips
+# join its x380 boundary and z-410/+310 ends; no sky holes below the horizon.
+module='farland';farverts=[];farfaces=[]
+def add_far_patch(x0,x1,z0,z1,nx,nz,joinaxis,joinvalue):
+ base=len(farverts)
+ for iz in range(nz):
+  z=z0+(z1-z0)*iz/(nz-1)
+  for ix in range(nx):
+   x=x0+(x1-x0)*ix/(nx-1);distance=abs((x if joinaxis=='x' else z)-joinvalue);fade=min(1,distance/180)
+   coast=min(1,max(0,(x+28)/80))*(min(1,max(0,(380-x)/80)) if joinaxis=='z' else 1);height=fade*coast*max(0,1.8+.8*math.sin(x*.006)+.6*math.sin(z*.008))
+   farverts.append((x,height,z))
+ for iz in range(nz-1):
+  for ix in range(nx-1):
+   i=base+iz*nx+ix;farfaces.append((i,i+nx,i+nx+1,i+1))
+add_far_patch(380,12000,-12000,12000,45,81,'x',380)
+add_far_patch(-28,380,-12000,-410,6,45,'z',-410)
+add_far_patch(-28,380,310,12000,6,45,'z',310)
+far=upward(mesh('continuous_distant_mainland_ring',farverts,farfaces,0,kind='turf',smooth=True));far['coverage']='joins near ground x[-28,380]z[-410,310] with nonoverlapping north/south/east strips; presentation only'
 # Reuse the accepted exact road/runoff cut, then cut the paved union out of decorative land.
 # This avoids a fresh approximation of the physical corridor and eliminates coplanar floors.
 module='landscape'

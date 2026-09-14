@@ -16,4 +16,10 @@ for i,p in enumerate(pts):
   if hit[0] is not None:bad.append({'point':[q.x,q.y],'offset':offset})
 assert not bad,('Terrain intrudes into accepted road/runoff',bad[:5])
 reports.append({'exactRoadRunoffCutRays':rays,'unexpectedLandHits':len(bad),'groundColliderSHA256':hashlib.sha256((R/'public/assets/harbor/route.json').read_bytes()).hexdigest(),'landscapeTopologicalRepair':'Exact Blender Boolean paving union cut from original accepted corridor-cut ground. No millimetre-separated floor stack.'})
+far=next(o for o in bpy.data.objects if o.name=='farland_continuous_distant_mainland_ring');far_tree=BVHTree.FromObject(far,bpy.context.evaluated_depsgraph_get());ringrays=0
+for x in [-27,0,180,379,381,600,1200,2500,7000]:
+ for z in [-7000,-2500,-900,-411,-409,0,309,311,900,2500,7000]:
+  if x<=380 and -410<=z<=310:continue
+  hit=far_tree.ray_cast(Vector((x,-z,20)),Vector((0,0,-1)),40);assert hit[0] is not None,('Distant mainland hole',x,z);ringrays+=1
+reports.append({'distantMainlandCoverageRays':ringrays,'missingGroundHits':0,'method':'BVH rays on actual editable farland mesh across north/south/east of finite original ground, including 7km diagnostic points.'})
 (R/'director-kit/production/evidence/P06B/artist/blender-source-validation.json').write_text(json.dumps(reports,indent=2));print(json.dumps(reports,indent=2))
