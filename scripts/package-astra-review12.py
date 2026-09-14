@@ -21,7 +21,7 @@ for p in (root/'director-kit/director-addenda/review-11').rglob('*'):
 for n in ['director-kit/production/evidence/P04B2/fixtures/review08-earned.json','director-kit/production/evidence/P05/solo-before.json']:add(root/n)
 for p in b.glob('*'):
  if p.is_file() and p.suffix in ['.json','.md','.log'] and not p.name.startswith(('package-','quality-build-sample','quality-build-benchmark')):add(p)
-for folder in ['artist','final-visual','matched-before','bay-before','bay-final','fresh-final','lifecycle-final','transitions-final','controller-final','audio-final','crew-ui-final','solo-ui-final','interface-final','video-final','day-final']:
+for folder in ['artist','final-visual-02','matched-before','bay-before','bay-final','fresh-final','lifecycle-final','transitions-final','controller-final','audio-final','inspection-final','crew-ui-final','solo-ui-final','interface-final','video-final','day-final-02']:
  d=b/folder
  if d.exists():
   for p in d.glob('*'):
@@ -31,12 +31,18 @@ for pattern in ['verified-scored-*']:
   if d.is_dir():
    for n in ['run.json','provenance.json','bay.json','interruption.json','warm-transitions.json']:
     if(d/n).is_file():add(d/n)
+# Immutable before fixture and its original source receipt, retained for comparison provenance.
+for n in ['director-kit/production/evidence/P06/full-art-review-02/fixture/scene.js','director-kit/production/evidence/P06/full-art-review-02/source-inputs.json']:add(root/n)
+# Curated causal integrity/depth evidence, not the redundant trial archive.
+for folder in ['water-diagnosis-02','depth-verification-02']:
+ for p in (b/folder).glob('*'):
+  if p.is_file() and p.suffix in ['.json','.md']:add(p)
 # Selected same-hardware P06 comparison. Historic failure reports remain local, cited explicitly.
 for folder in ['verified-scored-equipped1080','verified-scored-stock720']:
  for n in ['run.json','provenance.json']:
   p=root/'director-kit/production/evidence/P06'/folder/n
   if p.exists():add(p)
-for p in [b/'video-final/complete-race-LIVE-AUDIO.mp4',b/'video-final/live-game-audio.webm',b/'day-final/garage-day-SILENT.mp4']:add(p)
+for p in [b/'video-final/complete-race-LIVE-AUDIO.mp4',b/'video-final/live-game-audio.webm',b/'day-final-02/garage-day-SILENT.mp4']:add(p)
 add(b/'REVIEW-ME-FIRST.md','REVIEW-ME-FIRST.md');add(b/'STATE-EXCERPT.json','director-kit/production/state.json')
 for n,p in files.items():
  if p.suffix in ['.ts','.mjs','.js','.json','.py','.md','.html','.css']:

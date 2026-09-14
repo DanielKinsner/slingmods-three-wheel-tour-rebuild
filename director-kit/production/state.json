@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-14T20:55:23.855166+00:00",
+  "as_of": "2026-09-14T23:19:43.857837+00:00",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "8d3931f40bf472666c7f2595cfa2650bb2b81980",
+  "commit": "9348fa90311c5fbdfd74529feb50548582cdca17",
   "current_gate": "G3",
-  "current_packet": "P06B Environment Quality Lock \u2014 internal benchmark repair",
-  "next_action": "Inspect corrected integrated benchmark, then full harbor/showroom rollout, runtime review, native performance, protected-game regression, Review12. No remote changes.",
+  "current_packet": "P06B Environment Quality Lock \u2014 integrated review candidate, visual target held",
+  "next_action": "Astra review of Review12; no G3/G4 advancement or further scope expansion. No remote changes.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -530,11 +530,39 @@
     "historicalFailuresPreserved": true
   },
   "p06b": {
-    "status": "in_progress",
+    "status": "integrated_review_ready_visual_target_held",
     "baselineCommit": "d9acdf23816562ea1edba2cf230648f0ec3f6aae",
-    "evidence": "production/evidence/P06B",
-    "benchmark01": "repair_required",
-    "gates": "G3/G4 pending",
-    "remoteChanges": "forbidden"
+    "runtimeCommit": "9348fa90311c5fbdfd74529feb50548582cdca17",
+    "automatedTests": 119,
+    "failedTests": 0,
+    "protectedRawFiles": 36,
+    "protectedGitBlobs": 56,
+    "soloParityRows": 4200,
+    "cc0SourceRecords": 33,
+    "routeRunoffClearanceRays": 3080,
+    "distantCoverageRays": 87,
+    "functionalFreshChapterPurchasePodiumReload": "PASS",
+    "fourRaceThreeRetryLifecycle": "PASS",
+    "nativePerformanceConfigurations": 5,
+    "nativeCompleteRaces": 6,
+    "workingRacingTargets": "PASS on recorded reference hardware; boundary/ready/program reservations retained",
+    "recordedActualAudio": "PASS technical signal and three-anchor sync under19ms; no human listening approval",
+    "visualTargetMet": false,
+    "visualLimits": [
+      "Broad flat sparse lawns",
+      "Repeating asphalt detail",
+      "Repetitive distant facades",
+      "Thin regular palm silhouettes",
+      "Probe-only water reflections and simple distant props"
+    ],
+    "performanceReservations": [
+      "First stock720 p99 at33.4ms boundary, cause of its slower intervals unisolated",
+      "Isolated ready116.6ms interval not reproduced by diagnostic transfer experiment",
+      "One early22-to23program increase; exact variant unisolated"
+    ],
+    "sourceAndEvidence": "production/evidence/P06B",
+    "remoteChanges": "forbidden; none performed",
+    "G3": "pending",
+    "G4": "pending"
   }
 }

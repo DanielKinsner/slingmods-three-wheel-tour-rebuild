@@ -1,0 +1,15 @@
+{
+  "runtimeCommit": "9348fa90311c5fbdfd74529feb50548582cdca17",
+  "runtimeOrAssetChanges": false,
+  "frozenInputsUnchanged": true,
+  "addedTool": "scripts/capture-review12-day-ordinary.mjs",
+  "sha256": "bd2e40ab7c92b1bc171d881c6422e92be25860bef5aeb31867d0d6e9cd8c926a",
+  "reason": "Original day capture introduced virtual samples after ordinary navigation but omitted the explicit test=1 guard token. The new derivative confirms ordinary day navigation, then reloads the same URL with test=1; native RAF and normal InputResolver/DrivingCamera remain active. It does not grant controlled clock or teleport the car. Original capture script remains in the frozen input set unchanged.",
+  "output": "day-final-02",
+  "provenance": "Derivative source hash and both ordinary/test URLs are recorded in capture.json. Additional evidence tooling is identified independently of the already frozen runtime.",
+  "additionalDiagnosticTool": {
+    "path": "scripts/diagnose-review12-inspection.mjs",
+    "sha256": "56b991515b296d6cacc311aefbc955c27e2651a67a84ea0b614b48720880f252",
+    "purpose": "Post-matrix native ready-screen IPC/RAF investigation; unscored, no game changes."
+  }
+}

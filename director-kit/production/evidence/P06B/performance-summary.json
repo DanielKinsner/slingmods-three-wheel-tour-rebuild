@@ -1,0 +1,1499 @@
+{
+  "method": "Fresh isolated Windows Chromium D3D11 RTX4080, native RAF, DPR1, actual buffers, stable standard quality. Audio graph active; commandline output muted. No recorder, readback, diagnostic clock or full inspection in scored racing loop. Virtual player input is disclosed. Driver/OS shader caches not cleared. All raw phases/outliers retained. CPU submission and resource counts are not GPU time or bytes. Loading includes preparation; do not sum overlapping durations. Percentiles use nearest rank. Threshold comparisons allow only1e-6ms floating-point tolerance, far below the0.1ms RAF timestamp granularity; raw measurements and percentile values are unchanged. This avoids classifying33.400000000001ms as genuinely over33.4ms. targetMet is a conservative mechanical check: p95<=20, p99<=33.4 and zero active intervals>100ms; the director asks that recurring stalls be absent and every outlier investigated. Neither clean followups nor this strict check overwrite the original matrix.",
+  "runs": [
+    {
+      "name": "verified-scored-equipped1080",
+      "runtime": "9348fa90311c",
+      "width": 1920,
+      "buffer": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "browser": "153.0.8010.12",
+      "equipped": true,
+      "record": false,
+      "loadMs": 2591.10000000149,
+      "preparationMs": 1461.6000000014901,
+      "racingIntervals": {
+        "count": 9923,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 33.39999999999418,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "allIntervals": {
+        "count": 10867,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 199.9000000000001,
+        "over33_4": 3,
+        "over50": 1,
+        "over100": 1
+      },
+      "racingClippedSimulationMs": 0,
+      "targetMet": true,
+      "outliersOver100": [
+        {
+          "row": 1,
+          "data": [
+            2693.8,
+            199.9000000000001,
+            30.199999999254942,
+            24.699999999254942,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "previousRAF": 2493.9,
+          "previousRow": [
+            2493.9,
+            0,
+            9,
+            7.199999999254942,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0.3999999985098839,
+            0,
+            0
+          ],
+          "clippedSimulationMs": 0,
+          "preparationEndWall": 2683.5,
+          "preparationFirstRenderMs": 181.90000000223517,
+          "assessment": "Ready/startup interval; preceding RAF timestamp predates end of synchronous preparation render. Timing is consistent with that startup frame spanning warmup. No authoritative ticks or shader-count change; retained unmodified, not classified as a racing stall."
+        }
+      ],
+      "results": [
+        {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "bd2484f6-05be-445e-83b7-4fd8ab01fcce",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 165902.96880052896,
+          "place": 3,
+          "invalidReason": null
+        }
+      ],
+      "finalField": [
+        {
+          "id": "maya",
+          "place": 1,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 162674.67684626055,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "jett",
+          "place": 2,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 164459.50658576208,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "player",
+          "place": 3,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 165902.96880052896,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "nico",
+          "place": 4,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 169922.21664852096,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "attemptFinalFields": [
+        [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 162674.67684626055,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 164459.50658576208,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 3,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 165902.96880052896,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 4,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 169922.21664852096,
+            "invalidReason": null,
+            "valid": true
+          }
+        ]
+      ],
+      "programCounts": [
+        22,
+        23
+      ],
+      "residentSpots": [
+        6
+      ],
+      "residentAreas": [
+        2
+      ],
+      "worldSteps": 10808,
+      "worldStepsEqualSessionTicks": true,
+      "cpuFrame": {
+        "count": 9923,
+        "p50": 4.800000000745058,
+        "p95": 10.5,
+        "p99": 16.800000000745058,
+        "max": 36.80000000074506,
+        "over33_4": 4,
+        "over50": 0,
+        "over100": 0
+      },
+      "renderSubmissionCPU": {
+        "count": 9923,
+        "p50": 3.300000000745058,
+        "p95": 7.099999997764826,
+        "p99": 12,
+        "max": 31.299999997019768,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "controlCPUperRAF": {
+        "count": 10867,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.19999999925494194,
+        "max": 1.199999999254942,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "physicsCPUperRAF": {
+        "count": 10867,
+        "p50": 0.5,
+        "p95": 1.300000000745058,
+        "p99": 2.400000002235174,
+        "max": 6.699999999254942,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "collectorCPU": {
+        "count": 10867,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0.10000000149011612,
+        "max": 0.3999999985098839,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "crewCollectorCPU": {
+        "count": 10867,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0.10000000149011612,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "driverCPU": {
+        "count": 10791,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.19999999925494194,
+        "max": 1.0999999977648258,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "callsRange": [
+        442,
+        1020
+      ],
+      "trianglesRange": [
+        1122891,
+        2196396
+      ],
+      "geometryCounts": [
+        272
+      ],
+      "textureCounts": [
+        72
+      ],
+      "sourceSha256": "a02cf8cdafc94df05472d6dad5170703f58f0cc1320d8ffad30bddb7298d2934"
+    },
+    {
+      "name": "verified-scored-equipped1080-repeat",
+      "runtime": "9348fa90311c",
+      "width": 1920,
+      "buffer": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "browser": "153.0.8010.12",
+      "equipped": true,
+      "record": false,
+      "loadMs": 1116.5,
+      "preparationMs": 295.1000000014901,
+      "racingIntervals": {
+        "count": 19879,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.800000000017462,
+        "max": 50,
+        "over33_4": 1,
+        "over50": 0,
+        "over100": 0
+      },
+      "allIntervals": {
+        "count": 21646,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.800000000017462,
+        "max": 116.70000000000005,
+        "over33_4": 2,
+        "over50": 1,
+        "over100": 1
+      },
+      "racingClippedSimulationMs": 0,
+      "targetMet": true,
+      "outliersOver100": [
+        {
+          "row": 1,
+          "data": [
+            1156,
+            116.70000000000005,
+            8.599999997764826,
+            6.699999999254942,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0.10000000149011612,
+            0,
+            0
+          ],
+          "previousRAF": 1039.3,
+          "previousRow": [
+            1039.3,
+            0,
+            5.600000001490116,
+            4.200000002980232,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0.3999999985098839,
+            0,
+            0
+          ],
+          "clippedSimulationMs": 0,
+          "preparationEndWall": 1164.199999999255,
+          "preparationFirstRenderMs": 98.59999999776483,
+          "assessment": "Ready/startup interval; preceding RAF timestamp predates end of synchronous preparation render. Timing is consistent with that startup frame spanning warmup. No authoritative ticks or shader-count change; retained unmodified, not classified as a racing stall."
+        }
+      ],
+      "results": [
+        {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "5802b71c-c1fb-4736-b962-6e114102bd2f",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 165902.9719292072,
+          "place": 3,
+          "invalidReason": null
+        },
+        {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "e642b6b3-ca54-42d9-a2a8-d89c1bb8de78",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 165902.96914060423,
+          "place": 3,
+          "invalidReason": null
+        }
+      ],
+      "finalField": [
+        {
+          "id": "maya",
+          "place": 1,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 162674.67684626055,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "jett",
+          "place": 2,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 164459.50658576208,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "player",
+          "place": 3,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 165902.96914060423,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "nico",
+          "place": 4,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 169922.25708018264,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "attemptFinalFields": [
+        [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 162674.67684626055,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 164459.50658576208,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 3,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 165902.9719292072,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 4,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 169922.253426711,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 162674.67684626055,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 164459.50658576208,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 3,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 165902.96914060423,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 4,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 169922.25708018264,
+            "invalidReason": null,
+            "valid": true
+          }
+        ]
+      ],
+      "programCounts": [
+        22,
+        23
+      ],
+      "residentSpots": [
+        6
+      ],
+      "residentAreas": [
+        2
+      ],
+      "worldSteps": 21616,
+      "worldStepsEqualSessionTicks": true,
+      "cpuFrame": {
+        "count": 19879,
+        "p50": 4.400000002235174,
+        "p95": 7.099999997764826,
+        "p99": 12.199999999254942,
+        "max": 39.30000000074506,
+        "over33_4": 2,
+        "over50": 0,
+        "over100": 0
+      },
+      "renderSubmissionCPU": {
+        "count": 19879,
+        "p50": 3.099999997764826,
+        "p95": 4.900000002235174,
+        "p99": 8.799999997019768,
+        "max": 32.19999999925494,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "controlCPUperRAF": {
+        "count": 21646,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.19999999925494194,
+        "max": 0.7000000029802322,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "physicsCPUperRAF": {
+        "count": 21646,
+        "p50": 0.5,
+        "p95": 0.8999999985098839,
+        "p99": 1.800000000745058,
+        "max": 7.900000002235174,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "collectorCPU": {
+        "count": 21646,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0.10000000149011612,
+        "max": 0.3999999985098839,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "crewCollectorCPU": {
+        "count": 21646,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0.19999999925494194,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "driverCPU": {
+        "count": 21582,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.10000000149011612,
+        "max": 0.6000000014901161,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "callsRange": [
+        442,
+        1020
+      ],
+      "trianglesRange": [
+        1122891,
+        2196396
+      ],
+      "geometryCounts": [
+        272
+      ],
+      "textureCounts": [
+        72
+      ],
+      "sourceSha256": "3cb9f8b114739478747ea08f8d7f895b86708d743fc205b4b4be6536dff84fb5"
+    },
+    {
+      "name": "verified-scored-equipped720",
+      "runtime": "9348fa90311c",
+      "width": 1280,
+      "buffer": [
+        1280,
+        720
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "browser": "153.0.8010.12",
+      "equipped": true,
+      "record": false,
+      "loadMs": 2689.199999999255,
+      "preparationMs": 1491,
+      "racingIntervals": {
+        "count": 9955,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 16.800000000017462,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "allIntervals": {
+        "count": 10888,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 183.30000000000018,
+        "over33_4": 1,
+        "over50": 1,
+        "over100": 1
+      },
+      "racingClippedSimulationMs": 0,
+      "targetMet": true,
+      "outliersOver100": [
+        {
+          "row": 1,
+          "data": [
+            2784.8,
+            183.30000000000018,
+            9.199999999254942,
+            6.699999999254942,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "previousRAF": 2601.5,
+          "previousRow": [
+            2601.5,
+            0,
+            7.399999998509884,
+            5.800000000745058,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0.19999999925494194,
+            0,
+            0
+          ],
+          "clippedSimulationMs": 0,
+          "preparationEndWall": 2783.199999999255,
+          "preparationFirstRenderMs": 169.60000000149012,
+          "assessment": "Ready/startup interval; preceding RAF timestamp predates end of synchronous preparation render. Timing is consistent with that startup frame spanning warmup. No authoritative ticks or shader-count change; retained unmodified, not classified as a racing stall."
+        }
+      ],
+      "results": [
+        {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "74e420ab-88d8-4377-ab2e-69bb6f15ae12",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 165902.96992007238,
+          "place": 3,
+          "invalidReason": null
+        }
+      ],
+      "finalField": [
+        {
+          "id": "maya",
+          "place": 1,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 162674.67684626055,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "jett",
+          "place": 2,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 164459.50658576208,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "player",
+          "place": 3,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 165902.96992007238,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "nico",
+          "place": 4,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 169922.2555695812,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "attemptFinalFields": [
+        [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 162674.67684626055,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 164459.50658576208,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 3,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 165902.96992007238,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 4,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 169922.2555695812,
+            "invalidReason": null,
+            "valid": true
+          }
+        ]
+      ],
+      "programCounts": [
+        22,
+        23
+      ],
+      "residentSpots": [
+        6
+      ],
+      "residentAreas": [
+        2
+      ],
+      "worldSteps": 10807,
+      "worldStepsEqualSessionTicks": true,
+      "cpuFrame": {
+        "count": 9955,
+        "p50": 4.400000002235174,
+        "p95": 6,
+        "p99": 7.5,
+        "max": 13.5,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "renderSubmissionCPU": {
+        "count": 9955,
+        "p50": 3,
+        "p95": 4.300000000745058,
+        "p99": 5.5,
+        "max": 10.199999999254942,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "controlCPUperRAF": {
+        "count": 10888,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.10000000149011612,
+        "max": 0.7000000029802322,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "physicsCPUperRAF": {
+        "count": 10888,
+        "p50": 0.5,
+        "p95": 0.7000000029802322,
+        "p99": 1.1000000014901161,
+        "max": 2.800000000745058,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "collectorCPU": {
+        "count": 10888,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0.10000000149011612,
+        "max": 0.19999999925494194,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "crewCollectorCPU": {
+        "count": 10888,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0.10000000149011612,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "driverCPU": {
+        "count": 10822,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.10000000149011612,
+        "max": 0.8000000007450581,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "callsRange": [
+        442,
+        1020
+      ],
+      "trianglesRange": [
+        1122891,
+        2196396
+      ],
+      "geometryCounts": [
+        272
+      ],
+      "textureCounts": [
+        72
+      ],
+      "sourceSha256": "c1b8b568df871893bee34953cdc7a5483309731a989dc8a6b248402f71751155"
+    },
+    {
+      "name": "verified-scored-stock1080",
+      "runtime": "9348fa90311c",
+      "width": 1920,
+      "buffer": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "browser": "153.0.8010.12",
+      "equipped": false,
+      "record": false,
+      "loadMs": 2561.60000000149,
+      "preparationMs": 1384.699999999255,
+      "racingIntervals": {
+        "count": 9861,
+        "p50": 16.69999999999709,
+        "p95": 16.79999999998836,
+        "p99": 16.800000000017462,
+        "max": 50.10000000000582,
+        "over33_4": 7,
+        "over50": 1,
+        "over100": 0
+      },
+      "allIntervals": {
+        "count": 10789,
+        "p50": 16.69999999999709,
+        "p95": 16.79999999998836,
+        "p99": 16.800000000017462,
+        "max": 200,
+        "over33_4": 8,
+        "over50": 2,
+        "over100": 1
+      },
+      "racingClippedSimulationMs": 0,
+      "targetMet": true,
+      "outliersOver100": [
+        {
+          "row": 1,
+          "data": [
+            2686.2,
+            200,
+            9.199999999254942,
+            6.199999999254942,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "previousRAF": 2486.2,
+          "previousRow": [
+            2486.2,
+            0,
+            7,
+            5.399999998509884,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0.19999999925494194,
+            0,
+            0
+          ],
+          "clippedSimulationMs": 0,
+          "preparationEndWall": 2678.900000002235,
+          "preparationFirstRenderMs": 179.60000000149012,
+          "assessment": "Ready/startup interval; preceding RAF timestamp predates end of synchronous preparation render. Timing is consistent with that startup frame spanning warmup. No authoritative ticks or shader-count change; retained unmodified, not classified as a racing stall."
+        }
+      ],
+      "results": [
+        {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "a5e0632c-197a-452e-8968-7a9150d3e22a",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 165902.69301506202,
+          "place": 3,
+          "invalidReason": null
+        }
+      ],
+      "finalField": [
+        {
+          "id": "maya",
+          "place": 1,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 162674.67684626055,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "jett",
+          "place": 2,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 164459.50658576208,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "player",
+          "place": 3,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 165902.69301506202,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "nico",
+          "place": 4,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 169917.9227734931,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "attemptFinalFields": [
+        [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 162674.67684626055,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 164459.50658576208,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 3,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 165902.69301506202,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 4,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 169917.9227734931,
+            "invalidReason": null,
+            "valid": true
+          }
+        ]
+      ],
+      "programCounts": [
+        22,
+        23
+      ],
+      "residentSpots": [
+        6
+      ],
+      "residentAreas": [
+        2
+      ],
+      "worldSteps": 10809,
+      "worldStepsEqualSessionTicks": true,
+      "cpuFrame": {
+        "count": 9861,
+        "p50": 4.699999999254942,
+        "p95": 11.600000001490116,
+        "p99": 23.5,
+        "max": 47.19999999925494,
+        "over33_4": 23,
+        "over50": 0,
+        "over100": 0
+      },
+      "renderSubmissionCPU": {
+        "count": 9861,
+        "p50": 3.199999999254942,
+        "p95": 7.900000002235174,
+        "p99": 17,
+        "max": 39.100000001490116,
+        "over33_4": 5,
+        "over50": 0,
+        "over100": 0
+      },
+      "controlCPUperRAF": {
+        "count": 10789,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.19999999925494194,
+        "max": 0.6000000014901161,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "physicsCPUperRAF": {
+        "count": 10789,
+        "p50": 0.5,
+        "p95": 1.5,
+        "p99": 2.800000000745058,
+        "max": 8.699999999254942,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "collectorCPU": {
+        "count": 10789,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0.10000000149011612,
+        "max": 0.19999999925494194,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "crewCollectorCPU": {
+        "count": 10789,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0.10000000149011612,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "driverCPU": {
+        "count": 10717,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.19999999925494194,
+        "max": 0.6000000014901161,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "callsRange": [
+        440,
+        1018
+      ],
+      "trianglesRange": [
+        1122891,
+        2194028
+      ],
+      "geometryCounts": [
+        272
+      ],
+      "textureCounts": [
+        72
+      ],
+      "sourceSha256": "fe4519e2f472bd1f734d1a32f3b67cee46f120e8b7ebf81f8a7e1a8bfcc81867"
+    },
+    {
+      "name": "verified-scored-stock720",
+      "runtime": "9348fa90311c",
+      "width": 1280,
+      "buffer": [
+        1280,
+        720
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "browser": "153.0.8010.12",
+      "equipped": false,
+      "record": false,
+      "loadMs": 2758.699999999255,
+      "preparationMs": 1598.9000000022352,
+      "racingIntervals": {
+        "count": 9491,
+        "p50": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "p99": 33.400000000001455,
+        "max": 66.60000000000582,
+        "over33_4": 59,
+        "over50": 13,
+        "over100": 0
+      },
+      "allIntervals": {
+        "count": 10464,
+        "p50": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "p99": 33.400000000001455,
+        "max": 183.4000000000001,
+        "over33_4": 70,
+        "over50": 17,
+        "over100": 2
+      },
+      "racingClippedSimulationMs": 0,
+      "targetMet": true,
+      "outliersOver100": [
+        {
+          "row": 1,
+          "data": [
+            2854.1,
+            183.4000000000001,
+            8.600000001490116,
+            6.199999999254942,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "previousRAF": 2670.7,
+          "previousRow": [
+            2670.7,
+            0,
+            7.200000002980232,
+            5.599999997764826,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0.30000000074505806,
+            0,
+            0
+          ],
+          "clippedSimulationMs": 0,
+          "preparationEndWall": 2853.60000000149,
+          "preparationFirstRenderMs": 173.10000000149012,
+          "assessment": "Ready/startup interval; preceding RAF timestamp predates end of synchronous preparation render. Timing is consistent with that startup frame spanning warmup. No authoritative ticks or shader-count change; retained unmodified, not classified as a racing stall."
+        },
+        {
+          "row": 110,
+          "data": [
+            5020.6,
+            116.60000000000036,
+            18.5,
+            16,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0.09999999776482582,
+            0,
+            0
+          ],
+          "previousRAF": 4904,
+          "previousRow": [
+            4904,
+            16.699999999999818,
+            10.700000002980232,
+            8.5,
+            0,
+            0,
+            22,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "clippedSimulationMs": 0,
+          "preparationEndWall": 2853.60000000149,
+          "preparationFirstRenderMs": 173.10000000149012,
+          "assessment": "Requires additional investigation; do not discard."
+        }
+      ],
+      "results": [
+        {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "7050521a-a2f6-4d66-a13b-806a5e58c413",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 165902.96992006144,
+          "place": 3,
+          "invalidReason": null
+        }
+      ],
+      "finalField": [
+        {
+          "id": "maya",
+          "place": 1,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 162674.67684626055,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "jett",
+          "place": 2,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 164459.50658576208,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "player",
+          "place": 3,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 165902.96992006144,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "nico",
+          "place": 4,
+          "status": "finished",
+          "lap": 2,
+          "nextGate": 1,
+          "progress": 2461.73421062512,
+          "timeMs": 169900.86662903766,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "attemptFinalFields": [
+        [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 162674.67684626055,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 164459.50658576208,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 3,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 165902.96992006144,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 4,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 169900.86662903766,
+            "invalidReason": null,
+            "valid": true
+          }
+        ]
+      ],
+      "programCounts": [
+        22,
+        23
+      ],
+      "residentSpots": [
+        6
+      ],
+      "residentAreas": [
+        2
+      ],
+      "worldSteps": 10813,
+      "worldStepsEqualSessionTicks": true,
+      "cpuFrame": {
+        "count": 9491,
+        "p50": 5.799999997019768,
+        "p95": 21.699999999254942,
+        "p99": 35.400000002235174,
+        "max": 64.30000000074506,
+        "over33_4": 119,
+        "over50": 10,
+        "over100": 0
+      },
+      "renderSubmissionCPU": {
+        "count": 9491,
+        "p50": 4,
+        "p95": 15.399999998509884,
+        "p99": 27.699999999254942,
+        "max": 58.100000001490116,
+        "over33_4": 43,
+        "over50": 4,
+        "over100": 0
+      },
+      "controlCPUperRAF": {
+        "count": 10464,
+        "p50": 0,
+        "p95": 0.19999999552965164,
+        "p99": 0.30000000074505806,
+        "max": 2.899999998509884,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "physicsCPUperRAF": {
+        "count": 10464,
+        "p50": 0.5,
+        "p95": 2.2999999970197678,
+        "p99": 3.9999999962747097,
+        "max": 15.399999994784594,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "collectorCPU": {
+        "count": 10464,
+        "p50": 0,
+        "p95": 0.09999999776482582,
+        "p99": 0.10000000149011612,
+        "max": 0.6000000014901161,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "crewCollectorCPU": {
+        "count": 10464,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0.10000000149011612,
+        "max": 0.19999999925494194,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "driverCPU": {
+        "count": 10345,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "p99": 0.20000000298023224,
+        "max": 2.600000001490116,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "callsRange": [
+        440,
+        1018
+      ],
+      "trianglesRange": [
+        1122891,
+        2194028
+      ],
+      "geometryCounts": [
+        272
+      ],
+      "textureCounts": [
+        72
+      ],
+      "sourceSha256": "e4b84aa1f26a2113c53520950d1bf4e1f8d7e07f7a834da04097134a315690c5"
+    }
+  ],
+  "followups": []
+}
