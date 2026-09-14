@@ -1,0 +1,43 @@
+Fontconfig error: Cannot load default config file: No such file: (null)
+node:internal/errors:985
+  const err = new Error(message);
+              ^
+
+Error: Command failed: ffmpeg -hide_banner -loglevel error -i C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\director-kit\production\evidence\P06\day-verified\raw-video\page@2ef9d5262bdd645f953b99c5118fe4d8.webm -vf drawtext=text='SILENT - GARAGE AND DAYLIGHT DEMONSTRATION':x=20:y=h-26:fontsize=14:fontcolor=white:box=1:boxcolor=black@0.7 -an -c:v libx264 -preset fast -crf 24 -pix_fmt yuv420p director-kit/production/evidence/P06/day-verified/garage-day-SILENT.mp4
+Fontconfig error: Cannot load default config file: No such file: (null)
+
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execFileSync (node:child_process:961:15)
+    at file:///C:/Users/SM%20-%20Dan/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/capture-review11-day.mjs:5:51 {
+  status: 3221225477,
+  signal: null,
+  output: [
+    null,
+    Buffer(0) [Uint8Array] [],
+    Buffer(73) [Uint8Array] [
+       70, 111, 110, 116,  99, 111, 110, 102, 105, 103,  32,
+      101, 114, 114, 111, 114,  58,  32,  67,  97, 110, 110,
+      111, 116,  32, 108, 111,  97, 100,  32, 100, 101, 102,
+       97, 117, 108, 116,  32,  99, 111, 110, 102, 105, 103,
+       32, 102, 105, 108, 101,  58,  32,  78, 111,  32, 115,
+      117,  99, 104,  32, 102, 105, 108, 101,  58,  32,  40,
+      110, 117, 108, 108,  41,  13,  10
+    ]
+  ],
+  pid: 57936,
+  stdout: Buffer(0) [Uint8Array] [],
+  stderr: Buffer(73) [Uint8Array] [
+     70, 111, 110, 116,  99, 111, 110, 102, 105, 103,  32,
+    101, 114, 114, 111, 114,  58,  32,  67,  97, 110, 110,
+    111, 116,  32, 108, 111,  97, 100,  32, 100, 101, 102,
+     97, 117, 108, 116,  32,  99, 111, 110, 102, 105, 103,
+     32, 102, 105, 108, 101,  58,  32,  78, 111,  32, 115,
+    117,  99, 104,  32, 102, 105, 108, 101,  58,  32,  40,
+    110, 117, 108, 108,  41,  13,  10
+  ]
+}
+
+Node.js v24.15.0

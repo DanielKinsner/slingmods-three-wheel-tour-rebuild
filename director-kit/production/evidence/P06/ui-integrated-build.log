@@ -1,0 +1,33 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 build
+> tsc --noEmit && vite build
+
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/audio/opponents.ts', LF will be replaced by CRLF the next time Git touches it
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 72 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                              0.72 kB │ gzip:     0.48 kB
+dist/assets/save-S_mbsQK_.css                0.86 kB │ gzip:     0.44 kB
+dist/assets/crew-CydNNodD.css                1.53 kB │ gzip:     0.70 kB
+dist/assets/workbench-BcSrgDzu.css           7.38 kB │ gzip:     2.33 kB
+dist/assets/game-audio-B6vjf2eX.css         10.71 kB │ gzip:     3.04 kB
+dist/assets/calibration-BCREkm6G.js          2.33 kB │ gzip:     1.24 kB
+dist/assets/index-D7bRq2a1.js                2.97 kB │ gzip:     1.41 kB
+dist/assets/harbor-Cwz4irHM.js              11.25 kB │ gzip:     5.00 kB
+dist/assets/harbor-lighting-DzQUaqXR.js     15.12 kB │ gzip:     6.26 kB
+dist/assets/OrbitControls-dGnZwRhg.js       19.84 kB │ gzip:     4.40 kB
+dist/assets/crew-D3BNKW8-.js                33.05 kB │ gzip:    12.81 kB
+dist/assets/workbench-BsRoTvM6.js           41.83 kB │ gzip:    14.49 kB
+dist/assets/save-kleMLYaj.js               639.09 kB │ gzip:   161.56 kB
+dist/assets/game-audio-B0MHYag0.js       3,166.77 kB │ gzip: 1,223.47 kB
+
+✓ built in 325ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

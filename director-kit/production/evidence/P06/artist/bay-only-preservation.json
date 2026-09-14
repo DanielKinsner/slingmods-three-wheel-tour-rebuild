@@ -1,0 +1,91 @@
+{
+  "status": "PASS exact non-bay positions, normals, indices, transforms, PBR properties, referenced image bytes and samplers; four bevel UV streams have documented sub-texel export roundoff",
+  "baselineCommit": "8aa7f099ca7a03a22bed20dcec898a53036dad96",
+  "beforeKitSHA256": "b3440d832fa899e957f189bd928e55d592b979f615bf79bbbd7c3a33daad8c4c",
+  "afterKitSHA256": "cd4f163c960c9acf0b963748edad74ba83787666fe2f79c01d719c0b3793c869",
+  "nonBayPrimitivesPreserved": 33,
+  "changedNonBayGeometryNodes": [],
+  "uvExportRoundoff": [
+    {
+      "node": "kit_terminal__atlas",
+      "changedUVComponents": 116,
+      "maxUVDelta": 1.1920928955078125e-07,
+      "maxTexelDeltaAt2048": 0.000244140625
+    },
+    {
+      "node": "kit_warehouse__atlas",
+      "changedUVComponents": 44,
+      "maxUVDelta": 1.1920928955078125e-07,
+      "maxTexelDeltaAt2048": 0.000244140625
+    },
+    {
+      "node": "kit_planter__atlas",
+      "changedUVComponents": 24,
+      "maxUVDelta": 5.960464477539063e-08,
+      "maxTexelDeltaAt2048": 0.0001220703125
+    },
+    {
+      "node": "kit_service__atlas",
+      "changedUVComponents": 40,
+      "maxUVDelta": 1.1920928955078125e-07,
+      "maxTexelDeltaAt2048": 0.000244140625
+    }
+  ],
+  "preservedNodeFingerprints": {
+    "kit_terminal__atlas": "15729480c0b54499cbb743c10de054eb4dd40b79f4d53a30c8f666bf24a55941",
+    "kit_terminal__windows": "67fc046eebaa1ec794d713c8d1891c15ac20e4e213d71f620211d08252839082",
+    "kit_gantry__atlas": "6f65108bc67349221611c7b41df8bf477371c975fdc5e30f36ec60c10c30450b",
+    "kit_gantry__windows": "8d5b52bae499cbe300a5e6dd1207453321ee88f0e214be67edca5baf52735f81",
+    "kit_paddock__atlas": "7a3175605d08a83012d821e5e1a30a797580f79a09945d88a7c703cbebc3673d",
+    "kit_warehouse__atlas": "54c3c51bb3533138d0937ad96be930d10cee04102171ed29c1bc84fc58c18ccd",
+    "kit_dock__atlas": "c33d9d74fbb4f31365b5db260442c06d450755d4e58152c786ba1d3ab8fbf385",
+    "kit_quay__atlas": "20709f88b9a9897f68e677cf95e46219da4712cdd21def8e89af15b9a023a5f0",
+    "kit_skiff__atlas": "95d0556ef66bbdbd0042a426e0f8aedf396f67baa53091af3778e879293e200a",
+    "kit_pavilion__atlas": "fde12c642764f49a84c873b7c33d77bc73abe7ebb823733c66668da03b71210f",
+    "kit_planter__atlas": "5be60ae5d18485a45537193cd544602fa95d0499c9760ea523927697883e8727",
+    "kit_planter__foliage": "64eae802daa86f705d99da54acd615274cc7216e6c8e8bb1ca7d2371fad54562",
+    "kit_drain__atlas": "a6b0f737c2bbc1d3c88ceb28ec6fa1573fc9bb5b98d5c29917550185b02af736",
+    "kit_patch__atlas": "8e645cc195bdc88012e1e15da638e5ddce7aed4ff0285231b5ab46df5307968a",
+    "kit_service__atlas": "71ce154a75ca2ba31f6103db2b3b3010ee660c5ff412b3dbb82566d7e57c1ed1",
+    "kit_lift__atlas": "0c0ac0f9cae31e045c4542323e7df76b12af35cb587449b805eb4323b23b2b4f",
+    "kit_board100__atlas": "a7a8cdc2bbcbc34ecf7c52b75480a57a2db86ea1f2fcaffc93ba8e02cf1c4105",
+    "kit_board50__atlas": "4a78cb5707aa045b93e6ac7f9188d8329c38c20fd82c17bfa2aac3896076a72a",
+    "kit_fence__atlas": "4ac429c289b4375d7f687126498710585fb52bcca4224ec5c04a67182bd6c534",
+    "kit_palm0__atlas": "2fec2e9288ca9338849da3bff7f79df118183f04077613babb785261e48b284c",
+    "kit_palm0__foliage": "d6d5f55e759e259f311448ad379966399cc70128d5605383d9e47f7fb41e75fd",
+    "kit_palm1__atlas": "872c240fde96c6ff29b2c2c43dce0e0624a84e83ff08e520e540de561c2a6e02",
+    "kit_palm1__foliage": "3a89415b72f71824df3ba73072ccb39fb41f7f5f3e2081e84bead9ec3fede691",
+    "kit_palm2__atlas": "799307122e249df5a6abe9935db6a96e3f462576b5adc60dde1c0814c758f82d",
+    "kit_palm2__foliage": "a66e8a10c657671972e8fc60cd8ada2ccca86c042f3abb153903151269c1bee9",
+    "kit_shore0__atlas": "9d78b38b8c05b41aa40d271e61da39c5201936a76f2eb6653bb1d6c757065951",
+    "kit_shore0__windows": "529d29f8b7636bc5818c554e54f74735f2cc28fef080ab65da1a5868045350a8",
+    "kit_shore1__atlas": "99b5c83a2c9678c0f0df3e28ca2a0f1adf05f6c7d0f5603eee62e9ada1e9b237",
+    "kit_shore1__windows": "f6837210fb73b7ba52eccc0965e2ccc367ac032427efe5650fdee4e2812dbef6",
+    "kit_shore2__atlas": "a8aa5200f70ff3a21f9de9b4daf8f14f3ef757324cf7e02405de4dd926274144",
+    "kit_shore2__windows": "1ff387e4b6d9f23d714633579f6c22eeffd8f04d63abd39abd7c2b2c06b56a26",
+    "kit_shoreland__atlas": "fc5e67d78fadd1ee3d885c8b8c42e7f515fce76bb988d4418388160fad228539",
+    "kit_water__water": "346f66111cad7b3340c791661240bffb3bed54b958bec559163137f42af60c33"
+  },
+  "byteIdenticalFiles": {
+    "public/assets/showcase/foundation.glb": "a2fbf69f8dd30be671b4b25c19a9dd315eb59ac8b9f30c588e0e606996c281ce",
+    "src/presentation/showcase.ts": "05398a766f94906addd42ce38af81dfc2f9298f1083f446caeb86d59613e960e"
+  },
+  "lineEndingOnlyFiles": {
+    "public/assets/showcase/scene-layout.json": {
+      "worktreeSHA256": "1924518147c7c2761b112899d31678b3356586bdfb6c68fe899d70df58cdccc4",
+      "gitBlobSHA256": "d6caed54a09f5cbe7448e0725f0850e84a686e2b17a6aa580ec2e7eb75eb1269",
+      "method": "Exact text content after CRLF/LF normalization for Windows checkout. No semantic value changed."
+    },
+    "public/assets/harbor/route.json": {
+      "worktreeSHA256": "c6ea6764b11f8aa2110ee1f3c9fe41393908665e64f53d34de25cc55ce1a4e19",
+      "gitBlobSHA256": "e200643ff4a1e8e7f4de719b44b00b81fcca165008e445f314be9f9acaa7e1fa",
+      "method": "Exact text content after CRLF/LF normalization for Windows checkout. No semantic value changed."
+    }
+  },
+  "allowedChanges": [
+    "Bay floor replaced repeated atlas-face UVs with one plane and dedicated 512px seamlessly repeating basecolor/ORM/normal set; ordinary mipmaps retained",
+    "Existing brand backing and text moved/resized together into standard root camera frame"
+  ],
+  "floorTrianglesBefore": 1200,
+  "floorTrianglesAfter": 2
+}

@@ -1,0 +1,14 @@
+from pathlib import Path
+import subprocess,json,hashlib
+b=Path('director-kit/production/evidence/P06');p=b/'video-final';source=p/'complete-race-LIVE-AUDIO.mp4';out=p/'complete-race-LIVE-AUDIO-captioned.mp4';assert not out.exists()
+f="drawbox=x=450:y=684:w=380:h=30:color=0x101820:t=fill,drawtext=fontfile='C\\:/Windows/Fonts/arial.ttf':text='GAME AUDIO / VIRTUAL INPUT / SILENT BAY':x=475:y=695:fontsize=11:fontcolor=white"
+subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-i',str(source),'-vf',f,'-map','0:v:0','-map','0:a:0','-c:v','libx264','-preset','fast','-crf','23','-c:a','copy','-movflags','+faststart',str(out)],check=True)
+def pcmhash(path):return hashlib.sha256(subprocess.check_output(['ffmpeg','-v','error','-i',str(path),'-map','0:a:0','-f','f32le','-'])).hexdigest()
+a=pcmhash(source);assert pcmhash(out)==a
+probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(out)]));(p/'captioned-ffprobe.json').write_text(json.dumps(probe,indent=2))
+report={'method':'Caption-only post-capture correction of stale SILENT annotation inherited from Review10 helper. Constant380x30pixel rectangle at450,684 replaces only that diagnostic footer. Continuous native frames, race, cameras, timing and audio are unchanged; no frame/time cuts, supplied finishes or gameplay retouch. Audio is stream-copied and decoded PCM SHA256 matches. Original film and stills retained; original stills still contain the incorrect SILENT footer, not evidence of missing audio.','sourceSHA256':hashlib.sha256(source.read_bytes()).hexdigest(),'outputSHA256':hashlib.sha256(out.read_bytes()).hexdigest(),'identicalDecodedAudioSHA256':a,'primaryDelivery':out.name};(p/'caption-correction.json').write_text(json.dumps(report,indent=2))
+for n in ['video.json','provenance.json']:
+ src=p/n;backup=p/(src.stem+'-original.json');assert not backup.exists();backup.write_bytes(src.read_bytes());d=json.loads(src.read_text());d['method']='Recorded lane: native RAF with actual continuous isolated browser video, occasional screenshots/full inspection, and live MediaRecorder audio tap. NOT scored performance. Virtual ordinary input/cameras, unchanged production rivals/shared physics; copied earned fixture. See audio-video-verification and caption-correction for3event sync and disclosed footer correction. Bay/loading has no game audio graph and is silent.'
+ if n=='video.json':d['audio']='Actual live stereo game mix, three events aligned within one25fps video frame; primary movie complete-race-LIVE-AUDIO-captioned.mp4.'
+ src.write_text(json.dumps(d,indent=2))
+script=Path('scripts/profile-review11.mjs');s=script.read_bytes();assert b"note.textContent='SILENT " in s;script.write_bytes(s.replace(b"note.textContent='SILENT ",b"note.textContent='LIVE GAME AUDIO ",1))

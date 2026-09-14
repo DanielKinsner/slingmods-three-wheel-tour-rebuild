@@ -1,0 +1,391 @@
+{
+  "reviewedAt": "2026-09-14T20:22:21.805Z",
+  "scope": "Read-only independent metadata, capture/mux source, runtime telemetry and four existing PNG inspections; no browser, encoding, full decode or human listening.",
+  "commit": "8d3931f40bf472666c7f2595cfa2650bb2b81980",
+  "kitSHA256": "cd4f163c960c9acf0b963748edad74ba83787666fe2f79c01d719c0b3793c869",
+  "artifacts": {
+    "final": "4c1249ac145c1337ac7e34b7d03eb8ace2a12770c0aff7800f6459049cbe5f91",
+    "audio": "b37c3d16dbec5d6d683d97e199ad3658225af596e0da6fbc737c1682f470c52c",
+    "videoOnly": "1b51cc657b6b4c439991075e27b3b93778b435b53475646c2989bd6bec45624b"
+  },
+  "hashesMatchPriorVerification": true,
+  "probe": {
+    "programs": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "r_frame_rate": "25/1",
+        "start_time": "0.000000",
+        "duration": "192.240000",
+        "nb_frames": "4806"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "start_time": "0.000000",
+        "duration": "192.234000",
+        "nb_frames": "9012"
+      }
+    ],
+    "format": {
+      "duration": "192.240000",
+      "size": "48834793"
+    }
+  },
+  "servedAssets": {
+    "count": 53,
+    "manifestMatches": true
+  },
+  "capture": {
+    "browser": "153.0.8010.12",
+    "width": 1280,
+    "record": true,
+    "seed": 11,
+    "errors": [],
+    "nativeRAF": true,
+    "virtualDeviceSamples": true,
+    "productionInputResolverAndCamera": true,
+    "hardwareControllerTest": false,
+    "microphone": false,
+    "systemLoopback": false,
+    "offlineAudioUsed": false,
+    "diagnosticChirps": 3,
+    "opponentMixSlots": 2
+  },
+  "alignment": {
+    "reviewedAlgorithm": "Audio 20ms sinusoid correlation windows stepped 5ms near three expected marker times; magenta video flash threshold at 25fps; median constant shift then adelay/apad and AAC encode with copied video.",
+    "anchors": [
+      {
+        "id": "start",
+        "frequency": 3000,
+        "audioOnsetApproxSeconds": 6.450666666666667,
+        "videoFlashSeconds": 9.64,
+        "videoMinusAudioSeconds": 3.189333333333334,
+        "toneAmplitude": 0.12192512956567576,
+        "windowMs": 20,
+        "hopMs": 5,
+        "videoFrameMs": 40
+      },
+      {
+        "id": "middle",
+        "frequency": 3400,
+        "audioOnsetApproxSeconds": 90.20497916666666,
+        "videoFlashSeconds": 93.4,
+        "videoMinusAudioSeconds": 3.195020833333345,
+        "toneAmplitude": 0.12475638828322762,
+        "windowMs": 20,
+        "hopMs": 5,
+        "videoFrameMs": 40
+      },
+      {
+        "id": "finish",
+        "frequency": 3800,
+        "audioOnsetApproxSeconds": 180.845,
+        "videoFlashSeconds": 184.04,
+        "videoMinusAudioSeconds": 3.194999999999993,
+        "toneAmplitude": 0.1215569465999731,
+        "windowMs": 20,
+        "hopMs": 5,
+        "videoFrameMs": 40
+      }
+    ],
+    "offset": 3.194999999999993,
+    "residuals": [
+      -0.005666666666659381,
+      0.000020833333351788497,
+      0
+    ],
+    "precisionLimit": "Video sampling is 40ms; the reported 5.7ms maximum residual is arithmetic agreement of quantized observations, not sub-frame perceptual sync accuracy.",
+    "metricsRecomputed": false,
+    "previousDecodedMetrics": {
+      "duration": 181.14,
+      "peak": [
+        0.24921834468841553,
+        0.23611712455749512
+      ],
+      "rms": [
+        0.03909164630357576,
+        0.038939964770021866
+      ],
+      "clipped": 0,
+      "nonfinite": 0
+    }
+  },
+  "cameraEvents": [
+    {
+      "wall": 2404.5,
+      "event": "phase-camera",
+      "data": {
+        "state": "ready/0/near",
+        "ticks": 0,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 9536.10000000149,
+      "event": "phase-camera",
+      "data": {
+        "state": "countdown/1/near",
+        "ticks": 0,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 12549.10000000149,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/near",
+        "ticks": 180,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 28596.900000002235,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/far",
+        "ticks": 1142,
+        "elapsedMs": 16033.333333333108
+      }
+    },
+    {
+      "wall": 35563.60000000149,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/cockpit",
+        "ticks": 1561,
+        "elapsedMs": 23016.66666666691
+      }
+    },
+    {
+      "wall": 40565.70000000298,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/rearward",
+        "ticks": 1861,
+        "elapsedMs": 28016.666666667275
+      }
+    },
+    {
+      "wall": 41368.10000000149,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/cockpit",
+        "ticks": 1909,
+        "elapsedMs": 28816.666666667334
+      }
+    },
+    {
+      "wall": 52084.400000002235,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/near",
+        "ticks": 2552,
+        "elapsedMs": 39533.33333333331
+      }
+    },
+    {
+      "wall": 178459.6000000015,
+      "event": "phase-camera",
+      "data": {
+        "state": "finished/1/near",
+        "ticks": 10135,
+        "elapsedMs": 165916.66666666165
+      }
+    }
+  ],
+  "race": {
+    "phase": "finished",
+    "paused": false,
+    "countdown": 0,
+    "elapsedMs": 170099.99999999255,
+    "attemptId": "809ad9e8-b5c6-4189-952a-c316c2c2e386",
+    "standings": [
+      {
+        "id": "maya",
+        "place": 1,
+        "status": "finished",
+        "lap": 2,
+        "nextGate": 1,
+        "progress": 2461.73421062512,
+        "timeMs": 162674.67684626055,
+        "invalidReason": null,
+        "valid": true
+      },
+      {
+        "id": "jett",
+        "place": 2,
+        "status": "finished",
+        "lap": 2,
+        "nextGate": 1,
+        "progress": 2461.73421062512,
+        "timeMs": 164459.50658576208,
+        "invalidReason": null,
+        "valid": true
+      },
+      {
+        "id": "player",
+        "place": 3,
+        "status": "finished",
+        "lap": 2,
+        "nextGate": 1,
+        "progress": 2461.73421062512,
+        "timeMs": 165902.96992004002,
+        "invalidReason": null,
+        "valid": true
+      },
+      {
+        "id": "nico",
+        "place": 4,
+        "status": "finished",
+        "lap": 2,
+        "nextGate": 1,
+        "progress": 2461.73421062512,
+        "timeMs": 169908.59348497208,
+        "invalidReason": null,
+        "valid": true
+      }
+    ],
+    "playerResult": {
+      "event": "harbor-crew-night-v1",
+      "attemptId": "809ad9e8-b5c6-4189-952a-c316c2c2e386",
+      "participantId": "player",
+      "status": "finished",
+      "valid": true,
+      "laps": 2,
+      "timeMs": 165902.96992004002,
+      "place": 3,
+      "invalidReason": null
+    },
+    "allFinished": true
+  },
+  "saved": {
+    "credits": 850,
+    "equipped": true,
+    "appearance": {
+      "color": "cyan",
+      "brightness": 0.6,
+      "enabled": true
+    },
+    "crew": {
+      "invitationSeen": false,
+      "completed": true,
+      "bestPlace": 3,
+      "cleared": true,
+      "clearAcknowledged": false
+    }
+  },
+  "stillsInspected": [
+    "grid.png",
+    "cockpit.png",
+    "result.png",
+    "saved-build.png"
+  ],
+  "findings": [
+    {
+      "severity": "medium",
+      "id": "wrong-silent-caption",
+      "status": "unresolved in audited bytes",
+      "detail": "Grid, cockpit and result PNGs visibly contain SILENT banner inserted by capture script; final continuous video is sourced from same capture despite actual audio track. This evidence-only label is misleading and requires explicit correction/disclosure."
+    },
+    {
+      "severity": "low",
+      "id": "stale-premux-description",
+      "detail": "video.json says synchronization pending; completed final MP4 plus audio-video-verification.json supersede it."
+    },
+    {
+      "severity": "low",
+      "id": "shared-performance-method",
+      "detail": "provenance.method says no recording/readback in scored loop, but run.record is true. This is the recorded evidence lane and must not be used for clean production performance conclusions."
+    },
+    {
+      "severity": "observation",
+      "id": "visual-limits",
+      "detail": "UI remains legible with road space, fitted hands/cockpit, readable cyan road pool and saved installed product. Grid rear highlights are harsh on red rival; night garage is dark; long course sightlines remain visually spare. No new vehicle or visual gate approval."
+    }
+  ],
+  "approvals": {
+    "technicalTrackAndProvenanceAudit": true,
+    "finalMediaLabeling": false,
+    "humanListening": false,
+    "fullMotionVisualReview": false,
+    "performance": false,
+    "G3": false,
+    "G4": false
+  },
+  "correctedArtifactVerdict": {
+    "reviewedAt": "2026-09-14T20:49:39.481Z",
+    "scope": "Read-only hashes, container probe, correction script and preserved metadata. No encode/decode/browser or new film-frame extraction during clean performance run.",
+    "file": "complete-race-LIVE-AUDIO-captioned.mp4",
+    "sizeBytes": 50921186,
+    "sourceHash": "4c1249ac145c1337ac7e34b7d03eb8ace2a12770c0aff7800f6459049cbe5f91",
+    "outputHash": "ca9160cdf112bcad450ac2f4ab0e0630b9cb6c415c85c4144dfe74156d7e21f9",
+    "hashesMatchCorrectionReport": true,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "25/1",
+          "start_time": "0.000000",
+          "duration": "192.240000",
+          "nb_frames": "4806"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "start_time": "0.000000",
+          "duration": "192.234000",
+          "nb_frames": "9012"
+        }
+      ],
+      "format": {
+        "duration": "192.240000",
+        "size": "50921186"
+      }
+    },
+    "audioIdentity": {
+      "reportedDecodedPCMHash": "cfeb3b828212a0fc2c408542fba03560c5d66b113a175a5e0d028abd3637abc2",
+      "independentlyRecomputed": false,
+      "scriptUsesStreamCopy": true,
+      "scriptAssertsPCMIdentity": true
+    },
+    "caption": {
+      "text": "GAME AUDIO / VIRTUAL INPUT / SILENT BAY",
+      "rect": {
+        "x": 450,
+        "y": 684,
+        "width": 380,
+        "height": 30
+      },
+      "scriptNoTimeCutsOrRetiming": true,
+      "videoReencoded": true,
+      "bitwiseUnchangedVideo": false,
+      "newFrameVisuallyInspected": false
+    },
+    "metadata": {
+      "sourceVideoDescriptionPreserved": true,
+      "sourceProvenancePreserved": true,
+      "correctedMethod": "Recorded lane: native RAF with actual continuous isolated browser video, occasional screenshots/full inspection, and live MediaRecorder audio tap. NOT scored performance. Virtual ordinary input/cameras, unchanged production rivals/shared physics; copied earned fixture. See audio-video-verification and caption-correction for3event sync and disclosed footer correction. Bay/loading has no game audio graph and is silent.",
+      "correctedAudio": "Actual live stereo game mix, three events aligned within one25fps video frame; primary movie complete-race-LIVE-AUDIO-captioned.mp4.",
+      "provenanceManifestPreserved": true
+    },
+    "verdict": "Prior incorrect SILENT caption is addressed by the disclosed footer-only delivery derivative according to source/filter/metadata audit. Both source and derivative actual bytes match reported hashes; original film remains intact. Same frame count, frame rate and stream durations. PCM identity is producer-verified and hash-bound, not recomputed by this audit. No human listening/full motion/performance/gate approval."
+  }
+}

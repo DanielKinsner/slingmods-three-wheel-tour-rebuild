@@ -1,0 +1,33 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 72 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                              0.72 kB │ gzip:     0.48 kB
+dist/assets/save-S_mbsQK_.css                0.86 kB │ gzip:     0.44 kB
+dist/assets/crew-CydNNodD.css                1.53 kB │ gzip:     0.70 kB
+dist/assets/workbench-DuS9sGzO.css           7.43 kB │ gzip:     2.34 kB
+dist/assets/game-audio-DFagKZS_.css         10.92 kB │ gzip:     3.08 kB
+dist/assets/calibration-BCREkm6G.js          2.33 kB │ gzip:     1.24 kB
+dist/assets/index-CKv1iZYj.js                2.97 kB │ gzip:     1.41 kB
+dist/assets/harbor-Dw9rjJz8.js              11.24 kB │ gzip:     5.00 kB
+dist/assets/harbor-lighting-8FwgnjQ4.js     15.12 kB │ gzip:     6.26 kB
+dist/assets/OrbitControls-dGnZwRhg.js       19.84 kB │ gzip:     4.40 kB
+dist/assets/crew-q4Ygytpk.js                33.03 kB │ gzip:    12.81 kB
+dist/assets/workbench-CYv4xH0g.js           41.94 kB │ gzip:    14.53 kB
+dist/assets/save-kleMLYaj.js               639.09 kB │ gzip:   161.56 kB
+dist/assets/game-audio-Cmn5iJTw.js       3,167.25 kB │ gzip: 1,223.62 kB
+
+✓ built in 332ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+(node:62432) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Frozen Review11 build 789a616336cf013f6a59677ace38f347feadbbd9

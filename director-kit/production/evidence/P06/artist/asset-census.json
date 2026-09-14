@@ -1,0 +1,219 @@
+{
+  "stage": "full",
+  "provenance": "Original Blender mesh construction and deterministic numpy texture authoring, no download or external model",
+  "blenderVersion": "4.5.2 LTS",
+  "exports": {
+    "foundation.glb": {
+      "bytes": 12862984,
+      "sha256": "a2fbf69f8dd30be671b4b25c19a9dd315eb59ac8b9f30c588e0e606996c281ce",
+      "triangles": 23636,
+      "primitives": 86,
+      "materials": [
+        "Showcase_Dry_Asphalt",
+        "Harbor_Runoff",
+        "Harbor_Concrete",
+        "Harbor_Road_Paint",
+        "Harbor_Land",
+        "Harbor_Modular_Atlas",
+        "Harbor_Luminaire"
+      ],
+      "images": 10,
+      "uvPrimitives": 86
+    },
+    "kit.glb": {
+      "bytes": 15249252,
+      "sha256": "cd4f163c960c9acf0b963748edad74ba83787666fe2f79c01d719c0b3793c869",
+      "triangles": 22565,
+      "primitives": 36,
+      "materials": [
+        "Showcase_Shared_Atlas",
+        "Showcase_Practical_Atlas",
+        "Showcase_Foliage_Atlas",
+        "Showcase_Moving_Water",
+        "Showcase_Garage_Epoxy"
+      ],
+      "images": 7,
+      "uvPrimitives": 36
+    }
+  },
+  "sources": {
+    "assets\\blender\\showcase\\preserved-foundation.blend": {
+      "bytes": 15416210,
+      "sha256": "1a9cefa01c7059a0e000381c024ddfe278f6b73306b2a037b80fbe089ea5e01a"
+    },
+    "assets\\blender\\showcase\\showcase-kit.blend": {
+      "bytes": 18243907,
+      "sha256": "471df3e1aaee67f5790e5f3ceae2e7256a79ad33b2d12403a91c8b536c538607"
+    }
+  },
+  "maps": {
+    "public\\assets\\showcase\\textures\\asphalt_basecolor.png": {
+      "bytes": 1629521,
+      "sha256": "63a4991f1568f9f6a0976d3ea8c13598c0c52da44735d905947a4c448b8eb599"
+    },
+    "public\\assets\\showcase\\textures\\epoxy_basecolor.png": {
+      "bytes": 376486,
+      "sha256": "06532570431bcde2d82ce25fa3ec094774d49a24a9f2e914cd817bea8c3cfff6"
+    },
+    "public\\assets\\showcase\\textures\\epoxy_normal.png": {
+      "bytes": 416718,
+      "sha256": "acc9a677ce1308e665dfe564d16648f729e5a1a0af110fe1b2aa217763df4f84"
+    },
+    "public\\assets\\showcase\\textures\\epoxy_orm.png": {
+      "bytes": 282790,
+      "sha256": "11612a3d539579792c36ccdb0fc27cfbf3d0feda57b3b2c6b7f12bcca2bb3e1b"
+    },
+    "public\\assets\\showcase\\textures\\showcase_basecolor.png": {
+      "bytes": 5874866,
+      "sha256": "135e442b9ff3289df929b065027ec7179470490195c81d419399282826fd1832"
+    },
+    "public\\assets\\showcase\\textures\\showcase_normal.png": {
+      "bytes": 3320001,
+      "sha256": "afcc48f0e1d77634b616d8721cbc7203310d3a5c217bdeacf1d206325b295059"
+    },
+    "public\\assets\\showcase\\textures\\showcase_orm.png": {
+      "bytes": 3325750,
+      "sha256": "351d5ab0750e75e8ca0960f2c225eb63d196cd275c6a6406cacc060d8a239348"
+    },
+    "public\\assets\\showcase\\textures\\water_normal.png": {
+      "bytes": 194370,
+      "sha256": "f372f71d5be166f0c8405111fd77e442c0c33bf3917cba2199e7359c17e1805d"
+    }
+  },
+  "atlas": {
+    "dimensions": [
+      2048,
+      2048
+    ],
+    "tiles": 16,
+    "basecolorColorSpace": "sRGB",
+    "ormAndNormalColorSpace": "linear Non-Color",
+    "normalDirection": "+Y tangent",
+    "packing": "R occlusion=1 / G roughness / B metallic",
+    "sharedAcrossAllModules": true
+  },
+  "instances": 266,
+  "acceptedRouteUnchanged": true,
+  "warehouseVisibleColliderMatch": [
+    {
+      "center": [
+        82,
+        4.0,
+        -150
+      ],
+      "oldColliderSize": [
+        28,
+        8,
+        46
+      ],
+      "newModule": "warehouse",
+      "newModuleScale": [
+        1.1666666666666667,
+        1.0666666666666667,
+        2.090909090909091
+      ],
+      "effect": "Original source warehouse body hidden with superseded legacy decorative batch; replacement primary mass has same original blocker dimensions. Recesses, glazing, canopy, trim and plinth are visual only.",
+      "preservedColliderId": "Harbor_works_body"
+    },
+    {
+      "center": [
+        126,
+        3.5,
+        -46
+      ],
+      "oldColliderSize": [
+        27,
+        7,
+        34
+      ],
+      "newModule": "warehouse",
+      "newModuleScale": [
+        1.125,
+        0.9333333333333333,
+        1.5454545454545454
+      ],
+      "effect": "Original source warehouse body hidden with superseded legacy decorative batch; replacement primary mass has same original blocker dimensions. Recesses, glazing, canopy, trim and plinth are visual only.",
+      "preservedColliderId": "Marine_service_body"
+    },
+    {
+      "center": [
+        104,
+        3.0,
+        63
+      ],
+      "oldColliderSize": [
+        34,
+        6,
+        30
+      ],
+      "newModule": "warehouse",
+      "newModuleScale": [
+        1.4166666666666667,
+        0.8,
+        1.3636363636363635
+      ],
+      "effect": "Original source warehouse body hidden with superseded legacy decorative batch; replacement primary mass has same original blocker dimensions. Recesses, glazing, canopy, trim and plinth are visual only.",
+      "preservedColliderId": "Shakedown_paddock_body"
+    },
+    {
+      "center": [
+        335,
+        5.0,
+        -210
+      ],
+      "oldColliderSize": [
+        34,
+        10,
+        54
+      ],
+      "newModule": "warehouse",
+      "newModuleScale": [
+        1.4166666666666667,
+        1.3333333333333333,
+        2.4545454545454546
+      ],
+      "effect": "Original source warehouse body hidden with superseded legacy decorative batch; replacement primary mass has same original blocker dimensions. Recesses, glazing, canopy, trim and plinth are visual only.",
+      "preservedColliderId": "Cold_storage_body"
+    },
+    {
+      "center": [
+        343,
+        4.0,
+        38
+      ],
+      "oldColliderSize": [
+        30,
+        8,
+        44
+      ],
+      "newModule": "warehouse",
+      "newModuleScale": [
+        1.25,
+        1.0666666666666667,
+        2.0
+      ],
+      "effect": "Original source warehouse body hidden with superseded legacy decorative batch; replacement primary mass has same original blocker dimensions. Recesses, glazing, canopy, trim and plinth are visual only.",
+      "preservedColliderId": "Dock_supply_body"
+    },
+    {
+      "center": [
+        105,
+        4.5,
+        -328
+      ],
+      "oldColliderSize": [
+        42,
+        9,
+        32
+      ],
+      "newModule": "warehouse",
+      "newModuleScale": [
+        1.75,
+        1.2,
+        1.4545454545454546
+      ],
+      "effect": "Original source warehouse body hidden with superseded legacy decorative batch; replacement primary mass has same original blocker dimensions. Recesses, glazing, canopy, trim and plinth are visual only.",
+      "preservedColliderId": "Port_logistics_body"
+    }
+  ]
+}

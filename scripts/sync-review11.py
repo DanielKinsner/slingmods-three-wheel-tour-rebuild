@@ -21,3 +21,13 @@ subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-i',str(video),'-i'
 probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(out)]));(p/'ffprobe.json').write_text(json.dumps(probe,indent=2))
 result={'method':'Native recorded live player and nearest-two-rival buses; actual game mix. Three disclosed evidence-only sync chirps/DOM flashes are retained. One constant audio shift, no time stretching or engine dubbing. Video and input use wallclock. Bay/loading outside capture graph is silent. Numerical signal checks do not confer human listening approval.','anchors':anchors,'constantAudioOffsetSeconds':offset,'alignmentResidualSeconds':residual,'decodedSampleRate':sr,'channels':2,'durationSeconds':len(st)/sr,'channelPeak':np.max(np.abs(st),axis=0).tolist(),'channelRms':np.sqrt(np.mean(st.astype(float)**2,axis=0)).tolist(),'clippedSamples':int(np.sum(np.abs(st)>=1)),'nonfiniteSamples':int(np.sum(~np.isfinite(st))),'sourceAudioSHA256':hashlib.sha256(audio.read_bytes()).hexdigest(),'sourceVideoSHA256':hashlib.sha256(video.read_bytes()).hexdigest(),'outputSHA256':hashlib.sha256(out.read_bytes()).hexdigest()}
 (p/'audio-video-verification.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
+
+# Complete the generated recording metadata only after successful track/alignment checks.
+for name in ['video.json','provenance.json']:
+ file=p/name
+ if file.exists():
+  previous=json.loads(file.read_text());backup=p/(file.stem+'-before-sync.json')
+  if not backup.exists():backup.write_bytes(file.read_bytes())
+  previous['method']='Recorded lane: actual continuous native wallclock browser video with live MediaRecorder game audio, screenshots/inspection and disclosed virtual ordinary input. Not scored performance. Three-event sync verified in audio-video-verification.json; silent bay/loading. No controlled time, supplied winner or edited pass.'
+  if name=='video.json':previous['audio']='Actual live stereo game mix synchronized by one constant shift at three disclosed events; see complete-race-LIVE-AUDIO.mp4.'
+  file.write_text(json.dumps(previous,indent=2))

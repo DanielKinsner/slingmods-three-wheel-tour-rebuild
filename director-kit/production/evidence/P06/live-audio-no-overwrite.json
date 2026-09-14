@@ -1,0 +1,11 @@
+{
+  "exitCode": 1,
+  "refusedExistingDirectory": true,
+  "existingEvidenceUnchanged": true,
+  "hashes": {
+    "director-kit\\production\\evidence\\P06\\live-audio-final-routing\\actual-graph-routing.webm": "83119dc4339f672f0cccd4cf6b661705d0ecf2f766e859b97de400f9ea886e2f",
+    "director-kit\\production\\evidence\\P06\\live-audio-final-routing\\faults.json": "fb3d46ec15da19294ff162e4e7eb14bc5490f156614110b85122be3130366f4c",
+    "director-kit\\production\\evidence\\P06\\live-audio-final-routing\\report.json": "5f9e4cbb704bb3450a546a5d473f07e2d4c1575f15e7d51e6e73d8fc23b95c0b"
+  },
+  "output": "node:internal/fs/promises:859\n  return await PromisePrototypeThen(\n         ^\n\nError: EEXIST: file already exists, mkdir 'C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\director-kit\\production\\evidence\\P06\\live-audio-final-routing'\n    at async mkdir (node:internal/fs/promises:859:10)\n    at async file:///C:/Users/SM%20-%20Dan/Documents/GitHub/slingmods-three-wheel-tour-rebuild/tests/live-audio-capture.test.mjs:16:1 {\n  errno: -4075,\n  code: 'EEXIST',\n  syscall: 'mkdir',\n  path: 'C:\\\\Users\\\\SM - Dan\\\\Documents\\\\GitHub\\\\slingmods-three-wheel-tour-rebuild\\\\director-kit\\\\production\\\\evidence\\\\P06\\\\live-audio-final-routing'\n}\n\nNode.js v24.15.0\n\u2716 tests\\live-audio-capture.test.mjs (627.3319ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 0\n\u2139 fail 1\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 633.3072\n\n\u2716 failing tests:\n\ntest at tests\\live-audio-capture.test.mjs:1:1\n\u2716 tests\\live-audio-capture.test.mjs (627.3319ms)\n  'test failed'\n"
+}

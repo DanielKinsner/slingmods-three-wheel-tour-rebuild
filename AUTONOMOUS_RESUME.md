@@ -1,11 +1,11 @@
-# P06 Harbor Showcase — integrated validation in progress
+# P06 completed locally â€” Git destination needed
 
-Continue only in `C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild`.
+Root: C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild
 
-P06 supersedes P05 stop. Current packet: director-kit/director-addenda/review-10/CODEX_NEXT.md. Existing accepted hero/rear/driver/route/physics/rules/products/save hashes verified unchanged; 111 tests and 4200-row exact solo replay pass. New Blender harbor/bay, spatial batching, headlight calibration, player UI and actual live mixed audio capture are integrated. Final bounded scenery and UI reviews are finishing before freeze.
+P06 integrated work and evidence are complete for Astra review. Runtime8d3931f40bf472666c7f2595cfa2650bb2b81980, current local main includes later packaging/review-tool metadata commits. See Astra-Review-11.zip and P06/REVIEW-ME-FIRST.md. G3/G4 pending. Do not restart or expand scope.
 
-Next executable actions: freeze coherent runtime commit, run build-review11, final clean night matrix via run-review11-matrix.ps1, separate profile-review11 RECORD=1 and sync-review11.py, complete lifecycle/fresh-flow and final matched evidence. Package Astra-Review-11.zip only after integration review; G3/G4 remain pending.
+Remaining user-authorized action: push intended work on main. There is no configured remote. The pending destination question offers a new private DanielKinsner/slingmods-three-wheel-tour-rebuild repository or the explicitly selected existing remote. Do not assume the existing DanielKinsner/slingmods-three-wheel-tour (older game) is correct. No spending/deployment.
 
-No remote configured. User explicitly requested push/main but Git destination question is pending: new private rebuild repository versus existing possibly-old game repository. Do not assume that the old game is the correct remote. No deployment/spending.
+After destination confirmation: inspect current main/status and gh auth. For a new private rebuild repository, create it without initializing conflicting history, add origin, push main, and verify remote main SHA equals localHEAD. For an existing destination, fetch first and reconcile ancestry without force/reset or overwriting unrelated history. Keep the completed ZIP intact; use a numbered delivery if updating review metadata. Report exact push result.
 
-Historical generated movies and bulk traces were removed from Git index only, retained locally and in existing commits. See P06/git-artifact-policy.json. New builds/evidence/backups/secrets ignored; editable assets and implementation tracked. No history rewrite.
+Three pre-existing unrelated untracked files remain untouched: assets/blender/vehicles/slingshot-p03a-material-lab.blend and the two review05regression helpers. Generated bulk evidence is ignored/untracked at currenttip but preserved locally and in history. No history rewrite; no file deletion.

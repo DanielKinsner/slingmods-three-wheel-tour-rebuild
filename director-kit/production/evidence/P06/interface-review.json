@@ -1,0 +1,91 @@
+{
+  "assignment": "P06 bounded player-facing UI",
+  "createdAt": "2026-09-14T19:37:55.478335+00:00",
+  "root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "validation": {
+    "targetedTests": "12/12 passed; interface-tests.log",
+    "typecheck": "npx tsc --noEmit passed; interface-typecheck.log",
+    "browser": "Isolated headless Playwright Chromium; bundle of current production UI source plus actual MemoryCareerStore. Pure DOM/CSS, no WebGL or user browser. 1280x720 and1920x1080. This does not certify integrated scene visuals or GPU performance.",
+    "checked": [
+      "Every required build control and external product link scrolls into viewport and receives DOM hit test at both sizes",
+      "Deliberately delayed purchase prevents close, native drive link, repeat controls; deliberate rejection preserves800 fixturecredits/unownedstate",
+      "Actual MemoryCareerStore purchase/equip/color transitions preserve saved cyan across stock comparison",
+      "Crew controller focuses and opens help summary, then activates real mute button without starting race",
+      "Pending crew menu blocks keyboard action; rank DOM nodes retained when only RPM changes",
+      "Five existing crew input rearm tests pass; new build replacement-pad and summary-focus regressions pass",
+      "Proximity rejects distant/ahead/nonfinite/explicitly visible peers; nearest side/rear only; heldrearward suppressesbehind"
+    ],
+    "harnessRepair": "Initial UI test used an insecure synthetic .test origin, where crypto.randomUUID is unavailable; production localhost route is secure. Corrected isolated harness to routed127.0.0.1 and reran all12. No production crypto workaround or behavior change."
+  },
+  "changes": [
+    "Compact charcoal/red root/build/race panels; story/help consolidated; no new activities",
+    "Race standings DOM rebuilt only on order/lap/status/time change, removing per-frame row replacement",
+    "Nearby traffic cue uses real runtime positions and optional actual camera visibility supplied by lead",
+    "Build mutation/pending/stale UI navigation guards, aria-busy/aria-disabled, accessible scrolling",
+    "BuildMenuInput controller identity change now resets arming; summary and enabledlinks are focusable",
+    "Crew D-pad menu/help/mute button focus uses native DOM click and preserves neutral rearming"
+  ],
+  "integrationNeeded": [
+    "Lead feeds setProximity(peers,right/forward,inView,activeView) using actual field/camera",
+    "Lead removes legacy normal-route labels/duplicateBuild and retains inspection route",
+    "Lead performs integrated scene/HUD/bay visual review after newart is built"
+  ],
+  "files": [
+    {
+      "path": "src/crew-ui.ts",
+      "sha256": "100c78e526e3caea2c22a4e13b1ddfd3edaa9055207fde511cd0ccf5f010f59e"
+    },
+    {
+      "path": "src/crew.css",
+      "sha256": "364321f3362af7121448f77234aa673f5cc1d08bd051a738fa77cae9bc7136e8"
+    },
+    {
+      "path": "src/crew-proximity.ts",
+      "sha256": "59a1295451a8e14f77751f0e5f8e1951df31ee3313876f8647b07c25d27bda48"
+    },
+    {
+      "path": "src/harbor-ui.ts",
+      "sha256": "6e6139fa2027549f77b9bd4a141c147ccd7ea21764b7bff597260921cc1c00eb"
+    },
+    {
+      "path": "src/harbor.css",
+      "sha256": "96aedb034adde46df26e2da249fc662bf496fdabe9fad0e6ee544e95da4ee5db"
+    },
+    {
+      "path": "src/career/chapter-ui.ts",
+      "sha256": "0f83a924c67b2beb8d3dd16a443fa8f3ecacd0221dd30e397909299e70b86749"
+    },
+    {
+      "path": "src/career/chapter.css",
+      "sha256": "9e548fb7596ca404744b888654aedfddc9d79de94d61ff166d3ea01fd9db31fc"
+    },
+    {
+      "path": "src/career/build-ui.ts",
+      "sha256": "d60ade9cac843fc28ce6c1224485411ec54e994fa68ea599adb141851cf2e20c"
+    },
+    {
+      "path": "src/career/build.css",
+      "sha256": "ac80fa49342ad85f7be809c36a5288c535da868b8ee14be0a3e08017f3a0652a"
+    },
+    {
+      "path": "src/career/menu.ts",
+      "sha256": "d9adfca62cf01f64c813721f53721f452c8beb400991c6525d68b600d3fe444a"
+    },
+    {
+      "path": "tests/crew-menu.test.ts",
+      "sha256": "a6654d5610633f7d54fa98af4e6d49556cc0525aaff8de49a70a9d53fc721b53"
+    },
+    {
+      "path": "tests/crew-proximity.test.ts",
+      "sha256": "b23567074c1af5b8c3700a4f6e9346756a52de2cb380998337b4c994bb73f95d"
+    },
+    {
+      "path": "tests/build-menu-rearm.test.ts",
+      "sha256": "f374cd0618d99db526e3fb23d6bb3caaa915a52e4fc5760319176b98aea5bcc7"
+    },
+    {
+      "path": "tests/showcase-ui.test.mjs",
+      "sha256": "91f5a4497ac399d8771ac6074d0d62a90c92c7ffc7e74f998a1a7ecba3bb6867"
+    }
+  ]
+}
