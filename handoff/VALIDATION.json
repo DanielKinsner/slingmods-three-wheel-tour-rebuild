@@ -1,0 +1,34 @@
+{
+  "checkedCommit": "3625a739c866594da4947841dbd0d31ee94472f2",
+  "checkedAt": "2026-09-14T23:42:27.826010+00:00",
+  "environment": "Windows-11-10.0.26200-SP0",
+  "method": "Independent local Git clone with no hardlinks; fresh dependency directory; offline cached package installation; TypeScript/Vite build; complete test suite. No original workspace dependencies or ignored evidence copied. No desktop interaction.",
+  "commands": [
+    {
+      "command": "python handoff/verify.py",
+      "exitCode": 0,
+      "log": "transfer-check.log",
+      "sha256": "2008841902a035aa680c7a6ab3351559dc4c65445003f887d05eba97e7acdb9b"
+    },
+    {
+      "command": "npm.cmd ci --offline",
+      "exitCode": 0,
+      "log": "install.log",
+      "sha256": "2d6af817e29988303b52c486dfc6c69e98b71af59f13a14664dfabfb3c1a09ef"
+    },
+    {
+      "command": "npm.cmd run build",
+      "exitCode": 0,
+      "log": "build.log",
+      "sha256": "5e7eba262f8c08077bc04f172e8352e693e8544cd1a387bde07a2e7a0d7883b2"
+    },
+    {
+      "command": "npm.cmd test",
+      "exitCode": 0,
+      "log": "tests.log",
+      "sha256": "d65d4c2bb5d0d7dbbb26c5fbf5bb95b34d0718f8f8632d3afa62edcbd527d721"
+    }
+  ],
+  "checkoutStatusAfterTests": "",
+  "limits": "Same Windows host, not another physical machine. Offline install used npm package cache. Original mixed text line endings checked by normalized hash; assets/evidence exact. Historical captured CRLF logs/generated bundle contain pre-existing whitespace and remain byte-identical. Non-evidence handoff diff whitespace check passed."
+}
