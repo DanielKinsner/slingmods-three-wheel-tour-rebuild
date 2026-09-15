@@ -11,3 +11,22 @@ test('Sport v2 release/repress reverse, explicit selector and focus cancellation
 
 for(const brake of[.5,1])for(const steer of[-1,1])test('Sport v2 matched fast brake-turn '+brake+' / '+steer+' stops with secure support',async()=>{const sim=await Simulation.create(flat,'slingmods-sport-v2');sim.reset({x:0,y:.025,z:35});let entry=false,stopped=false,last=sim.telemetry(),turn=0,path=0;for(let i=0;i<30*60;i++){if(last.speed>=34.95)entry=true;sim.step({throttle:entry?0:1,brake:entry?brake:0,steer:entry?steer:0,reverse:false});const t=sim.telemetry();assert.ok(t.wheels.every(w=>w.contact));assert.ok(1-2*(t.quaternion.x**2+t.quaternion.z**2)>.95);if(entry){const delta=yaw(t.quaternion)-yaw(last.quaternion);turn+=Math.atan2(Math.sin(delta),Math.cos(delta));path+=Math.hypot(t.position.x-last.position.x,t.position.z-last.position.z)}last=t;if(entry&&Math.abs(t.speed)<.2){stopped=true;break}}assert.ok(stopped);assert.ok(turn*steer>.5&&turn*steer<Math.PI);assert.ok(path<120);sim.dispose()});
 test('Sport v2 analog magnitude, pause and disconnect cannot inherit held reverse pedals',()=>{const input=new InputResolver('slingmods-sport-v2');let now=0;const pad=(value=0)=>({index:0,id:'P09A standard simulated controller',mapping:'standard',connected:true,axes:[0],buttons:Array.from({length:17},(_,i)=>({value:i===6?value:0}))});const poll=(value=0,keys:string[]=[],connected=true)=>input.poll(now+=17,{keys:new Set(keys),pads:connected?[pad(value)]:[],focused:true},0);poll();let r=poll(.37);assert.equal(r.direction,'R');assert.equal(r.control.throttle,.37);poll(.37,['Escape']);assert.equal(poll(.37).control.throttle,0);poll(.37,['Escape']);assert.equal(poll(.37).control.throttle,0);poll();assert.equal(poll(.42).control.throttle,.42);poll(0,[],false);assert.equal(input.paused,true);assert.equal(poll(.42).control.throttle,0);poll(.42,['Escape']);assert.equal(poll(.42).control.throttle,0);poll();assert.equal(poll(.31).control.throttle,.31)});
+import {RivalController} from '../src/competition/rival';
+import {EXPRESS_ROUTE} from '../src/express/route';
+import {sampleRoad} from '../src/course/environment';
+test('Sport v2 preserves v1 rival planner pace and controls across wide/narrow routes; legacy stays distinct',async()=>{
+ const sim=await Simulation.create(),template=sim.telemetry();sim.dispose();
+ for(const width of[15,12])for(const id of['maya','jett','nico','player']){
+  const route={...EXPRESS_ROUTE,width},v1=new RivalController(route,id,11,'slingmods-sport-v1'),v2=new RivalController(route,id,11,'slingmods-sport-v2'),legacy=new RivalController(route,id,11,'legacy-p08a');let legacyDiffers=false;
+  for(const progress of[100,220,600,735,900,1250]){
+   const point=sampleRoad(route,progress),heading=Math.atan2(-point.dx,-point.dz),speed=35;
+   const telemetry={...structuredClone(template),position:{x:point.x,y:.025,z:point.z},quaternion:{x:0,y:Math.sin(heading/2),z:0,w:Math.cos(heading/2)},velocity:{x:point.dx*speed,y:0,z:point.dz*speed},speed};
+   for(let tick=0;tick<12;tick++){
+    const before=structuredClone(telemetry),a=v1.control(telemetry,{[id]:telemetry}),b=v2.control(telemetry,{[id]:telemetry});legacy.control(telemetry,{[id]:telemetry});
+    assert.equal(v2.inspect().targetSpeed,v1.inspect().targetSpeed,`${id}, width${width}, progress${progress}`);assert.deepEqual(b,a);assert.deepEqual(telemetry,before,'planner must not mutate vehicle state');
+    legacyDiffers ||= Math.abs(legacy.inspect().targetSpeed-v1.inspect().targetSpeed)>1;
+   }
+  }
+  assert.ok(legacyDiffers,`${id} width${width}: legacy must retain its historical pace`);
+ }
+});
