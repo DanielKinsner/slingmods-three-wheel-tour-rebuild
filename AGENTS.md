@@ -1,4 +1,8 @@
-# Current handoff authority — 2026-09-14
+# Active continuation — P06C Built Waterfront
+
+The user supplied SlingMods-Astra-Director-Review-12.zip on this machine and authorized P06C in the existing checkout. Read HANDOFF.md for baseline, RESUME.md for current progress, and director-kit/director-addenda/review-12/CODEX_NEXT.md plus its required packets. The implementation pause below is superseded only for this assignment. Preserve existing/uncommitted work; no restart, remote writes, deployment, spending or desktop takeover. Official Blender download and routine local setup/testing/recoverable commits are authorized. Finish the integrated assignment and prepare Astra-Review-13.zip; do not redo completed milestones. G3/G4 and final environmental art remain pending.
+
+# Historical handoff authority — 2026-09-14
 
 Read `HANDOFF.md` first. This is the existing standalone rebuild, already implemented through P06B and delivered for Review12. Do not repeat kickoff or create another game project. Resolve all paths relative to this checkout, not the originating machine's username.
 

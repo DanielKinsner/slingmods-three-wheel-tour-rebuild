@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "9348fa90311c5fbdfd74529feb50548582cdca17",
   "current_gate": "G3",
-  "current_packet": "P06B Environment Quality Lock \u2014 integrated review candidate, visual target held",
-  "next_action": "Astra review of Review12; no G3/G4 advancement or further scope expansion. No remote changes.",
+  "current_packet": "P06C Built Waterfront - M0 verified; M1/M2 sample authoring in progress",
+  "next_action": "Finish background sample export, verify actual assets, capture full-runtime day/night sample, independent critique and repair before full rollout.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -562,6 +562,19 @@
     ],
     "sourceAndEvidence": "production/evidence/P06B",
     "remoteChanges": "forbidden; none performed",
+    "G3": "pending",
+    "G4": "pending"
+  },
+  "p06c": {
+    "status": "sample_authoring_in_progress",
+    "baselineCommit": "9780d62e4ea032dafc414dd838b040ed05565da5",
+    "lastAcceptedReview": 12,
+    "expectedDelivery": "Astra-Review-13.zip",
+    "evidence": "production/evidence/P06C",
+    "baselineInstalledTests": 119,
+    "baselineTransferVerified": true,
+    "sampleRuntimeReviewed": false,
+    "fullRollout": false,
     "G3": "pending",
     "G4": "pending"
   }
