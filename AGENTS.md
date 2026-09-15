@@ -1,3 +1,9 @@
+# Current assignment — P08B SlingMods Signature Experience / Review16
+
+The owner authorizes director-kit/director-addenda/review-15/CODEX_NEXT.md and all six packets. Continue feature/p08b-slingmods-experience from P08A ef592752741333faee496edff95b8abb68b76840. This supersedes older freezes only for the authorized Sport handling, Express, showroom/vehicle repairs, five-product free configuration and overall UI. One integrator and up to three non-overlapping workers are authorized by the current packet. Isolated browser testing and background Blender only. Preserve the original Harbor, historical evidence, career saves and reviewed outputs. Ordinary commits and push to the existing private feature branch are authorized. No main merge, publication, spending, desktop takeover or account/store changes. G3/G4, final OEM fidelity, hardware, human listening/fun and release approval remain held. Public hosting is pending separately, not a development blocker. Read HANDOFF.md and handoff/P08B-VALIDATION.json for the final tested identities.
+
+---
+
 # Current return point — P08A Build Matters / Review15
 
 Dan's 2026-09-15 directive authorizes the bounded builder-racer expansion and ordinary feature-branch commits/push. Read HANDOFF.md, handoff/P08A-DESIGN.md and handoff/P08A-VALIDATION.json. Preserve the implementation and historical evidence; no automatic new assignment. Branch feature/p08a-build-matters; game implementation ec6876551542ec39111fbf26253c4528c2290cfc. No merge to main, deployment, spending, desktop takeover, account/site changes or G3/G4/final fidelity/hardware/release approval. Public hosting remains pending and is not a development blocker. One lead and one bounded independent reviewer; isolated browser tests and background Blender only. Older restriction headers below are historical and superseded only within P08A.

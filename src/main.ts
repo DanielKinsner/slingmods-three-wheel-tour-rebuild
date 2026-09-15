@@ -1,13 +1,13 @@
 import {activeProfile,visitorSearch} from './demo/profile';
 import {installRecovery,showRecovery} from './demo/recovery';
 installRecovery();
-if(import.meta.env.MODE==='demo'){const safe=visitorSearch(location.search);if(new URLSearchParams(location.search).toString()!==safe)history.replaceState(null,'',location.pathname+(safe?'?'+safe:''))}
+if(import.meta.env.MODE==='demo'){const safe=visitorSearch(location.search);if(new URLSearchParams(location.search).toString()!==safe)history.replaceState(null,'',location.pathname+(safe?'?'+safe:'')+location.hash)}
 const params=new URLSearchParams(location.search),mode=params.get('scene')??'bay';
 let loadingExit:HTMLAnchorElement|undefined;
 async function loadScene(load:()=>Promise<unknown>){let timer:ReturnType<typeof setTimeout>|undefined;try{return await Promise.race([load(),new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Required scene loading timed out')),120000)})])}finally{clearTimeout(timer)}}
 try{
 if(!params.has('scene')&&!params.has('test')&&params.get('play')!=='career'){
- const {mountPreview}=await import('./demo/entry');mountPreview();
+ await loadScene(()=>import('./signature/scene'));
 }else{
 loadingExit=document.createElement('a');loadingExit.className='preview-loading-exit';loadingExit.href=location.pathname;loadingExit.textContent='Return to Development Preview';document.body.append(loadingExit);
 if (mode === 'calibration') {
@@ -15,7 +15,9 @@ if (mode === 'calibration') {
   document.querySelector('#title')!.textContent='Materials. Scale. Motion.';
   document.querySelector('#subtitle')!.textContent='Blender to glTF to Three.js - neutral calibration fixture';
   await loadScene(()=>import('./calibration'));
-} else if(mode==='crew') await loadScene(()=>import('./crew'));
+} else if(mode==='signature') await loadScene(()=>import('./signature/scene'));
+else if(mode==='express') await loadScene(()=>import('./express'));
+else if(mode==='crew') await loadScene(()=>import('./crew'));
 else if(mode==='harbor') await loadScene(()=>import('./harbor'));
 else await loadScene(()=>import('./workbench'));
 loadingExit.remove();

@@ -1,11 +1,12 @@
+import type {HandlingProfileId} from '../simulation/profile';
 import * as THREE from 'three';import {ChaseCamera} from './chase';
 export type DrivingView='near'|'far'|'cockpit';
 export const nextDrivingView=(v:DrivingView):DrivingView=>v==='near'?'far':v==='far'?'cockpit':'near';
 /** Follow history always advances, even behind the deliberate quick glance. */
 export class DrivingCamera {
- readonly target=new THREE.Vector3();private followCamera=new THREE.PerspectiveCamera(38,1,.08,850);private follow=new ChaseCamera(this.followCamera);private cockpitDirection=new THREE.Vector3(0,0,-1);private initialized=false;
+ readonly target=new THREE.Vector3();private followCamera=new THREE.PerspectiveCamera(38,1,.08,850);private follow:ChaseCamera;private cockpitDirection=new THREE.Vector3(0,0,-1);private initialized=false;
  cockpitPitch=-.43;cockpitFov=66;eye=new THREE.Vector3(-.43,1.12,.48);activeView:DrivingView|'rearward'='near';
- constructor(readonly camera:THREE.PerspectiveCamera){}
+ constructor(readonly camera:THREE.PerspectiveCamera,readonly profileId:HandlingProfileId='legacy-p08a'){this.follow=new ChaseCamera(this.followCamera,profileId)}
  update(p:THREE.Vector3,q:THREE.Quaternion,speed:number,dt:number,mode:DrivingView,lookBack:boolean,snap=false,obstruction?:(target:THREE.Vector3,desired:THREE.Vector3)=>number|undefined){
   const reset=snap||!this.initialized;this.initialized=true;this.followCamera.aspect=this.camera.aspect;this.follow.update(p,q,speed,dt,mode==='far',false,reset,obstruction);
   const euler=new THREE.Euler().setFromQuaternion(q,'YXZ'),yaw=euler.y,orientation=new THREE.Quaternion().setFromEuler(new THREE.Euler(euler.x*.35,yaw,euler.z*.12,'YXZ'));

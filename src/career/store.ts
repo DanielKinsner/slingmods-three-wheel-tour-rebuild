@@ -3,19 +3,20 @@ import {DUEL_EVENT,isDuelAwardProof,type DuelAwardProof} from './duel-result';
 import {isCrewAwardProof,type CrewAwardProof,CREW_EVENT,CHAPTER_ID} from './crew-result';
 import {PRODUCT,COLORS,defaultAppearance,type Appearance} from './catalog';
 export const CAREER_DB='slingmods-twt-rebuild-career-v1';
-export interface Receipt {id:string;kind:'award'|'purchase'|'crew-award'|'duel-award'|'suspension-purchase';amount:number;balance:number;first:boolean;at:string;event?:typeof CREW_EVENT|typeof DUEL_EVENT;place?:number;timeMs?:number;chapterBonus?:number}
+export interface Receipt {handlingProfile?:'legacy-p08a'|'slingmods-sport-v1';id:string;kind:'award'|'purchase'|'crew-award'|'duel-award'|'suspension-purchase';amount:number;balance:number;first:boolean;at:string;event?:typeof CREW_EVENT|typeof DUEL_EVENT;place?:number;timeMs?:number;chapterBonus?:number}
 export interface Career {version:3;buildMatters:{legacyCrewAccess:boolean;duelCompleted:boolean;duelWon:boolean};suspension:{owned:boolean;equipped:boolean;setup:SuspensionSetup};revision:number;credits:number;owned:boolean;equipped:boolean;appearance:Appearance;chapters:{entry:boolean;firstCompletion:boolean;firstBuild:boolean};crew:{invitationSeen:boolean;completed:boolean;bestPlace:number|null;cleared:boolean;clearAcknowledged:boolean};receipts:Record<string,Receipt>}
 export const freshCareer=():Career=>({version:3,buildMatters:{legacyCrewAccess:false,duelCompleted:false,duelWon:false},suspension:{owned:false,equipped:false,setup:streetSetup()},revision:0,credits:0,owned:false,equipped:false,appearance:defaultAppearance(),chapters:{entry:false,firstCompletion:false,firstBuild:false},crew:{invitationSeen:false,completed:false,bestPlace:null,cleared:false,clearAcknowledged:false},receipts:{}});
-export type Command={type:'duel-award';result:DuelAwardProof}|{type:'suspension-purchase';id:string;productId:string;vehicleId:string}|{type:'suspension-equip';equipped:boolean}|{type:'suspension-setup';setup:SuspensionSetup}|{type:'award';id:string;valid:boolean;timeMs:number;event:'harbor'}|{type:'purchase';id:string;productId:string;vehicleId:string}|{type:'equip';equipped:boolean}|{type:'appearance';patch:Partial<Appearance>}|{type:'entry'}|{type:'crew-award';result:CrewAwardProof}|{type:'crew-invitation'}|{type:'crew-acknowledge'};
+export type Command={type:'duel-award';result:DuelAwardProof;handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'}|{type:'suspension-purchase';id:string;productId:string;vehicleId:string}|{type:'suspension-equip';equipped:boolean}|{type:'suspension-setup';setup:SuspensionSetup}|{type:'award';id:string;valid:boolean;timeMs:number;event:'harbor';handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'}|{type:'purchase';id:string;productId:string;vehicleId:string}|{type:'equip';equipped:boolean}|{type:'appearance';patch:Partial<Appearance>}|{type:'entry'}|{type:'crew-award';result:CrewAwardProof;handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'}|{type:'crew-invitation'}|{type:'crew-acknowledge'};
 export interface Result {state:Career;changed:boolean;receipt?:Receipt;story?:'entry'|'firstCompletion'|'firstBuild'|'crewPodium'|'crewWin'|'crewFourth'|'duelComplete'|'duelWin'}
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 /** One pure mutation used inside the real readwrite transaction and the session fallback. */
 export function transition(current:Career,command:Command,at=new Date().toISOString()):Result {
+ if('handlingProfile' in command&&command.handlingProfile!==undefined&&!['legacy-p08a','slingmods-sport-v1'].includes(command.handlingProfile))throw Error('Unknown handling profile');
  const s=migrateCareer(current);let receipt:Receipt|undefined,story:Result['story'];
  if(command.type==='duel-award'){
   const r=command.result;if(!isDuelAwardProof(r))throw Error('Duel reward requires a verified finish');
   if(!s.chapters.firstCompletion)throw Error('Complete a clean Harbor lap first');
-  const prior=s.receipts[r.attemptId];if(prior){if(prior.kind!=='duel-award'||prior.event!==r.event||prior.place!==r.place||prior.timeMs!==r.timeMs)throw Error('Attempt ID is already bound to a different result');return {state:s,changed:false,receipt:prior}}
+  const prior=s.receipts[r.attemptId];if(prior){if((prior.handlingProfile??'legacy-p08a')!==(command.handlingProfile??'legacy-p08a'))throw Error('Attempt ID belongs to a different handling profile');if(prior.kind!=='duel-award'||prior.event!==r.event||prior.place!==r.place||prior.timeMs!==r.timeMs)throw Error('Attempt ID is already bound to a different result');return {state:s,changed:false,receipt:prior}}
   const first=!s.buildMatters.duelCompleted,chapterBonus=first?500:0,amount=(r.place===1?250:150)+chapterBonus;
   s.credits+=amount;s.buildMatters.duelCompleted=true;s.buildMatters.duelWon ||=r.place===1;
   receipt={id:r.attemptId,kind:'duel-award',amount,balance:s.credits,first,at,event:DUEL_EVENT,place:r.place,timeMs:r.timeMs,chapterBonus};story=r.place===1?'duelWin':'duelComplete';
@@ -36,7 +37,7 @@ export function transition(current:Career,command:Command,at=new Date().toISOStr
   if(!s.chapters.firstCompletion)throw Error('Complete a clean Harbor lap before the crew event');
   if(!s.buildMatters.legacyCrewAccess&&!s.buildMatters.duelCompleted)throw Error('Finish Maya’s duel to unlock the crew');
   const prior=s.receipts[r.attemptId];
-  if(prior){if(prior.kind!=='crew-award'||prior.event!==r.event||prior.place!==r.place||prior.timeMs!==r.timeMs)throw Error('Attempt ID is already bound to a different result');return {state:s,changed:false,receipt:prior}}
+  if(prior){if((prior.handlingProfile??'legacy-p08a')!==(command.handlingProfile??'legacy-p08a'))throw Error('Attempt ID belongs to a different handling profile');if(prior.kind!=='crew-award'||prior.event!==r.event||prior.place!==r.place||prior.timeMs!==r.timeMs)throw Error('Attempt ID is already bound to a different result');return {state:s,changed:false,receipt:prior}}
   const first=r.place<=3&&!s.crew.cleared,chapterBonus=first?400:0,amount=([0,300,200,150,100][r.place]!)+chapterBonus;
   s.credits+=amount;s.crew.completed=true;s.crew.bestPlace=Math.min(s.crew.bestPlace??4,r.place);if(first)s.crew.cleared=true;
   receipt={id:r.attemptId,kind:'crew-award',amount,balance:s.credits,first,at,event:CREW_EVENT,place:r.place,timeMs:r.timeMs,chapterBonus};
@@ -48,7 +49,7 @@ export function transition(current:Career,command:Command,at=new Date().toISOStr
  }else if(command.type==='award'){
   if(!uuid.test(command.id))throw Error('Invalid attempt ID');
   if(!command.valid||command.event!=='harbor'||!Number.isFinite(command.timeMs)||command.timeMs<=0)return {state:s,changed:false};
-  if(s.receipts[command.id]){if(s.receipts[command.id].kind!=='award')throw Error('Attempt ID already used by another event');return {state:s,changed:false,receipt:s.receipts[command.id]}};
+  if(s.receipts[command.id]){if((s.receipts[command.id].handlingProfile??'legacy-p08a')!==(command.handlingProfile??'legacy-p08a'))throw Error('Attempt ID belongs to a different handling profile');if(s.receipts[command.id].kind!=='award')throw Error('Attempt ID already used by another event');return {state:s,changed:false,receipt:s.receipts[command.id]}};
   const first=!s.chapters.firstCompletion,amount=first?800:100;s.credits+=amount;s.chapters.firstCompletion=true;
   receipt={id:command.id,kind:'award',amount,balance:s.credits,first,at};if(first)story='firstCompletion';
  }else if(command.type==='purchase'){
@@ -70,6 +71,7 @@ export function transition(current:Career,command:Command,at=new Date().toISOStr
  }else if(command.type==='entry'){
   if(s.chapters.entry)return {state:s,changed:false};s.chapters.entry=true;story='entry';
  }
+ if(receipt&&'handlingProfile' in command){if(!['legacy-p08a','slingmods-sport-v1'].includes(command.handlingProfile!))throw Error('Unknown handling profile');receipt.handlingProfile=command.handlingProfile;}
  if(receipt)s.receipts[receipt.id]=receipt;s.revision++;return {state:s,changed:true,receipt,story};
 }
 export interface CareerStore {readonly durable:boolean;read():Promise<Career>;execute(c:Command):Promise<Result>;subscribe(fn:()=>void):()=>void;close():void}
@@ -91,7 +93,7 @@ export function migrateCareer(raw:unknown):Career {
  if(!Number.isSafeInteger(raw.revision)||raw.revision<0||!Number.isSafeInteger(raw.credits)||raw.credits<0||typeof raw.owned!=='boolean'||typeof raw.equipped!=='boolean'||raw.equipped&&!raw.owned)return fail();
  const a=raw.appearance,c=raw.chapters;
  if(!object(a)||!Object.hasOwn(COLORS,a.color)||!Number.isFinite(a.brightness)||a.brightness<.15||a.brightness>.85||typeof a.enabled!=='boolean'||!object(c)||['entry','firstCompletion','firstBuild'].some(k=>typeof c[k]!=='boolean')||!object(raw.receipts))return fail();
- for(const [id,r]of Object.entries(raw.receipts))if(!object(r)||r.id!==id||!uuid.test(id)||!['award','purchase',...(raw.version>=2?['crew-award']:[]),...(raw.version===3?['duel-award','suspension-purchase']:[])].includes(r.kind)||!Number.isSafeInteger(r.amount)||!Number.isSafeInteger(r.balance)||r.balance<0||typeof r.first!=='boolean'||typeof r.at!=='string'||!Number.isFinite(Date.parse(r.at)))return fail();
+ for(const [id,r]of Object.entries(raw.receipts))if(!object(r)||r.id!==id||(r.handlingProfile!==undefined&&!['legacy-p08a','slingmods-sport-v1'].includes(r.handlingProfile))||!uuid.test(id)||!['award','purchase',...(raw.version>=2?['crew-award']:[]),...(raw.version===3?['duel-award','suspension-purchase']:[])].includes(r.kind)||!Number.isSafeInteger(r.amount)||!Number.isSafeInteger(r.balance)||r.balance<0||typeof r.first!=='boolean'||typeof r.at!=='string'||!Number.isFinite(Date.parse(r.at)))return fail();
  const s=structuredClone(raw);
  if(s.version===1){s.version=2;s.crew={invitationSeen:false,completed:false,bestPlace:null,cleared:false,clearAcknowledged:false}}
  if(s.version===2){s.version=3;s.buildMatters={legacyCrewAccess:s.chapters.firstCompletion,duelCompleted:false,duelWon:false};s.suspension={owned:false,equipped:false,setup:streetSetup()}}

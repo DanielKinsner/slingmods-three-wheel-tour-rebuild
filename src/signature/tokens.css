@@ -1,0 +1,7 @@
+:root{--sm-red:#c91820;--sm-red-hover:#e0232c;--sm-bg:#151617;--sm-panel:#202123;--sm-panel-raised:#2c2d2f;--sm-ink:#f5f4f1;--sm-muted:#b9bbbd;--sm-line:#525457;--sm-focus:#ffe5a0;--sm-space:8px;--sm-body:16px;--sm-label:13px;--sm-duration:180ms;--sm-font:"Segoe UI",system-ui,sans-serif;--sm-heading:"Arial Narrow","Segoe UI",system-ui,sans-serif}
+:where(.signature-ui,#harbor-ui,#chapter-panel,.preview-recovery){font-family:var(--sm-font);color:var(--sm-ink);font-size:var(--sm-body);line-height:1.5;font-variant-numeric:tabular-nums}
+:where(.signature-ui,#harbor-ui,#chapter-panel,.preview-recovery) *{box-sizing:border-box}
+:where(.signature-ui,#harbor-ui,#chapter-panel,.preview-recovery) :focus-visible{outline:3px solid var(--sm-focus)!important;outline-offset:3px}
+:where(.signature-ui,#harbor-ui,#chapter-panel,.preview-recovery) button{font-family:inherit;min-height:44px;cursor:pointer;transition:background var(--sm-duration),border-color var(--sm-duration)}
+:where(.signature-ui,#harbor-ui,#chapter-panel,.preview-recovery) button:disabled{opacity:.48;cursor:default}
+@media(prefers-reduced-motion:reduce){:root{--sm-duration:0ms}.signature-ui *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

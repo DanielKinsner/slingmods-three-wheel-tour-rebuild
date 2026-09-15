@@ -1,3 +1,5 @@
+import {handlingProfile,steeringLimit,type HandlingProfileId} from './profile';
+export {HANDLING_PROFILES,handlingProfile,steeringLimit,type HandlingProfileId} from './profile';
 import {suspensionParameters,type SuspensionSetup} from '../career/suspension';
 import RAPIER from '@dimforge/rapier3d-compat';
 import layout from '../../public/assets/slingshot-contact-layout.json';
@@ -30,11 +32,12 @@ export class Simulation {
   private world:RAPIER.World;
   private owner?:RaceWorld;
   private body:RAPIER.RigidBody;
-  private time=0;private steering=0;private drivetrain=new AutoDrive();
+  private time=0;private steering=0;private drivetrain:AutoDrive;
   private spin=[0,0,0];private overspeed=[0,0,0];private wheels:WheelTelemetry[]=[];
   private throttle=0;private brake=0;private disposed=false;
-  static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT):Promise<Simulation>{initialized??=RAPIER.init();await initialized;const owner=new RaceWorld(environment);const car=owner.addVehicle('player');owner.initialize();car.owner=owner;return car}
-  constructor(readonly environment:EnvironmentDefinition, world:RAPIER.World){
+  static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT,profileId:HandlingProfileId='legacy-p08a'):Promise<Simulation>{initialized??=RAPIER.init();await initialized;const owner=new RaceWorld(environment,profileId);const car=owner.addVehicle('player');owner.initialize();car.owner=owner;return car}
+  constructor(readonly environment:EnvironmentDefinition, world:RAPIER.World,readonly profileId:HandlingProfileId='legacy-p08a'){
+    handlingProfile(profileId);this.drivetrain=new AutoDrive(profileId);
     this.world=world;
     // Collider carries zero mass; explicit loaded mass/inertia makes the convention unambiguous.
     this.body=this.world.createRigidBody(RAPIER.RigidBodyDesc.dynamic().setTranslation(0,SPEC.comHeight+0.04,35).setCanSleep(false).setCcdEnabled(true).setAngularDamping(0.12).setAdditionalMassProperties(SPEC.mass,v(),v(700,950,330),{x:0,y:0,z:0,w:1}));
@@ -61,9 +64,9 @@ export class Simulation {
     if(Math.abs(dt-FIXED_DT)>1e-9)throw new Error('Authoritative simulation accepts only fixed 1/60 second ticks');
     this.throttle=clamp(finite(control.throttle),0,1);this.brake=clamp(finite(control.brake),0,1);
     const q=this.body.rotation(),p=this.body.translation(),up=rotate(v(0,1,0),q),forward=rotate(v(0,0,-1),q),velocity=this.body.linvel(),speed=dot(velocity,forward);
-    const maxSteer=Math.min(0.53/(1+Math.abs(speed)*0.037),Math.atan(5.4*layout.wheelbase/Math.max(speed*speed,1)));
+    const maxSteer=steeringLimit(speed,this.profileId,layout.wheelbase)*(this.profileId==='legacy-p08a'?1:1-handlingProfile(this.profileId).brakeSteerRelief*this.brake);
     const target=clamp(finite(control.steer),-1,1)*maxSteer;
-    this.steering+=clamp(target-this.steering,-1.7*dt,1.7*dt);
+    this.steering+=clamp(target-this.steering,-handlingProfile(this.profileId).steerRate*dt,handlingProfile(this.profileId).steerRate*dt);
     const driveState=this.drivetrain.step(speed,this.overspeed[2],layout.wheels[2].radius,this.throttle,this.brake,Boolean(control.reverse),dt);
     this.throttle=driveState.throttle;this.brake=driveState.brake;const engineForce=driveState.force;
     this.body.resetForces(true);this.body.resetTorques(true);
@@ -88,7 +91,7 @@ export class Simulation {
       const contact=Boolean(hit);length=clamp(length,0,SPEC.restLength+SPEC.travel);
       const point=hit?ray.pointAt(hit.timeOfImpact):origin;
       const pointVel=this.body.velocityAtPoint(point);
-      let load=contact?clamp(k*(SPEC.restLength-length)-(rear?SPEC.damperRear:SPEC.damperFront)*dot(pointVel,up),0,weight*4.5):0;
+      let load=contact?clamp(k*(SPEC.restLength-length)-(rear?handlingProfile(this.profileId).damperRear:handlingProfile(this.profileId).damperFront)*dot(pointVel,up),0,weight*4.5):0;
       // Optional product seam: directional linear damping and spring-perch preload only.
       // Positive point velocity = extension/rebound. Stock keeps the exact equation above.
       if(contact&&this.suspension){const p=this.suspension,vertical=dot(pointVel,up),d=rear?(vertical>0?p.rearRebound:p.rearCompression):(vertical>0?p.frontRebound:p.frontCompression);load=clamp(k*(SPEC.restLength-length+p.rideHeight)-d*vertical,0,weight*4.5)}
@@ -114,15 +117,15 @@ export class Simulation {
         const tireFwd=normalized(add(rawFwd,scale(normal,-dot(rawFwd,normal))));
         const tireRight=normalized(v(tireFwd.y*normal.z-tireFwd.z*normal.y,tireFwd.z*normal.x-tireFwd.x*normal.z,tireFwd.x*normal.y-tireFwd.y*normal.x));
         long=dot(pointVel,tireFwd);const lateral=dot(pointVel,tireRight);const surf=this.environment.surfaceAt(point.x,point.z);surface=surf.id;
-        muLimit=load*surf.mu;slipAngle=Math.atan2(lateral,Math.max(Math.abs(long),2));
+        muLimit=this.profileId==='legacy-p08a'?load*surf.mu:load*surf.mu*(surf.id==='asphalt'?handlingProfile(this.profileId).asphaltGripScale:1);slipAngle=Math.atan2(lateral,Math.max(Math.abs(long),2));
         let drive=rear?engineForce:0;
         if(control.tractionControl!==false)drive=clamp(drive,-muLimit*0.92,muLimit*0.92);
         driveTorque=drive*wheel.radius;
         const share=rear?0.5:0.25;
         const stopLimit=Math.abs(long)*SPEC.mass*share*0.6/dt;
-        const braking=Math.min(stopLimit,this.brake*SPEC.mass*9.81*(rear?0.3:0.35)+surf.rolling*load+(rear&&this.throttle<0.01?110:0));
+        const braking=Math.min(stopLimit,this.brake*SPEC.mass*9.81*(rear?0.3:0.35)*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?110:0));
         const request=drive-Math.sign(long)*braking;
-        fy=-load*7*slipAngle;
+        fy=-load*handlingProfile(this.profileId).tireStiffness*slipAngle;
         fy=clamp(fy,-Math.abs(lateral)*SPEC.mass*share/dt,Math.abs(lateral)*SPEC.mass*share/dt);
         // Smooth combined-slip ellipse saturation. Never add another controller's tire forces.
         const norm=Math.hypot(request,fy),sat=norm>muLimit?muLimit/Math.max(norm,1e-9):1;
@@ -156,8 +159,9 @@ export class RaceWorld {
  readonly world:RAPIER.World;
  readonly participants=new Map<string,Simulation>();
  steps=0;private disposed=false;private initialized=false;
- static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT){initialized??=RAPIER.init();await initialized;return new RaceWorld(environment)}
- constructor(readonly environment:EnvironmentDefinition){
+ static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT,profileId:HandlingProfileId='legacy-p08a'){initialized??=RAPIER.init();await initialized;return new RaceWorld(environment,profileId)}
+ constructor(readonly environment:EnvironmentDefinition,readonly profileId:HandlingProfileId='legacy-p08a'){
+    handlingProfile(profileId);
     this.world=new RAPIER.World(v(0,-9.81,0));this.world.timestep=FIXED_DT;
     // A finite planar triangle surface has explicit face normals. The former700m-wide
     // convex slab produced a near-horizontal cylinder contact normal on flat ground
@@ -174,7 +178,7 @@ export class RaceWorld {
 
  }
  initialize(){if(this.initialized)return;const poses=[...this.participants].map(([id,c])=>[id,c.telemetry()] as const);this.world.step();for(const [id,t]of poses){const q=t.quaternion;this.get(id).reset({x:t.position.x,y:t.position.y,z:t.position.z,yaw:Math.atan2(2*(q.w*q.y+q.x*q.z),1-2*(q.y*q.y+q.z*q.z))})}this.initialized=true}
- addVehicle(id:string,pose:{x?:number;z?:number;y?:number;yaw?:number}={}){if(this.disposed||this.participants.has(id))throw Error('Invalid participant registration');const car=new Simulation(this.environment,this.world);car.reset(pose);this.participants.set(id,car);return car}
+ addVehicle(id:string,pose:{x?:number;z?:number;y?:number;yaw?:number}={}){if(this.disposed||this.participants.has(id))throw Error('Invalid participant registration');const car=new Simulation(this.environment,this.world,this.profileId);car.reset(pose);this.participants.set(id,car);return car}
  get(id:string){const car=this.participants.get(id);if(!car)throw Error('Unknown participant '+id);return car}
  step(controls:Record<string,VehicleControl>,dt=FIXED_DT){
   if(this.disposed)throw Error('RaceWorld disposed');if(Math.abs(dt-FIXED_DT)>1e-9)throw Error('Authoritative simulation accepts only fixed 1/60 second ticks');

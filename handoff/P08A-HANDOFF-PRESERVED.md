@@ -1,0 +1,248 @@
+# Current handoff — P08A Build Matters / Review15
+
+## Resume here
+
+Private repository: https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild
+Feature branch: **feature/p08a-build-matters**. Pushed implementation SHA: **ec6876551542ec39111fbf26253c4528c2290cfc**. This is the exact game source used by the versioned candidate and final runtime validation. Later review-tooling/evidence/handoff commits do not change those game bytes; obtain the latest pushed branch tip with `git ls-remote origin refs/heads/feature/p08a-build-matters`. Baseline main at assignment start: `ed363b28ec6ba933dd82c576153bd73c80ea6619`. No force push or merge into main.
+
+P08A implements a new one-lap Maya duel connecting the existing solo time trial and existing three-rival/two-lap crew race, distinct rewards, skippable dialogue, and verified SM-3223 suspension ownership/install/setup/removal. Career schema3 retains earlier progress and crew access. The prepared demo remains separate and keeps easy-entry crew racing. See handoff/P08A-DESIGN.md and handoff/P08A-VALIDATION.json for precise behavior, formulas, evidence and known limits. Review15 ZIP is a lean review packet; the full playable assets are recovered from Git.
+
+## Cross-machine commands
+
+Discover the actual checkout and preserve local changes before switching. For a fresh machine:
+
+```text
+git clone --branch feature/p08a-build-matters https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git
+cd slingmods-three-wheel-tour-rebuild
+git status --short
+git log -1 --oneline
+python handoff/verify-p08a.py
+npm ci
+npm test
+npm run build
+npm run demo:build
+npm run demo:preview
+```
+
+Open http://127.0.0.1:5188/. Choose **Continue Career** for Build Matters, or **Race the Harbor** for the preserved prepared demonstration. Close/reopen the browser at the same origin to retain the real career. Browser saves do not transfer through Git; included earned fixtures are isolated test data. A fresh clone needs no original-machine tools or copied node_modules. The old P07B CURRENT-INPUTS receipt is historical; use the new P08A verifier for this expansion.
+
+Required binaries remain ordinary Git blobs, without LFS. `handoff/P08A-INPUTS.json` inventories all current source/tests/tooling/assets/public inputs. `demo-assets.json` declares runtime closure. New editable product: `assets/blender/products/ddmworks-sm3223-silver.blend`; new runtime model: `public/assets/products/ddmworks-sm3223-silver.glb`. Existing car, rear, driver, Harbor, world materials, branding, audio and original .blend sources remain tracked and unchanged. No re-export is needed to play.
+
+Optional authoring, only for an authorized product edit: locate Blender4.5.2 on PATH or supply its path; run `blender --background --python scripts/build-p08a-suspension.py`. The script reads the accepted car source and writes only the separate product source/export. Do not rerun historical world/car generators. Headless browser tools: `npx playwright install chromium`.
+
+Exact bounded checks (PowerShell; choose a NEW output folder each run):
+
+```powershell
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-physics'
+npx tsx scripts/verify-p08a-physics.ts
+$env:BASE_URL='http://127.0.0.1:5188'
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-loop'
+node scripts/validate-p08a-loop.mjs
+$env:FIXTURE='director-kit/production/evidence/P08A/new-loop/earned-career.json'
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-native'
+$env:WIDTH='1920'
+$env:RACES='2'
+$env:SUSPENSION='equipped'
+Remove-Item Env:EVENT -ErrorAction SilentlyContinue
+node scripts/profile-p08a.mjs
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-stock720'
+$env:WIDTH='1280'
+$env:SUSPENSION='stock'
+node scripts/profile-p08a.mjs
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-duel720'
+$env:RACES='1'
+$env:SUSPENSION='equipped'
+$env:EVENT='duel'
+node scripts/profile-p08a.mjs
+```
+
+Controlled functional clock is not performance proof. Profile native runs separately with no concurrent recording, Blender, builds or tests. Film reproduction: use fresh EVIDENCE_DIR then `node scripts/record-p08a.mjs`; FFmpeg on PATH is needed for the final excerpt film. It is a silent capture explicitly labeled automated gameplay, not a listening evaluation.
+
+## Results and next action
+
+144 tests pass; normal/demo builds pass; final fresh-career chapter/retry/reload/demo-isolation loop passes. Four 4,200-row traces (accepted baseline/new stock/street/removed) are identical. Native performance status: **all measured active-race attempts pass retained thresholds**. The independent delivery reviewer recomputed all five attempts from raw samples. Initial ready-phase stalls of 183.4–200 ms remain in the raw data; this is no all-phase performance pass. See individual raw attempts in P08A-VALIDATION.json and independent-delivery-review.md. These are this host's observations, not destination-machine or hardware certification.
+
+Local final candidate in this checkout is served at http://127.0.0.1:5195/ by owned PID28588; stop only that owned server with `Stop-Process -Id 28588` if it still exists and matches `scripts/serve-demo.mjs`. PIDs and local build outputs do not transfer. Fresh-machine commands above create a new output identity.
+
+**Next action: director review of Astra-Review-15-Lean.zip and `feature/p08a-build-matters`.** Do not merge into main, deploy, spend or claim G3/G4/final fidelity/hardware/release approval. P07B preflight/recovery was already complete; public hosting remains pending and is not a blocker for this completed development assignment. Historical evidence and original reviewed demo media/output records remain intact.
+
+---
+
+# Historical handoffs below — P08A directive above supersedes only its bounded expansion
+
+# Current handoff - P07B local preflight and cross-machine Git recovery
+
+## Authority and status
+
+Repository: https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild (private), branch **main**. Review14 accepts P07A as a bounded local Development Preview. Read director-kit/director-addenda/review-14/AUDIT.md and CODEX_NEXT.md. P06C/P07A are complete; do not restart them. Owner-authorized Git transfer is recorded in handoff/OWNER-DIRECTIVE-P07B.md. Publication has NOT been authorized or performed.
+
+Accepted game runtime: `758c2b291a9b5bd525fe9acd1425537657fadf70`; Review14 packaging: `2ce4c846d294335f6f3f9d40cf7332ea88786f61`. P07B changes delivery tooling/headers, tests and handoff only; source gameplay and original assets remain byte-identical. A rebuild has a new build identity; it is not the original reviewed byte output. **Remote recovery is verified.** Tested source commit: `886a0d41d87320b87ea4458f8f261ad07f637ac6`. `handoff/P07B-VALIDATION.json` records all results; its containing commit is a documentation/evidence-only follow-up. Find that receipt commit with `git log -1 --format=%H -- handoff/P07B-VALIDATION.json`. The final pushed main tip is discoverable with `git ls-remote origin refs/heads/main`. Fresh clone passed579inputs,136tests, both builds, all27Blender sources, native/hardening and a two-race demo repeat; no destination-machine or hosted pass is claimed.
+
+## Fresh-machine setup and local launch
+
+Discover your actual checkout and tools; no originating username is required. Authenticate to GitHub using the normal local credential flow, then clone the exact private repository:
+
+```text
+git clone --branch main https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git
+cd slingmods-three-wheel-tour-rebuild
+git status --short
+git log -1 --oneline
+python handoff/verify-current.py
+npm ci
+npm test
+npm run build
+npm run demo:build
+npm run demo:preview
+```
+
+Open **http://127.0.0.1:5188/**. Run in a terminal and press Ctrl+C to stop. An agent-owned background launcher prints its PID and exact stop command. If 5188 is occupied, use a free port via PORT; do not stop unrelated processes. `demo-current.json` is generated by demo:build; the server reads it once at startup. Restart the owned server after rebuilding. Ordinary static output needs no keys, backend, account, Blender or Python package dependencies. `npm run build` produces the full development dist; do NOT deploy that dist.
+
+Optional publication preparation (local only):
+
+```text
+npm run demo:stage
+npm run demo:stage:preview
+```
+
+Stage preview is **http://127.0.0.1:5189/**. `publish-current.json` points to a versioned `publish-stage/` and a separate receipt outside its public directory. Base `/` only. The stage retains required assets/notices, correct MIME, no-cache for mutable files, immutable caching only on hash-versioned JS/CSS, nosniff/no-referrer, noindex and true missing-file404. Noindex is not access control. Never upload the repository/public/dist/evidence. See DEPLOYMENT-READINESS.md before any separately authorized publication.
+
+## Tools and verification
+
+Verified host tools: Node24.15.0, npm11.12.1, Python3.13.5; package-lock pins game/build/test dependencies. Playwright1.63.0 installs its Chromium with `npx playwright install chromium`. Browser evidence uses isolated headless Windows D3D11/RTX4080; it does not control personal browsers or prove destination-machine performance.
+
+Blender4.5.2 is required only for editing/exporting art. Locate it with PATH, explicit BLENDER_EXE, or the optional local `.tools/blender-4.5.2-windows-x64/blender.exe`. Downloaded executables do not transfer. `scripts/blender.ps1` accepts `-BlenderExe` or environment/path discovery. Python material helpers currently have requests2.32.4, Pillow12.1.1 and numpy2.2.6 (historical P06B authoring used Pillow11.3.0); their originals/derived maps are already tracked, so acquisition/export is unnecessary to build/play. Use a separate Python environment if authoring is needed; do not reinstall globally.
+
+`handoff/CURRENT-INPUTS.json` and `handoff/verify-current.py` verify current source/assets/tool inputs, allowing only documented UTF-8 CRLF/LF conversion. The old `handoff/verify.py`, TRANSFER-MANIFEST and VALIDATION describe Review12 only; do not use them to reject authorized P06C/P07A changes. Fresh captures must use new EVIDENCE_DIR/OUT folders. Historical source-writing validators must not run over accepted evidence.
+
+## Current editable sources and runtime dependencies
+
+All required binaries are ordinary tracked Git blobs; no LFS pointer/setup is required. Current sources:
+
+- Vehicle `assets/blender/vehicles/slingshot-p04a1.blend`; driver `assets/blender/drivers/test-driver.blend`; product under `assets/blender/products/`; accepted harbor collision source under `assets/blender/harbor/`.
+- Current environment `assets/blender/showcase-quality/built-waterfront-foundation.blend` and `built-waterfront.blend`; exact garage `showcase-bay-exact.blend`; branding `showcase-branding.blend`.
+- Packed images plus tracked original/derived material resources under `assets/blender/showcase-quality/` and `public/assets/showcase-quality/`; P06C road/frond/layout receipts and authoring generators remain tracked.
+- Runtime closure is `demo-assets.json`; all public runtime models/maps/audio/data/logo/notices are transferred. Background read-only `scripts/inspect-blender-transfer.py` checks every .blend and packed/clone-local dependencies without saving.
+
+The historical assets/blender/vehicles/slingshot-p03a-material-lab.blend retains16 unpacked texture paths from the originating machine. Their actual bytes are tracked under public/assets/textures/p03a. The current game sources are packed/relative and do not need this repair. The inspector verifies in-memory rebase/reload with scripts/rebase-blender-images.py without saving the original. To inspect that old file interactively under explicit user control, load it in Blender and run that recovery script; save any edited recovery as a new file, preserving the historical original. Missing dependencies are never replaced with placeholders.
+
+Current authoring README identifies the generators; do not run P06B's historical full-export commands as a fresh-machine kickoff. Original vehicle, rear, driver, route/collision and physics remain protected.
+
+## What transfers and what does not
+
+Current source/config/lock/tests/scripts, complete required runtime/editable resources, licenses, director packets through Review14, production state and selected current/historical review evidence transfer via Git. Current P07A final movie and its source capture chain are included. Git history is preserved. Remote clone verification must retrieve these bytes from GitHub, never copy ignored assets/dependencies from the original checkout.
+
+Excluded: node_modules, downloaded tools, caches, personal browser profiles/saves, redundant review ZIPs, disposable built outputs, most duplicate/intermediate captures. Original output and all failed/intermediate local evidence remain intact on the originating machine. `demo-dist`, `demo-current`, `publish-stage` and `publish-current` are reproducible from tracked inputs. `P06C-HOME-KICKOFF.md` is pre-existing unrelated local owner work, preserved and deliberately excluded; its hash is recorded in the P07B baseline. It is not required to resume under this handoff.
+
+Personal career IndexedDB/localStorage do not transfer. A fresh browser starts fresh career data; prepared demo data lives separately per tab. No personal save was read or exported. Included earned fixtures are isolated test data only.
+
+## Known limits and exact next action
+
+Local tests and a remote fresh clone on this computer prove recovery here, not on the destination machine. Historical repeated-race slowdown was not reproduced in Review14 observed runs; cause is still unproven. G3/G4, global world/vehicle fidelity, physical controllers/mobile, human fun/listening and authentic exhaust sound remain held. Development scenery/cockpit remain visibly provisional.
+
+**Single next assignment:** finish P07B external publication only after Dan explicitly authorizes a separate eligible no-cost target and access is resolved. Inspect current account/plan/quota without changing existing sites, publish only verified static stage, then test actual HTTPS visitor/race/retry/garage/asset/header/product behavior. No public URL exists yet. If authorization is still missing, keep this local demo and await it; do not invent another art assignment.
+
+## NEW-MACHINE RESUME PROMPT
+
+> Continue the existing slingmods-three-wheel-tour-rebuild checkout on main. Discover root, remote, branch, HEAD/status and local tools; read HANDOFF.md, AGENTS.md, handoff/P07B-VALIDATION.json, production state and director-kit/director-addenda/review-14/CODEX_NEXT.md. Preserve newer/uncommitted work. P06C/P07A are complete and P07B local preflight/Git handoff are the return point; do not restart/re-export/re-scaffold or rerun completed packets. Verify current inputs, install pinned dependencies, build and launch the demo using this handoff. Resume only the pending P07B publication step when separately authorized by Dan and target access is resolved. Preserve G3/G4 holds and all original evidence; no spending, existing-site changes or desktop takeover.
+
+
+---
+
+# Historical record below (superseded)
+
+# Current handoff — P07A / Review14
+
+P07A Shareable Showcase is implemented, internally repaired and validated. Frozen runtime: 758c2b291a9b5bd525fe9acd1425537657fadf70. Read RESUME.md and director-kit/production/evidence/P07A/REVIEW-ME-FIRST.md. The lean Review14 root SOURCE-SNAPSHOT.json resolves the separate packaging commit and LOCAL_ONLY recovery. Tests: 134/134; final six crew races plus daylight lap, hardening: 11/11 and ordinary keyboard/product flow pass. No runtime changes after freeze.
+
+The historical P06C repeat slowdown was not reproduced in two observed baseline contexts or the final repeat; its original cause remains unproven. Complete failures are retained. G3/G4, overall art, human listening/playtesting and physical-controller approval remain held. No deployment, remote push or account change. On the complete checkout, npm run demo:preview serves the retained static candidate at http://127.0.0.1:5188/. Stop after Review14; await the director decision.
+
+---
+
+# Current handoff — P06C / Review13
+
+P06C Built Waterfront is implemented and Review13 is prepared locally with a **performance HOLD**. Last accepted director review remains Review12. Read `RESUME.md`, `director-kit/production/evidence/P06C/REVIEW-ME-FIRST.md` and current production state first. Frozen runtime: `b4eef3c7dab3eb77b131a5100c3be0fd1110b095`; PACKAGE-MANIFEST.json identifies the separate packaging commit. These new commits have NOT been pushed; the remote contains the earlier handoff.
+
+The repeated second-race p95 is 33.3 ms against the 20 ms target, reproduced twice. Shared-host contention is plausible but unproven. Preserve these failures; do not stop unrelated jobs or silently reduce quality. G3/G4 and overall environmental art remain held. No automatic re-execution or new feature work; await the director's next decision. Current run/setup instructions are in the P06C review introduction.
+
+Everything below is the historical Review12 transfer record. Its remote/pause/next-packet and runtime claims describe that older handoff, not current P06C.
+
+---
+
+# Continue on another machine or with another agent
+
+Repository: https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild (private). Branch: `main`. Authenticate as an account with access before cloning. All implementation commits are already on main; no separate feature branch needs merging. The handoff preserves history and adds missing review evidence and historical source files.
+
+## Start here
+
+Run from your chosen parent directory; the original Windows username/path is not required for the game:
+
+```powershell
+gh auth login
+gh repo clone DanielKinsner/slingmods-three-wheel-tour-rebuild
+Set-Location slingmods-three-wheel-tour-rebuild
+git status --short
+git log -1 --oneline
+npm ci
+npm run build
+npm test
+npm run preview
+```
+
+Open http://127.0.0.1:5187/. The compact bay opens the existing first chapter, time trial and saved build. Node 24.15.0/npm 11.6.2 were used; dependencies are pinned. Ordinary play/build/tests require no Blender, API keys, external service or review ZIP. Allow space for the full history, editable art and evidence; this is a substantial binary-asset repository. No Git LFS setup is required.
+
+For another agent, give it this prompt:
+
+> Work in this cloned slingmods-three-wheel-tour-rebuild repository. Read HANDOFF.md, AGENTS.md, director-kit/production/state.json and the P06B REVIEW-ME-FIRST.md. Review12 is already delivered: do not restart or re-execute P06B. Preserve accepted car/rear/driver, shared physics, route/race rules, rewards, ownership and saves. Read the next director packet supplied by the user before implementation. Use isolated testing/background Blender; no desktop takeover, spending, deployment or unsupported gate approval. Report current branch/status and any missing local prerequisites, then follow the new assignment.
+
+## Exact delivered state
+
+- Last pre-handoff commit: `f8f7674be909259a3191bcc96c294cfe1818cbcd`.
+- Frozen P06B runtime: `9348fa90311c5fbdfd74529feb50548582cdca17`; handoff changes do not alter that runtime.
+- Review12 packaging commit: `7f5e8c4f16eacd1e466de0fed359087b6156e598`.
+- Current handoff SHA: use `git rev-parse HEAD`; the validation receipt records the exact tested source commit. Later receipt-only commits may follow it.
+- G3/G4 remain pending. The environment visual target is **not met**: sparse lawns, repeated distant facades/asphalt, wispy palms and simplified water/props remain review debt. Human driving/fun/audio and physical-controller approval are not established.
+- Working chapter: fresh solo reward, one SM-133 cosmetic product preview/purchase/install/color/save loop, three actual rivals in shared physics, two-lap race/results/retry/first-podium progression. Time trial, original pad, chase/cockpit/held look-back and live synthetic audio remain intact.
+
+Read `director-kit/production/evidence/P06B/REVIEW-ME-FIRST.md`, `PERFORMANCE-REVIEW.md`, `final-stationary-art-review.md`, `final-media-review.md`, and `independent-scoped-code-art-review.md`. The last completed assignment is `director-kit/director-addenda/review-11/CODEX_NEXT.md`; it is context, not a new instruction to repeat work.
+
+## What Git transfers
+
+All existing tracked history, src/scripts/tests/public, lockfile/configuration, director packets and state, source licenses/maps, editable Blender assets and the complete curated Review12 file selection at its original source paths. Additional baseline fixtures needed by current capture scripts are included. `handoff/TRANSFER-MANIFEST.json` records file hashes, and `handoff/REVIEW12-PACKAGE-MANIFEST.json` preserves the delivered archive manifest.
+
+Current evidence lives in `director-kit/production/evidence/P06B/`:
+
+- `final-visual-02/`: correct current daylight/night stills, scene and asset provenance.
+- `bay-final/` and `interface-final/`: room/product and interface views.
+- `video-final/complete-race-LIVE-AUDIO.mp4`: actual ordinary-path race with captured game audio and disclosed sync chirps; live audio and timing verification alongside it.
+- `day-final-02/garage-day-SILENT.mp4`: correct ordinary-path daylight lap, explicitly silent.
+- `verified-scored-*/`: clean native wall-clock performance, distinct from capture overhead.
+- Fresh career, transitions, lifecycle, audio/controller, source and regression reports. Existing tracked historical evidence remains intact.
+
+The rejected `final-visual/` and `day-final/` trials are not current proof. Do not replace correct evidence with those local experiments. Historical absolute filenames in reports identify their capture origin; do not redirect new work to the old machine.
+
+Three previously untracked historical files are now preserved unchanged: `assets/blender/vehicles/slingshot-p03a-material-lab.blend` and the two review-05 regression helpers. The material lab is not the accepted current vehicle and must not replace it. The regression helpers are original director reference files, not automatically installed tests; their comments describe diagnostic usage.
+
+## What stays local
+
+The original `Astra-Review-12.zip` is redundant with the transferred implementation/evidence and is not committed. Its 466,223,855 bytes have SHA-256 `e4685e6fe73ff5cd57738d3966956840dfa13b3499a70c5c87378af871c270f8`. Other ZIPs, extracted staging, rejected/intermediate untracked captures, raw-video duplicates, node_modules, dist, downloaded executables, caches, backups and credentials remain ignored. `handoff/LOCAL-ONLY-ARCHIVES.json` inventories ZIPs on the originating machine; it is not a claim that those archives transfer through Git. Use the source tree and curated evidence directly on the new machine. No remote release/upload/deployment was requested.
+
+**Personal browser saves do not travel through Git.** Career storage is the origin-local IndexedDB `slingmods-twt-rebuild-career-v1`, database version 2; solo records/settings use localStorage `slingmods-twt-rebuild-v1`. This handoff does not export or read your browser profile. A fresh browser starts a fresh career unless its storage is separately transferred. The included earned-career fixture is isolated test data, not your personal save. Do not overwrite a personal save with it.
+
+## Authoring and isolated validation
+
+Accepted source files include `assets/blender/vehicles/slingshot-p04a1.blend`, `assets/blender/drivers/test-driver.blend`, the product source, harbor source and `assets/blender/showcase-quality/` packed Blender files/materials. Already shipped GLBs work without re-exporting. Downloaded Blender itself is excluded; use Blender 4.5.2 for reproduction. Python 3.13.5 with requests 2.32.4, Pillow 11.3.0 and numpy 2.2.6 was used by material tooling. Source downloads are already retained, so no re-download is needed for play.
+
+```powershell
+# Additional isolated browser tooling, only when testing/capture is needed:
+npx playwright install chromium
+# Read-only transfer/source verification, from the cloned project root:
+python handoff/verify.py
+```
+
+Prior validation: production build and 119 tests passed; 4,200-row solo replay identical; protected physical/game inputs unchanged. Five native configurations/six races met the working race thresholds. Stock720 p99 was at 33.4 ms; startup/ready gap and exact late shader variant remain unresolved. Performance is machine-specific: do not carry forward old FPS as a new-machine measurement. Windows D3D11 headless Chromium was used; other OS/GPU behavior is not yet certified.
+
+Use fresh `EVIDENCE_DIR` names for current scripts and an isolated browser context. Review capture scripts target localhost:5187 and some explicitly request Windows D3D11. Do not run historical batch scripts over existing evidence. Several historical packagers, including `scripts/package-astra-review12.py`, intentionally assert the originating absolute root; adapt a copy for a new delivery rather than rewriting old proof. The Blender helper expects `.tools/blender-4.5.2-windows-x64/blender.exe`; alternatively invoke your Blender executable directly with `--background --python scripts/p06b_quality_build.py -- --stage full` only under a newly authorized art assignment.
+
+The originating working tree mixed CRLF/LF within some text files. Git normalizes those on checkout. `handoff/LINE-ENDING-REFERENCE.json` and the read-only verifier distinguish that exact normalization from changed content. Binary assets and captured evidence retain strict byte hashes. Historical validators that compare raw source hashes may flag line endings on a clean clone; do not edit source or rewrite historical evidence to silence them. Establish a new capture's source manifest independently.
+
+Do not rerun source-writing validators or parity scripts on immutable evidence merely to read it: they write reports at historical paths. Perform those checks in an isolated checkout and retain the original proof. The handoff verifier is read-only. `handoff/VALIDATION.json` records the separate clean-checkout handoff checks when completed.

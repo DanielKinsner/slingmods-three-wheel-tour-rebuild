@@ -1,3 +1,4 @@
+import {loadSignatureShowroom} from './presentation/signature-art';
 import {evidenceEnabled} from './demo/profile';
 import {activeProfile,sceneHref} from './demo/profile';
 import {pageActive} from './demo/recovery';
@@ -27,7 +28,7 @@ import {DrivingCamera,nextDrivingView,type DrivingView} from './presentation/dri
 import {GameAudio,renderOfflineGameAudio} from './audio/game-audio';
 import {RearDiagnostic} from './presentation/rear-diagnostic';
 import {RearPresenter,type RearRig} from './presentation/rear';
-import {CURRENT_VEHICLE,CURRENT_REAR_RIG} from './presentation/vehicle-asset';
+import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL} from './presentation/vehicle-asset';
 import {DriverPresenter,type DriverAttachment} from './presentation/driver';
 
 const query=new URLSearchParams(location.search),driving=query.get('scene')==='pad',bay=(query.get('scene')??'bay')==='bay';
@@ -42,7 +43,7 @@ if(!driving){const fill=new THREE.DirectionalLight(0xe5edff,bay?.35:.7);fill.pos
 if(bay){for(const [x,power]of [[-2.5,38],[2.8,26]]){const light=new THREE.SpotLight(0xf8f7f3,power,14,.92,.95,2);light.position.set(x,3.83,0);light.target.position.set(x*.15,0,-.3);scene.add(light,light.target)}}
 const proofAsset=query.has('test')&&/^p03a2-proof0[12]$/.test(query.get('asset')??'')?`slingshot-${query.get('asset')}.glb`:undefined;
 const loader=new GLTFLoader();const vehicleFile=proofAsset??(['p03a2','p04a1'].includes(query.get('asset')??'')?CURRENT_VEHICLE:query.get('asset')==='fleet'?'scale-blockouts.glb':query.get('asset')==='p01'?'slingshot.glb':query.get('asset')==='p03a'?'slingshot-p03a.glb':query.get('asset')==='p03a1'?'slingshot-p03a1.glb':CURRENT_VEHICLE);
-const [asset,pad]=await Promise.all([loader.loadAsync('/assets/vehicles/'+vehicleFile),bay&&!query.has('neutral')?loadShowcaseBay(loader).then(scene=>({scene})):loader.loadAsync(bay?'/assets/inspection-bay-p03a1.glb':'/assets/test-pad.glb')]);
+const [asset,pad]=await Promise.all([loader.loadAsync(vehicleFile===CURRENT_VEHICLE?CURRENT_VEHICLE_URL:'/assets/vehicles/'+vehicleFile),bay&&!query.has('neutral')?loadSignatureShowroom(loader).then(scene=>({scene})):loader.loadAsync(bay?'/assets/inspection-bay-p03a1.glb':'/assets/test-pad.glb')]);
 const vehicle=new THREE.Group();vehicle.add(asset.scene);scene.add(vehicle);scene.add(pad.scene);
 const career=await careerClient(),product=vehicleFile===CURRENT_VEHICLE?await ProductPresenter.load(loader,vehicle,scene):undefined;
 const suspension=vehicleFile===CURRENT_VEHICLE?await SuspensionPresenter.load(loader,asset.scene):undefined;suspension?.set(career.state.suspension.equipped);
@@ -67,7 +68,7 @@ const rearPresenter=vehicleFile===CURRENT_VEHICLE?new RearPresenter(asset.scene,
 const rearDiagnostic=query.has('test')&&rearPresenter?new RearDiagnostic(rearPresenter):undefined;
 const rearCaliper=asset.scene.getObjectByName('suspension_rear__Brake_Caliper'),rearCaliperBase=rearCaliper?.position.clone();
 const steeringControl=asset.scene.getObjectByName('steering_control');const steeringBase=steeringControl?.quaternion.clone();const steeringAxis=new THREE.Vector3(0,0,1); // Blender XZ rim exports to runtime XY; 10:1 display ratio is an estimate.
-let sim=driving?await Simulation.create():null;
+let sim=driving?await Simulation.create(undefined,'slingmods-sport-v1'):null;
 sim?.configureSuspension(career.state.suspension.equipped?career.state.suspension.setup:null);
 let current=sim?.telemetry(),previous=current;let accumulator=0,manual=query.has('test')&&!query.has('clock'),paused=false,cap=Number(query.get('cap')||60),last=performance.now(),lastDraw=last;let cameraMode:DrivingView=loadSave(browserStorage()).settings.camera,reverse=false;
 let activeScenario:DrivingScenario|undefined;let sweeping=false,sweepAngle=0;
@@ -75,9 +76,9 @@ const input={throttle:0,brake:0,steer:0,reverse:false,tractionControl:true};cons
 const controlledClock=query.has('test')&&query.get('clock')==='controlled';
 let virtualSample:DeviceSample|undefined,normalPresenting=false,lookBack=false;
 const readDevices=():DeviceSample=>virtualSample??{...keyboard.read(),pads:typeof navigator.getGamepads==='function'?Array.from(navigator.getGamepads()):[],focused:document.hasFocus()&&!document.hidden};
-const session=sim?new DrivingSession(sim,readDevices):undefined;
+const session=sim?new DrivingSession(sim,readDevices,{profileId:'slingmods-sport-v1'}):undefined;
 let inputState:ReturnType<DrivingSession['frame']>|undefined;
-const chase=new DrivingCamera(camera);
+const chase=new DrivingCamera(camera,'slingmods-sport-v1');
 let driver:DriverPresenter|undefined,driverStatistics:ReturnType<typeof assetStatistics>|undefined;if((driving||bay&&vehicleFile===CURRENT_VEHICLE)&&steeringControl){const configuration:DriverAttachment=await(await fetch('/assets/drivers/test-driver-attachment.json')).json();const driverAsset=await loader.loadAsync('/assets/drivers/test-driver.glb');vehicle.add(driverAsset.scene);driver=new DriverPresenter(driverAsset.scene,vehicle,steeringControl,configuration);driverStatistics=assetStatistics(driverAsset.scene);chase.eye.fromArray(configuration.eye)}
 const gameAudio=driving?new GameAudio(document.querySelector('#app')!):undefined;let audioFrame:ReturnType<GameAudio['update']>|undefined;
 addEventListener('pagehide',()=>gameAudio?.dispose());
@@ -91,6 +92,7 @@ document.querySelector('#hint')!.textContent=driving?'W/S drive & brake · A/D s
 if(bay&&!query.has('neutral')){document.querySelector('#stage')!.textContent='HARBOR / YOUR GARAGE';document.querySelector('.eyebrow')!.textContent='YOUR SLINGSHOT';document.querySelector('#hint')!.textContent='Drag to orbit · Scroll to inspect'}
 const assetQuery=vehicleFile===CURRENT_VEHICLE?'&asset=p04a1':(fidelity||proof)?'&asset=p03a1':candidate?'&asset=p03a':vehicleFile==='scale-blockouts.glb'?'&asset=fleet':'&asset=p01';
 const nav=document.createElement('nav');nav.innerHTML=`<button id="inspect-action" type="button">Inspect</button><a class="drive-action" href="?scene=pad${assetQuery}">Drive</a><a href="?scene=bay${assetQuery}">Bay</a>`;document.querySelector('#app')!.append(nav);if(activeProfile()==='demo'){nav.querySelector<HTMLAnchorElement>('.drive-action')!.href=sceneHref('crew');nav.querySelector<HTMLAnchorElement>('.drive-action')!.textContent='Race';nav.querySelector<HTMLAnchorElement>('a:last-child')!.href=sceneHref('bay')}
+if(bay){const free=document.createElement('a');free.href='?scene=signature&screen=build';free.textContent='Free configurator';nav.append(free)}
 const viewsBar=document.createElement('div');viewsBar.className='view-tools';viewsBar.hidden=true;viewsBar.innerHTML='<button data-view="front">Front</button><button data-view="side">Side</button><button data-view="rearquarter">Rear</button><button data-view="cockpit">Cockpit</button><button data-view="material">Material</button><button id="sweep-action">Light sweep</button>';document.querySelector('#app')!.append(viewsBar);
 nav.querySelector('#inspect-action')!.addEventListener('click',()=>{if(driving){career.navigate('?scene=bay'+assetQuery);return}viewsBar.hidden=!viewsBar.hidden;view('threequarter')});
 viewsBar.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(b=>b.addEventListener('click',()=>{sweeping=false;view(b.dataset.view!)}));viewsBar.querySelector('#sweep-action')!.addEventListener('click',()=>{sweeping=!sweeping});

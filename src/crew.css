@@ -1,3 +1,4 @@
+@import './signature/tokens.css';
 #crew-order{position:fixed;left:24px;top:132px;width:168px;font-size:11px;display:grid;gap:3px;z-index:3;pointer-events:none}
 #crew-order>div{display:flex;align-items:center;justify-content:space-between;border-left:3px solid var(--crew-color,#dde3e8);padding:7px 10px;background:#12171dde;border-radius:0 3px 3px 0;color:#eff2f4}
 .crew-maya{--crew-color:#70d8d1}.crew-jett{--crew-color:#f07779}.crew-nico{--crew-color:#f1c75b}.crew-player{--crew-color:#fff}
@@ -5,3 +6,6 @@
 #crew-proximity{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);z-index:4;display:flex;gap:8px;pointer-events:none}#crew-proximity[hidden],.race-menu-open #crew-proximity{display:none}
 #crew-proximity>span{display:grid;grid-template-columns:16px auto;align-items:center;column-gap:5px;padding:7px 10px;border-bottom:2px solid var(--crew-color);border-radius:3px;background:#111820e8;font:650 10px system-ui;letter-spacing:.06em}#crew-proximity i{grid-row:span 2;color:var(--crew-color);font-style:normal;font-size:26px;line-height:1}#crew-proximity small{grid-column:2;font-size:8px;color:#b4c1c9;font-weight:500}#crew-retry-save{margin-top:10px}
 @media(max-width:800px),(max-height:760px){#crew-order{left:18px;top:114px;width:148px;font-size:10px}#crew-order>div{padding:6px 8px}#crew-proximity{bottom:22px}}
+
+#crew-order{left:32px;top:154px;width:212px;font-size:14px;gap:4px}#crew-order>div{padding:10px 12px;background:#1b1c1eee;border-radius:0;border-left-width:3px}#crew-order b{letter-spacing:.04em}#crew-order span{font:13px var(--sm-font);color:#c9cdcf}#crew-order i{margin-right:10px;color:#c0c4c6}#crew-order .crew-player{background:#393b3ef5}#crew-proximity>span{font:700 14px var(--sm-font);padding:10px 14px;grid-template-columns:20px auto;background:#1c1d1ff0;border-radius:0}#crew-proximity small{font-size:13px;color:#c3c7ca}#crew-proximity{bottom:32px}#crew-proximity i{font-size:32px}
+@media(max-height:800px){#crew-order{top:142px;left:24px;width:198px;font-size:14px}#crew-order>div{padding:8px 10px}#crew-proximity{bottom:24px}}@media(max-width:800px){#crew-order{left:16px;width:180px}#crew-proximity{bottom:26px;max-width:calc(100vw - 230px);left:16px;transform:none}#crew-proximity>span{font-size:13px;padding:8px}#crew-proximity small{font-size:13px}}

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-15T15:46:12.387531+00:00",
+  "as_of": "2026-09-15T17:13:58.132386+00:00",
   "workspace_verified": true,
-  "branch": "feature/p08a-build-matters",
+  "branch": "feature/p08b-slingmods-experience",
   "commit": "ec6876551542ec39111fbf26253c4528c2290cfc",
   "current_gate": "G3",
-  "current_packet": "P08A Build Matters",
-  "next_action": "Director review of Astra-Review-15-Lean.zip and feature branch. Do not merge into main or publish before explicit approval.",
+  "current_packet": "P08B SlingMods Signature Experience",
+  "next_action": "Complete exact-candidate validation and Review16 director return; no main merge or publication.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -668,5 +668,12 @@
       "G3/G4, global fidelity, physical controllers/mobile/broad GPUs, human fun/listening and authentic exhaust remain held.",
       "Public hosting is pending, not a P08A development blocker. No release or publication approved."
     ]
+  },
+  "p08b": {
+    "base": "ef592752741333faee496edff95b8abb68b76840",
+    "handling": "slingmods-sport-v1",
+    "legacyHandling": "legacy-p08a",
+    "route": "harbor-express-v1",
+    "status": "integrated; final evidence and recovery in progress"
   }
 }
