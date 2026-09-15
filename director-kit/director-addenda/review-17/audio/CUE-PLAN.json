@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "status": "PROPOSED_AUTHORING_INPUT_NOT_GENERATED_AUDIO",
+  "limits": {
+    "maxGenerationCallsIncludingRetries": 24,
+    "maxTotalRequestedSeconds": 60,
+    "maxConcurrentCalls": 1,
+    "financialPolicy": "Verified existing/prepaid available project allowance only; no new overage or account changes"
+  },
+  "mixNote": "relativeGainHint values are initial linear balancing suggestions, not measured perceptual loudness targets. Audition and measure final mix; prioritize quiet and consistent.",
+  "cues": [
+    {
+      "id": "ui.nav",
+      "event": "Actual category activation; no hover/repeat flood",
+      "duration_seconds": 0.5,
+      "relativeGainHint": 0.1,
+      "text": "A single very quiet dry precision rotary-selector tick, premium automotive interface, close and clean, no voice, no music, no room reverb.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "ui.confirm",
+      "event": "Successful generic confirm; no install stacking",
+      "duration_seconds": 0.5,
+      "relativeGainHint": 0.13,
+      "text": "A tiny soft mechanical button confirmation, clean rounded transient, restrained automotive console feedback, no melody, no voice, no music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "ui.back",
+      "event": "Back/cancel acknowledged",
+      "duration_seconds": 0.5,
+      "relativeGainHint": 0.1,
+      "text": "A short muted switch release, understated backward navigation sound, dry close recording, no voice, no music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "finish.apply",
+      "event": "Committed paint change",
+      "duration_seconds": 0.7,
+      "relativeGainHint": 0.15,
+      "text": "A subtle short smooth material swish ending in a quiet soft click, polished automotive color selection, no spray-can hiss, no music or voice.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "part.shocks.attach",
+      "event": "Validated shock installation; one per transaction",
+      "duration_seconds": 0.9,
+      "relativeGainHint": 0.28,
+      "text": "One small metal suspension fitting seated with a crisp close clink and short muted body resonance, precision workshop sound, dry, no repeated hammering, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "part.lights.attach",
+      "event": "Validated lighting kit install/power transition",
+      "duration_seconds": 0.5,
+      "relativeGainHint": 0.17,
+      "text": "One quiet electrical relay click, close dry automotive component, tiny weight, no buzzing, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "part.exhaust.attach",
+      "event": "Validated exhaust mount change",
+      "duration_seconds": 0.9,
+      "relativeGainHint": 0.25,
+      "text": "A small metal clamp latching onto a hollow exhaust tube, brief restrained low metallic contact, dry close sound, not an engine rev, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "part.aero.attach",
+      "event": "Validated wing installation",
+      "duration_seconds": 0.7,
+      "relativeGainHint": 0.22,
+      "text": "A crisp compact bracket latch seating with one dry metallic click and subdued weight, no long ring, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "part.storage.attach",
+      "event": "Validated bags installation",
+      "duration_seconds": 0.9,
+      "relativeGainHint": 0.2,
+      "text": "A short fabric bag slide with a tiny zipper or fastening snap, premium close foley, dry and restrained, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "part.remove",
+      "event": "Validated part removal/undo changed build",
+      "duration_seconds": 0.6,
+      "relativeGainHint": 0.16,
+      "text": "A quiet mechanical release and soft lift-off tick, short close dry foley, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "build.save",
+      "event": "Successful persistent recipe save",
+      "duration_seconds": 0.6,
+      "relativeGainHint": 0.17,
+      "text": "A soft precise confirmation click with a very restrained warm tonal tail, refined automotive interface, no fanfare, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "build.preset",
+      "event": "Batch preset applied once",
+      "duration_seconds": 0.8,
+      "relativeGainHint": 0.2,
+      "text": "A compact smooth mechanical assembly confirmation, one gentle layered click, polished and understated, no rapid clicks, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "career.unlock",
+      "event": "Confirmed new unlock/reward once",
+      "duration_seconds": 1.2,
+      "relativeGainHint": 0.22,
+      "text": "A restrained premium achievement accent, low soft mechanical pulse and brief clear tone, no casino coins, no fanfare, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "race.count",
+      "event": "New integer countdown boundary once",
+      "duration_seconds": 0.5,
+      "relativeGainHint": 0.19,
+      "text": "A short clean motorsport countdown tick, soft electronic-mechanical transient, neutral pitch, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "race.start",
+      "event": "Actual go/start boundary once",
+      "duration_seconds": 0.7,
+      "relativeGainHint": 0.25,
+      "text": "A short clear racing start confirmation, slightly brighter than a countdown tick, controlled transient, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    },
+    {
+      "id": "race.finish",
+      "event": "First valid finish/result commit once",
+      "duration_seconds": 1.4,
+      "relativeGainHint": 0.24,
+      "text": "A concise restrained motorsport finish accent, satisfying but not celebratory fanfare, polished low impact and short clean tone, no voice or music.",
+      "loop": false,
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt_influence": 0.45
+    }
+  ]
+}

@@ -1,7 +1,8 @@
+import type {CueId} from '../audio/interface';
 import {SuspensionUI} from './suspension-ui';
 import {sceneHref} from "../demo/profile";
 import './build.css';import {PRODUCT,COLORS,defaultAppearance,type Appearance,type KitColor}from'./catalog';import{RAE,type CareerClient}from'./client';import{BuildMenuInput}from'./menu';import type{DeviceSample}from'../driving/input';
-export interface BuildHooks {suspension?(equipped:boolean):void;inspectHardware?(rear:boolean|null):void;open(value:boolean):void;previewNight(value:boolean):void;appearance(equipped:boolean,appearance:Appearance):void}
+export interface BuildHooks {cue?(id:CueId,key?:string):void;suspension?(equipped:boolean):void;inspectHardware?(rear:boolean|null):void;open(value:boolean):void;previewNight(value:boolean):void;appearance(equipped:boolean,appearance:Appearance):void}
 export class BuildUI {
  private suspensionUI:SuspensionUI;
  readonly root=document.createElement('section');readonly menu:BuildMenuInput;private opened=false;private preview=false;private compare=false;private pending=false;private night=false;private temporary=defaultAppearance();private unsubscribe:()=>void;private story=document.createElement('aside');private status='';
@@ -16,7 +17,7 @@ export class BuildUI {
   for(const [name,color]of Object.entries(COLORS)){const b=document.createElement('button');b.dataset.color=name;b.title=name;b.setAttribute('aria-label',name+' underglow');b.style.setProperty('--swatch',color);b.onclick=()=>this.color(name as KitColor);this.root.querySelector('#kit-colors')!.append(b)}
   document.querySelector('#app')!.append(this.root);this.story.id='rae-card';this.story.hidden=true;this.story.setAttribute('aria-live','polite');document.querySelector('#app')!.append(this.story);
   this.menu=new BuildMenuInput(this.root,()=>this.back());
-  this.button('#close-build',()=>this.close());this.button('#preview-kit',()=>{this.preview=!this.preview;this.compare=false;this.temporary=defaultAppearance();this.status='';this.update()});
+  this.button('#close-build',()=>this.close());this.button('#preview-kit',()=>{this.preview=!this.preview;this.compare=false;this.temporary=defaultAppearance();this.status='';this.update();if(this.preview)this.hooks.cue?.('part.lights.attach')});
   this.button('#buy-kit',()=>{void this.mutate({type:'purchase',id:crypto.randomUUID(),productId:PRODUCT.id,vehicleId:PRODUCT.vehicleId})});
   this.button('#equip-kit',()=>{void this.mutate({type:'equip',equipped:!this.client.state.equipped})});
   this.button('#stock-compare',()=>{this.compare=!this.compare;this.update()});
@@ -25,15 +26,15 @@ export class BuildUI {
   this.button('#bay-night',()=>{this.night=!this.night;this.hooks.previewNight(this.night);this.update()});
   this.root.addEventListener('click',e=>{if(this.pending||this.client.stale){e.preventDefault();e.stopImmediatePropagation()}},true);this.root.querySelector('#drive-kit-night')!.addEventListener('click',e=>{if(this.pending||this.client.stale)e.preventDefault();else this.close()});
   this.root.addEventListener('keydown',e=>{if(e.code==='Escape'||e.code==='Backspace'){e.preventDefault();e.stopPropagation();this.back()}else if(e.target instanceof HTMLInputElement)return;else if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.menu.move(['ArrowUp','ArrowLeft'].includes(e.code)?-1:1)}});
-  this.suspensionUI=new SuspensionUI(client,this.root,hooks.suspension??(()=>{}),hooks.inspectHardware??(()=>{}),value=>{this.pending=value;this.update()});
+  this.suspensionUI=new SuspensionUI(client,this.root,hooks.suspension??(()=>{}),hooks.inspectHardware??(()=>{}),value=>{this.pending=value;this.update()},hooks.cue);
   this.unsubscribe=client.subscribe(()=>this.update());this.update();void client.execute({type:'entry'}).then(r=>{if(r.story&&r.story!=='entry')this.showStory(r.story)}).catch(()=>{});
  }
  private text(selector:string,value:string){this.root.querySelector(selector)!.textContent=value}
  private button(selector:string,fn:()=>void){this.root.querySelector(selector)!.addEventListener('click',()=>{if(!this.pending&&!this.client.stale)fn()})}
  private activeAppearance(){return this.preview?this.temporary:this.client.state.appearance}
  private color(color:KitColor){this.appearance({color})}
- private appearance(patch:Partial<Appearance>){if(this.pending||this.client.stale)return;if(this.preview){Object.assign(this.temporary,patch);this.update()}else if(this.client.state.owned)void this.mutate({type:'appearance',patch})}
- private async mutate(command:Parameters<CareerClient['execute']>[0]){if(this.pending||this.client.stale)return;this.pending=true;this.status='Saving…';this.update();try{const r=await this.client.execute(command);this.preview=false;this.compare=false;this.status=r.changed?'Build saved'+(this.client.durable?'':' for this session'):'Already owned — no charge';if(r.story)this.showStory(r.story)}catch(e){this.status=(e as Error).message+' · No transaction committed.'}finally{this.pending=false;this.update()}}
+ private appearance(patch:Partial<Appearance>){if(this.pending||this.client.stale)return;if(this.preview){const before=JSON.stringify(this.temporary);Object.assign(this.temporary,patch);this.update();if(before!==JSON.stringify(this.temporary))this.hooks.cue?.('ui.detent')}else if(this.client.state.owned)void this.mutate({type:'appearance',patch})}
+ private async mutate(command:Parameters<CareerClient['execute']>[0]){if(this.pending||this.client.stale)return;this.pending=true;this.status='Saving…';this.update();try{const r=await this.client.execute(command);if(r.changed){const cue:CueId=command.type==='purchase'||command.type==='equip'&&command.equipped?'part.lights.attach':command.type==='equip'?'part.remove':'ui.detent';this.hooks.cue?.(cue,`legacy:${r.state.revision}`)}this.preview=false;this.compare=false;this.status=r.changed?'Build saved'+(this.client.durable?'':' for this session'):'Already owned — no charge';if(r.story)this.showStory(r.story)}catch(e){this.status=(e as Error).message+' · No transaction committed.'}finally{this.pending=false;this.update()}}
  private showStory(key:keyof typeof RAE){this.story.replaceChildren();const name=document.createElement('strong'),p=document.createElement('p'),button=document.createElement('button');name.textContent='RAE / WORKSHOP';p.textContent=RAE[key];button.textContent='Got it';button.onclick=()=>this.story.hidden=true;this.story.append(name,p,button);this.story.hidden=false}
  open(){this.opened=true;this.root.hidden=false;document.body.classList.add('build-open');this.hooks.open(true);this.menu.reset();this.update();this.root.querySelector<HTMLButtonElement>('#close-build')!.focus()}
  close(){if(this.pending||this.client.stale)return;this.hooks.inspectHardware?.(null);this.suspensionUI.close();this.opened=false;this.preview=false;this.compare=false;this.night=false;this.hooks.previewNight(false);this.hooks.open(false);this.root.hidden=true;document.body.classList.remove('build-open');this.update();[...document.querySelectorAll<HTMLButtonElement>('#chapter-build,#open-build')].find(button=>!!button.getClientRects().length&&getComputedStyle(button).visibility!=='hidden')?.focus()}

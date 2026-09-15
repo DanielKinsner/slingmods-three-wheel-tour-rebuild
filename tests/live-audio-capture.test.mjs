@@ -25,7 +25,7 @@ test('live game capture includes both real graph buses, stereo media, sync ancho
  const browser=await chromium.launch({headless:true,args:['--autoplay-policy=no-user-gesture-required','--mute-audio']});
  try{
   const context=await browser.newContext(),page=await context.newPage();
-  await page.route('http://127.0.0.1:42972/**',async route=>{const url=new URL(route.request().url());if(url.pathname==='/audio.js')return route.fulfill({contentType:'text/javascript',body:source});if(url.pathname.startsWith('/assets/audio/p03b2/')){assert.ok(!url.pathname.includes('..'));return route.fulfill({body:await readFile(path.join(root,'public',url.pathname)),contentType:url.pathname.endsWith('.json')?'application/json':'audio/wav'})}return route.fulfill({contentType:'text/html',body:'<!doctype html><div id="app"></div><script type="module">import {GameAudio,LiveGameCapture} from "/audio.js";window.GameAudio=GameAudio;window.LiveGameCapture=LiveGameCapture;window.ready=true;</script>'})});
+  await page.route('http://127.0.0.1:42972/**',async route=>{const url=new URL(route.request().url());if(url.pathname==='/audio.js')return route.fulfill({contentType:'text/javascript',body:source});if(url.pathname.startsWith('/assets/audio/')){assert.ok(!url.pathname.includes('..'));return route.fulfill({body:await readFile(path.join(root,'public',url.pathname)),contentType:url.pathname.endsWith('.json')?'application/json':'audio/wav'})}return route.fulfill({contentType:'text/html',body:'<!doctype html><div id="app"></div><script type="module">import {GameAudio,LiveGameCapture} from "/audio.js";window.GameAudio=GameAudio;window.LiveGameCapture=LiveGameCapture;window.ready=true;</script>'})});
   await page.goto('http://127.0.0.1:42972/');await page.waitForFunction(()=>window.ready);
   const run=await page.evaluate(async()=>{
    const wait=ms=>new Promise(r=>setTimeout(r,ms));
@@ -40,15 +40,15 @@ test('live game capture includes both real graph buses, stereo media, sync ancho
    const t={rpm:3200,speed:18,throttle:.7,gear:2,shifting:false,position:{x:0,y:0,z:0},quaternion:{x:0,y:0,z:0,w:1},wheels:[0,1,2].map(()=>({contact:true,longitudinalSpeed:18,slipRatio:0,slipAngle:0,surface:'road'}))};
    const peers={maya:{...t,rpm:4800,position:{x:-3,y:0,z:0}},jett:{...t,rpm:2400,position:{x:4,y:0,z:-1}}};
    game.update(t,false,false,true);game.updateOpponents(t,{});await wait(200);
-   const outputsBefore=links.get(game.mix)?.size;game.startEvidenceCapture();const recording=game.capture;
+   const outputsBefore=links.get(game.limiter)?.size;game.startEvidenceCapture();const recording=game.capture;
    let duplicateRejected=false;try{game.startEvidenceCapture()}catch{duplicateRejected=true}
-   const outputsDuring=links.get(game.mix)?.size,windows=[];const markWindow=(id,extra={})=>windows.push({id,startAudio:game.context.currentTime,...extra});
+   const outputsDuring=links.get(game.limiter)?.size,windows=[];const markWindow=(id,extra={})=>windows.push({id,startAudio:game.context.currentTime,...extra});
    game.evidenceMarker('start');await wait(250);markWindow('player-only');await wait(350);
    game.graph.master.gain.cancelScheduledValues(game.context.currentTime);game.graph.master.gain.setValueAtTime(0,game.context.currentTime);game.updateOpponents(t,peers);await wait(200);game.updateOpponents(t,peers);await wait(200);markWindow('opponents-only',{opponents:game.inspect().opponents});await wait(350);
    game.update(t,false,false);game.evidenceMarker('middle');await wait(250);markWindow('combined');await wait(350);
    game.lifecycle(true);await wait(400);markWindow('paused');await wait(300);game.lifecycle(false);game.update(t,false,false);game.updateOpponents(t,peers);game.evidenceMarker('end');await wait(350);
    const captured=await game.stopEvidenceCapture();await wait(150);
-   const afterStop={outputs:links.get(game.mix)?.size,tracks:destinations.at(-1).stream.getTracks().map(t=>({kind:t.kind,state:t.readyState})),flashes:document.querySelectorAll('[data-audio-sync]').length,chunks:recording.chunks.length};
+   const afterStop={outputs:links.get(game.limiter)?.size,tracks:destinations.at(-1).stream.getTracks().map(t=>({kind:t.kind,state:t.readyState})),flashes:document.querySelectorAll('[data-audio-sync]').length,chunks:recording.chunks.length};
    game.startEvidenceCapture();await wait(150);const retry=await game.stopEvidenceCapture();
    game.startEvidenceCapture();const aborted=game.capture;game.evidenceMarker('cancelled');game.dispose();await wait(200);
    const afterDispose={tracks:destinations.flatMap(d=>d.stream.getTracks().map(t=>t.readyState)),context:game.context.state,chunks:aborted.chunks.length,flashes:document.querySelectorAll('[data-audio-sync]').length};

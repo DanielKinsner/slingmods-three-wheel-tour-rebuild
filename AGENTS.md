@@ -1,3 +1,11 @@
+# P09B — Signature Finish (active)
+
+Continue `feature/p09b-signature-finish` in the existing private DanielKinsner/slingmods-three-wheel-tour-rebuild repository. The owner adopted `director-kit/director-addenda/review-17/CODEX_NEXT.md` and its linked packets. This supersedes historical freezes only for UI, action audio, physical display, Thermal departure and a bounded running-engine improvement. Preserve P09A gameplay, career schema4 and the latest front/hoop assets. One integrator and two bounded workers; isolated browser and background Blender only. No merge, publication, spending, account changes or desktop takeover. Audio generation: no verified prepaid cap/key was available, so zero API calls; local authoring and supplied owner recording only. G3/G4, fidelity, physical devices and human listening/release approval remain held.
+
+Read `handoff/P09B-SIGNATURE-FINISH.md` and the final P09B validation receipt for commands and exact tested identities. Historical sections below are retained as evidence, not current restrictions.
+
+---
+
 # Current owner refinement - roll hoops and Review17 update
 
 The latest request authorizes removing the four invented rear hoop braces while keeping the existing finish, and including this plus the front correction in the updated Astra Review17 ZIP. Preserve all other game/asset work. Read HANDOFF.md and handoff/HOOP-REFINEMENT.json; previous headers below are historical. Existing feature-branch push authorization and no spending/publication/main-merge/desktop-takeover boundaries continue.

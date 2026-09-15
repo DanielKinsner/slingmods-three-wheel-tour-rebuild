@@ -1,3 +1,15 @@
+# P09B — Signature Finish
+
+Branch: `feature/p09b-signature-finish`. Private remote: `https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git`. Baseline b967d6f887593d3c84181aa4f88d2a42ce79221d includes the current owner front/hoop refinements. Read `handoff/P09B-SIGNATURE-FINISH.md`; final runtime, packaging and remote recovery receipts will be recorded in `handoff/P09B-VALIDATION.json` after verification.
+
+Implemented unified configurator/career/race UI, action-specific post-success cues, persisted mix levels, physical powered Driver-home approximation, owner-recorded Thermal departure synchronization and locally authored engine revision. Original owner WAV, processed banks and editable display/audio sources are in Git; no key is required to run. Current implementation tests:226 passed. Final film, native matrix and remote recovery are pending at this implementation checkpoint, not certified by this header.
+
+Launch from this checkout: `npm ci`, `npm run demo:build`, set `$env:PORT='5197'`, then `npm run demo:preview`. Open http://127.0.0.1:5197/. Terminal Ctrl+C stops its server. Use the final receipt for owned PID if a background launcher remains active. Saves remain local to browser/origin; the remote repository does not transfer personal saves.
+
+---
+
+# Historical handoffs
+
 # Current owner refinement - roll hoops and updated Review17
 
 The four invented rear diagonal braces have been removed. Outer/inner hoop shapes, black finish, wing mounts and the prior front correction remain. Current shared vehicle: `public/assets/hoop-refinement/slingshot-hoops-refined.glb`; editable source: `assets/blender/hoop-refinement/slingshot-hoops-refined.blend`. Branch remains `feature/p09a-own-the-build`. Pushed runtime: `55ea67553562c859968b15d14339a8de35c6db0d`; later packet/receipt commits preserve that runtime. See `handoff/HOOP-REFINEMENT.json` for required assets and verification.
