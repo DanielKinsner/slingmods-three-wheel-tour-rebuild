@@ -26,7 +26,7 @@ test('new reward proof rejects copied/unearned/invalid/rebound attempts and malf
 function cleanSnapshot(s:unknown){return JSON.parse(JSON.stringify(s))}
 test('v1/v2 migration retains original credits, receipts, build and prior crew access; no invented duel completion',()=>{
  for(const version of [1,2]){const old:any=clean();old.version=version;delete old.buildMatters;delete old.suspension;if(version===1)delete old.crew;const original=structuredClone(old),s=migrateCareer(old);assert.deepEqual(old,original);assert.equal(s.credits,800);assert.deepEqual(s.receipts,old.receipts);assert.equal(s.buildMatters.legacyCrewAccess,true);assert.equal(s.buildMatters.duelCompleted,false);assert.equal(s.suspension.owned,false);assert.deepEqual(migrateCareer(s),s)}
- const newer={...freshCareer(),version:4};assert.throws(()=>migrateCareer(newer),CareerDataError);
+ const newer={...freshCareer(),version:5};assert.throws(()=>migrateCareer(newer),CareerDataError);
 });
 test('duel runs exactly two participants, one ordered lap, pause/retry and real certificate; crew remains four/two',()=>{
  const r=route as CourseRoute,road=new RaceRoad(r),race=new CrewRace(r,['maya','player'],'player',true);assert.equal(Object.keys(createCrewGrid(r,['maya','player'])).length,2);assert.throws(()=>new CrewRace(r,['maya','player','jett'],'player',true));

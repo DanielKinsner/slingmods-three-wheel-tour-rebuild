@@ -1,4 +1,5 @@
 import http from 'node:http';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -14,7 +15,9 @@ export function createStaticServer(root,{noindex=false}={}){
    const file=path.resolve(root,'.'+(name==='/'?'/index.html':name));
    if(!file.startsWith(root+path.sep)||name==='/_headers'){res.writeHead(403,common);return res.end('Forbidden')}
    const data=await fs.readFile(file);
-   res.writeHead(200,{...common,'Content-Type':mimeTypes[path.extname(file)]||'application/octet-stream','Content-Length':data.length,'Cache-Control':cacheFor(name)});
+   const etag='"'+createHash('sha256').update(data).digest('hex')+'"';
+   if(req.headers['if-none-match']===etag){res.writeHead(304,{...common,'ETag':etag,'Cache-Control':cacheFor(name)});return res.end()}
+   res.writeHead(200,{...common,'ETag':etag,'Content-Type':mimeTypes[path.extname(file)]||'application/octet-stream','Content-Length':data.length,'Cache-Control':cacheFor(name)});
    res.end(req.method==='HEAD'?undefined:data);
   }catch{res.writeHead(404,{...common,'Content-Type':'text/plain','Cache-Control':'no-cache'});res.end(req.method==='HEAD'?undefined:'Required file unavailable')}
  });

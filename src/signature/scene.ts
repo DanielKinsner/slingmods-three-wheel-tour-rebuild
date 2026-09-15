@@ -1,3 +1,4 @@
+import {prepareDrive,type DrivePreparationReport} from './drive-preparation';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
@@ -38,7 +39,7 @@ const neutral=simulation.telemetry();hero.pose(neutral,0,false,true);hero.driver
 const thumbs=Object.fromEntries(PRODUCTS.map(p=>[p.id,`/assets/p08b/thumbnails/${p.id}.png`]));
 const routeGraphics=await loadRouteGraphics();
 const ui=new SignatureUI(app,{onChange:change,onAction:action,onSave:save});
-let departure:ShowroomDeparture|undefined,navigating=false;
+let departure:ShowroomDeparture|undefined,navigating=false;let drivePreparation:DrivePreparationReport|undefined;
 function state():SignatureState{return {recipe:structuredClone(recipe),pending,status,screen,lighting,driverVisible,compare,reducedMotion,canUndo:history.length>0,savedRecipes:saved.map(r=>({id:r.id,name:r.name})),ownedProductIds:[],thumbs,...routeGraphics}}
 function historyFragment(){window.history.replaceState(null,'',location.pathname+location.search+recipeFragment(recipe))}
 function refresh(){ui.update(state())}
@@ -69,11 +70,12 @@ function restoreDeparture(error:unknown){
 async function action(name:string,value?:unknown){if(pending)return;try{
  if(name==='build'){screen='build';resize();view('hero')}
  else if(name==='quick-race'){screen='events'}
- else if(name==='career'){location.assign('?scene=bay&play=career');return}
+ else if(name==='career'){location.assign('?scene=career&play=career');return}
  else if(name==='lighting'){lighting=value==='lights'?'lights':'studio';await reapply()}
  else if(name==='motion'){reducedMotion=value==='true';controls.enableDamping=!reducedMotion;try{localStorage.setItem('slingmods-signature-motion',reducedMotion?'reduced':'full')}catch{} }
  else if(name==='driver'){driverVisible=typeof value==='boolean'?value:!driverVisible;hero.driver.root.visible=driverVisible}
  else if(name==='view'){view(String(value))}
+ else if(name==='handling'){if(value==='slingmods-sport-v1'||value==='slingmods-sport-v2')await change({...recipe,handlingProfile:value})}
  else if(name==='preset'){const p=PRESETS.find(p=>p.id===value);if(p)await change(p.recipe)}
  else if(name==='load-recipe'){const r=saved.find(r=>r.id===value);if(r)await change(r.recipe)}
  else if(name==='undo'){const prior=history.at(-1);if(prior){storage.store.setDraft(prior);recipe=history.pop()!;historyFragment();compare=false;await reapply()}}
@@ -83,8 +85,9 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='copy'){await navigator.clipboard.writeText(buildSummary(recipe));status='Build summary copied.'}
  else if(name==='back'){if(screen==='build')screen='entry';else screen='build';accessories.inspectStorage(false);shocks.inspectionView(null);resize();view('hero')}
  else if(name==='test-drive'||name==='race'){
-  if(value==='duel'||value==='crew'){location.assign('?scene=bay&play=career');return}
+  if(value==='duel'||value==='crew'){location.assign('?scene=career&play=career');return}
   const route=value==='harbor'?'harbor':'express',snapshot=validateRecipe(recipe),destination=`?scene=express&route=${route}&mode=${name==='race'?'race':'test'}&play=preview${recipeFragment(snapshot)}`;
+  pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot);pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
   storage.store.beginDrive(snapshot,route,name==='race'?'race':'test');
   if(name==='race'||reducedMotion){location.assign(destination);return}
   compare=false;await reapply();pending=true;refresh();accessories.inspectStorage(false);shocks.inspectionView(null);
@@ -95,13 +98,13 @@ async function action(name:string,value?:unknown){if(pending)return;try{
    onComplete:()=>{if(navigating)return;navigating=true;try{location.assign(destination)}catch(error){restoreDeparture(error)}}});return
  }
  refresh();
- }catch(e){if(departure||ui.root.hidden)restoreDeparture(e);else{status=(e as Error).message;refresh()}}}
+ }catch(e){pending=false;if(departure||ui.root.hidden)restoreDeparture(e);else{status=(e as Error).message;refresh()}}}
 function constrainCamera(){const v=camera.position.clone().sub(controls.target);let scale=1;for(const [axis,lo,hi]of [['x',-5.6,5.6],['z',-5.5,5.8]]as const){const end=camera.position[axis];if(end<lo||end>hi)scale=Math.min(scale,((end<lo?lo:hi)-controls.target[axis])/v[axis])}if(scale<1)camera.position.copy(controls.target).addScaledVector(v,Math.max(.1,scale));camera.lookAt(controls.target)}
 function render(){if(!departure)constrainCamera();under.update();shocks.update();renderer.render(scene,camera)}
 resize();await apply();view('hero');const preparation=await prepareRenderer(renderer,scene,camera);veil.remove();const loadMs=performance.now()-started;
 const keyboard=new KeyboardBuffer();let virtual:DeviceSample|undefined;addEventListener('keydown',e=>keyboard.down(e.code,performance.now(),e.repeat));addEventListener('keyup',e=>keyboard.up(e.code));
 let showroomFocused=document.hasFocus();addEventListener('focus',()=>{showroomFocused=true});addEventListener('blur',()=>{showroomFocused=false;keyboard.clear();audio.lifecycle(true)});addEventListener('resize',resize);let last=performance.now(),frames=0;const intervals:number[]=[];
 function frame(now:number){if(!pageActive()){requestAnimationFrame(frame);return}const dt=Math.min(.1,(now-last)/1000);intervals.push(now-last);if(intervals.length>6000)intervals.shift();last=now;const input=virtual??{...keyboard.read(),pads:Array.from(navigator.getGamepads?.()??[]),focused:document.hasFocus()&&!document.hidden};if(departure)departure.frame(dt,{...input,focused:input.focused&&showroomFocused&&!document.hidden});else{ui.frame(input);controls.update()}audio.update(simulation.telemetry(),document.hidden||!showroomFocused||!!departure?.suspended,false);render();frames++;requestAnimationFrame(frame)}requestAnimationFrame(frame);
-function inspect(){return {ready:true,departure:departure?.inspect()??null,showroom:{driverRendered:hero.driver.root.visible,curtainPosition:room.getObjectByName('bay_door_curtain')?.position.toArray(),curtainScale:room.getObjectByName('bay_door_curtain')?.scale.toArray()},build:__BUILD_REF__,recipe:structuredClone(recipe),original,finish:finishes.inspect(),compare,lighting,driverVisible,reducedMotion,status,pending,screen,saved,loadMs,preparation,frames,memory:{...renderer.info.memory},calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,products:accessories.inspect?.(),suspension:shocks.inspect(),audio:audio.inspect(),simulation:simulation.telemetry(),profile:simulation.suspensionConfig(),camera:{position:camera.position.toArray(),target:controls.target.toArray()},bounds:projectedBounds(camera,new THREE.Box3().setFromObject(hero.root,true)),resources:performance.getEntriesByType('resource').map((r:any)=>({name:r.name,bytes:r.transferSize,duration:r.duration})),intervals}}
+function inspect(){return {ready:true,drivePreparation,departure:departure?.inspect()??null,showroom:{driverRendered:hero.driver.root.visible,curtainPosition:room.getObjectByName('bay_door_curtain')?.position.toArray(),curtainScale:room.getObjectByName('bay_door_curtain')?.scale.toArray()},build:__BUILD_REF__,recipe:structuredClone(recipe),original,finish:finishes.inspect(),compare,lighting,driverVisible,reducedMotion,status,pending,screen,saved,loadMs,preparation,frames,memory:{...renderer.info.memory},calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,products:accessories.inspect?.(),suspension:shocks.inspect(),audio:audio.inspect(),simulation:simulation.telemetry(),profile:simulation.suspensionConfig(),camera:{position:camera.position.toArray(),target:controls.target.toArray()},bounds:projectedBounds(camera,new THREE.Box3().setFromObject(hero.root,true)),resources:performance.getEntriesByType('resource').map((r:any)=>({name:r.name,bytes:r.transferSize,duration:r.duration})),intervals}}
 if(evidenceEnabled())(window as any).__SIGNATURE={ready:true,inspect,view,referenceCamera:(position:number[],target:number[])=>{camera.position.fromArray(position);controls.target.fromArray(target);controls.update();render()},setDeviceSample:(s:any)=>{if(!params.has('test'))throw Error('Isolated test required');virtual=s?{...s,keys:new Set(s.keys)}:undefined},startAudioCapture:()=>audio.startEvidenceCapture(),audioSync:(id:string)=>audio.evidenceMarker(id),stopAudioCapture:()=>audio.stopEvidenceCapture()};
 addEventListener('pagehide',()=>{departure?.dispose();audio.dispose();simulation.dispose();controls.dispose();under.dispose();shocks.dispose();accessories.dispose();finishes.dispose();renderer.dispose()});

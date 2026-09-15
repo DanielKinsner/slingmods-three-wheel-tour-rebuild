@@ -4,11 +4,11 @@ import {streetSetup,validSetup,type SuspensionSetup} from '../career/suspension'
 import {PRODUCTS,productById,fits,type ProductId} from './catalog';
 export type FinishId='blue-orange'|'black-red'|'white-graphite'|'graphite-red';
 export const FINISHES:readonly {id:FinishId;name:string;color:string;accent:string}[]=[{id:'blue-orange',name:'Radar blue / orange',color:'#176aac',accent:SIGNATURE_ACCENTS['blue-orange']},{id:'black-red',name:'Gloss black / red',color:'#151719',accent:SIGNATURE_ACCENTS['black-red']},{id:'white-graphite',name:'Pearl white / graphite',color:'#e8e8e1',accent:SIGNATURE_ACCENTS['white-graphite']},{id:'graphite-red',name:'Satin graphite / red',color:'#56595e',accent:SIGNATURE_ACCENTS['graphite-red']}];
-export interface BuildRecipe {version:1;vehicleId:'slingshot-r-2024';finish:FinishId;products:Partial<Record<ProductId,string>>;lights:Appearance;suspension:SuspensionSetup;handlingProfile:'slingmods-sport-v1'}
-export const freshRecipe=():BuildRecipe=>({version:1,vehicleId:'slingshot-r-2024',finish:'blue-orange',products:{},lights:defaultAppearance(),suspension:streetSetup(),handlingProfile:'slingmods-sport-v1'});
+export interface BuildRecipe {version:1;vehicleId:'slingshot-r-2024';finish:FinishId;products:Partial<Record<ProductId,string>>;lights:Appearance;suspension:SuspensionSetup;handlingProfile:'slingmods-sport-v1'|'slingmods-sport-v2'}
+export const freshRecipe=():BuildRecipe=>({version:1,vehicleId:'slingshot-r-2024',finish:'blue-orange',products:{},lights:defaultAppearance(),suspension:streetSetup(),handlingProfile:'slingmods-sport-v2'});
 export function validateRecipe(raw:unknown):BuildRecipe {
  const r=raw as BuildRecipe;
- if(!r||r.version!==1||r.vehicleId!=='slingshot-r-2024'||r.handlingProfile!=='slingmods-sport-v1'||!FINISHES.some(f=>f.id===r.finish)||!validSetup(r.suspension)||!r.products||typeof r.products!=='object'||Array.isArray(r.products)||!r.lights||!Object.hasOwn(COLORS,r.lights.color)||typeof r.lights.enabled!=='boolean'||!Number.isFinite(r.lights.brightness)||r.lights.brightness<.15||r.lights.brightness>.85)throw Error('This build recipe needs recovery; saved data is unchanged.');
+ if(!r||r.version!==1||r.vehicleId!=='slingshot-r-2024'||!['slingmods-sport-v1','slingmods-sport-v2'].includes(r.handlingProfile)||!FINISHES.some(f=>f.id===r.finish)||!validSetup(r.suspension)||!r.products||typeof r.products!=='object'||Array.isArray(r.products)||!r.lights||!Object.hasOwn(COLORS,r.lights.color)||typeof r.lights.enabled!=='boolean'||!Number.isFinite(r.lights.brightness)||r.lights.brightness<.15||r.lights.brightness>.85)throw Error('This build recipe needs recovery; saved data is unchanged.');
  for(const [id,option]of Object.entries(r.products)){const p=productById(id);if(!p||!p.options.some(o=>o.id===option)||!fits(p,r).ok)throw Error('Build contains an unsupported product, option or fitment.');}
  return structuredClone(r);
 }

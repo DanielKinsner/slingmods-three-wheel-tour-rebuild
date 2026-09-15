@@ -1,3 +1,11 @@
+# Current assignment - P09A Own the Build / Review17
+
+The latest owner request authorizes `director-kit/director-addenda/review-16/CODEX_NEXT.md` and its linked packets, plus explicit crash/flip recovery. Continue `feature/p09a-own-the-build` from P08B 51f34a341200cf76bf69106bdfae300590419e88. One lead plus two bounded implementers; isolated browser testing only. Preserve showroom, finishes, departure, five free previews, historical dynamics/evidence and career progress. Authorized changes: versioned Sport v2 braking/contact policy, responsive preparation, earned existing-product chapter, explicit recovery. Ordinary feature-branch commits/push authorized. No main merge, publication, spending, account changes, desktop takeover or gate approval. Prior headers below are historical, not active next actions. Current delivery status is in HANDOFF.md and handoff/P09A-VALIDATION.json when complete.
+
+---
+
+# Historical assignments (all headers below are historical)
+
 # Current owner refinement — showroom materials, bay exit and swingarm palette
 
 The latest owner request and four photographs are recorded without credentials in `director-kit/director-addenda/review-16-owner-refinement/OWNER-REQUEST.md`. They authorize the bounded showroom texture/lift/closed-door refinement, skippable presentation exit, swingarm accent fix, suitable generated door audio, and updated Review16 packet. Continue the current P08B feature branch and preserve historical source/evidence. Ordinary feature-branch commits/push remain authorized; no main merge, publication, account changes, desktop takeover or gate approval. One bounded ElevenLabs generation used the owner-supplied temporary credential; never write a credential to source, evidence or a review packet.

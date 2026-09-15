@@ -6,10 +6,10 @@ import {PRODUCT} from '../src/career/catalog';
 const clean=(s=freshCareer())=>migrateCareer({...transition(s,{type:'award',event:'harbor',valid:true,id:randomUUID(),timeMs:78000}).state,version:2});
 const crew=(place:1|2|3|4,id:string=randomUUID()):Command=>({type:'crew-award',result:certifyCrewFinish({event:CREW_EVENT,attemptId:id,participantId:'player',status:'finished',valid:true,laps:2,timeMs:156000,place})});
 const bought=()=>transition(clean(),{type:'purchase',id:randomUUID(),productId:PRODUCT.id,vehicleId:PRODUCT.vehicleId}).state;
-function v1(s:Career){const old=structuredClone(s)as any;old.version=1;delete old.crew;delete old.buildMatters;delete old.suspension;return old}
+function v1(s:Career){const old=structuredClone(s)as any;old.version=1;delete old.crew;delete old.buildMatters;delete old.suspension;delete old.ownBuild;return old}
 test('v1 fresh, earned, installed and unequipped careers migrate repeatably with exact old fields',()=>{
  const installed=bought();installed.appearance={color:'cyan',brightness:.7,enabled:false};
- for(const fixture of[freshCareer(),clean(),installed,{...installed,equipped:false}]){const old=v1(fixture),source=structuredClone(old),next=migrateCareer(old);assert.equal(next.version,3);assert.deepEqual(v1(next),source);assert.deepEqual(old,source);assert.deepEqual(migrateCareer(next),next);assert.equal(next.crew.cleared,false)}
+ for(const fixture of[freshCareer(),clean(),installed,{...installed,equipped:false}]){const old=v1(fixture),source=structuredClone(old),next=migrateCareer(old);assert.equal(next.version,4);assert.deepEqual(v1(next),source);assert.deepEqual(old,source);assert.deepEqual(migrateCareer(next),next);assert.equal(next.crew.cleared,false)}
 });
 test('unknown and corrupt schemas fail without mutation or silent reset',()=>{
  const fixture=v1(bought());for(const bad of[{...fixture,version:99},{...fixture,credits:-1},{...fixture,owned:false,equipped:true},{...fixture,appearance:{...fixture.appearance,color:'oops'}},{...fixture,receipts:{bad:{}}},null]){const before=structuredClone(bad);assert.throws(()=>migrateCareer(bad),CareerDataError);assert.deepEqual(bad,before)}

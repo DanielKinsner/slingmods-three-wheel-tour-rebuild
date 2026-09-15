@@ -1,10 +1,10 @@
-# P08B — SlingMods Signature Experience
+# P09A - Own the Build
 
-Current private branch: `feature/p08b-slingmods-experience`, descended from P08A `ef592752741333faee496edff95b8abb68b76840`. Remote: `https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git`. Main remains outside this assignment.
+Current branch: `feature/p09a-own-the-build`. Private remote: `https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git`. Baseline: P08B `51f34a341200cf76bf69106bdfae300590419e88`. No merge or publication authorized.
 
-Current tested runtime: `822ff5f5a9cc211775076074c7d106e8d372286a`. The latest owner refinement adds reference-guided vented tiles/lift bay, a closed door with skippable departure and live door audio, and finish-matched swingarm accents. Read `handoff/P08B-REFINEMENT.md`, `P08B-REFINEMENT-VALIDATION.json` and `P08B-REFINEMENT-ASSETS.json` first. The refreshed Review16 MANIFEST identifies the exact pushed packaging commit. Earlier P08B evidence below remains historical.
+Implementation checkpoint: Sport v2 braking, responsive route preparation, Chapter 02 earned exhaust/wing/bags, five free showroom previews, and explicit crash recovery. Full tests pass (213); final native performance, film, remote-clone verification and Review17 packaging are in progress. Do not infer release approval from this checkpoint.
 
-## Launch from any checkout
+## Launch
 
 ```powershell
 npm ci
@@ -14,18 +14,12 @@ $env:PORT='5197'
 npm run demo:preview
 ```
 
-Open `http://127.0.0.1:5197/`. Build Your Slingshot → choose finish/products → Test This Build opens a free Express drive. Quick Race offers Express and Original Harbor. Continue Career opens the existing earned chapter. Prepared easy-entry demo remains `http://127.0.0.1:5197/?scene=crew&play=demo`.
+Open `http://127.0.0.1:5197/`. Continue Career opens Own the Build; new careers first complete Build Matters. Free showroom/test drives remain separate from career ownership. Prepared historical demo: `/?scene=crew&play=demo`. Existing browser saves do not transfer through Git.
 
-The configurator has five free previews and named build recipes; credits and purchases remain in the separate career database. Test drives capture a validated recipe and restore it on return. URL fragments carry temporary recipes when storage is blocked; fragments are not sent to the server. Browser career saves do not transfer through Git.
+Read `handoff/P09A-DRIVING.md`, `handoff/P09A-CAREER.md`, and director-kit/director-addenda/review-16/CODEX_NEXT.md. Full current runtime assets are in `demo-assets.json`; editable/refinement dependencies remain those of `handoff/P08B-REFINEMENT-ASSETS.json`. No art/runtime asset was replaced in P09A. The previous authoritative handoff is preserved in `handoff/P08B-HANDOFF-PRESERVED.md`.
 
-## Required assets and editable sources
+## Limits
 
-`demo-assets.json` is the runtime closure. `assets/blender/p08b/README.md` describes the three packed Blender sources and repeatable background export. The original Harbor kit remains in `assets/blender/showcase-quality/built-waterfront.blend`; new Express placement/road/collider sources are `src/express/route.ts` and `presentation.ts`. Runtime GLBs, finish atlases and thumbnails are under `public/assets/p08b/`. Do not delete preserved original art, vehicle rigs, audio, routes or evidence.
+Sport v2 is a documented game tune, not manufacturer physics. Deliberate extreme curb collisions can still overturn the car; recovery is explicit, never an invisible steering assist. Free test drives respawn on the road; scored events restart with a fresh attempt and no abandoned-attempt payment. Chapter 01 and prepared demo retain their historical Sport v1 setup; fresh preview and Chapter 02 use Sport v2. Historical saved preview recipes retain their version; select Sport v2 under Build Presets to compare.
 
-## Evidence and exact identity
-
-Final runtime/packaging SHAs, launch receipt, verification commands, asset hashes, native results and clean remote recovery are recorded in `handoff/P08B-VALIDATION.json` and `director-kit/production/evidence/P08B/`. Original pre-refinement runtime is `6aa1dafaac03168525a1f7e69a6831ea886f45d2`. The pushed documentation/evidence follow-up is identified by `git rev-parse HEAD` and the Review16 ZIP MANIFEST.json. Internal validation and same-host fresh remote recovery are complete. See `handoff/P08B-COMMANDS.md` for exact verification, film recovery, and fresh-session instructions. Prior handoff retained at `handoff/P08A-HANDOFF-PRESERVED.md`.
-
-## Limits / next action
-
-New handling is a versioned game tune, not an OEM dynamics claim. DDM adjustments use documented estimated damping/preload parameters; exhaust treatment is original game audio, with no horsepower claim. Wing and bags are visual previews. Room dimensions and product meshes are reference-based approximations, not surveyed/CAD assets. Native measurements describe this Windows RTX4080 host only. G3/G4, hardware, OEM fidelity, human fun/listening and release approval remain separate. Hosting stays pending. Give **Astra-Review-16-Lean.zip** to Astra for director review; do not merge or publish before that decision.
+G3/G4, final OEM/art fidelity, hardware controllers, human fun/listening and release approval remain held. Hosting is separate and not a development blocker. Final next action: Astra reviews Review17; do not merge or publish before director approval.

@@ -26,6 +26,18 @@ let initialized:Promise<void>|undefined;
 
 /** Exactly three custom suspension/tire channels. Rapier owns all body integration and collisions. */
 export class Simulation {
+  private diagnosticEnabled=false;
+  private forceDiagnostics:Record<string,unknown>[]=[];
+  /** Read-only opt-in force/contact instrumentation. No forces or world settings are changed. */
+  enableDiagnostics(enabled=true){this.diagnosticEnabled=enabled}
+  diagnostics(){
+    const contacts:Record<string,unknown>[]=[];
+    if(this.diagnosticEnabled)for(let i=0;i<this.body.numColliders();i++){const collider=this.body.collider(i);this.world.contactPairsWith(collider,other=>this.world.contactPair(collider,other,(m,flipped)=>{
+      const points=[];for(let j=0;j<m.numContacts();j++)points.push({distance:m.contactDist(j),normalImpulse:m.contactImpulse(j),tangentImpulseX:m.contactTangentImpulseX(j),tangentImpulseY:m.contactTangentImpulseY(j)});
+      contacts.push({kind:i===0?'chassis':'guard',wheel:i?layout.wheels[i-1].id:null,other:other.handle,normal:{...m.normal()},flipped,points});
+    }))}
+    return {time:this.time,wheels:this.forceDiagnostics.map(w=>({...w})),contacts};
+  }
   private suspension:ReturnType<typeof suspensionParameters>|null=null;
   configureSuspension(setup:SuspensionSetup|null){if(this.time!==0)throw Error('Configure suspension before driving');this.suspension=setup?Object.freeze(suspensionParameters(setup)):null}
   suspensionConfig(){return this.suspension?{...this.suspension}:null}
@@ -45,7 +57,16 @@ export class Simulation {
     // Guards supply collision normal response only. They are rigidly attached, not
     // spinning wheels: giving them tangential grip would add unintended locked-wheel
     // friction on top of the custom tire law during compression/landing.
-    for(const w of layout.wheels)this.world.createCollider(RAPIER.ColliderDesc.cylinder(w.width/2,w.radius*0.68).setRotation({x:0,y:0,z:Math.SQRT1_2,w:Math.SQRT1_2}).setTranslation(w.center[0],w.center[1]-SPEC.comHeight,w.center[2]).setDensity(0).setFriction(0).setFrictionCombineRule(RAPIER.CoefficientCombineRule.Min),this.body);
+    for(const w of layout.wheels){
+      let guard=RAPIER.ColliderDesc.cylinder(w.width/2,w.radius*0.68).setRotation({x:0,y:0,z:Math.SQRT1_2,w:Math.SQRT1_2});
+      // Sport v2: the three ray tires already support the continuous planar floor.
+      // Passive guards still hit obstacles/ramps/other vehicles; only the separate
+      // floor group is excluded. The chassis still catches a bottom-out/overturn.
+      // Matched high-speed tests isolated asymmetric guard/floor response despite
+      // zero reported solver impulses; cylinder-to-hull and CCD-off did not fix it.
+      if(profileId==='slingmods-sport-v2')guard.setCollisionGroups(0x0002fffe);
+      this.world.createCollider(guard.setTranslation(w.center[0],w.center[1]-SPEC.comHeight,w.center[2]).setDensity(0).setFriction(0).setFrictionCombineRule(RAPIER.CoefficientCombineRule.Min),this.body);
+    }
     this.reset();
   }
   reset(pose:{x?:number;z?:number;y?:number;yaw?:number}={}):void {
@@ -70,7 +91,7 @@ export class Simulation {
     const driveState=this.drivetrain.step(speed,this.overspeed[2],layout.wheels[2].radius,this.throttle,this.brake,Boolean(control.reverse),dt);
     this.throttle=driveState.throttle;this.brake=driveState.brake;const engineForce=driveState.force;
     this.body.resetForces(true);this.body.resetTorques(true);
-    const newWheels:WheelTelemetry[]=[];
+    const newWheels:WheelTelemetry[]=[];if(this.diagnosticEnabled)this.forceDiagnostics=[];
     const samples=layout.wheels.map((wheel,i)=>{
       const rear=i===2,k=rear?SPEC.rearSpring:SPEC.frontSpring,weight=SPEC.mass*9.81*(rear?0.5:0.25),preload=weight/k;
       const hardLocal=v(wheel.center[0],wheel.center[1]+SPEC.restLength-preload-SPEC.comHeight,wheel.center[2]);
@@ -103,6 +124,7 @@ export class Simulation {
       const transfer=clamp((samples[1].length-samples[0].length)*5500,-samples[0].load,samples[1].load);
       samples[0].load+=transfer;samples[1].load-=transfer;
     }
+    const supportedLoad=samples.reduce((sum,s)=>sum+s.load,0);
     for(let i=0;i<3;i++){
       const {wheel,rear,preload,hit,contact,length,point,pointVel}=samples[i];
       const travel=SPEC.restLength-preload-length;
@@ -123,12 +145,16 @@ export class Simulation {
         driveTorque=drive*wheel.radius;
         const share=rear?0.5:0.25;
         const stopLimit=Math.abs(long)*SPEC.mass*share*0.6/dt;
-        const braking=Math.min(stopLimit,this.brake*SPEC.mass*9.81*(rear?0.3:0.35)*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?110:0));
+        // V2 brake-by-load allocator sends the same total pedal demand to supported
+        // tires in proportion to instantaneous non-tensile normal load. Friction
+        // ellipse and near-zero stop limiter remain authoritative; no extra grip.
+        const braking=Math.min(stopLimit,this.brake*SPEC.mass*9.81*(this.profileId==='slingmods-sport-v2'?load/Math.max(1,supportedLoad):(rear?0.3:0.35))*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?110:0));
         const request=drive-Math.sign(long)*braking;
         fy=-load*handlingProfile(this.profileId).tireStiffness*slipAngle;
         fy=clamp(fy,-Math.abs(lateral)*SPEC.mass*share/dt,Math.abs(lateral)*SPEC.mass*share/dt);
         // Smooth combined-slip ellipse saturation. Never add another controller's tire forces.
         const norm=Math.hypot(request,fy),sat=norm>muLimit?muLimit/Math.max(norm,1e-9):1;
+        if(this.diagnosticEnabled)this.forceDiagnostics.push({id:wheel.id,load,contact,travel,length,point:{...point},pointVelocity:{...pointVel},requestedLongitudinal:request,requestedLateral:fy,frictionLimit:muLimit,saturation:sat,braking,drive});
         fx=request*sat;fy*=sat;
         this.body.addForceAtPoint(add(scale(tireFwd,fx),scale(tireRight,fy)),point,true);
         const excess=drive-fx-Math.sign(long)*braking;
@@ -168,7 +194,9 @@ export class RaceWorld {
     // during a shallow landing (recorded in G2/revision02), injecting a spurious yaw impulse.
     const [gx,gy,gz]=environment.ground.center,[gw,gh,gl]=environment.ground.size;
     const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
-    this.world.createCollider(RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45));
+    const groundShape=RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45);
+    if(profileId==='slingmods-sport-v2')groundShape.setCollisionGroups(0x0001ffff);
+    this.world.createCollider(groundShape);
     for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation({x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));
     for(const ramp of environment.ramps){
       const points:number[]=[];for(const x of [-ramp.width/2,ramp.width/2])for(const z of [-ramp.length/2,ramp.length/2]){points.push(x,-0.1,z,x,z<0?ramp.rise:0,z)}

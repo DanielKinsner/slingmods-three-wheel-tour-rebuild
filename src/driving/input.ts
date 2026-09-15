@@ -45,7 +45,7 @@ export class InputResolver {
   if(!this.paused&&!this.armed&&allNeutral)this.armed=true;
   if(!intent.actions.reset){this.holdStart=undefined;this.holdLatched=false}
   if(!this.paused&&this.armed){camera=rise('camera');if(rise('direction')){this.reverse=!this.reverse;this.automaticReverse=false;this.directionReleased=false}
-   if(this.profileId==='slingmods-sport-v1'){
+   if(this.profileId!=='legacy-p08a'){
     const nearStop=Math.abs(this.signedSpeed)<.5,pedalsReleased=intent.throttle<=.02&&intent.brake<=.02;
     if(nearStop&&pedalsReleased)this.directionReleased=true;
     const freshBrake=intent.brake>.02&&previous.brake<=.02,freshThrottle=intent.throttle>.02&&previous.throttle<=.02;
@@ -57,7 +57,7 @@ export class InputResolver {
   }else this.holdStart=undefined;
   return this.output(intent,camera,reset);
  }
- private output(i:Intent,camera:boolean,reset:boolean){const enabled=this.armed&&!this.paused;const reversePedals=this.profileId==='slingmods-sport-v1'&&this.reverse&&this.automaticReverse;const control:VehicleControl={throttle:enabled?(reversePedals?i.brake:i.throttle):0,brake:enabled?(reversePedals?i.throttle:i.brake):0,steer:enabled?i.steer:0,reverse:this.reverse,tractionControl:true};return {control,direction:this.reverse?'R':'D',directionHelp:this.profileId==='slingmods-sport-v1'?'Stop, release pedals, then press brake for reverse. Forward pedal brakes reverse; release and press again to drive. X/right face selects direction explicitly.':'X / right face selects direction',paused:this.paused,armed:this.armed,activeDevice:this.activeDevice,status:this.status,camera,reset,lookBack:enabled&&i.actions.lookBack,resetProgress:this.holdStart===undefined?0:Math.min(1,(this.lastNow-this.holdStart)/INPUT_TUNING.resetHoldMs)}}
+ private output(i:Intent,camera:boolean,reset:boolean){const enabled=this.armed&&!this.paused;const reversePedals=this.profileId!=='legacy-p08a'&&this.reverse&&this.automaticReverse;const control:VehicleControl={throttle:enabled?(reversePedals?i.brake:i.throttle):0,brake:enabled?(reversePedals?i.throttle:i.brake):0,steer:enabled?i.steer:0,reverse:this.reverse,tractionControl:true};return {control,direction:this.reverse?'R':'D',directionHelp:this.profileId!=='legacy-p08a'?'Stop, release pedals, then press brake for reverse. Forward pedal brakes reverse; release and press again to drive. X/right face selects direction explicitly.':'X / right face selects direction',paused:this.paused,armed:this.armed,activeDevice:this.activeDevice,status:this.status,camera,reset,lookBack:enabled&&i.actions.lookBack,resetProgress:this.holdStart===undefined?0:Math.min(1,(this.lastNow-this.holdStart)/INPUT_TUNING.resetHoldMs)}}
 }
 
 /** Browser key events outlive a slow rendering frame; holds remain tied to actual down/up. */

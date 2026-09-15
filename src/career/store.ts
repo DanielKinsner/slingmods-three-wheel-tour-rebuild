@@ -1,19 +1,20 @@
+import {freshOwnBuild,validateOwnBuild,ownBuildTransition,type OwnBuild,type OwnBuildCommand,type RaceRecord} from '../career-experience/model';
 import {SUSPENSION,streetSetup,validSetup,type SuspensionSetup} from './suspension';
 import {DUEL_EVENT,isDuelAwardProof,type DuelAwardProof} from './duel-result';
 import {isCrewAwardProof,type CrewAwardProof,CREW_EVENT,CHAPTER_ID} from './crew-result';
 import {PRODUCT,COLORS,defaultAppearance,type Appearance} from './catalog';
 export const CAREER_DB='slingmods-twt-rebuild-career-v1';
-export interface Receipt {handlingProfile?:'legacy-p08a'|'slingmods-sport-v1';id:string;kind:'award'|'purchase'|'crew-award'|'duel-award'|'suspension-purchase';amount:number;balance:number;first:boolean;at:string;event?:typeof CREW_EVENT|typeof DUEL_EVENT;place?:number;timeMs?:number;chapterBonus?:number}
-export interface Career {version:3;buildMatters:{legacyCrewAccess:boolean;duelCompleted:boolean;duelWon:boolean};suspension:{owned:boolean;equipped:boolean;setup:SuspensionSetup};revision:number;credits:number;owned:boolean;equipped:boolean;appearance:Appearance;chapters:{entry:boolean;firstCompletion:boolean;firstBuild:boolean};crew:{invitationSeen:boolean;completed:boolean;bestPlace:number|null;cleared:boolean;clearAcknowledged:boolean};receipts:Record<string,Receipt>}
-export const freshCareer=():Career=>({version:3,buildMatters:{legacyCrewAccess:false,duelCompleted:false,duelWon:false},suspension:{owned:false,equipped:false,setup:streetSetup()},revision:0,credits:0,owned:false,equipped:false,appearance:defaultAppearance(),chapters:{entry:false,firstCompletion:false,firstBuild:false},crew:{invitationSeen:false,completed:false,bestPlace:null,cleared:false,clearAcknowledged:false},receipts:{}});
-export type Command={type:'duel-award';result:DuelAwardProof;handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'}|{type:'suspension-purchase';id:string;productId:string;vehicleId:string}|{type:'suspension-equip';equipped:boolean}|{type:'suspension-setup';setup:SuspensionSetup}|{type:'award';id:string;valid:boolean;timeMs:number;event:'harbor';handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'}|{type:'purchase';id:string;productId:string;vehicleId:string}|{type:'equip';equipped:boolean}|{type:'appearance';patch:Partial<Appearance>}|{type:'entry'}|{type:'crew-award';result:CrewAwardProof;handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'}|{type:'crew-invitation'}|{type:'crew-acknowledge'};
+export interface Receipt {handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'|'slingmods-sport-v2';id:string;kind:'award'|'purchase'|'crew-award'|'duel-award'|'suspension-purchase'|'chapter-award'|'chapter-purchase';amount:number;balance:number;first:boolean;at:string;event?:string;productId?:string;chapterRecord?:RaceRecord;place?:number;timeMs?:number;chapterBonus?:number}
+export interface Career {version:4;ownBuild:OwnBuild;buildMatters:{legacyCrewAccess:boolean;duelCompleted:boolean;duelWon:boolean};suspension:{owned:boolean;equipped:boolean;setup:SuspensionSetup};revision:number;credits:number;owned:boolean;equipped:boolean;appearance:Appearance;chapters:{entry:boolean;firstCompletion:boolean;firstBuild:boolean};crew:{invitationSeen:boolean;completed:boolean;bestPlace:number|null;cleared:boolean;clearAcknowledged:boolean};receipts:Record<string,Receipt>}
+export const freshCareer=():Career=>({version:4,ownBuild:freshOwnBuild(),buildMatters:{legacyCrewAccess:false,duelCompleted:false,duelWon:false},suspension:{owned:false,equipped:false,setup:streetSetup()},revision:0,credits:0,owned:false,equipped:false,appearance:defaultAppearance(),chapters:{entry:false,firstCompletion:false,firstBuild:false},crew:{invitationSeen:false,completed:false,bestPlace:null,cleared:false,clearAcknowledged:false},receipts:{}});
+export type Command=OwnBuildCommand|{type:'duel-award';result:DuelAwardProof;handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'|'slingmods-sport-v2'}|{type:'suspension-purchase';id:string;productId:string;vehicleId:string}|{type:'suspension-equip';equipped:boolean}|{type:'suspension-setup';setup:SuspensionSetup}|{type:'award';id:string;valid:boolean;timeMs:number;event:'harbor';handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'|'slingmods-sport-v2'}|{type:'purchase';id:string;productId:string;vehicleId:string}|{type:'equip';equipped:boolean}|{type:'appearance';patch:Partial<Appearance>}|{type:'entry'}|{type:'crew-award';result:CrewAwardProof;handlingProfile?:'legacy-p08a'|'slingmods-sport-v1'|'slingmods-sport-v2'}|{type:'crew-invitation'}|{type:'crew-acknowledge'};
 export interface Result {state:Career;changed:boolean;receipt?:Receipt;story?:'entry'|'firstCompletion'|'firstBuild'|'crewPodium'|'crewWin'|'crewFourth'|'duelComplete'|'duelWin'}
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 /** One pure mutation used inside the real readwrite transaction and the session fallback. */
 export function transition(current:Career,command:Command,at=new Date().toISOString()):Result {
- if('handlingProfile' in command&&command.handlingProfile!==undefined&&!['legacy-p08a','slingmods-sport-v1'].includes(command.handlingProfile))throw Error('Unknown handling profile');
+ if('handlingProfile' in command&&command.handlingProfile!==undefined&&!['legacy-p08a','slingmods-sport-v1','slingmods-sport-v2'].includes(command.handlingProfile))throw Error('Unknown handling profile');
  const s=migrateCareer(current);let receipt:Receipt|undefined,story:Result['story'];
- if(command.type==='duel-award'){
+ if(command.type.startsWith('chapter-')){const result=ownBuildTransition(s,command as OwnBuildCommand,at);if(!result.changed)return {state:s,changed:false,receipt:result.receipt};receipt=result.receipt;}else if(command.type==='duel-award'){
   const r=command.result;if(!isDuelAwardProof(r))throw Error('Duel reward requires a verified finish');
   if(!s.chapters.firstCompletion)throw Error('Complete a clean Harbor lap first');
   const prior=s.receipts[r.attemptId];if(prior){if((prior.handlingProfile??'legacy-p08a')!==(command.handlingProfile??'legacy-p08a'))throw Error('Attempt ID belongs to a different handling profile');if(prior.kind!=='duel-award'||prior.event!==r.event||prior.place!==r.place||prior.timeMs!==r.timeMs)throw Error('Attempt ID is already bound to a different result');return {state:s,changed:false,receipt:prior}}
@@ -71,7 +72,7 @@ export function transition(current:Career,command:Command,at=new Date().toISOStr
  }else if(command.type==='entry'){
   if(s.chapters.entry)return {state:s,changed:false};s.chapters.entry=true;story='entry';
  }
- if(receipt&&'handlingProfile' in command){if(!['legacy-p08a','slingmods-sport-v1'].includes(command.handlingProfile!))throw Error('Unknown handling profile');receipt.handlingProfile=command.handlingProfile;}
+ if(receipt&&'handlingProfile' in command){if(!['legacy-p08a','slingmods-sport-v1','slingmods-sport-v2'].includes(command.handlingProfile!))throw Error('Unknown handling profile');receipt.handlingProfile=command.handlingProfile;}
  if(receipt)s.receipts[receipt.id]=receipt;s.revision++;return {state:s,changed:true,receipt,story};
 }
 export interface CareerStore {readonly durable:boolean;read():Promise<Career>;execute(c:Command):Promise<Result>;subscribe(fn:()=>void):()=>void;close():void}
@@ -89,14 +90,21 @@ export class CareerDataError extends Error {
 const object=(v:unknown):v is Record<string,any>=>!!v&&typeof v==='object'&&!Array.isArray(v);
 export function migrateCareer(raw:unknown):Career {
  const fail=()=>{throw new CareerDataError('Saved career needs recovery. Your stored progress has not been replaced.',raw)};
- if(!object(raw)||![1,2,3].includes(raw.version))return fail();
+ if(!object(raw)||![1,2,3,4].includes(raw.version))return fail();
  if(!Number.isSafeInteger(raw.revision)||raw.revision<0||!Number.isSafeInteger(raw.credits)||raw.credits<0||typeof raw.owned!=='boolean'||typeof raw.equipped!=='boolean'||raw.equipped&&!raw.owned)return fail();
  const a=raw.appearance,c=raw.chapters;
  if(!object(a)||!Object.hasOwn(COLORS,a.color)||!Number.isFinite(a.brightness)||a.brightness<.15||a.brightness>.85||typeof a.enabled!=='boolean'||!object(c)||['entry','firstCompletion','firstBuild'].some(k=>typeof c[k]!=='boolean')||!object(raw.receipts))return fail();
- for(const [id,r]of Object.entries(raw.receipts))if(!object(r)||r.id!==id||(r.handlingProfile!==undefined&&!['legacy-p08a','slingmods-sport-v1'].includes(r.handlingProfile))||!uuid.test(id)||!['award','purchase',...(raw.version>=2?['crew-award']:[]),...(raw.version===3?['duel-award','suspension-purchase']:[])].includes(r.kind)||!Number.isSafeInteger(r.amount)||!Number.isSafeInteger(r.balance)||r.balance<0||typeof r.first!=='boolean'||typeof r.at!=='string'||!Number.isFinite(Date.parse(r.at)))return fail();
+ for(const [id,r]of Object.entries(raw.receipts))if(!object(r)||r.id!==id||(r.handlingProfile!==undefined&&!['legacy-p08a','slingmods-sport-v1','slingmods-sport-v2'].includes(r.handlingProfile))||!uuid.test(id)||!['award','purchase',...(raw.version>=2?['crew-award']:[]),...(raw.version>=3?['duel-award','suspension-purchase']:[]),...(raw.version===4?['chapter-award','chapter-purchase']:[])].includes(r.kind)||!Number.isSafeInteger(r.amount)||!Number.isSafeInteger(r.balance)||r.balance<0||typeof r.first!=='boolean'||typeof r.at!=='string'||!Number.isFinite(Date.parse(r.at)))return fail();
  const s=structuredClone(raw);
  if(s.version===1){s.version=2;s.crew={invitationSeen:false,completed:false,bestPlace:null,cleared:false,clearAcknowledged:false}}
  if(s.version===2){s.version=3;s.buildMatters={legacyCrewAccess:s.chapters.firstCompletion,duelCompleted:false,duelWon:false};s.suspension={owned:false,equipped:false,setup:streetSetup()}}
+ if(s.version===3){s.version=4;s.ownBuild=freshOwnBuild()}
+ try{s.ownBuild=validateOwnBuild(s.ownBuild)}catch{return fail()}
+ for(const receipt of Object.values(s.receipts) as Receipt[]){
+  if(receipt.kind==='chapter-award'){const record=s.ownBuild.records.find((r:RaceRecord)=>r.attemptId===receipt.id);if(!record||JSON.stringify(record)!==JSON.stringify(receipt.chapterRecord)||receipt.event!==record.competitionId||receipt.place!==record.place||receipt.timeMs!==record.timeMs||receipt.handlingProfile!==record.handlingProfile||receipt.amount<0)return fail()}
+  if(receipt.kind==='chapter-purchase'&&(!['SM-7720','SM-26801','SM-28919'].includes(receipt.productId!)||receipt.amount!==-({'SM-7720':700,'SM-26801':650,'SM-28919':450} as Record<string,number>)[receipt.productId!]))return fail();
+ }
+ for(const record of s.ownBuild.records)if(s.receipts[record.attemptId]?.kind!=='chapter-award')return fail();
  const b=s.buildMatters,u=s.suspension;
  if(!object(b)||['legacyCrewAccess','duelCompleted','duelWon'].some(k=>typeof b[k]!=='boolean')||b.duelWon&&!b.duelCompleted||!object(u)||typeof u.owned!=='boolean'||typeof u.equipped!=='boolean'||u.equipped&&!u.owned||!validSetup(u.setup))return fail();
  for(const r of Object.values(s.receipts)as Receipt[])if(r.kind==='duel-award'&&(r.event!==DUEL_EVENT||![1,2].includes(r.place!)||!Number.isFinite(r.timeMs)||r.timeMs!<=0||![0,500].includes(r.chapterBonus!)))return fail();
@@ -113,12 +121,12 @@ class IndexedCareerStore implements CareerStore {
  read():Promise<Career>{return new Promise((resolve,reject)=>{
   // Reading and migration share the serialized writer path: no read/overwrite race.
   const tx=this.transaction('readwrite'),store=tx.objectStore('career'),request=store.get('current');let s:Career,error:unknown;
-  request.onsuccess=()=>{try{s=request.result===undefined?freshCareer():migrateCareer(request.result);if(request.result===undefined||request.result.version<3)store.put(s,'current')}catch(e){error=e;tx.abort()}};
+  request.onsuccess=()=>{try{s=request.result===undefined?freshCareer():migrateCareer(request.result);if(request.result===undefined||request.result.version<4)store.put(s,'current')}catch(e){error=e;tx.abort()}};
   tx.oncomplete=()=>resolve(structuredClone(s));tx.onabort=tx.onerror=()=>reject(error??tx.error??Error('Career storage unavailable'));
  })}
  execute(command:Command):Promise<Result>{return new Promise((resolve,reject)=>{
   const tx=this.transaction('readwrite'),store=tx.objectStore('career'),request=store.get('current');let result:Result,error:unknown;
-  request.onsuccess=()=>{try{result=transition(request.result===undefined?freshCareer():migrateCareer(request.result),command);if(result.changed||request.result?.version<3)store.put(result.state,'current')}catch(e){error=e;tx.abort()}};
+  request.onsuccess=()=>{try{result=transition(request.result===undefined?freshCareer():migrateCareer(request.result),command);if(result.changed||request.result?.version<4)store.put(result.state,'current')}catch(e){error=e;tx.abort()}};
   tx.oncomplete=()=>{if(result.changed){this.channel?.postMessage(result.state.revision);this.listeners.forEach(fn=>fn())}resolve(structuredClone(result))};
   tx.onabort=tx.onerror=()=>reject(error??tx.error??Error('Transaction did not commit. Retry when storage is available.'));
  })}
