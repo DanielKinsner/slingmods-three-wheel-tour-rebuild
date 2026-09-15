@@ -1,3 +1,75 @@
+# Current handoff — P08A Build Matters / Review15
+
+## Resume here
+
+Private repository: https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild
+Feature branch: **feature/p08a-build-matters**. Pushed implementation SHA: **ec6876551542ec39111fbf26253c4528c2290cfc**. This is the exact game source used by the versioned candidate and final runtime validation. Later review-tooling/evidence/handoff commits do not change those game bytes; obtain the latest pushed branch tip with `git ls-remote origin refs/heads/feature/p08a-build-matters`. Baseline main at assignment start: `ed363b28ec6ba933dd82c576153bd73c80ea6619`. No force push or merge into main.
+
+P08A implements a new one-lap Maya duel connecting the existing solo time trial and existing three-rival/two-lap crew race, distinct rewards, skippable dialogue, and verified SM-3223 suspension ownership/install/setup/removal. Career schema3 retains earlier progress and crew access. The prepared demo remains separate and keeps easy-entry crew racing. See handoff/P08A-DESIGN.md and handoff/P08A-VALIDATION.json for precise behavior, formulas, evidence and known limits. Review15 ZIP is a lean review packet; the full playable assets are recovered from Git.
+
+## Cross-machine commands
+
+Discover the actual checkout and preserve local changes before switching. For a fresh machine:
+
+```text
+git clone --branch feature/p08a-build-matters https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git
+cd slingmods-three-wheel-tour-rebuild
+git status --short
+git log -1 --oneline
+python handoff/verify-p08a.py
+npm ci
+npm test
+npm run build
+npm run demo:build
+npm run demo:preview
+```
+
+Open http://127.0.0.1:5188/. Choose **Continue Career** for Build Matters, or **Race the Harbor** for the preserved prepared demonstration. Close/reopen the browser at the same origin to retain the real career. Browser saves do not transfer through Git; included earned fixtures are isolated test data. A fresh clone needs no original-machine tools or copied node_modules. The old P07B CURRENT-INPUTS receipt is historical; use the new P08A verifier for this expansion.
+
+Required binaries remain ordinary Git blobs, without LFS. `handoff/P08A-INPUTS.json` inventories all current source/tests/tooling/assets/public inputs. `demo-assets.json` declares runtime closure. New editable product: `assets/blender/products/ddmworks-sm3223-silver.blend`; new runtime model: `public/assets/products/ddmworks-sm3223-silver.glb`. Existing car, rear, driver, Harbor, world materials, branding, audio and original .blend sources remain tracked and unchanged. No re-export is needed to play.
+
+Optional authoring, only for an authorized product edit: locate Blender4.5.2 on PATH or supply its path; run `blender --background --python scripts/build-p08a-suspension.py`. The script reads the accepted car source and writes only the separate product source/export. Do not rerun historical world/car generators. Headless browser tools: `npx playwright install chromium`.
+
+Exact bounded checks (PowerShell; choose a NEW output folder each run):
+
+```powershell
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-physics'
+npx tsx scripts/verify-p08a-physics.ts
+$env:BASE_URL='http://127.0.0.1:5188'
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-loop'
+node scripts/validate-p08a-loop.mjs
+$env:FIXTURE='director-kit/production/evidence/P08A/new-loop/earned-career.json'
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-native'
+$env:WIDTH='1920'
+$env:RACES='2'
+$env:SUSPENSION='equipped'
+Remove-Item Env:EVENT -ErrorAction SilentlyContinue
+node scripts/profile-p08a.mjs
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-stock720'
+$env:WIDTH='1280'
+$env:SUSPENSION='stock'
+node scripts/profile-p08a.mjs
+$env:EVIDENCE_DIR='director-kit/production/evidence/P08A/new-duel720'
+$env:RACES='1'
+$env:SUSPENSION='equipped'
+$env:EVENT='duel'
+node scripts/profile-p08a.mjs
+```
+
+Controlled functional clock is not performance proof. Profile native runs separately with no concurrent recording, Blender, builds or tests. Film reproduction: use fresh EVIDENCE_DIR then `node scripts/record-p08a.mjs`; FFmpeg on PATH is needed for the final excerpt film. It is a silent capture explicitly labeled automated gameplay, not a listening evaluation.
+
+## Results and next action
+
+144 tests pass; normal/demo builds pass; final fresh-career chapter/retry/reload/demo-isolation loop passes. Four 4,200-row traces (accepted baseline/new stock/street/removed) are identical. Native performance status: **all measured active-race attempts pass retained thresholds**. The independent delivery reviewer recomputed all five attempts from raw samples. Initial ready-phase stalls of 183.4–200 ms remain in the raw data; this is no all-phase performance pass. See individual raw attempts in P08A-VALIDATION.json and independent-delivery-review.md. These are this host's observations, not destination-machine or hardware certification.
+
+Local final candidate in this checkout is served at http://127.0.0.1:5195/ by owned PID28588; stop only that owned server with `Stop-Process -Id 28588` if it still exists and matches `scripts/serve-demo.mjs`. PIDs and local build outputs do not transfer. Fresh-machine commands above create a new output identity.
+
+**Next action: director review of Astra-Review-15-Lean.zip and `feature/p08a-build-matters`.** Do not merge into main, deploy, spend or claim G3/G4/final fidelity/hardware/release approval. P07B preflight/recovery was already complete; public hosting remains pending and is not a blocker for this completed development assignment. Historical evidence and original reviewed demo media/output records remain intact.
+
+---
+
+# Historical handoffs below — P08A directive above supersedes only its bounded expansion
+
 # Current handoff - P07B local preflight and cross-machine Git recovery
 
 ## Authority and status

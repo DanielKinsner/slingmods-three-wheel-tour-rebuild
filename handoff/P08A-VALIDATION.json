@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "assignment": "P08A Build Matters",
+  "implementationCommit": "ec6876551542ec39111fbf26253c4528c2290cfc",
+  "baselineCommit": "ed363b28ec6ba933dd82c576153bd73c80ea6619",
+  "branch": "feature/p08a-build-matters",
+  "privateRepository": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild",
+  "status": "INTERNAL_VALIDATED_DIRECTOR_REVIEW_PENDING",
+  "tests": {
+    "passed": 144,
+    "failed": 0
+  },
+  "builds": {
+    "normal": "PASS",
+    "demo": "PASS",
+    "output": {
+      "output": "demo-dist/2026-09-15T15-18-22-235Z-ec6876551542",
+      "commit": "ec6876551542ec39111fbf26253c4528c2290cfc",
+      "buildRef": "ec6876551542",
+      "manifest": "OUTPUT-MANIFEST.json"
+    }
+  },
+  "functional": {
+    "pass": true,
+    "evidence": "director-kit/production/evidence/P08A/loop-final-02",
+    "steps": [
+      "01-fresh-chapter",
+      "02-solo-earned",
+      "03-duel-invitation",
+      "04-maya-duel-earned",
+      "05-workshop-fund",
+      "06-installed-front",
+      "07-stock-comparison",
+      "09-removed-reloaded",
+      "10-equipped-crew-result",
+      "11-before-retry",
+      "12-retry-result",
+      "13-chapter-reloaded",
+      "14-prepared-demo",
+      "15-career-after-demo"
+    ],
+    "earnedBalance": 1250
+  },
+  "physics": {
+    "baselineCommit": "ed363b28ec6ba933dd82c576153bd73c80ea6619",
+    "baselineSourceSha256": "6a72469b66ba3b60f2822565229fc5b5922c6f094dc991d8a18f0e680aed2299",
+    "rowsPerTrace": 4200,
+    "comparison": "Full telemetry deep equality: accepted baseline = new stock = installed street coefficients = removed product. Includes resets, turning, braking and severe curb diagnostic.",
+    "hashes": {
+      "baseline": "82f48f0389a9eadf9786c3820470154c5fe2a157e7bf1ec1e6eb0c65b73f862d",
+      "stock": "82f48f0389a9eadf9786c3820470154c5fe2a157e7bf1ec1e6eb0c65b73f862d",
+      "street": "82f48f0389a9eadf9786c3820470154c5fe2a157e7bf1ec1e6eb0c65b73f862d",
+      "removed": "82f48f0389a9eadf9786c3820470154c5fe2a157e7bf1ec1e6eb0c65b73f862d"
+    },
+    "response": {
+      "stock": {
+        "settledHeight": -5.12599944713088e-08,
+        "peakVerticalSpeed": 0.9772390723228455,
+        "maxLoad": 6306.621766402014
+      },
+      "soft": {
+        "settledHeight": 6.79492950239613e-08,
+        "peakVerticalSpeed": 1.0072389841079712,
+        "maxLoad": 6403.150930161075
+      },
+      "firm": {
+        "settledHeight": 5.14984130839391e-07,
+        "peakVerticalSpeed": 0.7352992296218872,
+        "maxLoad": 5329.568729763922
+      },
+      "raised": {
+        "settledHeight": 0.0199999296665192,
+        "peakVerticalSpeed": 0.8936590552330017,
+        "maxLoad": 6108.4973709333735
+      },
+      "lowered": {
+        "settledHeight": -0.0200000321865082,
+        "peakVerticalSpeed": 1.0651426315307617,
+        "maxLoad": 6488.8843007694495
+      }
+    },
+    "limitations": "Drop/curb diagnostics quantify game parameters, not manufacturer performance. No claimed faster lap or general handling gain."
+  },
+  "performance": {
+    "native-equipped1080-repeat": {
+      "sourceCommit": "ec6876551542ec39111fbf26253c4528c2290cfc",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "browser": "153.0.8010.12",
+      "width": 1920,
+      "equipped": true,
+      "duel": false,
+      "overflow": 0,
+      "thresholds": {
+        "p95Ms": 20,
+        "p99Ms": 33.4,
+        "maxMs": 100
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "samples": 9955,
+          "p95Ms": 16.70000000001164,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 16.800000000017462,
+          "activeOver100Ms": 0,
+          "pass": true,
+          "result": {
+            "event": "harbor-crew-night-v1",
+            "attemptId": "9accfd3d-cb6b-4e72-a5dc-ccd544eb7269",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 2,
+            "timeMs": 165904.8388751584,
+            "place": 3,
+            "invalidReason": null
+          },
+          "allFinishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 162674.67684626055,
+              "lap": 2
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 164459.50658576208,
+              "lap": 2
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 165904.8388751584,
+              "lap": 2
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 169903.04365402256,
+              "lap": 2
+            }
+          ],
+          "memory": {
+            "geometries": 314,
+            "textures": 80
+          }
+        },
+        {
+          "attempt": 2,
+          "samples": 9950,
+          "p95Ms": 16.70000000001164,
+          "p99Ms": 16.800000000017462,
+          "maxMs": 33.39999999999418,
+          "activeOver100Ms": 0,
+          "pass": true,
+          "result": {
+            "event": "harbor-crew-night-v1",
+            "attemptId": "a537c2fc-f543-48bf-a032-d57316239395",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 2,
+            "timeMs": 165904.8397581787,
+            "place": 3,
+            "invalidReason": null
+          },
+          "allFinishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 162674.67684626055,
+              "lap": 2
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 164459.50658576208,
+              "lap": 2
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 165904.8397581787,
+              "lap": 2
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 169903.04504585481,
+              "lap": 2
+            }
+          ],
+          "memory": {
+            "geometries": 314,
+            "textures": 80
+          }
+        }
+      ],
+      "errors": [],
+      "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+    },
+    "native-stock720-repeat": {
+      "sourceCommit": "ec6876551542ec39111fbf26253c4528c2290cfc",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "browser": "153.0.8010.12",
+      "width": 1280,
+      "equipped": false,
+      "duel": false,
+      "overflow": 0,
+      "thresholds": {
+        "p95Ms": 20,
+        "p99Ms": 33.4,
+        "maxMs": 100
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "samples": 9952,
+          "p95Ms": 16.70000000001164,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 33.30000000000291,
+          "activeOver100Ms": 0,
+          "pass": true,
+          "result": {
+            "event": "harbor-crew-night-v1",
+            "attemptId": "a9d460e8-a801-4a63-a9bb-3e879653c62f",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 2,
+            "timeMs": 165902.96992009124,
+            "place": 3,
+            "invalidReason": null
+          },
+          "allFinishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 162674.67684626055,
+              "lap": 2
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 164459.50658576208,
+              "lap": 2
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 165902.96992009124,
+              "lap": 2
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 169922.26156856818,
+              "lap": 2
+            }
+          ],
+          "memory": {
+            "geometries": 306,
+            "textures": 80
+          }
+        },
+        {
+          "attempt": 2,
+          "samples": 9955,
+          "p95Ms": 16.70000000001164,
+          "p99Ms": 16.800000000017462,
+          "maxMs": 16.800000000046566,
+          "activeOver100Ms": 0,
+          "pass": true,
+          "result": {
+            "event": "harbor-crew-night-v1",
+            "attemptId": "b2617ba3-3e91-4fd2-84b9-9c8edd67be81",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 2,
+            "timeMs": 165902.9699200773,
+            "place": 3,
+            "invalidReason": null
+          },
+          "allFinishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 162674.67684626055,
+              "lap": 2
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 164459.50658576208,
+              "lap": 2
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 165902.9699200773,
+              "lap": 2
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 169922.2571910941,
+              "lap": 2
+            }
+          ],
+          "memory": {
+            "geometries": 306,
+            "textures": 80
+          }
+        }
+      ],
+      "errors": [],
+      "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+    },
+    "native-duel720": {
+      "sourceCommit": "ec6876551542ec39111fbf26253c4528c2290cfc",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "browser": "153.0.8010.12",
+      "width": 1280,
+      "equipped": true,
+      "duel": true,
+      "overflow": 0,
+      "thresholds": {
+        "p95Ms": 20,
+        "p99Ms": 33.4,
+        "maxMs": 100
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "samples": 4710,
+          "p95Ms": 16.70000000001164,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 16.80000000000291,
+          "activeOver100Ms": 0,
+          "pass": true,
+          "result": {
+            "event": "harbor-maya-duel-v1",
+            "attemptId": "3fbc071b-fb01-4b7c-992c-ce8ca792cc00",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 78484.19505298171,
+            "place": 1,
+            "invalidReason": null
+          },
+          "allFinishers": [
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 78484.19505298171,
+              "lap": 1
+            },
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 83308.48841990194,
+              "lap": 1
+            }
+          ],
+          "memory": {
+            "geometries": 314,
+            "textures": 72
+          }
+        }
+      ],
+      "errors": [],
+      "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+    }
+  },
+  "film": {
+    "pass": true,
+    "bytes": 14445902,
+    "sha256": "dbb533f57bac88230754b0cb8c9c7377ce10dbcb694e5b65c254ead224eb7dce",
+    "durationSeconds": 63.68,
+    "width": 1280,
+    "height": 720,
+    "fps": 25,
+    "hasAudio": false,
+    "decodedWithoutErrors": true,
+    "sourceCommit": "ec6876551542ec39111fbf26253c4528c2290cfc",
+    "rawSource": {
+      "path": "director-kit/production/evidence/P08A/film/raw-video/page@c50cfa25485b49bbad969e767182b04c.webm",
+      "bytes": 47268928,
+      "sha256": "cdc2fd0e9b8c1ab88c8624b80496fd7cbcf5559821fbae86bbd4f5b1375a0bef",
+      "recovery": "Full continuous source is tracked in Git; lean ZIP includes the short film and edit decisions only."
+    },
+    "visualReview": "Inspected eight-point contact sheet plus dedicated chapter, installed-hardware and final reload frames. Verified actual chapter UI, distinct duel/crew HUDs/results, silver-versus-stock hardware and saved installed progression. Hardware inspection clearly labels temporarily hidden body.",
+    "method": "Native RAF isolated browser recording, original control-only driver, ordinary UI, no forced finishes/rewards. Real-speed hard-cut excerpts. Silent capture explicitly labeled. Full completed retry and demo isolation are in the separate functional evidence; film shows retry initiation and reload. Not a listening or performance test."
+  },
+  "independentReview": "director-kit/production/evidence/P08A/independent-review-final.md",
+  "knownLimits": [
+    "Game damping coefficients and hardware shape are estimates; no manufacturer performance claim.",
+    "Hardware inspection temporarily hides body and is labeled. Existing rear raycast/linkage approximation retained.",
+    "Historical repeat slowdown cause remains unknown. New runs do not diagnose old failures.",
+    "G3/G4, global fidelity, physical controllers/mobile/broad GPUs, human fun/listening and authentic exhaust remain held.",
+    "Public hosting is pending, not a P08A development blocker. No release or publication approved."
+  ],
+  "nextAction": "Director review of Astra-Review-15-Lean.zip and feature branch. Do not merge into main or publish before explicit approval."
+}

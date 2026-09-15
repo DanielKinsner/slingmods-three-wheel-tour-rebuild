@@ -1,0 +1,332 @@
+[
+  {
+    "name": "front_damper_left",
+    "type": "MESH",
+    "parent": "suspension_front_left",
+    "position": [
+      -0.6200000047683716,
+      1.3217499256134033,
+      0.4599999785423279
+    ],
+    "dimensions": [
+      0.057999998331069946,
+      0.057999998331069946,
+      0.4566752016544342
+    ]
+  },
+  {
+    "name": "front_damper_right",
+    "type": "MESH",
+    "parent": "suspension_front_right",
+    "position": [
+      0.6200000047683716,
+      1.3217499256134033,
+      0.4599999785423279
+    ],
+    "dimensions": [
+      0.057999998331069946,
+      0.057999998331069946,
+      0.4566752016544342
+    ]
+  },
+  {
+    "name": "front_spring_left",
+    "type": "CURVE",
+    "parent": "suspension_front_left",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.3440888822078705,
+      0.12365114688873291,
+      0.40375933051109314
+    ]
+  },
+  {
+    "name": "front_spring_right",
+    "type": "CURVE",
+    "parent": "suspension_front_right",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.34430992603302,
+      0.12374389171600342,
+      0.40375348925590515
+    ]
+  },
+  {
+    "name": "mount_suspension_front_left",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      -0.47999998927116394,
+      1.309999942779541,
+      0.6399999856948853
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "mount_suspension_front_right",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      0.47999998927116394,
+      1.309999942779541,
+      0.6399999856948853
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "rear_coil_spring",
+    "type": "MESH",
+    "parent": "shock_spring_visual",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.09496355056762695,
+      0.15912210941314697,
+      0.3389355540275574
+    ]
+  },
+  {
+    "name": "rear_shock_lower_eye",
+    "type": "MESH",
+    "parent": "shock_piston_visual",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.042999982833862305,
+      0.05200004577636719,
+      0.05199998617172241
+    ]
+  },
+  {
+    "name": "rear_shock_piston",
+    "type": "MESH",
+    "parent": "shock_piston_visual",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.02399998903274536,
+      0.09831118583679199,
+      0.2913900315761566
+    ]
+  },
+  {
+    "name": "rear_shock_upper_eye",
+    "type": "MESH",
+    "parent": "shock_body_visual",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.042999982833862305,
+      0.05200004577636719,
+      0.05200004577636719
+    ]
+  },
+  {
+    "name": "rear_shock_upper_sleeve",
+    "type": "MESH",
+    "parent": "shock_body_visual",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.054000020027160645,
+      0.1250314712524414,
+      0.2903240919113159
+    ]
+  },
+  {
+    "name": "shock_body_visual",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "shock_lower",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      0.2800000011920929,
+      -1.1374499797821045,
+      0.3728500008583069
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "shock_lower_cross_pin",
+    "type": "MESH",
+    "parent": "rear_arm_visual",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.10000000894069672,
+      0.02200007438659668,
+      0.022000014781951904
+    ]
+  },
+  {
+    "name": "shock_piston_visual",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "shock_spring_visual",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "shock_upper",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      0.2800000011920929,
+      -1.024999976158142,
+      0.800000011920929
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "shock_upper_chassis_bracket_-1",
+    "type": "MESH",
+    "parent": "rear_body_static",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.015999987721443176,
+      0.0549999475479126,
+      0.11699998378753662
+    ]
+  },
+  {
+    "name": "shock_upper_chassis_bracket_1",
+    "type": "MESH",
+    "parent": "rear_body_static",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.01600000262260437,
+      0.0549999475479126,
+      0.11699998378753662
+    ]
+  },
+  {
+    "name": "shock_upper_cross_pin",
+    "type": "MESH",
+    "parent": "rear_body_static",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.10399998724460602,
+      0.02200007438659668,
+      0.02199995517730713
+    ]
+  },
+  {
+    "name": "suspension_front_left",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "suspension_front_right",
+    "type": "EMPTY",
+    "parent": "vehicle_root",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dimensions": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+]

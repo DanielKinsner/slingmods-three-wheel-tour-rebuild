@@ -1,3 +1,11 @@
+# Current pointer — P08A Build Matters / Review15
+
+Read HANDOFF.md and handoff/P08A-VALIDATION.json. The current private feature branch is `feature/p08a-build-matters`, with tested game implementation `ec6876551542ec39111fbf26253c4528c2290cfc`. Use `python handoff/verify-p08a.py` for current inputs. P08A is complete for director review; no merge into main or publication is approved. P07B preflight/recovery below is historical and already complete. Hosting remains pending and does not block P08A. Preserve all current work and held G3/G4, fidelity, hardware and release gates.
+
+---
+
+# Historical record below
+
 # P07B local preflight / complete remote handoff
 
 Read HANDOFF.md (including NEW-MACHINE RESUME PROMPT), AGENTS.md, handoff/P07B-VALIDATION.json and director-kit/director-addenda/review-14/CODEX_NEXT.md. P07A accepted by Review14; existing source/assets preserved. P07B local delivery and fresh remote clone validation are complete. Tested commit886a0d41d87320b87ea4458f8f261ad07f637ac6; receipt-only follow-up commits preserve runtime. Read the validation receipt for full remote-recovery proof, retained failures and exact local server identities.

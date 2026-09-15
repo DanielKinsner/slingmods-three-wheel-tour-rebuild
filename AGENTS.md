@@ -1,3 +1,9 @@
+# Current return point — P08A Build Matters / Review15
+
+Dan's 2026-09-15 directive authorizes the bounded builder-racer expansion and ordinary feature-branch commits/push. Read HANDOFF.md, handoff/P08A-DESIGN.md and handoff/P08A-VALIDATION.json. Preserve the implementation and historical evidence; no automatic new assignment. Branch feature/p08a-build-matters; game implementation ec6876551542ec39111fbf26253c4528c2290cfc. No merge to main, deployment, spending, desktop takeover, account/site changes or G3/G4/final fidelity/hardware/release approval. Public hosting remains pending and is not a development blocker. One lead and one bounded independent reviewer; isolated browser tests and background Blender only. Older restriction headers below are historical and superseded only within P08A.
+
+---
+
 # Current return point - P07B local preflight and remote handoff complete
 
 Read HANDOFF.md first, then director-kit/director-addenda/review-14/CODEX_NEXT.md, AUDIT.md and packets/P07B-HOSTED-DEMONSTRATION.md. Review14 accepts the bounded P07A local demo. Do not restart P06C/P07A or re-export assets to launch it.

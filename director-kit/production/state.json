@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-15T06:40:35.733741+00:00",
+  "as_of": "2026-09-15T15:46:12.387531+00:00",
   "workspace_verified": true,
-  "branch": "main",
-  "commit": "886a0d41d87320b87ea4458f8f261ad07f637ac6",
+  "branch": "feature/p08a-build-matters",
+  "commit": "ec6876551542ec39111fbf26253c4528c2290cfc",
   "current_gate": "G3",
-  "current_packet": "P07B Hosted Demonstration - local preflight and Git handoff",
-  "next_action": "Await owner authorization/access for separate eligible P07B hosting, then publish verified stage and run actual HTTPS acceptance. Local preflight/Git handoff complete; do not repeat P06C/P07A.",
+  "current_packet": "P08A Build Matters",
+  "next_action": "Director review of Astra-Review-15-Lean.zip and feature branch. Do not merge into main or publish before explicit approval.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -58,9 +58,9 @@
     }
   },
   "blockers": [
-    "G3/G4 and global environmental art remain pending.",
-    "Publication/account linking/spending not authorized.",
-    "Historical repeat slowdown not reproduced in observed baseline/final contexts; original cause unproven."
+    "G3/G4, global fidelity and physical/human approval remain held.",
+    "Publication remains pending and is not a P08A development blocker.",
+    "Historical repeat slowdown cause remains unknown."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
@@ -99,7 +99,7 @@
   "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
-  "commit_meaning": "Exact source commit built/tested/launched from fresh remote clone; later P07B receipt-only commits do not alter runtime.",
+  "commit_meaning": "Exact P08A implementation used by the versioned local candidate and final tests. Later evidence/tooling/handoff commits do not change game source. P07B remote recovery is historical, not rerun as P08A.",
   "known_limitations": [
     "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
     "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
@@ -137,12 +137,12 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "tests": "136/136 fresh remote clone PASS",
-    "builds": "normal/demo/static stage PASS",
-    "browser": "6 native steps +11hardeningcases +50HTTPpayloadfiles/8missingpaths PASS locally",
-    "performance": "Two complete demo races individually p95/p99 16.8ms; maxima33.3/50ms; zeroactive>100ms; no pooled acceptance",
-    "authoring": "27sources recoverable; historical16imagepaths reloadedinmemory, no save",
-    "evidence": "production/evidence/P07B/remote-validation"
+    "tests": "144/144 PASS",
+    "builds": "normal/demo PASS",
+    "browser": "fresh-career complete chapter, retry/reload and separate demo PASS",
+    "physics": "4 x4200 telemetry rows identical against accepted baseline",
+    "performance": "individual native summaries in handoff/P08A-VALIDATION.json",
+    "evidence": "production/evidence/P08A"
   },
   "director_addendum": "director-addenda/review-14/CODEX_NEXT.md",
   "drivetrain_addendum": {
@@ -635,5 +635,38 @@
       "evidence": "production/evidence/P04B2"
     },
     "review14AcceptedLocalDemo": true
+  },
+  "p08a": {
+    "status": "INTERNAL_VALIDATED_DIRECTOR_REVIEW_PENDING",
+    "implementationCommit": "ec6876551542ec39111fbf26253c4528c2290cfc",
+    "functional": {
+      "pass": true,
+      "evidence": "director-kit/production/evidence/P08A/loop-final-02",
+      "steps": [
+        "01-fresh-chapter",
+        "02-solo-earned",
+        "03-duel-invitation",
+        "04-maya-duel-earned",
+        "05-workshop-fund",
+        "06-installed-front",
+        "07-stock-comparison",
+        "09-removed-reloaded",
+        "10-equipped-crew-result",
+        "11-before-retry",
+        "12-retry-result",
+        "13-chapter-reloaded",
+        "14-prepared-demo",
+        "15-career-after-demo"
+      ],
+      "earnedBalance": 1250
+    },
+    "independentReview": "director-kit/production/evidence/P08A/independent-review-final.md",
+    "knownLimits": [
+      "Game damping coefficients and hardware shape are estimates; no manufacturer performance claim.",
+      "Hardware inspection temporarily hides body and is labeled. Existing rear raycast/linkage approximation retained.",
+      "Historical repeat slowdown cause remains unknown. New runs do not diagnose old failures.",
+      "G3/G4, global fidelity, physical controllers/mobile/broad GPUs, human fun/listening and authentic exhaust remain held.",
+      "Public hosting is pending, not a P08A development blocker. No release or publication approved."
+    ]
   }
 }

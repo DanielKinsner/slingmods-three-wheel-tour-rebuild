@@ -1,3 +1,11 @@
+# Current pointer — P08A Build Matters / Review15
+
+Read HANDOFF.md and handoff/P08A-VALIDATION.json. The current private feature branch is `feature/p08a-build-matters`, with tested game implementation `ec6876551542ec39111fbf26253c4528c2290cfc`. Use `python handoff/verify-p08a.py` for current inputs. P08A is complete for director review; no merge into main or publication is approved. P07B preflight/recovery below is historical and already complete. Hosting remains pending and does not block P08A. Preserve all current work and held G3/G4, fidelity, hardware and release gates.
+
+---
+
+# Historical record below
+
 # P07B publication preflight - local only
 
 Review14 accepts the current bounded local demo. P07B changes static delivery only; the owner authorizes Git main handoff but has NOT authorized website publication/account linking. No hosted URL, provider project, plan, quota or public visibility has been verified. The only pending external prerequisite is owner authorization for a separate eligible no-cost demo target plus access. Git handoff proceeds independently.

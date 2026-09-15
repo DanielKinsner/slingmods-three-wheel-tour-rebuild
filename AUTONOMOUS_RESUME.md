@@ -1,3 +1,11 @@
+# Current pointer — P08A Build Matters / Review15
+
+Read HANDOFF.md and handoff/P08A-VALIDATION.json. The current private feature branch is `feature/p08a-build-matters`, with tested game implementation `ec6876551542ec39111fbf26253c4528c2290cfc`. Use `python handoff/verify-p08a.py` for current inputs. P08A is complete for director review; no merge into main or publication is approved. P07B preflight/recovery below is historical and already complete. Hosting remains pending and does not block P08A. Preserve all current work and held G3/G4, fidelity, hardware and release gates.
+
+---
+
+# Historical record below
+
 # Current resume entry
 
 Read HANDOFF.md and AGENTS.md. The 2026-09-14 user request authorizes a private Git handoff on main to DanielKinsner/slingmods-three-wheel-tour-rebuild. It supersedes the no-remote rule below only for that transfer. Review12 implementation is complete for review; await the next director packet before changing gameplay or art. The former local-only/no-remote statements below describe delivery history, not current remote state.
