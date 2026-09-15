@@ -51,6 +51,8 @@ All required binaries are ordinary tracked Git blobs; no LFS pointer/setup is re
 - Packed images plus tracked original/derived material resources under `assets/blender/showcase-quality/` and `public/assets/showcase-quality/`; P06C road/frond/layout receipts and authoring generators remain tracked.
 - Runtime closure is `demo-assets.json`; all public runtime models/maps/audio/data/logo/notices are transferred. Background read-only `scripts/inspect-blender-transfer.py` checks every .blend and packed/clone-local dependencies without saving.
 
+The historical assets/blender/vehicles/slingshot-p03a-material-lab.blend retains16 unpacked texture paths from the originating machine. Their actual bytes are tracked under public/assets/textures/p03a. The current game sources are packed/relative and do not need this repair. The inspector verifies in-memory rebase/reload with scripts/rebase-blender-images.py without saving the original. To inspect that old file interactively under explicit user control, load it in Blender and run that recovery script; save any edited recovery as a new file, preserving the historical original. Missing dependencies are never replaced with placeholders.
+
 Current authoring README identifies the generators; do not run P06B's historical full-export commands as a fresh-machine kickoff. Original vehicle, rear, driver, route/collision and physics remain protected.
 
 ## What transfers and what does not
