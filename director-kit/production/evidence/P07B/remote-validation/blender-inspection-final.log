@@ -1,0 +1,34 @@
+Blender 4.5.2 LTS (hash ab25eae04993 built 2025-08-20 02:20:52)
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\calibration.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\drivers\test-driver.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\harbor\harbor-p04a.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\harbor\harbor.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\inspection-bay-p03a.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\inspection-bay-p03a1.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\practice-p03b1.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\products\tricled-sm133-base.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\showcase\preserved-foundation.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\showcase\showcase-kit.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\showcase-quality\built-waterfront-foundation.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\showcase-quality\built-waterfront.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\showcase-quality\quality-foundation.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\showcase-quality\quality-kit.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\showcase-quality\showcase-bay-exact.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\showcase-quality\showcase-branding.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\test-pad.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\vehicles\revision01\slingshot-p01.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\vehicles\slingshot-p01.blend"
+Read blend: "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\vehicles\slingshot-p03a-material-lab.blend"
+Traceback (most recent call last):
+  File "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\scripts\inspect-blender-transfer.py", line 11, in <module>
+    recovered=recover(root)
+              ^^^^^^^^^^^^^
+  File "C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\scripts\rebase-blender-images.py", line 19, in recover_images
+    if not image.has_data or min(image.size)==0:raise RuntimeError('Image reload failed: '+image.name)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Image reload failed: instrument-scale_basecolor
+
+Info: Read library: 'C:\Users\Daniel Kinsner\AppData\Local\Temp\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\checkout\assets\blender\vehicles\slingshot-p04a1.blend', '//..\vehicles\slingshot-p04a1.blend', parent '<direct>'
+Error: script failed, file: 'scripts/inspect-blender-transfer.py', exiting.
+
+Blender quit

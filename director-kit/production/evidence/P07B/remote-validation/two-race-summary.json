@@ -1,0 +1,5028 @@
+{
+  "path": "director-kit/production/evidence/P07B/remote-validation/two-race/run.json",
+  "rawSHA256": "0f915279f1dee43152705e44e6ac0b52c04d52e15beb8d74b51e92e3cab38cfd",
+  "runtime": "886a0d41d873",
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "buffer": [
+    1920,
+    1080
+  ],
+  "dpr": 1,
+  "browser": "153.0.8010.12",
+  "recorded": false,
+  "timeOrigin": 1789453841618.6,
+  "attempts": [
+    {
+      "attempt": 1,
+      "result": {
+        "event": "harbor-crew-night-v1",
+        "attemptId": "da674d39-4e4a-4666-bc03-d0bcf571f38b",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 2,
+        "timeMs": 165902.96923624715,
+        "place": 3,
+        "invalidReason": null
+      },
+      "intervals": {
+        "count": 9954,
+        "p50": 16.69999999999709,
+        "p95": 16.79999999998836,
+        "p99": 16.80000000000291,
+        "max": 33.30000000000291,
+        "over100": 0
+      },
+      "renderSubmissionCPU": {
+        "count": 9954,
+        "p50": 4.200000047683716,
+        "p95": 7.400000035762787,
+        "p99": 10,
+        "max": 18.599999964237213,
+        "over100": 0
+      },
+      "frameCPU": {
+        "count": 9954,
+        "p50": 5.800000011920929,
+        "p95": 9.699999988079071,
+        "p99": 12.600000023841858,
+        "max": 22.200000047683716,
+        "over100": 0
+      },
+      "targetMet": true,
+      "firstRAF": 5022.6,
+      "lastRAF": 170915.9,
+      "programs": [
+        26,
+        27
+      ],
+      "host": {
+        "samples": 83,
+        "globalCPU": {
+          "count": 83,
+          "p50": 13.3301017935046,
+          "p95": 17.557066537153954,
+          "p99": 19.94191674733785,
+          "max": 19.94191674733785,
+          "over100": 0
+        },
+        "collectorWallMs": {
+          "count": 83,
+          "p50": 16.530800000005286,
+          "p95": 25.429500000001326,
+          "p99": 31.767099999996162,
+          "max": 31.767099999996162,
+          "over100": 0
+        },
+        "processMeanHostPercent": [
+          {
+            "name": "chrome-headless-shell",
+            "percent": 2.818383319527399
+          },
+          {
+            "name": "ChatGPT",
+            "percent": 1.896278499141208
+          },
+          {
+            "name": "python",
+            "percent": 1.37252146359005
+          },
+          {
+            "name": "Creative Cloud",
+            "percent": 0.24653105488200094
+          },
+          {
+            "name": "yes-recon-harness",
+            "percent": 0.1839396718021142
+          },
+          {
+            "name": "explorer",
+            "percent": 0.17251335234714005
+          },
+          {
+            "name": "ffmpeg",
+            "percent": 0.13182923933822052
+          },
+          {
+            "name": "Wispr Flow",
+            "percent": 0.10994162377608628
+          },
+          {
+            "name": "Discord",
+            "percent": 0.08244257006596582
+          },
+          {
+            "name": "claude",
+            "percent": 0.07630991422447111
+          },
+          {
+            "name": "pwsh",
+            "percent": 0.06781103782876455
+          },
+          {
+            "name": "msedgewebview2",
+            "percent": 0.04083800698817846
+          },
+          {
+            "name": "chrome",
+            "percent": 0.04036823197692045
+          },
+          {
+            "name": "codex",
+            "percent": 0.036838151939505556
+          },
+          {
+            "name": "audiodg",
+            "percent": 0.03508352638533957
+          },
+          {
+            "name": "NVIDIA Overlay",
+            "percent": 0.019004391035256075
+          },
+          {
+            "name": "Wispr Flow Helper",
+            "percent": 0.018713062830213026
+          },
+          {
+            "name": "nvsphelper64",
+            "percent": 0.01576887472267162
+          },
+          {
+            "name": "CrossDeviceService",
+            "percent": 0.010228810889325084
+          },
+          {
+            "name": "node",
+            "percent": 0.009944095190873867
+          },
+          {
+            "name": "GitHubDesktop",
+            "percent": 0.009648858291577661
+          },
+          {
+            "name": "nvcontainer",
+            "percent": 0.007321249543625721
+          },
+          {
+            "name": "AdobeCollabSync",
+            "percent": 0.007018585435584719
+          },
+          {
+            "name": "CoreSync",
+            "percent": 0.005847162491658276
+          },
+          {
+            "name": "msrdc",
+            "percent": 0.005559593905237433
+          },
+          {
+            "name": "Creative Cloud UI Helper",
+            "percent": 0.005559338324074191
+          },
+          {
+            "name": "Adobe Desktop Service",
+            "percent": 0.0055527733906683
+          },
+          {
+            "name": "codex-computer-use-swift",
+            "percent": 0.005264098921590096
+          },
+          {
+            "name": "codex-code-mode-host",
+            "percent": 0.00379815016623642
+          },
+          {
+            "name": "ms-teams",
+            "percent": 0.003212667001759781
+          },
+          {
+            "name": "Creative Cloud Helper",
+            "percent": 0.0014609935485629655
+          },
+          {
+            "name": "OneDrive.Sync.Service",
+            "percent": 0.0014598708367148424
+          },
+          {
+            "name": "AdobeIPCBroker",
+            "percent": 0.0008761503163761581
+          },
+          {
+            "name": "backgroundTaskHost",
+            "percent": 0.0005846813023387814
+          },
+          {
+            "name": "svchost",
+            "percent": 0.0005846472123236982
+          },
+          {
+            "name": "StartMenuExperienceHost",
+            "percent": 0.0005842910715074029
+          },
+          {
+            "name": "conhost",
+            "percent": 0.0005817156183000563
+          },
+          {
+            "name": "WidgetService",
+            "percent": 0.0002924443288863354
+          },
+          {
+            "name": "SearchHost",
+            "percent": 0.0002918706809538892
+          },
+          {
+            "name": "AsusSwitch",
+            "percent": 0.0
+          },
+          {
+            "name": "wlanext",
+            "percent": 0.0
+          },
+          {
+            "name": "taskhostw",
+            "percent": 0.0
+          },
+          {
+            "name": "DataExchangeHost",
+            "percent": 0.0
+          },
+          {
+            "name": "winlogon",
+            "percent": 0.0
+          },
+          {
+            "name": "SearchIndexer",
+            "percent": 0.0
+          },
+          {
+            "name": "OpenConsole",
+            "percent": 0.0
+          },
+          {
+            "name": "fontdrvhost",
+            "percent": 0.0
+          },
+          {
+            "name": "sqlwriter",
+            "percent": 0.0
+          },
+          {
+            "name": "wslservice",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusOptimizationStartupTask",
+            "percent": 0.0
+          },
+          {
+            "name": "RuntimeBroker",
+            "percent": 0.0
+          },
+          {
+            "name": "wslhost",
+            "percent": 0.0
+          },
+          {
+            "name": "MpDefenderCoreService",
+            "percent": 0.0
+          },
+          {
+            "name": "lsass",
+            "percent": 0.0
+          },
+          {
+            "name": "PhoneExperienceHost",
+            "percent": 0.0
+          },
+          {
+            "name": "acrotray",
+            "percent": 0.0
+          },
+          {
+            "name": "node_repl",
+            "percent": 0.0
+          },
+          {
+            "name": "services",
+            "percent": 0.0
+          },
+          {
+            "name": "DefenderSessionHelper",
+            "percent": 0.0
+          },
+          {
+            "name": "wslinstaller",
+            "percent": 0.0
+          },
+          {
+            "name": "MsMpEng",
+            "percent": 0.0
+          },
+          {
+            "name": "smss",
+            "percent": 0.0
+          },
+          {
+            "name": "ProW File Compressor",
+            "percent": 0.0
+          },
+          {
+            "name": "CCXProcess",
+            "percent": 0.0
+          },
+          {
+            "name": "vmcompute",
+            "percent": 0.0
+          },
+          {
+            "name": "Memory Compression",
+            "percent": 0.0
+          },
+          {
+            "name": "WindowsTerminal",
+            "percent": 0.0
+          },
+          {
+            "name": "dwm",
+            "percent": 0.0
+          },
+          {
+            "name": "WMIRegistrationService",
+            "percent": 0.0
+          },
+          {
+            "name": "Focusrite Notifier",
+            "percent": 0.0
+          },
+          {
+            "name": "vmwp",
+            "percent": 0.0
+          },
+          {
+            "name": "AbletonAudioCpl",
+            "percent": 0.0
+          },
+          {
+            "name": "AggregatorHost",
+            "percent": 0.0
+          },
+          {
+            "name": "MuseAuthService",
+            "percent": 0.0
+          },
+          {
+            "name": "TextInputHost",
+            "percent": 0.0
+          },
+          {
+            "name": "cmd",
+            "percent": 0.0
+          },
+          {
+            "name": "OneDrive",
+            "percent": 0.0
+          },
+          {
+            "name": "NgcIso",
+            "percent": 0.0
+          },
+          {
+            "name": "Widgets",
+            "percent": 0.0
+          },
+          {
+            "name": "SystemSettings",
+            "percent": 0.0
+          },
+          {
+            "name": "chrome-native-host",
+            "percent": 0.0
+          },
+          {
+            "name": "OBUpdateService",
+            "percent": 0.0
+          },
+          {
+            "name": "dasHost",
+            "percent": 0.0
+          },
+          {
+            "name": "Secure System",
+            "percent": 0.0
+          },
+          {
+            "name": "SecurityHealthService",
+            "percent": 0.0
+          },
+          {
+            "name": "Intel_PIE_Service",
+            "percent": 0.0
+          },
+          {
+            "name": "LsaIso",
+            "percent": 0.0
+          },
+          {
+            "name": "ApplicationFrameHost",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusSoftwareManager",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusSoftwareManagerAgent",
+            "percent": 0.0
+          },
+          {
+            "name": "CrossDeviceResume",
+            "percent": 0.0
+          },
+          {
+            "name": "ShellHost",
+            "percent": 0.0
+          },
+          {
+            "name": "WmiPrvSE",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusAppService",
+            "percent": 0.0
+          },
+          {
+            "name": "dllhost",
+            "percent": 0.0
+          },
+          {
+            "name": "Idle",
+            "percent": 0.0
+          },
+          {
+            "name": "ctfmon",
+            "percent": 0.0
+          },
+          {
+            "name": "RstMwService",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusSystemDiagnosis",
+            "percent": 0.0
+          },
+          {
+            "name": "Video.UI",
+            "percent": 0.0
+          },
+          {
+            "name": "csrss",
+            "percent": 0.0
+          },
+          {
+            "name": "jhi_service",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusSystemAnalysis",
+            "percent": 0.0
+          },
+          {
+            "name": "AdobeNotificationClient",
+            "percent": 0.0
+          },
+          {
+            "name": "Registry",
+            "percent": 0.0
+          },
+          {
+            "name": "spoolsv",
+            "percent": 0.0
+          },
+          {
+            "name": "ShellExperienceHost",
+            "percent": 0.0
+          },
+          {
+            "name": "NVDisplay.Container",
+            "percent": 0.0
+          },
+          {
+            "name": "wininit",
+            "percent": 0.0
+          },
+          {
+            "name": "vmmemWSL",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusOSD",
+            "percent": 0.0
+          },
+          {
+            "name": "extension-host",
+            "percent": 0.0
+          },
+          {
+            "name": "sihost",
+            "percent": 0.0
+          },
+          {
+            "name": "mscopilot_proxy",
+            "percent": 0.0
+          },
+          {
+            "name": "wsl",
+            "percent": 0.0
+          },
+          {
+            "name": "NisSrv",
+            "percent": 0.0
+          },
+          {
+            "name": "armsvc",
+            "percent": 0.0
+          },
+          {
+            "name": "cowork-svc",
+            "percent": 0.0
+          },
+          {
+            "name": "WinSW",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusOptimization",
+            "percent": 0.0
+          },
+          {
+            "name": "AdobeUpdateService",
+            "percent": 0.0
+          },
+          {
+            "name": "UserOOBEBroker",
+            "percent": 0.0
+          },
+          {
+            "name": "System",
+            "percent": 0.0
+          },
+          {
+            "name": "wslrelay",
+            "percent": 0.0
+          }
+        ],
+        "interpretation": "Time-aligned observations, not proof of attribution. All process names are aggregates; no command lines or personal paths."
+      }
+    },
+    {
+      "attempt": 2,
+      "result": {
+        "event": "harbor-crew-night-v1",
+        "attemptId": "f39c2708-2d93-42a1-80c9-dfc0578c1c79",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 2,
+        "timeMs": 165902.91665812678,
+        "place": 3,
+        "invalidReason": null
+      },
+      "intervals": {
+        "count": 9928,
+        "p50": 16.699999999982538,
+        "p95": 16.79999999998836,
+        "p99": 16.800000000017462,
+        "max": 50,
+        "over100": 0
+      },
+      "renderSubmissionCPU": {
+        "count": 9928,
+        "p50": 6.5,
+        "p95": 11.800000011920929,
+        "p99": 14.800000011920929,
+        "max": 40.39999997615814,
+        "over100": 0
+      },
+      "frameCPU": {
+        "count": 9928,
+        "p50": 8.800000011920929,
+        "p95": 15.100000023841858,
+        "p99": 18.599999964237213,
+        "max": 51.69999998807907,
+        "over100": 0
+      },
+      "targetMet": true,
+      "firstRAF": 185215.4,
+      "lastRAF": 351108.7,
+      "programs": [
+        27
+      ],
+      "host": {
+        "samples": 82,
+        "globalCPU": {
+          "count": 82,
+          "p50": 21.161825726141082,
+          "p95": 33.997569866342644,
+          "p99": 37.22680913064595,
+          "max": 37.22680913064595,
+          "over100": 0
+        },
+        "collectorWallMs": {
+          "count": 82,
+          "p50": 24.292300000013256,
+          "p95": 35.94280000004346,
+          "p99": 41.376000000013846,
+          "max": 41.376000000013846,
+          "over100": 0
+        },
+        "processMeanHostPercent": [
+          {
+            "name": "chrome-headless-shell",
+            "percent": 4.041057506633355
+          },
+          {
+            "name": "python",
+            "percent": 3.0648301069489308
+          },
+          {
+            "name": "ChatGPT",
+            "percent": 2.8276519673867955
+          },
+          {
+            "name": "Discord",
+            "percent": 0.4885738114320208
+          },
+          {
+            "name": "ffmpeg",
+            "percent": 0.31105741042248136
+          },
+          {
+            "name": "Creative Cloud",
+            "percent": 0.27703626407210796
+          },
+          {
+            "name": "explorer",
+            "percent": 0.2366336735482404
+          },
+          {
+            "name": "Wispr Flow",
+            "percent": 0.12733501891608448
+          },
+          {
+            "name": "claude",
+            "percent": 0.07581182121165046
+          },
+          {
+            "name": "audiodg",
+            "percent": 0.05329904457338404
+          },
+          {
+            "name": "pwsh",
+            "percent": 0.05272495946685174
+          },
+          {
+            "name": "codex",
+            "percent": 0.04797534896767787
+          },
+          {
+            "name": "chrome",
+            "percent": 0.03908217759607468
+          },
+          {
+            "name": "WindowsTerminal",
+            "percent": 0.026063320561069993
+          },
+          {
+            "name": "Wispr Flow Helper",
+            "percent": 0.023992117006526335
+          },
+          {
+            "name": "NVIDIA Overlay",
+            "percent": 0.015992591527718213
+          },
+          {
+            "name": "nvsphelper64",
+            "percent": 0.015694522790883993
+          },
+          {
+            "name": "CrossDeviceService",
+            "percent": 0.011250083407183798
+          },
+          {
+            "name": "AdobeCollabSync",
+            "percent": 0.010658592104264735
+          },
+          {
+            "name": "msedgewebview2",
+            "percent": 0.009479306494450916
+          },
+          {
+            "name": "nvcontainer",
+            "percent": 0.007997079553948523
+          },
+          {
+            "name": "GitHubDesktop",
+            "percent": 0.007985260073342718
+          },
+          {
+            "name": "Creative Cloud UI Helper",
+            "percent": 0.0071060262584234
+          },
+          {
+            "name": "OneDrive.Sync.Service",
+            "percent": 0.006811059705067781
+          },
+          {
+            "name": "sihost",
+            "percent": 0.00680679342068403
+          },
+          {
+            "name": "Adobe Desktop Service",
+            "percent": 0.005627432707320223
+          },
+          {
+            "name": "node",
+            "percent": 0.005627394167034104
+          },
+          {
+            "name": "msrdc",
+            "percent": 0.004140256300992965
+          },
+          {
+            "name": "codex-code-mode-host",
+            "percent": 0.0032613545075125976
+          },
+          {
+            "name": "codex-computer-use-swift",
+            "percent": 0.0032583758534061413
+          },
+          {
+            "name": "CoreSync",
+            "percent": 0.002959213602999602
+          },
+          {
+            "name": "wsl",
+            "percent": 0.002664753602326077
+          },
+          {
+            "name": "ms-teams",
+            "percent": 0.0026640410882338727
+          },
+          {
+            "name": "taskhostw",
+            "percent": 0.0017774790823361483
+          },
+          {
+            "name": "OpenConsole",
+            "percent": 0.0014802458800030182
+          },
+          {
+            "name": "backgroundTaskHost",
+            "percent": 0.0014795688636306866
+          },
+          {
+            "name": "dllhost",
+            "percent": 0.000890738968982199
+          },
+          {
+            "name": "Creative Cloud Helper",
+            "percent": 0.0008902576994244531
+          },
+          {
+            "name": "AsusSoftwareManagerAgent",
+            "percent": 0.0008897864602916058
+          },
+          {
+            "name": "AdobeIPCBroker",
+            "percent": 0.0008885112446317192
+          },
+          {
+            "name": "PhoneExperienceHost",
+            "percent": 0.0008874431908573451
+          },
+          {
+            "name": "conhost",
+            "percent": 0.0005929562449987212
+          },
+          {
+            "name": "svchost",
+            "percent": 0.0005904747190785163
+          },
+          {
+            "name": "acrotray",
+            "percent": 0.00029601026697840085
+          },
+          {
+            "name": "DefenderSessionHelper",
+            "percent": 0.0002952373595392581
+          },
+          {
+            "name": "CrossDeviceResume",
+            "percent": 0.0002952373595392581
+          },
+          {
+            "name": "RuntimeBroker",
+            "percent": 0.0002943563930159579
+          },
+          {
+            "name": "ShellHost",
+            "percent": 0.00029383782543869805
+          },
+          {
+            "name": "AsusSwitch",
+            "percent": 0.0
+          },
+          {
+            "name": "wlanext",
+            "percent": 0.0
+          },
+          {
+            "name": "DataExchangeHost",
+            "percent": 0.0
+          },
+          {
+            "name": "winlogon",
+            "percent": 0.0
+          },
+          {
+            "name": "SearchIndexer",
+            "percent": 0.0
+          },
+          {
+            "name": "fontdrvhost",
+            "percent": 0.0
+          },
+          {
+            "name": "sqlwriter",
+            "percent": 0.0
+          },
+          {
+            "name": "wslservice",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusOptimizationStartupTask",
+            "percent": 0.0
+          },
+          {
+            "name": "wslhost",
+            "percent": 0.0
+          },
+          {
+            "name": "MpDefenderCoreService",
+            "percent": 0.0
+          },
+          {
+            "name": "lsass",
+            "percent": 0.0
+          },
+          {
+            "name": "node_repl",
+            "percent": 0.0
+          },
+          {
+            "name": "services",
+            "percent": 0.0
+          },
+          {
+            "name": "wslinstaller",
+            "percent": 0.0
+          },
+          {
+            "name": "MsMpEng",
+            "percent": 0.0
+          },
+          {
+            "name": "smss",
+            "percent": 0.0
+          },
+          {
+            "name": "ProW File Compressor",
+            "percent": 0.0
+          },
+          {
+            "name": "CCXProcess",
+            "percent": 0.0
+          },
+          {
+            "name": "vmcompute",
+            "percent": 0.0
+          },
+          {
+            "name": "Memory Compression",
+            "percent": 0.0
+          },
+          {
+            "name": "dwm",
+            "percent": 0.0
+          },
+          {
+            "name": "WMIRegistrationService",
+            "percent": 0.0
+          },
+          {
+            "name": "Focusrite Notifier",
+            "percent": 0.0
+          },
+          {
+            "name": "vmwp",
+            "percent": 0.0
+          },
+          {
+            "name": "AbletonAudioCpl",
+            "percent": 0.0
+          },
+          {
+            "name": "AggregatorHost",
+            "percent": 0.0
+          },
+          {
+            "name": "MuseAuthService",
+            "percent": 0.0
+          },
+          {
+            "name": "TextInputHost",
+            "percent": 0.0
+          },
+          {
+            "name": "cmd",
+            "percent": 0.0
+          },
+          {
+            "name": "OneDrive",
+            "percent": 0.0
+          },
+          {
+            "name": "NgcIso",
+            "percent": 0.0
+          },
+          {
+            "name": "Widgets",
+            "percent": 0.0
+          },
+          {
+            "name": "SystemSettings",
+            "percent": 0.0
+          },
+          {
+            "name": "chrome-native-host",
+            "percent": 0.0
+          },
+          {
+            "name": "OBUpdateService",
+            "percent": 0.0
+          },
+          {
+            "name": "dasHost",
+            "percent": 0.0
+          },
+          {
+            "name": "Secure System",
+            "percent": 0.0
+          },
+          {
+            "name": "SecurityHealthService",
+            "percent": 0.0
+          },
+          {
+            "name": "Intel_PIE_Service",
+            "percent": 0.0
+          },
+          {
+            "name": "LsaIso",
+            "percent": 0.0
+          },
+          {
+            "name": "ApplicationFrameHost",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusSoftwareManager",
+            "percent": 0.0
+          },
+          {
+            "name": "SearchHost",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusAppService",
+            "percent": 0.0
+          },
+          {
+            "name": "Idle",
+            "percent": 0.0
+          },
+          {
+            "name": "ctfmon",
+            "percent": 0.0
+          },
+          {
+            "name": "RstMwService",
+            "percent": 0.0
+          },
+          {
+            "name": "Video.UI",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusSystemDiagnosis",
+            "percent": 0.0
+          },
+          {
+            "name": "csrss",
+            "percent": 0.0
+          },
+          {
+            "name": "WidgetService",
+            "percent": 0.0
+          },
+          {
+            "name": "jhi_service",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusSystemAnalysis",
+            "percent": 0.0
+          },
+          {
+            "name": "AdobeNotificationClient",
+            "percent": 0.0
+          },
+          {
+            "name": "Registry",
+            "percent": 0.0
+          },
+          {
+            "name": "spoolsv",
+            "percent": 0.0
+          },
+          {
+            "name": "ShellExperienceHost",
+            "percent": 0.0
+          },
+          {
+            "name": "NVDisplay.Container",
+            "percent": 0.0
+          },
+          {
+            "name": "wininit",
+            "percent": 0.0
+          },
+          {
+            "name": "vmmemWSL",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusOSD",
+            "percent": 0.0
+          },
+          {
+            "name": "extension-host",
+            "percent": 0.0
+          },
+          {
+            "name": "mscopilot_proxy",
+            "percent": 0.0
+          },
+          {
+            "name": "NisSrv",
+            "percent": 0.0
+          },
+          {
+            "name": "armsvc",
+            "percent": 0.0
+          },
+          {
+            "name": "cowork-svc",
+            "percent": 0.0
+          },
+          {
+            "name": "WinSW",
+            "percent": 0.0
+          },
+          {
+            "name": "AsusOptimization",
+            "percent": 0.0
+          },
+          {
+            "name": "StartMenuExperienceHost",
+            "percent": 0.0
+          },
+          {
+            "name": "AdobeUpdateService",
+            "percent": 0.0
+          },
+          {
+            "name": "UserOOBEBroker",
+            "percent": 0.0
+          },
+          {
+            "name": "System",
+            "percent": 0.0
+          },
+          {
+            "name": "wslrelay",
+            "percent": 0.0
+          }
+        ],
+        "interpretation": "Time-aligned observations, not proof of attribution. All process names are aggregates; no command lines or personal paths."
+      }
+    }
+  ],
+  "targetMet": true,
+  "allPhases": {
+    "count": 21648,
+    "p50": 16.69999999999709,
+    "p95": 16.79999999998836,
+    "p99": 16.800000000017462,
+    "max": 133.30000000000007,
+    "over100": 1
+  },
+  "nonRacingOver100": [
+    {
+      "row": 1,
+      "values": [
+        1139.4,
+        133.30000000000007,
+        6.100000023841858,
+        5.199999988079071,
+        0,
+        0,
+        26,
+        6,
+        2,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "events": [
+    {
+      "wall": 771.1999999880791,
+      "event": "preparation-start",
+      "data": {
+        "ticks": 0,
+        "race": {
+          "phase": "ready",
+          "paused": false,
+          "countdown": 0,
+          "elapsedMs": 0,
+          "attemptId": "",
+          "standings": [
+            {
+              "id": "maya",
+              "place": 1,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": 0,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "jett",
+              "place": 2,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -1,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "nico",
+              "place": 3,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -2,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "player",
+              "place": 4,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -3,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            }
+          ],
+          "playerResult": null,
+          "allFinished": false
+        }
+      }
+    },
+    {
+      "wall": 1121,
+      "event": "preparation-end",
+      "data": {
+        "ms": 340.60000002384186,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 149.80000001192093
+          },
+          {
+            "name": "compile-async",
+            "ms": 84.30000001192093
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 100.59999996423721
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 62,
+        "programs": 25,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped.",
+        "ticks": 0,
+        "race": {
+          "phase": "ready",
+          "paused": false,
+          "countdown": 0,
+          "elapsedMs": 0,
+          "attemptId": "",
+          "standings": [
+            {
+              "id": "maya",
+              "place": 1,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": 0,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "jett",
+              "place": 2,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -1,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "nico",
+              "place": 3,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -2,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "player",
+              "place": 4,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -3,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            }
+          ],
+          "playerResult": null,
+          "allFinished": false
+        }
+      }
+    },
+    {
+      "wall": 1121,
+      "event": "load-ready",
+      "data": {
+        "loadMs": 1103.800000011921
+      }
+    },
+    {
+      "wall": 1127.0999999642372,
+      "event": "program-count",
+      "data": {
+        "from": -1,
+        "to": 26
+      }
+    },
+    {
+      "wall": 1127.0999999642372,
+      "event": "phase-camera",
+      "data": {
+        "state": "ready/0/near",
+        "ticks": 0,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 1127.300000011921,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 0,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 1815,
+      "event": "start",
+      "data": {
+        "ticks": 0
+      }
+    },
+    {
+      "wall": 1998.199999988079,
+      "event": "start",
+      "data": {
+        "ticks": 0
+      }
+    },
+    {
+      "wall": 2014,
+      "event": "phase-camera",
+      "data": {
+        "state": "countdown/1/near",
+        "ticks": 0,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 5036.199999988079,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/near",
+        "ticks": 180,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 9164.399999976158,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 428,
+        "elapsedMs": 4133.333333333319
+      }
+    },
+    {
+      "wall": 9887.5,
+      "event": "program-count",
+      "data": {
+        "from": 26,
+        "to": 27
+      }
+    },
+    {
+      "wall": 10401.399999976158,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 502,
+        "elapsedMs": 5366.666666666675
+      }
+    },
+    {
+      "wall": 11078.800000011921,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 543,
+        "elapsedMs": 6050.000000000021
+      }
+    },
+    {
+      "wall": 11994.199999988079,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 598,
+        "elapsedMs": 6966.666666666704
+      }
+    },
+    {
+      "wall": 12596,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 634,
+        "elapsedMs": 7566.666666666715
+      }
+    },
+    {
+      "wall": 13461,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 686,
+        "elapsedMs": 8433.333333333385
+      }
+    },
+    {
+      "wall": 14028,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 720,
+        "elapsedMs": 9000.000000000031
+      }
+    },
+    {
+      "wall": 14761.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 764,
+        "elapsedMs": 9733.333333333338
+      }
+    },
+    {
+      "wall": 15344.300000011921,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 799,
+        "elapsedMs": 10316.66666666665
+      }
+    },
+    {
+      "wall": 16310.800000011921,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 857,
+        "elapsedMs": 11283.333333333281
+      }
+    },
+    {
+      "wall": 16977.399999976158,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 897,
+        "elapsedMs": 11949.999999999924
+      }
+    },
+    {
+      "wall": 17710.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 941,
+        "elapsedMs": 12683.33333333323
+      }
+    },
+    {
+      "wall": 18711.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 1001,
+        "elapsedMs": 13683.333333333194
+      }
+    },
+    {
+      "wall": 20060.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 1082,
+        "elapsedMs": 15033.333333333145
+      }
+    },
+    {
+      "wall": 20861.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 1130,
+        "elapsedMs": 15833.333333333116
+      }
+    },
+    {
+      "wall": 21060.599999964237,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/far",
+        "ticks": 1142,
+        "elapsedMs": 16033.333333333108
+      }
+    },
+    {
+      "wall": 21609.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 1175,
+        "elapsedMs": 16583.33333333311
+      }
+    },
+    {
+      "wall": 23076.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 1263,
+        "elapsedMs": 18049.999999999884
+      }
+    },
+    {
+      "wall": 24677.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 1359,
+        "elapsedMs": 19650
+      }
+    },
+    {
+      "wall": 26294.599999964237,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 1456,
+        "elapsedMs": 21266.666666666784
+      }
+    },
+    {
+      "wall": 27260.599999964237,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 1514,
+        "elapsedMs": 22233.33333333352
+      }
+    },
+    {
+      "wall": 27877.099999964237,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 1551,
+        "elapsedMs": 22850.000000000233
+      }
+    },
+    {
+      "wall": 28044.19999998808,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/cockpit",
+        "ticks": 1561,
+        "elapsedMs": 23016.66666666691
+      }
+    },
+    {
+      "wall": 28960.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 1616,
+        "elapsedMs": 23933.333333333645
+      }
+    },
+    {
+      "wall": 29711.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 1661,
+        "elapsedMs": 24683.3333333337
+      }
+    },
+    {
+      "wall": 30610.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 1715,
+        "elapsedMs": 25583.333333333765
+      }
+    },
+    {
+      "wall": 31626.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 1776,
+        "elapsedMs": 26600.000000000506
+      }
+    },
+    {
+      "wall": 33026.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 1860,
+        "elapsedMs": 28000.000000000608
+      }
+    },
+    {
+      "wall": 33044.19999998808,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/rearward",
+        "ticks": 1861,
+        "elapsedMs": 28016.666666667275
+      }
+    },
+    {
+      "wall": 33810,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 1907,
+        "elapsedMs": 28783.333333333998
+      }
+    },
+    {
+      "wall": 33844.69999998808,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/cockpit",
+        "ticks": 1909,
+        "elapsedMs": 28816.666666667334
+      }
+    },
+    {
+      "wall": 34810.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 1967,
+        "elapsedMs": 29783.33333333407
+      }
+    },
+    {
+      "wall": 35961.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 2036,
+        "elapsedMs": 30933.333333334154
+      }
+    },
+    {
+      "wall": 37269.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 2114,
+        "elapsedMs": 32233.33333333425
+      }
+    },
+    {
+      "wall": 38394,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 2182,
+        "elapsedMs": 33366.66666666754
+      }
+    },
+    {
+      "wall": 38960.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 2216,
+        "elapsedMs": 33933.33333333412
+      }
+    },
+    {
+      "wall": 40043.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 2281,
+        "elapsedMs": 35016.6666666673
+      }
+    },
+    {
+      "wall": 41594.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 2374,
+        "elapsedMs": 36566.66666666707
+      }
+    },
+    {
+      "wall": 42361.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 2420,
+        "elapsedMs": 37333.33333333363
+      }
+    },
+    {
+      "wall": 43428,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 2484,
+        "elapsedMs": 38400.00000000014
+      }
+    },
+    {
+      "wall": 44559.69999998808,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/1/near",
+        "ticks": 2552,
+        "elapsedMs": 39533.33333333331
+      }
+    },
+    {
+      "wall": 44593.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 2554,
+        "elapsedMs": 39566.666666666635
+      }
+    },
+    {
+      "wall": 45977,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 2637,
+        "elapsedMs": 40949.99999999977
+      }
+    },
+    {
+      "wall": 47527,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 2730,
+        "elapsedMs": 42499.99999999954
+      }
+    },
+    {
+      "wall": 48544.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 2791,
+        "elapsedMs": 43516.66666666606
+      }
+    },
+    {
+      "wall": 49309.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 2837,
+        "elapsedMs": 44283.333333332615
+      }
+    },
+    {
+      "wall": 49660.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 2858,
+        "elapsedMs": 44633.333333332565
+      }
+    },
+    {
+      "wall": 52309.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 3017,
+        "elapsedMs": 47283.33333333218
+      }
+    },
+    {
+      "wall": 53826.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 3108,
+        "elapsedMs": 48799.999999998625
+      }
+    },
+    {
+      "wall": 55742.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 3223,
+        "elapsedMs": 50716.66666666501
+      }
+    },
+    {
+      "wall": 56126.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 3246,
+        "elapsedMs": 51099.99999999829
+      }
+    },
+    {
+      "wall": 56644.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 3277,
+        "elapsedMs": 51616.66666666488
+      }
+    },
+    {
+      "wall": 57509.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 3329,
+        "elapsedMs": 52483.33333333142
+      }
+    },
+    {
+      "wall": 59059.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 3422,
+        "elapsedMs": 54033.3333333312
+      }
+    },
+    {
+      "wall": 60525.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 3510,
+        "elapsedMs": 55499.99999999765
+      }
+    },
+    {
+      "wall": 62009.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 3599,
+        "elapsedMs": 56983.33333333077
+      }
+    },
+    {
+      "wall": 62509.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 3629,
+        "elapsedMs": 57483.333333330695
+      }
+    },
+    {
+      "wall": 63415.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 3683,
+        "elapsedMs": 58383.33333333056
+      }
+    },
+    {
+      "wall": 65130.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 3786,
+        "elapsedMs": 60099.99999999698
+      }
+    },
+    {
+      "wall": 66225,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 3852,
+        "elapsedMs": 61199.99999999682
+      }
+    },
+    {
+      "wall": 66392.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 3862,
+        "elapsedMs": 61366.66666666346
+      }
+    },
+    {
+      "wall": 68758.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4004,
+        "elapsedMs": 63733.333333329785
+      }
+    },
+    {
+      "wall": 70192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 4090,
+        "elapsedMs": 65166.66666666291
+      }
+    },
+    {
+      "wall": 72085.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4203,
+        "elapsedMs": 67049.99999999662
+      }
+    },
+    {
+      "wall": 72293,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 4216,
+        "elapsedMs": 67266.66666666335
+      }
+    },
+    {
+      "wall": 72875.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4251,
+        "elapsedMs": 67849.99999999686
+      }
+    },
+    {
+      "wall": 73875.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 4311,
+        "elapsedMs": 68849.99999999715
+      }
+    },
+    {
+      "wall": 74476.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4347,
+        "elapsedMs": 69449.99999999732
+      }
+    },
+    {
+      "wall": 75225.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 4392,
+        "elapsedMs": 70199.99999999754
+      }
+    },
+    {
+      "wall": 75808.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4427,
+        "elapsedMs": 70783.33333333104
+      }
+    },
+    {
+      "wall": 76825.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 4488,
+        "elapsedMs": 71799.999999998
+      }
+    },
+    {
+      "wall": 77427.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4524,
+        "elapsedMs": 72399.99999999818
+      }
+    },
+    {
+      "wall": 77958.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 4556,
+        "elapsedMs": 72933.33333333167
+      }
+    },
+    {
+      "wall": 79891.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4672,
+        "elapsedMs": 74866.66666666557
+      }
+    },
+    {
+      "wall": 81424.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 4764,
+        "elapsedMs": 76399.99999999935
+      }
+    },
+    {
+      "wall": 82792.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4846,
+        "elapsedMs": 77766.66666666641
+      }
+    },
+    {
+      "wall": 83375.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 4881,
+        "elapsedMs": 78349.99999999991
+      }
+    },
+    {
+      "wall": 84108.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 4925,
+        "elapsedMs": 79083.33333333346
+      }
+    },
+    {
+      "wall": 85375.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5001,
+        "elapsedMs": 80350.0000000005
+      }
+    },
+    {
+      "wall": 86141.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5047,
+        "elapsedMs": 81116.66666666738
+      }
+    },
+    {
+      "wall": 87609.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5135,
+        "elapsedMs": 82583.33333333448
+      }
+    },
+    {
+      "wall": 88458.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5186,
+        "elapsedMs": 83433.33333333473
+      }
+    },
+    {
+      "wall": 89591.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5254,
+        "elapsedMs": 84566.66666666839
+      }
+    },
+    {
+      "wall": 90391.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5302,
+        "elapsedMs": 85366.66666666862
+      }
+    },
+    {
+      "wall": 91109.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5345,
+        "elapsedMs": 86083.3333333355
+      }
+    },
+    {
+      "wall": 91691.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5380,
+        "elapsedMs": 86666.666666669
+      }
+    },
+    {
+      "wall": 92494.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5428,
+        "elapsedMs": 87466.66666666923
+      }
+    },
+    {
+      "wall": 93060.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5462,
+        "elapsedMs": 88033.33333333606
+      }
+    },
+    {
+      "wall": 93926.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5514,
+        "elapsedMs": 88900.00000000298
+      }
+    },
+    {
+      "wall": 94527.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5550,
+        "elapsedMs": 89500.00000000316
+      }
+    },
+    {
+      "wall": 95309.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5597,
+        "elapsedMs": 90283.33333333672
+      }
+    },
+    {
+      "wall": 95926.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5634,
+        "elapsedMs": 90900.00000000357
+      }
+    },
+    {
+      "wall": 96826.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5688,
+        "elapsedMs": 91800.00000000383
+      }
+    },
+    {
+      "wall": 97476.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5727,
+        "elapsedMs": 92450.00000000402
+      }
+    },
+    {
+      "wall": 98093.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5764,
+        "elapsedMs": 93066.66666667086
+      }
+    },
+    {
+      "wall": 98909.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5813,
+        "elapsedMs": 93883.33333333777
+      }
+    },
+    {
+      "wall": 100562.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 5912,
+        "elapsedMs": 95533.33333333825
+      }
+    },
+    {
+      "wall": 101561.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 5972,
+        "elapsedMs": 96533.33333333854
+      }
+    },
+    {
+      "wall": 102243.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 6013,
+        "elapsedMs": 97216.66666667207
+      }
+    },
+    {
+      "wall": 103725.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 6102,
+        "elapsedMs": 98700.00000000584
+      }
+    },
+    {
+      "wall": 105292.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 6196,
+        "elapsedMs": 100266.66666667296
+      }
+    },
+    {
+      "wall": 106911.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 6293,
+        "elapsedMs": 101883.3333333401
+      }
+    },
+    {
+      "wall": 107710.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 6341,
+        "elapsedMs": 102683.33333334033
+      }
+    },
+    {
+      "wall": 108391.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 6382,
+        "elapsedMs": 103366.66666667386
+      }
+    },
+    {
+      "wall": 109460.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 6446,
+        "elapsedMs": 104433.33333334084
+      }
+    },
+    {
+      "wall": 110146.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 6487,
+        "elapsedMs": 105116.66666667437
+      }
+    },
+    {
+      "wall": 110844.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 6529,
+        "elapsedMs": 105816.66666667457
+      }
+    },
+    {
+      "wall": 111608.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 6575,
+        "elapsedMs": 106583.33333334146
+      }
+    },
+    {
+      "wall": 113045.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 6661,
+        "elapsedMs": 108016.66666667521
+      }
+    },
+    {
+      "wall": 113826.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 6708,
+        "elapsedMs": 108800.00000000877
+      }
+    },
+    {
+      "wall": 114910.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 6773,
+        "elapsedMs": 109883.33333334242
+      }
+    },
+    {
+      "wall": 115958.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 6836,
+        "elapsedMs": 110933.33333334273
+      }
+    },
+    {
+      "wall": 117309.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 6917,
+        "elapsedMs": 112283.33333334312
+      }
+    },
+    {
+      "wall": 118444,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 6985,
+        "elapsedMs": 113416.66666667679
+      }
+    },
+    {
+      "wall": 119043.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 7021,
+        "elapsedMs": 114016.66666667696
+      }
+    },
+    {
+      "wall": 120075,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 7083,
+        "elapsedMs": 115050.0000000106
+      }
+    },
+    {
+      "wall": 121559.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 7172,
+        "elapsedMs": 116533.33333334436
+      }
+    },
+    {
+      "wall": 122310.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 7217,
+        "elapsedMs": 117283.33333334458
+      }
+    },
+    {
+      "wall": 123429.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 7284,
+        "elapsedMs": 118400.00000001157
+      }
+    },
+    {
+      "wall": 124560.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 7352,
+        "elapsedMs": 119533.33333334523
+      }
+    },
+    {
+      "wall": 125962.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 7436,
+        "elapsedMs": 120933.33333334564
+      }
+    },
+    {
+      "wall": 127560.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 7532,
+        "elapsedMs": 122533.3333333461
+      }
+    },
+    {
+      "wall": 128595.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 7594,
+        "elapsedMs": 123566.66666667974
+      }
+    },
+    {
+      "wall": 129375,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 7641,
+        "elapsedMs": 124350.0000000133
+      }
+    },
+    {
+      "wall": 129677.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 7659,
+        "elapsedMs": 124650.00000001339
+      }
+    },
+    {
+      "wall": 132393.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 7822,
+        "elapsedMs": 127366.66666668085
+      }
+    },
+    {
+      "wall": 133925.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 7914,
+        "elapsedMs": 128900.00000001462
+      }
+    },
+    {
+      "wall": 135842.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 8029,
+        "elapsedMs": 130816.66666668185
+      }
+    },
+    {
+      "wall": 136225.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 8052,
+        "elapsedMs": 131200.0000000152
+      }
+    },
+    {
+      "wall": 136758.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 8084,
+        "elapsedMs": 131733.33333334822
+      }
+    },
+    {
+      "wall": 137625.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 8136,
+        "elapsedMs": 132600.00000001438
+      }
+    },
+    {
+      "wall": 139175.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 8229,
+        "elapsedMs": 134150.00000001348
+      }
+    },
+    {
+      "wall": 140661.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 8318,
+        "elapsedMs": 135633.33333334594
+      }
+    },
+    {
+      "wall": 142142.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 8407,
+        "elapsedMs": 137116.66666667841
+      }
+    },
+    {
+      "wall": 142641.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 8437,
+        "elapsedMs": 137616.66666667812
+      }
+    },
+    {
+      "wall": 143526.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 8490,
+        "elapsedMs": 138500.00000001094
+      }
+    },
+    {
+      "wall": 145206,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 8591,
+        "elapsedMs": 140183.3333333433
+      }
+    },
+    {
+      "wall": 146305.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 8657,
+        "elapsedMs": 141283.33333334266
+      }
+    },
+    {
+      "wall": 146471.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 8667,
+        "elapsedMs": 141450.00000000923
+      }
+    },
+    {
+      "wall": 148824.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 8808,
+        "elapsedMs": 143800.00000000786
+      }
+    },
+    {
+      "wall": 150258.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 8894,
+        "elapsedMs": 145233.33333334036
+      }
+    },
+    {
+      "wall": 152141.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9007,
+        "elapsedMs": 147116.6666666726
+      }
+    },
+    {
+      "wall": 152375.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9021,
+        "elapsedMs": 147350.0000000058
+      }
+    },
+    {
+      "wall": 152940.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9055,
+        "elapsedMs": 147916.66666667213
+      }
+    },
+    {
+      "wall": 153943.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9115,
+        "elapsedMs": 148916.66666667155
+      }
+    },
+    {
+      "wall": 154542.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9151,
+        "elapsedMs": 149516.6666666712
+      }
+    },
+    {
+      "wall": 155307.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9197,
+        "elapsedMs": 150283.33333333742
+      }
+    },
+    {
+      "wall": 155874,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9231,
+        "elapsedMs": 150850.00000000375
+      }
+    },
+    {
+      "wall": 156890.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9292,
+        "elapsedMs": 151866.66666666983
+      }
+    },
+    {
+      "wall": 157489.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9328,
+        "elapsedMs": 152466.66666666948
+      }
+    },
+    {
+      "wall": 158026.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9360,
+        "elapsedMs": 153000.0000000025
+      }
+    },
+    {
+      "wall": 159958.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9476,
+        "elapsedMs": 154933.3333333347
+      }
+    },
+    {
+      "wall": 161424.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9564,
+        "elapsedMs": 156400.00000000052
+      }
+    },
+    {
+      "wall": 162909.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9653,
+        "elapsedMs": 157883.333333333
+      }
+    },
+    {
+      "wall": 163190.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9670,
+        "elapsedMs": 158166.66666666616
+      }
+    },
+    {
+      "wall": 164108.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9725,
+        "elapsedMs": 159083.3333333323
+      }
+    },
+    {
+      "wall": 165691.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9820,
+        "elapsedMs": 160666.6666666647
+      }
+    },
+    {
+      "wall": 166775.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 9885,
+        "elapsedMs": 161749.9999999974
+      }
+    },
+    {
+      "wall": 167991.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 9958,
+        "elapsedMs": 162966.66666666337
+      }
+    },
+    {
+      "wall": 168827.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 10008,
+        "elapsedMs": 163799.99999999622
+      }
+    },
+    {
+      "wall": 169859.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 10070,
+        "elapsedMs": 164833.33333332895
+      }
+    },
+    {
+      "wall": 170682.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 10119,
+        "elapsedMs": 165649.99999999514
+      }
+    },
+    {
+      "wall": 170944.5,
+      "event": "phase-camera",
+      "data": {
+        "state": "finished/1/near",
+        "ticks": 10135,
+        "elapsedMs": 165916.66666666165
+      }
+    },
+    {
+      "wall": 171408.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 10163,
+        "elapsedMs": 166383.33333332805
+      }
+    },
+    {
+      "wall": 172344,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 10219,
+        "elapsedMs": 167316.66666666084
+      }
+    },
+    {
+      "wall": 182212.80000001192,
+      "event": "retry",
+      "data": {
+        "ticks": 10811
+      }
+    },
+    {
+      "wall": 182224.69999998808,
+      "event": "phase-camera",
+      "data": {
+        "state": "countdown/2/near",
+        "ticks": 10812,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 182224.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 10812,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 185224.39999997616,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/2/near",
+        "ticks": 10991,
+        "elapsedMs": 0
+      }
+    },
+    {
+      "wall": 189358.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 11239,
+        "elapsedMs": 4133.333333333319
+      }
+    },
+    {
+      "wall": 190587.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 11313,
+        "elapsedMs": 5366.666666666675
+      }
+    },
+    {
+      "wall": 191271.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 11354,
+        "elapsedMs": 6050.000000000021
+      }
+    },
+    {
+      "wall": 192188.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 11409,
+        "elapsedMs": 6966.666666666704
+      }
+    },
+    {
+      "wall": 192788.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 11445,
+        "elapsedMs": 7566.666666666715
+      }
+    },
+    {
+      "wall": 193659.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 11497,
+        "elapsedMs": 8433.333333333385
+      }
+    },
+    {
+      "wall": 194225,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 11531,
+        "elapsedMs": 9000.000000000031
+      }
+    },
+    {
+      "wall": 194958.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 11575,
+        "elapsedMs": 9733.333333333338
+      }
+    },
+    {
+      "wall": 195539.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 11610,
+        "elapsedMs": 10316.66666666665
+      }
+    },
+    {
+      "wall": 196507.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 11668,
+        "elapsedMs": 11283.333333333281
+      }
+    },
+    {
+      "wall": 197173.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 11708,
+        "elapsedMs": 11949.999999999924
+      }
+    },
+    {
+      "wall": 197904.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 11752,
+        "elapsedMs": 12683.33333333323
+      }
+    },
+    {
+      "wall": 198918.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 11812,
+        "elapsedMs": 13683.333333333194
+      }
+    },
+    {
+      "wall": 200277.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 11894,
+        "elapsedMs": 15049.99999999981
+      }
+    },
+    {
+      "wall": 201060.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 11941,
+        "elapsedMs": 15833.333333333116
+      }
+    },
+    {
+      "wall": 201261.80000001192,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/2/far",
+        "ticks": 11953,
+        "elapsedMs": 16033.333333333108
+      }
+    },
+    {
+      "wall": 201825.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 11987,
+        "elapsedMs": 16599.999999999778
+      }
+    },
+    {
+      "wall": 203271.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 12074,
+        "elapsedMs": 18049.999999999884
+      }
+    },
+    {
+      "wall": 204892.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 12171,
+        "elapsedMs": 19666.666666666668
+      }
+    },
+    {
+      "wall": 206491.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 12267,
+        "elapsedMs": 21266.666666666784
+      }
+    },
+    {
+      "wall": 207463.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 12325,
+        "elapsedMs": 22233.33333333352
+      }
+    },
+    {
+      "wall": 208074.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 12362,
+        "elapsedMs": 22850.000000000233
+      }
+    },
+    {
+      "wall": 208245,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/2/cockpit",
+        "ticks": 12372,
+        "elapsedMs": 23016.66666666691
+      }
+    },
+    {
+      "wall": 209156.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 12427,
+        "elapsedMs": 23933.333333333645
+      }
+    },
+    {
+      "wall": 209904.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 12472,
+        "elapsedMs": 24683.3333333337
+      }
+    },
+    {
+      "wall": 210808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 12526,
+        "elapsedMs": 25583.333333333765
+      }
+    },
+    {
+      "wall": 211826.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 12587,
+        "elapsedMs": 26600.000000000506
+      }
+    },
+    {
+      "wall": 213223.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 12671,
+        "elapsedMs": 28000.000000000608
+      }
+    },
+    {
+      "wall": 213239.59999996424,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/2/rearward",
+        "ticks": 12672,
+        "elapsedMs": 28016.666666667275
+      }
+    },
+    {
+      "wall": 214004.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 12718,
+        "elapsedMs": 28783.333333333998
+      }
+    },
+    {
+      "wall": 214039.30000001192,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/2/cockpit",
+        "ticks": 12720,
+        "elapsedMs": 28816.666666667334
+      }
+    },
+    {
+      "wall": 215006,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 12778,
+        "elapsedMs": 29783.33333333407
+      }
+    },
+    {
+      "wall": 216168.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 12847,
+        "elapsedMs": 30933.333333334154
+      }
+    },
+    {
+      "wall": 217457.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 12925,
+        "elapsedMs": 32233.33333333425
+      }
+    },
+    {
+      "wall": 218589.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 12993,
+        "elapsedMs": 33366.66666666754
+      }
+    },
+    {
+      "wall": 219157.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 13027,
+        "elapsedMs": 33933.33333333412
+      }
+    },
+    {
+      "wall": 220239.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 13092,
+        "elapsedMs": 35016.6666666673
+      }
+    },
+    {
+      "wall": 221789.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 13185,
+        "elapsedMs": 36566.66666666707
+      }
+    },
+    {
+      "wall": 222565.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 13231,
+        "elapsedMs": 37333.33333333363
+      }
+    },
+    {
+      "wall": 223626.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 13295,
+        "elapsedMs": 38400.00000000014
+      }
+    },
+    {
+      "wall": 224760.39999997616,
+      "event": "phase-camera",
+      "data": {
+        "state": "running/2/near",
+        "ticks": 13363,
+        "elapsedMs": 39533.33333333331
+      }
+    },
+    {
+      "wall": 224788.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 13365,
+        "elapsedMs": 39566.666666666635
+      }
+    },
+    {
+      "wall": 226173.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 13448,
+        "elapsedMs": 40949.99999999977
+      }
+    },
+    {
+      "wall": 227725.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 13541,
+        "elapsedMs": 42499.99999999954
+      }
+    },
+    {
+      "wall": 228746.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 13602,
+        "elapsedMs": 43516.66666666606
+      }
+    },
+    {
+      "wall": 229511.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 13648,
+        "elapsedMs": 44283.333333332615
+      }
+    },
+    {
+      "wall": 229856.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 13669,
+        "elapsedMs": 44633.333333332565
+      }
+    },
+    {
+      "wall": 232506,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 13828,
+        "elapsedMs": 47283.33333333218
+      }
+    },
+    {
+      "wall": 234023.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 13919,
+        "elapsedMs": 48799.999999998625
+      }
+    },
+    {
+      "wall": 235937.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 14034,
+        "elapsedMs": 50716.66666666501
+      }
+    },
+    {
+      "wall": 236322.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 14057,
+        "elapsedMs": 51099.99999999829
+      }
+    },
+    {
+      "wall": 236841.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 14088,
+        "elapsedMs": 51616.66666666488
+      }
+    },
+    {
+      "wall": 237707.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 14140,
+        "elapsedMs": 52483.33333333142
+      }
+    },
+    {
+      "wall": 239254,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 14233,
+        "elapsedMs": 54033.3333333312
+      }
+    },
+    {
+      "wall": 240720,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 14321,
+        "elapsedMs": 55499.99999999765
+      }
+    },
+    {
+      "wall": 242205.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 14410,
+        "elapsedMs": 56983.33333333077
+      }
+    },
+    {
+      "wall": 242703.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 14440,
+        "elapsedMs": 57483.333333330695
+      }
+    },
+    {
+      "wall": 243603,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 14494,
+        "elapsedMs": 58383.33333333056
+      }
+    },
+    {
+      "wall": 245320.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 14597,
+        "elapsedMs": 60099.99999999698
+      }
+    },
+    {
+      "wall": 246419.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 14663,
+        "elapsedMs": 61199.99999999682
+      }
+    },
+    {
+      "wall": 246584.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 14673,
+        "elapsedMs": 61366.66666666346
+      }
+    },
+    {
+      "wall": 248954.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 14815,
+        "elapsedMs": 63733.333333329785
+      }
+    },
+    {
+      "wall": 250389.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 14901,
+        "elapsedMs": 65166.66666666291
+      }
+    },
+    {
+      "wall": 252271.30000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15014,
+        "elapsedMs": 67049.99999999662
+      }
+    },
+    {
+      "wall": 252494.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15027,
+        "elapsedMs": 67266.66666666335
+      }
+    },
+    {
+      "wall": 253070.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15062,
+        "elapsedMs": 67849.99999999686
+      }
+    },
+    {
+      "wall": 254072.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15122,
+        "elapsedMs": 68849.99999999715
+      }
+    },
+    {
+      "wall": 254670.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15158,
+        "elapsedMs": 69449.99999999732
+      }
+    },
+    {
+      "wall": 255420.80000001192,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15203,
+        "elapsedMs": 70199.99999999754
+      }
+    },
+    {
+      "wall": 256004.19999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15238,
+        "elapsedMs": 70783.33333333104
+      }
+    },
+    {
+      "wall": 257022.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15299,
+        "elapsedMs": 71799.999999998
+      }
+    },
+    {
+      "wall": 257620.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15335,
+        "elapsedMs": 72399.99999999818
+      }
+    },
+    {
+      "wall": 258152.69999998808,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15367,
+        "elapsedMs": 72933.33333333167
+      }
+    },
+    {
+      "wall": 260087.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15483,
+        "elapsedMs": 74866.66666666557
+      }
+    },
+    {
+      "wall": 261620.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15575,
+        "elapsedMs": 76399.99999999935
+      }
+    },
+    {
+      "wall": 262987,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15657,
+        "elapsedMs": 77766.66666666641
+      }
+    },
+    {
+      "wall": 263570.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15692,
+        "elapsedMs": 78349.99999999991
+      }
+    },
+    {
+      "wall": 264302.8000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15736,
+        "elapsedMs": 79083.33333333346
+      }
+    },
+    {
+      "wall": 265571.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15812,
+        "elapsedMs": 80350.0000000005
+      }
+    },
+    {
+      "wall": 266337,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15858,
+        "elapsedMs": 81116.66666666738
+      }
+    },
+    {
+      "wall": 267803.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 15946,
+        "elapsedMs": 82583.33333333448
+      }
+    },
+    {
+      "wall": 268660.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 15997,
+        "elapsedMs": 83433.33333333473
+      }
+    },
+    {
+      "wall": 269790.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16065,
+        "elapsedMs": 84566.66666666839
+      }
+    },
+    {
+      "wall": 270589.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16113,
+        "elapsedMs": 85366.66666666862
+      }
+    },
+    {
+      "wall": 271305.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16156,
+        "elapsedMs": 86083.3333333355
+      }
+    },
+    {
+      "wall": 271888.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16191,
+        "elapsedMs": 86666.666666669
+      }
+    },
+    {
+      "wall": 272697.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16239,
+        "elapsedMs": 87466.66666666923
+      }
+    },
+    {
+      "wall": 273253.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16273,
+        "elapsedMs": 88033.33333333606
+      }
+    },
+    {
+      "wall": 274124.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16325,
+        "elapsedMs": 88900.00000000298
+      }
+    },
+    {
+      "wall": 274719,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16361,
+        "elapsedMs": 89500.00000000316
+      }
+    },
+    {
+      "wall": 275504.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16408,
+        "elapsedMs": 90283.33333333672
+      }
+    },
+    {
+      "wall": 276120.8000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16445,
+        "elapsedMs": 90900.00000000357
+      }
+    },
+    {
+      "wall": 277018.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16499,
+        "elapsedMs": 91800.00000000383
+      }
+    },
+    {
+      "wall": 277670.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16538,
+        "elapsedMs": 92450.00000000402
+      }
+    },
+    {
+      "wall": 278294.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16575,
+        "elapsedMs": 93066.66666667086
+      }
+    },
+    {
+      "wall": 279102.3000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16624,
+        "elapsedMs": 93883.33333333777
+      }
+    },
+    {
+      "wall": 280755.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16723,
+        "elapsedMs": 95533.33333333825
+      }
+    },
+    {
+      "wall": 281754.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16783,
+        "elapsedMs": 96533.33333333854
+      }
+    },
+    {
+      "wall": 282434.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 16824,
+        "elapsedMs": 97216.66666667207
+      }
+    },
+    {
+      "wall": 283918.3000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 16913,
+        "elapsedMs": 98700.00000000584
+      }
+    },
+    {
+      "wall": 285469.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17006,
+        "elapsedMs": 100250.00000000629
+      }
+    },
+    {
+      "wall": 287104.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 17104,
+        "elapsedMs": 101883.3333333401
+      }
+    },
+    {
+      "wall": 287902.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17152,
+        "elapsedMs": 102683.33333334033
+      }
+    },
+    {
+      "wall": 288586.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 17193,
+        "elapsedMs": 103366.66666667386
+      }
+    },
+    {
+      "wall": 289654.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17257,
+        "elapsedMs": 104433.33333334084
+      }
+    },
+    {
+      "wall": 290339.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 17298,
+        "elapsedMs": 105116.66666667437
+      }
+    },
+    {
+      "wall": 291035.8000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17340,
+        "elapsedMs": 105816.66666667457
+      }
+    },
+    {
+      "wall": 291804.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 17386,
+        "elapsedMs": 106583.33333334146
+      }
+    },
+    {
+      "wall": 293244.3000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17472,
+        "elapsedMs": 108016.66666667521
+      }
+    },
+    {
+      "wall": 294010,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 17518,
+        "elapsedMs": 108783.3333333421
+      }
+    },
+    {
+      "wall": 295085.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17583,
+        "elapsedMs": 109866.66666667575
+      }
+    },
+    {
+      "wall": 296153,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 17647,
+        "elapsedMs": 110933.33333334273
+      }
+    },
+    {
+      "wall": 297507.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17728,
+        "elapsedMs": 112283.33333334312
+      }
+    },
+    {
+      "wall": 298638.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 17796,
+        "elapsedMs": 113416.66666667679
+      }
+    },
+    {
+      "wall": 299234.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17832,
+        "elapsedMs": 114016.66666667696
+      }
+    },
+    {
+      "wall": 300272.8000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 17894,
+        "elapsedMs": 115050.0000000106
+      }
+    },
+    {
+      "wall": 301771.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 17984,
+        "elapsedMs": 116550.00000001103
+      }
+    },
+    {
+      "wall": 302501.3000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 18028,
+        "elapsedMs": 117283.33333334458
+      }
+    },
+    {
+      "wall": 303618.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 18095,
+        "elapsedMs": 118400.00000001157
+      }
+    },
+    {
+      "wall": 304751.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 18163,
+        "elapsedMs": 119533.33333334523
+      }
+    },
+    {
+      "wall": 306155.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 18247,
+        "elapsedMs": 120933.33333334564
+      }
+    },
+    {
+      "wall": 307750.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 18343,
+        "elapsedMs": 122533.3333333461
+      }
+    },
+    {
+      "wall": 308783,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 18405,
+        "elapsedMs": 123566.66666667974
+      }
+    },
+    {
+      "wall": 309565.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 18452,
+        "elapsedMs": 124350.0000000133
+      }
+    },
+    {
+      "wall": 309868.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 18470,
+        "elapsedMs": 124650.00000001339
+      }
+    },
+    {
+      "wall": 312589.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 18633,
+        "elapsedMs": 127366.66666668085
+      }
+    },
+    {
+      "wall": 314122.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 18725,
+        "elapsedMs": 128900.00000001462
+      }
+    },
+    {
+      "wall": 316037.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 18840,
+        "elapsedMs": 130816.66666668185
+      }
+    },
+    {
+      "wall": 316425.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 18863,
+        "elapsedMs": 131200.0000000152
+      }
+    },
+    {
+      "wall": 316954.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 18895,
+        "elapsedMs": 131733.33333334822
+      }
+    },
+    {
+      "wall": 317818.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 18947,
+        "elapsedMs": 132600.00000001438
+      }
+    },
+    {
+      "wall": 319368.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 19040,
+        "elapsedMs": 134150.00000001348
+      }
+    },
+    {
+      "wall": 320854,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 19129,
+        "elapsedMs": 135633.33333334594
+      }
+    },
+    {
+      "wall": 322337.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 19218,
+        "elapsedMs": 137116.66666667841
+      }
+    },
+    {
+      "wall": 322835.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 19248,
+        "elapsedMs": 137616.66666667812
+      }
+    },
+    {
+      "wall": 323721.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 19301,
+        "elapsedMs": 138500.00000001094
+      }
+    },
+    {
+      "wall": 325405.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 19402,
+        "elapsedMs": 140183.3333333433
+      }
+    },
+    {
+      "wall": 326505.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 19468,
+        "elapsedMs": 141283.33333334266
+      }
+    },
+    {
+      "wall": 326673.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 19478,
+        "elapsedMs": 141450.00000000923
+      }
+    },
+    {
+      "wall": 329023.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 19619,
+        "elapsedMs": 143800.00000000786
+      }
+    },
+    {
+      "wall": 330452.3000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 19705,
+        "elapsedMs": 145233.33333334036
+      }
+    },
+    {
+      "wall": 332343.8000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 19818,
+        "elapsedMs": 147116.6666666726
+      }
+    },
+    {
+      "wall": 332568.89999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 19832,
+        "elapsedMs": 147350.0000000058
+      }
+    },
+    {
+      "wall": 333148.8000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 19866,
+        "elapsedMs": 147916.66666667213
+      }
+    },
+    {
+      "wall": 334138.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 19926,
+        "elapsedMs": 148916.66666667155
+      }
+    },
+    {
+      "wall": 334738.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 19962,
+        "elapsedMs": 149516.6666666712
+      }
+    },
+    {
+      "wall": 335505,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20008,
+        "elapsedMs": 150283.33333333742
+      }
+    },
+    {
+      "wall": 336072,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 20042,
+        "elapsedMs": 150850.00000000375
+      }
+    },
+    {
+      "wall": 337089,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20103,
+        "elapsedMs": 151866.66666666983
+      }
+    },
+    {
+      "wall": 337693.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 20139,
+        "elapsedMs": 152466.66666666948
+      }
+    },
+    {
+      "wall": 338226.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20171,
+        "elapsedMs": 153000.0000000025
+      }
+    },
+    {
+      "wall": 340151.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 20287,
+        "elapsedMs": 154933.3333333347
+      }
+    },
+    {
+      "wall": 341623.59999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20375,
+        "elapsedMs": 156400.00000000052
+      }
+    },
+    {
+      "wall": 343108.3000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 20464,
+        "elapsedMs": 157883.333333333
+      }
+    },
+    {
+      "wall": 343384.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20481,
+        "elapsedMs": 158166.66666666616
+      }
+    },
+    {
+      "wall": 344302.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 20536,
+        "elapsedMs": 159083.3333333323
+      }
+    },
+    {
+      "wall": 345895.6999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20631,
+        "elapsedMs": 160666.6666666647
+      }
+    },
+    {
+      "wall": 346970.1999999881,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 20696,
+        "elapsedMs": 161749.9999999974
+      }
+    },
+    {
+      "wall": 348189.3000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20769,
+        "elapsedMs": 162966.66666666337
+      }
+    },
+    {
+      "wall": 349016.3000000119,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 20819,
+        "elapsedMs": 163799.99999999622
+      }
+    },
+    {
+      "wall": 350052,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20881,
+        "elapsedMs": 164833.33333332895
+      }
+    },
+    {
+      "wall": 350871.39999997616,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 20930,
+        "elapsedMs": 165649.99999999514
+      }
+    },
+    {
+      "wall": 351136.3000000119,
+      "event": "phase-camera",
+      "data": {
+        "state": "finished/2/near",
+        "ticks": 20946,
+        "elapsedMs": 165916.66666666165
+      }
+    },
+    {
+      "wall": 351606.5,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 6,
+        "ticks": 20974,
+        "elapsedMs": 166383.33333332805
+      }
+    },
+    {
+      "wall": 352533.09999996424,
+      "event": "light-slots",
+      "data": {
+        "spots": 6,
+        "areas": 2,
+        "emitting": 5,
+        "ticks": 21030,
+        "elapsedMs": 167316.66666666084
+      }
+    }
+  ],
+  "method": "Nearest rank, complete independent attempts, p95<=20ms/p99<=33.4ms/zero active>100ms with 1e-6ms float tolerance. CPU wall durations are not GPU timings; all raw phases/outliers remain."
+}

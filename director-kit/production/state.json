@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-15T06:15:34.247058+00:00",
+  "as_of": "2026-09-15T06:40:35.733741+00:00",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "758c2b291a9b5bd525fe9acd1425537657fadf70",
+  "commit": "886a0d41d87320b87ea4458f8f261ad07f637ac6",
   "current_gate": "G3",
   "current_packet": "P07B Hosted Demonstration - local preflight and Git handoff",
-  "next_action": "Complete remote-clone recovery receipt, then await owner-authorized separate hosting; do not repeat P06C/P07A.",
+  "next_action": "Await owner authorization/access for separate eligible P07B hosting, then publish verified stage and run actual HTTPS acceptance. Local preflight/Git handoff complete; do not repeat P06C/P07A.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -99,7 +99,7 @@
   "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
-  "commit_meaning": "Frozen Review09 runtime; later packaging-only commit in ZIP manifest",
+  "commit_meaning": "Exact source commit built/tested/launched from fresh remote clone; later P07B receipt-only commits do not alter runtime.",
   "known_limitations": [
     "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
     "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
@@ -137,14 +137,14 @@
     "public/assets/textures/bay/"
   ],
   "verification": {
-    "tests": "74/74 full source; TS/Vite build PASS",
-    "browser": "6 retained UI regressions; owned/unowned native menu/reload/power/stock checks PASS",
-    "performance": "5 final unrecorded full first-lap/retry trials, 10 valid laps; p95 16.7ms, p99 16.8ms, max racing33.2ms; stable14programs; all outliers and loading preserved",
-    "physics": "10200 exact off/on telemetry objects;45 protected inputs unchanged",
-    "visual": "Readable red/cyan matched near-chase and actual silent25s night motion; fine occlusion/daylight/photometry limits retained",
-    "evidence": "production/evidence/P04B2"
+    "tests": "136/136 fresh remote clone PASS",
+    "builds": "normal/demo/static stage PASS",
+    "browser": "6 native steps +11hardeningcases +50HTTPpayloadfiles/8missingpaths PASS locally",
+    "performance": "Two complete demo races individually p95/p99 16.8ms; maxima33.3/50ms; zeroactive>100ms; no pooled acceptance",
+    "authoring": "27sources recoverable; historical16imagepaths reloadedinmemory, no save",
+    "evidence": "production/evidence/P07B/remote-validation"
   },
-  "director_addendum": "director-addenda/review-08/CODEX_NEXT.md",
+  "director_addendum": "director-addenda/review-14/CODEX_NEXT.md",
   "drivetrain_addendum": {
     "status": "independently_passed",
     "commit": "9add1f9",
@@ -619,5 +619,21 @@
   },
   "demo_readiness": "LOCAL DEMO READY",
   "git_handoff_authorized": true,
-  "hosting_authorized": false
+  "hosting_authorized": false,
+  "p07b": {
+    "status": "LOCAL_PREFLIGHT_COMPLETE_REMOTE_RECOVERY_VERIFIED_HOSTING_PENDING",
+    "testedCommit": "886a0d41d87320b87ea4458f8f261ad07f637ac6",
+    "receipt": "handoff/P07B-VALIDATION.json (project-relative)",
+    "hostingAuthorized": false,
+    "hostedURL": null,
+    "supersededHistoricalTopLevelVerification": {
+      "tests": "74/74 full source; TS/Vite build PASS",
+      "browser": "6 retained UI regressions; owned/unowned native menu/reload/power/stock checks PASS",
+      "performance": "5 final unrecorded full first-lap/retry trials, 10 valid laps; p95 16.7ms, p99 16.8ms, max racing33.2ms; stable14programs; all outliers and loading preserved",
+      "physics": "10200 exact off/on telemetry objects;45 protected inputs unchanged",
+      "visual": "Readable red/cyan matched near-chase and actual silent25s night motion; fine occlusion/daylight/photometry limits retained",
+      "evidence": "production/evidence/P04B2"
+    },
+    "review14AcceptedLocalDemo": true
+  }
 }

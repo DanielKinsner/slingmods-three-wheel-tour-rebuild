@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "status": "REMOTE_RECOVERY_VERIFIED; LOCAL_PREFLIGHT_COMPLETE; HOSTING_PENDING",
+  "repository": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+  "private": true,
+  "branch": "main",
+  "checkedCommit": "886a0d41d87320b87ea4458f8f261ad07f637ac6",
+  "acceptedReview14Runtime": "758c2b291a9b5bd525fe9acd1425537657fadf70",
+  "initialRemoteCloneCommit": "74185a459848b353c5f397f8eba0f293bd9cc00b",
+  "checkedAt": "2026-09-15T06:40:35.723109+00:00",
+  "method": "Genuinely fresh authenticated HTTPS clone FROM GitHub, then fast-forward remote pulls of portable inspection repairs; no original-checkout assets, node_modules or generated outputs copied into clone. Both final builds,136tests and browser proof run on checkedCommit. New output identity differs from accepted Review14 output, which remains unchanged.",
+  "receiptCommitPolicy": "This receipt and final authority updates are a documentation/evidence-only follow-up to checkedCommit. Find the containing commit using git log -1 --format=%H -- handoff/P07B-VALIDATION.json; final main tip is checked after pushing it.",
+  "cloneProvenance": {
+    "method": "Fresh clone FROM REMOTE; no local object alternates or copies",
+    "source": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+    "cloneRoot": "C:\\Users\\Daniel Kinsner\\AppData\\Local\\Temp\\slingmods-remote-1662e69141744e6fbfaa904048f9f73c\\checkout",
+    "expectedCommit": "74185a459848b353c5f397f8eba0f293bd9cc00b",
+    "branch": "main"
+  },
+  "sharedHostResources": {
+    "node": "24.15.0",
+    "npm": "11.12.1",
+    "python": "3.13.5",
+    "Blender": "4.5.2 portable executable from originating .tools, used as host tool only; no asset copy",
+    "browser": "Playwright1.63.0 Chromium153.0.8010.12 installed/resolved by clone dependency setup; shared host Playwright browser cache",
+    "npmCache": "Existing host npm cache may satisfy downloads; npm ci created a new clone node_modules",
+    "hostScope": "Same Windows/RTX4080 host, not destination-machine verification. No desktop takeover or unrelated process changes."
+  },
+  "results": {
+    "currentInputFiles": 579,
+    "inputHashesPass": true,
+    "lineEndingOnlyDifferences": 36,
+    "review14OmittedBinariesRecoveredFromRemote": 192,
+    "currentPacketHashes": 9,
+    "tests": {
+      "passed": 136,
+      "failed": 0,
+      "skipped": 0
+    },
+    "normalBuild": "PASS",
+    "demoBuild": "PASS",
+    "publicationStage": "PASS_LOCAL_ONLY",
+    "httpPublicFiles": 50,
+    "missingPaths404": 8,
+    "nativeSteps": 6,
+    "hardeningCases": 11,
+    "blenderSources": 27,
+    "historicalImageRecovery": {
+      "files": 1,
+      "images": 16,
+      "behavior": "Explicitly rebase/reload actual tracked textures in memory; no original Blender save; initial failure/probe preserved"
+    },
+    "races": [
+      {
+        "attempt": 1,
+        "p95Ms": 16.79999999998836,
+        "p99Ms": 16.80000000000291,
+        "maxMs": 33.30000000000291,
+        "activeOver100Ms": 0,
+        "result": {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "da674d39-4e4a-4666-bc03-d0bcf571f38b",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 165902.96923624715,
+          "place": 3,
+          "invalidReason": null
+        },
+        "pass": true
+      },
+      {
+        "attempt": 2,
+        "p95Ms": 16.79999999998836,
+        "p99Ms": 16.800000000017462,
+        "maxMs": 50,
+        "activeOver100Ms": 0,
+        "result": {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "f39c2708-2d93-42a1-80c9-dfc0578c1c79",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 165902.91665812678,
+          "place": 3,
+          "invalidReason": null
+        },
+        "pass": true
+      }
+    ],
+    "raceMethod": "Prepared demo, actual production rivals/sharedphysics, accepted virtual driver, native RAF,1920x1080/DPR1/standard/RTX4080D3D11/audio graph on with host output muted; no recording. Both complete attempts independently scored. All four finish2laps, retry and garage return.",
+    "productLink": "Actual first-party SM133 page opened deliberately; nullopener; unchanged garage on return",
+    "nonRacingTimingLimit": "A133.3ms ready-phase interval remains in complete raw evidence; active-race thresholds pass."
+  },
+  "outputs": {
+    "demo": {
+      "output": "demo-dist/2026-09-15T06-28-21-796Z-886a0d41d873",
+      "commit": "886a0d41d87320b87ea4458f8f261ad07f637ac6",
+      "buildRef": "886a0d41d873",
+      "manifest": "OUTPUT-MANIFEST.json"
+    },
+    "publicationStage": {
+      "output": "publish-stage/2026-09-15T06-28-23-175Z-886a0d41d873",
+      "bytes": 112448567,
+      "files": 51,
+      "receipt": "director-kit/production/evidence/P07B/remote-validation/publish-stage-receipt.json"
+    },
+    "originalReviewedOutputUnchanged": true
+  },
+  "localServers": [
+    {
+      "url": "http://127.0.0.1:5188/",
+      "pid": 12592,
+      "kind": "Original accepted retained demo with corrected local MIME server",
+      "stop": "Stop-Process -Id 12592"
+    },
+    {
+      "url": "http://127.0.0.1:5191/",
+      "pid": 44848,
+      "kind": "Exact fresh-clone P07B stage tested in browser",
+      "stop": "Stop-Process -Id 44848"
+    }
+  ],
+  "hosting": {
+    "authorized": false,
+    "uploaded": false,
+    "url": null,
+    "pending": "Owner approval for a separate eligible no-cost branded demo target and target access; then inspect plan/quota, publish only verified stage and perform actual HTTPS acceptance.",
+    "noindex": "Not access control or privacy."
+  },
+  "held": [
+    "G3/G4 and global fidelity",
+    "Human driving/fun/listening and authentic exhaust sound",
+    "Physical controllers/mobile and broad browsers",
+    "Historical repeat slowdown cause remains unproven",
+    "Destination-machine performance and actual hosted/provider behavior"
+  ],
+  "preservedUntracked": {
+    "path": "P06C-HOME-KICKOFF.md",
+    "sha256": "c71fe1d6e732c3c43c05969cd5e6747dd9ddea024a161550a5b4d5bc9665ce77"
+  },
+  "logs": {
+    "install.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/install.log",
+      "bytes": 148,
+      "sha256": "c8c6c3147dc0015fff41f0333a26a370464304ce0b3437edaae018e5ba4c97b3"
+    },
+    "test-final.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/test-final.log",
+      "bytes": 14082,
+      "sha256": "6cf3e2e810171db56ec9999267321c4bac70087a950a81bc341232f9e2fad921"
+    },
+    "build-final.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/build-final.log",
+      "bytes": 1989,
+      "sha256": "6c869573d833e4e91f22072866d4e0d966dd3ab8fcb18cfee8724ded1a7252b3"
+    },
+    "demo-build-final.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/demo-build-final.log",
+      "bytes": 3021,
+      "sha256": "e1044905d6375d4fe884d9f3fdab0d45834e5b81c71bfd1ccbf28e6f1bb323a2"
+    },
+    "stage-final.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/stage-final.log",
+      "bytes": 272,
+      "sha256": "cc28f831a85769a846d06997453cd907f5d2bb53e4de49068af68430185841b5"
+    },
+    "browser-install.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/browser-install.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "blender-inspection-final-02.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/blender-inspection-final-02.log",
+      "bytes": 4755,
+      "sha256": "d9088f73c59ed09f1a60e3dd30d19e69916f013d831f94bf65b1c91c6d12342b"
+    },
+    "native.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/native.log",
+      "bytes": 661,
+      "sha256": "c1146ba9897ec37f6120f7dbc79944997a2043f635c7e09bcb221f88b0c2d7ba"
+    },
+    "hardening.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/hardening.log",
+      "bytes": 824,
+      "sha256": "ce366d9f223bf34c39312f77c0011509e33ba2c09fb31eec2e3aa0d05b282731"
+    },
+    "two-race.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/two-race.log",
+      "bytes": 8949,
+      "sha256": "992493a9d2490f5acc8ba098baa1ec9c15418daff6266711db63ac6b5b91fa8a"
+    },
+    "two-race-score.log": {
+      "path": "director-kit/production/evidence/P07B/remote-validation/two-race-score.log",
+      "bytes": 27884,
+      "sha256": "65a6818176364f07a16de297b2246c9c41f9baadb57613b8a406ebb96e543a51"
+    }
+  },
+  "nextAction": "On destination, discover checkout/tools and follow HANDOFF.md NEW-MACHINE RESUME PROMPT. Do not repeat P06C/P07A. Resume only pending authorized P07B external publication when owner approval/access arrives.",
+  "independentReview": "director-kit/production/evidence/P07B/independent-review-final.md",
+  "stoppedAfterVerification": [
+    {
+      "url": "http://127.0.0.1:5190/",
+      "pid": 24144,
+      "kind": "Fresh clone normal demo launched/probed then stopped; restart documented commands as needed"
+    },
+    {
+      "url": "http://127.0.0.1:5189/",
+      "pid": 35680,
+      "kind": "Original-output initial publication-stage preview; superseded by tested5191stage"
+    }
+  ],
+  "evidenceIndex": "handoff/P07B-EVIDENCE-INDEX.json"
+}
