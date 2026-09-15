@@ -24,12 +24,15 @@
     "build": "PASS",
     "runtime": "director-kit/production/evidence/Hoop-Refinement/runtime-01/verification.json",
     "inspection": "director-kit/production/evidence/Hoop-Refinement/inspection-01/verification.json",
-    "authoring": "director-kit/production/evidence/Hoop-Refinement/build.json"
+    "authoring": "director-kit/production/evidence/Hoop-Refinement/build.json",
+    "static": "director-kit/production/evidence/Hoop-Refinement/static-01/verification.json"
   },
   "scope": "Remove four invented rear roll-hoop braces; keep black finish and corrected front, wing mounts, binding nodes, materials and other geometry.",
   "limits": [
     "Existing hoop shapes are retained; not an OEM CAD/fidelity approval.",
     "No physics or collision edits. Historical performance HOLD remains.",
     "Original P09A gameplay film remains in updated packet; it predates these visual corrections. Updated stills and current asset hashes identify current appearance."
-  ]
+  ],
+  "runtimeCommit": "55ea67553562c859968b15d14339a8de35c6db0d",
+  "remoteAssetVerification": "director-kit/production/evidence/Hoop-Refinement/remote-assets.json"
 }

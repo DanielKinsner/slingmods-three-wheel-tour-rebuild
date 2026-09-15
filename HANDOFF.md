@@ -1,6 +1,6 @@
 # Current owner refinement - roll hoops and updated Review17
 
-The four invented rear diagonal braces have been removed. Outer/inner hoop shapes, black finish, wing mounts and the prior front correction remain. Current shared vehicle: `public/assets/hoop-refinement/slingshot-hoops-refined.glb`; editable source: `assets/blender/hoop-refinement/slingshot-hoops-refined.blend`. Branch remains `feature/p09a-own-the-build`. See `handoff/HOOP-REFINEMENT.json` for required assets and verification.
+The four invented rear diagonal braces have been removed. Outer/inner hoop shapes, black finish, wing mounts and the prior front correction remain. Current shared vehicle: `public/assets/hoop-refinement/slingshot-hoops-refined.glb`; editable source: `assets/blender/hoop-refinement/slingshot-hoops-refined.blend`. Branch remains `feature/p09a-own-the-build`. Pushed runtime: `55ea67553562c859968b15d14339a8de35c6db0d`; later packet/receipt commits preserve that runtime. See `handoff/HOOP-REFINEMENT.json` for required assets and verification.
 
 218 tests and the isolated four-finish/five-preview/reload/departure/drive-return check pass. Only one runtime material batch changes; 74 other batches, all binding nodes and all materials retain the previous data. No simulation, collision or save changes. Global art/physical-device/release and historical performance HOLD remain.
 
