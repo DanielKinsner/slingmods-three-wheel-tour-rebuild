@@ -18,7 +18,7 @@ def put(p):
 for n in tracked:
  p=r/n
  if n.startswith(('src/','tests/')) or n.startswith('scripts/') and (p.name.startswith(('p09','profile-p09','record-p09','assemble-p09','restore-p09','package-p09','analyze-p09')) or p.name in ['build-demo.mjs','serve-demo.mjs','static-demo.mjs','p08b-driving-evidence-agent.ts']):put(p)
- elif n in ['package.json','package-lock.json','tsconfig.json','vite.config.ts','demo-assets.json','index.html','HANDOFF.md','AGENTS.md','RESUME.md','director-kit/production/state.json','public/assets/slingshot-contact-layout.json']:put(p)
+ elif n in ['.gitattributes','package.json','package-lock.json','tsconfig.json','vite.config.ts','demo-assets.json','index.html','HANDOFF.md','AGENTS.md','RESUME.md','director-kit/production/state.json','public/assets/slingshot-contact-layout.json']:put(p)
  elif n.startswith('handoff/P09A-') or n=='handoff/verify-p09a.py' or n.startswith('director-kit/director-addenda/review-16/') and '/evidence/' not in n:put(p)
 add('REVIEW-ME-FIRST.md',(r/'handoff/P09A-REVIEW.md').read_bytes())
 add('P09A-source.diff',subprocess.check_output(['git','diff','51f34a341200cf76bf69106bdfae300590419e88',runtime,'--','src','tests','scripts','demo-assets.json'],cwd=r))
