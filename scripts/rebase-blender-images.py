@@ -16,8 +16,9 @@ def recover_images(root):
   current=Path(bpy.path.abspath(raw))
   if current.is_file() and current.resolve().is_relative_to(root):continue
   original=raw;image.filepath=bpy.path.relpath(str(target));image.reload()
-  if not image.has_data or min(image.size)==0:raise RuntimeError('Image reload failed: '+image.name)
-  rows.append({'image':image.name,'historicalPath':original,'recoveredPath':relative,'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'pixels':list(image.size),'method':'Reload actual tracked image bytes at clone-relative path in memory; no source save/export'})
+  size=list(image.size) # Blender loads lazily; reading size resolves the reloaded buffer.
+  if min(size)==0 or not image.has_data:raise RuntimeError('Image reload failed: '+image.name)
+  rows.append({'image':image.name,'historicalPath':original,'recoveredPath':relative,'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'pixels':size,'method':'Reload actual tracked image bytes at clone-relative path in memory; no source save/export'})
  return rows
 
 if __name__=='__main__':

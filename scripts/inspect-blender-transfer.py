@@ -13,7 +13,7 @@ for p in sorted((root/'assets').rglob('*.blend')):
   for item in items:
    raw=getattr(item,'filepath','');packed=bool(getattr(item,'packed_file',None) or len(getattr(item,'packed_files',[])))
    if not raw or raw=='<builtin>' or getattr(item,'source','') in ['GENERATED','VIEWER']:continue
-   resolved=Path(bpy.path.abspath(raw))
+   resolved=Path(bpy.path.abspath(raw)).resolve()
    owned=resolved.is_relative_to(root)
    okay=packed or (owned and resolved.is_file())
    deps.append({'kind':kind,'name':item.name,'storedPath':raw,'packed':packed,'resolvedInsideClone':owned,'exists':resolved.is_file(),'pass':okay})
