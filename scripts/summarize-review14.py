@@ -7,6 +7,10 @@ def stats(values):
  return None if not a else {'count':len(a),'p50':a[math.ceil(len(a)*.5)-1],'p95':a[math.ceil(len(a)*.95)-1],'p99':a[math.ceil(len(a)*.99)-1],'max':a[-1],'over100':sum(x>100.000001 for x in a)}
 def score(path):
  d=json.loads(path.read_text());p=d['profile'];rows=p['rows'];assert rows and not p['overflow'];assert not d['errors'];assert not d.get('record') and not d.get('diagnostic')
+ assert p['size']==[d['width'],d['width']*9/16] and p['dpr']==1
+ assert d['initial']['quality']=='standard' and d['initial']['audio']['enabled']
+ assert d['initial']['product']['equipped']==d['equipped']
+ provenance=json.loads((path.parent/'provenance.json').read_text())['manifest'];assert d['final']['commit']==provenance.get('buildRef',provenance['commit'][:12])
  assert all(abs(rows[i][0]-rows[i-1][0]-rows[i][1])<.001 for i in range(1,len(rows)))
  active=[r for r in rows if r[10]==2];groups=sorted({r[11]for r in active});assert len(groups)==len(d['results'])>0
  crew='attemptFinals'in d
@@ -22,7 +26,7 @@ def score(path):
  for group,result in zip(groups,d['results']):
   data=[r for r in active if r[11]==group];interval=stats([r[1]for r in data]);outcome=result['race']['playerResult'if crew else'result'];assert outcome['valid']
   if crew:
-   end=d['attemptFinals'][group-1];assert end['attemptId']==outcome['attemptId'];assert all(s['status']=='finished'for s in end['race']['standings'])
+   end=d['attemptFinals'][group-1];assert end['attemptId']==outcome['attemptId'];assert all(s['status']=='finished' and s['valid'] and s['lap']==2 for s in end['race']['standings'])
   row={'attempt':group,'result':outcome,'intervals':interval,'renderSubmissionCPU':stats([r[3]for r in data]),'frameCPU':stats([r[2]for r in data]),'targetMet':interval['p95']<=20.000001 and interval['p99']<=33.400001 and interval['over100']==0,'firstRAF':data[0][0],'lastRAF':data[-1][0],'programs':sorted({r[6]for r in data})}
   if host and 'timeOrigin'in d:
    samples=[s for s in host if d['timeOrigin']+data[0][0]<=s['unixMs']<=d['timeOrigin']+data[-1][0] and s['intervalSeconds']>1]

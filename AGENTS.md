@@ -1,4 +1,6 @@
-# Active assignment — P07A Shareable Showcase
+# Current return point — P07A Shareable Showcase / Review14
+
+P07A is implemented and locally validated; Review14 is prepared as a lean review-only return. Read the final P07A review introduction and indexes. No automatic new work after delivery.
 
 The latest user authorizes director-kit/director-addenda/review-13/CODEX_NEXT.md and all required packets, including LEAN-REVIEW-DELIVERY.md. Read HANDOFF.md for historical identity, RESUME.md and current production state. Continue the current checkout; P06C is retained and must not be restarted. Preserve P06C-HOME-KICKOFF.md, all source/history/evidence and protected simulation/vehicle/route/career contracts. P07A permits demo-profile isolation, visitor UI, approved branding/product connection, exact bay extraction, measured performance repair and allowlisted local static output. One lead, at most two bounded helpers, separate independent review. No heavy authoring/tests/media concurrent with benchmarks. No desktop takeover, unrelated process changes, spending, remote push/merge, account linking or deployment. Return one review-only Astra-Review-14-Lean.zip, target 60,000,000 bytes, cap 100,000,000 bytes, after internal repair/validation. Performance uncertainty blocks SHARE-READY, not safe local work; G3/G4 and final art remain pending. Earlier headers below are historical.
 

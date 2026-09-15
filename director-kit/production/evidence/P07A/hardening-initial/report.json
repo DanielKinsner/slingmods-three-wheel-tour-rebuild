@@ -1,0 +1,353 @@
+{
+  "candidate": {
+    "output": "demo-dist/2026-09-15T03-58-28-008Z-6f473ee7d258-working",
+    "commit": "6f473ee7d25869c0c4c4fa2462da652150adb949",
+    "buildRef": "6f473ee7d258-working",
+    "manifest": "OUTPUT-MANIFEST.json"
+  },
+  "base": "http://127.0.0.1:5188",
+  "startedAt": "2026-09-15T04:03:15.879Z",
+  "method": "Isolated headless Chromium against the exact local static demo output. Native links/keys except declared failure injection, graphics extension and inspection hooks. Not performance scoring.",
+  "cases": [
+    {
+      "name": "ordinary entry and historical selector rejection",
+      "startedAt": "2026-09-15T04:03:15.936Z",
+      "pass": true,
+      "entry": {
+        "title": "Meet you\nat the harbor.",
+        "links": [
+          {
+            "text": "Race the Harbor →",
+            "href": "/?scene=crew&play=demo"
+          },
+          {
+            "text": "Explore the Garage",
+            "href": "/?scene=bay&play=demo"
+          },
+          {
+            "text": "Daylight Drive",
+            "href": "/?scene=harbor&preset=day&play=demo"
+          },
+          {
+            "text": "Continue Career",
+            "href": "/?scene=bay&play=career"
+          }
+        ],
+        "controls": "BEFORE YOU DRIVE\nYour keys to the harbor\nW S\nThrottle / brake\nA D\nSteer left / right\nC\nChange camera\nB\nHold to look back\nEsc\nPause / continue\nR\nHold one second to restart\nX\nForward / reverse\n\nUse Tab and Enter for menus. Release driving controls when returning to the game. Restarting begins a new attempt.\n\nDesktop first: a keyboard and a WebGL 2 browser are required. Touch driving is not supported. Standard gamepad bindings are available; physical controllers have not been certified.",
+        "globals": [
+          "undefined",
+          "undefined",
+          "undefined"
+        ]
+      },
+      "requests": [
+        "/",
+        "/assets/index-cIiwMutE.js",
+        "/assets/profile-CJVbYVwc.js",
+        "/assets/recovery-sIvxFfyd.js",
+        "/assets/preview-B8cvyH2-.css",
+        "/assets/entry-B-Ip6j0S.js",
+        "/assets/brand/slingmods-logo-main.png",
+        "/",
+        "/assets/index-cIiwMutE.js",
+        "/assets/profile-CJVbYVwc.js",
+        "/assets/recovery-sIvxFfyd.js",
+        "/assets/preview-B8cvyH2-.css",
+        "/assets/entry-B-Ip6j0S.js",
+        "/assets/brand/slingmods-logo-main.png"
+      ],
+      "historicalRejected": true,
+      "finishedAt": "2026-09-15T04:03:16.077Z"
+    },
+    {
+      "name": "missing current vehicle",
+      "startedAt": "2026-09-15T04:03:16.078Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/vehicles/slingshot-p04a1.glb",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 1,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=bay&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:03:26.119Z"
+    },
+    {
+      "name": "missing required branding model",
+      "startedAt": "2026-09-15T04:03:26.120Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/brand/slingmods-sign.glb",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 1,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=bay&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:03:36.716Z"
+    },
+    {
+      "name": "missing required daylight HDR",
+      "startedAt": "2026-09-15T04:03:36.718Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 1,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=harbor&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:03:49.532Z"
+    },
+    {
+      "name": "missing shared runtime JavaScript with embedded physics WASM",
+      "startedAt": "2026-09-15T04:03:49.533Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/game-audio-ZgLXdyGn.js",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 0,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=crew&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:04:08.384Z"
+    },
+    {
+      "name": "missing lazy crew JavaScript",
+      "startedAt": "2026-09-15T04:04:08.385Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/crew-B5kX4_CQ.js",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 0,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=crew&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:04:26.660Z"
+    },
+    {
+      "name": "slow required dependency has a visible ordinary exit",
+      "startedAt": "2026-09-15T04:04:26.661Z",
+      "pass": true,
+      "exitVisible": true,
+      "returnedToEntry": true,
+      "method": "Required model request held until normal exit navigation, then request aborted; no replacement asset",
+      "finishedAt": "2026-09-15T04:04:26.866Z"
+    },
+    {
+      "name": "WebGL disabled with browser launch flag",
+      "startedAt": "2026-09-15T04:04:26.867Z",
+      "pass": true,
+      "launchFlag": "--disable-webgl",
+      "facts": {
+        "text": "DEVELOPMENT PREVIEW\n\nWebGL 2 is unavailable\n\nThis preview needs a desktop browser with WebGL 2 enabled. Check browser graphics support, then retry. You can return to the preview without starting a game.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 0,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "finishedAt": "2026-09-15T04:04:27.155Z"
+    },
+    {
+      "name": "actual context loss pauses race audio and contains recovery focus",
+      "startedAt": "2026-09-15T04:04:27.156Z",
+      "pass": false,
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#enable-sound')\u001b[22m\n\u001b[2m    - locator resolved to <button id=\"enable-sound\">Enable sound</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n    at C:\\Users\\Daniel Kinsner\\OneDrive\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\validate-review14-hardening.mjs:25:312\n    at async run (C:\\Users\\Daniel Kinsner\\OneDrive\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\validate-review14-hardening.mjs:10:145)\n    at async file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/validate-review14-hardening.mjs:25:2",
+      "finishedAt": "2026-09-15T04:05:00.244Z"
+    },
+    {
+      "name": "native back navigation and persisted-page restoration create one fresh scene",
+      "startedAt": "2026-09-15T04:05:00.245Z",
+      "pass": false,
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.preview-return')\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"/\" class=\"preview-return\">Development Preview · Demo profile</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n    at C:\\Users\\Daniel Kinsner\\OneDrive\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\validate-review14-hardening.mjs:26:418\n    at async run (C:\\Users\\Daniel Kinsner\\OneDrive\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\validate-review14-hardening.mjs:10:145)\n    at async file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/validate-review14-hardening.mjs:26:2",
+      "finishedAt": "2026-09-15T04:06:39.321Z"
+    }
+  ],
+  "complete": false,
+  "finishedAt": "2026-09-15T04:06:39.322Z"
+}

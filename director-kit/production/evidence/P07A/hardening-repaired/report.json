@@ -1,0 +1,836 @@
+{
+  "candidate": {
+    "output": "demo-dist/2026-09-15T04-08-53-131Z-6f473ee7d258-working",
+    "commit": "6f473ee7d25869c0c4c4fa2462da652150adb949",
+    "buildRef": "6f473ee7d258-working",
+    "manifest": "OUTPUT-MANIFEST.json"
+  },
+  "base": "http://127.0.0.1:5188",
+  "toolSHA256": "d580e085c3ed74fa2e9c3a1f982eb0bdee9270232dd434032ff2cc0452b38b7e",
+  "browserArgs": [
+    "--use-angle=d3d11",
+    "--mute-audio"
+  ],
+  "selected": [],
+  "startedAt": "2026-09-15T04:09:50.066Z",
+  "method": "Isolated headless Chromium against the exact local static demo output. Native links/keys except declared failure injection, graphics extension and inspection hooks. Not performance scoring.",
+  "cases": [
+    {
+      "name": "ordinary entry and historical selector rejection",
+      "startedAt": "2026-09-15T04:09:50.124Z",
+      "pass": true,
+      "entry": {
+        "title": "Meet you\nat the harbor.",
+        "links": [
+          {
+            "text": "Race the Harbor →",
+            "href": "/?scene=crew&play=demo"
+          },
+          {
+            "text": "Explore the Garage",
+            "href": "/?scene=bay&play=demo"
+          },
+          {
+            "text": "Daylight Drive",
+            "href": "/?scene=harbor&preset=day&play=demo"
+          },
+          {
+            "text": "Continue Career",
+            "href": "/?scene=bay&play=career"
+          }
+        ],
+        "controls": "BEFORE YOU DRIVE\nYour keys to the harbor\nW S\nThrottle / brake\nA D\nSteer left / right\nC\nChange camera\nB\nHold to look back\nEsc\nPause / continue\nR\nHold one second to restart\nX\nForward / reverse\n\nUse Tab and Enter for menus. Release driving controls when returning to the game. Restarting begins a new attempt.\n\nDesktop first: a keyboard and a WebGL 2 browser are required. Touch driving is not supported. Standard gamepad bindings are available; physical controllers have not been certified.",
+        "globals": [
+          "undefined",
+          "undefined",
+          "undefined"
+        ]
+      },
+      "requests": [
+        "/",
+        "/assets/index-CYpWWscV.js",
+        "/assets/profile-CJVbYVwc.js",
+        "/assets/recovery-D8yfTBio.js",
+        "/assets/preview-DuEvBiNj.css",
+        "/assets/entry-1BEUd7vZ.js",
+        "/assets/brand/slingmods-logo-main.png",
+        "/",
+        "/assets/index-CYpWWscV.js",
+        "/assets/profile-CJVbYVwc.js",
+        "/assets/recovery-D8yfTBio.js",
+        "/assets/preview-DuEvBiNj.css",
+        "/assets/entry-1BEUd7vZ.js",
+        "/assets/brand/slingmods-logo-main.png",
+        "/",
+        "/assets/index-CYpWWscV.js",
+        "/assets/profile-CJVbYVwc.js",
+        "/assets/recovery-D8yfTBio.js",
+        "/assets/preview-DuEvBiNj.css",
+        "/assets/entry-1BEUd7vZ.js",
+        "/assets/brand/slingmods-logo-main.png"
+      ],
+      "historicalRejected": true,
+      "narrowSupport": {
+        "text": "Desktop keyboard + WebGL 2 required. Touch driving is not supported.",
+        "visible": true,
+        "bottom": 460.140625,
+        "actionTop": 490.140625,
+        "viewport": 844
+      },
+      "finishedAt": "2026-09-15T04:09:50.307Z"
+    },
+    {
+      "name": "missing current vehicle",
+      "startedAt": "2026-09-15T04:09:50.308Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/vehicles/slingshot-p04a1.glb",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 1,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=bay&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:09:54.324Z"
+    },
+    {
+      "name": "missing required branding model",
+      "startedAt": "2026-09-15T04:09:54.325Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/brand/slingmods-sign.glb",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 1,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=bay&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:09:55.307Z"
+    },
+    {
+      "name": "missing required daylight HDR",
+      "startedAt": "2026-09-15T04:09:55.308Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 1,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=harbor&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:09:58.322Z"
+    },
+    {
+      "name": "missing shared runtime JavaScript with embedded physics WASM",
+      "startedAt": "2026-09-15T04:09:58.323Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/game-audio-ZgLXdyGn.js",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 0,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=crew&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:10:01.138Z"
+    },
+    {
+      "name": "missing lazy crew JavaScript",
+      "startedAt": "2026-09-15T04:10:01.139Z",
+      "pass": true,
+      "injected404": "http://127.0.0.1:5188/assets/crew-lSE_pGrG.js",
+      "failure": {
+        "text": "DEVELOPMENT PREVIEW\n\nThe harbor could not finish loading\n\nA required game asset or service could not load. Check your connection and retry the page. Your saved career has not been reset.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 0,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "retry": {
+        "url": "http://127.0.0.1:5188/?scene=crew&play=demo",
+        "canvases": 1,
+        "dialogGone": true
+      },
+      "finishedAt": "2026-09-15T04:10:02.607Z"
+    },
+    {
+      "name": "missing audio manifest has a usable game and successful sound retry",
+      "startedAt": "2026-09-15T04:10:02.608Z",
+      "pass": true,
+      "injection": "404 bank provenance only; existing sound retry button used after removing interception",
+      "failure": {
+        "audio": {
+          "enabled": false,
+          "loading": false,
+          "failure": "Sound unavailable — retry",
+          "life": {
+            "enabled": false,
+            "paused": true,
+            "mute": false,
+            "volume": 0.55,
+            "cockpit": false,
+            "reset": false
+          }
+        },
+        "phase": "ready",
+        "contexts": 1,
+        "recoveryDialogs": 0
+      },
+      "retry": {
+        "audio": {
+          "enabled": true,
+          "loading": false,
+          "failure": "",
+          "life": {
+            "enabled": true,
+            "paused": true,
+            "mute": false,
+            "volume": 0.55,
+            "cockpit": false,
+            "reset": false
+          },
+          "opponents": {
+            "slots": 2,
+            "sharedContext": true,
+            "sharedDecodedBuffers": true,
+            "selected": [
+              {
+                "id": "nico",
+                "distance": 4.272001984277902,
+                "pan": -0.8000000238418579,
+                "gain": 0,
+                "rpm": 950
+              },
+              {
+                "id": "jett",
+                "distance": 7,
+                "pan": 0,
+                "gain": 0,
+                "rpm": 950
+              }
+            ],
+            "buses": [
+              {
+                "contextState": "running",
+                "contextTime": 0.10133333333333333,
+                "persistentLoops": 8,
+                "shiftCount": 0,
+                "masterTarget": 0,
+                "rms": 0,
+                "parameters": {
+                  "rpm": 950,
+                  "speed": 0,
+                  "load": 0,
+                  "layers": [
+                    {
+                      "name": "engine-1200-load",
+                      "rate": 0.7916666666666666,
+                      "gain": 0.08
+                    },
+                    {
+                      "name": "engine-1200-lift",
+                      "rate": 0.7916666666666666,
+                      "gain": 0.2
+                    },
+                    {
+                      "name": "engine-3600-load",
+                      "rate": 0.2638888888888889,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-3600-lift",
+                      "rate": 0.2638888888888889,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-6200-load",
+                      "rate": 0.1532258064516129,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-6200-lift",
+                      "rate": 0.1532258064516129,
+                      "gain": 0
+                    },
+                    {
+                      "name": "road",
+                      "rate": 1,
+                      "gain": 0
+                    },
+                    {
+                      "name": "wind",
+                      "rate": 1,
+                      "gain": 0
+                    }
+                  ],
+                  "master": 0,
+                  "cutoff": 6500,
+                  "shiftGain": 0.18,
+                  "reset": false
+                }
+              },
+              {
+                "contextState": "running",
+                "contextTime": 0.10133333333333333,
+                "persistentLoops": 8,
+                "shiftCount": 0,
+                "masterTarget": 0,
+                "rms": 0,
+                "parameters": {
+                  "rpm": 950,
+                  "speed": 0,
+                  "load": 0,
+                  "layers": [
+                    {
+                      "name": "engine-1200-load",
+                      "rate": 0.7916666666666666,
+                      "gain": 0.08
+                    },
+                    {
+                      "name": "engine-1200-lift",
+                      "rate": 0.7916666666666666,
+                      "gain": 0.2
+                    },
+                    {
+                      "name": "engine-3600-load",
+                      "rate": 0.2638888888888889,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-3600-lift",
+                      "rate": 0.2638888888888889,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-6200-load",
+                      "rate": 0.1532258064516129,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-6200-lift",
+                      "rate": 0.1532258064516129,
+                      "gain": 0
+                    },
+                    {
+                      "name": "road",
+                      "rate": 1,
+                      "gain": 0
+                    },
+                    {
+                      "name": "wind",
+                      "rate": 1,
+                      "gain": 0
+                    }
+                  ],
+                  "master": 0,
+                  "cutoff": 6500,
+                  "shiftGain": 0.18,
+                  "reset": false
+                }
+              }
+            ]
+          },
+          "graph": {
+            "contextState": "running",
+            "contextTime": 0.10133333333333333,
+            "persistentLoops": 8,
+            "shiftCount": 0,
+            "masterTarget": 0,
+            "rms": 0,
+            "parameters": {
+              "rpm": 950,
+              "speed": 0,
+              "load": 0,
+              "layers": [
+                {
+                  "name": "engine-1200-load",
+                  "rate": 0.7916666666666666,
+                  "gain": 0.08
+                },
+                {
+                  "name": "engine-1200-lift",
+                  "rate": 0.7916666666666666,
+                  "gain": 0.2
+                },
+                {
+                  "name": "engine-3600-load",
+                  "rate": 0.2638888888888889,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-3600-lift",
+                  "rate": 0.2638888888888889,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-6200-load",
+                  "rate": 0.1532258064516129,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-6200-lift",
+                  "rate": 0.1532258064516129,
+                  "gain": 0
+                },
+                {
+                  "name": "road",
+                  "rate": 1,
+                  "gain": 0
+                },
+                {
+                  "name": "wind",
+                  "rate": 1,
+                  "gain": 0
+                }
+              ],
+              "master": 0,
+              "cutoff": 6500,
+              "shiftGain": 0.18,
+              "reset": false
+            }
+          }
+        },
+        "contexts": 1,
+        "liveContexts": 1,
+        "audioUIs": 1
+      },
+      "finishedAt": "2026-09-15T04:10:04.246Z"
+    },
+    {
+      "name": "slow required dependency has a visible ordinary exit",
+      "startedAt": "2026-09-15T04:10:04.248Z",
+      "pass": true,
+      "exitVisible": true,
+      "returnedToEntry": true,
+      "method": "Required model request held until normal exit navigation, then request aborted; no replacement asset",
+      "finishedAt": "2026-09-15T04:10:04.593Z"
+    },
+    {
+      "name": "WebGL disabled with browser launch flag",
+      "startedAt": "2026-09-15T04:10:04.595Z",
+      "pass": true,
+      "launchFlag": "--disable-webgl",
+      "facts": {
+        "text": "DEVELOPMENT PREVIEW\n\nWebGL 2 is unavailable\n\nThis preview needs a desktop browser with WebGL 2 enabled. Check browser graphics support, then retry. You can return to the preview without starting a game.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 0,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "finishedAt": "2026-09-15T04:10:04.875Z"
+    },
+    {
+      "name": "actual context loss pauses race audio and contains recovery focus",
+      "startedAt": "2026-09-15T04:10:04.875Z",
+      "pass": true,
+      "injection": "WEBGL_lose_context.loseContext() on actual renderer",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "before": {
+        "ticks": 207,
+        "race": {
+          "phase": "running",
+          "paused": false,
+          "countdown": 0,
+          "elapsedMs": 450.00000000000017,
+          "attemptId": "104492d7-c7c9-4862-8121-437955a7daeb",
+          "standings": [
+            {
+              "id": "maya",
+              "place": 1,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -5.494778279547063,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "jett",
+              "place": 2,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -7.468650605902667,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "nico",
+              "place": 3,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -12.968710223465678,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "player",
+              "place": 4,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -13.989638057218144,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            }
+          ],
+          "playerResult": null,
+          "allFinished": false
+        },
+        "audio": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "input": {
+          "control": {
+            "throttle": 1,
+            "brake": 0,
+            "steer": 0,
+            "reverse": false,
+            "tractionControl": true
+          },
+          "paused": false,
+          "armed": true,
+          "activeDevice": "keyboard",
+          "status": "Press a controller button to connect",
+          "camera": false,
+          "reset": false,
+          "lookBack": false,
+          "resetProgress": 0,
+          "dt": 0.01669999999999982,
+          "ticks": 207,
+          "alpha": 0.9900000000000015
+        }
+      },
+      "after": {
+        "ticks": 218,
+        "race": {
+          "phase": "running",
+          "paused": true,
+          "countdown": 0,
+          "elapsedMs": 633.3333333333333,
+          "attemptId": "104492d7-c7c9-4862-8121-437955a7daeb",
+          "standings": [
+            {
+              "id": "maya",
+              "place": 1,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -5.009783248864096,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "jett",
+              "place": 2,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -7.448483843620352,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "nico",
+              "place": 3,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -12.948620295775754,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "player",
+              "place": 4,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -13.500279421379673,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            }
+          ],
+          "playerResult": null,
+          "allFinished": false
+        },
+        "audio": {
+          "enabled": true,
+          "paused": true,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        }
+      },
+      "laterTicks": 218,
+      "panel": {
+        "text": "DEVELOPMENT PREVIEW\n\nGraphics connection interrupted\n\nThe game is paused. Reload to create a fresh graphics and audio session. This interrupts the current attempt; your saved career is preserved.\n\nRetry pageDevelopment Preview",
+        "appInert": true,
+        "modal": "true",
+        "focus": "retry-loading",
+        "canvasCount": 1,
+        "tabCycle": [
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          },
+          {
+            "text": "Development Preview",
+            "inDialog": true
+          },
+          {
+            "text": "Retry page",
+            "inDialog": true
+          }
+        ]
+      },
+      "reloaded": {
+        "ticks": 0,
+        "phase": "ready",
+        "canvasCount": 1,
+        "audioUIs": 1,
+        "audioEnabled": false
+      },
+      "limit": "Inspection retains the previous completed frame inputState; suspension is evidenced by stopped ticks, paused race/audio, and a fresh neutral page on retry.",
+      "finishedAt": "2026-09-15T04:10:13.273Z"
+    },
+    {
+      "name": "native back navigation and persisted-page restoration create one fresh scene",
+      "startedAt": "2026-09-15T04:10:13.274Z",
+      "pass": true,
+      "before": {
+        "id": "85b1708e-7cc2-4677-b134-6a8bf66e7516",
+        "events": [
+          {
+            "persisted": false,
+            "at": 14.699999988079071
+          }
+        ],
+        "canvases": 1
+      },
+      "nativeBack": {
+        "id": "61ab55c7-0e71-4f5c-9ed4-1eb30daac4ce",
+        "events": [
+          {
+            "persisted": false,
+            "at": 10.899999976158142
+          }
+        ],
+        "canvases": 1
+      },
+      "simulatedPersistedEvent": {
+        "id": "b48f1a5d-27f6-4c1f-aa9f-523bda8baf38",
+        "canvases": 1,
+        "loadingExits": 0
+      },
+      "limit": "Native back records actual browser pageshow events. The persisted=true branch is separately dispatched to prove full reload; this is not a claim that native BFCache was used.",
+      "finishedAt": "2026-09-15T04:10:15.488Z"
+    }
+  ],
+  "complete": true,
+  "finishedAt": "2026-09-15T04:10:15.490Z"
+}

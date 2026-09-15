@@ -1,0 +1,37 @@
+PASS ordinary entry and historical selector rejection
+PASS missing current vehicle
+PASS missing required branding model
+PASS missing required daylight HDR
+PASS missing shared runtime JavaScript with embedded physics WASM
+PASS missing lazy crew JavaScript
+PASS slow required dependency has a visible ordinary exit
+PASS WebGL disabled with browser launch flag
+FAIL actual context loss pauses race audio and contains recovery focus locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#enable-sound')[22m
+[2m    - locator resolved to <button id="enable-sound">Enable sound</button>[22m
+[2m  - attempting click action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing click action[22m
+
+    at C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\scripts\validate-review14-hardening.mjs:25:312
+    at async run (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\scripts\validate-review14-hardening.mjs:10:145)
+    at async file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/validate-review14-hardening.mjs:25:2
+FAIL native back navigation and persisted-page restoration create one fresh scene locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.preview-return')[22m
+[2m    - locator resolved to <a href="/" class="preview-return">Development Preview · Demo profile</a>[22m
+[2m  - attempting click action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing click action[22m
+
+    at C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\scripts\validate-review14-hardening.mjs:26:418
+    at async run (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\scripts\validate-review14-hardening.mjs:10:145)
+    at async file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/validate-review14-hardening.mjs:26:2
+{"out":"C:\\Users\\Daniel Kinsner\\OneDrive\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\director-kit\\production\\evidence\\P07A\\hardening-initial","pass":8,"total":10,"complete":false}

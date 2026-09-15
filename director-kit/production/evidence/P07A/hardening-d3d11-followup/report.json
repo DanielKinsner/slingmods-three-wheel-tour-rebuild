@@ -1,0 +1,62 @@
+{
+  "candidate": {
+    "output": "demo-dist/2026-09-15T03-58-28-008Z-6f473ee7d258-working",
+    "commit": "6f473ee7d25869c0c4c4fa2462da652150adb949",
+    "buildRef": "6f473ee7d258-working",
+    "manifest": "OUTPUT-MANIFEST.json"
+  },
+  "base": "http://127.0.0.1:5188",
+  "toolSHA256": "bba926b3d7b4fc8d8244e212206099489bdbcee8235e6029586045814ebaa7ce",
+  "browserArgs": [
+    "--use-angle=d3d11"
+  ],
+  "selected": [
+    "actual context loss",
+    "native back"
+  ],
+  "startedAt": "2026-09-15T04:07:04.903Z",
+  "method": "Isolated headless Chromium against the exact local static demo output. Native links/keys except declared failure injection, graphics extension and inspection hooks. Not performance scoring.",
+  "cases": [
+    {
+      "name": "actual context loss pauses race audio and contains recovery focus",
+      "startedAt": "2026-09-15T04:07:04.960Z",
+      "pass": false,
+      "error": "page.waitForFunction: Timeout 30000ms exceeded.\n    at C:\\Users\\Daniel Kinsner\\OneDrive\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\validate-review14-hardening.mjs:28:331\n    at async run (C:\\Users\\Daniel Kinsner\\OneDrive\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\validate-review14-hardening.mjs:13:214)\n    at async file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/validate-review14-hardening.mjs:28:2",
+      "finishedAt": "2026-09-15T04:07:37.849Z"
+    },
+    {
+      "name": "native back navigation and persisted-page restoration create one fresh scene",
+      "startedAt": "2026-09-15T04:07:37.850Z",
+      "pass": true,
+      "before": {
+        "id": "00a1f4a4-1d06-4594-a97b-b364b237ab47",
+        "events": [
+          {
+            "persisted": false,
+            "at": 23.30000001192093
+          }
+        ],
+        "canvases": 1
+      },
+      "nativeBack": {
+        "id": "604124f2-53e2-4de5-9c10-9933821a7b72",
+        "events": [
+          {
+            "persisted": false,
+            "at": 8.600000023841858
+          }
+        ],
+        "canvases": 1
+      },
+      "simulatedPersistedEvent": {
+        "id": "2e975c77-e401-436c-a24c-948708f3eac9",
+        "canvases": 1,
+        "loadingExits": 0
+      },
+      "limit": "Native back records actual browser pageshow events. The persisted=true branch is separately dispatched to prove full reload; this is not a claim that native BFCache was used.",
+      "finishedAt": "2026-09-15T04:07:42.894Z"
+    }
+  ],
+  "complete": false,
+  "finishedAt": "2026-09-15T04:07:42.895Z"
+}

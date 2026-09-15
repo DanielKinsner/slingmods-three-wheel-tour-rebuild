@@ -1,6 +1,8 @@
-# Current handoff — P07A / Review14 in validation
+# Current handoff â€” P07A / Review14
 
-Continue this checkout. Review13 director packet authorizes P07A Shareable Showcase and lean Review14, not another P06C run. Read RESUME.md and director-kit/director-addenda/review-13/CODEX_NEXT.md. Demo isolation, exact bay extraction, official artwork, product detail and static allowlist implemented; repaired hardening11/11 and strict preservation pass. Final native matrix/media/package are pending. All new commits LOCAL_ONLY; no remote writes or deployment. G3/G4 and overall art remain held.
+P07A Shareable Showcase is implemented, internally repaired and validated. Frozen runtime: 758c2b291a9b5bd525fe9acd1425537657fadf70. Read RESUME.md and director-kit/production/evidence/P07A/REVIEW-ME-FIRST.md. The lean Review14 root SOURCE-SNAPSHOT.json resolves the separate packaging commit and LOCAL_ONLY recovery. Tests: 134/134; final six crew races plus daylight lap, hardening: 11/11 and ordinary keyboard/product flow pass. No runtime changes after freeze.
+
+The historical P06C repeat slowdown was not reproduced in two observed baseline contexts or the final repeat; its original cause remains unproven. Complete failures are retained. G3/G4, overall art, human listening/playtesting and physical-controller approval remain held. No deployment, remote push or account change. On the complete checkout, npm run demo:preview serves the retained static candidate at http://127.0.0.1:5188/. Stop after Review14; await the director decision.
 
 ---
 
