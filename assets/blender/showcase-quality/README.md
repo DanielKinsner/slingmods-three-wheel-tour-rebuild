@@ -1,3 +1,15 @@
+# Current P06C/P07A authoring sources
+
+Do not run the historical P06B regeneration below to launch the current game. All required exports and original inputs are tracked.
+
+Current sources: built-waterfront-foundation.blend, built-waterfront.blend, showcase-bay-exact.blend and showcase-branding.blend. Images are packed; source-library originals and derived maps are retained under this directory and public/assets/showcase-quality. Read HANDOFF.md for background read-only dependency inspection.
+
+Generators: scripts/p06c_road_material.py, scripts/p06c_waterfront_build.py (inspect their actual CLI before any newly authorized edit), scripts/p07a_extract_bay.py and scripts/p07a_brand_build.py. Discover scripts by name in this checkout; no old username or absolute tool path is required. Full art re-export is not part of P07B. Earlier quality-kit/foundation sources remain historical dependencies and recovery evidence.
+
+---
+
+# Historical record below (superseded)
+
 # P06B environment source
 
 Editable Blender authoring sources are `quality-foundation.blend` and `quality-kit.blend`. Every used texture is packed. `sources/` contains the selected official CC0 original material files and API responses; these are asset downloads, not site previews. Runtime never reaches those hosts.

@@ -1,0 +1,1166 @@
+{
+  "archive": {
+    "bytes": 50815755,
+    "sha256": "3fecb7e944953177b8ad116a90a7729199db1603d82d0c3ea440034c4029c234",
+    "listedFiles": 592,
+    "hashFailures": [],
+    "unlisted": [
+      "REVIEW-MANIFEST.json"
+    ]
+  },
+  "buildInputs": {
+    "declared": 142,
+    "verifiedIncluded": 123,
+    "mismatches": [],
+    "omitted": [
+      "public/assets/audio/p03b2/engine-1200-lift.wav",
+      "public/assets/audio/p03b2/engine-1200-load.wav",
+      "public/assets/audio/p03b2/engine-3600-lift.wav",
+      "public/assets/audio/p03b2/engine-3600-load.wav",
+      "public/assets/audio/p03b2/engine-6200-lift.wav",
+      "public/assets/audio/p03b2/engine-6200-load.wav",
+      "public/assets/audio/p03b2/road.wav",
+      "public/assets/audio/p03b2/shift.wav",
+      "public/assets/audio/p03b2/wind.wav",
+      "public/assets/brand/slingmods-logo-main.png",
+      "public/assets/brand/slingmods-sign.glb",
+      "public/assets/drivers/test-driver.glb",
+      "public/assets/harbor/harbor.glb",
+      "public/assets/products/tricled-sm133-base.glb",
+      "public/assets/showcase-quality/bay.glb",
+      "public/assets/showcase-quality/foundation.glb",
+      "public/assets/showcase-quality/kit.glb",
+      "public/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "public/assets/vehicles/slingshot-p04a1.glb"
+    ]
+  },
+  "snapshot": {
+    "baselineCommit": "6f473ee7d25869c0c4c4fa2462da652150adb949",
+    "candidateCommit": "758c2b291a9b5bd525fe9acd1425537657fadf70",
+    "packagingCommit": "2ce4c846d294335f6f3f9d40cf7332ea88786f61",
+    "remoteAvailability": {
+      "result": "LOCAL_ONLY",
+      "verification": "No new authenticated remote availability query performed. No upload/push in P07A. Do not assume either commit downloadable."
+    }
+  },
+  "baselineComparison": {
+    "source": "actual previous uploaded Review13 archive, not a fresh Git checkout",
+    "compared": 115,
+    "exact": [
+      "index.html",
+      "package-lock.json",
+      "public/assets/audio/p03b2/provenance.json",
+      "public/assets/drivers/test-driver-attachment.json",
+      "public/assets/harbor/route.json",
+      "public/assets/pad-layout.json",
+      "public/assets/practice-p03b1.json",
+      "public/assets/products/tricled-sm133-base.attachment.json",
+      "public/assets/showcase-quality/p06c-road-provenance.json",
+      "public/assets/showcase-quality/scene-layout.json",
+      "public/assets/showcase-quality/source-manifest.json",
+      "public/assets/showcase/scene-layout.json",
+      "public/assets/slingshot-contact-layout.json",
+      "public/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "src/audio/evidence.ts",
+      "src/audio/game-audio.ts",
+      "src/audio/graph.ts",
+      "src/audio/mapper.ts",
+      "src/audio/opponents.ts",
+      "src/build.d.ts",
+      "src/calibration.ts",
+      "src/career/build.css",
+      "src/career/chapter.css",
+      "src/career/crew-result.ts",
+      "src/career/menu.ts",
+      "src/career/store.ts",
+      "src/competition/grid.ts",
+      "src/competition/index.ts",
+      "src/competition/race.ts",
+      "src/competition/rival.ts",
+      "src/competition/road.ts",
+      "src/competition/stability.ts",
+      "src/course/environment.ts",
+      "src/crew-proximity.ts",
+      "src/crew.css",
+      "src/driving/input.ts",
+      "src/driving/session.ts",
+      "src/harbor.css",
+      "src/presentation/chase.ts",
+      "src/presentation/driver.ts",
+      "src/presentation/driving-camera.ts",
+      "src/presentation/harbor-lighting.ts",
+      "src/presentation/harbor-renderer.ts",
+      "src/presentation/harbor-water.ts",
+      "src/presentation/hero.ts",
+      "src/presentation/inspection.ts",
+      "src/presentation/outdoor-environment.ts",
+      "src/presentation/product.ts",
+      "src/presentation/rear-diagnostic.ts",
+      "src/presentation/rear.ts",
+      "src/presentation/runtime-profile.ts",
+      "src/presentation/shadows.ts",
+      "src/presentation/statistics.ts",
+      "src/presentation/vehicle-asset.ts",
+      "src/race/attempt.ts",
+      "src/simulation/drivetrain.ts",
+      "src/simulation/index.ts",
+      "src/simulation/pad.ts",
+      "src/simulation/scenarios.ts",
+      "src/style.css",
+      "src/workbench.css",
+      "tests/audio-pitch-coherence.test.mjs",
+      "tests/audio.test.ts",
+      "tests/build-menu-rearm.test.ts",
+      "tests/career-browser.test.mjs",
+      "tests/career-handoff.test.mjs",
+      "tests/career.test.ts",
+      "tests/chapter.test.ts",
+      "tests/competition-rules.test.ts",
+      "tests/competition-stability.test.ts",
+      "tests/crew-menu.test.ts",
+      "tests/crew-proximity.test.ts",
+      "tests/driver.test.ts",
+      "tests/drivetrain-integrated.test.ts",
+      "tests/drivetrain-wheel-speed.test.ts",
+      "tests/driving-session-camera.test.ts",
+      "tests/driving.test.ts",
+      "tests/environment-quality.test.mjs",
+      "tests/first-drive-camera.test.ts",
+      "tests/fixtures/first-drive-trace.ts",
+      "tests/fixtures/practice-trace.ts",
+      "tests/harbor-course.test.ts",
+      "tests/harbor-race.test.ts",
+      "tests/harbor-save.test.ts",
+      "tests/harbor-water.test.ts",
+      "tests/input.test.ts",
+      "tests/inspection-framing.test.ts",
+      "tests/light-pool-stability.test.ts",
+      "tests/live-audio-capture.test.mjs",
+      "tests/outdoor-environment.test.ts",
+      "tests/product-light-lifecycle.test.ts",
+      "tests/rear-presentation.test.ts",
+      "tests/shadow-casters.test.ts",
+      "tests/shared-world.test.ts",
+      "tests/showcase-disposal.test.ts",
+      "tests/showcase-ui.test.mjs",
+      "tests/smoke.test.ts",
+      "tests/waterfront-assets.test.mjs",
+      "tsconfig.json",
+      "vite.config.ts"
+    ],
+    "changed": [
+      "package.json",
+      "src/career/build-ui.ts",
+      "src/career/catalog.ts",
+      "src/career/chapter-ui.ts",
+      "src/career/client.ts",
+      "src/crew-ui.ts",
+      "src/crew.ts",
+      "src/harbor-entry.ts",
+      "src/harbor-ui.ts",
+      "src/harbor.ts",
+      "src/main.ts",
+      "src/presentation/prepare.ts",
+      "src/presentation/showcase.ts",
+      "src/save.ts",
+      "src/workbench.ts"
+    ],
+    "notComparable": [
+      "assets/blender/calibration.blend",
+      "assets/blender/drivers/test-driver.blend",
+      "assets/blender/harbor/harbor-p04a.blend",
+      "assets/blender/harbor/harbor.blend",
+      "assets/blender/inspection-bay-p03a.blend",
+      "assets/blender/inspection-bay-p03a1.blend",
+      "assets/blender/practice-p03b1.blend",
+      "assets/blender/products/tricled-sm133-base.blend",
+      "assets/blender/showcase-quality/README.md",
+      "assets/blender/showcase-quality/built-waterfront-foundation.blend",
+      "assets/blender/showcase-quality/built-waterfront.blend",
+      "assets/blender/showcase-quality/p06c-baseline-layout.json",
+      "assets/blender/showcase-quality/p06c-frond-layout.json",
+      "assets/blender/showcase-quality/quality-foundation.blend",
+      "assets/blender/showcase-quality/quality-kit.blend",
+      "assets/blender/showcase-quality/sources/asphalt_02-files.json",
+      "assets/blender/showcase-quality/sources/asphalt_02_AO.jpg",
+      "assets/blender/showcase-quality/sources/asphalt_02_Diffuse.jpg",
+      "assets/blender/showcase-quality/sources/asphalt_02_Rough.jpg",
+      "assets/blender/showcase-quality/sources/asphalt_02_nor_gl.jpg",
+      "assets/blender/showcase-quality/sources/concrete_pavement_02-files.json",
+      "assets/blender/showcase-quality/sources/concrete_pavement_02_AO.jpg",
+      "assets/blender/showcase-quality/sources/concrete_pavement_02_Diffuse.jpg",
+      "assets/blender/showcase-quality/sources/concrete_pavement_02_Rough.jpg",
+      "assets/blender/showcase-quality/sources/concrete_pavement_02_nor_gl.jpg",
+      "assets/blender/showcase-quality/sources/concrete_wall_006-files.json",
+      "assets/blender/showcase-quality/sources/concrete_wall_006_AO.jpg",
+      "assets/blender/showcase-quality/sources/concrete_wall_006_Diffuse.jpg",
+      "assets/blender/showcase-quality/sources/concrete_wall_006_Rough.jpg",
+      "assets/blender/showcase-quality/sources/concrete_wall_006_nor_gl.jpg",
+      "assets/blender/showcase-quality/sources/leafy_grass-files.json",
+      "assets/blender/showcase-quality/sources/leafy_grass_AO.jpg",
+      "assets/blender/showcase-quality/sources/leafy_grass_Diffuse.jpg",
+      "assets/blender/showcase-quality/sources/leafy_grass_Rough.jpg",
+      "assets/blender/showcase-quality/sources/leafy_grass_nor_gl.jpg",
+      "assets/blender/showcase-quality/sources/palm_tree_bark-files.json",
+      "assets/blender/showcase-quality/sources/palm_tree_bark_AO.jpg",
+      "assets/blender/showcase-quality/sources/palm_tree_bark_Diffuse.jpg",
+      "assets/blender/showcase-quality/sources/palm_tree_bark_Rough.jpg",
+      "assets/blender/showcase-quality/sources/palm_tree_bark_nor_gl.jpg",
+      "assets/blender/showcase-quality/sources/sparse_grass-files.json",
+      "assets/blender/showcase-quality/sources/sparse_grass_AO.jpg",
+      "assets/blender/showcase-quality/sources/sparse_grass_Diffuse.jpg",
+      "assets/blender/showcase-quality/sources/sparse_grass_Rough.jpg",
+      "assets/blender/showcase-quality/sources/sparse_grass_nor_gl.jpg",
+      "assets/blender/showcase-quality/sources/weathered_brown_planks-files.json",
+      "assets/blender/showcase-quality/sources/weathered_brown_planks_AO.jpg",
+      "assets/blender/showcase-quality/sources/weathered_brown_planks_Diffuse.jpg",
+      "assets/blender/showcase-quality/sources/weathered_brown_planks_Rough.jpg",
+      "assets/blender/showcase-quality/sources/weathered_brown_planks_nor_gl.jpg",
+      "assets/blender/showcase-quality/sources/white_plaster_rough_01-files.json",
+      "assets/blender/showcase-quality/sources/white_plaster_rough_01_AO.jpg",
+      "assets/blender/showcase-quality/sources/white_plaster_rough_01_Diffuse.jpg",
+      "assets/blender/showcase-quality/sources/white_plaster_rough_01_Rough.jpg",
+      "assets/blender/showcase-quality/sources/white_plaster_rough_01_nor_gl.jpg",
+      "assets/blender/showcase/README.md",
+      "assets/blender/showcase/preserved-foundation.blend",
+      "assets/blender/showcase/showcase-kit.blend",
+      "assets/blender/test-pad.blend",
+      "assets/blender/vehicles/revision01/slingshot-p01.blend",
+      "assets/blender/vehicles/slingshot-p01.blend",
+      "assets/blender/vehicles/slingshot-p03a-material-lab.blend",
+      "assets/blender/vehicles/slingshot-p03a.blend",
+      "assets/blender/vehicles/slingshot-p03a1.blend",
+      "assets/blender/vehicles/slingshot-p03a2-master01.blend",
+      "assets/blender/vehicles/slingshot-p03a2-proof01.blend",
+      "assets/blender/vehicles/slingshot-p03a2.blend",
+      "assets/blender/vehicles/slingshot-p04a1.blend",
+      "assets/blender/vehicles/vehicles-scale-blockouts.blend",
+      "public/assets/audio/p03b2/engine-1200-lift.wav",
+      "public/assets/audio/p03b2/engine-1200-load.wav",
+      "public/assets/audio/p03b2/engine-3600-lift.wav",
+      "public/assets/audio/p03b2/engine-3600-load.wav",
+      "public/assets/audio/p03b2/engine-6200-lift.wav",
+      "public/assets/audio/p03b2/engine-6200-load.wav",
+      "public/assets/audio/p03b2/road.wav",
+      "public/assets/audio/p03b2/shift.wav",
+      "public/assets/audio/p03b2/wind.wav",
+      "public/assets/calibration.glb",
+      "public/assets/drivers/test-driver.glb",
+      "public/assets/drivers/textures/basecolor.png",
+      "public/assets/drivers/textures/normal.png",
+      "public/assets/drivers/textures/orm.png",
+      "public/assets/harbor/harbor.glb",
+      "public/assets/harbor/textures/asphalt_basecolor.png",
+      "public/assets/harbor/textures/asphalt_normal.png",
+      "public/assets/harbor/textures/asphalt_orm.png",
+      "public/assets/harbor/textures/concrete_basecolor.png",
+      "public/assets/harbor/textures/concrete_normal.png",
+      "public/assets/harbor/textures/concrete_orm.png",
+      "public/assets/harbor/textures/harbor_basecolor.png",
+      "public/assets/harbor/textures/harbor_normal.png",
+      "public/assets/harbor/textures/harbor_orm.png",
+      "public/assets/harbor/textures/p04a2/asphalt_basecolor.png",
+      "public/assets/harbor/textures/p04a2/asphalt_normal.png",
+      "public/assets/harbor/textures/p04a2/asphalt_orm.png",
+      "public/assets/harbor/textures/p04a2/concrete_basecolor.png",
+      "public/assets/harbor/textures/p04a2/concrete_normal.png",
+      "public/assets/harbor/textures/p04a2/concrete_orm.png",
+      "public/assets/inspection-bay-p03a.glb",
+      "public/assets/inspection-bay-p03a1.glb",
+      "public/assets/practice-p03b1.glb",
+      "public/assets/products/tricled-sm133-base.glb",
+      "public/assets/showcase-quality/foundation.glb",
+      "public/assets/showcase-quality/kit.glb",
+      "public/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "public/assets/showcase-quality/textures/asphalt_02_AO.jpg",
+      "public/assets/showcase-quality/textures/asphalt_02_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/asphalt_02_Rough.jpg",
+      "public/assets/showcase-quality/textures/asphalt_02_nor_gl.jpg",
+      "public/assets/showcase-quality/textures/concrete_pavement_02_AO.jpg",
+      "public/assets/showcase-quality/textures/concrete_pavement_02_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/concrete_pavement_02_Rough.jpg",
+      "public/assets/showcase-quality/textures/concrete_pavement_02_nor_gl.jpg",
+      "public/assets/showcase-quality/textures/concrete_wall_006_AO.jpg",
+      "public/assets/showcase-quality/textures/concrete_wall_006_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/concrete_wall_006_Rough.jpg",
+      "public/assets/showcase-quality/textures/concrete_wall_006_nor_gl.jpg",
+      "public/assets/showcase-quality/textures/leafy_grass_AO.jpg",
+      "public/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/leafy_grass_Rough.jpg",
+      "public/assets/showcase-quality/textures/leafy_grass_nor_gl.jpg",
+      "public/assets/showcase-quality/textures/p06c-frond.png",
+      "public/assets/showcase-quality/textures/p06c_asphalt_AO.jpg",
+      "public/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+      "public/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+      "public/assets/showcase-quality/textures/palm_tree_bark_AO.jpg",
+      "public/assets/showcase-quality/textures/palm_tree_bark_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/palm_tree_bark_Rough.jpg",
+      "public/assets/showcase-quality/textures/palm_tree_bark_nor_gl.jpg",
+      "public/assets/showcase-quality/textures/sparse_grass_AO.jpg",
+      "public/assets/showcase-quality/textures/sparse_grass_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/sparse_grass_Rough.jpg",
+      "public/assets/showcase-quality/textures/sparse_grass_nor_gl.jpg",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_AO.jpg",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_Rough.jpg",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_nor_gl.jpg",
+      "public/assets/showcase-quality/textures/white_plaster_rough_01_AO.jpg",
+      "public/assets/showcase-quality/textures/white_plaster_rough_01_Diffuse.jpg",
+      "public/assets/showcase-quality/textures/white_plaster_rough_01_Rough.jpg",
+      "public/assets/showcase-quality/textures/white_plaster_rough_01_nor_gl.jpg",
+      "public/assets/showcase/foundation.glb",
+      "public/assets/showcase/kit.glb",
+      "public/assets/showcase/textures/asphalt_basecolor.png",
+      "public/assets/showcase/textures/epoxy_basecolor.png",
+      "public/assets/showcase/textures/epoxy_normal.png",
+      "public/assets/showcase/textures/epoxy_orm.png",
+      "public/assets/showcase/textures/showcase_basecolor.png",
+      "public/assets/showcase/textures/showcase_normal.png",
+      "public/assets/showcase/textures/showcase_orm.png",
+      "public/assets/showcase/textures/water_normal.png",
+      "public/assets/test-pad.glb",
+      "public/assets/textures/bay-p03a1/microcement_base.png",
+      "public/assets/textures/bay-p03a1/microcement_normal.png",
+      "public/assets/textures/bay-p03a1/microcement_roughness.png",
+      "public/assets/textures/bay/microcement_base.png",
+      "public/assets/textures/bay/microcement_normal.png",
+      "public/assets/textures/bay/microcement_roughness.png",
+      "public/assets/textures/p03a/instrument-scale_basecolor.png",
+      "public/assets/textures/p03a/machined-alloy_basecolor.png",
+      "public/assets/textures/p03a/machined-alloy_normal.png",
+      "public/assets/textures/p03a/machined-alloy_orm.png",
+      "public/assets/textures/p03a/molded-polymer_basecolor.png",
+      "public/assets/textures/p03a/molded-polymer_normal.png",
+      "public/assets/textures/p03a/molded-polymer_orm.png",
+      "public/assets/textures/p03a/radar-blue_basecolor.png",
+      "public/assets/textures/p03a/radar-blue_normal.png",
+      "public/assets/textures/p03a/radar-blue_orm.png",
+      "public/assets/textures/p03a/road-tire_basecolor.png",
+      "public/assets/textures/p03a/road-tire_normal.png",
+      "public/assets/textures/p03a/road-tire_orm.png",
+      "public/assets/textures/p03a/sport-seat_basecolor.png",
+      "public/assets/textures/p03a/sport-seat_normal.png",
+      "public/assets/textures/p03a/sport-seat_orm.png",
+      "public/assets/textures/p03a1/instrument-scale_basecolor.png",
+      "public/assets/textures/p03a1/machined-alloy_basecolor.png",
+      "public/assets/textures/p03a1/machined-alloy_normal.png",
+      "public/assets/textures/p03a1/machined-alloy_orm.png",
+      "public/assets/textures/p03a1/molded-polymer_basecolor.png",
+      "public/assets/textures/p03a1/molded-polymer_normal.png",
+      "public/assets/textures/p03a1/molded-polymer_orm.png",
+      "public/assets/textures/p03a1/radar-blue_basecolor.png",
+      "public/assets/textures/p03a1/radar-blue_normal.png",
+      "public/assets/textures/p03a1/radar-blue_orm.png",
+      "public/assets/textures/p03a1/road-tire_basecolor.png",
+      "public/assets/textures/p03a1/road-tire_normal.png",
+      "public/assets/textures/p03a1/road-tire_orm.png",
+      "public/assets/textures/p03a1/sport-seat_basecolor.png",
+      "public/assets/textures/p03a1/sport-seat_normal.png",
+      "public/assets/textures/p03a1/sport-seat_orm.png",
+      "public/assets/vehicles/scale-blockouts.glb",
+      "public/assets/vehicles/slingshot-p03a.glb",
+      "public/assets/vehicles/slingshot-p03a1.glb",
+      "public/assets/vehicles/slingshot-p03a2-proof01.glb",
+      "public/assets/vehicles/slingshot-p03a2.glb",
+      "public/assets/vehicles/slingshot-p04a1.glb",
+      "public/assets/vehicles/slingshot.glb"
+    ],
+    "receiptHashDisagreements": []
+  },
+  "performance": [
+    {
+      "path": "director-kit/production/evidence/P07A/baseline-repeat-01/run.json",
+      "rawSHA256": "75957399a97e690d77725518adeeed945302d8661dc581513979ea59c0306eaf",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9831,
+          "p95": 16.79999999998836,
+          "p99": 33.29999999999927,
+          "max": 33.400000000001455,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25,
+            26
+          ]
+        },
+        {
+          "attempt": 2,
+          "count": 9924,
+          "p95": 16.70000000001164,
+          "p99": 16.800000000017462,
+          "max": 33.40000000002328,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            26
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          266.7000000000003
+        ],
+        [
+          102,
+          116.69999999999982
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P07A/baseline-repeat-02/run.json",
+      "rawSHA256": "cce10cf9a143cc2473d352cce5f0fa464891406f04f653af6db820cac5712bfe",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9938,
+          "p95": 16.79999999998836,
+          "p99": 16.80000000000291,
+          "max": 33.40000000002328,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25,
+            26
+          ]
+        },
+        {
+          "attempt": 2,
+          "count": 9929,
+          "p95": 16.70000000001164,
+          "p99": 16.800000000017462,
+          "max": 33.40000000002328,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            26
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          183.4000000000001
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P07A/verified-scored-equipped1080/run.json",
+      "rawSHA256": "2fef1ef94b1e9a042ff4a453bd79bdc0deb600f93540a0dbbebe48fa7e9bc8a7",
+      "runtime": "758c2b291a9b",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9954,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 33.5,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            26,
+            27
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          200
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P07A/verified-scored-equipped1080-repeat/run.json",
+      "rawSHA256": "115b20b7ed31d2a9708db079c08e5c0608ecc4e7be9536cb5a55584210641baf",
+      "runtime": "758c2b291a9b",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9955,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 16.800000000017462,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            26,
+            27
+          ]
+        },
+        {
+          "attempt": 2,
+          "count": 9955,
+          "p95": 16.79999999998836,
+          "p99": 16.800000000017462,
+          "max": 16.800000000046566,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            27
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          133.29999999999995
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P07A/verified-scored-equipped720/run.json",
+      "rawSHA256": "6b1b2dd50e105081e8fc8afc94fc12c1cc42c09089dd47fabc227d1182f5599a",
+      "runtime": "758c2b291a9b",
+      "size": [
+        1280,
+        720
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9955,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 16.800000000017462,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            26,
+            27
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          183.4000000000001
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P07A/verified-scored-stock1080/run.json",
+      "rawSHA256": "766ed7cc31039f4f9273bf15dea4240b9830fc015e53a8245f2c9069ffc9ff42",
+      "runtime": "758c2b291a9b",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9945,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 50,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            26,
+            27
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          166.70000000000027
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P07A/verified-scored-stock720/run.json",
+      "rawSHA256": "02a8ed4642e708cc02898e10353e79e6af14ecda1df36f3ac8f0be4e95afe2bf",
+      "runtime": "758c2b291a9b",
+      "size": [
+        1280,
+        720
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9955,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 16.800000000017462,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            26,
+            27
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          216.70000000000027
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P07A/day-scored-equipped1080/run.json",
+      "rawSHA256": "8961ebb5ccfd6be48bcc9529c77175e8cfdd4734a20205cfef0c0f822d514f40",
+      "runtime": "758c2b291a9b",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 4705,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 16.80000000000291,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          166.70000000000027
+        ]
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P06C/day-scored-equipped1080/run.json",
+      "rawSHA256": "441e6c0023dc2e9bbb7bc0156296e4e6771dbbb3bccba69c9fc1fc381150235f",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 4705,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 16.80000000000291,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            24
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          183.4000000000001
+        ]
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P06C/heavy1080-followup/run.json",
+      "rawSHA256": "27d30e9b6d68806e6bfa4167fd8d9222799b7ed5b96b45cc23af3cef93103cff",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9897,
+          "p95": 16.79999999998836,
+          "p99": 16.800000000017462,
+          "max": 33.40000000002328,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25,
+            26
+          ]
+        },
+        {
+          "attempt": 2,
+          "count": 9243,
+          "p95": 33.29999999998836,
+          "p99": 33.40000000002328,
+          "max": 50.100000000034925,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": false,
+          "programs": [
+            26
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          216.69999999999982
+        ],
+        [
+          101,
+          100.09999999999991
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P06C/verified-scored-equipped1080/run.json",
+      "rawSHA256": "ecd108a0f1a850e5aa57b755c8b4f2b2b607e0687c2c10d80948cd02cd91a6eb",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9940,
+          "p95": 16.79999999998836,
+          "p99": 16.80000000000291,
+          "max": 33.400000000001455,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25,
+            26
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          166.69999999999982
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P06C/verified-scored-equipped1080-repeat/run.json",
+      "rawSHA256": "400f109cb98b97ebe76f89b0de4f7649548c87a1ef116f86b3abb582430993fe",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9955,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 16.800000000017462,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25,
+            26
+          ]
+        },
+        {
+          "attempt": 2,
+          "count": 9174,
+          "p95": 33.29999999998836,
+          "p99": 33.40000000002328,
+          "max": 50,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": false,
+          "programs": [
+            26
+          ]
+        }
+      ],
+      "nonRacingOver100": [],
+      "allFourFinishedTwoLaps": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P06C/verified-scored-equipped720/run.json",
+      "rawSHA256": "a9d5fcc132fc48dbe546afb6ac35b67342434d6ddb1fd2d72b344f1b33de8163",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1280,
+        720
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9955,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 16.800000000017462,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25,
+            26
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          183.39999999999964
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P06C/verified-scored-stock1080/run.json",
+      "rawSHA256": "f65d523f723f1684faf9405ab819895cc90ba2e9bb7c5cb3d7d53f864b70bc45",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9955,
+          "p95": 16.70000000001164,
+          "p99": 16.80000000000291,
+          "max": 16.800000000017462,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25,
+            26
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          183.29999999999973
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true
+      ]
+    },
+    {
+      "path": "director-kit/production/evidence/P06C/verified-scored-stock720/run.json",
+      "rawSHA256": "d0f3b5a0f3ebbef94973ad0da22caa15785812def11ec46f372d4b5ae3af73e3",
+      "runtime": "b4eef3c7dab3",
+      "size": [
+        1280,
+        720
+      ],
+      "dpr": 1,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "recorded": false,
+      "diagnostic": false,
+      "quality": "standard",
+      "audioEnabled": true,
+      "overflow": 0,
+      "rafCoherent": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "count": 9917,
+          "p95": 16.79999999998836,
+          "p99": 16.80000000000291,
+          "max": 33.5,
+          "over100": 0,
+          "contiguous": true,
+          "targetMet": true,
+          "programs": [
+            25,
+            26
+          ]
+        }
+      ],
+      "nonRacingOver100": [
+        [
+          1,
+          166.5999999999999
+        ]
+      ],
+      "allFourFinishedTwoLaps": [
+        true
+      ]
+    }
+  ],
+  "deploymentPayload": {
+    "files": 49,
+    "calculatedBytes": 112457877,
+    "declaredBytes": 112457877,
+    "bulkOmittedFromReview": true,
+    "names": [
+      ".vite/manifest.json",
+      "NOTICES.txt",
+      "assets/RoomEnvironment-CWj55tZp.js",
+      "assets/audio/p03b2/engine-1200-lift.wav",
+      "assets/audio/p03b2/engine-1200-load.wav",
+      "assets/audio/p03b2/engine-3600-lift.wav",
+      "assets/audio/p03b2/engine-3600-load.wav",
+      "assets/audio/p03b2/engine-6200-lift.wav",
+      "assets/audio/p03b2/engine-6200-load.wav",
+      "assets/audio/p03b2/provenance.json",
+      "assets/audio/p03b2/road.wav",
+      "assets/audio/p03b2/shift.wav",
+      "assets/audio/p03b2/wind.wav",
+      "assets/brand/sign-layout.json",
+      "assets/brand/slingmods-logo-main.png",
+      "assets/brand/slingmods-logo-main.source.json",
+      "assets/brand/slingmods-sign.glb",
+      "assets/calibration--Psu7whx.js",
+      "assets/crew-CTvGtROX.js",
+      "assets/crew-CydNNodD.css",
+      "assets/drivers/test-driver-attachment.json",
+      "assets/drivers/test-driver.glb",
+      "assets/entry-1BEUd7vZ.js",
+      "assets/game-audio-DFagKZS_.css",
+      "assets/game-audio-ZgLXdyGn.js",
+      "assets/harbor-IeUBN8LT.js",
+      "assets/harbor-lighting-DF6UDBlR.js",
+      "assets/harbor/harbor.glb",
+      "assets/harbor/route.json",
+      "assets/index-C7K-rJaH.js",
+      "assets/preview-DuEvBiNj.css",
+      "assets/products/tricled-sm133-base.attachment.json",
+      "assets/products/tricled-sm133-base.glb",
+      "assets/profile-CJVbYVwc.js",
+      "assets/recovery-D8yfTBio.js",
+      "assets/save-C2FYi371.js",
+      "assets/save-S_mbsQK_.css",
+      "assets/showcase-quality/bay.glb",
+      "assets/showcase-quality/foundation.glb",
+      "assets/showcase-quality/kit.glb",
+      "assets/showcase-quality/scene-layout.json",
+      "assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "assets/showcase-quality/source-manifest.json",
+      "assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "assets/vehicles/slingshot-p04a1.glb",
+      "assets/workbench-Co7eZxMi.js",
+      "assets/workbench-DuS9sGzO.css",
+      "index.html",
+      "review-build.json"
+    ]
+  },
+  "hardeningSubmission": {
+    "hardening-final/report.json": {
+      "complete": true,
+      "cases": 11,
+      "failures": []
+    },
+    "native-final-02/report.json": {
+      "complete": true,
+      "cases": 6,
+      "failures": []
+    }
+  },
+  "video": {
+    "sha256": "0553b0c05ecb5e24cfb5433691629232343b05d4b8aebaa16687566f3cb48e1c",
+    "bytes": 28955662,
+    "duration": "211.600000",
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "r_frame_rate": "25/1",
+        "duration": "211.600000",
+        "nb_frames": "5290",
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0",
+        "duration": "211.583000",
+        "nb_frames": "9919",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
-# P07A / Review14 return point
+# P07B local preflight / complete remote handoff
 
-Verdict: LOCAL DEMO READY. Frozen runtime 758c2b291a9b5bd525fe9acd1425537657fadf70. Full source and binaries retained in this checkout; required authority remains director-kit/director-addenda/review-13/CODEX_NEXT.md. Read director-kit/production/evidence/P07A/REVIEW-ME-FIRST.md and the Review14 root indexes for evidence, exact packaging identity and LOCAL_ONLY recovery. User kickoff preserved.
+Read HANDOFF.md (including NEW-MACHINE RESUME PROMPT), AGENTS.md, handoff/P07B-VALIDATION.json when present and director-kit/director-addenda/review-14/CODEX_NEXT.md. P07A accepted by Review14; existing source/assets preserved. P07B local delivery changes and fresh remote clone validation are the current authorized work. Current transfer status and exact tested commit are in the validation receipt; until present it is in progress.
 
-Local launch: npm run demo:preview → http://127.0.0.1:5188/. For recovered complete checkout: npm ci; npm run demo:build; npm run demo:preview. Lean ZIP is review-only/non-playable. Discovered machine paths in receipts are provenance, not required next-machine paths.
+Fresh checkout: python handoff/verify-current.py; npm ci; npm test; npm run build; npm run demo:build; npm run demo:preview. Local address http://127.0.0.1:5188/. Optional local publication stage: npm run demo:stage; npm run demo:stage:preview at http://127.0.0.1:5189/.
 
-P07A implemented, internally repaired, independently reviewed and validated. G3/G4/global art/human and physical-controller approval remain held; original historical slowdown cause unproven, observed repeats/final matrix meet targets when verdictREADY. No deployment/push/account changes authorized. Stop and await director Review14 or an explicit new assignment; do not restart P06C or rerun kickoff.
+Next: separately authorized P07B publication to an eligible isolated target, then actual HTTPS verification. Hosting authorization/access is pending. Git handoff to private main is explicitly authorized; no deployment/spending/account changes. Do not restart P06C/P07A or advance G3/G4.

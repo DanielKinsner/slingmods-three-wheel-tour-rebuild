@@ -1,0 +1,21 @@
+{
+  "source": "baseline-kit.glb",
+  "sourceSHA256": "65166c2be3ee3f0a969a836015101ea2c7558219c518e67c054295e402001f31",
+  "output": "reproduced-bay.glb",
+  "outputSHA256": "4e26ed4a951c989cbf4344e97b6c42ba13e6355b2f874e1d904ecc36e6cdd7a5",
+  "beforeBytes": 28974372,
+  "afterBytes": 7668224,
+  "retainedCounts": {
+    "nodes": 9,
+    "meshes": 9,
+    "accessors": 37,
+    "materials": 9,
+    "textures": 12,
+    "images": 9,
+    "samplers": 1,
+    "bufferViews": 46
+  },
+  "exactDescriptorsAndBinaryViews": true,
+  "method": "Dependency subset with integer-reference relocation only. All selected node transforms, accessor descriptors, raw views, materials, image bytes and samplers compared exactly after inverse remapping. No source mutation or texture/geometry recompression.",
+  "scope": "Executed supplied dependency extraction on actual Review13 GLB in isolated analysis output. Reproduces expected Review14 bay bytes; does not independently certify an unseen local file."
+}

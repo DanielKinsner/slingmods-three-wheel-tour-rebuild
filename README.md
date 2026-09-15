@@ -1,3 +1,11 @@
+# Current entry point
+
+Read HANDOFF.md for P07B, fresh-clone setup and the pending publication boundary. Current local game: npm ci, npm run demo:build, npm run demo:preview (localhost5188). The sections below describe earlier milestones.
+
+---
+
+# Historical record below (superseded)
+
 # SlingMods: Three-Wheel Tour â€” Environment Quality Lock (P06B)
 
 For another machine or agent, start with [HANDOFF.md](HANDOFF.md). Continue this existing rebuild. The active director packet is `director-kit/director-addenda/review-11/CODEX_NEXT.md`. P06B reauthors presentation with free CC0 photo PBR materials, metre-scaled road UVs, connected harbor paving and shoreline, swept palm geometry with three levels of detail, an outdoor HDR sky/probe, water response, and a finished compact inspection room. The existing first chapter, vehicle and game systems remain intact. G3/G4 remain pending; this is a local review build, not a release or the full campaign.

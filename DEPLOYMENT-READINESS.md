@@ -1,3 +1,25 @@
+# P07B publication preflight - local only
+
+Review14 accepts the current bounded local demo. P07B changes static delivery only; the owner authorizes Git main handoff but has NOT authorized website publication/account linking. No hosted URL, provider project, plan, quota or public visibility has been verified. The only pending external prerequisite is owner authorization for a separate eligible no-cost demo target plus access. Git handoff proceeds independently.
+
+Run npm ci; npm run demo:build; npm run demo:stage. The versioned output in publish-current.json is the ONLY future upload directory. npm run demo:stage:preview serves that stage locally at http://127.0.0.1:5189/. The normal demo remains at5188. Original Review14 output is retained unchanged on this host; fresh clones produce newly identified output from transferred inputs. See handoff/P07B-VALIDATION.json for exact tested commit/output receipts.
+
+Stage transformations are explicit: keep all game bundles/runtime binaries/notices unchanged; omit internal .vite/manifest.json; reduce review-build.json to public asset hashes/build identity; add noindex meta, robots.txt, custom404.html and _headers. Project-relative source relationships in legitimate license/asset metadata remain attribution, not exposed source bytes. No machine username, credentials, source maps, private evidence or original authoring binaries enter the stage. Generic secret-pattern scanning is only one part of the reviewed explicit allowlist, not proof against all possible secrets.
+
+Headers follow [Netlify custom-header syntax](https://docs.netlify.com/manage/routing/headers/) checked2026-09-15: one global security/noindex block, exact per-file MIME/cache entries so mutable and immutable directives do not concatenate. No redirects/SPA fallback. Root/query navigation preserved at base /. WAV audio/wav; GLB model/gltf-binary; JS/CSS/JSON correct; no-cache mutable names, immutable only actual hash-named JS/CSS. noindex discourages indexing and is NOT privacy. Local server models intended headers; it does not prove provider application of _headers or public access.
+
+Later authorized publication must inspect current provider docs/CLI, eligible commercial-use account plan and shared quotas without changing plans/existing sites. Use a separate provider origin, manual prebuilt deployment only, no repository import, no storefront domain, no auto-deploy webhooks, no paid add-ons. The stage is about112.45MB; inspect its actual receipt and upload acceptance. Do not assume the review ZIP size is the upload payload. Original brand provenance grants local use only; explicit owner publication approval must cover this branded demo before upload.
+
+After authorization/upload: record returned exact project/deploy IDs and actual HTTPS URL; independently fetch/hash every payload and check MIME/cache/security headers, true404, all4entryactions, ordinary visitor race/retry/garage, audio, demo/career separation, product link/return, recovery and one native1080two-race repeat. A custom HTML404 with status404 is permitted;200HTML missing-asset fallback is not. No public or hosted PASS may be inferred from local tests.
+
+Rollback/recovery: retain each stage's receipt plus original demo output manifest; rebuild any missing output from its tested source commit using documented commands, recognizing new build identity. For a future dedicated hosted demo only, record the previous deploy ID before replacement and use the provider's verified rollback control if needed. There is no existing deployment to roll back now. Never alter existing unrelated sites.
+
+G3/G4, final art, human playtesting/listening and physical devices remain held.
+
+---
+
+# Historical Review14 readiness record
+
 # P07A local static candidate
 
 No public deployment has been performed. This document proposes a later authorized hosting operation. A localhost URL is not a hosted share link.

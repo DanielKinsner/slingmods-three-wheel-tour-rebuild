@@ -1,3 +1,16 @@
+# Current authority - P07B and complete remote handoff
+
+Read HANDOFF.md first, then director-kit/director-addenda/review-14/CODEX_NEXT.md, AUDIT.md and packets/P07B-HOSTED-DEMONSTRATION.md. Review14 accepts the bounded P07A local demo. Do not restart P06C/P07A or re-export assets to launch it.
+
+The owner's accompanying handoff/OWNER-DIRECTIVE-P07B.md explicitly authorizes intended commits and ordinary push to existing private DanielKinsner/slingmods-three-wheel-tour-rebuild main. This overrides older no-push instructions for this handoff. Preserve remote work and P06C-HOME-KICKOFF.md. No force pushes, resets/history rewriting, spending, deployment, account linking, unrelated process changes or desktop takeover.
+
+P07B local launch/preflight is authorized. External publication is pending explicit owner authorization and eligible target access. Preserve game source, all vehicle/driver/world/physics/rivals/rewards/storage; changes are static delivery, MIME, noindex, portability instructions and transfer verification only. One lead and one bounded reviewer. Preserve all historical proof. G3/G4 and global art/physical-device/listening approval remain held. Do not repeat completed content or begin a new assignment after this handoff. The next action is the pending publication step after owner authorization, using this candidate.
+
+
+---
+
+# Historical record below (superseded)
+
 # Current return point — P07A Shareable Showcase / Review14
 
 P07A is implemented and locally validated; Review14 is prepared as a lean review-only return. Read the final P07A review introduction and indexes. No automatic new work after delivery.

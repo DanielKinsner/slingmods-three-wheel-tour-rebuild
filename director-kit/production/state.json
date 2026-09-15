@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-15T04:44:11.557345+00:00",
+  "as_of": "2026-09-15T06:15:34.247058+00:00",
   "workspace_verified": true,
   "branch": "main",
   "commit": "758c2b291a9b5bd525fe9acd1425537657fadf70",
   "current_gate": "G3",
-  "current_packet": "P07A Shareable Showcase \u2014 Review14",
-  "next_action": "Review14 delivered for director review; await next explicit packet. No automatic implementation/deployment.",
+  "current_packet": "P07B Hosted Demonstration - local preflight and Git handoff",
+  "next_action": "Complete remote-clone recovery receipt, then await owner-authorized separate hosting; do not repeat P06C/P07A.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -83,7 +83,7 @@
     "record_stress": "npm run record:stress",
     "presenter": "npm run test:presenter",
     "calibration": "Set EVIDENCE_DIR to a new folder before npm run test:browser; never overwrite accepted evidence",
-    "blender": ".tools/blender-4.5.2-windows-x64/blender.exe --background --factory-startup --python scripts/vehicle_build.py",
+    "blender": "scripts/blender.ps1 -BlenderExe <discovered executable> -Script <authorized authoring script>",
     "capture_p03a": "Use new EVIDENCE_DIR, node scripts/build-review.mjs then npm run capture:p03a"
   },
   "rejected_approaches": [
@@ -95,7 +95,7 @@
   ],
   "kit_revision": 2,
   "build_mode": "EXISTING_REBUILD",
-  "workspace_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "workspace_root": ".",
   "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
@@ -617,5 +617,7 @@
     "G4": "pending",
     "shareReady": false
   },
-  "demo_readiness": "LOCAL DEMO READY"
+  "demo_readiness": "LOCAL DEMO READY",
+  "git_handoff_authorized": true,
+  "hosting_authorized": false
 }

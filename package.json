@@ -19,7 +19,9 @@
     "preview": "vite preview --port 5187 --host 127.0.0.1",
     "capture:p03a": "node scripts/capture-p03a-review.mjs",
     "demo:build": "node scripts/build-demo.mjs",
-    "demo:preview": "node scripts/serve-demo.mjs"
+    "demo:preview": "node scripts/serve-demo.mjs",
+    "demo:stage": "node scripts/stage-publish.mjs",
+    "demo:stage:preview": "node scripts/serve-demo.mjs --publish"
   },
   "keywords": [],
   "author": "",
