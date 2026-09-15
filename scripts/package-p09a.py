@@ -1,6 +1,6 @@
 """Review17: current focused evidence, full originals recoverable at exact private Git paths."""
 from pathlib import Path
-import json,hashlib,subprocess,zipfile,gzip,io
+import json,hashlib,subprocess,zipfile,gzip,lzma,io
 from PIL import Image
 r=Path(__file__).resolve().parents[1];ev=r/'director-kit/production/evidence/P09A'
 receipt=json.loads((r/'handoff/P09A-VALIDATION.json').read_text());runtime=receipt['runtimeCommit']
@@ -40,12 +40,12 @@ for p in sorted(ev.rglob('*')):
  raw=p.read_bytes();sha=hashlib.sha256(raw).hexdigest()
  if include:
   data=gzip.decompress(raw) if p.suffix=='.gz' else raw
-  content=hashlib.sha256(data).hexdigest();blob='blobs/'+content+'.gz'
-  if blob not in blobs:blobs[blob]=gzip.compress(data,compresslevel=9,mtime=0)
+  content=hashlib.sha256(data).hexdigest();blob='blobs/'+content+'.xz'
+  if blob not in blobs:blobs[blob]=lzma.compress(data,preset=6)
   index[rel]={'blob':blob,'contentSHA256':content,'sourceSHA256':sha,'sourceBytes':len(raw),'sourceWasGzip':p.suffix=='.gz'}
  else:omitted[n]={'bytes':len(raw),'sha256':sha,'reason':'Unchanged/duplicate historical comparison or superseded successful capture; final relevant trace and failures included.'}
 for name,data in blobs.items():add('director-kit/production/evidence/P09A/complete-data/'+name,data)
-add('director-kit/production/evidence/P09A/complete-data/INDEX.json',(json.dumps({'files':index,'method':'Lossless gzip and content-addressed deduplication; every selected original numerical/text byte restored. Gzip container metadata may normalize, content SHA256 is authoritative.','restore':'python scripts/restore-p09a-data.py NEW_OUTPUT_DIRECTORY'},indent=2)+'\n').encode())
+add('director-kit/production/evidence/P09A/complete-data/INDEX.json',(json.dumps({'files':index,'method':'Lossless XZ and content-addressed deduplication; every selected original numerical/text byte restored. Original gzip container metadata may normalize, content SHA256 is authoritative. Python standard-library restorer included.','restore':'python scripts/restore-p09a-data.py NEW_OUTPUT_DIRECTORY'},indent=2)+'\n').encode())
 add('REMOTE-EVIDENCE-INDEX.json',(json.dumps({'commit':head,'branch':branch,'files':omitted,'retrieval':'Clone the private repository, git checkout '+head+', then read each exact path.'},indent=2)+'\n').encode())
 film=ev/receipt['film']['relativePath'];put(film)
 for caption,name in receipt['reviewScreenshots']:
@@ -55,7 +55,7 @@ assets=json.loads((r/'handoff/P09A-ASSETS.json').read_text());add('REMOTE-ASSETS
 manifest={'runtimeCommit':runtime,'packagingCommit':head,'testedRemoteCommit':receipt['testedRemoteCommit'],'branch':branch,'files':{n:{'bytes':len(d),'sha256':hashlib.sha256(d).hexdigest()}for n,d in sorted(payload.items())},'note':'All payloads except this nonrecursive manifest. The lean review packet is not a standalone game; all editable/runtime binaries and capture originals are in verified private Git.'}
 add('MANIFEST.json',(json.dumps(manifest,indent=2)+'\n').encode());dest=r/'Astra-Review-17-Lean.zip'
 with zipfile.ZipFile(dest,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9)as z:
- for n,d in sorted(payload.items()):z.writestr(n,d,compress_type=zipfile.ZIP_STORED if n.endswith(('.gz','.mp4','.jpg','.png')) else zipfile.ZIP_DEFLATED)
+ for n,d in sorted(payload.items()):z.writestr(n,d,compress_type=zipfile.ZIP_STORED if n.endswith(('.xz','.gz','.mp4','.jpg','.png')) else zipfile.ZIP_DEFLATED)
 with zipfile.ZipFile(dest)as z:
  assert z.testzip()is None and len(z.namelist())==len(set(z.namelist()))
  for n,row in manifest['files'].items():
