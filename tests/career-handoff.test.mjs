@@ -12,7 +12,7 @@ test('denied-IDB real scene navigation preserves session career and rejects unsu
  let source;
  try{const bundle=await build({configFile:false,logLevel:'silent',build:{write:false,minify:false,lib:{entry,formats:['es'],fileName:'client'}}});source=(Array.isArray(bundle)?bundle[0]:bundle).output.find(x=>x.type==='chunk').code}finally{await rm(entry);await rmdir(temp)}
  const fixture=JSON.parse(await readFile('director-kit/production/evidence/P04B2/fixtures/review08-earned.json','utf8')).origins[0].indexedDB[0].stores[0].records[0].value;
- const expected=structuredClone(fixture);expected.version=2;expected.crew={invitationSeen:true,completed:true,bestPlace:3,cleared:true,clearAcknowledged:false};
+ const expected=structuredClone(fixture);expected.version=3;expected.buildMatters={legacyCrewAccess:true,duelCompleted:false,duelWon:false};expected.suspension={owned:false,equipped:false,setup:{frontCompression:2,frontRebound:6,rearCompression:1,rearRebound:3,rideHeightMm:0}};expected.crew={invitationSeen:true,completed:true,bestPlace:3,cleared:true,clearAcknowledged:false};
  const html='<!doctype html><div id="app"></div><script type="module">import {careerClient,BuildUI} from "/client.js";window.client=await careerClient();window.buildUI=new BuildUI(window.client,{open(){},previewNight(){},appearance(){}});window.buildUI.open();window.ready=true;</script>';
  const browser=await chromium.launch({headless:true});
  try{const context=await browser.newContext();await context.addInitScript(()=>{Object.defineProperty(window,'indexedDB',{configurable:true,get(){throw new DOMException('Test denies IndexedDB','SecurityError')}})});

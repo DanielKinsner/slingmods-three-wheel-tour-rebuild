@@ -1,3 +1,4 @@
+import {DUEL_EVENT,certifyDuelFinish,type DuelAwardProof} from '../career/duel-result';
 import {certifyCrewFinish,type CrewAwardProof} from '../career/crew-result';
 import {crossGate} from '../race/attempt';
 import type {CourseRoute} from '../course/environment';
@@ -6,12 +7,13 @@ import {RaceRoad} from './road';
 export const CREW_EVENT_ID='harbor-crew-night-v1';
 export type CrewStatus='running'|'finished'|'invalid'|'dnf'|'unfinished';
 export interface CrewStanding {id:string;place:number;status:CrewStatus;lap:number;nextGate:number;progress:number;timeMs:number|null;invalidReason:string|null;valid:boolean}
-export interface CrewResult {event:typeof CREW_EVENT_ID;attemptId:string;participantId:string;status:CrewStatus;valid:boolean;laps:number;timeMs:number|null;place:number|null;invalidReason:string|null}
+export interface CrewResult {event:typeof CREW_EVENT_ID|typeof DUEL_EVENT;attemptId:string;participantId:string;status:CrewStatus;valid:boolean;laps:number;timeMs:number|null;place:number|null;invalidReason:string|null}
 interface Participant {id:string;status:CrewStatus;completed:number;next:number;launched:boolean;distance:number;offSeconds:number;segment?:number;progress:number;timeMs:number|null;invalidReason:string|null;place:number|null}
 const HOLD:VehicleControl={throttle:0,brake:1,steer:0,reverse:false,tractionControl:true};
 export class CrewRace {
- private proof:CrewAwardProof|null=null;private road:RaceRoad;private states=new Map<string,Participant>();private phase:'ready'|'countdown'|'running'|'finished'='ready';private paused=false;private countdownTicks=0;private elapsedMs=0;private attemptId='';private terminalAt:number|null=null;
- constructor(readonly route:CourseRoute,readonly participantIds:readonly string[]=['maya','jett','nico','player'],readonly playerId='player'){if(participantIds.length!==4||new Set(participantIds).size!==4||!participantIds.includes(playerId))throw Error('Crew race requires four distinct participants including player');this.road=new RaceRoad(route);this.initialize()}
+ private proof:CrewAwardProof|DuelAwardProof|null=null;private road:RaceRoad;private states=new Map<string,Participant>();private phase:'ready'|'countdown'|'running'|'finished'='ready';private paused=false;private countdownTicks=0;private elapsedMs=0;private attemptId='';private terminalAt:number|null=null;
+ constructor(readonly route:CourseRoute,readonly participantIds:readonly string[]=['maya','jett','nico','player'],readonly playerId='player',readonly duel=false){if(participantIds.length!==(duel?2:4)||new Set(participantIds).size!==(duel?2:4)||!participantIds.includes(playerId))throw Error('Crew race requires four distinct participants including player');this.road=new RaceRoad(route);this.initialize()}
+ get laps(){return this.duel?1:2} get event(){return this.duel?DUEL_EVENT:CREW_EVENT_ID}
  private initialize(){this.states.clear();for(const id of this.participantIds)this.states.set(id,{id,status:'running',completed:0,next:1,launched:false,distance:0,offSeconds:0,progress:-this.participantIds.indexOf(id),timeMs:null,invalidReason:null,place:null})}
  restart(attemptId:string){if(!attemptId||attemptId===this.attemptId)throw Error('Each crew restart needs a fresh attempt ID');this.attemptId=attemptId;this.phase='countdown';this.paused=false;this.countdownTicks=0;this.elapsedMs=0;this.terminalAt=null;this.proof=null;this.initialize()}
  setPaused(value:boolean){this.paused=value}
@@ -36,7 +38,7 @@ export class CrewRace {
    const crossings=this.route.checkpoints.map((g,i)=>({i,hit:crossGate(g,prev.position,now.position)})).filter(v=>v.hit).sort((a,b)=>a.hit!.fraction-b.hit!.fraction);
    for(const {i,hit} of crossings){
     if(!hit!.forward){this.invalidate(s,i===0?'Finish crossed backward':'Checkpoint crossed backward');break}
-    if(i===0){if(!s.launched){s.launched=true;continue}if(s.next!==this.route.checkpoints.length){this.invalidate(s,'Finish reached before all checkpoints');break}if(s.distance<(s.completed+1)*this.route.length-15){this.invalidate(s,'Course distance shortcut');break}s.completed++;s.next=1;if(s.completed===2){s.timeMs=before+dt*1000*hit!.fraction;candidates.push(s);break}}
+    if(i===0){if(!s.launched){s.launched=true;continue}if(s.next!==this.route.checkpoints.length){this.invalidate(s,'Finish reached before all checkpoints');break}if(s.distance<(s.completed+1)*this.route.length-15){this.invalidate(s,'Course distance shortcut');break}s.completed++;s.next=1;if(s.completed===this.laps){s.timeMs=before+dt*1000*hit!.fraction;candidates.push(s);break}}
     else {if(!s.launched||i!==s.next){this.invalidate(s,'Checkpoint order skipped');break}s.next++}
    }
    // Only accepted lap/sector history can increase ranking. Projection is bounded inside that sector.
@@ -46,12 +48,12 @@ export class CrewRace {
   }
   // Common timestamp with sub-tick crossing; lexical ID is used only for an exact floating-point tie.
   candidates.sort((a,b)=>a.timeMs!-b.timeMs!||a.id.localeCompare(b.id));let place=[...this.states.values()].filter(s=>s.status==='finished').length;
-  for(const s of candidates){s.status='finished';s.place=++place;s.progress=2*this.route.length;if(s.id===this.playerId&&this.playerId==='player')this.proof=certifyCrewFinish({event:CREW_EVENT_ID,attemptId:this.attemptId,participantId:'player',status:'finished',valid:true,laps:2,timeMs:s.timeMs!,place:s.place as 1|2|3|4})}
+  for(const s of candidates){s.status='finished';s.place=++place;s.progress=this.laps*this.route.length;if(s.id===this.playerId&&this.playerId==='player')this.proof=this.duel?certifyDuelFinish({event:DUEL_EVENT,attemptId:this.attemptId,participantId:'player',status:'finished',valid:true,laps:1,timeMs:s.timeMs!,place:s.place as 1|2}):certifyCrewFinish({event:CREW_EVENT_ID,attemptId:this.attemptId,participantId:'player',status:'finished',valid:true,laps:2,timeMs:s.timeMs!,place:s.place as 1|2|3|4})}
   this.playerTerminal();if(this.terminalAt!==null&&this.elapsedMs-this.terminalAt>=30000-1e-7)for(const s of this.states.values())if(s.status==='running'){s.status='dnf';s.invalidReason='30-second postfinish limit'}
  }
  snapshot(){const states=[...this.states.values()].sort((a,b)=>{if(a.status==='finished'||b.status==='finished')return a.status==='finished'&&b.status==='finished'?a.place!-b.place!:a.status==='finished'?-1:1;if(a.status==='running'!== (b.status==='running'))return a.status==='running'?-1:1;return b.progress-a.progress||a.id.localeCompare(b.id)});
-  const standings:CrewStanding[]=states.map((s,i)=>({id:s.id,place:s.place??i+1,status:s.status,lap:Math.min(2,s.completed+1),nextGate:s.next,progress:s.progress,timeMs:s.timeMs,invalidReason:s.invalidReason,valid:s.status==='running'||s.status==='finished'}));const p=this.states.get(this.playerId)!;
-  const playerResult:CrewResult|null=p.status==='running'?null:{event:CREW_EVENT_ID,attemptId:this.attemptId,participantId:this.playerId,status:p.status,valid:p.status==='finished',laps:p.completed,timeMs:p.timeMs,place:p.place,invalidReason:p.invalidReason};
-  return {phase:this.phase,paused:this.paused,countdown:this.phase==='countdown'?Math.max(0,3-this.countdownTicks/60):0,elapsedMs:this.elapsedMs,attemptId:this.attemptId,standings,playerResult,allFinished:states.every(s=>s.status!=='running')};
+  const standings:CrewStanding[]=states.map((s,i)=>({id:s.id,place:s.place??i+1,status:s.status,lap:Math.min(this.laps,s.completed+1),nextGate:s.next,progress:s.progress,timeMs:s.timeMs,invalidReason:s.invalidReason,valid:s.status==='running'||s.status==='finished'}));const p=this.states.get(this.playerId)!;
+  const playerResult:CrewResult|null=p.status==='running'?null:{event:this.event,attemptId:this.attemptId,participantId:this.playerId,status:p.status,valid:p.status==='finished',laps:p.completed,timeMs:p.timeMs,place:p.place,invalidReason:p.invalidReason};
+  return {event:this.event,laps:this.laps,phase:this.phase,paused:this.paused,countdown:this.phase==='countdown'?Math.max(0,3-this.countdownTicks/60):0,elapsedMs:this.elapsedMs,attemptId:this.attemptId,standings,playerResult,allFinished:states.every(s=>s.status!=='running')};
  }
 }

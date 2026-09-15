@@ -1,7 +1,7 @@
 import {freshCareer,migrateCareer,MemoryCareerStore,type CareerStore,type Command} from '../career/store';
 import {DEMO_CAREER_KEY} from './profile';
 /** Prepared showcase state, not earned career history. All subsequent results use the original transition. */
-export function freshDemo(){const state=freshCareer();state.owned=true;state.equipped=true;state.chapters={entry:true,firstCompletion:true,firstBuild:true};state.crew.invitationSeen=true;return state}
+export function freshDemo(){const state=freshCareer();state.owned=true;state.equipped=true;state.chapters={entry:true,firstCompletion:true,firstBuild:true};state.crew.invitationSeen=true;state.buildMatters.legacyCrewAccess=true;return state}
 /** Per-tab demo persistence avoids both cross-tab lost updates and all access to the career database. */
 export class DemoCareerStore implements CareerStore{
  private memory:MemoryCareerStore;private saved=true;

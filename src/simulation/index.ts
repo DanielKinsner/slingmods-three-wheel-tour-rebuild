@@ -1,3 +1,4 @@
+import {suspensionParameters,type SuspensionSetup} from '../career/suspension';
 import RAPIER from '@dimforge/rapier3d-compat';
 import layout from '../../public/assets/slingshot-contact-layout.json';
 import {PAD_ENVIRONMENT,type EnvironmentDefinition} from '../course/environment';
@@ -23,6 +24,9 @@ let initialized:Promise<void>|undefined;
 
 /** Exactly three custom suspension/tire channels. Rapier owns all body integration and collisions. */
 export class Simulation {
+  private suspension:ReturnType<typeof suspensionParameters>|null=null;
+  configureSuspension(setup:SuspensionSetup|null){if(this.time!==0)throw Error('Configure suspension before driving');this.suspension=setup?Object.freeze(suspensionParameters(setup)):null}
+  suspensionConfig(){return this.suspension?{...this.suspension}:null}
   private world:RAPIER.World;
   private owner?:RaceWorld;
   private body:RAPIER.RigidBody;
@@ -85,6 +89,9 @@ export class Simulation {
       const point=hit?ray.pointAt(hit.timeOfImpact):origin;
       const pointVel=this.body.velocityAtPoint(point);
       let load=contact?clamp(k*(SPEC.restLength-length)-(rear?SPEC.damperRear:SPEC.damperFront)*dot(pointVel,up),0,weight*4.5):0;
+      // Optional product seam: directional linear damping and spring-perch preload only.
+      // Positive point velocity = extension/rebound. Stock keeps the exact equation above.
+      if(contact&&this.suspension){const p=this.suspension,vertical=dot(pointVel,up),d=rear?(vertical>0?p.rearRebound:p.rearCompression):(vertical>0?p.frontRebound:p.frontCompression);load=clamp(k*(SPEC.restLength-length+p.rideHeight)-d*vertical,0,weight*4.5)}
       if(contact&&length<0.055)load+=Math.min(weight*2,(0.055-length)*130000);
       return {wheel,rear,k,weight,preload,ray,hit,contact,length,point,pointVel,load};
     });
