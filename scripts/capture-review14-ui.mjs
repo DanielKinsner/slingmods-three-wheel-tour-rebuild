@@ -1,0 +1,14 @@
+import{chromium}from'@playwright/test';import fs from'node:fs/promises';
+const out=process.env.EVIDENCE_DIR;if(!out)throw Error('Fresh EVIDENCE_DIR required');await fs.mkdir(out,{recursive:false});const origin=process.env.BASE_URL||'http://127.0.0.1:5188';
+const browser=await chromium.launch({headless:true,args:['--use-angle=d3d11','--mute-audio']}),ctx=await browser.newContext({viewport:{width:1920,height:1080},deviceScaleFactor:1}),p=await ctx.newPage(),errors=[],responses=[];p.on('pageerror',e=>errors.push(e.message));p.on('response',r=>responses.push({url:r.url(),status:r.status()}));const report={};
+async function shot(name){await p.screenshot({path:out+'/'+name+'.jpg',type:'jpeg',quality:90})}
+async function ready(){await p.locator('[data-loading-stage]').waitFor({state:'detached',timeout:120000});await p.waitForTimeout(500)}
+try{
+ await p.goto(origin+'/');await p.locator('#demo-race').waitFor();await shot('entry-1080');report.entryGlobals=await p.evaluate(()=>({crew:!!window.__CREW,bay:!!window.__TWT,harbor:!!window.__HARBOR}));
+ await p.setViewportSize({width:1280,height:720});await shot('entry-720');await p.setViewportSize({width:390,height:844});await shot('entry-narrow');await p.setViewportSize({width:1920,height:1080});
+ await p.locator('#demo-garage').click();await p.locator('#chapter-build').waitFor({timeout:120000});await ready();await shot('garage-day');report.garage={url:p.url(),globals:await p.evaluate(()=>({bay:!!window.__TWT})),resources:await p.evaluate(()=>performance.getEntriesByType('resource').map(r=>({url:r.name,transfer:r.transferSize,bytes:r.decodedBodySize})))};
+ await p.locator('#chapter-build').click();await p.locator('#kit-state').waitFor();await shot('shop-build');report.product=await p.locator('#real-product').evaluate(a=>({url:a.href,target:a.target,rel:a.rel}));await p.locator('#bay-night').click();await shot('garage-night');await p.locator('#stock-compare').click();await shot('stock-compare');
+ await p.goto(origin+'/?scene=crew&play=demo');await p.locator('#start-crew').waitFor({timeout:120000});await ready();await shot('crew-ready');report.crewControls=await p.locator('#race-help').evaluate(e=>({open:e.open,text:e.innerText})).catch(()=>null);
+ await p.goto(origin+'/?scene=harbor&play=demo&preset=day');await p.locator('#start-lap').waitFor({timeout:120000});await ready();await shot('daylight-ready');
+ report.manifest=await(await p.request.get(origin+'/review-build.json')).json();report.responses=responses;report.errors=errors;report.browser=browser.version();report.method='Exact static output. Ordinary demo navigation without test hooks. Headless Chromium D3D11, DPR1; stationary JPEGs. No timing/physical-device/human-play claim.';await fs.writeFile(out+'/report.json',JSON.stringify(report,null,2));if(errors.length||responses.some(r=>r.status>=400))throw Error('Actual candidate page/asset errors retained');
+}finally{await ctx.close();await browser.close()}

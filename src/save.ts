@@ -1,3 +1,4 @@
+import {activeProfile,DEMO_SETTINGS_KEY} from './demo/profile';
 export const SAVE_KEY = 'slingmods-twt-rebuild-v1';
 export interface LapRecord {timeMs:number;recordedAt:string}
 export interface Save { version:1; vehicleId:'slingshot-r-2024'; settings:{camera:'near'|'far'|'cockpit';mute:boolean;volume:number};records:Record<string,LapRecord> }
@@ -14,4 +15,4 @@ export function writeSave(storage:Pick<Storage,'setItem'>,save:Save):boolean{try
 export function saveBest(storage:Pick<Storage,'getItem'|'setItem'>,key:string,timeMs:number,recordedAt=new Date().toISOString()):{save:Save;updated:boolean;persisted:boolean}{const save=loadSave(storage),old=save.records[key];if(!Number.isFinite(timeMs)||timeMs<=0||(old&&old.timeMs<=timeMs))return {save,updated:false,persisted:true};save.records[key]={timeMs,recordedAt};return {save,updated:true,persisted:writeSave(storage,save)}}
 
 /** Browsers can deny even obtaining window.localStorage, before a method is called. */
-export function browserStorage():Pick<Storage,'getItem'|'setItem'>{try{return window.localStorage}catch{return {getItem:()=>null,setItem:()=>{throw new Error('Storage unavailable')}}}}
+export function browserStorage():Pick<Storage,'getItem'|'setItem'>{try{if(activeProfile()==='demo'){const storage=window.sessionStorage;return {getItem:()=>storage.getItem(DEMO_SETTINGS_KEY),setItem:(_key,value)=>storage.setItem(DEMO_SETTINGS_KEY,value)}}return window.localStorage}catch{return {getItem:()=>null,setItem:()=>{throw new Error('Storage unavailable')}}}}

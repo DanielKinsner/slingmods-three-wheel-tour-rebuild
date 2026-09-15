@@ -1,3 +1,9 @@
+# Current handoff — P07A / Review14 in validation
+
+Continue this checkout. Review13 director packet authorizes P07A Shareable Showcase and lean Review14, not another P06C run. Read RESUME.md and director-kit/director-addenda/review-13/CODEX_NEXT.md. Demo isolation, exact bay extraction, official artwork, product detail and static allowlist implemented; repaired hardening11/11 and strict preservation pass. Final native matrix/media/package are pending. All new commits LOCAL_ONLY; no remote writes or deployment. G3/G4 and overall art remain held.
+
+---
+
 # Current handoff â€” P06C / Review13
 
 P06C Built Waterfront is implemented and Review13 is prepared locally with a **performance HOLD**. Last accepted director review remains Review12. Read `RESUME.md`, `director-kit/production/evidence/P06C/REVIEW-ME-FIRST.md` and current production state first. Frozen runtime: `b4eef3c7dab3eb77b131a5100c3be0fd1110b095`; PACKAGE-MANIFEST.json identifies the separate packaging commit. These new commits have NOT been pushed; the remote contains the earlier handoff.

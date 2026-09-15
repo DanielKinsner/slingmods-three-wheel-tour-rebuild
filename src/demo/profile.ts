@@ -1,0 +1,16 @@
+/** Explicit profile identity; an absent/unknown profile always means the real career. */
+export type Profile = 'career'|'demo';
+export const DEMO_NAMESPACE='slingmods-twt-demo-v1:';
+export const DEMO_CAREER_KEY=DEMO_NAMESPACE+'career';
+export const DEMO_SETTINGS_KEY=DEMO_NAMESPACE+'settings';
+export function profileFrom(search:string):Profile{return new URLSearchParams(search).get('play')==='demo'?'demo':'career'}
+export function activeProfile():Profile{return typeof location==='undefined'?'career':profileFrom(location.search)}
+export function profileHref(url:string,profile:Profile=activeProfile(),base=location.href){const target=new URL(url,base);if(target.origin!==new URL(base).origin)return target.href;target.searchParams.set('play',profile);return target.pathname+target.search+target.hash}
+export function sceneHref(scene:'bay'|'crew'|'harbor',extra='',profile:Profile=activeProfile()){return profileHref('?scene='+scene+extra,profile)}
+/** Allowlisted visitors never select historical fixtures/assets in the staged demo. */
+export function visitorSearch(search:string){const input=new URLSearchParams(search),out=new URLSearchParams();for(const [key,values]of Object.entries({scene:['bay','crew','harbor'],play:['demo','career'],preset:['day','night'],quality:['standard','low'],shop:['build']})){const value=input.get(key);if(value&&values.includes(value))out.set(key,value)}if(input.get('test')==='1'&&input.get('profile')==='1'){out.set('test','1');out.set('profile','1');for(const key of ['clock','captureBuffer','seed']){const value=input.get(key);if(value&&((key==='clock'&&value==='controlled')||(key==='captureBuffer'&&value==='1')||(key==='seed'&&/^\d{1,6}$/.test(value))))out.set(key,value)}}return out.toString()}
+export function resetDemo(storage:Pick<Storage,'removeItem'>){storage.removeItem(DEMO_CAREER_KEY);storage.removeItem(DEMO_SETTINGS_KEY)}
+/** Match the destination after the staged entry canonicalizes its allowed query. */
+export function transferTarget(target:URL,visitor:boolean){if(!visitor)return target.pathname+target.search;const search=visitorSearch(target.search);return target.pathname+(search?'?'+search:'')}
+
+export function evidenceEnabled(){if(import.meta.env.MODE!=='demo')return true;const query=new URLSearchParams(location.search);return query.get('test')==='1'&&query.get('profile')==='1'}

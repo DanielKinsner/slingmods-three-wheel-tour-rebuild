@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {loadBranding} from './branding';
 import {createHarborWater} from './harbor-water';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
@@ -11,8 +12,8 @@ const prefix='/assets/showcase-quality/';
 /** Reuses Blender-authored modules inside bounded spatial instance cells. No physics mutation. */
 export async function loadShowcaseHarbor(scene:THREE.Scene,legacyHarbor:THREE.Object3D,preset:'day'|'night',stage:'sample'|'full'='full'){
  const loader=new GLTFLoader();
- const [kit,foundation,layout]=await Promise.all([loadBoundAsset(loader,prefix+'kit.glb'),loadBoundAsset(loader,prefix+'foundation.glb'),fetch(prefix+'scene-layout.json').then(r=>r.json() as Promise<Layout>)]);
- const root=new THREE.Group();root.name='Harbor_'+layout.version;scene.add(root);root.add(foundation.scene);
+ const [kit,foundation,layout,branding]=await Promise.all([loadBoundAsset(loader,prefix+'kit.glb'),loadBoundAsset(loader,prefix+'foundation.glb'),fetch(prefix+'scene-layout.json').then(r=>{if(!r.ok)throw Error('Environment layout unavailable');return r.json() as Promise<Layout>}),loadBranding('harbor',loader)]);
+ const root=new THREE.Group();root.name='Harbor_'+layout.version;scene.add(root);root.add(foundation.scene,branding);
  // Remove superseded batches from preparation traversal, not just drawing: otherwise the
  // loading prewarm would upload all hidden legacy textures in addition to the new scene.
  const previousVisible=legacyHarbor.visible,previousParent=legacyHarbor.parent;legacyHarbor.visible=false;legacyHarbor.removeFromParent();
@@ -46,13 +47,13 @@ export async function loadShowcaseHarbor(scene:THREE.Scene,legacyHarbor:THREE.Ob
   root,
   update(cameraPosition:THREE.Vector3,timeSeconds:number){cameraDistance=cameraPosition.length();for(const group of lodGroups.values()){const distance=Math.max(0,cameraPosition.distanceTo(group.sphere.center)-group.sphere.radius);const thresholds=layout.lod?.distancesMetres??[45,100];const level=distance<thresholds[0]?0:distance<thresholds[1]?1:2;for(const mesh of group.meshes)mesh.visible=mesh.userData.lodLevel===level}water.update(timeSeconds)},
   inspect:()=>({version:layout.version,stage,materialBindings,routeSHA256:layout.routeSHA256,districts:layout.districts,placementCount:use.length,instanceGroups:instances.length,foundationTriangles,instancedTrianglesAllPlacements,totalAuthoredSceneTriangles:foundationTriangles+instancedTrianglesAllPlacements,triangleCensusMethod:'All placed source triangles including instance multiplicity; actual culled and shadow-pass submission measured separately with renderer.info',spatialChunkMetres:layout.spatialChunkMetres,culledBy:'per-cell InstancedMesh computed sphere and frustum; no whole-harbor instance bounds',geometryLOD:{cells:[...lodGroups.entries()].map(([key,g])=>({key,center:g.sphere.center.toArray(),radius:g.sphere.radius})),method:'Authored near/mid/far palm geometry, same root and crown envelopes, selected per spatial cell at nearest bound distance',thresholdsMetres:layout.lod?.distancesMetres??[],preparation:'All LOD buffers and material variants prepared behind loading veil'},groups:instances.map(m=>({name:m.name,count:m.count,bounds:m.boundingSphere?{center:m.boundingSphere.center.toArray(),radius:m.boundingSphere.radius}:null,trianglesPerInstance:(m.geometry.index?.count??m.geometry.attributes.position.count)/3,castsShadow:m.castShadow,lod:m.userData.lodLevel,visible:m.visible})),cameraDistance,water:water.inspect(),source:layout.version.startsWith('P06C')?'assets/blender/showcase-quality/built-waterfront.blend':'assets/blender/showcase-quality/quality-kit.blend',foundation:layout.version.startsWith('P06C')?'Presentation-only replacement; exact physical source checks in P06C/source-clearance.json':'Presentation-only replacement; protected physical route/colliders recorded separately in P06B/preservation-final.json'}),
-  dispose(){legacyHarbor.visible=previousVisible;if(previousParent)previousParent.add(legacyHarbor);scene.remove(root);water.dispose();disposeLibrary(library,foundation.scene);instances.forEach(m=>m.dispose())},
+  dispose(){legacyHarbor.visible=previousVisible;if(previousParent)previousParent.add(legacyHarbor);scene.remove(root);water.dispose();disposeLibrary(library,root);instances.forEach(m=>m.dispose())},
  };
 }
 
 /** Bay mesh uses established vehicle origin and permits the same inspection orbit. */
 export async function loadShowcaseBay(loader=new GLTFLoader()){
- const kit=await loadBoundAsset(loader,prefix+'kit.glb');const library=readLibrary(kit.scene,'day');const root=new THREE.Group();root.name='Showcase_Compact_Garage';
+ const [kit,branding]=await Promise.all([loadBoundAsset(loader,prefix+'bay.glb'),loadBranding('bay',loader)]);const library=readLibrary(kit.scene,'day');const root=new THREE.Group();root.name='Showcase_Compact_Garage';root.add(branding);
  disposePieces([...library.entries()].filter(([name])=>name!=='bay').flatMap(([,pieces])=>pieces),library.get('bay')??[]);
  for(const p of library.get('bay')??[]){const mesh=new THREE.Mesh(p.geometry,p.material);mesh.name='showcase_bay_'+p.name;mesh.receiveShadow=true;mesh.castShadow=false;root.add(mesh)}
  root.userData.showcase={vehicleOrigin:[0,0,0],floorTop:0,ceilingHeight:3.845,neutralInspectionPreserved:true};return root;
@@ -70,6 +71,8 @@ function readLibrary(source:THREE.Object3D,preset:'day'|'night'){
  source.traverse(o=>{if(!(o instanceof THREE.Mesh)||!o.name.startsWith('kit_'))return;const module=o.name.slice(4).split('__')[0];const materials=Array.isArray(o.material)?o.material:[o.material];
   // The Blender exporter uses one material per named primitive; reject accidental multi-material authoring.
   if(materials.length!==1)throw new Error('Showcase module requires one material per export primitive: '+o.name);
+  // These two isolated meshes are the old typed wordmarks, replaced by the actual approved artwork.
+  if(['kit_bay__Quality_Painted_White','kit_gantry__Quality_Painted_White'].includes(o.name)){o.geometry.dispose();return}
   const material=materials[0] as THREE.MeshStandardMaterial;
   if(material.name==='Showcase_Practical_Atlas')material.emissiveIntensity=preset==='night'?1.1:.12;
   if(material.name==='Showcase_Moving_Water')material.envMapIntensity=.75;

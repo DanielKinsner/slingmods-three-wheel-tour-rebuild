@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "b4eef3c7dab3eb77b131a5100c3be0fd1110b095",
   "current_gate": "G3",
-  "current_packet": "P06C Built Waterfront \u2014 Review13 prepared; performance HOLD",
-  "next_action": "Review Astra-Review-13.zip. Preserve completed P06C and failed timing evidence. Await director decision; causal repeat timing requires a naturally quiet host. G3/G4 and final art remain pending.",
+  "current_packet": "P07A Shareable Showcase",
+  "next_action": "Observe host and measure frozen Review13 repeat contexts, then implement and validate authorized demo/branding/loading work.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -609,5 +609,13 @@
     },
     "packageManifest": "PACKAGE-MANIFEST.json",
     "remoteChanges": "none; local commits only"
+  },
+  "p07a": {
+    "status": "baseline_investigation",
+    "baselineCommit": "6f473ee7d25869c0c4c4fa2462da652150adb949",
+    "lastAcceptedReview": 13,
+    "G3": "pending",
+    "G4": "pending",
+    "shareReady": false
   }
 }
