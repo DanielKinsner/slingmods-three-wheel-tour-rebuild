@@ -6,7 +6,7 @@ Windows, i9-13900K, RTX4080, driver 32.0.16.1088; Node24.15.0/npm11.12.1/Python3
 
 ## Actual map and construction
 
-Route is a loop, so bands use route-local tangent/normal, never a blanket world left/right. All ensembles remain beyond the existing barrier line and at least 13m from every centerline segment (road half-width5.5 + runoff3 + barrier/camera margin). Locked original route and collider guides are saved in the Blender source. New building mass stays behind existing barriers; no new colliders.
+Route is a loop, so bands use route-local tangent/normal, never a blanket world left/right. All ensembles remain beyond the existing barrier line and at least 12.5m from every centerline segment (road half-width5.5 + runoff3 + barrier/camera margin). Locked original route and collider guides are saved in the Blender source. New building mass stays behind existing barriers; no new colliders.
 
 - 300–510m: route east along z=-260 then turns northeast. Connected repair sheds on the inland/south side, loading canopies and a concrete yard edge. Keep the marina departure opening.
 - 510–735m: technical S corner through x203–253,z-194–0. First sample 590–750m: stepped marine-workshop frontage outside the west edge and a separate eastern warehouse court; articulated ends leave corner exits visible. Buildings use a few connected long roofs, recessed doors, structural bays, yard walls and contained planted returns.
@@ -16,8 +16,8 @@ Preserve terminal, marina docks, water/sky/probe, garage, vehicles, physics/race
 
 ## Method changes
 
-Palm fronds: coherent folded serrated blades with a central ridge and grouped pinnae, same crown directions/envelopes at each LOD; opaque double-sided foliage avoids masked-card overdraw and black-card failure. Useful curved sourced-bark trunks retained. No alpha-texture claim.
+Palm fronds: original authored pinna polygons baked into an RGBA map on folded, curved parent fronds. All three LODs retain the same crown directions and envelope. The actual exported glTF material uses MASK cutoff0.35 and double-sided rendering; no transparent sorting. Both rejected opaque methods remain in sample evidence. Useful curved sourced-bark trunks retained.
 
-Road: full aligned photographic source channels, no mirrored quarter. Remove coarse illumination/color patches from diffuse while retaining fine aggregate; coordinate normal/roughness/AO from the same full source. Subtle authored vertex color varies road scale independently, without decals or physics changes.
+Road: one aligned intact crop of the photographic source channels, no mirrored quarter. Physical tile0.75m. Remove coarse illumination/color patches from diffuse while retaining fine aggregate; coordinate normal/roughness/AO from the same crop. Subtle authored vertex color varies road scale independently, without decals or physics changes.
 
 G3/G4 and final environmental art stay pending. Sample criticism and repair precede rollout.

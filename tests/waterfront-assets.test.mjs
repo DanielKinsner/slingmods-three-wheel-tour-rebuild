@@ -23,9 +23,11 @@ test('P06C road binds the nonmirrored source and an active varying COLOR_0',()=>
 });
 
 test('P06C palm pinnae export an actual double-sided alpha mask bound in every LOD',()=>{
- const {json:g}=glb('kit.glb');const leaves=g.materials.find(m=>m.name==='P06C_Palm_Frond');assert.ok(leaves);
+ const {bytes,json:g,binary}=glb('kit.glb');const leaves=g.materials.find(m=>m.name==='P06C_Palm_Frond');assert.ok(leaves);
  assert.equal(leaves.alphaMode,'MASK');assert.ok(Math.abs(leaves.alphaCutoff-.35)<1e-6);assert.equal(leaves.doubleSided,true);
  const image=g.images[g.textures[leaves.pbrMetallicRoughness.baseColorTexture.index].source];assert.ok(image.bufferView!==undefined);assert.equal(image.mimeType,'image/png');
+ const view=g.bufferViews[image.bufferView],embedded=bytes.subarray(binary+(view.byteOffset??0),binary+(view.byteOffset??0)+view.byteLength);
+ assert.equal(createHash('sha256').update(embedded).digest('hex'),createHash('sha256').update(fs.readFileSync(prefix+'textures/p06c-frond.png')).digest('hex'),'Actual embedded mask must be the authored pinna bake');
  const layout=JSON.parse(fs.readFileSync(prefix+'scene-layout.json'));
  assert.ok(layout.waterfrontEnsembles.length>=5);assert.equal(layout.version,'P06C-built-waterfront-1');
  assert.ok(layout.instances.some(p=>p.module==='waterfrontYards'));

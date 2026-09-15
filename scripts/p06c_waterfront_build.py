@@ -177,7 +177,7 @@ for variant in range(3):
 
 new=[]
 stations=[(s,1) for s in [594,628,665,704,740]]
-if stage=='full':stations=[(s,1) for s in [318,352,386,466,504,594,628,665,704,740,821]]+[(s,-1) for s in [535,574,620,701]]
+if stage=='full':stations=[(s,1) for s in [318,352,386,466,504,594,628,665,704,740,821]]+[(s,-1) for s in [535,574,620,701]]+[(400,-1),(875,-1),(915,1)]
 for index,(s,side) in enumerate(stations):
  p,t=at(s);n=Vector((-t.y,t.x))*side;front=-n;yaw=math.atan2(front.x,front.y)
  # Move complete ensemble behind all nearby route segments, including the returning S bend.
@@ -190,7 +190,7 @@ for index,(s,side) in enumerate(stations):
   offset+=1
  else:raise RuntimeError('No safe footprint at station '+str(s))
  q=p+n*offset
- new.append(dict(module='waterfrontHall'+str(index%3),position=[q.x,0,q.y],yaw=yaw,scale=1,district='service',station=s,offset=offset,footprint=[world(x,z,offset) for x,z in [(-16,-12.3),(16,-12.3),(16,12.3),(-16,12.3)]],minimumRouteDistance=min(distance_to_route(x,z) for x,z in samples)))
+ new.append(dict(module='waterfrontHall'+str(2 if stage=='full' and s in [400,875,915] else index%3),position=[q.x,0,q.y],yaw=yaw,scale=1,district='service',station=s,offset=offset,footprint=[world(x,z,offset) for x,z in [(-16,-12.3),(16,-12.3),(16,12.3),(-16,12.3)]],minimumRouteDistance=min(distance_to_route(x,z) for x,z in samples)))
 print('P06C ensemble plan',[(p['station'],p['offset']) for p in new],flush=True)
 
 # Connected yard floor is a union, cut from every old ground sheet it meets.
@@ -203,7 +203,7 @@ for i,p in enumerate(new):
  cutters.objects.link(c);c.hide_render=True;c.hide_select=True;c.display_type='WIRE'
 # One deliberately connected service apron follows the actual bend, joining the yards.
 # Its inner edge is12.7m off centerline: beyond retained barrier/runoff, not a new road.
-for lo,hi,side in ([(590,754,1)] if stage=='sample' else [(305,875,1),(522,714,-1)]):
+for lo,hi,side in ([(590,754,1)] if stage=='sample' else [(305,933,1),(522,714,-1),(384,418,-1),(859,893,-1)]):
  for station in range(lo,hi,4):
   a,t=at(station);b,u=at(min(hi,station+4.1));n=Vector((-t.y,t.x))*side;v=Vector((-u.y,u.x))*side
   outline=[a+n*12.7,a+n*22,b+v*22,b+v*12.7]
@@ -275,7 +275,7 @@ def on_apron(pos):
  for i,a in enumerate(points):
   v=points[(i+1)%len(points)]-a;t=max(0,min(1,(q-a).dot(v)/v.length_squared));delta=q-a-v*t
   if delta.length<best[0]:best=(delta.length,dist[i]+v.length*t,delta.dot(Vector((-v.y,v.x)).normalized()))
- for lo,hi,side in ([(586,758,1)] if stage=='sample' else [(301,879,1),(518,718,-1)]):
+ for lo,hi,side in ([(586,758,1)] if stage=='sample' else [(301,937,1),(518,718,-1),(380,422,-1),(855,897,-1)]):
   if lo<=best[1]<=hi and 8.5<=best[2]*side<=26.5:return True
  return False
 layout['instances']=[p for p in layout['instances'] if not(p['module'] in ['plantgroup','plantingbed','palm0','palm1','palm2','service','fence'] and (any(in_footprint(p['position'],q) for q in new) or on_apron(p['position'])))]
