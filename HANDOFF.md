@@ -1,4 +1,18 @@
-# P09A - Own the Build
+# Current owner refinement — front fascia
+
+Branch: `feature/p09a-own-the-build`; same private remote. The owner's front correction fills the fascia gaps and splitter, replaces upper individual bulbs with continuous diffusers, preserves the lower continuous lenses and center lamp, and adds an open honeycomb grille.
+
+Current runtime: `public/assets/front-refinement/slingshot-front-refined.glb`. Editable source: `assets/blender/front-refinement/slingshot-front-refined.blend`. Read `handoff/FRONT-REFINEMENT.json` for hashes and proof. Showroom, driving and rivals share this asset. Review17 ZIP/film and prior assets remain unchanged; they predate this correction.
+
+217 tests pass. Isolated validation covers all four finishes, five free previews, reload, departure, keyboard driving/return and prepared-demo smoke. Seventy unaffected runtime batches retain their original bytes. Inspection draw calls remain 171; rendered triangles rise from 467198 to 477054. These counts are not FPS certification. Historical performance HOLD and G3/G4/fidelity/release limits remain.
+
+Launch with `npm ci`, `npm run demo:build`, then `npm run demo:preview` with `PORT=5197`. Refresh http://127.0.0.1:5197/. Browser saves remain local. To rebuild the editable/runtime front, run `./scripts/blender.ps1 -Script scripts/build-front-refinement.py` with Blender 4.5.2 in background. The exporter preserves non-target runtime data from the retained P08B GLB.
+
+Verify with `npm test`. For isolated UI validation, start `npm run dev -- --host 127.0.0.1 --port 5201`, set `BASE_URL` and a fresh `EVIDENCE_DIR`, then run `node scripts/validate-front-refinement.mjs`. The same environment variables work with `scripts/capture-front-refinement.mjs` for the dev-only inspection page. Next action: owner reviews the corrected front; no merge or publication.
+
+---
+
+# Historical P09A - Own the Build
 
 Current branch: `feature/p09a-own-the-build`. Private remote: `https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git`. Baseline: P08B `51f34a341200cf76bf69106bdfae300590419e88`. No merge or publication authorized.
 

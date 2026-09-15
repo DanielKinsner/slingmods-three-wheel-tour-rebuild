@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {SIGNATURE_ACCENTS,type SignatureFinish} from './signature-palette';
 export type {SignatureFinish} from './signature-palette';
-export const SIGNATURE_VEHICLE_URL='/assets/p08b/slingshot-signature.glb';
+export {CURRENT_VEHICLE_URL as SIGNATURE_VEHICLE_URL} from './vehicle-asset';
 export const SIGNATURE_SHOWROOM_URL='/assets/p08b/showroom-refinement/signature-showroom-refined.glb';
 export const SIGNATURE_PRODUCTS_URL='/assets/p08b/signature-products.glb';
 export const SIGNATURE_MOUNT_VIEWS={exhaust:{position:[2.7,1.3,3.9],target:[0,.65,1.3]},wing:{position:[2.8,1.9,3.3],target:[0,1.25,1.2]},storage:{position:[-1.6,2.1,-.3],target:[-.2,.48,.95]}} as const;

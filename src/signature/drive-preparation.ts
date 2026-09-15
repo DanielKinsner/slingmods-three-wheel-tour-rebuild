@@ -1,6 +1,7 @@
+import {CURRENT_VEHICLE_URL} from '../presentation/vehicle-asset';
 import type {BuildRecipe} from './config';
 export function driveAssetURLs(route:'express'|'harbor',recipe:BuildRecipe){
- const shared=['/assets/p08b/slingshot-signature.glb','/assets/drivers/test-driver.glb','/assets/drivers/test-driver-attachment.json','/assets/vehicles/slingshot-p04a1-rear-rig.json','/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb','/assets/brand/slingmods-sign.glb','/assets/products/tricled-sm133-base.glb','/assets/products/tricled-sm133-base.attachment.json','/assets/products/ddmworks-sm3223-silver.glb','/assets/p08b/signature-products.glb'];
+ const shared=[CURRENT_VEHICLE_URL,'/assets/drivers/test-driver.glb','/assets/drivers/test-driver-attachment.json','/assets/vehicles/slingshot-p04a1-rear-rig.json','/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb','/assets/brand/slingmods-sign.glb','/assets/products/tricled-sm133-base.glb','/assets/products/tricled-sm133-base.attachment.json','/assets/products/ddmworks-sm3223-silver.glb','/assets/p08b/signature-products.glb'];
  if(route==='harbor')shared.push('/assets/harbor/route.json','/assets/harbor/harbor.glb');
  else for(const name of ['p06c_asphalt_Diffuse.jpg','p06c_asphalt_nor_gl.jpg','p06c_asphalt_Rough.jpg','leafy_grass_Diffuse.jpg'])shared.push('/assets/showcase-quality/textures/'+name);
  if(recipe.finish!=='blue-orange')shared.push(recipe.finish==='white-graphite'?'/assets/p08b/showroom-refinement/finish-white-graphite.png':'/assets/p08b/finish-'+recipe.finish+'.png');

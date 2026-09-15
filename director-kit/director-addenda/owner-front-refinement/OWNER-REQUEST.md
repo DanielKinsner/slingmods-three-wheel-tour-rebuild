@@ -1,0 +1,1 @@
+The owner directly requested closing front fascia gaps, continuous upper/lower accent lenses without individual bulbs, preserving the center lamp, filling the splitter and a honeycomb grille. References 1 and 4 show the old model; 2 and 3 show the actual Slingshot. Bounded visual correction; no release or OEM fidelity approval.

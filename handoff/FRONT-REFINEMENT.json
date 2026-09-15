@@ -1,0 +1,43 @@
+{
+  "branch": "feature/p09a-own-the-build",
+  "baseCommit": "978a7a0c07dea4359dd4909b62ef81c8b9a828e7",
+  "assets": {
+    "assets/blender/front-refinement/slingshot-front-refined.blend": {
+      "bytes": 11939411,
+      "sha256": "c7a9321455a3685d64f93044ba3ba1a4f50a07e43269fc76575fae575cea13a5"
+    },
+    "public/assets/front-refinement/slingshot-front-refined.glb": {
+      "bytes": 11942832,
+      "sha256": "4f8064539d58aae7bbe3cd89c0fbb4c8f77f7e2af84430ac41b30942c2ec2533"
+    },
+    "assets/blender/p08b/slingshot-signature.blend": {
+      "bytes": 11733733,
+      "sha256": "0d786d54d6935808ca31e610db5d20667d91ee9a142b2f3cbcd2e5ed64de3b9f"
+    },
+    "public/assets/p08b/slingshot-signature.glb": {
+      "bytes": 10269748,
+      "sha256": "d34c1ffde2048e2c5fc34bc86cc2a0bad19514961e1a68aee040b50d0fd90761"
+    }
+  },
+  "verification": {
+    "tests": 217,
+    "build": "PASS",
+    "runtime": "director-kit/production/evidence/Front-Refinement/runtime-03/verification.json",
+    "inspection": "director-kit/production/evidence/Front-Refinement/inspection-03/verification.json",
+    "demo": "director-kit/production/evidence/Front-Refinement/prepared-demo/verification.json",
+    "asset": "director-kit/production/evidence/Front-Refinement/build.json"
+  },
+  "critiqueAndRepair": [
+    "First air dam obscured painted lip; revised back/down.",
+    "Closed additional center housing sightline; center optics untouched.",
+    "Finer geometric honeycomb.",
+    "Blender re-export differences eliminated outside five front batches by preserving original runtime bytes.",
+    "First drive test sampled during countdown; retained failure and repaired harness to wait for running. Final runtime-03 passes."
+  ],
+  "limits": [
+    "Photo-estimated fascia, not OEM CAD or final fidelity approval.",
+    "Existing white paint atlas marks and non-target geometry preserved.",
+    "Historical performance HOLD remains; no full race benchmark claim.",
+    "Review17 archive and film remain historical; later visual refinement is in Git and current evidence."
+  ]
+}

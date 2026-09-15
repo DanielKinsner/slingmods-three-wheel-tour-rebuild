@@ -1,3 +1,9 @@
+# Current owner assignment - bounded front fascia refinement
+
+The latest direct request authorizes front gap closure, continuous accent lamps, a fuller splitter and honeycomb grille. Preserve the center lamp, non-target model, showroom/game/UI/saves and reviewed outputs. Read HANDOFF.md and handoff/FRONT-REFINEMENT.json. Continue the existing feature branch with ordinary commits/push; background Blender and isolated browsers only. No main merge, publication, spending, desktop takeover or gate approvals. Earlier assignment headers below are historical.
+
+---
+
 # Current assignment - P09A Own the Build / Review17
 
 The latest owner request authorizes `director-kit/director-addenda/review-16/CODEX_NEXT.md` and its linked packets, plus explicit crash/flip recovery. Continue `feature/p09a-own-the-build` from P08B 51f34a341200cf76bf69106bdfae300590419e88. One lead plus two bounded implementers; isolated browser testing only. Preserve showroom, finishes, departure, five free previews, historical dynamics/evidence and career progress. Authorized changes: versioned Sport v2 braking/contact policy, responsive preparation, earned existing-product chapter, explicit recovery. Ordinary feature-branch commits/push authorized. No main merge, publication, spending, account changes, desktop takeover or gate approval. Prior headers below are historical, not active next actions. Current delivery status is in HANDOFF.md and handoff/P09A-VALIDATION.json when complete.
