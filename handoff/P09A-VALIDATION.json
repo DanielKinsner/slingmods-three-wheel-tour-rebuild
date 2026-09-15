@@ -1,12 +1,12 @@
 {
-  "status": "Internal implementation/review/repair complete; performance HOLD; fresh remote-clone verification pending",
+  "status": "Internal implementation, review, repair and remote recovery complete; performance HOLD",
   "baselineCommit": "51f34a341200cf76bf69106bdfae300590419e88",
   "runtimeCommit": "049c1cdd154f4ca83d087f99e0dad76040c049f7",
   "branch": "feature/p09a-own-the-build",
   "remote": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
   "privateRemoteVerified": true,
   "mainUnchanged": "ed363b28ec6ba933dd82c576153bd73c80ea6619",
-  "testedRemoteCommit": null,
+  "testedRemoteCommit": "7a5d7d492bd9b7c5d51eda08815233a7b733486a",
   "functional": {
     "tests": 215,
     "pass": 215,
@@ -18,7 +18,8 @@
     "stockEquivalence": "baseline-equivalence.json",
     "driving": "driving-analysis.json",
     "recovery": "tests/p09a-recovery.test.ts; actual simulated high-speed curb flip then supported upright reset",
-    "earlyFinishResume": "Repaired and independently reviewed in source; synthetic real-browser UI/controller test PASS. Two control-only actual-race attempts did not finish first; this specific naturally occurring full-loop edge remains unproven. Raw failures preserved."
+    "earlyFinishResume": "Repaired and independently reviewed in source; synthetic real-browser UI/controller test PASS. Two control-only actual-race attempts did not finish first; this specific naturally occurring full-loop edge remains unproven. Raw failures preserved.",
+    "preparedDemo": "demo-final-01/verification.json and remote-demo-01/verification.json PASS"
   },
   "performance": {
     "status": "HOLD",
@@ -103,6 +104,7 @@
     "Physical controller/device breadth and human fun/listening unapproved.",
     "Release and public hosting not approved; hosting separate from development."
   ],
-  "nextAction": "Complete current film/remote recovery then Astra reviews Review17; no merge/publication.",
-  "assetFiles": 183
+  "nextAction": "Astra reviews Review17 and chooses the next bounded assignment; no main merge/publication.",
+  "assetFiles": 183,
+  "remoteRecovery": "director-kit/production/evidence/P09A/remote-clone/verification.json"
 }

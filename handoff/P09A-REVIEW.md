@@ -34,4 +34,8 @@ Ordinary first completions pay 800 + 700 + 900 = **2400 fictional credits**. The
 
 Full source, pinned dependencies, runtime/editable art, audio and original captures are in the verified private feature branch. `REMOTE-ASSETS.json` and `REMOTE-EVIDENCE-INDEX.json` give exact commit/path/hash recovery, including the contact-layout fixture. Browser saves, installed tools, node_modules and generated static output do not transfer through Git. Use `handoff/P09A-COMMANDS.md` on another machine.
 
+Fresh remote commit `7a5d7d492bd9b7c5d51eda08815233a7b733486a` passed install, 215 tests, both builds, 183 required asset checks and the complete career/preparation/demo browser loops without copied inputs. Runtime source/asset trees match measured `049c1cd`; receipt-only commits do not change those trees. The initial verifier's Windows text-line-ending mismatch was repaired and retained as a failed portability check.
+
+The repaired finish-before-rivals pause/resume edge passes source review and a synthetic real-browser UI/controller regression. Two bounded physical input-only attempts did not achieve first place, so natural full-runtime proof of that particular edge remains unverified.
+
 No main merge, publication, spending or desktop takeover occurred. G3/G4, final OEM/art fidelity, hardware-controller validation, human listening/fun and release approval remain held. Public hosting is pending separately. **Next action: Astra reviews Review17 and chooses the next bounded assignment.**

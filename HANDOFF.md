@@ -6,6 +6,10 @@ Runtime: `049c1cdd154f4ca83d087f99e0dad76040c049f7`. Implemented Sport v2 brakin
 
 `handoff/P09A-VALIDATION.json` records the runtime/tested-remote identity and remaining gaps. Review17 `MANIFEST.json` records the exact pushed packaging SHA.
 
+Verified pushed integration and fresh-clone test commit: `7a5d7d492bd9b7c5d51eda08815233a7b733486a`. The later receipt/packaging commit preserves the same runtime source and asset trees. Fresh remote install, all 215 tests, both builds, 183 asset checks, full career loop, prepared-demo smoke and preparation/cancel/retry loop pass. The 398 current evidence/capture originals at that integration commit were compared byte for byte. See `director-kit/production/evidence/P09A/remote-clone/verification.json`.
+
+Deliverables: root `Astra-Review-17-Lean.zip`; film `director-kit/production/evidence/P09A/film-02/P09A-Own-the-Build.mp4` (2:55, actual game audio). The ZIP is a review packet; clone Git for the full playable/editable project.
+
 ## Launch
 
 ```powershell
