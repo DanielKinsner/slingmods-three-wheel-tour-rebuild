@@ -1,0 +1,61 @@
+✔ Sport brake to stop stays forward until release and fresh brake; forward uses the same deliberate transition (2.388ms)
+✔ Sport analog reverse works on first fresh controller ownership and keeps analog magnitude (0.4113ms)
+✔ Sport explicit direction keeps established explicit pedal mapping and reset clears reverse (0.1589ms)
+✔ Sport pause cannot inherit held pedals into a direction change (0.1028ms)
+✖ Sport direction stays deliberate with simultaneous pedals, disconnect and focus loss (1.0725ms)
+✖ Sport brake-reverse produces negative displacement and steering follows reverse orientation (181.3124ms)
+✔ Legacy remains default and explicit legacy telemetry is exactly equal for stock driving (195.5802ms)
+✔ Sport steering requests more medium-speed authority while retaining a falling high-speed cap (0.7849ms)
+✔ Sport street estimate and uninstalled suspension restore active Sport stock tick for tick (187.6532ms)
+✔ Express authored distance, straight, surfaces and collision corridor are separate and connected (24.6188ms)
+✔ Express quick race completes physically, shares profile, gives no career proof and restarts with a fresh ID (2348.7493ms)
+✔ Unscored Express test drive supports one safe grid participant and does not finish or award (0.6966ms)
+✔ Express road and both curbs face upward through the connected seam (3.268ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2709.416
+
+✖ failing tests:
+
+test at tests\p08b-driving.test.ts:10:1
+✖ Sport direction stays deliberate with simultaneous pedals, disconnect and focus loss (1.0725ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\p08b-driving.test.ts:10:226)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\p08b-driving.test.ts:11:1
+✖ Sport brake-reverse produces negative displacement and steering follows reverse orientation (181.3124ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(yaw*direction>.2)
+  
+      at TestContext.<anonymous> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\p08b-driving.test.ts:11:643)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

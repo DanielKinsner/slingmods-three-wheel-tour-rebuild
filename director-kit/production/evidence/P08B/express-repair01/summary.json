@@ -1,0 +1,406 @@
+{
+  "method": "Fixed-step physical races with control-only rival driver; not manual/controller hardware or RAF timing proof.",
+  "design": {
+    "id": "express-layout-v1",
+    "lengthMetres": 2317.160796673365,
+    "mainStraightMetres": 800,
+    "brakingZone": {
+      "startMetres": 600,
+      "endMetres": 800,
+      "lengthMetres": 200
+    },
+    "widthMetres": 15,
+    "runoffMetres": 3,
+    "groundBounds": {
+      "center": [
+        -80,
+        -0.15,
+        -400
+      ],
+      "size": [
+        1800,
+        0.3,
+        1600
+      ]
+    },
+    "description": "Eight-hundred-metre quay straight, terminal sweeper, warehouse return, loading-yard transition and marina bend. Braking boards at 200/150/100/50m before terminal curve.",
+    "source": "src/express/route.ts; cubic control points and measured polyline, not old Harbor geometry"
+  },
+  "attempts": [
+    {
+      "seed": 11,
+      "seconds": 87.75,
+      "maxMph": 113.69899321447068,
+      "maxRoll": 0.07277344174681445,
+      "race": {
+        "event": "harbor-express-quick-race-v1",
+        "handlingProfileId": "slingmods-sport-v1",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 84750.00000000178,
+        "attemptId": "express-diagnostic-11",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 77892.18437929165,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 79308.5970649284,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 3,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 83325.48208506774,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 4,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 84743.46752504798,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "harbor-express-quick-race-v1",
+          "attemptId": "express-diagnostic-11",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 84743.46752504798,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinished": true
+      },
+      "careerProof": null,
+      "controllers": [
+        {
+          "id": "maya",
+          "profileId": "slingmods-sport-v1",
+          "seed": 11,
+          "mode": "follow",
+          "targetSpeed": 49.704,
+          "targetLane": -1.48825,
+          "lane": -1.48825,
+          "nearestGap": null,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 0,
+          "brakingTicks": 1214,
+          "recoveryTicks": 0
+        },
+        {
+          "id": "jett",
+          "profileId": "slingmods-sport-v1",
+          "seed": 11,
+          "mode": "follow",
+          "targetSpeed": 41.81773064987575,
+          "targetLane": -0.08449999999999999,
+          "lane": -0.08449999999999999,
+          "nearestGap": 53.85130910076472,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 1,
+          "brakingTicks": 1175,
+          "recoveryTicks": 0
+        },
+        {
+          "id": "nico",
+          "profileId": "slingmods-sport-v1",
+          "seed": 11,
+          "mode": "follow",
+          "targetSpeed": 48.108,
+          "targetLane": 1.6960000000000002,
+          "lane": 1.6960000000000002,
+          "nearestGap": null,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 0,
+          "brakingTicks": 1271,
+          "recoveryTicks": 0
+        }
+      ]
+    },
+    {
+      "seed": 29,
+      "seconds": 87.7,
+      "maxMph": 113.24457309617972,
+      "maxRoll": 0.05404831677650431,
+      "race": {
+        "event": "harbor-express-quick-race-v1",
+        "handlingProfileId": "slingmods-sport-v1",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 84700.00000000176,
+        "attemptId": "express-diagnostic-29",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 77849.56108283853,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 79307.56823054772,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 3,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 83325.23664027317,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 4,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 84693.52657407656,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "harbor-express-quick-race-v1",
+          "attemptId": "express-diagnostic-29",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 84693.52657407656,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinished": true
+      },
+      "careerProof": null,
+      "controllers": [
+        {
+          "id": "maya",
+          "profileId": "slingmods-sport-v1",
+          "seed": 29,
+          "mode": "follow",
+          "targetSpeed": 49.704,
+          "targetLane": -1.64775,
+          "lane": -1.64775,
+          "nearestGap": null,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 0,
+          "brakingTicks": 1158,
+          "recoveryTicks": 0
+        },
+        {
+          "id": "jett",
+          "profileId": "slingmods-sport-v1",
+          "seed": 29,
+          "mode": "follow",
+          "targetSpeed": 41.78202816628283,
+          "targetLane": 0.10900000000000001,
+          "lane": 0.10900000000000001,
+          "nearestGap": 53.959993534433096,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 1,
+          "brakingTicks": 1180,
+          "recoveryTicks": 0
+        },
+        {
+          "id": "nico",
+          "profileId": "slingmods-sport-v1",
+          "seed": 29,
+          "mode": "follow",
+          "targetSpeed": 48.108,
+          "targetLane": 1.6435000000000002,
+          "lane": 1.6435000000000002,
+          "nearestGap": null,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 0,
+          "brakingTicks": 1261,
+          "recoveryTicks": 0
+        }
+      ]
+    },
+    {
+      "seed": 47,
+      "seconds": 87.71666666666667,
+      "maxMph": 112.9470731019999,
+      "maxRoll": 0.050305752649468856,
+      "race": {
+        "event": "harbor-express-quick-race-v1",
+        "handlingProfileId": "slingmods-sport-v1",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 84716.66666666843,
+        "attemptId": "express-diagnostic-47",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 77889.57538718572,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 79230.80871298454,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 3,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 83296.02399636475,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 4,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 84703.94715575787,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "harbor-express-quick-race-v1",
+          "attemptId": "express-diagnostic-47",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 84703.94715575787,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinished": true
+      },
+      "careerProof": null,
+      "controllers": [
+        {
+          "id": "maya",
+          "profileId": "slingmods-sport-v1",
+          "seed": 47,
+          "mode": "follow",
+          "targetSpeed": 49.704,
+          "targetLane": -1.53525,
+          "lane": -1.53525,
+          "nearestGap": null,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 0,
+          "brakingTicks": 1200,
+          "recoveryTicks": 0
+        },
+        {
+          "id": "jett",
+          "profileId": "slingmods-sport-v1",
+          "seed": 47,
+          "mode": "follow",
+          "targetSpeed": 41.51034622237861,
+          "targetLane": -0.0475,
+          "lane": -0.0475,
+          "nearestGap": 53.15596860014253,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 3,
+          "brakingTicks": 1128,
+          "recoveryTicks": 0
+        },
+        {
+          "id": "nico",
+          "profileId": "slingmods-sport-v1",
+          "seed": 47,
+          "mode": "follow",
+          "targetSpeed": 48.108,
+          "targetLane": 1.499,
+          "lane": 1.499,
+          "nearestGap": null,
+          "retiredReason": null,
+          "recoveries": 0,
+          "plans": 484,
+          "passes": 0,
+          "brakingTicks": 1260,
+          "recoveryTicks": 0
+        }
+      ]
+    }
+  ]
+}

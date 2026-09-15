@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-15T17:13:58.132386+00:00",
+  "as_of": "2026-09-15T17:56:52.888584+00:00",
   "workspace_verified": true,
   "branch": "feature/p08b-slingmods-experience",
-  "commit": "ec6876551542ec39111fbf26253c4528c2290cfc",
+  "commit": "6aa1dafaac03168525a1f7e69a6831ea886f45d2",
   "current_gate": "G3",
   "current_packet": "P08B SlingMods Signature Experience",
-  "next_action": "Complete exact-candidate validation and Review16 director return; no main merge or publication.",
+  "next_action": "Give Astra-Review-16-Lean.zip to Astra. Await director decision; no merge/main publication or new scope.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -59,7 +59,7 @@
   },
   "blockers": [
     "G3/G4, global fidelity and physical/human approval remain held.",
-    "Publication remains pending and is not a P08A development blocker.",
+    "Publication remains pending and is not a P08B development blocker.",
     "Historical repeat slowdown cause remains unknown."
   ],
   "unknowns": [
@@ -99,7 +99,7 @@
   "new_repository_required": false,
   "legacy_import_allowed": false,
   "save_namespace": "slingmods-twt-rebuild-v1",
-  "commit_meaning": "Exact P08A implementation used by the versioned local candidate and final tests. Later evidence/tooling/handoff commits do not change game source. P07B remote recovery is historical, not rerun as P08A.",
+  "commit_meaning": "Exact P08B runtime used by final static build and native tests. Follow-up feature-branch commits contain tooling/evidence/handoff only; Review16 MANIFEST.json records packaging SHA.",
   "known_limitations": [
     "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
     "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
@@ -675,5 +675,6 @@
     "legacyHandling": "legacy-p08a",
     "route": "harbor-express-v1",
     "status": "integrated; final evidence and recovery in progress"
-  }
+  },
+  "p08b_validation": "../../handoff/P08B-VALIDATION.json"
 }

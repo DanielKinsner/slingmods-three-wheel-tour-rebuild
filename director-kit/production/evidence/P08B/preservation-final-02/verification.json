@@ -1,0 +1,107 @@
+{
+  "pass": true,
+  "fixture": "director-kit/production/evidence/P08A/loop-final-02/earned-career.json",
+  "expected": {
+    "version": 3,
+    "buildMatters": {
+      "legacyCrewAccess": false,
+      "duelCompleted": true,
+      "duelWon": true
+    },
+    "suspension": {
+      "owned": true,
+      "equipped": true,
+      "setup": {
+        "frontCompression": 8,
+        "frontRebound": 10,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      }
+    },
+    "revision": 11,
+    "credits": 1250,
+    "owned": false,
+    "equipped": false,
+    "appearance": {
+      "color": "red",
+      "brightness": 0.6,
+      "enabled": true
+    },
+    "chapters": {
+      "entry": true,
+      "firstCompletion": true,
+      "firstBuild": false
+    },
+    "crew": {
+      "invitationSeen": true,
+      "completed": true,
+      "bestPlace": 3,
+      "cleared": true,
+      "clearAcknowledged": false
+    },
+    "receipts": {
+      "b270d6c8-4779-4d45-9807-9520467e399a": {
+        "id": "b270d6c8-4779-4d45-9807-9520467e399a",
+        "kind": "award",
+        "amount": 800,
+        "balance": 800,
+        "first": true,
+        "at": "2026-09-15T15:20:42.069Z"
+      },
+      "25df1675-1d46-4d7b-8604-577534c743a3": {
+        "id": "25df1675-1d46-4d7b-8604-577534c743a3",
+        "kind": "duel-award",
+        "amount": 750,
+        "balance": 1550,
+        "first": true,
+        "at": "2026-09-15T15:20:52.212Z",
+        "event": "harbor-maya-duel-v1",
+        "place": 1,
+        "timeMs": 78475.37144039295,
+        "chapterBonus": 500
+      },
+      "ab19c832-f774-490b-b559-305107fe4731": {
+        "id": "ab19c832-f774-490b-b559-305107fe4731",
+        "kind": "suspension-purchase",
+        "amount": -1000,
+        "balance": 550,
+        "first": true,
+        "at": "2026-09-15T15:20:53.919Z"
+      },
+      "980f7739-b5f6-41e6-9c8a-426a8d29251b": {
+        "id": "980f7739-b5f6-41e6-9c8a-426a8d29251b",
+        "kind": "crew-award",
+        "amount": 550,
+        "balance": 1100,
+        "first": true,
+        "at": "2026-09-15T15:21:13.677Z",
+        "event": "harbor-crew-night-v1",
+        "place": 3,
+        "timeMs": 165737.35527624786,
+        "chapterBonus": 400
+      },
+      "f2da037a-6d95-4a45-a270-48a0d4bb9959": {
+        "id": "f2da037a-6d95-4a45-a270-48a0d4bb9959",
+        "kind": "crew-award",
+        "amount": 150,
+        "balance": 1250,
+        "first": false,
+        "at": "2026-09-15T15:21:32.696Z",
+        "event": "harbor-crew-night-v1",
+        "place": 3,
+        "timeMs": 165737.35527624786,
+        "chapterBonus": 0
+      }
+    }
+  },
+  "errors": [],
+  "browser": "153.0.8010.12",
+  "checks": [
+    "P08A earned database unchanged on entry",
+    "free showroom sound/volume/mute isolated from career settings",
+    "prepared easy-entry demo still four participants without career changes",
+    "return and full reload preserve every earned receipt/credit/product/setup"
+  ],
+  "method": "Actual existing earned P08A browser fixture copied only into fresh isolated context, ordinary navigation and UI controls; no fabricated credits or outcomes."
+}

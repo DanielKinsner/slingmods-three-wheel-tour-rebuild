@@ -1,0 +1,417 @@
+{
+  "method": "Fixed-step physics diagnostic using production InputResolver and supported controller samples. Not RAF performance or human driving proof.",
+  "profiles": {
+    "legacy-p08a": {
+      "launch": {
+        "to60Seconds": 6,
+        "maxMph": 112.46265442263405,
+        "braking": null,
+        "finalPosition": {
+          "x": 0.0000016325506914529977,
+          "y": 0.028460456860670613,
+          "z": -719.2043460777068
+        },
+        "finalYaw": -4.290820317264549e-9,
+        "maxRoll": 9.034988021168323e-9,
+        "maxSlip": 3.6829683702774436e-8,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "brake": {
+        "to60Seconds": 6,
+        "maxMph": 68.30421830751342,
+        "braking": {
+          "time": 10.1,
+          "z": -127.59479571045341,
+          "distance": 47.63713628142041,
+          "start": {
+            "time": 7,
+            "z": -79.957659429033,
+            "speed": 30.534717751568383
+          }
+        },
+        "finalPosition": {
+          "x": 8.450181205824577e-7,
+          "y": 1.87158584741276e-7,
+          "z": -127.59824371079223
+        },
+        "finalYaw": -2.4641098123823287e-8,
+        "maxRoll": 2.982883991490434e-8,
+        "maxSlip": 3.6829683702774436e-8,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "low-left": {
+        "to60Seconds": null,
+        "maxMph": 21.837014368425784,
+        "braking": null,
+        "finalPosition": {
+          "x": -14.31087426297034,
+          "y": 0.005390775570216888,
+          "z": 17.91280243266096
+        },
+        "finalYaw": 1.7030755090516143,
+        "maxRoll": 0.0337876304554872,
+        "maxSlip": 0.11407191573999778,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "low-right": {
+        "to60Seconds": null,
+        "maxMph": 21.837001858656055,
+        "braking": null,
+        "finalPosition": {
+          "x": 14.310915242487315,
+          "y": 0.005390776066370895,
+          "z": 17.91284631708448
+        },
+        "finalYaw": -1.7030771221175014,
+        "maxRoll": 0.03378757914017316,
+        "maxSlip": 0.11407220642569028,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "medium-left": {
+        "to60Seconds": null,
+        "maxMph": 44.28286603447818,
+        "braking": null,
+        "finalPosition": {
+          "x": -137.40149890828937,
+          "y": -0.00042936285002997954,
+          "z": -64.36447523279709
+        },
+        "finalYaw": 2.32605695170594,
+        "maxRoll": 0.03172841184230084,
+        "maxSlip": 0.07530033636251068,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "medium-right": {
+        "to60Seconds": null,
+        "maxMph": 44.28288836165827,
+        "braking": null,
+        "finalPosition": {
+          "x": 137.401590504393,
+          "y": -0.0004293044189463413,
+          "z": -64.3645439102711
+        },
+        "finalYaw": -2.326055529440591,
+        "maxRoll": 0.03172846875186101,
+        "maxSlip": 0.07530049176769503,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "sweeper-left": {
+        "to60Seconds": null,
+        "maxMph": 59.56635606065918,
+        "braking": null,
+        "finalPosition": {
+          "x": -67.08920705317064,
+          "y": 0.001325897574218804,
+          "z": -226.36500863511503
+        },
+        "finalYaw": 0.7204419723025557,
+        "maxRoll": 0.016288458511246072,
+        "maxSlip": 0.03772378947709275,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "sweeper-right": {
+        "to60Seconds": null,
+        "maxMph": 59.566334801036625,
+        "braking": null,
+        "finalPosition": {
+          "x": 67.08919943664755,
+          "y": 0.0013259575159275117,
+          "z": -226.36497809805664
+        },
+        "finalYaw": -0.7204423527080857,
+        "maxRoll": 0.016288451106586804,
+        "maxSlip": 0.03772376026841481,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "brake-turn-left": {
+        "to60Seconds": null,
+        "maxMph": 52.86935215332078,
+        "braking": null,
+        "finalPosition": {
+          "x": -12.46412279081877,
+          "y": 2.467632444491663e-7,
+          "z": -77.58026111406662
+        },
+        "finalYaw": 1.416072237741021,
+        "maxRoll": 0.03856362075068268,
+        "maxSlip": 0.21385108297694355,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "brake-turn-right": {
+        "to60Seconds": null,
+        "maxMph": 52.86935215332078,
+        "braking": null,
+        "finalPosition": {
+          "x": 12.464116099802386,
+          "y": 2.467632421732091e-7,
+          "z": -77.58025349244026
+        },
+        "finalYaw": -1.4160717840599863,
+        "maxRoll": 0.038563578522288984,
+        "maxSlip": 0.2138515580065722,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "grass": {
+        "to60Seconds": null,
+        "maxMph": 38.585672994783295,
+        "braking": null,
+        "finalPosition": {
+          "x": 93.58083436715633,
+          "y": 0.004408981943550105,
+          "z": -103.87758823329057
+        },
+        "finalYaw": -0.5394662064447547,
+        "maxRoll": 0.006704556707077593,
+        "maxSlip": 0.024586977866751337,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "bump": {
+        "to60Seconds": 12.9,
+        "maxMph": 61.08133549186246,
+        "braking": null,
+        "finalPosition": {
+          "x": 0.0000011914409304953846,
+          "y": 0.006397627360869018,
+          "z": -243.1458997017941
+        },
+        "finalYaw": -5.972357020952474e-9,
+        "maxRoll": 6.690241457584105e-9,
+        "maxSlip": 4.60978784709396e-8,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "wall-reverse": {
+        "to60Seconds": null,
+        "maxMph": 2.0807088156008264,
+        "braking": null,
+        "finalPosition": {
+          "x": 0.00001571458821010433,
+          "y": 2.1696090696243786e-7,
+          "z": 11.807804110917845
+        },
+        "finalYaw": -1.5477719726809526e-7,
+        "maxRoll": 0.000011885027802589316,
+        "maxSlip": 0.0014769878822847606,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      }
+    },
+    "slingmods-sport-v1": {
+      "launch": {
+        "to60Seconds": 4.733333333333333,
+        "maxMph": 127.66506703094171,
+        "braking": null,
+        "finalPosition": {
+          "x": 3.634966067184426e-7,
+          "y": 0.04414696338979407,
+          "z": -831.9205725351828
+        },
+        "finalYaw": -1.224183212139598e-9,
+        "maxRoll": 7.115667745420553e-9,
+        "maxSlip": 8.858471694364664e-9,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "brake": {
+        "to60Seconds": 4.733333333333333,
+        "maxMph": 76.78775787500884,
+        "braking": {
+          "time": 10.6,
+          "z": -168.946191831725,
+          "distance": 66.31223470997313,
+          "start": {
+            "time": 7,
+            "z": -102.63395712175188,
+            "speed": 34.32719927974423
+          }
+        },
+        "finalPosition": {
+          "x": 5.439171810040694,
+          "y": 2.169609157887109e-7,
+          "z": -168.94868460432207
+        },
+        "finalYaw": -0.12245382065877009,
+        "maxRoll": 0.2641036261856084,
+        "maxSlip": 0.15069626991292442,
+        "allFinite": true,
+        "threeContactsFraction": 0.9654761904761905
+      },
+      "low-left": {
+        "to60Seconds": null,
+        "maxMph": 22.833214544772233,
+        "braking": null,
+        "finalPosition": {
+          "x": 4.771080577601389,
+          "y": 0.011252146341557578,
+          "z": 43.13524114834412
+        },
+        "finalYaw": -1.026658400618028,
+        "maxRoll": 0.05413579128729434,
+        "maxSlip": 0.1734139173056026,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "low-right": {
+        "to60Seconds": null,
+        "maxMph": 22.833189753700143,
+        "braking": null,
+        "finalPosition": {
+          "x": -4.771050134191188,
+          "y": 0.011252142616559768,
+          "z": 43.13526026360422
+        },
+        "finalYaw": 1.026660458903536,
+        "maxRoll": 0.054135857439966,
+        "maxSlip": 0.17341367738394986,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "medium-left": {
+        "to60Seconds": null,
+        "maxMph": 50.99281932555017,
+        "braking": null,
+        "finalPosition": {
+          "x": -164.23172385170977,
+          "y": 0.002348312832016086,
+          "z": -31.410275091181347
+        },
+        "finalYaw": 2.5575853739987635,
+        "maxRoll": 0.05048380048363112,
+        "maxSlip": 0.10381892641132656,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "medium-right": {
+        "to60Seconds": null,
+        "maxMph": 50.992895906181545,
+        "braking": null,
+        "finalPosition": {
+          "x": 164.2319222085104,
+          "y": 0.0023480755311666157,
+          "z": -31.41044860967493
+        },
+        "finalYaw": -2.5575821678356383,
+        "maxRoll": 0.050483768803327236,
+        "maxSlip": 0.10381880953639105,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "sweeper-left": {
+        "to60Seconds": 5.45,
+        "maxMph": 68.36406035034621,
+        "braking": null,
+        "finalPosition": {
+          "x": -101.8628109492963,
+          "y": -0.0015336567396385115,
+          "z": -265.0176302855378
+        },
+        "finalYaw": 1.0153807009129079,
+        "maxRoll": 0.027975914802547543,
+        "maxSlip": 0.050225899068404155,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "sweeper-right": {
+        "to60Seconds": 5.45,
+        "maxMph": 68.36407781804937,
+        "braking": null,
+        "finalPosition": {
+          "x": 101.86284147509929,
+          "y": -0.0015336265891451317,
+          "z": -265.0176913107848
+        },
+        "finalYaw": -1.0153807783063316,
+        "maxRoll": 0.027975908366418663,
+        "maxSlip": 0.050225688487745786,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "brake-turn-left": {
+        "to60Seconds": 5.45,
+        "maxMph": 64.87559788612647,
+        "braking": null,
+        "finalPosition": {
+          "x": -17.935711554361063,
+          "y": 0.5484845546293484,
+          "z": -164.55767240982885
+        },
+        "finalYaw": 1.8834771907501566,
+        "maxRoll": 3.1415741463344893,
+        "maxSlip": 0.7859452971038736,
+        "allFinite": true,
+        "threeContactsFraction": 0.5154761904761904
+      },
+      "brake-turn-right": {
+        "to60Seconds": 5.45,
+        "maxMph": 64.87559788612647,
+        "braking": null,
+        "finalPosition": {
+          "x": 22.64577478977626,
+          "y": 2.765655668368616e-7,
+          "z": -104.68175495996944
+        },
+        "finalYaw": -2.120800952674392,
+        "maxRoll": 0.058177539056620896,
+        "maxSlip": 0.30929276628115027,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "grass": {
+        "to60Seconds": null,
+        "maxMph": 42.4883903739881,
+        "braking": null,
+        "finalPosition": {
+          "x": 117.2940980096496,
+          "y": 0.0029838802085113136,
+          "z": -105.12077416790414
+        },
+        "finalYaw": -0.8321588302414509,
+        "maxRoll": 0.011487823121817611,
+        "maxSlip": 0.04173353232386802,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "bump": {
+        "to60Seconds": 5.516666666666667,
+        "maxMph": 69.87831147827147,
+        "braking": null,
+        "finalPosition": {
+          "x": 0.000004589313752487509,
+          "y": 0.005874958791082352,
+          "z": -301.37345726875816
+        },
+        "finalYaw": -1.6420432007722505e-8,
+        "maxRoll": 6.097400468502203e-9,
+        "maxSlip": 1.1258727667792275e-8,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      },
+      "wall-reverse": {
+        "to60Seconds": null,
+        "maxMph": 2.406343924678015,
+        "braking": null,
+        "finalPosition": {
+          "x": 0.00003261533419913916,
+          "y": 0.000035711874257271514,
+          "z": 44.11686968387818
+        },
+        "finalYaw": 1.3303833208380432e-7,
+        "maxRoll": 0.000024685790216479073,
+        "maxSlip": 0.002940824487977367,
+        "allFinite": true,
+        "threeContactsFraction": 1
+      }
+    }
+  }
+}

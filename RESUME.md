@@ -1,3 +1,11 @@
+# Current pointer — P08B Signature Experience / Review16
+
+Read HANDOFF.md, handoff/P08B-VALIDATION.json and handoff/P08B-COMMANDS.md. Tested runtime `6aa1dafaac03168525a1f7e69a6831ea886f45d2`; private branch `feature/p08b-slingmods-experience`. Implementation and internal validation are complete. Give Astra-Review-16-Lean.zip to Astra; await director review. Preserve all current/newer work. No main merge, publication, spending, desktop takeover or G3/G4/fidelity/hardware/release approval.
+
+---
+
+# Historical pointer below
+
 # Current pointer — P08A Build Matters / Review15
 
 Read HANDOFF.md and handoff/P08A-VALIDATION.json. The current private feature branch is `feature/p08a-build-matters`, with tested game implementation `ec6876551542ec39111fbf26253c4528c2290cfc`. Use `python handoff/verify-p08a.py` for current inputs. P08A is complete for director review; no merge into main or publication is approved. P07B preflight/recovery below is historical and already complete. Hosting remains pending and does not block P08A. Preserve all current work and held G3/G4, fidelity, hardware and release gates.

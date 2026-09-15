@@ -1,0 +1,197 @@
+{
+  "pass": true,
+  "results": [
+    {
+      "case": "storage-getter",
+      "pass": true,
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-3223": "silver"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "audits": [
+        {
+          "denial": "getter",
+          "writes": [],
+          "databaseOpens": [],
+          "getterDenials": 4,
+          "sentinel": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}",
+          "expected": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}"
+        },
+        {
+          "denial": "getter",
+          "writes": [],
+          "databaseOpens": [],
+          "getterDenials": 4,
+          "sentinel": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}",
+          "expected": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}"
+        },
+        {
+          "denial": "getter",
+          "writes": [],
+          "databaseOpens": [],
+          "getterDenials": 4,
+          "sentinel": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}",
+          "expected": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}"
+        }
+      ],
+      "evidenceReload": "Test/profile flags added only after ordinary cross-scene navigation; URL build fragment retained unchanged.",
+      "drive": {
+        "route": {
+          "id": "harbor-express",
+          "version": "express-layout-v1",
+          "length": 2317.160796673365
+        },
+        "free": true,
+        "recipe": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "white-graphite",
+          "products": {
+            "SM-3223": "silver"
+          },
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 2,
+            "frontRebound": 6,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v1"
+        }
+      }
+    },
+    {
+      "case": "storage-method",
+      "pass": true,
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-3223": "silver"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "audits": [
+        {
+          "denial": "method",
+          "writes": [
+            "slingmods-signature-probe-8ab009cd-cfd8-4064-9b47-aba4fb789a1e"
+          ],
+          "databaseOpens": [],
+          "getterDenials": 0,
+          "sentinel": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}",
+          "expected": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}"
+        },
+        {
+          "denial": "method",
+          "writes": [
+            "slingmods-signature-probe-46c16635-db83-4913-8b16-8465238ea91d"
+          ],
+          "databaseOpens": [],
+          "getterDenials": 0,
+          "sentinel": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}",
+          "expected": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}"
+        },
+        {
+          "denial": "method",
+          "writes": [
+            "slingmods-signature-probe-048144ad-5478-4345-a874-e7542e381390"
+          ],
+          "databaseOpens": [],
+          "getterDenials": 0,
+          "sentinel": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}",
+          "expected": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"camera\":\"far\",\"mute\":true,\"volume\":0.3},\"records\":{\"recoverySentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}"
+        }
+      ],
+      "evidenceReload": "Test/profile flags added only after ordinary cross-scene navigation; URL build fragment retained unchanged.",
+      "drive": {
+        "route": {
+          "id": "harbor-express",
+          "version": "express-layout-v1",
+          "length": 2317.160796673365
+        },
+        "free": true,
+        "recipe": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "white-graphite",
+          "products": {
+            "SM-3223": "silver"
+          },
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 2,
+            "frontRebound": 6,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v1"
+        }
+      }
+    },
+    {
+      "case": "missing-asset",
+      "pass": true,
+      "title": "The showroom could not finish loading",
+      "failedRequests": [
+        "http://127.0.0.1:5196/assets/p08b/signature-showroom.glb"
+      ],
+      "retryRecovered": true
+    },
+    {
+      "case": "webgl-unavailable",
+      "pass": true,
+      "title": "WebGL 2 is unavailable",
+      "failedRequests": [],
+      "retryRecovered": false
+    },
+    {
+      "case": "context-loss",
+      "pass": true,
+      "title": "Graphics connection interrupted",
+      "failedRequests": [],
+      "retryRecovered": false
+    }
+  ],
+  "method": "Isolated Chromium; storage getters/methods and missing graphics/assets deliberately injected. Ordinary menu navigation uses URL fragment recipe handoff. No user profile or desktop interaction."
+}

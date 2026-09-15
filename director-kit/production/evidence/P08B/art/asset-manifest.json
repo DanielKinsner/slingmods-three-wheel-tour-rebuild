@@ -1,0 +1,96 @@
+{
+  "purpose": "Complete P08B original editable and runtime art inventory; all required files to track in private Git",
+  "files": [
+    {
+      "path": "assets/blender/p08b/README.md",
+      "bytes": 5847,
+      "sha256": "18a2665bf662c72b5af1367f564310b87cd70ef77ecf6cffcb6334e7fb943631"
+    },
+    {
+      "path": "assets/blender/p08b/signature-products.blend",
+      "bytes": 876792,
+      "sha256": "f8b546f9a829705a7b23b0854456c7c4f01cf51fb4accbb10c1a6f78470b3afb"
+    },
+    {
+      "path": "assets/blender/p08b/signature-showroom.blend",
+      "bytes": 5296879,
+      "sha256": "93d13e9c51f0ce3ba3f3f82f052f3466aa1cffdf16afcb59f7bbe39645f30476"
+    },
+    {
+      "path": "assets/blender/p08b/slingshot-signature.blend",
+      "bytes": 11733733,
+      "sha256": "0d786d54d6935808ca31e610db5d20667d91ee9a142b2f3cbcd2e5ed64de3b9f"
+    },
+    {
+      "path": "public/assets/p08b/checker-normal.png",
+      "bytes": 618,
+      "sha256": "c91f67a7574cff406a17962a89f58e7847bf40ef47838537c5ed4087fc6462d7"
+    },
+    {
+      "path": "public/assets/p08b/finish-black-red.png",
+      "bytes": 98884,
+      "sha256": "0afe42bebc7bc819b2b9f97833110cb6b16ba081fdcbd9e27b505c364343cac9"
+    },
+    {
+      "path": "public/assets/p08b/finish-graphite-red.png",
+      "bytes": 98954,
+      "sha256": "90a024e1254c249099e039dcaecc25afe7f78e0930f0c25e645b6c588372abb2"
+    },
+    {
+      "path": "public/assets/p08b/finish-white-graphite.png",
+      "bytes": 99323,
+      "sha256": "c60fe3d8cbd025e05e437b3ce7e89566039014d2072ab77ad9bc5b29b64b194c"
+    },
+    {
+      "path": "public/assets/p08b/signature-products.glb",
+      "bytes": 339964,
+      "sha256": "c8db9d532eff56d605d9be35fad356711c7849a225a4657f8cb0b279d99cffc6"
+    },
+    {
+      "path": "public/assets/p08b/signature-showroom.glb",
+      "bytes": 1544992,
+      "sha256": "49f99abb29eefde0501175e6e5d0b674f9520a8851c90b2f6e934a4608ece598"
+    },
+    {
+      "path": "public/assets/p08b/slingshot-signature.glb",
+      "bytes": 10269748,
+      "sha256": "d34c1ffde2048e2c5fc34bc86cc2a0bad19514961e1a68aee040b50d0fd90761"
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-133.png",
+      "bytes": 3923,
+      "sha256": "1ddb4ff236ccae25e6c4af6ffa7db25a04023ee0402d3dea2b5934f755132830"
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-26801.png",
+      "bytes": 19664,
+      "sha256": "0badea7aba3dd8e5326292d88c70ff93dc47168dff66e4a5a1a652a9724f6d72"
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-28919.png",
+      "bytes": 21923,
+      "sha256": "f9de0a36ce490be287013424b686979433c44736be7f5fb34d3944357200e187"
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-3223.png",
+      "bytes": 28205,
+      "sha256": "52f6835de1477853c401dce932523568fcd7ce0b498d023844aa3d8384ccea55"
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-7720.png",
+      "bytes": 20828,
+      "sha256": "52010806308c10980645e4c3f0456e1b92fea7b60e4347be00e2a7a7749b3d86"
+    }
+  ],
+  "rebuild": "Blender background scripts/build-p08b-art.py, then node scripts/capture-p08b-art-thumbnails.mjs while Vite runs at configured localhost URL",
+  "validation": "scripts/verify-p08b-art.py; npx tsx --test tests/p08b-art.test.ts",
+  "sourceReferencePhotos": "Reference-only; not runtime textures. All5 showroom photos and primaryproductimages inspected. Manifest in references/images.json.",
+  "validationSummary": {
+    "artTests": "4/4 PASS",
+    "sourceObjectsPreserved": 704,
+    "sourceVerification": "source-verification.json",
+    "finalRoom": "Rear cabinet/grid/logo/lift wall composition shifted 3m; backwallZ7.05; 12x13x4.2m inferred room",
+    "runtimeProof": "runtime/ all4 finishes, stock/full build, storage, compression/extension; exactcapturedpose metadata",
+    "limitations": "Not a performance run, OEM/CAD or physicalhardware/finalG3/G4 approval"
+  }
+}

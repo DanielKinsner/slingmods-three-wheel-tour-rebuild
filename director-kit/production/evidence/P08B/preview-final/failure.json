@@ -1,0 +1,11 @@
+{
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=\"bay\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button data-action=\"bay\">Back to Showroom</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n    at C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\validate-p08b-preview.mjs:20:864",
+  "errors": [],
+  "steps": [
+    "01-free-sport-build",
+    "02-native-keyboard-launch",
+    "03-held-brake-stays-forward",
+    "04-native-reverse",
+    "04b-emulated-controller-reverse"
+  ]
+}

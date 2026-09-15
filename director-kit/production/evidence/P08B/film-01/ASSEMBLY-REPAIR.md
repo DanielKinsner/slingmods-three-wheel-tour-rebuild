@@ -1,0 +1,3 @@
+# Film assembly repair
+
+The first full-capture assembly detected eight of ten visible sync flashes. Both markers for the optional Original Harbor excerpt were absent from captured video frames, while its audio markers and source metadata exist. The final film omits this optional excerpt and uses the four segments with measured audio/video anchors. It still includes every requested film element: entry, showroom/finish/parts/preset, actual reverse/launch, full Express speed/braking/rival race, result and unchanged build return. The complete original 227.88s screen capture and all five live audio streams are retained separately. No clocks, finishes or sound were fabricated and no sync threshold was relaxed.

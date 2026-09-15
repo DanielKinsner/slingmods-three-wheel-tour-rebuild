@@ -1,0 +1,40 @@
+{
+  "baselineCommit": "ed363b28ec6ba933dd82c576153bd73c80ea6619",
+  "baselineSourceSha256": "6a72469b66ba3b60f2822565229fc5b5922c6f094dc991d8a18f0e680aed2299",
+  "rowsPerTrace": 4200,
+  "comparison": "Full telemetry deep equality: accepted baseline = new stock = installed street coefficients = removed product. Includes resets, turning, braking and severe curb diagnostic.",
+  "hashes": {
+    "baseline": "82f48f0389a9eadf9786c3820470154c5fe2a157e7bf1ec1e6eb0c65b73f862d",
+    "stock": "82f48f0389a9eadf9786c3820470154c5fe2a157e7bf1ec1e6eb0c65b73f862d",
+    "street": "82f48f0389a9eadf9786c3820470154c5fe2a157e7bf1ec1e6eb0c65b73f862d",
+    "removed": "82f48f0389a9eadf9786c3820470154c5fe2a157e7bf1ec1e6eb0c65b73f862d"
+  },
+  "response": {
+    "stock": {
+      "settledHeight": -5.12599944713088e-8,
+      "peakVerticalSpeed": 0.9772390723228455,
+      "maxLoad": 6306.621766402014
+    },
+    "soft": {
+      "settledHeight": 6.79492950239613e-8,
+      "peakVerticalSpeed": 1.0072389841079712,
+      "maxLoad": 6403.150930161075
+    },
+    "firm": {
+      "settledHeight": 5.14984130839391e-7,
+      "peakVerticalSpeed": 0.7352992296218872,
+      "maxLoad": 5329.568729763922
+    },
+    "raised": {
+      "settledHeight": 0.0199999296665192,
+      "peakVerticalSpeed": 0.8936590552330017,
+      "maxLoad": 6108.4973709333735
+    },
+    "lowered": {
+      "settledHeight": -0.0200000321865082,
+      "peakVerticalSpeed": 1.0651426315307617,
+      "maxLoad": 6488.8843007694495
+    }
+  },
+  "limitations": "Drop/curb diagnostics quantify game parameters, not manufacturer performance. No claimed faster lap or general handling gain."
+}

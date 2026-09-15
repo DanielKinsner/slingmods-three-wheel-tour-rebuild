@@ -22,7 +22,7 @@ The configurator has five free previews and named build recipes; credits and pur
 
 ## Evidence and exact identity
 
-Final runtime/packaging SHAs, launch receipt, verification commands, asset hashes, native results and clean remote recovery are recorded in `handoff/P08B-VALIDATION.json` and `director-kit/production/evidence/P08B/`. This handoff is being finalized with the Review16 return. Prior handoff retained at `handoff/P08A-HANDOFF-PRESERVED.md`.
+Final runtime/packaging SHAs, launch receipt, verification commands, asset hashes, native results and clean remote recovery are recorded in `handoff/P08B-VALIDATION.json` and `director-kit/production/evidence/P08B/`. Tested runtime is `6aa1dafaac03168525a1f7e69a6831ea886f45d2`. The pushed documentation/evidence follow-up is identified by `git rev-parse HEAD` and the Review16 ZIP MANIFEST.json. Internal validation and same-host fresh remote recovery are complete. See `handoff/P08B-COMMANDS.md` for exact verification, film recovery, and fresh-session instructions. Prior handoff retained at `handoff/P08A-HANDOFF-PRESERVED.md`.
 
 ## Limits / next action
 

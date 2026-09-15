@@ -1,0 +1,84 @@
+{
+  "name": "slingshot-signature",
+  "runtimeBytes": 10269748,
+  "sourceBytes": 11733733,
+  "meshes": 75,
+  "baselineUnchanged": true,
+  "baselineSha256": "196a2ca54df12c4ac0b69641e3d4ec806fbfb9e484286a218d753e82358027ee",
+  "repairs": [
+    {
+      "name": "roll_hoop_inner_driver/passenger",
+      "defect": "bright metal inner trim inconsistent with black factory square-style hoop reference",
+      "repair": "retain exact geometry; assign existing polymer finish independently of body paint"
+    },
+    {
+      "name": "front_left_brake_disc",
+      "defect": "128 exposed one-sided boundary edges on planar rotor annulus",
+      "repair": "5 mm solid annulus, retaining hub aperture and exact wheel transforms"
+    },
+    {
+      "name": "front_left_brake_disc.001",
+      "defect": "128 exposed one-sided boundary edges on planar rotor annulus",
+      "repair": "5 mm solid annulus, retaining hub aperture and exact wheel transforms"
+    },
+    {
+      "name": "front_right_brake_disc",
+      "defect": "128 exposed one-sided boundary edges on planar rotor annulus",
+      "repair": "5 mm solid annulus, retaining hub aperture and exact wheel transforms"
+    },
+    {
+      "name": "front_right_brake_disc.001",
+      "defect": "128 exposed one-sided boundary edges on planar rotor annulus",
+      "repair": "5 mm solid annulus, retaining hub aperture and exact wheel transforms"
+    },
+    {
+      "name": "rear_brake_disc",
+      "defect": "128 exposed one-sided boundary edges on planar rotor annulus",
+      "repair": "5 mm solid annulus, retaining hub aperture and exact wheel transforms"
+    },
+    {
+      "name": "rear_brake_disc.001",
+      "defect": "128 exposed one-sided boundary edges on planar rotor annulus",
+      "repair": "5 mm solid annulus, retaining hub aperture and exact wheel transforms"
+    },
+    {
+      "name": "all named *_lug_nut",
+      "defect": "uncapped hexagonal ends visible at low wheel angles",
+      "repair": "cap only six-edge lug-nut loops; leave surrounding lug wells intact"
+    },
+    {
+      "name": "side_rocker_return_left",
+      "defect": "mirrored return normals placed thickness on opposite physical side",
+      "repair": "outward face winding with existing physical Solidify; original contour retained"
+    },
+    {
+      "name": "side_rocker_return_right",
+      "defect": "mirrored return normals placed thickness on opposite physical side",
+      "repair": "outward face winding with existing physical Solidify; original contour retained"
+    },
+    {
+      "name": "autodrive_console_shell",
+      "inspection": "Eight Boolean pocket boundary edges retained after inspection; weld did not alter edge count",
+      "action": "No hole fill: existing recessed pocket is intentional; evaluated geometry retained",
+      "boundaryBefore": 8,
+      "boundaryAfter": 8
+    },
+    {
+      "name": "rear_storage_left_shell",
+      "defect": "access panel backed by sealed outer shell, preventing real compartment inspection",
+      "repair": "remove only front aperture faces behind existing hinged door; retain side/back/floor volumes",
+      "openedFaces": 2
+    },
+    {
+      "name": "rear_storage_right_shell",
+      "defect": "access panel backed by sealed outer shell, preventing real compartment inspection",
+      "repair": "remove only front aperture faces behind existing hinged door; retain side/back/floor volumes",
+      "openedFaces": 4
+    }
+  ],
+  "finishMask": "Only Radar_Blue atlas blue pixels and orange graphic pixels. Black graphic pixels remain; nonpaint materials never remapped.",
+  "packedSourceImages": 19,
+  "unresolved": "Global OEM fidelity held. Existing vertical raycast rear linkage remains an approximation.",
+  "sourceBatchPolygons": 105807,
+  "runtimeTriangles": 213431
+}
