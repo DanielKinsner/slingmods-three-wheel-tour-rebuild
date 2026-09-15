@@ -1,0 +1,242 @@
+{
+  "method": "Separate native daylight complete solo lap, audio active, no recorder/controlled clock/readback; all phases retained, nearest-rank percentiles.",
+  "runs": [
+    {
+      "name": "day-scored-equipped1080",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "width": 1920,
+      "dpr": 1,
+      "buffer": [
+        1920,
+        1080
+      ],
+      "runtime": "b4eef3c7dab3",
+      "results": [
+        {
+          "timeMs": 78402.53931382658,
+          "valid": true,
+          "invalidReason": null,
+          "previousBestMs": 78719.20388459373,
+          "bestMs": 78402.53931382658,
+          "differenceMs": -316.66457076715596,
+          "firstRecord": false,
+          "newBest": true
+        }
+      ],
+      "racingIntervals": {
+        "count": 4705,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 16.80000000000291,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0
+      },
+      "allIntervals": {
+        "count": 4966,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "p99": 16.80000000000291,
+        "max": 183.4000000000001,
+        "over33_4": 2,
+        "over50": 1,
+        "over100": 1
+      },
+      "targetMet": true,
+      "outliersOver100": [
+        {
+          "row": 1,
+          "data": [
+            2884.4,
+            183.4000000000001,
+            6.5,
+            3.599999964237213,
+            6,
+            0,
+            24,
+            6,
+            2,
+            0,
+            0,
+            0
+          ],
+          "previousRow": [
+            2701,
+            0,
+            6.100000023841858,
+            4.100000023841858,
+            0,
+            0,
+            24,
+            6,
+            2,
+            0.40000003576278687,
+            0,
+            0
+          ]
+        }
+      ],
+      "programCounts": [
+        24
+      ],
+      "events": [
+        {
+          "wall": 1502,
+          "event": "preparation-start",
+          "data": {
+            "ticks": 0,
+            "race": {
+              "phase": "ready",
+              "paused": false,
+              "invalidReason": null,
+              "elapsedMs": 0,
+              "countdown": 0,
+              "checkpoint": 0,
+              "total": 15,
+              "result": null,
+              "attempt": 0
+            }
+          }
+        },
+        {
+          "wall": 2878.199999988079,
+          "event": "preparation-end",
+          "data": {
+            "ms": 1365.5,
+            "stages": [
+              {
+                "name": "init-textures",
+                "ms": 202.89999997615814
+              },
+              {
+                "name": "compile-async",
+                "ms": 986.2000000476837
+              },
+              {
+                "name": "first-all-mesh-render",
+                "ms": 171.5
+              },
+              {
+                "name": "loading-gpu-sync",
+                "ms": 0
+              }
+            ],
+            "textures": 61,
+            "programs": 23,
+            "parallelCompile": true,
+            "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped.",
+            "ticks": 0,
+            "race": {
+              "phase": "ready",
+              "paused": false,
+              "invalidReason": null,
+              "elapsedMs": 0,
+              "countdown": 0,
+              "checkpoint": 0,
+              "total": 15,
+              "result": null,
+              "attempt": 0
+            }
+          }
+        },
+        {
+          "wall": 2878.199999988079,
+          "event": "load-ready",
+          "data": {
+            "loadMs": 2764.300000011921
+          }
+        },
+        {
+          "wall": 2884.899999976158,
+          "event": "program-count",
+          "data": {
+            "from": -1,
+            "to": 24
+          }
+        },
+        {
+          "wall": 2884.899999976158,
+          "event": "phase-camera",
+          "data": {
+            "state": "ready/0/near",
+            "ticks": 0,
+            "elapsedMs": 0
+          }
+        },
+        {
+          "wall": 2885.199999988079,
+          "event": "light-slots",
+          "data": {
+            "spots": 6,
+            "areas": 2,
+            "emitting": 0,
+            "ticks": 0,
+            "elapsedMs": 0
+          }
+        },
+        {
+          "wall": 4242.799999952316,
+          "event": "countdown",
+          "data": {
+            "ticks": 86
+          }
+        },
+        {
+          "wall": 4254.699999988079,
+          "event": "phase-camera",
+          "data": {
+            "state": "countdown/1/near",
+            "ticks": 87,
+            "elapsedMs": 0
+          }
+        },
+        {
+          "wall": 7255.099999964237,
+          "event": "phase-camera",
+          "data": {
+            "state": "running/1/near",
+            "ticks": 266,
+            "elapsedMs": 0
+          }
+        },
+        {
+          "wall": 23286.799999952316,
+          "event": "phase-camera",
+          "data": {
+            "state": "running/1/far",
+            "ticks": 1228,
+            "elapsedMs": 16033.333333333108
+          }
+        },
+        {
+          "wall": 30270.69999998808,
+          "event": "phase-camera",
+          "data": {
+            "state": "running/1/cockpit",
+            "ticks": 1647,
+            "elapsedMs": 23016.66666666691
+          }
+        },
+        {
+          "wall": 46786.5,
+          "event": "phase-camera",
+          "data": {
+            "state": "running/1/near",
+            "ticks": 2638,
+            "elapsedMs": 39533.33333333331
+          }
+        },
+        {
+          "wall": 85668.79999995232,
+          "event": "phase-camera",
+          "data": {
+            "state": "finished/1/near",
+            "ticks": 4971,
+            "elapsedMs": 78402.53931382658
+          }
+        }
+      ]
+    }
+  ]
+}

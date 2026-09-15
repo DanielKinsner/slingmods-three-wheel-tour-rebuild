@@ -1,3 +1,13 @@
+# Current handoff — P06C / Review13
+
+P06C Built Waterfront is implemented and Review13 is prepared locally with a **performance HOLD**. Last accepted director review remains Review12. Read `RESUME.md`, `director-kit/production/evidence/P06C/REVIEW-ME-FIRST.md` and current production state first. Frozen runtime: `b4eef3c7dab3eb77b131a5100c3be0fd1110b095`; PACKAGE-MANIFEST.json identifies the separate packaging commit. These new commits have NOT been pushed; the remote contains the earlier handoff.
+
+The repeated second-race p95 is 33.3 ms against the 20 ms target, reproduced twice. Shared-host contention is plausible but unproven. Preserve these failures; do not stop unrelated jobs or silently reduce quality. G3/G4 and overall environmental art remain held. No automatic re-execution or new feature work; await the director's next decision. Current run/setup instructions are in the P06C review introduction.
+
+Everything below is the historical Review12 transfer record. Its remote/pause/next-packet and runtime claims describe that older handoff, not current P06C.
+
+---
+
 # Continue on another machine or with another agent
 
 Repository: https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild (private). Branch: `main`. Authenticate as an account with access before cloning. All implementation commits are already on main; no separate feature branch needs merging. The handoff preserves history and adds missing review evidence and historical source files.

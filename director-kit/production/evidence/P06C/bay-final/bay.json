@@ -1,0 +1,5289 @@
+{
+  "manifest": {
+    "commit": "b4eef3c7dab3eb77b131a5100c3be0fd1110b095",
+    "buildRef": "b4eef3c7dab3",
+    "workingTreeDirty": false,
+    "created": "2026-09-15T01:45:55.609Z",
+    "inputs": {
+      "index.html": "ec227183a63e90c7af934fbdc7a243002c9853a19cba02eb4440cf8b4ae22ea6",
+      "package-lock.json": "482c745840aa8ae074d30d7196cc2d8782802dfe74838218039604d6ddc5ba46",
+      "package.json": "b367cf401cb32f580c110fb7ee4542c262029196c1c876b7a5ef3f3823f066d5",
+      "public/assets/audio/p03b2/engine-1200-lift.wav": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+      "public/assets/audio/p03b2/engine-1200-load.wav": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+      "public/assets/audio/p03b2/engine-3600-lift.wav": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+      "public/assets/audio/p03b2/engine-3600-load.wav": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+      "public/assets/audio/p03b2/engine-6200-lift.wav": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+      "public/assets/audio/p03b2/engine-6200-load.wav": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+      "public/assets/audio/p03b2/provenance.json": "c684689447e881f4a695431c2e12c7d8b7701b4e0b30b807dc9c484cd76a373b",
+      "public/assets/audio/p03b2/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "public/assets/audio/p03b2/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "public/assets/audio/p03b2/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "public/assets/calibration.glb": "861f30f03891d4593969ce93e301afa7757cd3e276c49a602be376be11ba4dcf",
+      "public/assets/drivers/test-driver-attachment.json": "575ffd3446db5859aa408fc4d627ee81503a896bb69db5867b4de7f6cdef9a8d",
+      "public/assets/drivers/test-driver.glb": "c9909f146ec2fd17e1205abfef3c48e1b2f0006cde83af3382000a66995d75e5",
+      "public/assets/drivers/textures/basecolor.png": "a8e14b6ca8d52f244f100e656005ea47a22a893e78e8b862a973bba84a909cc9",
+      "public/assets/drivers/textures/normal.png": "42f887ae9d90ce677f7daf02da0c90da09a702f822c762f0a9f31e2229264a0f",
+      "public/assets/drivers/textures/orm.png": "220a752fe1b963960114380b4eab724f91fb8bb26bb4b1e61467e0f42888749a",
+      "public/assets/harbor/harbor.glb": "01b74c9ec465077304e158ac7e97e1ca1493e61ad48533d3bbb0a59b3109a1c1",
+      "public/assets/harbor/route.json": "c6ea6764b11f8aa2110ee1f3c9fe41393908665e64f53d34de25cc55ce1a4e19",
+      "public/assets/harbor/textures/asphalt_basecolor.png": "d53132a3523abea5ab275df92d3c12db43e1b9e87bc24f1f70cda9ef904fe8c7",
+      "public/assets/harbor/textures/asphalt_normal.png": "f05d20a2c40caabc204b03af3520421b9c691e5ae39488112ff4fa06ef88500f",
+      "public/assets/harbor/textures/asphalt_orm.png": "ffd80c8ad2f68833c4a9e70aeafc3957550db3df9908c3b85c4c984475cce875",
+      "public/assets/harbor/textures/concrete_basecolor.png": "c0901f2d98e437692d2d44242239546c5aa9976c92ac13052911ab7e9c2505aa",
+      "public/assets/harbor/textures/concrete_normal.png": "8fefad8a06c28e6f5f290cedf551f8f040b245080a50ef0d0c85613e7bee1e6a",
+      "public/assets/harbor/textures/concrete_orm.png": "567091fa75ba63a837ad654c452c2dfccf1658a0b2a43ee4a2ae3e9d534e7d59",
+      "public/assets/harbor/textures/harbor_basecolor.png": "a520d07c49d5576d7c358e74fbfd49efffcdadad7273f7142aea1e9a93c9aec1",
+      "public/assets/harbor/textures/harbor_normal.png": "7f76e5a7677be5431781d50234919cafae35acd76904c064f65b35056f92757e",
+      "public/assets/harbor/textures/harbor_orm.png": "802f4af7e45fe4b312b67c6952a38ad9a76feed8659147aad6a8b737117316d2",
+      "public/assets/harbor/textures/p04a2/asphalt_basecolor.png": "6de157f9f9d3516a7e710f252b1dc85f0e265f5317b2496dff6f34fec2f85e4b",
+      "public/assets/harbor/textures/p04a2/asphalt_normal.png": "afb60d57ffe5158cbcc34343a5135ac58f2008e32bd15ccc87458ebf26d51737",
+      "public/assets/harbor/textures/p04a2/asphalt_orm.png": "48632d4a9c4a0b60b3842cc2f1e659b056cdc780848379ddc2b874c9f33b8104",
+      "public/assets/harbor/textures/p04a2/concrete_basecolor.png": "22d72c93eb3a182fce48305aef2eeccbfff5155f09d65e37fc1bba68f00bd06a",
+      "public/assets/harbor/textures/p04a2/concrete_normal.png": "e758ee8e5eeffdd5b3a909f351d67d91309cd2809e98f77f3db605fdfc790819",
+      "public/assets/harbor/textures/p04a2/concrete_orm.png": "791363f745b1138996e13de2b487c8c5ee4e4e5c8ee5c3c84319471964470987",
+      "public/assets/inspection-bay-p03a1.glb": "97780bd9dd188edf5e430ed04d02bedb3d962435c7c9c2f5c44f07175357c53e",
+      "public/assets/practice-p03b1.glb": "f5ee6c03cf812a39bee174c128181fbe6470a22d2034874c8ff133105821d721",
+      "public/assets/practice-p03b1.json": "90bb59c2841414f9a519c0a8c960079df04cbf491f04eeb11209c0b032b4ecc4",
+      "public/assets/products/tricled-sm133-base.attachment.json": "3b3d19510d6ee94e97eb432bf3555ec22efc841580ebdf3f225864b4281ca63d",
+      "public/assets/products/tricled-sm133-base.glb": "da206aaf6530a83479cb870e013c4efe7372a3ff9ffff038dccda9df19213d93",
+      "public/assets/showcase-quality/foundation.glb": "de63a8f31a8ad8d8bed140a326a442fedecc0ebec3c667708ebf985d7888a838",
+      "public/assets/showcase-quality/kit.glb": "65166c2be3ee3f0a969a836015101ea2c7558219c518e67c054295e402001f31",
+      "public/assets/showcase-quality/p06c-road-provenance.json": "8035d4610947c7ca9e2decf8a0490abc9e752bfb1e73b54e243f11263a523db7",
+      "public/assets/showcase-quality/scene-layout.json": "19797a228f2f7e90d90ef7341b3491023d1feea5a58eed27159e13e094e06a3b",
+      "public/assets/showcase-quality/sky/day-puresky-2k.hdr": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+      "public/assets/showcase-quality/source-manifest.json": "4352fa842de08b3f27bb4c65c22024929e45204b6ae0da5833deaad6797ed660",
+      "public/assets/showcase-quality/textures/asphalt_02_AO.jpg": "b5ab6b9a6f6585ae6ee6a1ede1296b2b129f164c6f92eab529c8a6a2f13fd0d8",
+      "public/assets/showcase-quality/textures/asphalt_02_Diffuse.jpg": "a883a3f4b4f79b330bff7736d0c09a60a3b0d7b72fccd390bfc8bb4609cef89a",
+      "public/assets/showcase-quality/textures/asphalt_02_Rough.jpg": "87aaeb29b2456b8d99457e6ac57aad1a24bf116b8000783688108221121b5ee1",
+      "public/assets/showcase-quality/textures/asphalt_02_nor_gl.jpg": "627e4d311b6b21b92a00670cf60dbbf04890a648ce405f1c4b8c76a19f92fbac",
+      "public/assets/showcase-quality/textures/concrete_pavement_02_AO.jpg": "ce012371befa1d17f70d92207cf9bdeb6bfacdb7a757af8e269507d06ba72024",
+      "public/assets/showcase-quality/textures/concrete_pavement_02_Diffuse.jpg": "7df485bb50c466fcda1ce8ab9e07407af9e6493bb484beada351260af74d4aa9",
+      "public/assets/showcase-quality/textures/concrete_pavement_02_Rough.jpg": "b999c4d6b2f73b2fa9d81a85122416a98364d933172177c3ac3cfb6efd3cf20c",
+      "public/assets/showcase-quality/textures/concrete_pavement_02_nor_gl.jpg": "5e6c4db544943616052d6ea3662a4734b486e4298a9c695d82a21a62713e5fb0",
+      "public/assets/showcase-quality/textures/concrete_wall_006_AO.jpg": "d0c9da6b18e292d35784033b868bf6742ac91bc1b6ca0da53edd3e3c083f7aae",
+      "public/assets/showcase-quality/textures/concrete_wall_006_Diffuse.jpg": "d4b6b3b5cff1f1c4e073e7016d6c7caf11d9bd16408404480dd3dc11a5d4ee4a",
+      "public/assets/showcase-quality/textures/concrete_wall_006_Rough.jpg": "087839e52692f32dc4413d8785602d2c18922f0070e45dd554d63cf7b93f822c",
+      "public/assets/showcase-quality/textures/concrete_wall_006_nor_gl.jpg": "d6f681dcec3e1312c1a5e2991c094026e08623f5125114dbe8c602098fdc20ba",
+      "public/assets/showcase-quality/textures/leafy_grass_AO.jpg": "0428cea168d480d1f125ac9aa82322f59d3e3b0d5ce4aa04c82f5076bb6de623",
+      "public/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg": "16767927a64de441008841a697b2990b72d2695a5443ec83483b89bca3cba3bb",
+      "public/assets/showcase-quality/textures/leafy_grass_Rough.jpg": "f2d3d14b770886f268c45f141e2eaf7f976ed6d6f1dfce2ae6f106ef8a26ee13",
+      "public/assets/showcase-quality/textures/leafy_grass_nor_gl.jpg": "20c8c07e123c3b0efe934567a281b65bbe3e2f49b95b0572cd05f9e0b2b8ca00",
+      "public/assets/showcase-quality/textures/p06c-frond.png": "5b79c0cf52cd3ad6de8bad8bf34674ffa235a7ac75d4f4f0fa90bd29aca8c7d5",
+      "public/assets/showcase-quality/textures/p06c_asphalt_AO.jpg": "9ebeff17be65da37330386ddedee4d7fe5c4795e878bffb2bc562339e29f35f8",
+      "public/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg": "03ccab322c78274dc76bedccefefb4ed589837ca2eda3fc64db80f98f0779341",
+      "public/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg": "3e2f59802a84190cba48d2fffb4a56ae136da07bb8738e1455299b5a7eae79c9",
+      "public/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg": "af7ef84573aaaeb19a472c1705cc83ae5313c56bec58b8476573656849447f44",
+      "public/assets/showcase-quality/textures/palm_tree_bark_AO.jpg": "98b9422105422d78b49b668406b392760ff4b986befc212406fdcf7b9a0e23e0",
+      "public/assets/showcase-quality/textures/palm_tree_bark_Diffuse.jpg": "94ce970a8dfa4701d45a2e79c8088f1133b3be47ca5a2d056f2aaa8a5a6ee134",
+      "public/assets/showcase-quality/textures/palm_tree_bark_Rough.jpg": "d5acabe6cd55dbdf41263f8d0a8de8564aaaa6db018d022f32cf3722ca6fff73",
+      "public/assets/showcase-quality/textures/palm_tree_bark_nor_gl.jpg": "2dadb78672acfbd3ada1d4db4bfcff1bb4a8dec597d7244fec9db5050f06cb5d",
+      "public/assets/showcase-quality/textures/sparse_grass_AO.jpg": "a75ec27e02336e74a4a99f82ac27ad0b624f5167eb9714a0f165faab2ae1edc7",
+      "public/assets/showcase-quality/textures/sparse_grass_Diffuse.jpg": "d35e3c06e25ae0efd310721acf2b77f4d448daa85c552794b455f1bccaf0ff59",
+      "public/assets/showcase-quality/textures/sparse_grass_Rough.jpg": "67f20b3988d99a8dd6e6a81c91e1770caf090585a5e6d21b349538fce9fcd16e",
+      "public/assets/showcase-quality/textures/sparse_grass_nor_gl.jpg": "de3511e31049f8ec4af6be79670998246b0dac432115321c6a47565bb08bcde5",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_AO.jpg": "6970baf4653dae93d0d216c52cc977e1c96d4c4b01d9d962179cdeb66cca2975",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_Diffuse.jpg": "51cba385230f0a793ee73aaebff7c2cf8f9edf58bb5b436d03dc779bbfa3f217",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_Rough.jpg": "ee2cf8be46b33ba8509c717b6541c51fe02ec4b40c73ef47a6477f14641fae32",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_nor_gl.jpg": "04929f9e87575940b5273f8e34b8f8cf7297b52e5aaee3f50a086caeea7efa63",
+      "public/assets/showcase-quality/textures/white_plaster_rough_01_AO.jpg": "9f4ab5632e163abab94494d13f53cf11058cf66b0f58a11ae557d5b582034e16",
+      "public/assets/showcase-quality/textures/white_plaster_rough_01_Diffuse.jpg": "5eb5dc9db002672cb7655a0b3070df0157574e6e3d0a0aa6855d484bd3516991",
+      "public/assets/showcase-quality/textures/white_plaster_rough_01_Rough.jpg": "b26847b3cd8e27a155b039169a03e10d92adfdc23174a7ec5f6120079d33aeca",
+      "public/assets/showcase-quality/textures/white_plaster_rough_01_nor_gl.jpg": "df558d0a55a7e127801125b296a40be65a476d943dcc86ba4482024ad4871911",
+      "public/assets/slingshot-contact-layout.json": "95945870fdebcb95a868ec2e3b800422fd30d1faa9e3282fd04f7f68b72ffaba",
+      "public/assets/test-pad.glb": "fdcda36abd5366a4a5f12e6692973de6a6f06e6d3929f9e16c88f31146bda304",
+      "public/assets/vehicles/slingshot-p04a1-rear-rig.json": "caa7c7bb901c32ca3d04e0b98b42963079ea0085dd5be4ea469bbcd954ba805d",
+      "public/assets/vehicles/slingshot-p04a1.glb": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c",
+      "scripts/audio-coherence-fixture.mjs": "8faed73983f979421c6dc28119799ab747d09373c43d8c683f6d6114d87cff47",
+      "scripts/audio-p03b2.py": "78a91d2f87db9fb0e5c6d8ed27dcc46ab3c79407c9f7c1035ae82297054a2861",
+      "scripts/blender.ps1": "c8616f12196997b6c8ca598191e09de186e49105a2b47732c19b3b23da61ffb3",
+      "scripts/build-review.mjs": "ffdaf21c41d0aa8597bf9e10a49b42b4c3014408917fe195d5376e8749d83b50",
+      "scripts/build-review03.mjs": "f12d17e95043d80ab33ff464647c0d36d4304c7aff130acf04143fc707daed4c",
+      "scripts/build-review04.mjs": "0429863938d12b5fd64feecf0915dfd273ddd66a847f3a6ee56f892bcf5a917d",
+      "scripts/build-review05.mjs": "96f963b89fcc66d9d04195737940dbf1b2a0a0265dec769cb39bc0d538752bb0",
+      "scripts/build-review06.mjs": "4ec81e65d25647d70060b9eb5acc6ef00cecfd61f8f5c9081489ffa25c71e4f3",
+      "scripts/build-review07.mjs": "091dade6cc72194c960622e50b63c0320860e8e2e6d702bfcfa4a62672a5c485",
+      "scripts/build-review08.mjs": "bce66c57409169226fe769eb966e31a39681c79f317cbeaa94402ecc7ecf848c",
+      "scripts/build-review09.mjs": "b85ddab62d11511e34749ade0e88b8022718922b26cec1f8675f2e9383040299",
+      "scripts/build-review10.mjs": "0fc430469cec9fadb1bee285c2c50a373343dfc2dc87108ffe62cd432feeb173",
+      "scripts/build-review11.mjs": "7794494b48dabd6b968cc03675a1e08f6fa957c162f1be28cfb1c4affaf4ff07",
+      "scripts/build-review12.mjs": "73a13f07f59f5bcdcd9ddc0f106c491db47723708570ef50823174eadcfc69aa",
+      "scripts/build-review13.mjs": "dac4a715d9ac8afe4a6fcd8f181aeadbe9650b4b06619448c5e7e4cd659a0d61",
+      "scripts/calibration.py": "0a645233e3337ab29a63642ce3b603fd0ec9353024fef4602c1c897ac8ea92ad",
+      "scripts/capture-calibration.mjs": "2daafd6e9ec6e451ab427872193c01f8e20e536420617d94693042620940385b",
+      "scripts/capture-driver-fit.mjs": "8db1f5dbf27575e2e33ea818e0587ede26b2402a16e07f9d93157c73986a84bd",
+      "scripts/capture-driving.mjs": "90c7e49191689b007f9807566a573386ad1bbe9a9adf10023659f1f855547316",
+      "scripts/capture-p03a-review.mjs": "30baad402448bb8a615d63a1bf552bf2d51715001c2ebcaed0e039944a9a3067",
+      "scripts/capture-p03a-surface.mjs": "70957a1878a93acbd6199f0ddc73c223a69724cd552609f1a2c4c9bc82e566a8",
+      "scripts/capture-p03a1-stills.mjs": "93c33b0fc03c75b4639596e7fd093d59409983e2e870b2eaab4db04818c3d455",
+      "scripts/capture-p03a2.mjs": "f8d4df5e8c3f2cd652f6beec81c702ff475b242032c8b3f617fb5314804ae065",
+      "scripts/capture-rear07.mjs": "9c6eb426ca8a8c5767431debd073477e915737ca8fa4c97d47d665b8c7a30d26",
+      "scripts/capture-review04.mjs": "a8ce2f1e9443d5591840a5437615fdf576dba8946d7cc9c0afa3df5b3f8ffff5",
+      "scripts/capture-review05.mjs": "c01b21bf9e685c4c1328952ee5f0385230111efaefe04cf124fd1bfdaee06e2a",
+      "scripts/capture-review06.mjs": "ddf34637b25a81ba7b8790e28a05c47ca8ddba09e933fdbe9752b1c7ed3bce74",
+      "scripts/capture-review07.mjs": "3854233ea03b256cce3eb9ae10b5131c57fc27f2013872310e1f5ecb40351b9b",
+      "scripts/capture-review08.mjs": "2a1f7827fab96d143192876e412a882fc9f2475f31bf7db56418dc007dcec69b",
+      "scripts/capture-review10-day.mjs": "da033bf5a02ecf4982aeaaadc21960f3e7a661907945a559c3f79704bc8ce114",
+      "scripts/capture-review11-bay.mjs": "f4ed6a2c44239f480f8401ca50e2c30d9d8086dfdab05c51613c233f3273f065",
+      "scripts/capture-review11-day.mjs": "c8c9fc9e594b8bac2432349fc85e2dc25bcb5750f22b3ee7501b2cf381035c19",
+      "scripts/capture-review11-matched.mjs": "0f183fd46029fe7b90344c073c4231b5d7911da61a35846b87df7a9134a17d25",
+      "scripts/capture-review12-bay.mjs": "f4ed6a2c44239f480f8401ca50e2c30d9d8086dfdab05c51613c233f3273f065",
+      "scripts/capture-review12-day-ordinary.mjs": "bd2e40ab7c92b1bc171d881c6422e92be25860bef5aeb31867d0d6e9cd8c926a",
+      "scripts/capture-review12-day.mjs": "afc54419dfba1b180ac0e0b607d36dd0b33b4174805600d85c84f6a03f593033",
+      "scripts/capture-review12-matched.mjs": "d76b2fdd8d68392e36442e4db30edca95ef89accdd4620890485bb29c2bc6bb5",
+      "scripts/capture-review13-day.mjs": "f97b1b71d1c9768efe124692dabc6051afc0306f8c386adfb3db9f5a97aaff82",
+      "scripts/capture-review13-foliage.mjs": "3c10b2d58d1ab06a3df30e338a0e49d620b8f6e6af66a6bb6b099fbc1ab2531d",
+      "scripts/capture-review13-matched.mjs": "674b4c4f9800f0a35e5720863ddd26981087cb39b9226026455eda8192721db8",
+      "scripts/capture-rpm-addendum.ts": "ee8f054430477eed7cad839ff93b1a92b7f019b2a47709fbd5830fcaf926c0b6",
+      "scripts/capture-shadow-diagnosis.mjs": "89df89a85223935c57e06c4817ea4c797c2ecee90c650046d26c6294bf281f92",
+      "scripts/capture-shadow-motion.mjs": "8a87f83ab8fc58d554c9aec05e5f45437d613b1591bb5c964402d999c692cc6d",
+      "scripts/capture-shadow-replay.mjs": "f5a998f4b973f674a72036e5976c9b4583dcda1250db3bbf25749af5c08bb465",
+      "scripts/capture-vehicle.mjs": "b2afbf970b627c9982cab00be2572aa4c0a260f52ec8681f006f1c5f268f23a5",
+      "scripts/capture-waterfront07.mjs": "f609df339c5a30af93dabcbee27fe5dea78047e84ca5595b97b6fddfa699b00f",
+      "scripts/check-build08.mjs": "5cb7113db6b777d8d1a1acebf948a3611052735c09c59d44172fac146762e429",
+      "scripts/check-night08.mjs": "9ccc280d7b4f7452f3aa7645113386e78222f175ab7f8c9d72ff637773afa525",
+      "scripts/check-shared-support.ts": "9f7d798113e922e209f909cdea2df4ac4bd5921d31c75dbdd9fa64496a09d63d",
+      "scripts/correct-review11-caption.py": "569fc22bcb9f702b46c6a83f372cdd481574d9ca1b6179ff9c18c17fd8115016",
+      "scripts/crew-evidence-agent.ts": "6da69980b19d256c069def5b91057f337143367b7bcc8d8cbf67664ca161f5da",
+      "scripts/crew-player-agent.ts": "5158a676bcc8d01fe277ce09c4a59cdba2b62b43e4cbf7a8e0f83eaecdbdb08f",
+      "scripts/diagnose-crew-ui-clock-p06.mjs": "d4a015ee0d002a8104b765f5962161811f68b0fa3cc30bf0d8a5ffa5017fff14",
+      "scripts/diagnose-crew-ui-p06.mjs": "a87893f84a4fb0edbb373a1bf96d00e8ab47f06b286af0b18a91892fa8859ef1",
+      "scripts/diagnose-p03a-orbit.mjs": "be7ac05b9886fa53f2fd9861fe2f6bdb32d8f67d8fb25eb86d592e93fc61ce6e",
+      "scripts/diagnose-p06b-water.mjs": "bbd67af4291add8ee09b62f167640a24d63e5f82db575d37d588f109d0d1ba57",
+      "scripts/diagnose-review11-programs.mjs": "0bf0c48e562eeeb00faf713ca7c29d05c1b310777782307ab9406a9f7ef43793",
+      "scripts/diagnose-review12-inspection.mjs": "bc0b716cadb89740850064aa16c6996bd88bc9669e3f18049cd90d23e4c29033",
+      "scripts/driver_p03b2_build.py": "db2804b1d4f6dca81964a3d13be6383ac316807c9ec5e8422b492a3ebd97c389",
+      "scripts/driver_p03b2_inspect.py": "57abe42863bc1ee5afa9933fc098e0c426a755e467d6767730419cd978a703d1",
+      "scripts/driver_p03b2_materials.py": "a1f5bb0899b2854f10dd461ed2c0144f1f76b2ac27575b9ae238be3b9f397311",
+      "scripts/driver_p03b2_probe.py": "de7db939a0c48ac67d501d04e988f3f8d375525680d4f6f5a14bdb0b6a310498",
+      "scripts/driver_p03b2_validate.py": "94a8f5de28bea5ea9c11a7a18d2a8d938830fdd7b5255f469f6ab3c37a7ddd16",
+      "scripts/harbor-browser-driver.mjs": "cbd2d3cf783bde3f97c4f82bf83579ed4a50d20b865eb2da0c57ca7e1a5572f5",
+      "scripts/harbor-browser-driver07.mjs": "62b30a70af7b50b1b70c1af3f7892e49f476c123ae91335d820f4c79b20a21ac",
+      "scripts/harbor-browser-driver08.mjs": "b42b419c3be9dfdc328911050b7032cfc74050c5b9c08a2af5ccf64d861b70d6",
+      "scripts/harbor-control-agent.ts": "d2cd95ee3bc72d67d232e8139aea11c1cacf5af66f1ebc88b733eec14ae7e7fe",
+      "scripts/harbor-drive-probe.ts": "27286f27071af16e12b82e4c4aaebdbeaf1319458fe5d9b4bf9fa44c145ab304",
+      "scripts/harbor_build.py": "616be1fe26b48006fc47d2fa0fd79b9e61b25d294bcb03fb9bd5f3dea952f1f2",
+      "scripts/harbor_census.py": "1e21bdc0a7a9a8d0c5d7a99d2e82d9d045df62acd6ab9ab4d41da457687d643e",
+      "scripts/harbor_dress.py": "43e103233ef724802e6885d8873b2134251d34dd948092fca4ab96d1af00c8bf",
+      "scripts/harbor_inspect.py": "51819302fe0e0b4e1d0e18418f40b8ce303b2037af37dcd0124252d25a086448",
+      "scripts/harbor_land_cut.py": "e811a3b963351ed540b531047c97a09f55c61e453efdade72ac89f5df159585f",
+      "scripts/harbor_land_verify.py": "2ea7738c0e5bcb8506a14a1d752e8f188c7eae9cf8ffe00e54bdb216ddae76de",
+      "scripts/harbor_materials.py": "e19bec9f5e63d30828fece2e7df695868c53034becf23219729df47c29400de4",
+      "scripts/harbor_validate.py": "56f53545e36d09aa8e66b2374c6425589a93b350bc64655611a06aa1bdedb070",
+      "scripts/harbor_waterfront.py": "1eade460c0222c9662246da02af2e4a433f659fefa38711b286bb372a31a08ba",
+      "scripts/harbor_waterfront_inspect.py": "6877eb782374fed4d55defe407006704440ee2d2a18950e3fb12f04502aab305",
+      "scripts/harbor_waterfront_verify.py": "3ff73ab703265d2d2b910ec74b72581b8aa7e392a4de6a0ef8f5c94bb65f8e22",
+      "scripts/inspect-harbor.mjs": "3c8efc730e22d7d4eba37407f640aa836dd34073ff3aec1d069d9eabb70c6b2f",
+      "scripts/inspection_bay.py": "8199a50311272e4c088304474880c4655365719a6ac8bf7debaef998ed314e35",
+      "scripts/inspection_bay_p03a1.py": "57176e960a4f95dfa27f484dec9edaf4c473bd8bd444012b025fb23e76903a35",
+      "scripts/measure-harbor.mjs": "2d8dc13a6bddd4f076afc54ddfcedaf31a69732f39b0c8a847bdfd9c5b432f67",
+      "scripts/p06_bay_material_probe.mjs": "5d531d53561bf2c047d9fb5b29fe926c189634983a7e55366c1637991869147c",
+      "scripts/p06_bay_preservation.py": "7adddc58d66013386c7c54343d358e47246dc6d1e1355db0e91460fab53c4a7f",
+      "scripts/p06_showcase_build.py": "6a535300383827e99b20860946c4272ab88a5328c2e96001cb07f500338d355f",
+      "scripts/p06_showcase_validate.py": "f7c53f872e0196481d917a1280fdd38d179edaed72abc434326790b1c1572b97",
+      "scripts/p06b_acquire_materials.py": "4f9a57bffcb6f350aa7226b8c5714bbde8d39329b5e54833c38a8f91f09e1ef1",
+      "scripts/p06b_quality_build.py": "607449f7771d7eec8609a29f34260c676ac8756868a4a3bcc9427e955cdb8dd9",
+      "scripts/p06b_validate_assets.py": "c577c84e0eebd9b774380924e6cfb856e44701c047078fceaf3a08f124870fa6",
+      "scripts/p06b_verify_blend.py": "45db4b7db88d04614f3a68dd161825fabc793f4da292dfdcdfc5e7a993fada58",
+      "scripts/p06c_frond_bake.py": "43257e6e065fd55872bba29902a0cd22f383551955ecc705ae4d8c101ec46312",
+      "scripts/p06c_road_material.py": "35b7c03ce0e2a3d8b1d8fe26cbec042e3da926729adbe831eca12f0f09d138a6",
+      "scripts/p06c_source_verify.py": "35b86387b8e6ce4612f2b900b7f7db0493dcca2f9e9b38eb92f03f8d5af47897",
+      "scripts/p06c_waterfront_build.py": "d7f78e4f0421c59e2cbe3150e125442359fc78365e39ee6ef3ab4945a01764a5",
+      "scripts/package-astra-review02.py": "08d371e8c3ac4d7f925f0687d7cb0c91cad9efa86b5522e857def5a999fb2653",
+      "scripts/package-astra-review03.py": "4176455bc43ccc02cd43e6e5fbd40473fbb7aaba20ab7176a48a384293ba78bf",
+      "scripts/package-astra-review04.py": "f802c5ec0b61bf8998312b32cb22212e2ac91c6c7280bf381f2da06c168a477d",
+      "scripts/package-astra-review05.py": "ba432f07c64adc9cd9eef0425a5d1699f62c17b26444e3ffc37efe9c9ae8d0b4",
+      "scripts/package-astra-review06.py": "98eb6367384acda0487d337d7fca27bf894d6cc9023dc6a61f88a280caf18120",
+      "scripts/package-astra-review07.py": "454b2d580fcd362c866199e808423623f6bb120b3f9d14c691efa7f246e97c29",
+      "scripts/package-astra-review08.py": "37efde3988842b6e973eea847074bdc6caa5a7c3a7f9d94de3bfd5183cbaeb76",
+      "scripts/package-astra-review09.py": "0dec12107a7e6077da7270f3aeabea3bb2f2fd7f29472ed9ea5047ca6ec6c753",
+      "scripts/package-astra-review13.py": "8b84402e67198f49c5409f2a603f8c80e6e5a6b419e609003f57d2c566046be6",
+      "scripts/pad.py": "f7abd46e98379a83ab03d0120940171febbe274d67b640f56545b6f167be82d1",
+      "scripts/parity-p05.ts": "6e63435c9ead7701f9bf9735c8da66bb6fc58294e470986e0f5382e2bd8e820b",
+      "scripts/parity-p06.ts": "b25ce30b8f5b83c1bbfebed4bb7d79cfb838f2aeaa820e616c14ecdeea70d6ef",
+      "scripts/parity-p06b.ts": "9704f338cfcb31d60cccdc048d3104e92a357fc6502a36fbdc68ad61bdc2b9c2",
+      "scripts/parity-p06c.ts": "d10ac681225cb73346f065d07ab8d5fc329d71d6bbc14eb4a67f522c618d4a9a",
+      "scripts/physics-review09.mjs": "ef380233e97df953965b26246145b794663ed1e03463dfc113d7bb1bfb19ea17",
+      "scripts/practice-p03b1.py": "97b73ddfac3554e894cf2c260ac4c8b9f9197f0e106292897fcb2083dede3165",
+      "scripts/probe-first-drive-trace.ts": "d67a9bcc2f9c6cc4f587d861969798ecbd3428b7849f40fbe5aebf74b1f102c1",
+      "scripts/probe-first-drive.ts": "ad25ed53db3e1fa3b85fca9a401709523a730b2bde5308512f8dd4f1f52be0e4",
+      "scripts/probe-harbor-runtime.mjs": "35977a9677d335a2ab4088ba78eca0e326da8c7703e268c9c6d8405c48e77d3d",
+      "scripts/probe-practice.ts": "9068baabb182b9fce5a1dae14cea4dc2893db79acfeaa8059e6b7ce083623072",
+      "scripts/product_sm133_build.py": "40c053e12bc756eea96d2d6504d3d20297fa29a1d4a85c492eb21542f2f5d459",
+      "scripts/profile-review08.mjs": "88a6f26fa21a284cf14010a533b99d0fea3674796f63903e07d402b66de9340b",
+      "scripts/profile-review09.mjs": "ac78cb2b609776658114c1160b90bdfafee9ed7707e17006a165053a60b7825a",
+      "scripts/profile-review10.mjs": "f23c24d07ea01bf9fdc30efc2906687973b5058e1872d10096248fb3f235923a",
+      "scripts/profile-review11.mjs": "8cde4c398e435ce71220f3ed0b7119a083b6a9437abc9a5de5e4971ef12727a1",
+      "scripts/profile-review12.mjs": "6fbd242daddbecaf9ac2aea92e043a3ca4d04c53ba9db845aad4ba955ec7319d",
+      "scripts/profile-review13-day.mjs": "09318be63e9438ba9c550ca6df931f0bc6ae00be354e78c19247631e24ff0137",
+      "scripts/record-driving.mjs": "2800022021fa627ea74323ba06450386f84a09b7bde0ec53b64254dcfd6dc085",
+      "scripts/record-p03a-turntable.mjs": "67dd677c39e10f59d5e728609a77fc7c02818e0b963894c5231933150afcd44a",
+      "scripts/record-p03a1.mjs": "0c80636b6794fcc0ebb1f82ead11c276971882fa5930954b04742c2c5a5b9e41",
+      "scripts/record-shadow-comparison.mjs": "91ee7bb96c38606826dbbf86e6d2593d10e8799fc11c362d22f15d5132fb9784",
+      "scripts/record-stress.mjs": "41e1e4b042a7b5fa414981a0f9c648b8a7851e4c32321320584ca546447fee9d",
+      "scripts/report-p03a-asset.py": "39cd001ba92eac34883014e3fd5e952a0584cb713ea078fc81ed14e27f976d30",
+      "scripts/review-p06-interface.mjs": "7d27942169fc3aa67454084234031f02c86f8b555276594198a186578296f3bf",
+      "scripts/review10-trace-generated.mjs": "cdbcd6777d1dd03b38517d39bdc0b08ba90151b2348e6c23d02cb0f916f99b55",
+      "scripts/review11-scene.ts": "035f0e13fec438676e104111655a394ac92661b02c9e6fefbe69412e060d84a1",
+      "scripts/review12-scene.ts": "dbba213f9a8b9fd05a1e7f3b51feca0d8266ac21812478c79fcc33d4164bceea",
+      "scripts/run-review10-matrix.ps1": "cd81397e3e52b6a3bddb2c781f363032620a3b533f1b0d5be5850e9111ab2036",
+      "scripts/run-review11-matrix.ps1": "40a06b8a191be94b65eb45b984802df7062d304253d2fa4b8bb2552d9de37510",
+      "scripts/run-review13-functional.ps1": "d0392df831a00b40b94b83bab12680917df9d88409a9dd87ed7cd313d48bdedd",
+      "scripts/run-review13-matrix.ps1": "829d902ddc2bc4c73204706aa07fda47a26d94d096d06dac1b96fc7d94fab72b",
+      "scripts/smoke-p05.mjs": "2b8bb04537ca2d5352d88ae2725335ea247523f94d09ce9e7bf599b20066360c",
+      "scripts/smoke-review09.mjs": "a8d9fdc2bf5ac06d857a4c1f8abdc8e80e03b6fe45c19b4b912195728c922b64",
+      "scripts/stills-review09.mjs": "0ac7eea70ac6583a94dc04301325ec43dbe01fef8f3b6430303615742e2dfe40",
+      "scripts/summarize-review09.py": "ae63da4dda8c2d5760510f81ca0f29f7a56be39e1fbfe7912fb76c525f961144",
+      "scripts/summarize-review13.py": "2bbd95793014d6d904516c07c0d33d6d2d52f8a434a745f0a83aa54457ade20c",
+      "scripts/test-competition-adversarial.ts": "585413b2f2cd80da77bc3f55679f517a6c76e924f89f25d33bfc760a20878141",
+      "scripts/test-competition-physics.ts": "5ea39fee62215251d8082bb0df2108845261226cbe76dcac5343783ec66c94a6",
+      "scripts/test-driving-controller-evaluation.ts": "161c8cbf1159e207b96a241f4af87ef23643f82bfd44eb568945b2c5fbd7d79c",
+      "scripts/test-driving-evidence.ts": "df8c999557fcd291659e0e0985fb0df9bf3b2b8be73673ad7fe719710862ab8c",
+      "scripts/test-driving-probe.ts": "22a87dba2e93f9e38bbeb6fb21aab22a656c05c818d2b61d5d293d5c9f7bf514",
+      "scripts/test-driving-ramp-diagnosis.ts": "b7483a495c316c772816b073192feb085659a42208c6917ecf42d76a89336f3c",
+      "scripts/test-presenter.mjs": "3bcf90cac431d53608b5b743db1a0fff54adfa667042cfb3572d7ba44905a2d2",
+      "scripts/trace-review10.mjs": "f0092aed05c3d79100b3b562e852f1238e3558df2015f1a48148405a01d43f99",
+      "scripts/validate-review05-media.py": "e35eab165560a980f9d84db3f27e50de7b17fb032717ca263e4f60340bb41df6",
+      "scripts/validate-review06-media.py": "27ad5a16debb3e809e8c097a05c9188cf4baba3c285673e5642e9be8e6ed4f30",
+      "scripts/validate-review07-media.py": "c83de4d264c566bf6930902346d379be23ef91152f1cc753d02f0c9246f3f3f0",
+      "scripts/validate-review12.py": "f135354be8e2833d609e3e024ce900c734f2b270c867fb6eaa3f3daade28358e",
+      "scripts/validate-review13.py": "d4ef3bb77d61f3b4eff516d652bae3636d14f81fba341bd2c08c5ab2d1f44cc2",
+      "scripts/vehicle_build.py": "c5f85b5c682963e9d20bd14bbf56d739f6563b377d7d04aaf2ca4f76d0fe93b0",
+      "scripts/vehicle_inspect.py": "c353002dc638b5aa13d1fb682976988479edac4d37a2d99b5feeb566de06c094",
+      "scripts/vehicle_p03a1_build.py": "313c12ffd589c38ec7b90888e88a3d05673371d59711005b7a155130da098b58",
+      "scripts/vehicle_p03a1_inspect.py": "52e5cbaa728d6d3f518fa8046deff3e348ae6837e8cfb5f5748ca0ccc4e80d6c",
+      "scripts/vehicle_p03a1_materials.py": "672bf08fb95d81d8f8bae57494d164bdad66941af7a5cb778e2a6935af0d262e",
+      "scripts/vehicle_p03a1_verify.py": "5558696ae322a6817118f739cbaddaa5179a00101710b323da56dfe034e623b9",
+      "scripts/vehicle_p03a2_integrate.py": "613f4e4c845e6bc3d5d3d5042a8c801323d19835665215d01a63ab89c297562f",
+      "scripts/vehicle_p03a2_proof01.py": "7cbcc3f09f9c04e0094fa81f3f83788af10a3697b01794c98f5b6e2e78702d10",
+      "scripts/vehicle_p03a2_verify.py": "b3dcb246320ee37987b1b9bfa4be1b8d62172b7979bd3862162a288c021177dc",
+      "scripts/vehicle_p03a2_wire.py": "a7ffae0e918bc9d89088b96c9e1e431550e0b9b0b7d9ae13702a96327289b113",
+      "scripts/vehicle_p03a_build.py": "2bb83105582660952e8ee68a8e35fcc37f6f4756be9b40c69fde61bde9366dce",
+      "scripts/vehicle_p03a_cowl_probe.py": "fec1b65da9fdc511494c2f77723bde734a5272b8288e5bc7b57e703eee0f360f",
+      "scripts/vehicle_p03a_diagnose.py": "3a71de75ae3ef107a8caaf352fd6f047461c9481a13ddd1dcf825fe74b4707fb",
+      "scripts/vehicle_p03a_inspect.py": "2f98f4552f47e3366c573b203a004c9cf8e01a80d0987c5026f37628fabbb61c",
+      "scripts/vehicle_p03a_materials.py": "f16a9ad82ee631869a81b9c0c0a7d27e7e95c0fadb9b8f2add272d34ee22c44c",
+      "scripts/vehicle_p03a_optical_probe.py": "905a06b25fd26517f9bf9200b1cf2375093b675676f49b8ba27dd46828f71926",
+      "scripts/vehicle_p03a_verify.py": "04a7c27f41ef9565ffe7e72d3765235ba51e30b0f107ae2cb0c89edca82dedc0",
+      "scripts/vehicle_p04a1_attachment_probe.py": "8e3d44b828695f2dd40f2075f5c6860fc43b47772ab4c8453c3e35b537482cb2",
+      "scripts/vehicle_p04a1_attribute_probe.py": "ef0a13ba8a2438bcf6d5a0c6434a2bc43de353c6204ed571f55dfe0cf7a2eaec",
+      "scripts/vehicle_p04a1_build.py": "64ad004d327a89d1249e828ba8f7c40ef9b1dd49b765889b627e28ca1cfba6cb",
+      "scripts/vehicle_p04a1_compare.py": "61dabe1273e0105086c8dc6763e9e060d1cf2d1bb0211b72b8b3bed465cf71b7",
+      "scripts/vehicle_p04a1_connections.py": "9fec3d463f229a005504256162913e34f5953c0d20963ce82c8dcdb54277e1a1",
+      "scripts/vehicle_p04a1_hash_probe.py": "094cf8ff690a1c6b1c5ccca2ca7368767cd0d92454c5aca7be2df0ab5b3aeefd",
+      "scripts/vehicle_p04a1_old_diagnostic.py": "c91c7ad64065a40bb2ce14cfc5761b9b21ce7cce0f67893812e0ec253a1d41c5",
+      "scripts/vehicle_p04a1_preserve_export.py": "2d983d72a65b6e8163ab02cd291047f471e5a7de188cb81f334e60ceef661e44",
+      "scripts/vehicle_p04a1_probe.py": "dd71a7ce888d57c331bb66014c950a1035cdad8847c310abf6e2a84369bd59d9",
+      "scripts/vehicle_p04a1_validate.py": "8df9e3668a24843dbe2239a64b62b18acd58e9dc7b0547f7a3850eb19e8b6e8e",
+      "scripts/vehicle_verify.py": "1366ac6466a049c561adb753a7111fb5864f6e3a7bef944eba74fdc6d993eee7",
+      "scripts/verify-career08.mjs": "91c510fd0e18883d8866387266fcc6c849e4157c95c9eb89bf43675d2e4b4838",
+      "scripts/verify-crew-audio.mjs": "15b83ba9378c1f956c8b7a69487c214e80642fe2d243310f19c294d8b08ab7ca",
+      "scripts/verify-crew-controller.mjs": "e14adac14b6de240922ddec2fc775cb3741d9c58478d5ff04695b1d0fe23be8e",
+      "scripts/verify-crew-ui-p06.mjs": "36e52a501998dddffa1441ab6e6d57b20985cffae13e17880d6a6a0068530399",
+      "scripts/verify-crew-ui.mjs": "7f5cae0b61d11f451eecb1926d78abcc1e2a031ef83d259ba495c2f35ad6965c",
+      "scripts/verify-first-drive-audio-final.mjs": "51603ceea9a957e0f76e8d0d2cf594e056475649ee345b7fdf67fce5e8b830a8",
+      "scripts/verify-first-drive-audio.mjs": "78849efb79a0041f8388084568dc01e74b7b7347f256be14ab6c2241f469e62c",
+      "scripts/verify-fresh-chapter.mjs": "7785de7b2607afe8de065b75682a059f4057c13830b87f6eb41d11e8a537cff4",
+      "scripts/verify-harbor-ui.mjs": "56257b901266be2680683f1e46eb460cb47b168f082673dacc6aea707c65c4f1",
+      "scripts/verify-p03a-browser.mjs": "d2cf09a79f7576f80432b723db4fa5471114ed1ed046ee7f0e60b7f7ce27210c",
+      "scripts/verify-p03a1-browser.mjs": "b5ca828ab4ff1e5ef6289c73bc662159b755637c27609b00e2270f7d35e6501f",
+      "scripts/verify-p03b1-browser.mjs": "04d8887a37fcc2fbe59f18924b0db0e5812cbd5f3ac6ecd79e1f39a70d0c39d4",
+      "scripts/verify-p06b-depth.mjs": "17f333911d4f72f20bf3af30eaadfb48715eacaf8d8daa25da087d6707fca7f7",
+      "scripts/verify-rear-kinematics.ts": "60ad0d5cb64c91575b629ab650979cf0013ad30531be03cecb8dd9e9bf2526c6",
+      "scripts/verify-review05-diagnostics.mjs": "077c16cbe894757b70444580fa94576b192b99fdfb3c1943d4f78f3d266c73a6",
+      "scripts/verify-review10.ps1": "21b8fb6f034262214ee9f496967729942d91960104d0c924e3833821834daae2",
+      "scripts/verify-review11-final-transitions.mjs": "2b90888e176085d4b5015cc5ce54063a224652384572f6c07bae8f0359580ad5",
+      "scripts/verify-review11-lifecycle.mjs": "6808ca322f66106096b40f25364ff6f83e66400db81dd37cec24a74e64553a30",
+      "scripts/verify-review12-final-transitions.mjs": "3ae66fcbb53ed2b098a3954962b30b4eb6b49acc8365b11ddf6f7fbfa0ba4d24",
+      "scripts/verify-review12-lifecycle.mjs": "6808ca322f66106096b40f25364ff6f83e66400db81dd37cec24a74e64553a30",
+      "src/audio/evidence.ts": "1e3a34113af4f8bd41dc74e88c568d71203d2f78dfdf540047f2dc5cf088e2ff",
+      "src/audio/game-audio.ts": "8913aaca5b881ed13043d7ddcf86f00e906555a3a5ae4b9730f94713ce9a316d",
+      "src/audio/graph.ts": "a0a16698f6d1a4c917900d3a9a9e89107e02c068bfc2d61d97cab09e2a6b8e17",
+      "src/audio/mapper.ts": "8676c12f0cc00abf0bdf169d5c8816144ae3bf4cd1f6320c4657d4e011049c1a",
+      "src/audio/opponents.ts": "0b6bfd8444c7a628d299d152c4c8d507ad389cf317d55edba764009e4e0e38a9",
+      "src/build.d.ts": "fe2b9cbff3c0ec7157f979ed01e6aa4a3d7e74716e67746c1d010ea42859d432",
+      "src/calibration.ts": "99ae9fd0944145ce47e41664c2a2473b38c39cd869e6c734a35a4532849c98fd",
+      "src/career/build-ui.ts": "6ba58350c46b99cc1a5ec63c5d3486f773e2ae8ae2cad8b89bbf827311e92067",
+      "src/career/build.css": "ac80fa49342ad85f7be809c36a5288c535da868b8ee14be0a3e08017f3a0652a",
+      "src/career/catalog.ts": "70699cd0e69f1fdd3d9cd25321f140d221be8d6b71f76fc175f0761ed8461fec",
+      "src/career/chapter-ui.ts": "0f83a924c67b2beb8d3dd16a443fa8f3ecacd0221dd30e397909299e70b86749",
+      "src/career/chapter.css": "9e548fb7596ca404744b888654aedfddc9d79de94d61ff166d3ea01fd9db31fc",
+      "src/career/client.ts": "92ea24c72d8b9b5c1c02e52950bccd502e7d5092b650c367594ce833c67aa700",
+      "src/career/crew-result.ts": "218cbcac7f56bb7c96a51643187d6003ef893611c2b6b43feb0348d1535c966b",
+      "src/career/menu.ts": "d9adfca62cf01f64c813721f53721f452c8beb400991c6525d68b600d3fe444a",
+      "src/career/store.ts": "f6dfb8ffb551e362e5156fbea4911a70bfbdcf301d2fea623bea89051e31b146",
+      "src/competition/grid.ts": "4a0beeca805c262619726b8d2a999982aa21729472a17a9f7544ff23b9348199",
+      "src/competition/index.ts": "ed5d64b3992c9720be6ab6e5fbe5a50165945c79a4f2e4d3e52a2940a2ca3f10",
+      "src/competition/race.ts": "627e7ad17e3006152b595da2d509b4f4da2d9d4a5cf11d2b2d091cc1ac03021f",
+      "src/competition/rival.ts": "7adb719635636bcd37cf22f5701bdc3213f741f3d42821c2f90a9cf08e2850d3",
+      "src/competition/road.ts": "122e2a8e8784e3b7eb18eeb854069edf41271229bcb3b09d6e068bfb442aa8e5",
+      "src/competition/stability.ts": "a8d29c52fd01c0eb368e0cbe5212de50bc26dc1407a463d907796db22bf314f7",
+      "src/course/environment.ts": "d4922ed1a0e8a9e1aad9930392e6a1d9d3407a17a53eaff46e4f1aca9f0307d3",
+      "src/crew-proximity.ts": "59a1295451a8e14f77751f0e5f8e1951df31ee3313876f8647b07c25d27bda48",
+      "src/crew-ui.ts": "100c78e526e3caea2c22a4e13b1ddfd3edaa9055207fde511cd0ccf5f010f59e",
+      "src/crew.css": "364321f3362af7121448f77234aa673f5cc1d08bd051a738fa77cae9bc7136e8",
+      "src/crew.ts": "47fb2a2461b6c34d6dcae174f6638cc75ca5c1428fd4370be81ecebe2c9a2076",
+      "src/driving/input.ts": "a2bfee228d7f89ee91328566ab03ffb6ba5b05169f5abf09d4266f96ccb81263",
+      "src/driving/session.ts": "28ba566ce3433329c03db9a6448f752e792eba55d7dacfce04ea4c8b66521b6a",
+      "src/harbor-entry.ts": "e1a085459a95e9db5a173bc0f50002f6b7b45fce2ce285cd5653a03e100eae3b",
+      "src/harbor-ui.ts": "6e6139fa2027549f77b9bd4a141c147ccd7ea21764b7bff597260921cc1c00eb",
+      "src/harbor.css": "0341efa123eeaf438ea6a9ead8966e37b3e727f5b7724d1632dc6561314f66a3",
+      "src/harbor.ts": "a8f2a2d4ff23ac09f452eaf7d584959e1834e1fae180bbd9c14b75ad8e8df347",
+      "src/main.ts": "9b1b9061a0be7e1987551d5bb65aab5e9da8c66f250bfc1e3285001c44122573",
+      "src/presentation/chase.ts": "3a15252d7974ac97d912ab0469b06bd0394d030de5a115fe091da293dd120203",
+      "src/presentation/driver.ts": "b2eedde548148069f73fee171a78ed7d3edd04b33a9fbda9cbe581ac3d53e145",
+      "src/presentation/driving-camera.ts": "650e52881cf800a8bbd0799c1cbdf917936295d73e69f05933625efa333ab996",
+      "src/presentation/harbor-lighting.ts": "f8e7cfb92146caa14d51d49b2cedf365096ff258fb1575c92983e02dc8199a42",
+      "src/presentation/harbor-renderer.ts": "c275304668bff7dee9be1b2cd9b5f4b31d6d37ba2301f9870aa5ad0698df50e6",
+      "src/presentation/harbor-water.ts": "1fa61b757d130b58377b86ab90f27dfdc8c6c4126d57bcd1f51c4c1e560625ea",
+      "src/presentation/hero.ts": "1f7083963643650a3f680b8fc0d0e013d8feec6abacf369da53b9d04c2893165",
+      "src/presentation/inspection.ts": "f5d752e886cb1e8db32941d2b8cb9d2ce6a46b270e65d6c02e939ce935ef8458",
+      "src/presentation/outdoor-environment.ts": "4ce15be6aefe4d84ff3e6fa89b10d0fe5bf9b041217c4abf3bfc90d3b8c276e4",
+      "src/presentation/prepare.ts": "f4cd5c10e4aab0054a8f13f5007a101f93e0078056a8d852580526f0d1eb9ef2",
+      "src/presentation/product.ts": "ddfc6258d6aa8fecf119798d700260c019790332248fb9be75c0db5b6e4b4b39",
+      "src/presentation/rear-diagnostic.ts": "31d2538411a9b5ef13da0f141578b184337fe519e05b26c755f9a7f5f43c7b06",
+      "src/presentation/rear.ts": "56431efb6c3ab36bab2b29c6bf1c18405a6735e6c532e8fd72a283a1de5efa92",
+      "src/presentation/runtime-profile.ts": "89d0fe25f4f44816e9d0764661df3fc901eb3f36a85103e14344fd3d54080989",
+      "src/presentation/shadows.ts": "66d954641f911813175e3945eff6b3c81834d6aa76a2424c851595f9100f4d21",
+      "src/presentation/showcase.ts": "3fe376a97864e97306891573fd1f84e36d412428ac8c6a1c248dad7500bcea00",
+      "src/presentation/statistics.ts": "ec73d406122e5782670df19c48a625a8959d03aee52346550c3b19d572111a8e",
+      "src/presentation/vehicle-asset.ts": "98255808142046d884a3969625c32d6dc8db6c27a2006499bb10e1ad1b09577c",
+      "src/race/attempt.ts": "c9ff4d6a450dce2fe59dca063dced81fa3e8bd6d8a39d0957b0e54a99adcb6cf",
+      "src/save.ts": "c1710c13cff8f0f0c6a5a867cce981e4c71e5145ccf52e3fa8b163cd277c4c58",
+      "src/simulation/drivetrain.ts": "361624e7a0ca8f6594f8c21cf195486c76462040f68afcf9a9f9dd1e2f65d6cc",
+      "src/simulation/index.ts": "3496cce0a7c5e9e1a0dd330f837868e26adc0dd15266f2981f4691616d860209",
+      "src/simulation/pad.ts": "28c0097b2f60473a9e00ec766d5277594b4fe66a5d59ae21ebc6eae43d18f2a4",
+      "src/simulation/scenarios.ts": "a256bba146d97026e511094863d615979d43a489e602f15c464a9b79ab7faa57",
+      "src/style.css": "0f0bd66f1aa79ed3c4dcecfa5ca2100c0aee518822569300d2db9e6d7ebee178",
+      "src/workbench.css": "71ae7b41d847fb407395027200282f5f493c2ea34d4754bb961945e52cb6a501",
+      "src/workbench.ts": "280eae001dcadbe8fc25d62e80c3f2e0238723df096bf8d13cc3b97ac9b5303d",
+      "tests/audio-pitch-coherence.test.mjs": "86c091c1a8f4777dd521e60447b97a65a779467e2d59e9e370432593d9132c00",
+      "tests/audio.test.ts": "3ee86cdd01a6512a9d0704987d1935b2db8416a9f36a6fbeac0132c7d1b48dbe",
+      "tests/build-menu-rearm.test.ts": "f374cd0618d99db526e3fb23d6bb3caaa915a52e4fc5760319176b98aea5bcc7",
+      "tests/career-browser.test.mjs": "eb53e6fabb5bdfd53f0e128a44bd930e6fbf8871be54b8f0e998e54577e489c1",
+      "tests/career-handoff.test.mjs": "8019928308849fcdc85fe4ad63014721ea9b84eb3918b31248639e31e7bcf3a3",
+      "tests/career.test.ts": "54ac99d95d64a9b0ca4b51769516ce1de26178bdb6bd868533c98ee66c396ecf",
+      "tests/chapter.test.ts": "13a35f1a03724143742f1fe66cc94f2e6002238cebfa2e5fa71ac28aa83965b4",
+      "tests/competition-rules.test.ts": "cc43efab127fd22c966ba887c2c2b6fccf46d8049121c0eb94d7ed95603867bd",
+      "tests/competition-stability.test.ts": "c33d50163cd58958ec32c135350c379834a6d8a372640c01ac4ab390aa4e9684",
+      "tests/crew-menu.test.ts": "a6654d5610633f7d54fa98af4e6d49556cc0525aaff8de49a70a9d53fc721b53",
+      "tests/crew-proximity.test.ts": "b23567074c1af5b8c3700a4f6e9346756a52de2cb380998337b4c994bb73f95d",
+      "tests/driver.test.ts": "7f5cc8c6d9ca857173713abdcf940e5045293546f42c473abba57b03d3df0e91",
+      "tests/drivetrain-integrated.test.ts": "658b8831d4bd6b246a73ff05dbc01faf81f3a03780405d09ac9610efcb4db0ce",
+      "tests/drivetrain-wheel-speed.test.ts": "4fc917580e23a3439f5c41a49071b317ca1feda217c5e9a407f2d589e8c21446",
+      "tests/driving-session-camera.test.ts": "24f07282c90f4270457ab86a6cc9e3b98ce660860674a7c73b83cc5fa3278e45",
+      "tests/driving.test.ts": "2896906483832f1887f2c43b29805803509ae55e8f2abc083c601a80dea22d78",
+      "tests/environment-quality.test.mjs": "580a3e885fa680953e5eb0af45a6ae88fff85bd60828954f3a99df52fe73f236",
+      "tests/first-drive-camera.test.ts": "60f724c60f3aa8007eda989d8be459cdc9c64317ac28eefa09914707de06db31",
+      "tests/fixtures/first-drive-trace.ts": "936e4109669042d06dd7818a1de01dce6b8cb7e5fdd28827d89936123d5cf1b9",
+      "tests/fixtures/practice-trace.ts": "6fcf08934e6e8493ef1f476942980759d43a3df1a4f6a0ffcb63d7cda1e31d85",
+      "tests/harbor-course.test.ts": "74b2d6e7fa4957642202258054a816eb199ab14de38ef283d263a82e8fcf5e50",
+      "tests/harbor-race.test.ts": "262d7ad19432232374916caa2e763ffc07c2ba86ec7203d9f3f60e8ad0b003e8",
+      "tests/harbor-save.test.ts": "d7dd86579455bc0305d562b93db1a7a18efb8ba924558e0ee5b4507c50fc40ff",
+      "tests/harbor-water.test.ts": "a6371b6f819b00bca69313a8474990cd866eb77ab2c393234654422c72823c43",
+      "tests/input.test.ts": "2196b8e320d196ad4432c21d3d514191dd53177313504a24c0f7c6c96c0c5f68",
+      "tests/inspection-framing.test.ts": "b0a0e10da16760fe3f40564fe8b896fe12c8f4628ec05162be7ff0e1941b7c74",
+      "tests/light-pool-stability.test.ts": "9ec772686e73d76b596b0129769d9d41512d9708ecfb1a074c6cf65a521d03eb",
+      "tests/live-audio-capture.test.mjs": "0fe6198264e5b565ab72b26b775d25bc1147f06a5d807e760caf75fb9d975b9b",
+      "tests/outdoor-environment.test.ts": "f686da9dc46828f7dc93a954317136c57a83f30545f24d321f1ec380e7ee411f",
+      "tests/product-light-lifecycle.test.ts": "3a934323c0182fa1076069b2bf363585599124efb16925b6cd68881140951497",
+      "tests/rear-presentation.test.ts": "609cb2ded1e3104b7a3268369e29ea5c733b270a62aee10d1eb789d0c9089c61",
+      "tests/shadow-casters.test.ts": "aab47840dda58952d9b622bfda459b69a8a84816c81de6e5197eb55bbb765320",
+      "tests/shared-world.test.ts": "230f8d822ce1011464fc28d4c2a3ecff2d82bde5c2bc82f79c2158739e8c235e",
+      "tests/showcase-disposal.test.ts": "6785d2b3939b1e5be57dfc7e50bc1a40c3a620dfebf9fbdf36b6f67e06eea964",
+      "tests/showcase-ui.test.mjs": "575ec433406e0efb612d31dccb483378fc1bf4785277cda2ea31e3d6cf0096b7",
+      "tests/smoke.test.ts": "f9bba6ec56ae4bcf2d0669190da02b669145cf4ac2ce30e364daaebfe7b96008",
+      "tests/waterfront-assets.test.mjs": "689ec55221ab795bb65d899252b4d54c73d7c2a62fa8877dd04493787730579d",
+      "tsconfig.json": "8f7bac85e385b1324494f48a8043e8bf6f57d966e368090c0eb37763c4a3dcd7",
+      "vite.config.ts": "1f372e3798eb36f1a2f55a341593f649683d07a0b38b6a065d43701aeec4ba1f"
+    },
+    "method": "P06C selected current runtime/public assets and complete source/test/authoring/capture scripts; stable throughout TypeScript/Vite build"
+  },
+  "method": "Actual isolated ordinary Build UI, saved earned-v1 fixture migrated by runtime. Stock comparison is preview only. Same explicit camera position4.2/2.4/-6.3,target0/.6/0,FOV38 and established Build view offset,1280x720 DPR1. No personal profile or ownership fabrication.",
+  "rows": [
+    {
+      "name": "installed-day",
+      "workbenchLoadMs": 3490.7000000476837,
+      "preparation": {
+        "ms": 20.80000001192093,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 4.900000035762787
+          },
+          {
+            "name": "compile-async",
+            "ms": 13.599999964237213
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 1.600000023841858
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 34,
+        "programs": 15,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "programs": 15,
+      "commit": "b4eef3c7dab3",
+      "product": {
+        "equipped": true,
+        "appearance": {
+          "color": "cyan",
+          "brightness": 0.7,
+          "enabled": true
+        },
+        "attached": true,
+        "lights": 2,
+        "residentLights": 2,
+        "emitterNits": [
+          1050,
+          1050
+        ],
+        "nominalLumens": [
+          150.08958902525237,
+          150.08958902525237
+        ],
+        "extraShadowMaps": 0,
+        "meshes": 2,
+        "triangles": 2368,
+        "lightOrigins": [
+          [
+            -0.61,
+            0.122,
+            -0.04
+          ],
+          [
+            0.61,
+            0.122,
+            -0.04
+          ]
+        ],
+        "method": "Two downward narrow rectangular area lights aligned with chassis-mounted side strips, plus emissive Blender diffusers. Actual receiver geometry/normals and distance falloff; no glow decal or new shadow maps. Artistic approximation: no fine underside/barrier occluder shadows, not measured photometry."
+      },
+      "career": {
+        "version": 2,
+        "revision": 6,
+        "credits": 300,
+        "owned": true,
+        "equipped": true,
+        "appearance": {
+          "color": "cyan",
+          "brightness": 0.7,
+          "enabled": true
+        },
+        "chapters": {
+          "entry": true,
+          "firstCompletion": true,
+          "firstBuild": true
+        },
+        "receipts": {
+          "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+            "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+            "kind": "award",
+            "amount": 800,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-11T23:22:28.006Z"
+          },
+          "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+            "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+            "kind": "purchase",
+            "amount": -600,
+            "balance": 200,
+            "first": true,
+            "at": "2026-09-11T23:23:01.763Z"
+          },
+          "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+            "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+            "kind": "award",
+            "amount": 100,
+            "balance": 300,
+            "first": false,
+            "at": "2026-09-11T23:24:35.069Z"
+          }
+        },
+        "crew": {
+          "invitationSeen": false,
+          "completed": false,
+          "bestPlace": null,
+          "cleared": false,
+          "clearAcknowledged": false
+        }
+      },
+      "build": {
+        "open": true,
+        "preview": false,
+        "compare": false,
+        "night": false,
+        "pending": false,
+        "career": {
+          "version": 2,
+          "revision": 6,
+          "credits": 300,
+          "owned": true,
+          "equipped": true,
+          "appearance": {
+            "color": "cyan",
+            "brightness": 0.7,
+            "enabled": true
+          },
+          "chapters": {
+            "entry": true,
+            "firstCompletion": true,
+            "firstBuild": true
+          },
+          "receipts": {
+            "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+              "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+              "kind": "award",
+              "amount": 800,
+              "balance": 800,
+              "first": true,
+              "at": "2026-09-11T23:22:28.006Z"
+            },
+            "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+              "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+              "kind": "purchase",
+              "amount": -600,
+              "balance": 200,
+              "first": true,
+              "at": "2026-09-11T23:23:01.763Z"
+            },
+            "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+              "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+              "kind": "award",
+              "amount": 100,
+              "balance": 300,
+              "first": false,
+              "at": "2026-09-11T23:24:35.069Z"
+            }
+          },
+          "crew": {
+            "invitationSeen": false,
+            "completed": false,
+            "bestPlace": null,
+            "cleared": false,
+            "clearAcknowledged": false
+          }
+        },
+        "durable": true
+      },
+      "chapter": {
+        "visible": false,
+        "pending": false,
+        "invitation": false,
+        "crew": {
+          "invitationSeen": false,
+          "completed": false,
+          "bestPlace": null,
+          "cleared": false,
+          "clearAcknowledged": false
+        }
+      },
+      "memory": {
+        "geometries": 87,
+        "textures": 35
+      },
+      "rear": {
+        "wheelCenter": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "visibleWheelCenter": [
+          0,
+          0.34549999237060547,
+          1.3335000276565552
+        ],
+        "wheelCenterError": 2.8689592360540838e-8,
+        "hub": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "armPivot": [
+          0.28,
+          0.32,
+          0.68
+        ],
+        "armHub": [
+          0.28,
+          0.3455,
+          1.3335
+        ],
+        "shockUpper": [
+          0.28,
+          0.8,
+          1.025
+        ],
+        "shockLower": [
+          0.28,
+          0.37285,
+          1.13745
+        ],
+        "axleCenter": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "axleCenterError": 0,
+        "armEndpointError": 0,
+        "shockEndpointError": 5.551115123125783e-17,
+        "armLength": 0.6539973241535472,
+        "armLengthChange": 0,
+        "armScale": 1,
+        "shockLength": 0.44170366197259453,
+        "wheelSpin": 0,
+        "groups": {
+          "arm": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "belt": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "axle": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "caliper": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "shockBody": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            1.1102230246251565e-16,
+            2.220446049250313e-16,
+            1
+          ],
+          "shockPiston": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            5.551115123125783e-17,
+            2.220446049250313e-16,
+            1
+          ],
+          "shockSpring": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            1.1102230246251565e-16,
+            2.220446049250313e-16,
+            1
+          ]
+        }
+      },
+      "assetStatistics": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 77,
+        "triangles": 211739,
+        "uvMeshes": 77,
+        "materials": [
+          {
+            "name": "P03A_Textured_Polymer",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Gloss_Black_Wheel",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Orange_Accent",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Radar_Blue",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Recess_Black",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Glass",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Scale",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Charcoal",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Silver",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Wind_Deflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Rubber",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Brake_Caliper",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Tail_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Clear_Optical_Cover",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "molded-polymer_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "radar-blue_basecolor",
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 22369622
+          },
+          {
+            "name": "radar-blue_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "instrument-scale_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "sport-seat_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 93672804
+      },
+      "shadowMode": "repaired",
+      "shadowCensus": [
+        {
+          "name": "belt_visual__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "P03A1_cheek_to_lower_return_left001",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "P03A1_cheek_to_lower_return_left001_1",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Instrument_Glass",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Instrument_Scale",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Seat_Silver",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Wind_Deflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_steer__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_steer__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_brake__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_brake__Tail_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Clear_Optical_Cover",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Optical_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Optical_Reflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Amber_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Amber_Reflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_axle_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_body_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_body_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_caliper_visual__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_pulley_visual__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_pulley_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_body_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_body_visual__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_piston_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_spring_visual__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "SM133_Diffuser",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "SM133_Housing",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Showroom_Epoxy",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Dock_Timber",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Slingmods_Red",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Powdercoat",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Painted_White",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Aluminum",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Showcase_Practical_Atlas",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Cast_Concrete",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Mineral_Stucco",
+          "caster": false,
+          "receiver": true
+        }
+      ],
+      "bounds": [
+        1.9995292574167252,
+        1.3307319805026054,
+        3.8253053426742554
+      ],
+      "nodes": [
+        {
+          "id": "front_left",
+          "steer": true,
+          "spin": true,
+          "position": [
+            -0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "presentedPosition": [
+            -0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "steerQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "front_right",
+          "steer": true,
+          "spin": true,
+          "position": [
+            0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "presentedPosition": [
+            0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "steerQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear",
+          "steer": false,
+          "spin": true,
+          "position": [
+            0,
+            0.34549999237060547,
+            1.3335000276565552
+          ],
+          "presentedPosition": [
+            0,
+            0.34549999237060547,
+            1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "telemetry": null,
+      "rearCaliper": null,
+      "steeringControlQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "driverStatistics": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 4,
+        "triangles": 28411,
+        "uvMeshes": 4,
+        "materials": [
+          {
+            "name": "Driver_Textile",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Leather",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Helmet",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "Driver_Visor",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 16777218
+      },
+      "driver": {},
+      "driverProjection": {},
+      "cameraMode": "near",
+      "activeView": "near",
+      "inputState": null,
+      "cameraTarget": [
+        0,
+        0,
+        0
+      ],
+      "cameraPosition": [
+        4.199999999999999,
+        2.4000000000000004,
+        -6.299999999999999
+      ],
+      "cameraFov": 38,
+      "projectedBounds": {
+        "minX": -0.053612759521833676,
+        "maxX": 0.8024936457773371,
+        "minY": -0.5882901819813948,
+        "maxY": 0.34922168288185246,
+        "allInFront": true
+      },
+      "renderInfo": {
+        "frame": 42,
+        "calls": 163,
+        "triangles": 465051,
+        "points": 0,
+        "lines": 0
+      },
+      "renderer": "WebKit WebGL"
+    },
+    {
+      "name": "stock-day",
+      "workbenchLoadMs": 3490.7000000476837,
+      "preparation": {
+        "ms": 20.80000001192093,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 4.900000035762787
+          },
+          {
+            "name": "compile-async",
+            "ms": 13.599999964237213
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 1.600000023841858
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 34,
+        "programs": 15,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "programs": 15,
+      "commit": "b4eef3c7dab3",
+      "product": {
+        "equipped": false,
+        "appearance": {
+          "color": "cyan",
+          "brightness": 0.7,
+          "enabled": true
+        },
+        "attached": false,
+        "lights": 0,
+        "residentLights": 2,
+        "emitterNits": [
+          0,
+          0
+        ],
+        "nominalLumens": [
+          0,
+          0
+        ],
+        "extraShadowMaps": 0,
+        "meshes": 2,
+        "triangles": 2368,
+        "lightOrigins": [
+          [
+            -0.61,
+            0.122,
+            -0.04
+          ],
+          [
+            0.61,
+            0.122,
+            -0.04
+          ]
+        ],
+        "method": "Two downward narrow rectangular area lights aligned with chassis-mounted side strips, plus emissive Blender diffusers. Actual receiver geometry/normals and distance falloff; no glow decal or new shadow maps. Artistic approximation: no fine underside/barrier occluder shadows, not measured photometry."
+      },
+      "career": {
+        "version": 2,
+        "revision": 6,
+        "credits": 300,
+        "owned": true,
+        "equipped": true,
+        "appearance": {
+          "color": "cyan",
+          "brightness": 0.7,
+          "enabled": true
+        },
+        "chapters": {
+          "entry": true,
+          "firstCompletion": true,
+          "firstBuild": true
+        },
+        "receipts": {
+          "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+            "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+            "kind": "award",
+            "amount": 800,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-11T23:22:28.006Z"
+          },
+          "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+            "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+            "kind": "purchase",
+            "amount": -600,
+            "balance": 200,
+            "first": true,
+            "at": "2026-09-11T23:23:01.763Z"
+          },
+          "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+            "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+            "kind": "award",
+            "amount": 100,
+            "balance": 300,
+            "first": false,
+            "at": "2026-09-11T23:24:35.069Z"
+          }
+        },
+        "crew": {
+          "invitationSeen": false,
+          "completed": false,
+          "bestPlace": null,
+          "cleared": false,
+          "clearAcknowledged": false
+        }
+      },
+      "build": {
+        "open": true,
+        "preview": false,
+        "compare": true,
+        "night": false,
+        "pending": false,
+        "career": {
+          "version": 2,
+          "revision": 6,
+          "credits": 300,
+          "owned": true,
+          "equipped": true,
+          "appearance": {
+            "color": "cyan",
+            "brightness": 0.7,
+            "enabled": true
+          },
+          "chapters": {
+            "entry": true,
+            "firstCompletion": true,
+            "firstBuild": true
+          },
+          "receipts": {
+            "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+              "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+              "kind": "award",
+              "amount": 800,
+              "balance": 800,
+              "first": true,
+              "at": "2026-09-11T23:22:28.006Z"
+            },
+            "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+              "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+              "kind": "purchase",
+              "amount": -600,
+              "balance": 200,
+              "first": true,
+              "at": "2026-09-11T23:23:01.763Z"
+            },
+            "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+              "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+              "kind": "award",
+              "amount": 100,
+              "balance": 300,
+              "first": false,
+              "at": "2026-09-11T23:24:35.069Z"
+            }
+          },
+          "crew": {
+            "invitationSeen": false,
+            "completed": false,
+            "bestPlace": null,
+            "cleared": false,
+            "clearAcknowledged": false
+          }
+        },
+        "durable": true
+      },
+      "chapter": {
+        "visible": false,
+        "pending": false,
+        "invitation": false,
+        "crew": {
+          "invitationSeen": false,
+          "completed": false,
+          "bestPlace": null,
+          "cleared": false,
+          "clearAcknowledged": false
+        }
+      },
+      "memory": {
+        "geometries": 87,
+        "textures": 35
+      },
+      "rear": {
+        "wheelCenter": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "visibleWheelCenter": [
+          0,
+          0.34549999237060547,
+          1.3335000276565552
+        ],
+        "wheelCenterError": 2.8689592360540838e-8,
+        "hub": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "armPivot": [
+          0.28,
+          0.32,
+          0.68
+        ],
+        "armHub": [
+          0.28,
+          0.3455,
+          1.3335
+        ],
+        "shockUpper": [
+          0.28,
+          0.8,
+          1.025
+        ],
+        "shockLower": [
+          0.28,
+          0.37285,
+          1.13745
+        ],
+        "axleCenter": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "axleCenterError": 0,
+        "armEndpointError": 0,
+        "shockEndpointError": 5.551115123125783e-17,
+        "armLength": 0.6539973241535472,
+        "armLengthChange": 0,
+        "armScale": 1,
+        "shockLength": 0.44170366197259453,
+        "wheelSpin": 0,
+        "groups": {
+          "arm": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "belt": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "axle": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "caliper": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "shockBody": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            1.1102230246251565e-16,
+            2.220446049250313e-16,
+            1
+          ],
+          "shockPiston": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            5.551115123125783e-17,
+            2.220446049250313e-16,
+            1
+          ],
+          "shockSpring": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            1.1102230246251565e-16,
+            2.220446049250313e-16,
+            1
+          ]
+        }
+      },
+      "assetStatistics": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 77,
+        "triangles": 211739,
+        "uvMeshes": 77,
+        "materials": [
+          {
+            "name": "P03A_Textured_Polymer",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Gloss_Black_Wheel",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Orange_Accent",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Radar_Blue",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Recess_Black",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Glass",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Scale",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Charcoal",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Silver",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Wind_Deflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Rubber",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Brake_Caliper",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Tail_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Clear_Optical_Cover",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "molded-polymer_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "radar-blue_basecolor",
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 22369622
+          },
+          {
+            "name": "radar-blue_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "instrument-scale_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "sport-seat_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 93672804
+      },
+      "shadowMode": "repaired",
+      "shadowCensus": [
+        {
+          "name": "belt_visual__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "P03A1_cheek_to_lower_return_left001",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "P03A1_cheek_to_lower_return_left001_1",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Instrument_Glass",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Instrument_Scale",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Seat_Silver",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Wind_Deflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_steer__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_steer__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_brake__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_brake__Tail_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Clear_Optical_Cover",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Optical_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Optical_Reflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Amber_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Amber_Reflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_axle_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_body_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_body_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_caliper_visual__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_pulley_visual__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_pulley_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_body_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_body_visual__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_piston_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_spring_visual__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "SM133_Diffuser",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "SM133_Housing",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Showroom_Epoxy",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Dock_Timber",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Slingmods_Red",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Powdercoat",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Painted_White",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Aluminum",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Showcase_Practical_Atlas",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Cast_Concrete",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Mineral_Stucco",
+          "caster": false,
+          "receiver": true
+        }
+      ],
+      "bounds": [
+        1.9995292574167252,
+        1.3307319805026054,
+        3.8253053426742554
+      ],
+      "nodes": [
+        {
+          "id": "front_left",
+          "steer": true,
+          "spin": true,
+          "position": [
+            -0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "presentedPosition": [
+            -0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "steerQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "front_right",
+          "steer": true,
+          "spin": true,
+          "position": [
+            0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "presentedPosition": [
+            0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "steerQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear",
+          "steer": false,
+          "spin": true,
+          "position": [
+            0,
+            0.34549999237060547,
+            1.3335000276565552
+          ],
+          "presentedPosition": [
+            0,
+            0.34549999237060547,
+            1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "telemetry": null,
+      "rearCaliper": null,
+      "steeringControlQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "driverStatistics": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 4,
+        "triangles": 28411,
+        "uvMeshes": 4,
+        "materials": [
+          {
+            "name": "Driver_Textile",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Leather",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Helmet",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "Driver_Visor",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 16777218
+      },
+      "driver": {},
+      "driverProjection": {},
+      "cameraMode": "near",
+      "activeView": "near",
+      "inputState": null,
+      "cameraTarget": [
+        0,
+        0,
+        0
+      ],
+      "cameraPosition": [
+        4.199999999999999,
+        2.4000000000000004,
+        -6.299999999999999
+      ],
+      "cameraFov": 38,
+      "projectedBounds": {
+        "minX": -0.053612759521833676,
+        "maxX": 0.8024936457773371,
+        "minY": -0.5882901819813948,
+        "maxY": 0.34922168288185246,
+        "allInFront": true
+      },
+      "renderInfo": {
+        "frame": 44,
+        "calls": 159,
+        "triangles": 460315,
+        "points": 0,
+        "lines": 0
+      },
+      "renderer": "WebKit WebGL"
+    },
+    {
+      "name": "stock-night",
+      "workbenchLoadMs": 3490.7000000476837,
+      "preparation": {
+        "ms": 20.80000001192093,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 4.900000035762787
+          },
+          {
+            "name": "compile-async",
+            "ms": 13.599999964237213
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 1.600000023841858
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 34,
+        "programs": 15,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "programs": 15,
+      "commit": "b4eef3c7dab3",
+      "product": {
+        "equipped": false,
+        "appearance": {
+          "color": "cyan",
+          "brightness": 0.7,
+          "enabled": true
+        },
+        "attached": false,
+        "lights": 0,
+        "residentLights": 2,
+        "emitterNits": [
+          0,
+          0
+        ],
+        "nominalLumens": [
+          0,
+          0
+        ],
+        "extraShadowMaps": 0,
+        "meshes": 2,
+        "triangles": 2368,
+        "lightOrigins": [
+          [
+            -0.61,
+            0.122,
+            -0.04
+          ],
+          [
+            0.61,
+            0.122,
+            -0.04
+          ]
+        ],
+        "method": "Two downward narrow rectangular area lights aligned with chassis-mounted side strips, plus emissive Blender diffusers. Actual receiver geometry/normals and distance falloff; no glow decal or new shadow maps. Artistic approximation: no fine underside/barrier occluder shadows, not measured photometry."
+      },
+      "career": {
+        "version": 2,
+        "revision": 6,
+        "credits": 300,
+        "owned": true,
+        "equipped": true,
+        "appearance": {
+          "color": "cyan",
+          "brightness": 0.7,
+          "enabled": true
+        },
+        "chapters": {
+          "entry": true,
+          "firstCompletion": true,
+          "firstBuild": true
+        },
+        "receipts": {
+          "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+            "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+            "kind": "award",
+            "amount": 800,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-11T23:22:28.006Z"
+          },
+          "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+            "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+            "kind": "purchase",
+            "amount": -600,
+            "balance": 200,
+            "first": true,
+            "at": "2026-09-11T23:23:01.763Z"
+          },
+          "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+            "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+            "kind": "award",
+            "amount": 100,
+            "balance": 300,
+            "first": false,
+            "at": "2026-09-11T23:24:35.069Z"
+          }
+        },
+        "crew": {
+          "invitationSeen": false,
+          "completed": false,
+          "bestPlace": null,
+          "cleared": false,
+          "clearAcknowledged": false
+        }
+      },
+      "build": {
+        "open": true,
+        "preview": false,
+        "compare": true,
+        "night": true,
+        "pending": false,
+        "career": {
+          "version": 2,
+          "revision": 6,
+          "credits": 300,
+          "owned": true,
+          "equipped": true,
+          "appearance": {
+            "color": "cyan",
+            "brightness": 0.7,
+            "enabled": true
+          },
+          "chapters": {
+            "entry": true,
+            "firstCompletion": true,
+            "firstBuild": true
+          },
+          "receipts": {
+            "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+              "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+              "kind": "award",
+              "amount": 800,
+              "balance": 800,
+              "first": true,
+              "at": "2026-09-11T23:22:28.006Z"
+            },
+            "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+              "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+              "kind": "purchase",
+              "amount": -600,
+              "balance": 200,
+              "first": true,
+              "at": "2026-09-11T23:23:01.763Z"
+            },
+            "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+              "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+              "kind": "award",
+              "amount": 100,
+              "balance": 300,
+              "first": false,
+              "at": "2026-09-11T23:24:35.069Z"
+            }
+          },
+          "crew": {
+            "invitationSeen": false,
+            "completed": false,
+            "bestPlace": null,
+            "cleared": false,
+            "clearAcknowledged": false
+          }
+        },
+        "durable": true
+      },
+      "chapter": {
+        "visible": false,
+        "pending": false,
+        "invitation": false,
+        "crew": {
+          "invitationSeen": false,
+          "completed": false,
+          "bestPlace": null,
+          "cleared": false,
+          "clearAcknowledged": false
+        }
+      },
+      "memory": {
+        "geometries": 87,
+        "textures": 35
+      },
+      "rear": {
+        "wheelCenter": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "visibleWheelCenter": [
+          0,
+          0.34549999237060547,
+          1.3335000276565552
+        ],
+        "wheelCenterError": 2.8689592360540838e-8,
+        "hub": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "armPivot": [
+          0.28,
+          0.32,
+          0.68
+        ],
+        "armHub": [
+          0.28,
+          0.3455,
+          1.3335
+        ],
+        "shockUpper": [
+          0.28,
+          0.8,
+          1.025
+        ],
+        "shockLower": [
+          0.28,
+          0.37285,
+          1.13745
+        ],
+        "axleCenter": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "axleCenterError": 0,
+        "armEndpointError": 0,
+        "shockEndpointError": 5.551115123125783e-17,
+        "armLength": 0.6539973241535472,
+        "armLengthChange": 0,
+        "armScale": 1,
+        "shockLength": 0.44170366197259453,
+        "wheelSpin": 0,
+        "groups": {
+          "arm": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "belt": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "axle": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "caliper": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "shockBody": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            1.1102230246251565e-16,
+            2.220446049250313e-16,
+            1
+          ],
+          "shockPiston": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            5.551115123125783e-17,
+            2.220446049250313e-16,
+            1
+          ],
+          "shockSpring": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            1.1102230246251565e-16,
+            2.220446049250313e-16,
+            1
+          ]
+        }
+      },
+      "assetStatistics": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 77,
+        "triangles": 211739,
+        "uvMeshes": 77,
+        "materials": [
+          {
+            "name": "P03A_Textured_Polymer",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Gloss_Black_Wheel",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Orange_Accent",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Radar_Blue",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Recess_Black",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Glass",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Scale",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Charcoal",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Silver",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Wind_Deflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Rubber",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Brake_Caliper",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Tail_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Clear_Optical_Cover",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "molded-polymer_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "radar-blue_basecolor",
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 22369622
+          },
+          {
+            "name": "radar-blue_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "instrument-scale_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "sport-seat_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 93672804
+      },
+      "shadowMode": "repaired",
+      "shadowCensus": [
+        {
+          "name": "belt_visual__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "P03A1_cheek_to_lower_return_left001",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "P03A1_cheek_to_lower_return_left001_1",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Instrument_Glass",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Instrument_Scale",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Seat_Silver",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Wind_Deflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_steer__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_steer__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_brake__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_brake__Tail_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Clear_Optical_Cover",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Optical_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Optical_Reflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Amber_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Amber_Reflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_axle_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_body_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_body_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_caliper_visual__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_pulley_visual__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_pulley_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_body_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_body_visual__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_piston_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_spring_visual__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "SM133_Diffuser",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "SM133_Housing",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Showroom_Epoxy",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Dock_Timber",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Slingmods_Red",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Powdercoat",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Painted_White",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Aluminum",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Showcase_Practical_Atlas",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Cast_Concrete",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Mineral_Stucco",
+          "caster": false,
+          "receiver": true
+        }
+      ],
+      "bounds": [
+        1.9995292574167252,
+        1.3307319805026054,
+        3.8253053426742554
+      ],
+      "nodes": [
+        {
+          "id": "front_left",
+          "steer": true,
+          "spin": true,
+          "position": [
+            -0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "presentedPosition": [
+            -0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "steerQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "front_right",
+          "steer": true,
+          "spin": true,
+          "position": [
+            0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "presentedPosition": [
+            0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "steerQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear",
+          "steer": false,
+          "spin": true,
+          "position": [
+            0,
+            0.34549999237060547,
+            1.3335000276565552
+          ],
+          "presentedPosition": [
+            0,
+            0.34549999237060547,
+            1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "telemetry": null,
+      "rearCaliper": null,
+      "steeringControlQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "driverStatistics": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 4,
+        "triangles": 28411,
+        "uvMeshes": 4,
+        "materials": [
+          {
+            "name": "Driver_Textile",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Leather",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Helmet",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "Driver_Visor",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 16777218
+      },
+      "driver": {},
+      "driverProjection": {},
+      "cameraMode": "near",
+      "activeView": "near",
+      "inputState": null,
+      "cameraTarget": [
+        0,
+        0,
+        0
+      ],
+      "cameraPosition": [
+        4.199999999999999,
+        2.4000000000000004,
+        -6.299999999999999
+      ],
+      "cameraFov": 38,
+      "projectedBounds": {
+        "minX": -0.053612759521833676,
+        "maxX": 0.8024936457773371,
+        "minY": -0.5882901819813948,
+        "maxY": 0.34922168288185246,
+        "allInFront": true
+      },
+      "renderInfo": {
+        "frame": 47,
+        "calls": 159,
+        "triangles": 460315,
+        "points": 0,
+        "lines": 0
+      },
+      "renderer": "WebKit WebGL"
+    },
+    {
+      "name": "installed-night",
+      "workbenchLoadMs": 3490.7000000476837,
+      "preparation": {
+        "ms": 20.80000001192093,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 4.900000035762787
+          },
+          {
+            "name": "compile-async",
+            "ms": 13.599999964237213
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 1.600000023841858
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 34,
+        "programs": 15,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "programs": 15,
+      "commit": "b4eef3c7dab3",
+      "product": {
+        "equipped": true,
+        "appearance": {
+          "color": "cyan",
+          "brightness": 0.7,
+          "enabled": true
+        },
+        "attached": true,
+        "lights": 2,
+        "residentLights": 2,
+        "emitterNits": [
+          1050,
+          1050
+        ],
+        "nominalLumens": [
+          150.08958902525237,
+          150.08958902525237
+        ],
+        "extraShadowMaps": 0,
+        "meshes": 2,
+        "triangles": 2368,
+        "lightOrigins": [
+          [
+            -0.61,
+            0.122,
+            -0.04
+          ],
+          [
+            0.61,
+            0.122,
+            -0.04
+          ]
+        ],
+        "method": "Two downward narrow rectangular area lights aligned with chassis-mounted side strips, plus emissive Blender diffusers. Actual receiver geometry/normals and distance falloff; no glow decal or new shadow maps. Artistic approximation: no fine underside/barrier occluder shadows, not measured photometry."
+      },
+      "career": {
+        "version": 2,
+        "revision": 6,
+        "credits": 300,
+        "owned": true,
+        "equipped": true,
+        "appearance": {
+          "color": "cyan",
+          "brightness": 0.7,
+          "enabled": true
+        },
+        "chapters": {
+          "entry": true,
+          "firstCompletion": true,
+          "firstBuild": true
+        },
+        "receipts": {
+          "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+            "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+            "kind": "award",
+            "amount": 800,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-11T23:22:28.006Z"
+          },
+          "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+            "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+            "kind": "purchase",
+            "amount": -600,
+            "balance": 200,
+            "first": true,
+            "at": "2026-09-11T23:23:01.763Z"
+          },
+          "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+            "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+            "kind": "award",
+            "amount": 100,
+            "balance": 300,
+            "first": false,
+            "at": "2026-09-11T23:24:35.069Z"
+          }
+        },
+        "crew": {
+          "invitationSeen": false,
+          "completed": false,
+          "bestPlace": null,
+          "cleared": false,
+          "clearAcknowledged": false
+        }
+      },
+      "build": {
+        "open": true,
+        "preview": false,
+        "compare": false,
+        "night": true,
+        "pending": false,
+        "career": {
+          "version": 2,
+          "revision": 6,
+          "credits": 300,
+          "owned": true,
+          "equipped": true,
+          "appearance": {
+            "color": "cyan",
+            "brightness": 0.7,
+            "enabled": true
+          },
+          "chapters": {
+            "entry": true,
+            "firstCompletion": true,
+            "firstBuild": true
+          },
+          "receipts": {
+            "5de3eeb6-dcd8-451e-b890-6ffa8602d668": {
+              "id": "5de3eeb6-dcd8-451e-b890-6ffa8602d668",
+              "kind": "award",
+              "amount": 800,
+              "balance": 800,
+              "first": true,
+              "at": "2026-09-11T23:22:28.006Z"
+            },
+            "79bb8cac-0676-43ac-bd22-14bb8e8dd319": {
+              "id": "79bb8cac-0676-43ac-bd22-14bb8e8dd319",
+              "kind": "purchase",
+              "amount": -600,
+              "balance": 200,
+              "first": true,
+              "at": "2026-09-11T23:23:01.763Z"
+            },
+            "d48e597d-0dc5-4c47-9f66-aacd524d2f3b": {
+              "id": "d48e597d-0dc5-4c47-9f66-aacd524d2f3b",
+              "kind": "award",
+              "amount": 100,
+              "balance": 300,
+              "first": false,
+              "at": "2026-09-11T23:24:35.069Z"
+            }
+          },
+          "crew": {
+            "invitationSeen": false,
+            "completed": false,
+            "bestPlace": null,
+            "cleared": false,
+            "clearAcknowledged": false
+          }
+        },
+        "durable": true
+      },
+      "chapter": {
+        "visible": false,
+        "pending": false,
+        "invitation": false,
+        "crew": {
+          "invitationSeen": false,
+          "completed": false,
+          "bestPlace": null,
+          "cleared": false,
+          "clearAcknowledged": false
+        }
+      },
+      "memory": {
+        "geometries": 87,
+        "textures": 35
+      },
+      "rear": {
+        "wheelCenter": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "visibleWheelCenter": [
+          0,
+          0.34549999237060547,
+          1.3335000276565552
+        ],
+        "wheelCenterError": 2.8689592360540838e-8,
+        "hub": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "armPivot": [
+          0.28,
+          0.32,
+          0.68
+        ],
+        "armHub": [
+          0.28,
+          0.3455,
+          1.3335
+        ],
+        "shockUpper": [
+          0.28,
+          0.8,
+          1.025
+        ],
+        "shockLower": [
+          0.28,
+          0.37285,
+          1.13745
+        ],
+        "axleCenter": [
+          0,
+          0.3455,
+          1.3335
+        ],
+        "axleCenterError": 0,
+        "armEndpointError": 0,
+        "shockEndpointError": 5.551115123125783e-17,
+        "armLength": 0.6539973241535472,
+        "armLengthChange": 0,
+        "armScale": 1,
+        "shockLength": 0.44170366197259453,
+        "wheelSpin": 0,
+        "groups": {
+          "arm": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "belt": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "axle": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "caliper": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "shockBody": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            1.1102230246251565e-16,
+            2.220446049250313e-16,
+            1
+          ],
+          "shockPiston": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            5.551115123125783e-17,
+            2.220446049250313e-16,
+            1
+          ],
+          "shockSpring": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            0,
+            0,
+            0.9999999999999999,
+            0,
+            0,
+            1.1102230246251565e-16,
+            2.220446049250313e-16,
+            1
+          ]
+        }
+      },
+      "assetStatistics": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 77,
+        "triangles": 211739,
+        "uvMeshes": 77,
+        "materials": [
+          {
+            "name": "P03A_Textured_Polymer",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Gloss_Black_Wheel",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Orange_Accent",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Radar_Blue",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Recess_Black",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Glass",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Instrument_Scale",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Machined_Aluminum",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Charcoal",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Seat_Silver",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Wind_Deflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Rubber",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Brake_Caliper",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Tail_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Clear_Optical_Cover",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Optical_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Lens",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "P03A_Amber_Reflector",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          },
+          {
+            "name": "",
+            "type": "MeshBasicMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "molded-polymer_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "molded-polymer_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "radar-blue_basecolor",
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 22369622
+          },
+          {
+            "name": "radar-blue_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "radar-blue_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "instrument-scale_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_basecolor",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_normal",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "machined-alloy_orm",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 1398102
+          },
+          {
+            "name": "sport-seat_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "sport-seat_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "road-tire_orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 93672804
+      },
+      "shadowMode": "repaired",
+      "shadowCensus": [
+        {
+          "name": "belt_visual__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "P03A1_cheek_to_lower_return_left001",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "P03A1_cheek_to_lower_return_left001_1",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "body_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Instrument_Glass",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Instrument_Scale",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Seat_Silver",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "cockpit__Wind_Deflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "steering_control__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_left_steer__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "front_right_steer__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_brake__Seat_Charcoal",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_brake__Tail_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Clear_Optical_Cover",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Optical_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Optical_Reflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_head__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Amber_Lens",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Amber_Reflector",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "lights_signals__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_arm_visual__Radar_Blue",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_axle_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_body_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_body_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_caliper_visual__Brake_Caliper",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_pulley_visual__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_pulley_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Recess_Black",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Rubber",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_spin__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Gloss_Black_Wheel",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "rear_storage_static__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_body_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_body_visual__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_piston_visual__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "shock_spring_visual__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_left__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Machined_Aluminum",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Orange_Accent",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "suspension_front_right__Textured_Polymer",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "SM133_Diffuser",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "SM133_Housing",
+          "caster": true,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Showroom_Epoxy",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Dock_Timber",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Slingmods_Red",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Powdercoat",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Painted_White",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Aluminum",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Showcase_Practical_Atlas",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Cast_Concrete",
+          "caster": false,
+          "receiver": true
+        },
+        {
+          "name": "showcase_bay_Quality_Mineral_Stucco",
+          "caster": false,
+          "receiver": true
+        }
+      ],
+      "bounds": [
+        1.9995292574167252,
+        1.3307319805026054,
+        3.8253053426742554
+      ],
+      "nodes": [
+        {
+          "id": "front_left",
+          "steer": true,
+          "spin": true,
+          "position": [
+            -0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "presentedPosition": [
+            -0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "steerQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "front_right",
+          "steer": true,
+          "spin": true,
+          "position": [
+            0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "presentedPosition": [
+            0.8774999976158142,
+            0.3298499882221222,
+            -1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "steerQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear",
+          "steer": false,
+          "spin": true,
+          "position": [
+            0,
+            0.34549999237060547,
+            1.3335000276565552
+          ],
+          "presentedPosition": [
+            0,
+            0.34549999237060547,
+            1.3335000276565552
+          ],
+          "spinQuaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "telemetry": null,
+      "rearCaliper": null,
+      "steeringControlQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "driverStatistics": {
+        "textureEstimateMethod": "RGBA8 plus full mip chain for each distinct Three.Texture object; shared-image GPU allocations may be reused. Estimate only, excludes environment/targets/geometry.",
+        "meshes": 4,
+        "triangles": 28411,
+        "uvMeshes": 4,
+        "materials": [
+          {
+            "name": "Driver_Textile",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Leather",
+            "type": "MeshStandardMaterial"
+          },
+          {
+            "name": "Driver_Helmet",
+            "type": "MeshPhysicalMaterial"
+          },
+          {
+            "name": "Driver_Visor",
+            "type": "MeshStandardMaterial"
+          }
+        ],
+        "textures": [
+          {
+            "name": "basecolor",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "normal",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          },
+          {
+            "name": "orm",
+            "width": 1024,
+            "height": 1024,
+            "colorSpace": "",
+            "estimatedRGBA8WithMips": 5592406
+          }
+        ],
+        "estimatedTextureBytes": 16777218
+      },
+      "driver": {},
+      "driverProjection": {},
+      "cameraMode": "near",
+      "activeView": "near",
+      "inputState": null,
+      "cameraTarget": [
+        0,
+        0,
+        0
+      ],
+      "cameraPosition": [
+        4.199999999999999,
+        2.4000000000000004,
+        -6.299999999999999
+      ],
+      "cameraFov": 38,
+      "projectedBounds": {
+        "minX": -0.053612759521833676,
+        "maxX": 0.8024936457773371,
+        "minY": -0.5882901819813948,
+        "maxY": 0.34922168288185246,
+        "allInFront": true
+      },
+      "renderInfo": {
+        "frame": 49,
+        "calls": 163,
+        "triangles": 465051,
+        "points": 0,
+        "lines": 0
+      },
+      "renderer": "WebKit WebGL"
+    }
+  ],
+  "errors": []
+}

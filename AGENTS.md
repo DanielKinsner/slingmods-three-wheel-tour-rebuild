@@ -1,4 +1,6 @@
-# Active continuation — P06C Built Waterfront
+# Completed local implementation — P06C Built Waterfront
+
+Review13 is prepared with performance HOLD; read RESUME.md and the P06C REVIEW-ME-FIRST.md. Last accepted director review is Review12. Do not automatically repeat completed P06C or start new features; await the director decision. Second repeated-race p95 is 33.3 ms against 20 ms, reproduced twice; host contention is plausible but unproven. Preserve failed runs and unrelated jobs.
 
 The user supplied SlingMods-Astra-Director-Review-12.zip on this machine and authorized P06C in the existing checkout. Read HANDOFF.md for baseline, RESUME.md for current progress, and director-kit/director-addenda/review-12/CODEX_NEXT.md plus its required packets. The implementation pause below is superseded only for this assignment. Preserve existing/uncommitted work; no restart, remote writes, deployment, spending or desktop takeover. Official Blender download and routine local setup/testing/recoverable commits are authorized. Finish the integrated assignment and prepare Astra-Review-13.zip; do not redo completed milestones. G3/G4 and final environmental art remain pending.
 

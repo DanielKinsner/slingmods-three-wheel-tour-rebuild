@@ -1,0 +1,14 @@
+# Independent harbor UI regression
+
+PASS. Runtime b4eef3c7dab3, HEAD b4eef3c7dab3eb77b131a5100c3be0fd1110b095.
+
+Isolated Playwright Chromium/SwiftShader. Actual browser key events and native buttons; separately labeled virtual standard-controller fixture through the normal reader/session path. Controlled clock, no desktop or physical-controller proof.
+
+- PASS: Native Night-button activation and focused Start Enter preserve selection
+- PASS: Between-frame quick Enter starts once; quick Escape pauses; quick Backspace returns to bay
+- PASS: Physically held W plus repeat remains disarmed across pause/Continue until actual keyup
+- PASS: Whole-attempt reset preserves held-key release requirement through countdown
+- PASS: Denied window.localStorage acquisition still permits ready and attempt start
+- PASS: Virtual standard-controller start-hold/pause/neutral resume/camera/rearward contract
+
+No runtime page errors or input changes during checks. Source/served hashes are in review-functional.json. Final complete-lap, record/settings reload, media, visual, performance and aural judgments remain separate.

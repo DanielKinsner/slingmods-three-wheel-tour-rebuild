@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-14T23:19:43.857837+00:00",
+  "as_of": "2026-09-15T02:38:45.695733+00:00",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "9348fa90311c5fbdfd74529feb50548582cdca17",
+  "commit": "b4eef3c7dab3eb77b131a5100c3be0fd1110b095",
   "current_gate": "G3",
-  "current_packet": "P06C Built Waterfront - M0 verified; M1/M2 sample authoring in progress",
-  "next_action": "Finish background sample export, verify actual assets, capture full-runtime day/night sample, independent critique and repair before full rollout.",
+  "current_packet": "P06C Built Waterfront \u2014 Review13 prepared; performance HOLD",
+  "next_action": "Review Astra-Review-13.zip. Preserve completed P06C and failed timing evidence. Await director decision; causal repeat timing requires a naturally quiet host. G3/G4 and final art remain pending.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -566,7 +566,7 @@
     "G4": "pending"
   },
   "p06c": {
-    "status": "integrated_candidate_validation_in_progress",
+    "status": "review_ready_with_performance_hold",
     "baselineCommit": "9780d62e4ea032dafc414dd838b040ed05565da5",
     "lastAcceptedReview": 12,
     "expectedDelivery": "Astra-Review-13.zip",
@@ -578,6 +578,36 @@
     "G3": "pending",
     "G4": "pending",
     "ensembles": 18,
-    "visualTargetMet": false
+    "visualTargetMet": false,
+    "runtimeCommit": "b4eef3c7dab3eb77b131a5100c3be0fd1110b095",
+    "automatedTests": 121,
+    "failedTests": 0,
+    "protectedRawFiles": 58,
+    "exactFoundationMeshes": 296,
+    "roadRunoffRays": 3080,
+    "soloParityRows": 4200,
+    "functionalReports": 9,
+    "matchedViews": 37,
+    "foliageViews": 40,
+    "performance": {
+      "status": "HOLD",
+      "firstMatrixConfigurations": 5,
+      "firstMatrixCompleteCrewRaces": 6,
+      "daylightCompleteLaps": 1,
+      "diagnosticCrewRaces": 2,
+      "failedSecondAttemptP95Ms": [
+        33.3,
+        33.3
+      ],
+      "activeIntervalsOver100Ms": 0,
+      "limit": "Host CPU contention is plausible but not proven; both failed repeats retained; no unrelated job changes or arbitrary quality reduction."
+    },
+    "media": {
+      "day": "complete valid solo lap; live audio; max sync residual 55 ms",
+      "crew": "complete valid two-lap race, garage return/reload; live audio; max sync residual 40 ms",
+      "humanListeningApproval": false
+    },
+    "packageManifest": "PACKAGE-MANIFEST.json",
+    "remoteChanges": "none; local commits only"
   }
 }

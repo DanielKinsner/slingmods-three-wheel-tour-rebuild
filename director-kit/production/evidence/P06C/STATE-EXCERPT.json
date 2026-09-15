@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "project": "SlingMods: Three-Wheel Tour",
+  "as_of": "2026-09-15T02:38:45.695733+00:00",
+  "workspace_verified": true,
+  "branch": "main",
+  "commit": "b4eef3c7dab3eb77b131a5100c3be0fd1110b095",
+  "current_gate": "G3",
+  "current_packet": "P06C Built Waterfront \u2014 Review13 prepared; performance HOLD",
+  "next_action": "Review Astra-Review-13.zip. Preserve completed P06C and failed timing evidence. Await director decision; causal repeat timing requires a naturally quiet host. G3/G4 and final art remain pending.",
+  "game_implementation_in_this_kit": false,
+  "accepted_game_evidence": [
+    "production/evidence/G0/review.json",
+    "production/evidence/G1/review.json",
+    "production/evidence/G2/review.json",
+    "production/evidence/G2-addendum-01/review.json"
+  ],
+  "gates": {
+    "G0": {
+      "status": "passed",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G1": {
+      "status": "passed",
+      "same_approach_revisions": 1,
+      "approach_changes": 0
+    },
+    "G2": {
+      "status": "passed",
+      "same_approach_revisions": 0,
+      "approach_changes": 2
+    },
+    "G3": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G4": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G5": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G6": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    },
+    "G7": {
+      "status": "pending",
+      "same_approach_revisions": 0,
+      "approach_changes": 0
+    }
+  },
+  "blockers": [
+    "Broader vehicle fidelity held: rounded edge/subdued ridge and tire groove/machining approximation remain.",
+    "G3/G4 pending: final vehicle/aural/environment fidelity and hardware/physical controls remain held. P04A bounded event was explicitly authorized; no full campaign or originalP04 approval.",
+    "Review07: final independent visual review unavailable after specialist usage limit; lead review and structural evidence supplied. Rear OEM storage shape, environment polish, audio timbre and physical-control approval remain held.",
+    "Review09 awaits Astra: local night-readability and racing performance targets met; daylight strength/fine occlusion, driver-cache/hardware breadth and global G3/G4 fidelity/aural approval remain limited."
+  ],
+  "unknowns": [
+    "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
+    "Physical target-device, GPU performance and controller testing remain unperformed.",
+    "Ryker Rally overall-length source discrepancy: 2.35204 m is provisional blockout scale only.",
+    "Mass, tire, suspension and drivetrain coefficients are documented simulation estimates; real vehicle handling is not established.",
+    "P03B2 driver/camera/audio are implemented for bounded review; authentic engine character, physical controls/output/performance and full garage/campaign remain unverified or unimplemented."
+  ],
+  "commands": {
+    "build": "npm run build",
+    "test": "npm test",
+    "dev": "npm run dev",
+    "preview": "npm run preview",
+    "gate_g0": "npm run gate:g0",
+    "gate_g1": "npm run gate:g1",
+    "gate_g2": "npm run gate:g2",
+    "capture_vehicle": "npm run capture:vehicle",
+    "capture_driving": "npm run capture:driving",
+    "record_driving": "npm run record:driving",
+    "record_stress": "npm run record:stress",
+    "presenter": "npm run test:presenter",
+    "calibration": "Set EVIDENCE_DIR to a new folder before npm run test:browser; never overwrite accepted evidence",
+    "blender": ".tools/blender-4.5.2-windows-x64/blender.exe --background --factory-startup --python scripts/vehicle_build.py",
+    "capture_p03a": "Use new EVIDENCE_DIR, node scripts/build-review.mjs then npm run capture:p03a"
+  },
+  "rejected_approaches": [
+    "P01 revision01: flat center lamp, missing raised hood inlet and tubular splitter. Repaired in revision02; G1 independently accepted.",
+    "P02 point-ray curb support caused excessive pitch. Replaced with five-sample wheel envelope selecting exactly one support/load per wheel; still only three tire-force channels.",
+    "P02 passive wheel-guard versus large convex ground slab generated an asymmetric solver impulse and uncommanded incline yaw. Diagnosed with contact instrumentation and repaired using planar ground triangles and frictionless passive guards. Strict three-lane regression failed before repair and passed after; maximum drift 0.01844 m and heading error 0.02958 degrees. See production/evidence/G2/revision02/dynamics-ramp-cause.md.",
+    "Held-reset based on clamped simulation elapsed failed real keyboard test. Replaced with continuous monotonic held time, clearing on release, pause and focus loss; final isolated keyboard recording verifies interrupted and fresh holds.",
+    "Initial cockpit captures were framed away from a car at z=35 and did not establish steering visuals. Preserved under G2/presenter-revision01; corrected capture reset to z=0 and independent reviewer inspected both final steering views."
+  ],
+  "kit_revision": 2,
+  "build_mode": "EXISTING_REBUILD",
+  "workspace_root": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+  "new_repository_required": false,
+  "legacy_import_allowed": false,
+  "save_namespace": "slingmods-twt-rebuild-v1",
+  "commit_meaning": "Frozen Review09 runtime; later packaging-only commit in ZIP manifest",
+  "known_limitations": [
+    "High-speed impact into an 18 cm vertical curb at 21.66 m/s produces about 3.48 m flight before recovery. G2 accepts this solely as a bounded severe-impact simcade approximation; not real crash/OEM behavior.",
+    "SwiftShader browser recordings run slower than wall-clock real time. Injected 30/60/120/144 frame caps validate simulation scheduling and final poses, not sustained physical render performance.",
+    "Historical before P04A: Instruments, infotainment and lamp emission are passive; no live mirror or nighttime beam system. Photo-guided shapes and materials remain approximations. P04A adds actual harbor headlight beams and brake emission; instruments/mirrors remain simplified.",
+    "Historical P03A local visual PASS was rejected by Astra Review02; that review remains preserved as history. P03A1 is a bounded best candidate with specific visual HOLD, not an accepted complete slice.",
+    "P03A1 uses a 192,839-triangle showroom mesh on the pad as a disclosed exception to the 140k racing-LOD aim; no physical GPU-memory/FPS or LOD approval.",
+    "Review03 movies use silent frame-stepped runtime capture at12fps; software wall time is separately recorded. No human-driving or real-time-FPS claim.",
+    "P03A2 development default is211431 triangles/59 primitives, below250k showroom ceiling but above140k racing-LOD aim; same16 maps and source mip estimate76895573 bytes.",
+    "P03B1 uses noncolliding guide cones and a virtual controller for automated evidence; real navigator.getGamepads production reader exists, physical controller/performance/subjective fun not tested.",
+    "P03B2 sound is original local synthesis, not OEM exhaust recording. Audio source timbre remains held absent auditory review. Body fidelity and hardware/physical gamepad certification remain held.",
+    "P04A scenery is a modular provisional harbor with angular palms, repeated shed forms, sparse infield, road bands and oversized overview water reflections. No final environmental/vehicle polish approval.",
+    "Historical first P04A SwiftShader fixture: frame means350/298/309ms at720p and significant stalls; preserved separately. Replacement RTX4080 D3D11 short720p runs mean16.887/16.666/16.666ms, p95 16.8ms; day max150ms. Not sustained hardware certification or proof of low-mode speed gain.",
+    "P04A cockpit uses fixed original eye with scene-specific gaze/FOV; lower hands are more cropped. Night practicals use a nearest-light pool; refined transitions remain visual review work.",
+    "Review06 director found a preserved actual rear tire/firewall intersection and missing rear articulation. P04A1 addresses this specific defect; older blanket vehicle freezes and local appearance claims did not certify rear integrity.",
+    "Review07 resolves old actual rear tire/firewall overlap and chassis-static rear links without wheel/contact/physics edits; two local spatial revisions exhausted. Current rear storage remains boxy/provisional. Vertical-raycast visual linkage approximation and sampled moving-mechanism sweep limits are disclosed in P04A1/review-final.md.",
+    "P04A2 reduces bands and replaces palm crowns but thin silhouettes, repeated buildings, sparse infield and strong highlights remain. Review07 short720pD3D11 means16.860/16.666/16.666ms;daymax133.3ms;not sustained hardware/physical-controller or listening approval.",
+    "P04B1 delivered one real-product cosmetic career loop. Side strips model1.2m visible runs; omitted hidden receiver/harness/continuation and2015 installation adaptation disclosed.2area lights/no new shadow maps; warm bay adds4calls including existing passes,Harbor2calls. Harbor glow subtle; no fine occluder shadows. Two lighting constructions exhausted.",
+    "Review08 capture-inclusive12second wall-clock test:stock21.4575msmean/2699.8msmax;equipped27.186msmean/4666.5msmax. Severe stalls visible in real-time excerpt; cause not isolated. Controlled85second lap does not certify smooth live performance."
+  ],
+  "accepted_assets": [
+    "assets/blender/calibration.blend",
+    "public/assets/calibration.glb",
+    "assets/blender/vehicles/slingshot-p01.blend",
+    "public/assets/vehicles/slingshot.glb",
+    "assets/blender/vehicles/vehicles-scale-blockouts.blend",
+    "public/assets/vehicles/scale-blockouts.glb",
+    "assets/blender/test-pad.blend",
+    "public/assets/test-pad.glb",
+    "public/assets/slingshot-contact-layout.json",
+    "assets/blender/vehicles/slingshot-p03a.blend",
+    "public/assets/vehicles/slingshot-p03a.glb",
+    "assets/blender/inspection-bay-p03a.blend",
+    "public/assets/inspection-bay-p03a.glb",
+    "public/assets/textures/p03a/",
+    "public/assets/textures/bay/"
+  ],
+  "verification": {
+    "tests": "74/74 full source; TS/Vite build PASS",
+    "browser": "6 retained UI regressions; owned/unowned native menu/reload/power/stock checks PASS",
+    "performance": "5 final unrecorded full first-lap/retry trials, 10 valid laps; p95 16.7ms, p99 16.8ms, max racing33.2ms; stable14programs; all outliers and loading preserved",
+    "physics": "10200 exact off/on telemetry objects;45 protected inputs unchanged",
+    "visual": "Readable red/cyan matched near-chase and actual silent25s night motion; fine occlusion/daylight/photometry limits retained",
+    "evidence": "production/evidence/P04B2"
+  },
+  "director_addendum": "director-addenda/review-08/CODEX_NEXT.md",
+  "drivetrain_addendum": {
+    "status": "independently_passed",
+    "commit": "9add1f9",
+    "evidence": "production/evidence/G2-addendum-01/review.json",
+    "scope": "Signed-speed correction; existing tick-start body-forward coupling approximation retained and quantified"
+  },
+  "fresh_start_requirement": "Fulfilled by this existing standalone repository; continue here without scaffolding, resetting or importing legacy assets.",
+  "p03a": {
+    "status": "historical_local_pass_director_visual_rejected",
+    "visual_review": "production/evidence/P03A/review-final.md",
+    "asset": "public/assets/vehicles/slingshot-p03a.glb",
+    "sha256": "5ca79ccf1608491a4c82079d570d0928c85c3581f5ebcf7d557404864250cee2",
+    "normal_entry": "inspection bay",
+    "scope": "One Slingshot, compact inspection bay and same-asset test pad only; stop for Astra review; G3 pending",
+    "review": "production/evidence/P03A/review-final.json",
+    "runtime_commit": "fbe89bf31cd81af7b77ec60358c0bcd65056e53a",
+    "evidence": "production/evidence/P03A/final-02/",
+    "director_review": "Review02 accepts engineering and rejects the blanket visual PASS; historical local review preserved. Named visual corrections now P03A1."
+  },
+  "p03a1": {
+    "status": "retained_candidate_visual_hold",
+    "baseline_commit": "b9fb6227a2383093b671cd67148e7039b7a78e80",
+    "reconciliation": "Tracked work matched submitted checkpoint. Existing untracked historical captures, ZIPs and material-lab source preserved. No resets/checkouts/scaffolding.",
+    "scope": "Reference-locked fascia/wheel/cockpit, AA graphics, compact rig/framing; no dynamics changes or next gameplay packet.",
+    "visual_blocker": "Outer brow retains broad flat end-cap bands and segmented leading-edge transitions after bounded construction attempts. Preserve best geometry; no blanket visual PASS.",
+    "candidate": "public/assets/vehicles/slingshot-p03a1.glb",
+    "runtime_commit": "404dff91255eb0dadcaadeb81075f86508f36607",
+    "sha256": "f2a417f75028b534a334168670baac3a411d1a0731bd927d0e82a43c8006b1b9",
+    "review": "production/evidence/P03A1/review-final.json",
+    "evidence": "production/evidence/P03A1/final/",
+    "material_result": "Close graphic AA earned in final cabin/cockpit views; seat upholstery separation improved. Tire pattern remains approximate.",
+    "geometry_method": "After two subdivision/sweep attempts, switched named front regions to connected sectional surfaces; fourth neutral candidate retained after bounded correction. Outer brow remains HOLD.",
+    "normal_entry": "Compact inspection bay, same candidate Drive route",
+    "gate_advance": false,
+    "motion": "SILENT 13-second orbit and 20-second frame-stepped pad/grass-edge maneuver; no human or real-time performance claim."
+  },
+  "historical_review_evidence": [
+    "production/evidence/P03A/review-final.json",
+    {
+      "review": "Review08",
+      "packet": "P04B1",
+      "runtime": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
+      "holds": "Night-readability and wall-clock stalls authorized for P04B2 investigation; original evidence retained."
+    }
+  ],
+  "p03a2": {
+    "status": "local_shell_repair_and_integration_reviewed_provisional",
+    "candidates_evaluated": 1,
+    "candidate": "public/assets/vehicles/slingshot-p03a2.glb",
+    "review": "production/evidence/P03A2/review-integration.md",
+    "scope": "Only two brows replaced from separately reviewed boundary-controlled connected quad master; all717 other source parts and16 maps frozen",
+    "limits": "Rounded edge/subdued ridge and tire groove/machining fidelity remain approximate. Whole-vehicle fidelity held; G3 pending.",
+    "runtime_commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+    "sha256": "a22c36fe04b541c6121f5c6f78fd2b8cfe1e0b8dcec71b98bf7e44b276df23af"
+  },
+  "p03b1": {
+    "status": "bounded_controls_camera_practice_review_ready",
+    "scope": "Shared keyboard/standard gamepad reader, lifecycle/rearm, unsnapped near/far/look-back chase,18 Blender noncolliding practice cones",
+    "evidence": "production/evidence/Review04-final/",
+    "physics_changed": false,
+    "physical_controller_tested": false,
+    "runtime_commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+    "review": "production/evidence/P03B1/review-final.md",
+    "camera_limit": "Near held-lookback clips lower nose; rearward road/cones visible, release restores chase. No physical FPS or obstruction-transition/resize certification."
+  },
+  "p03b2": {
+    "status": "implemented_review_ready_aural_fidelity_hold",
+    "scope": "Separate Blender driver, cockpit/near/far, quick held rearward cut, actual telemetry audio and faster pad demonstration",
+    "driver": "public/assets/drivers/test-driver.glb",
+    "attachment": "public/assets/drivers/test-driver-attachment.json",
+    "audio": "public/assets/audio/p03b2/provenance.json",
+    "asset_candidates": {
+      "driver_fit_corrections": 1,
+      "driver_materials": 1,
+      "audio_bank": 1
+    },
+    "aural_fidelity": "HOLD original local synthetic approximation; no genuine audition/hardware output certification",
+    "driver_fit": "Separate final review PASS for bounded driver presentation;300-state large-steer diagnostic with98 releasing states, zero simultaneous release. Finger articulation and support sliding simplified.",
+    "g3_advance": false,
+    "runtime_commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+    "evidence": "production/evidence/Review05-final/",
+    "review": "production/evidence/P03B2/review-final.md",
+    "browser_audio": "production/evidence/Review05-browser-final/audio-browser.json",
+    "actual_peak_mph": 51.50663612298599,
+    "actual_gears": [
+      1,
+      2
+    ],
+    "actual_forward_upshift_seconds": 6.85,
+    "film_seconds": 35,
+    "encoded_fps": 24,
+    "audio_method": "Shared graph/mapper/buffers OfflineAudioContext from full logical timeline; ordinary browser lifecycle independently exercised; no live hardware audio/listening claim",
+    "physics_changed": false,
+    "physical_controller_tested": false,
+    "independent_components": "Driver, cockpit/quick glance, faster run, audio control integration PASS within packet; aural source/timbre HOLD."
+  },
+  "verification_history": [
+    {
+      "runtime_commit": "982d12d3d0a83b8dd78ed5ce9c2fda4f0475c264",
+      "independent_tests": "43/43 suite,5/5 focused RPM, TypeScript/Vite build pass;11inputtests independently reviewed. Numeric30/60/120/144camera comparison passes documented tolerances.",
+      "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B1 independent progress allowed by Review03.",
+      "preservation": "No changes to simulation, contact layout, old pad, repaired shadow policy, P03A1 source/export/maps or bay against0db7ede7.",
+      "environment": "Windows11 build26200, Blender4.5.2 LTS, Node24.15, Chromium153.0.8010.12/SwiftShader isolated headless; virtual controller plus actual browser keyboard.",
+      "evidence": "Review04-final:6 current runtime PNGs,30s normal-pipeline SILENT virtual-controller film,4s runtime reflection. Final browser source/served-byte verification and actual-keyboard focus/reset pass; bothfilms fullydecode. RESULTS.json records limits and walltime."
+    },
+    {
+      "independent_tests": "51/51 full suite;16/16 focused input and RPM; TypeScript/Vite build PASS. Separate final evidence review in P03B2/review-final.md.",
+      "gates": "G0/G1/G2 and signed RPM retained. G3 pending. P03B2 authorized independently of whole-car visual HOLD.",
+      "preservation": "Current car source/export/maps, pad/bay, contact, all simulation and existing input/session/shadow policy unchanged against30520ca2.",
+      "environment": {
+        "os": "Windows11 build26200",
+        "blender": "4.5.2 LTS background",
+        "node": "24.15.0",
+        "npm": "11.6.2",
+        "browser": "153.0.8010.12",
+        "renderer": "isolated headless Chromium SwiftShader; physical output muted",
+        "dependencies": "Retained package-lock; no upgrade"
+      },
+      "evidence": "Review05-final six runtime PNGs;35s ordinary pipeline film with aligned offline runtime-graph audio,20s audio-focused WAV,4200-state logical timeline; current build/served hashes. Separate ordinary browser sound lifecycle proof. Numerical audio PASS; no auditory approval.",
+      "runtime_commit": "f55d83971d278fb31b9d5c502065efcb5373ec3c",
+      "historical_packet": "P03B2"
+    },
+    {
+      "packet": "P04A",
+      "runtime_commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+      "verification": {
+        "local_tests": "64/64 full;22/22 focused input/drivetrain;TypeScript/Vite build PASS. Expected original pitch-coherence failure retained separately.",
+        "independent_review": "Six browser regressions PASS. Land repair:72 frames across two renderers, two presets and two aspects PASS. Replacement movies/stills and179 inputs/45 served hashes/25 protected files checked; final scoped review in P04A/review-final.md.",
+        "gates": "G0/G1/G2 retained. G3/G4 pending. P04A authorized by Review05 despite whole-car/aural hold.",
+        "preservation": "25 protected files unchanged against2fd926c. Simulation changed only environment/box rotation/surface seam; optional session hooks. No force/tire/drivetrain/step,car/driver/sourcebank edits.",
+        "environment": {
+          "os": "Windows11 build26200",
+          "blender": "4.5.2 LTS background",
+          "node": "24.15.0",
+          "npm": "11.6.2",
+          "browser": "153.0.8010.12",
+          "renderer": "Final isolated headless Chromium ANGLE Direct3D11 NVIDIA RTX4080; repair cross-check also SwiftShader; physical output muted",
+          "dependencies": "Retained package-lock; no upgrade"
+        },
+        "evidence": "Review06-final02, Review06-ui02 and Review06-performance02. Controlled24fps video is distinct from wall-clock GPU frame measurement. No physical-controller, human-driving or listening claim."
+      }
+    },
+    {
+      "packet": "P04A1 + P04A2",
+      "runtime_commit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+      "verification": {
+        "local_tests": "67/67 full,26/26 director subset,TypeScript/Vite PASS",
+        "ui": "6/6 isolated browser regressions PASS",
+        "media": "Four final videos decode,frame count,duration PASS; aligned offline game audio not auditioned",
+        "preservation": "32 protected file hashes,687 retained source component comparisons,55 protected export comparisons PASS;all10200physicsrows per preset exactly match Review06",
+        "rear": "324 runtime poses;41 supported and4852recorded exported heights x4spins;actual pin/deck connections;continuous tire envelope clear",
+        "review": "Lead separate final phase; independent source/lighting review retained, final independent visual signoff held after quota limit",
+        "evidence": "Review07-final,Review07-rear,Review07-ui,Review07-performance,P04A1/review-final.md,P04A2/review-final.md"
+      }
+    },
+    {
+      "packet": "P04B1",
+      "runtime_commit": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
+      "verification": {
+        "tests": "72/72full;26/26director;TypeScript/Vite PASS",
+        "browser": "14career checks,6existing UI checks,12equipcycles7scenevisits,old-save fresh-lap check PASS",
+        "ordinary_loop": "Native0->800->200->300,distinct valid day/night UUIDs,secondcolor/equipment persisted after reload",
+        "physics": "All10200telemetryrows offday/onnight exactly identical;41protectedinputs unchanged",
+        "visual": "FunctionalPASS; nightunderlightreadabilityHOLD after two lightingconstructions; lead separate final review",
+        "performance": "12second capture-inclusive wall-clock mean21.4575msstock/27.186mson,stalls2699.8/4666.5ms;causeunresolved",
+        "evidence": "Review08-final,Review08-browser,Review08-ui,Review08-profile,P04B1"
+      }
+    },
+    {
+      "review": "Review08",
+      "commit": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
+      "verification": {
+        "tests": "72/72full;26/26director;TypeScript/Vite PASS",
+        "browser": "14career checks,6existing UI checks,12equipcycles7scenevisits,old-save fresh-lap check PASS",
+        "ordinary_loop": "Native0->800->200->300,distinct valid day/night UUIDs,secondcolor/equipment persisted after reload",
+        "physics": "All10200telemetryrows offday/onnight exactly identical;41protectedinputs unchanged",
+        "visual": "FunctionalPASS; nightunderlightreadabilityHOLD after two lightingconstructions; lead separate final review",
+        "performance": "12second capture-inclusive wall-clock mean21.4575msstock/27.186mson,stalls2699.8/4666.5ms;causeunresolved",
+        "evidence": "Review08-final,Review08-browser,Review08-ui,Review08-profile,P04B1"
+      }
+    }
+  ],
+  "p04a": {
+    "status": "implemented_review_package_ready_awaiting_astra",
+    "authorization": "Review05 explicitly allows small environment/event before final G3/G4 approval; no full originalP04",
+    "audio_correction": "Exact sanitizedRPM/source-reference ratio; original regression1fail2pass retained, corrected3pass",
+    "route_length_m": 1230.86710531256,
+    "road_width_m": 11,
+    "route_gate": "Realphysics78.7192s valid ordered lap at60/120Hz before dressing",
+    "g3_advance": false,
+    "g4_advance": false,
+    "runtime_commit": "e1fafb5ec4d371635bfbeca51663fc67734a40ca",
+    "runoff_each_side_m": 3,
+    "lighting": [
+      "day",
+      "night"
+    ],
+    "scope": "One Blender harbor and one standing-start valid lap/result/compatible best/retry; retained current car/driver/physics; no campaign",
+    "physical_controller_tested": false,
+    "human_driving_tested": false,
+    "auditioned": false,
+    "evidence": "production/evidence/Review06-final02/",
+    "review": "production/evidence/P04A/review-final.md",
+    "harness_note": "Initial post-film fixture removed active pad and triggered correct disconnect pause; corrected fixture maintains pad. Earlier footage and failedcheck preserved; replacement capture120Hzpresentation/60Hzphysics/24fps via isolatedDirect3D11RTX4080.",
+    "prior_runtime_commit": "8ffcad7a630c3a2a045194e1287195826fdeb545",
+    "prior_evidence": "production/evidence/Review06-final/",
+    "land_repair": "Blender exact Boolean removes land beneath road/runoff;18480 actual exported corridor rays have0land hits,1232outside rays Y0;route/all8othermaterialgeometry/all9imagesunchanged. Replaces depth-offset workaround.",
+    "environment_triangles": 118400,
+    "valid_lap_ms": 78719.20388459373,
+    "day_night_laps_valid": true,
+    "capture_rates": {
+      "presentation_hz": 120,
+      "physics_hz": 60,
+      "video_fps": 24
+    },
+    "final_post_film_checks": "PASS: valid record, mute/volume, camera, immediate retry and reload in original day context"
+  },
+  "p04a1": {
+    "status": "local_structure_checks_pass_final_visual_hold_awaiting_astra",
+    "authorization": "Review06 overrides prior modeling freeze ONLY for rear body/storage/suspension and shared presenter",
+    "found_defect": "Actual exported tire surface penetrates closed rear firewall; axle/arm/shock previously chassis-static",
+    "old_collision_reproduced": {
+      "tire_vertices_inside": 200,
+      "deepest_margin_m": 0.06433869898319244
+    },
+    "protected": "Front/cockpit/materials/driver/contact/input/physics/audio-RPM/time-trial/route preserved",
+    "geometry_revision_limit": 2,
+    "runtime": "Shared rear presenter; authoritative wheel center; arm/belt axial approximation, hub-following axle/nonspinning caliper, fixed upper shock/telescopic sleeves",
+    "evidence": "production/evidence/P04A1",
+    "g3_advance": false,
+    "g4_advance": false,
+    "runtime_commit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+    "geometry_revisions": 2,
+    "source": "assets/blender/vehicles/slingshot-p04a1.blend",
+    "asset": "public/assets/vehicles/slingshot-p04a1.glb",
+    "review": "production/evidence/P04A1/review-final.md",
+    "rear_runtime_metrics": {
+      "wheelCenterError": 2.8689592360540838e-08,
+      "axleCenterError": 1.5099951489990673e-14,
+      "armEndpointError": 1.5099237218637718e-14,
+      "shockEndpointError": 1.2883012860950867e-14,
+      "sweepPoses": 324,
+      "motionFrames": 432,
+      "ordinaryFrames": 192,
+      "movingBrakingFrames": 45,
+      "peakPadSpeedMps": 18.60945570383086,
+      "finalPadSpeedMps": 5.7403302752437174e-09,
+      "maxVisualArmAxialChangeM": 0.03283237482604007
+    },
+    "visual_compromise": "Normal lap arm axial change1.189mm/.182%;supported extreme32.832mm/5.020%;wheel center remains authoritative",
+    "separate_final_review": "HOLD quota limit; lead-only final review",
+    "known_rest_collision": "Resolved in actual exported geometry; preceding finding preserved historically",
+    "director_review07": "Astra accepted specific rear structural repair for continued development; original OEM/linkage approximation holds retained."
+  },
+  "p04a2": {
+    "status": "implemented_awaiting_astra_visual_polish_hold",
+    "scope": [
+      "Palm crown construction",
+      "Road material scale/variation",
+      "Waterfront day/night lighting"
+    ],
+    "route_unchanged": true,
+    "land_exclusion_preserved": true,
+    "evidence": "production/evidence/P04A2",
+    "runtime_commit": "fd59df31f9f03f168b6a93e26d48c296526e1b53",
+    "review": "production/evidence/P04A2/review-final.md",
+    "visual_holds": [
+      "Thin palm crowns",
+      "Repeated buildings and sparse infield",
+      "Strong hood/overview water highlights and practical pools"
+    ],
+    "g3_advance": false,
+    "g4_advance": false,
+    "director_review07": "Road/material/light baseline retained provisionally; palm silhouette not approved. No environment iteration in P04B1."
+  },
+  "p04b1": {
+    "status": "functional_loop_pass_visual_performance_hold_awaiting_astra",
+    "runtime_commit": "dd2c3f9d3b917aec1a7f2e6750f93afe17505292",
+    "authorization": "Review07 scoped exception while G3/G4 pending",
+    "product": "tricled-sm133-base-rgb",
+    "configuration": "SM-133 Base Kit1 only; all add-ons excluded",
+    "game_price": 600,
+    "first_valid_credits": 800,
+    "replay_credits": 100,
+    "observed_wallet": [
+      0,
+      800,
+      200,
+      300
+    ],
+    "store": "Browser-local IndexedDB atomic career transactions; disclosed tab-memory fallback",
+    "asset": "public/assets/products/tricled-sm133-base.glb",
+    "source": "assets/blender/products/tricled-sm133-base.blend",
+    "geometry_revisions": 1,
+    "lighting_constructions": 2,
+    "physics_changed": false,
+    "g3_advance": false,
+    "g4_advance": false,
+    "review": "production/evidence/P04B1/review-final.md",
+    "evidence": "production/evidence/Review08-final",
+    "holds": [
+      "Underglow weak in bright Harbor chase view",
+      "Large wall-clock capture stalls, cause unresolved",
+      "2024 routing/photometry approximate; no new OEM or physical-controller/listening approval"
+    ],
+    "director_review08": "Functional career/product loop accepted for continued development; retained unchanged in P04B2."
+  },
+  "p04b2": {
+    "status": "local_evidence_complete_awaiting_astra",
+    "runtime_commit": "f5649fb95c81f12ad9531343655767db5ad9bf86",
+    "evaluated_fix_cycles": 2,
+    "luminance_sweeps": 1,
+    "root_cause": "New spotlight-count shader variants synchronizing on first use",
+    "repair": "Stable resident practical/area slots; explicit renderer preparation before play",
+    "default_nits_per_emitter": 900,
+    "geometry_changed": false,
+    "physics_changed": false,
+    "economy_changed": false,
+    "g3_advance": false,
+    "g4_advance": false,
+    "review": "production/evidence/P04B2/final-review.md",
+    "remaining_limits": [
+      "Fine area-light occlusion and product photometry approximate",
+      "Daylight glow conspicuous within shadow",
+      "Ready-menu bootstrap intervals up to116.7ms retained, cause not isolated",
+      "Fresh browser does not imply driver-cache-cold; no physical controller or human audio approval",
+      "Baseline measurement seams were not separately committed/hashed; final trials have exact frozen provenance"
+    ]
+  },
+  "P05": {
+    "status": "integrated_review_ready_performance_held",
+    "runtime_commit": "7fe1e881b0712be2fa09b4c4eec6baa9d0ebb0d6",
+    "milestones": {
+      "I0": "locally_complete",
+      "I1": "locally_complete",
+      "I2": "locally_complete",
+      "I3": "locally_complete",
+      "I4": "locally_complete",
+      "I5": "tests_repairs_media_complete_performance_acceptance_held"
+    },
+    "acceptance": "production/evidence/P05/acceptance-results.json",
+    "review": "production/evidence/P05/final-review.md",
+    "performance": "production/evidence/P05/performance-summary.json",
+    "held": [
+      "P05-18 performance acceptance: original outlier unexplained and original heavy repeat missed targets",
+      "G3",
+      "G4",
+      "final art and aural approval",
+      "human fun/playtest",
+      "physical-controller/foreground responsiveness",
+      "other hardware/mobile",
+      "full campaign and release"
+    ]
+  },
+  "P06": {
+    "runtimeCommit": "8d3931f40bf472666c7f2595cfa2650bb2b81980",
+    "automatedTests": 111,
+    "failedTests": 0,
+    "soloReplayRows": 4200,
+    "protectedHashesExact": true,
+    "freshEarnPurchasePodiumReload": "PASS",
+    "fourCompleteRaceThreeRetryLifecycle": "PASS",
+    "finalThreeSceneTransitions": "PASS",
+    "controllerPauseRearmCameraLookback": "PASS virtual standard controller, not physical device",
+    "audioTracksThreeAnchorSync": "PASS technical signal and within one25fpsframe; human listening unavailable",
+    "normalUI7201080": "PASS",
+    "currentPerformanceWorkingTargets": "PASS five configurations/seven complete races",
+    "programPreparation": "RESERVATION one20-to21earlyprogram; no later growth, exactvariantcauseunconfirmed",
+    "trafficObservedOrderChanges": {
+      "verified-scored-equipped1080": 2,
+      "verified-scored-equipped1080-repeat-resumed02": 2,
+      "verified-scored-equipped720": 1,
+      "verified-scored-stock1080": 1,
+      "verified-scored-stock720": 1,
+      "video-final": 1
+    },
+    "trafficLimit": "Observed real pairwise order changes and close following; not controller attempted-pass counters or claimed human racing quality. Physical blocked/contact/recovery regression remains covered by unchanged simulation tests; not every adversarial case is in the main film.",
+    "visualVerdict": "Locally reviewed bounded environment/UI/lighting improvement, economical stylized assets. Remaining art and close rearbrightness reservations explicit. No globalfidelity approval.",
+    "G3": "pending",
+    "G4": "pending",
+    "remotePush": "BLOCKED pending confirmed Git destination; no origin configured",
+    "historicalFailuresPreserved": true
+  },
+  "p06b": {
+    "status": "integrated_review_ready_visual_target_held",
+    "baselineCommit": "d9acdf23816562ea1edba2cf230648f0ec3f6aae",
+    "runtimeCommit": "9348fa90311c5fbdfd74529feb50548582cdca17",
+    "automatedTests": 119,
+    "failedTests": 0,
+    "protectedRawFiles": 36,
+    "protectedGitBlobs": 56,
+    "soloParityRows": 4200,
+    "cc0SourceRecords": 33,
+    "routeRunoffClearanceRays": 3080,
+    "distantCoverageRays": 87,
+    "functionalFreshChapterPurchasePodiumReload": "PASS",
+    "fourRaceThreeRetryLifecycle": "PASS",
+    "nativePerformanceConfigurations": 5,
+    "nativeCompleteRaces": 6,
+    "workingRacingTargets": "PASS on recorded reference hardware; boundary/ready/program reservations retained",
+    "recordedActualAudio": "PASS technical signal and three-anchor sync under19ms; no human listening approval",
+    "visualTargetMet": false,
+    "visualLimits": [
+      "Broad flat sparse lawns",
+      "Repeating asphalt detail",
+      "Repetitive distant facades",
+      "Thin regular palm silhouettes",
+      "Probe-only water reflections and simple distant props"
+    ],
+    "performanceReservations": [
+      "First stock720 p99 at33.4ms boundary, cause of its slower intervals unisolated",
+      "Isolated ready116.6ms interval not reproduced by diagnostic transfer experiment",
+      "One early22-to23program increase; exact variant unisolated"
+    ],
+    "sourceAndEvidence": "production/evidence/P06B",
+    "remoteChanges": "forbidden; none performed",
+    "G3": "pending",
+    "G4": "pending"
+  },
+  "p06c": {
+    "status": "review_ready_with_performance_hold",
+    "baselineCommit": "9780d62e4ea032dafc414dd838b040ed05565da5",
+    "lastAcceptedReview": 12,
+    "expectedDelivery": "Astra-Review-13.zip",
+    "evidence": "production/evidence/P06C",
+    "baselineInstalledTests": 119,
+    "baselineTransferVerified": true,
+    "sampleRuntimeReviewed": true,
+    "fullRollout": true,
+    "G3": "pending",
+    "G4": "pending",
+    "ensembles": 18,
+    "visualTargetMet": false,
+    "runtimeCommit": "b4eef3c7dab3eb77b131a5100c3be0fd1110b095",
+    "automatedTests": 121,
+    "failedTests": 0,
+    "protectedRawFiles": 58,
+    "exactFoundationMeshes": 296,
+    "roadRunoffRays": 3080,
+    "soloParityRows": 4200,
+    "functionalReports": 9,
+    "matchedViews": 37,
+    "foliageViews": 40,
+    "performance": {
+      "status": "HOLD",
+      "firstMatrixConfigurations": 5,
+      "firstMatrixCompleteCrewRaces": 6,
+      "daylightCompleteLaps": 1,
+      "diagnosticCrewRaces": 2,
+      "failedSecondAttemptP95Ms": [
+        33.3,
+        33.3
+      ],
+      "activeIntervalsOver100Ms": 0,
+      "limit": "Host CPU contention is plausible but not proven; both failed repeats retained; no unrelated job changes or arbitrary quality reduction."
+    },
+    "media": {
+      "day": "complete valid solo lap; live audio; max sync residual 55 ms",
+      "crew": "complete valid two-lap race, garage return/reload; live audio; max sync residual 40 ms",
+      "humanListeningApproval": false
+    },
+    "packageManifest": "PACKAGE-MANIFEST.json",
+    "remoteChanges": "none; local commits only"
+  }
+}

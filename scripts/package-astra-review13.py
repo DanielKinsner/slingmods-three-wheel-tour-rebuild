@@ -11,7 +11,15 @@ def tree(folder):
  for p in (root/folder).rglob('*'):
   if p.is_file() and not any(x in p.parts for x in ['__pycache__','node_modules']) and not re.search(r'\.blend\d+$',p.name):add(p)
 build=json.loads((b/'build-inputs-verified.json').read_text(encoding='utf-8'))
-for n,h in build['inputs'].items():assert sha(root/n)==h,'Frozen build input changed: '+n;add(root/n)
+amendment_path=b/'post-build-tool-amendments.json'
+amendments=json.loads(amendment_path.read_text())['files'] if amendment_path.exists() else {}
+allowed_amendments={'scripts/summarize-review13.py','scripts/package-astra-review13.py'}
+assert set(amendments)<=allowed_amendments,'Only reviewed post-build scoring/packaging tools may differ'
+for n,h in build['inputs'].items():
+ actual=sha(root/n)
+ if actual!=h:
+  assert n in amendments and amendments[n]['beforeSHA256']==h and amendments[n]['afterSHA256']==actual,'Frozen runtime/build input changed: '+n
+ add(root/n)
 for folder in ['src','scripts','tests','public','assets/blender/showcase-quality']:tree(folder)
 # Unchanged authoring dependency used for physical foundation; included for an offline rebuild.
 add(root/'assets/blender/harbor/harbor.blend')
@@ -31,7 +39,7 @@ for folder in ['sample-visual-01','sample-visual-02','sample-visual-03','full-vi
  for name in ['district-service-day.png','district-service-night.png','district-sample-apex-day.png','district-service-return-day.png','source-inputs.json','asset-provenance.json']:
   p=b/folder/name
   if p.exists():add(p)
-for pattern in ['verified-scored-*','day-scored-*']:
+for pattern in ['verified-scored-*','day-scored-*','heavy1080-followup']:
  for d in b.glob(pattern):
   if d.is_dir():
    for n in ['run.json','provenance.json','bay.json','interruption.json','warm-transitions.json']:
@@ -50,7 +58,7 @@ add(b/'REVIEW-ME-FIRST.md','REVIEW-ME-FIRST.md');add(b/'STATE-EXCERPT.json','dir
 for n,p in files.items():
  if p.suffix in ['.ts','.mjs','.js','.json','.py','.md','.html','.css']:
   assert not re.search(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\b(?:sk-proj-|ghp_)[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}',p.read_text(encoding='utf-8-sig')),n
-manifest={'root':str(root),'runtimeCommit':build['commit'],'packagingCommit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'runtimeInputManifest':'director-kit/production/evidence/P06C/build-inputs-verified.json','files':{n:{'bytes':p.stat().st_size,'sha256':sha(p)}for n,p in sorted(files.items())}}
+manifest={'root':str(root),'runtimeCommit':build['commit'],'packagingCommit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'runtimeInputManifest':'director-kit/production/evidence/P06C/build-inputs-verified.json','postBuildToolAmendments':'director-kit/production/evidence/P06C/post-build-tool-amendments.json','files':{n:{'bytes':p.stat().st_size,'sha256':sha(p)}for n,p in sorted(files.items())}}
 if '--selection'in sys.argv:print(len(files),sum(p.stat().st_size for p in files.values()));sys.exit(0)
 out=root/'Astra-Review-13.zip';i=2
 while out.exists():out=root/f'Astra-Review-13-{i}.zip';i+=1

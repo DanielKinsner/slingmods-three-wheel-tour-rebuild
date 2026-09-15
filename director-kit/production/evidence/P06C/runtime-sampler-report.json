@@ -1,0 +1,95 @@
+{
+  "method": "Unscored isolated native renderer upload instrumentation after timing matrix. Actual512x1024 ImageBitmap uploads identify the unique authored frond dimensions; exact embedded PNG identity is independently tested. Records WebGL texture storage/filter/mipmap calls, not just glTF declarations. No alpha-to-coverage claim or timing score.",
+  "manifestCommit": "b4eef3c7dab3eb77b131a5100c3be0fd1110b095",
+  "toolSource": "import {chromium} from '@playwright/test';\r\nimport fs from 'node:fs/promises';\r\nimport assert from 'node:assert/strict';\r\nimport {fileURLToPath} from 'node:url';\r\nconst base='director-kit/production/evidence/P06C';\r\nconst browser=await chromium.launch({headless:true,args:['--use-angle=d3d11','--mute-audio']});\r\ntry{\r\n const saved=JSON.parse(await fs.readFile('director-kit/production/evidence/P04B2/fixtures/review08-earned.json','utf8'));\r\n const page=await browser.newPage({viewport:{width:1280,height:720},storageState:saved});\r\n await page.addInitScript(()=>{\r\n  const states=new WeakMap(),textures=new WeakMap();let next=0;\r\n  const state=gl=>{if(!states.has(gl))states.set(gl,{unit:33984,bound:new Map()});return states.get(gl)};\r\n  const record=texture=>{if(!texture)return null;if(!textures.has(texture)){const r={id:++next,parameters:{},mipmapCalls:0};textures.set(texture,r);window.__textureUploads.push(r)}return textures.get(texture)};\r\n  const current=(gl,target)=>record(state(gl).bound.get(state(gl).unit+':'+target));\r\n  window.__textureUploads=[];\r\n  const proto=WebGL2RenderingContext.prototype;\r\n  for(const name of ['activeTexture','bindTexture','texParameteri','texParameterf','texStorage2D','texImage2D','texSubImage2D','generateMipmap']){\r\n   const original=proto[name];proto[name]=function(...args){\r\n    if(name==='activeTexture')state(this).unit=args[0];\r\n    if(name==='bindTexture')state(this).bound.set(state(this).unit+':'+args[0],args[1]);\r\n    const r=current(this,args[0]);\r\n    if(r){\r\n     if(name==='texParameteri'||name==='texParameterf')r.parameters[args[1]]=args[2];\r\n     if(name==='generateMipmap')r.mipmapCalls++;\r\n     if(name==='texStorage2D'){r.storage={levels:args[1],format:args[2],width:args[3],height:args[4]}}\r\n     if(name==='texImage2D'||name==='texSubImage2D'){\r\n      const image=args.at(-1);if(image?.width&&image?.height)r.image={width:image.width,height:image.height,type:image.constructor.name};\r\n     }\r\n    }\r\n    return original.apply(this,args);\r\n   }\r\n  }\r\n });\r\n await page.goto('http://127.0.0.1:5187/?scene=crew&test=1');\r\n await page.waitForFunction(()=>window.__CREW?.ready,null,{timeout:120000});\r\n await page.waitForTimeout(500);\r\n const result=await page.evaluate(()=>({runtime:window.__CREW.inspect().commit,renderer:window.__CREW.inspect().renderer,materials:window.__CREW.inspect().showcase.materialBindings.filter(m=>m.name==='P06C_Palm_Frond'),candidates:window.__textureUploads.filter(r=>r.image?.width===512&&r.image?.height===1024),attributes:document.querySelector('canvas').getContext('webgl2').getContextAttributes()}));\r\n const manifest=JSON.parse(await fs.readFile('dist/review-build.json','utf8'));\r\n const report={method:'Unscored isolated native renderer upload instrumentation after timing matrix. Actual512x1024 ImageBitmap uploads identify the unique authored frond dimensions; exact embedded PNG identity is independently tested. Records WebGL texture storage/filter/mipmap calls, not just glTF declarations. No alpha-to-coverage claim or timing score.',manifestCommit:manifest.commit,toolSource:await fs.readFile(fileURLToPath(import.meta.url),'utf8'),...result};\r\n await fs.writeFile(base+'/runtime-sampler-report.json',JSON.stringify(report,null,2));\r\n assert.equal(result.runtime,manifest.buildRef);assert.ok(result.candidates.length);\r\n for(const r of result.candidates){assert.equal(r.parameters[10241],9987,'LINEAR_MIPMAP_LINEAR');assert.equal(r.parameters[10240],9729,'LINEAR magnification');assert.ok(r.mipmapCalls>0);assert.ok(r.storage.levels>1)}\r\n assert.ok(result.materials.every(m=>Math.abs(m.alphaTest-.35)<1e-6&&!m.transparent&&m.side===2));\r\n console.log(JSON.stringify(result,null,2));\r\n}finally{await browser.close()}\r\n",
+  "runtime": "b4eef3c7dab3",
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "materials": [
+    {
+      "name": "P06C_Palm_Frond",
+      "packedImageBindings": [
+        {
+          "sha256": "5b79c0cf52cd3ad6de8bad8bf34674ffa235a7ac75d4f4f0fa90bd29aca8c7d5",
+          "texCoord": 0,
+          "extensions": null
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "materialSource": {
+        "alphaCutoff": 0.3499999940395355,
+        "alphaMode": "MASK",
+        "doubleSided": true,
+        "extras": {
+          "P06CRepresentation": "Original64 lanceolate pinnae coverage bake on folded parent frond; explicit greater-than0.35 mask, no blending; same texture/envelope across LOD"
+        },
+        "name": "P06C_Palm_Frond",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": {
+              "image": "5b79c0cf52cd3ad6de8bad8bf34674ffa235a7ac75d4f4f0fa90bd29aca8c7d5",
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987,
+                "wrapS": 33071,
+                "wrapT": 33071
+              }
+            }
+          },
+          "metallicFactor": 0,
+          "roughnessFactor": 0.800000011920929
+        }
+      },
+      "basecolor": "p06c-frond",
+      "normal": null,
+      "roughness": null,
+      "occlusion": null,
+      "normalScale": [
+        1,
+        -1
+      ],
+      "colorSpace": "srgb",
+      "side": 2,
+      "alphaTest": 0.3499999940395355,
+      "transparent": false,
+      "depthWrite": true
+    }
+  ],
+  "candidates": [
+    {
+      "id": 56,
+      "parameters": {
+        "10240": 9729,
+        "10241": 9987,
+        "10242": 33071,
+        "10243": 33071
+      },
+      "mipmapCalls": 1,
+      "storage": {
+        "levels": 11,
+        "format": 35907,
+        "width": 512,
+        "height": 1024
+      },
+      "image": {
+        "width": 512,
+        "height": 1024,
+        "type": "ImageBitmap"
+      }
+    }
+  ],
+  "attributes": {
+    "alpha": false,
+    "antialias": true,
+    "depth": true,
+    "desynchronized": false,
+    "failIfMajorPerformanceCaveat": false,
+    "powerPreference": "default",
+    "premultipliedAlpha": true,
+    "preserveDrawingBuffer": false,
+    "stencil": false,
+    "xrCompatible": false
+  }
+}

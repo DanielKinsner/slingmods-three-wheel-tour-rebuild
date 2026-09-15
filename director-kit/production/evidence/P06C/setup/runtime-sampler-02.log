@@ -1,0 +1,92 @@
+{
+  "runtime": "b4eef3c7dab3",
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "materials": [
+    {
+      "name": "P06C_Palm_Frond",
+      "packedImageBindings": [
+        {
+          "sha256": "5b79c0cf52cd3ad6de8bad8bf34674ffa235a7ac75d4f4f0fa90bd29aca8c7d5",
+          "texCoord": 0,
+          "extensions": null
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "materialSource": {
+        "alphaCutoff": 0.3499999940395355,
+        "alphaMode": "MASK",
+        "doubleSided": true,
+        "extras": {
+          "P06CRepresentation": "Original64 lanceolate pinnae coverage bake on folded parent frond; explicit greater-than0.35 mask, no blending; same texture/envelope across LOD"
+        },
+        "name": "P06C_Palm_Frond",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": {
+              "image": "5b79c0cf52cd3ad6de8bad8bf34674ffa235a7ac75d4f4f0fa90bd29aca8c7d5",
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987,
+                "wrapS": 33071,
+                "wrapT": 33071
+              }
+            }
+          },
+          "metallicFactor": 0,
+          "roughnessFactor": 0.800000011920929
+        }
+      },
+      "basecolor": "p06c-frond",
+      "normal": null,
+      "roughness": null,
+      "occlusion": null,
+      "normalScale": [
+        1,
+        -1
+      ],
+      "colorSpace": "srgb",
+      "side": 2,
+      "alphaTest": 0.3499999940395355,
+      "transparent": false,
+      "depthWrite": true
+    }
+  ],
+  "candidates": [
+    {
+      "id": 56,
+      "parameters": {
+        "10240": 9729,
+        "10241": 9987,
+        "10242": 33071,
+        "10243": 33071
+      },
+      "mipmapCalls": 1,
+      "storage": {
+        "levels": 11,
+        "format": 35907,
+        "width": 512,
+        "height": 1024
+      },
+      "image": {
+        "width": 512,
+        "height": 1024,
+        "type": "ImageBitmap"
+      }
+    }
+  ],
+  "attributes": {
+    "alpha": false,
+    "antialias": true,
+    "depth": true,
+    "desynchronized": false,
+    "failIfMajorPerformanceCaveat": false,
+    "powerPreference": "default",
+    "premultipliedAlpha": true,
+    "preserveDrawingBuffer": false,
+    "stencil": false,
+    "xrCompatible": false
+  }
+}

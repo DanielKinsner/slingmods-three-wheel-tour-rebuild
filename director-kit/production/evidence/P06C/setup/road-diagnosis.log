@@ -1,0 +1,19 @@
+ATTRS [('RoadTone', 'POINT', 'FLOAT_COLOR')] active RoadTone render 0
+NODE BSDF_PRINCIPLED Principled BSDF None None
+NODE OUTPUT_MATERIAL Material Output None None
+NODE TEX_IMAGE Image Texture None None
+NODE TEX_IMAGE Image Texture.001 None None
+NODE NORMAL_MAP Normal Map None None
+NODE TEX_IMAGE Image Texture.002 None None
+NODE TEX_IMAGE Image Texture.003 None None
+NODE GROUP Group None None
+LINK Principled BSDF BSDF Material Output Surface
+LINK Image Texture Color Principled BSDF Base Color
+LINK Image Texture.001 Color Normal Map Color
+LINK Normal Map Normal Principled BSDF Normal
+LINK Image Texture.002 Color Principled BSDF Roughness
+LINK Image Texture.003 Color Group Occlusion
+Blender 4.5.2 LTS (hash ab25eae04993 built 2025-08-20 02:20:52)
+Read blend: "C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\assets\blender\showcase-quality\built-waterfront-foundation.blend"
+
+Blender quit

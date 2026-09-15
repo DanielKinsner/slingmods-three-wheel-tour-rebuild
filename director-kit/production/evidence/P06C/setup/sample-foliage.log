@@ -1,0 +1,8 @@
+file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/capture-review13-foliage.mjs:35
+   const expected=threshold===45?(delta<0?0:1):(delta<0?1:2);if(!visible.length||visible.some(n=>n!==expected))throw Error('LOD did not cross expected threshold '+JSON.stringify(visible));
+                                                                                                                     ^
+
+Error: LOD did not cross expected threshold [0,0]
+    at file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/capture-review13-foliage.mjs:35:118
+
+Node.js v24.15.0
