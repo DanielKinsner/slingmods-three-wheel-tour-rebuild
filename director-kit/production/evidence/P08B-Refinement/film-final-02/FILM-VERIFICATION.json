@@ -1,0 +1,226 @@
+{
+  "pass": true,
+  "method": "Real-speed edited demonstration, with only loading and disclosed sync-marker boundaries cut. Actual live game graph audio, measured recorded chirps aligned to captured video flashes. No synthesized replacement audio or time warping. Audio listening approval remains human.",
+  "excludedSegments": {
+    "04-original-harbor": "A required video sync flash is absent from captured frames; full original video/audio retained. Optional Original Harbor excerpt omitted rather than claiming unverified synchronization."
+  },
+  "omittedVisualGroups": [
+    {
+      "groupIndex": 6,
+      "startSeconds": 229.0,
+      "endSeconds": 229.24
+    }
+  ],
+  "cuts": [
+    {
+      "gameAudioRMSBetweenMarkers": 0.04561368927280633,
+      "segment": "01-showroom",
+      "sourceVideoStart": 4.18,
+      "sourceAudioStart": 0.375,
+      "duration": 52.99999999999999,
+      "measuredAVDriftMs": -5.666666666670039,
+      "audioChirpCenters": [
+        0.115,
+        53.720666666666666
+      ],
+      "videoFlashStarts": [
+        3.88,
+        57.48
+      ]
+    },
+    {
+      "gameAudioRMSBetweenMarkers": 0.05880638748233152,
+      "segment": "02-reverse-launch",
+      "sourceVideoStart": 68.02,
+      "sourceAudioStart": 0.37,
+      "duration": 26.639999999999993,
+      "measuredAVDriftMs": -56.33333333333823,
+      "audioChirpCenters": [
+        0.11,
+        27.406333333333333
+      ],
+      "videoFlashStarts": [
+        67.72,
+        94.96
+      ]
+    },
+    {
+      "gameAudioRMSBetweenMarkers": 0.05618331291523182,
+      "segment": "03-express-race",
+      "sourceVideoStart": 104.5,
+      "sourceAudioStart": 0.37,
+      "duration": 93.16000000000001,
+      "measuredAVDriftMs": 14.333333333340192,
+      "audioChirpCenters": [
+        0.11,
+        93.85566666666666
+      ],
+      "videoFlashStarts": [
+        104.2,
+        197.96
+      ]
+    },
+    {
+      "gameAudioRMSBetweenMarkers": 0.039643498236131114,
+      "segment": "05-returned-build",
+      "sourceVideoStart": 231.54000000000002,
+      "sourceAudioStart": 0.37,
+      "duration": 10.199999999999983,
+      "measuredAVDriftMs": -34.91666666668536,
+      "audioChirpCenters": [
+        0.11,
+        10.944916666666668
+      ],
+      "videoFlashStarts": [
+        231.24,
+        242.04
+      ]
+    }
+  ],
+  "video": "director-kit\\production\\evidence\\P08B-Refinement\\film-final-02\\raw-video\\page@38e8909f3ae620262af9228927b18c2f.webm",
+  "film": "director-kit\\production\\evidence\\P08B-Refinement\\film-final-02\\P08B-Signature-Experience.mp4",
+  "duration": 183.061,
+  "bytes": 22017032,
+  "sha256": "98808dd47d0901cc0fb9632bcbaa412ebd210a01e724ab17583317232165eb2f",
+  "decodedAudio": {
+    "peak": 0.26936447620391846,
+    "rms": 0.052575303851771164,
+    "samples": 2196736
+  },
+  "probe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 1280,
+        "height": 720,
+        "coded_width": 1280,
+        "coded_height": 720,
+        "closed_captions": 0,
+        "film_grain": 0,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuv420p",
+        "level": 31,
+        "color_range": "tv",
+        "color_space": "bt470bg",
+        "chroma_location": "center",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "25/1",
+        "avg_frame_rate": "114275/4574",
+        "time_base": "1/12800",
+        "start_pts": 781,
+        "start_time": "0.061016",
+        "duration_ts": 2341888,
+        "duration": "182.960000",
+        "bit_rate": "830620",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "4571",
+        "extradata_size": 51,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "eng",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]",
+          "encoder": "Lavc60.9.100 libx264"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 8786928,
+        "duration": "183.061000",
+        "bit_rate": "125903",
+        "nb_frames": "8582",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "eng",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      }
+    ],
+    "format": {
+      "filename": "director-kit\\production\\evidence\\P08B-Refinement\\film-final-02\\P08B-Signature-Experience.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "183.061000",
+      "size": "22017032",
+      "bit_rate": "962172",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf60.4.101"
+      }
+    }
+  }
+}

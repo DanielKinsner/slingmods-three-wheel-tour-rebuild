@@ -2,6 +2,8 @@
 
 Current private branch: `feature/p08b-slingmods-experience`, descended from P08A `ef592752741333faee496edff95b8abb68b76840`. Remote: `https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git`. Main remains outside this assignment.
 
+Current tested runtime: `822ff5f5a9cc211775076074c7d106e8d372286a`. The latest owner refinement adds reference-guided vented tiles/lift bay, a closed door with skippable departure and live door audio, and finish-matched swingarm accents. Read `handoff/P08B-REFINEMENT.md`, `P08B-REFINEMENT-VALIDATION.json` and `P08B-REFINEMENT-ASSETS.json` first. The refreshed Review16 MANIFEST identifies the exact pushed packaging commit. Earlier P08B evidence below remains historical.
+
 ## Launch from any checkout
 
 ```powershell
@@ -22,7 +24,7 @@ The configurator has five free previews and named build recipes; credits and pur
 
 ## Evidence and exact identity
 
-Final runtime/packaging SHAs, launch receipt, verification commands, asset hashes, native results and clean remote recovery are recorded in `handoff/P08B-VALIDATION.json` and `director-kit/production/evidence/P08B/`. Tested runtime is `6aa1dafaac03168525a1f7e69a6831ea886f45d2`. The pushed documentation/evidence follow-up is identified by `git rev-parse HEAD` and the Review16 ZIP MANIFEST.json. Internal validation and same-host fresh remote recovery are complete. See `handoff/P08B-COMMANDS.md` for exact verification, film recovery, and fresh-session instructions. Prior handoff retained at `handoff/P08A-HANDOFF-PRESERVED.md`.
+Final runtime/packaging SHAs, launch receipt, verification commands, asset hashes, native results and clean remote recovery are recorded in `handoff/P08B-VALIDATION.json` and `director-kit/production/evidence/P08B/`. Original pre-refinement runtime is `6aa1dafaac03168525a1f7e69a6831ea886f45d2`. The pushed documentation/evidence follow-up is identified by `git rev-parse HEAD` and the Review16 ZIP MANIFEST.json. Internal validation and same-host fresh remote recovery are complete. See `handoff/P08B-COMMANDS.md` for exact verification, film recovery, and fresh-session instructions. Prior handoff retained at `handoff/P08A-HANDOFF-PRESERVED.md`.
 
 ## Limits / next action
 

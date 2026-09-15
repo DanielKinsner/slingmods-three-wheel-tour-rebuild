@@ -1,0 +1,121 @@
+{
+  "pass": true,
+  "build": "822ff5f5a9cc",
+  "method": "Isolated Chromium, normal RAF presentation. Actual buttons, keyboard, standard controller samples and explicit browser blur/focus events. No simulation stepping or fixture transforms. Audio pause observed through live source state; audible content is a separate verification lane.",
+  "checks": [
+    {
+      "name": "Full real-scene departure, pause, focus loss, immutable snapshot, single navigation",
+      "pass": true,
+      "paused": {
+        "active": true,
+        "elapsed": 0.9665999999999998,
+        "paused": true,
+        "focused": true,
+        "doorFound": true,
+        "pose": {
+          "door": 0.2071265048114199,
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "travel": 0,
+          "camera": 0.1611929316118967,
+          "complete": false
+        },
+        "car": [
+          -3.5582608876520534e-26,
+          8.344650304081824e-9,
+          4.91050323958575e-9
+        ],
+        "door": [
+          0,
+          0.6938737911182566,
+          0
+        ]
+      },
+      "pausedAudio": {
+        "requested": true,
+        "playing": false,
+        "loaded": true,
+        "offset": 0.88,
+        "starts": 1,
+        "failed": false,
+        "gainTarget": 0,
+        "gain": 0.17599999904632568
+      },
+      "leaving": {
+        "active": true,
+        "elapsed": 4.199799999999995,
+        "paused": true,
+        "focused": true,
+        "doorFound": true,
+        "pose": {
+          "door": 1,
+          "x": 2.647965686739872,
+          "z": -0.24418922348263883,
+          "yaw": -1.7837794204801694,
+          "travel": 0.5640431944959982,
+          "camera": 1,
+          "complete": false
+        },
+        "car": [
+          2.647965686739872,
+          8.344650304081824e-9,
+          -0.2441892185721356
+        ],
+        "door": [
+          0,
+          3.35,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Escape skips without modifying recipe",
+      "pass": true
+    },
+    {
+      "name": "button skips without modifying recipe",
+      "pass": true
+    },
+    {
+      "name": "controller skips without modifying recipe",
+      "pass": true
+    },
+    {
+      "name": "Saved reduced-motion preference bypasses departure and survives return",
+      "pass": true
+    },
+    {
+      "name": "Cue loading while paused stays stopped at offset zero; skip cancels it",
+      "pass": true,
+      "loadingCue": {
+        "requested": true,
+        "playing": false,
+        "loaded": false,
+        "offset": 0,
+        "starts": 0,
+        "failed": false,
+        "gainTarget": 0,
+        "gain": 0
+      },
+      "loadedPaused": {
+        "requested": true,
+        "playing": false,
+        "loaded": true,
+        "offset": 0,
+        "starts": 0,
+        "failed": false,
+        "gainTarget": 0,
+        "gain": 0
+      }
+    }
+  ],
+  "captures": [
+    "01-opening-paused.png",
+    "02-car-leaving.png",
+    "03-returned-closed-showroom.png"
+  ],
+  "expressNavigations": 6,
+  "unchangedCareerSentinel": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"settings\":{\"mute\":true,\"volume\":0.37,\"camera\":\"far\"},\"records\":{\"departureSentinel\":{\"timeMs\":54321,\"recordedAt\":\"2026-09-15\"}}}",
+  "errors": []
+}

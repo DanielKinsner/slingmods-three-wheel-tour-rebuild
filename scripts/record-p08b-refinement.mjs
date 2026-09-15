@@ -3,6 +3,10 @@ const out=process.env.EVIDENCE_DIR,base=process.env.BASE_URL||'http://127.0.0.1:
 const bundle=await build({configFile:false,logLevel:'silent',publicDir:false,build:{write:false,minify:false,lib:{entry:path.resolve('scripts/p08b-driving-evidence-agent.ts'),name:'Evidence',formats:['iife']}}}),source=(Array.isArray(bundle)?bundle[0]:bundle).output.find(x=>x.type==='chunk').code;
 const browser=await chromium.launch({headless:true,args:['--use-angle=d3d11','--mute-audio']}),context=await browser.newContext({viewport:{width:1280,height:720},deviceScaleFactor:1,recordVideo:{dir:out+'/raw-video',size:{width:1280,height:720}}});
 await context.addInitScript(()=>{const q=new URLSearchParams(location.search);q.set('test','1');q.set('profile','1');history.replaceState(null,'','?'+q+location.hash)});
+// Capture-only sync flash mirror: native dialogs can obscure the game's ordinary DOM marker.
+// Observe the real chirp-triggered flash and mirror it in the top layer for 240 ms.
+// No game clock, audio samples, vehicle transforms or outcome is modified.
+await context.addInitScript(()=>{new MutationObserver(records=>{for(const record of records)for(const node of record.addedNodes){if(!(node instanceof HTMLElement)||!node.dataset.audioSync)continue;const flash=node.cloneNode(true);delete flash.dataset.audioSync;flash.dataset.evidenceSync=node.dataset.audioSync;flash.setAttribute('popover','manual');flash.style.cssText+=';inset:auto;margin:0;padding:0;border:0;left:0;top:0';document.body.append(flash);flash.showPopover();setTimeout(()=>flash.remove(),240)}}).observe(document,{childList:true,subtree:true})});
 const p=await context.newPage(),errors=[],segments=[],shots=[];p.on('pageerror',e=>errors.push(e.message));
 const wait=ms=>p.waitForTimeout(ms);async function ready(){await p.waitForFunction(()=>window.__SIGNATURE?.ready||window.__EXPRESS?.ready,null,{timeout:120000});await p.locator('[data-loading-stage]').waitFor({state:'detached',timeout:120000})}
 async function shot(name){await p.screenshot({path:out+'/'+name+'.png'});shots.push(name)}

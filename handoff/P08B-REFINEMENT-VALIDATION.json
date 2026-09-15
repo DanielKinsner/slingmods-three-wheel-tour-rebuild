@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "assignment": "P08B owner showroom refinement / refreshed Review16",
+  "generatedAt": "2026-09-15T18:55:08.164827+00:00",
+  "runtimeCommit": "822ff5f5a9cc211775076074c7d106e8d372286a",
+  "branch": "feature/p08b-slingmods-experience",
+  "remote": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+  "mainUnchanged": "ed363b28ec6ba933dd82c576153bd73c80ea6619",
+  "packagingIdentity": "Exact pushed follow-up SHA is recorded in ZIP MANIFEST.json and REMOTE-ASSETS.json, avoiding a recursive commit hash.",
+  "status": "Internal implementation, critique, repair, integration and bounded validation complete. Director review pending.",
+  "tests": {
+    "local": 180,
+    "remoteCheckout": 180,
+    "failed": 0,
+    "logs": [
+      "tests-runtime.log",
+      "remote-tests.log"
+    ],
+    "build": "Static candidate 822ff5f5a9cc; 85 files / 133016713 bytes; builds passed locally and from remote. Normal Vite chunk-size advisory remains."
+  },
+  "integratedReports": {
+    "director-kit/production/evidence/P08B-Refinement/departure-static-final-02/verification.json": {
+      "bytes": 3257,
+      "sha256": "51955a86ad0af068e1694a2e886f705bf9e1d26a389a39d03b9ad6c5a2de0211"
+    },
+    "director-kit/production/evidence/P08B-Refinement/remote-departure/verification.json": {
+      "bytes": 3274,
+      "sha256": "c1db013232137fda38be28b18aff474adbdd5a4bec08e96334389abf22167494"
+    },
+    "director-kit/production/evidence/P08B-Refinement/finish-static/verification.json": {
+      "bytes": 3848,
+      "sha256": "121c9d751afc62c98d28f204a29322ae9092b593f0438a6cccae4b9cf58d9237"
+    },
+    "director-kit/production/evidence/P08B-Refinement/transfers-static/verification.json": {
+      "bytes": 169674,
+      "sha256": "f806d19cf9f6f93e5d51db1a6ffdcffffbadd743c662a0ada2cc34d381ac0225"
+    },
+    "director-kit/production/evidence/P08B-Refinement/preservation-static/verification.json": {
+      "bytes": 3117,
+      "sha256": "7d5095207c3e37a2a39d5bdef17c4138f1e025ac902b874ccc6531cb431bd553"
+    }
+  },
+  "nativeRaces": {
+    "sourceCommit": "822ff5f5a9cc211775076074c7d106e8d372286a",
+    "browser": "153.0.8010.12",
+    "width": 1920,
+    "equipped": true,
+    "duel": false,
+    "overflow": 0,
+    "thresholds": {
+      "p95Ms": 20,
+      "p99Ms": 33.4,
+      "maxMs": 100
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "samples": 5117,
+        "p95Ms": 16.70000000001164,
+        "p99Ms": 16.80000000000291,
+        "maxMs": 33.30000000000291,
+        "activeOver100Ms": 0,
+        "pass": true,
+        "result": {
+          "event": "harbor-express-quick-race-v1",
+          "attemptId": "46f1a8dc-5087-4a3e-93bb-c727876335f4",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 85296.9147623563,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinishers": [
+          {
+            "id": "maya",
+            "status": "finished",
+            "timeMs": 78808.65829767172,
+            "lap": 1
+          },
+          {
+            "id": "jett",
+            "status": "finished",
+            "timeMs": 80025.3774595871,
+            "lap": 1
+          },
+          {
+            "id": "nico",
+            "status": "finished",
+            "timeMs": 83808.60903857784,
+            "lap": 1
+          },
+          {
+            "id": "player",
+            "status": "finished",
+            "timeMs": 85296.9147623563,
+            "lap": 1
+          }
+        ],
+        "memory": {
+          "geometries": 189,
+          "textures": 71
+        }
+      },
+      {
+        "attempt": 2,
+        "samples": 5118,
+        "p95Ms": 16.79999999998836,
+        "p99Ms": 16.800000000017462,
+        "maxMs": 16.800000000017462,
+        "activeOver100Ms": 0,
+        "pass": true,
+        "result": {
+          "event": "harbor-express-quick-race-v1",
+          "attemptId": "c69efa21-997e-4712-8ad9-22becc25bd37",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 85296.91500625784,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinishers": [
+          {
+            "id": "maya",
+            "status": "finished",
+            "timeMs": 78808.65829767172,
+            "lap": 1
+          },
+          {
+            "id": "jett",
+            "status": "finished",
+            "timeMs": 80025.3774595871,
+            "lap": 1
+          },
+          {
+            "id": "nico",
+            "status": "finished",
+            "timeMs": 83808.60903857784,
+            "lap": 1
+          },
+          {
+            "id": "player",
+            "status": "finished",
+            "timeMs": 85296.91500625784,
+            "lap": 1
+          }
+        ],
+        "memory": {
+          "geometries": 189,
+          "textures": 71
+        }
+      }
+    ],
+    "errors": [],
+    "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+  },
+  "allPhases": {
+    "runtimeCommit": "822ff5f5a9cc211775076074c7d106e8d372286a",
+    "phases": [
+      {
+        "phase": "ready",
+        "samples": 15,
+        "p95Ms": 8266.3,
+        "maxMs": 8266.3,
+        "over100Ms": 1
+      },
+      {
+        "phase": "countdown",
+        "samples": 361,
+        "p95Ms": 16.70000000001164,
+        "maxMs": 16.80000000000291,
+        "over100Ms": 0
+      },
+      {
+        "phase": "running",
+        "samples": 10235,
+        "p95Ms": 16.70000000001164,
+        "maxMs": 33.30000000000291,
+        "over100Ms": 0
+      },
+      {
+        "phase": "finished",
+        "samples": 214,
+        "p95Ms": 16.70000000001164,
+        "maxMs": 16.800000000017462,
+        "over100Ms": 0
+      }
+    ],
+    "loadMs": 9845.60000000149,
+    "preparation": {
+      "ms": 32.70000000298023,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 0.10000000149011612
+        },
+        {
+          "name": "compile-async",
+          "ms": 5.199999995529652
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 24.30000000447035
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 56,
+      "programs": 27,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "overflow": 0,
+    "outliersOver100": [
+      [
+        9920,
+        8266.3,
+        12.900000005960464,
+        10.399999998509884,
+        0,
+        0,
+        28,
+        6,
+        2,
+        0,
+        0,
+        0
+      ]
+    ],
+    "note": "All recorded phases retained; loading preparation is separately timed. Native race thresholds apply only to running phase; no film capture in this run."
+  },
+  "film": {
+    "path": "director-kit/production/evidence/P08B-Refinement/film-final-02/P08B-Signature-Experience.mp4",
+    "bytes": 22017032,
+    "sha256": "98808dd47d0901cc0fb9632bcbaa412ebd210a01e724ab17583317232165eb2f",
+    "durationSeconds": 183.061,
+    "verification": "director-kit/production/evidence/P08B-Refinement/film-final-02/FILM-VERIFICATION.json",
+    "maxAbsoluteMeasuredAVDriftMs": 56.33333333333823,
+    "audio": {
+      "peak": 0.26936447620391846,
+      "rms": 0.052575303851771164,
+      "samples": 2196736
+    },
+    "originalMedia": {
+      "director-kit/production/evidence/P08B-Refinement/film-final/01-showroom-audio.webm": {
+        "bytes": 1300474,
+        "sha256": "29c624e888e881df7066af323ee610840147412a3236003953f1a44114c1c3cb"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final/02-reverse-launch-audio.webm": {
+        "bytes": 593029,
+        "sha256": "b59eadf720a9d6e8b1933986619ba60cb5d768e02cc8295f5820539f575ae1a0"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final/03-express-race-audio.webm": {
+        "bytes": 2247386,
+        "sha256": "c1fadc77ef16d36a70300b89105fa91ab41aaea71f67b1dcef22f701e9ad8e80"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final/04-original-harbor-audio.webm": {
+        "bytes": 572281,
+        "sha256": "5e4a8b2bdd31b33bb213c29c002be8816cffadcb70c0ada3ff2820e5cc332f3a"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final/05-returned-build-audio.webm": {
+        "bytes": 266385,
+        "sha256": "87e008211da4ba4b8f182af14c7412fc9f49ba79853ab6fcbfcbdf7df56c381c"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final/raw-video/page@eb2d5ac5c6f14c8cbf101faffada0ada.webm": {
+        "bytes": 37072370,
+        "sha256": "a9c1930a28ccb9ba1b7a8ca9c6785a4bf2e0ee5a3236c12e049109f1ce019263"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final-02/01-showroom-audio.webm": {
+        "bytes": 1301442,
+        "sha256": "8c0a17e2be79a97838b81c46b07817f9d4331ace7aa8a322e111a6c882f5e0b1"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final-02/02-reverse-launch-audio.webm": {
+        "bytes": 608981,
+        "sha256": "503392be7a84cba8f6b457f4ab104bc4ef268703a063421538ac7f697ae05168"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final-02/03-express-race-audio.webm": {
+        "bytes": 2248467,
+        "sha256": "f8164f9ad87fe2a6ad14095583a4db0dfff7efffeffab2c3ca4ca073245c1f6b"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final-02/04-original-harbor-audio.webm": {
+        "bytes": 574751,
+        "sha256": "efb4fc700fb4623d7594599376dfd7b579ce7f5941257e5045ef99ee89fc41ec"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final-02/05-returned-build-audio.webm": {
+        "bytes": 269277,
+        "sha256": "01fe44d7e3d59b2956a37f56b67bd1915c248fc797db2f235ffff9b11527bddf"
+      },
+      "director-kit/production/evidence/P08B-Refinement/film-final-02/raw-video/page@38e8909f3ae620262af9228927b18c2f.webm": {
+        "bytes": 38036625,
+        "sha256": "a6910dff76ba67fc97bacbb5e7396f16d7bef631c5ca9394d99fad7cd8c3e793"
+      }
+    },
+    "method": "Real-speed edited demonstration, with only loading and disclosed sync-marker boundaries cut. Actual live game graph audio, measured recorded chirps aligned to captured video flashes. No synthesized replacement audio or time warping. Audio listening approval remains human.",
+    "retainedFailedAssembly": "First recording preserved in film-final; modal-obscured sync flashes prevented verified assembly. Second recording uses capture-only top-layer mirrors of real marker onset; no game clock/audio changes.",
+    "excludedSegments": {
+      "04-original-harbor": "Opening video flash absent. Actual end group 6 visibly identified; optional excerpt excluded; complete original media preserved."
+    },
+    "assemblyCommand": "python scripts/assemble-p08b-refinement-film.py director-kit/production/evidence/P08B-Refinement/film-final-02 --exclude=04-original-harbor --omit-sync-group=6"
+  },
+  "requiredAssets": {
+    "manifest": "handoff/P08B-REFINEMENT-ASSETS.json",
+    "files": 181,
+    "bytes": 292074705,
+    "remoteRecovery": {
+      "pass": true,
+      "commit": "822ff5f5a9cc211775076074c7d106e8d372286a",
+      "origin": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+      "files": 181,
+      "failures": [],
+      "tests": "180 pass; remote-tests.log",
+      "build": "remote-build.log",
+      "method": "Previously isolated remote clone fast-forwarded from origin; required assets recovered exclusively by Git. No ignored input copies; same Windows host."
+    },
+    "packedSourceAudit": {
+      "objects": 1083,
+      "images": 7,
+      "unpacked": [],
+      "log": "director-kit/production/evidence/P08B-Refinement/packed-source-recovery.log"
+    }
+  },
+  "launch": {
+    "url": "http://127.0.0.1:5197/",
+    "commands": [
+      "python scripts/verify-p08b-refinement.py",
+      "npm ci",
+      "npm test",
+      "npm run demo:build",
+      "$env:PORT='5197'",
+      "npm run demo:preview"
+    ],
+    "preparedDemo": "http://127.0.0.1:5197/?scene=crew&play=demo",
+    "credentialRequired": false
+  },
+  "audioGeneration": {
+    "provider": "ElevenLabs",
+    "model": "eleven_text_to_sound_v2",
+    "successfulCues": 1,
+    "providerCredits": 35,
+    "generatedDurationSeconds": 3.5,
+    "provenance": "assets/source/showroom-refinement/bay-door-provenance.json",
+    "credentialStored": false,
+    "purchases": false,
+    "accountChanges": false,
+    "humanListeningApproval": false
+  },
+  "preservation": "Original vehicle/driver/rear, accepted stock dynamics, Harbor geometry/collision, products, P08A progression/reward ledger and prior reviewed output preserved. No simulation source edits in this owner refinement. Existing stock/full-loop evidence stays tied to its original commits.",
+  "limits": [
+    "Mapped floor relief; inferred dimensions, not surveyed",
+    "Door slats gather by presentation transform; plain short exterior apron",
+    "Loading/ready interval 8266.3 ms retained outside running-phase result",
+    "Native performance verified on one Windows Chromium/RTX4080 host; capture timing is not native performance evidence",
+    "Human listening/fun, physical controllers/devices, final OEM/room fidelity and rear articulation remain held",
+    "G3/G4, release, hosting and publication remain pending separately",
+    "Browser saves, installed tools/dependencies and built output do not transfer in Git"
+  ],
+  "nextAction": "Give refreshed Astra-Review-16-Lean.zip to Astra. Preserve feature branch; no main merge/publication."
+}

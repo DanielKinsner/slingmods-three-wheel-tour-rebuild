@@ -1,0 +1,82 @@
+✖ All finish choices recolor actual exported swingarm accents and protect calipers, springs and metals (12.9477ms)
+✔ Nested swingarm accent role is supported without claiming every orange part is body paint (0.5237ms)
+✔ Latest asynchronous finish wins; late completion after disposal cannot mutate restored source material (5.59ms)
+✔ Showroom swatches and rendered finish accents use the same reviewed palette (0.5112ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 257.9434
+
+✖ failing tests:
+
+test at tests\p08b-refinement-finish.test.ts:7:1
+✖ All finish choices recolor actual exported swingarm accents and protect calipers, springs and metals (12.9477ms)
+  AssertionError [ERR_ASSERTION]: shared rival slot changed: body_static__Radar_Blue_Textured_Polymer
+  
+  ... Skipped lines
+  [
+    MeshStandardMaterial {
+      _alphaTest: 0,
+      allowOverride: true,
+      alphaHash: false,
+      alphaMap: null,
+      alphaToCoverage: false,
+      aoMap: null,
+      aoMapIntensity: 1,
+      blendAlpha: 0,
+      blendColor: Color {
+        b: 0,
+        g: 0,
+        isColor: true,
+        r: 0
+      },
+      blendDst: 205,
+      blendDstAlpha: null,
+      blendEquation: 100,
+      blendEquationAlpha: null,
+      blendSrc: 204,
+      blendSrcAlpha: null,
+      blending: 1,
+      bumpMap: null,
+      bumpScale: 1,
+      clipIntersection: false,
+      clipShadows: false,
+      clippingPlanes: null,
+      color: Color {
+        b: 1,
+        g: 1,
+        isColor: true,
+        r: 1
+      },
+      colorWrite: true,
+      defines: {
+        STANDARD: ''
+      },
+      depthFunc: 3,
+      depthTest: true,
+      depthWrite: true,
+      displacementBias: 0,
+      displacementMap: null,
+      displacementScale: 1,
+      dithering: false,
+      emissive: Color {
+        b: 0,
+        g: 0,
+        isColor: true,
+        r: 0
+  ...}
+  
+      at TestContext.<anonymous> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\p08b-refinement-finish.test.ts:32:12)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ { isMaterial: true, uuid: '6a678696-dcc1-44b1-9a22-2e6a272879cf', name: 'P03A_Radar_Blue', type: 'MeshStandardMaterial', blending: 1, side: 0, vertexColors: false, opacity: 1, transparent: false, alphaHash: false, blendSrc: 204, blendDst: 205, blendEquation: 100, blendSrcAlpha: null, blendDstAlpha: null, blendEquationAlpha: null, blendColor: [Object], blendAlpha: 0, depthFunc: 3, depthTest: true, depthWrite: true, stencilWriteMask: 255, stencilFunc: 519, stencilRef: 0, stencilFuncMask: 255, stencilFail: 7680, stencilZFail: 7680, stencilZPass: 7680, stencilWrite: false, clippingPlanes: null, clipIntersection: false, clipShadows: false, shadowSide: null, colorWrite: true, precision: null, polygonOffset: false, polygonOffsetFactor: 0, polygonOffsetUnits: 0, dithering: false, alphaToCoverage: false, premultipliedAlpha: false, forceSinglePass: false, allowOverride: true, visible: true, toneMapped: true, userData: {}, version: 0, _alphaTest: 0, isMeshStandardMaterial: true, defines: [Object], color: [Object], roughness: 1, metalness: 0, map: [Object], lightMap: null, lightMapIntensity: 1, aoMap: null, aoMapIntensity: 1, emissive: [Object], emissiveIntensity: 1, emissiveMap: null, bumpMap: null, bumpScale: 1, normalMap: null, normalMapType: 0, normalScale: [Object], displacementMap: null, displacementScale: 1, displacementBias: 0, roughnessMap: null, metalnessMap: null, alphaMap: null, envMap: null, envMapRotation: [Object], envMapIntensity: 1, wireframe: false, wireframeLinewidth: 1, wireframeLinecap: 'round', wireframeLinejoin: 'round', flatShading: false, fog: true }, { isMaterial: true, uuid: 'dc80104e-21be-4f18-bdd1-7ea9dad0b1dc', name: 'P03A_Textured_Polymer', type: 'MeshStandardMaterial', blending: 1, side: 0, vertexColors: false, opacity: 1, transparent: false, alphaHash: false, blendSrc: 204, blendDst: 205, blendEquation: 100, blendSrcAlpha: null, blendDstAlpha: null, blendEquationAlpha: null, blendColor: [Object], blendAlpha: 0, depthFunc: 3, depthTest: true, depthWrite: true, stencilWriteMask: 255, stencilFunc: 519, stencilRef: 0, stencilFuncMask: 255, stencilFail: 7680, stencilZFail: 7680, stencilZPass: 7680, stencilWrite: false, clippingPlanes: null, clipIntersection: false, clipShadows: false, shadowSide: null, colorWrite: true, precision: null, polygonOffset: false, polygonOffsetFactor: 0, polygonOffsetUnits: 0, dithering: false, alphaToCoverage: false, premultipliedAlpha: false, forceSinglePass: false, allowOverride: true, visible: true, toneMapped: true, userData: {}, version: 0, _alphaTest: 0, isMeshStandardMaterial: true, defines: [Object], color: [Object], roughness: 1, metalness: 0, map: [Object], lightMap: null, lightMapIntensity: 1, aoMap: null, aoMapIntensity: 1, emissive: [Object], emissiveIntensity: 1, emissiveMap: null, bumpMap: null, bumpScale: 1, normalMap: null, normalMapType: 0, normalScale: [Object], displacementMap: null, displacementScale: 1, displacementBias: 0, roughnessMap: null, metalnessMap: null, alphaMap: null, envMap: null, envMapRotation: [Object], envMapIntensity: 1, wireframe: false, wireframeLinewidth: 1, wireframeLinecap: 'round', wireframeLinejoin: 'round', flatShading: false, fog: true } ],
+    expected: [ { isMaterial: true, uuid: '6a678696-dcc1-44b1-9a22-2e6a272879cf', name: 'P03A_Radar_Blue', type: 'MeshStandardMaterial', blending: 1, side: 0, vertexColors: false, opacity: 1, transparent: false, alphaHash: false, blendSrc: 204, blendDst: 205, blendEquation: 100, blendSrcAlpha: null, blendDstAlpha: null, blendEquationAlpha: null, blendColor: [Object], blendAlpha: 0, depthFunc: 3, depthTest: true, depthWrite: true, stencilWriteMask: 255, stencilFunc: 519, stencilRef: 0, stencilFuncMask: 255, stencilFail: 7680, stencilZFail: 7680, stencilZPass: 7680, stencilWrite: false, clippingPlanes: null, clipIntersection: false, clipShadows: false, shadowSide: null, colorWrite: true, precision: null, polygonOffset: false, polygonOffsetFactor: 0, polygonOffsetUnits: 0, dithering: false, alphaToCoverage: false, premultipliedAlpha: false, forceSinglePass: false, allowOverride: true, visible: true, toneMapped: true, userData: {}, version: 0, _alphaTest: 0, isMeshStandardMaterial: true, defines: [Object], color: [Object], roughness: 1, metalness: 0, map: [Object], lightMap: null, lightMapIntensity: 1, aoMap: null, aoMapIntensity: 1, emissive: [Object], emissiveIntensity: 1, emissiveMap: null, bumpMap: null, bumpScale: 1, normalMap: null, normalMapType: 0, normalScale: [Object], displacementMap: null, displacementScale: 1, displacementBias: 0, roughnessMap: null, metalnessMap: null, alphaMap: null, envMap: null, envMapRotation: [Object], envMapIntensity: 1, wireframe: false, wireframeLinewidth: 1, wireframeLinecap: 'round', wireframeLinejoin: 'round', flatShading: false, fog: true }, { isMaterial: true, uuid: 'dc80104e-21be-4f18-bdd1-7ea9dad0b1dc', name: 'P03A_Textured_Polymer', type: 'MeshStandardMaterial', blending: 1, side: 0, vertexColors: false, opacity: 1, transparent: false, alphaHash: false, blendSrc: 204, blendDst: 205, blendEquation: 100, blendSrcAlpha: null, blendDstAlpha: null, blendEquationAlpha: null, blendColor: [Object], blendAlpha: 0, depthFunc: 3, depthTest: true, depthWrite: true, stencilWriteMask: 255, stencilFunc: 519, stencilRef: 0, stencilFuncMask: 255, stencilFail: 7680, stencilZFail: 7680, stencilZPass: 7680, stencilWrite: false, clippingPlanes: null, clipIntersection: false, clipShadows: false, shadowSide: null, colorWrite: true, precision: null, polygonOffset: false, polygonOffsetFactor: 0, polygonOffsetUnits: 0, dithering: false, alphaToCoverage: false, premultipliedAlpha: false, forceSinglePass: false, allowOverride: true, visible: true, toneMapped: true, userData: {}, version: 0, _alphaTest: 0, isMeshStandardMaterial: true, defines: [Object], color: [Object], roughness: 1, metalness: 0, map: [Object], lightMap: null, lightMapIntensity: 1, aoMap: null, aoMapIntensity: 1, emissive: [Object], emissiveIntensity: 1, emissiveMap: null, bumpMap: null, bumpScale: 1, normalMap: null, normalMapType: 0, normalScale: [Object], displacementMap: null, displacementScale: 1, displacementBias: 0, roughnessMap: null, metalnessMap: null, alphaMap: null, envMap: null, envMapRotation: [Object], envMapIntensity: 1, wireframe: false, wireframeLinewidth: 1, wireframeLinecap: 'round', wireframeLinejoin: 'round', flatShading: false, fog: true } ],
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

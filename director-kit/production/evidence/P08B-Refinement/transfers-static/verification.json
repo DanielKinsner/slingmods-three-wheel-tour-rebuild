@@ -1,0 +1,6007 @@
+{
+  "pass": true,
+  "browser": "153.0.8010.12",
+  "rows": [
+    {
+      "phase": "cold-garage",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 4936.10000000149,
+      "preparation": {
+        "ms": 526.9000000059605,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 7.199999995529652
+          },
+          {
+            "name": "compile-async",
+            "ms": 510.8999999985099
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 6.800000004470348
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 23378574,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 5180,
+          "duration": 5.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 2292,
+          "duration": 7.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 1652,
+          "duration": 7.299999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 7797,
+          "duration": 7.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 31977,
+          "duration": 3.2999999970197678
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 639319,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 3169,
+          "duration": 4.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 20141,
+          "duration": 4.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 3159322,
+          "duration": 21.200000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 10178,
+          "duration": 5.700000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 16132,
+          "duration": 4.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 1761,
+          "duration": 8.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 5374,
+          "duration": 9.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 120.89999999850988
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 76.69999999552965
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 4.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 4.4000000059604645
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 92.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 5.800000004470348
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 4.700000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 4.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 3.899999998509884
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    },
+    {
+      "phase": "race-transfer",
+      "finish": "blue-orange",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 10677,
+      "preparation": {
+        "ms": 515.3000000044703,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 3.0999999940395355
+          },
+          {
+            "name": "compile-async",
+            "ms": 485.40000000596046
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 23.19999999552965
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 56,
+        "programs": 26,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 50110814,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/express-BdLPRTf1.js",
+          "bytes": 14515,
+          "duration": 2.7999999970197678
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor-lighting-DJq2-x-w.js",
+          "bytes": 23007,
+          "duration": 2.9000000059604645
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/driving-camera-RoNxF37m.js",
+          "bytes": 20481,
+          "duration": 4.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/driving-camera-8pBO1Ms_.css",
+          "bytes": 13260,
+          "duration": 4.200000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/competition-eoblom2f.css",
+          "bytes": 3983,
+          "duration": 3.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/competition-BpQaVTNK.js",
+          "bytes": 24361,
+          "duration": 4.199999995529652
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/style-S_mbsQK_.css",
+          "bytes": 1163,
+          "duration": 3.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/sky/day-puresky-2k.hdr",
+          "bytes": 5451793,
+          "duration": 24.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 43.79999999701977
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 2.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 2.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 16.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/kit.glb",
+          "bytes": 28974672,
+          "duration": 59.70000000298023
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-sign.glb",
+          "bytes": 26316,
+          "duration": 2.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+          "bytes": 146210,
+          "duration": 4.199999995529652
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+          "bytes": 176787,
+          "duration": 4.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+          "bytes": 71223,
+          "duration": 4.200000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+          "bytes": 462898,
+          "duration": 5.300000004470348
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 4.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 4.5999999940395355
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 6.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 6.899999998509884
+        }
+      ],
+      "memory": {
+        "geometries": 172,
+        "textures": 59
+      }
+    },
+    {
+      "phase": "warm-garage",
+      "finish": "blue-orange",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 764.3999999985099,
+      "preparation": {
+        "ms": 46,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 13.899999998509884
+          },
+          {
+            "name": "compile-async",
+            "ms": 27.100000001490116
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 4
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 19474280,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 93.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 28.30000000447035
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 7.700000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 7.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 34.19999999552965
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 3.7999999970197678
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 3.2000000029802322
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 4.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 4.799999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 3.2999999970197678
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    },
+    {
+      "phase": "reload-garage",
+      "finish": "blue-orange",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 645.8999999985099,
+      "preparation": {
+        "ms": 48.29999999701977,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 11.100000001490116
+          },
+          {
+            "name": "compile-async",
+            "ms": 32.100000001490116
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 3.399999998509884
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 19474280,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 103.70000000298023
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 30.900000005960464
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 3.8000000044703484
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 3.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 36.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 4.200000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 3.7000000029802322
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 5.200000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 8.400000005960464
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 4.699999995529652
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    },
+    {
+      "phase": "race-transfer",
+      "finish": "black-red",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "black-red",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 2556.6999999955297,
+      "preparation": {
+        "ms": 40.70000000298023,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 1.8999999985098839
+          },
+          {
+            "name": "compile-async",
+            "ms": 22.200000002980232
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 14.399999998509884
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 56,
+        "programs": 26,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 50109228,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/express-BdLPRTf1.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor-lighting-DJq2-x-w.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/driving-camera-RoNxF37m.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/driving-camera-8pBO1Ms_.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/competition-BpQaVTNK.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/competition-eoblom2f.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/style-S_mbsQK_.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/sky/day-puresky-2k.hdr",
+          "bytes": 5451793,
+          "duration": 19.700000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 68.19999999552965
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 5.700000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 5.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 18.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/kit.glb",
+          "bytes": 28974672,
+          "duration": 93.80000000447035
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-sign.glb",
+          "bytes": 26316,
+          "duration": 4.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+          "bytes": 146210,
+          "duration": 5.5999999940395355
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+          "bytes": 176787,
+          "duration": 5.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+          "bytes": 71223,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+          "bytes": 462898,
+          "duration": 7.800000004470348
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/finish-black-red.png",
+          "bytes": 99184,
+          "duration": 4.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 4.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 4.700000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 5.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 6.299999997019768
+        }
+      ],
+      "memory": {
+        "geometries": 172,
+        "textures": 59
+      }
+    },
+    {
+      "phase": "warm-garage",
+      "finish": "black-red",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "black-red",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 672.5,
+      "preparation": {
+        "ms": 32.400000005960464,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 9.700000002980232
+          },
+          {
+            "name": "compile-async",
+            "ms": 17.69999999552965
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 3.8000000044703484
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 19573464,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 68.60000000149012
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 53.900000005960464
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 3.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 3.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 52.79999999701977
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 5.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 5.299999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 5.4000000059604645
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 4.200000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/finish-black-red.png",
+          "bytes": 99184,
+          "duration": 2.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 2.5
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    },
+    {
+      "phase": "reload-garage",
+      "finish": "black-red",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "black-red",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 750,
+      "preparation": {
+        "ms": 31.100000001490116,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 9.399999998509884
+          },
+          {
+            "name": "compile-async",
+            "ms": 16.30000000447035
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 3.399999998509884
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 19573464,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 108.79999999701977
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 28
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 2.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 31.599999994039536
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 5.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 4.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 5.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 5.700000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 3.7999999970197678
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/finish-black-red.png",
+          "bytes": 99184,
+          "duration": 3.4000000059604645
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 3.100000001490116
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    },
+    {
+      "phase": "race-transfer",
+      "finish": "white-graphite",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 1464,
+      "preparation": {
+        "ms": 40.100000001490116,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 1.7999999970197678
+          },
+          {
+            "name": "compile-async",
+            "ms": 23.799999997019768
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 11.5
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 56,
+        "programs": 26,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 50109590,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/express-BdLPRTf1.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor-lighting-DJq2-x-w.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/driving-camera-RoNxF37m.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/driving-camera-8pBO1Ms_.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/competition-BpQaVTNK.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/competition-eoblom2f.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/style-S_mbsQK_.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/sky/day-puresky-2k.hdr",
+          "bytes": 5451793,
+          "duration": 18.299999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 56.19999999552965
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 5.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 4.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 16.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/kit.glb",
+          "bytes": 28974672,
+          "duration": 91.30000000447035
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-sign.glb",
+          "bytes": 26316,
+          "duration": 5.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+          "bytes": 146210,
+          "duration": 5.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+          "bytes": 176787,
+          "duration": 6.699999995529652
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+          "bytes": 71223,
+          "duration": 7.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+          "bytes": 462898,
+          "duration": 8.900000005960464
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+          "bytes": 99546,
+          "duration": 3.5999999940395355
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 3.2000000029802322
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 2.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 4.200000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 4.600000001490116
+        }
+      ],
+      "memory": {
+        "geometries": 172,
+        "textures": 59
+      }
+    },
+    {
+      "phase": "warm-garage",
+      "finish": "white-graphite",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 761.3000000044703,
+      "preparation": {
+        "ms": 54.29999999701977,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 13.199999995529652
+          },
+          {
+            "name": "compile-async",
+            "ms": 37.899999998509884
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 2.2000000029802322
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 19573826,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 109.09999999403954
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 24.69999999552965
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 3.6999999955296516
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 3.3000000044703484
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 34.79999999701977
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 5.299999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 4.200000002980232
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 5.799999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 3.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+          "bytes": 99546,
+          "duration": 3.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 3.6999999955296516
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    },
+    {
+      "phase": "reload-garage",
+      "finish": "white-graphite",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 563.1999999955297,
+      "preparation": {
+        "ms": 33.899999998509884,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 8.299999997019768
+          },
+          {
+            "name": "compile-async",
+            "ms": 21.600000001490116
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 3.0999999940395355
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 19573826,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 79.20000000298023
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 3.3000000044703484
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 3.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 22.900000005960464
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 26.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 3.2000000029802322
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 2.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 4.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 2.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+          "bytes": 99546,
+          "duration": 2.1999999955296516
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 3
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    },
+    {
+      "phase": "race-transfer",
+      "finish": "graphite-red",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "graphite-red",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 1493.7999999970198,
+      "preparation": {
+        "ms": 50.69999999552965,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 2
+          },
+          {
+            "name": "compile-async",
+            "ms": 32.399999998509884
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 13.399999998509884
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 56,
+        "programs": 26,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 50109298,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/express-BdLPRTf1.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor-lighting-DJq2-x-w.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/driving-camera-RoNxF37m.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/driving-camera-8pBO1Ms_.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/competition-BpQaVTNK.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/competition-eoblom2f.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/style-S_mbsQK_.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/sky/day-puresky-2k.hdr",
+          "bytes": 5451793,
+          "duration": 11.799999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 40.79999999701977
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 4.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 14.699999995529652
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 4.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/kit.glb",
+          "bytes": 28974672,
+          "duration": 84.39999999850988
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-sign.glb",
+          "bytes": 26316,
+          "duration": 4.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+          "bytes": 176787,
+          "duration": 5.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+          "bytes": 146210,
+          "duration": 5.300000004470348
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+          "bytes": 71223,
+          "duration": 7.799999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+          "bytes": 462898,
+          "duration": 16
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/finish-graphite-red.png",
+          "bytes": 99254,
+          "duration": 3.2000000029802322
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 3.4000000059604645
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 2.7000000029802322
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 3.5999999940395355
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 3.600000001490116
+        }
+      ],
+      "memory": {
+        "geometries": 172,
+        "textures": 59
+      }
+    },
+    {
+      "phase": "warm-garage",
+      "finish": "graphite-red",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "graphite-red",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 594.4000000059605,
+      "preparation": {
+        "ms": 25.399999998509884,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 5.799999997019768
+          },
+          {
+            "name": "compile-async",
+            "ms": 16.5
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 2
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 19573534,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 82.20000000298023
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 22.19999999552965
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 3.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 3.100000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 32.29999999701977
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 3.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 3.7000000029802322
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 4.299999997019768
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 4.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 3.6999999955296516
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/finish-graphite-red.png",
+          "bytes": 99254,
+          "duration": 2.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 3.2999999970197678
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    },
+    {
+      "phase": "reload-garage",
+      "finish": "graphite-red",
+      "build": "822ff5f5a9cc",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "graphite-red",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v1"
+      },
+      "loadMs": 795.3000000044703,
+      "preparation": {
+        "ms": 56,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 7
+          },
+          {
+            "name": "compile-async",
+            "ms": 45
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 2.100000001490116
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 35,
+        "programs": 16,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "bytes": 19573534,
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+          "bytes": 10270048,
+          "duration": 95.89999999850988
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 37.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 2.6999999955296516
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 2.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 57.79999999701977
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 4.899999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 3.7999999970197678
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 5.5
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 5.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 2.600000001490116
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/p08b/finish-graphite-red.png",
+          "bytes": 99254,
+          "duration": 2.399999998509884
+        },
+        {
+          "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 2.2000000029802322
+        }
+      ],
+      "memory": {
+        "geometries": 94,
+        "textures": 35
+      }
+    }
+  ],
+  "network": [
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3c41a46c-45d4-4ee9-9031-195f1e945a2a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e0594153-9f9c-47d0-95f1-2416d1b1a5a5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/36ba8a01-de7a-48a2-8ffe-d3264791c5c3",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/250fc365-a18d-45cc-9f95-752d82c0da30",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c9497ece-a41a-46b6-beac-e473ac5afc37",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f44e7535-3e94-49f7-a984-47293bad94c2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f3701be5-c0b6-4730-b0d5-66bc9b348854",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/120f45ba-81ad-4b79-a2fa-6631e7249c96",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/427bf41b-5a7d-41cc-b4bc-dc844c33cba2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5b2dd9b9-8b6b-4754-aa49-81dab570cbab",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a774f82a-7a29-4425-b26a-782ae3ca211e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6ebd8fdc-9ba4-4f73-89a1-1a4d83985486",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fa561236-b2d2-4348-8544-7e475a73eae4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e6996e78-4505-48fb-aaf7-06acaa0adceb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/81c00dce-d3f7-41ff-9b37-fe02838abf8b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4fea51d2-a85d-4ad1-bb50-e6e41440e0dc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5ba1bbbb-ed19-4ed1-a125-05cad660b23d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b3d3b788-cdb2-4848-8021-d5664aab7b45",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/aefec466-a5d1-457b-a416-e47e5ad6d13a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8273fb54-e8b0-4de3-8ad0-6e77c1e14a11",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a15a833d-21f7-4277-89de-29002d49dbb7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c530ebf2-e173-448c-ba6a-7669fa18124f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b07dd339-49da-48bf-955e-05d87e285782",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/af16dcf3-9cff-4068-a897-cfd49594aded",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/63b107aa-f356-4925-9c44-71d02a651724",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c7934f1e-b9a0-4cff-920a-94567f3a4c86",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3bdea929-de3f-487c-8140-c40776acd12e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/be95cb45-a746-4a02-a410-428144ba8d58",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/36eea432-48ba-4f1b-8710-e9130641ba7a",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=express&route=express&mode=test&play=preview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/style-S_mbsQK_.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/competition-eoblom2f.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/driving-camera-8pBO1Ms_.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/express-BdLPRTf1.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor-lighting-DJq2-x-w.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/driving-camera-RoNxF37m.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/competition-BpQaVTNK.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/341fcd8c-5c96-4458-8011-18ed2b016032",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2ead18eb-f3b6-487b-9229-75bd69ad8fc9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/06c3bc23-5cf3-4c66-ba92-c625fda65a3e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fc8f1bf3-6a62-4aae-87e0-de7529e2f47c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/04ac6af2-4d9e-484c-ab4f-5aa0115447b8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d4fd28be-0e0c-4cec-9363-1215f7a253fc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a3b95e04-1afb-487e-a5c8-4db015ddcc28",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/236f07e5-6e3f-40c0-98cb-10911cf1eb32",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ccfa234a-2dc0-4748-83b5-fcba62ba8a5c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d28da9d6-5cc7-447a-8ea3-0cc9962da721",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7ee77218-2876-4b11-ae77-d70071e7f8d2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/24eca66c-8bc7-4ec7-b34d-1ea62788d999",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f157467c-4aaa-4f2a-a580-8416108bf8d4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a7e01658-aad4-4648-a6f1-d8a38da7d4b5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b25a9b3b-bca6-4ccf-b3d3-91438094119d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f082bb6a-a43e-4c76-b363-d7a4ef03fc65",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4cf6c7c6-f7a4-404f-8e16-12a7dab67f5a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/21411541-d172-4fb1-9c9e-10f4546f67c2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1f2ab06a-d78d-45d1-862d-ff082aaceb0f",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-sign.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/cb74f54f-91d9-4963-92ad-f6546d12ff7c",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/kit.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6496f8d3-4a0e-48cc-a4e9-fa69b0ef1924",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6cc0d4f8-6dee-4a18-8d5f-92f461b1fd80",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/443da804-fb20-4256-9a70-b13d81f3fedf",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ddbf1f75-6ea3-478e-8c96-a5054dd35ceb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2c67567c-2676-4c7b-90fc-ab3bf82361ac",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b169713b-cded-49e9-898b-2793e79557b6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/957b9acb-3002-4121-95ca-9c8f62172f67",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1e3362a9-0bb7-4fe5-a9bc-7844721f6acf",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0a561745-5c11-4962-9d62-a563e0a5a706",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b9cd7547-5ffc-4f53-a531-cf29c942b0db",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b2578c45-f1a5-4c2a-8b68-3c3eeade8451",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/465640a7-4bc5-46c5-9867-9d5efd3a132a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d147bd08-f90b-48f5-9669-aab87c5c2bb1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/312be9a6-2098-406a-8162-916eef3783ee",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/612c3a7a-843c-43fc-a5a1-8ed2b4bee3f2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0712875b-f8f6-4661-a1e0-4c4457b6de20",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/38a03f1c-c739-4397-8bb7-02a58efc7faa",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/23c45de0-b958-4cbe-a7bb-56ed73dd3271",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6b3e0234-38e9-4995-8417-0d04676ed4da",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8107d93a-45a5-4015-beb6-e2e792dcbd74",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/331feb85-1bfc-4c1e-a243-6e46f14edb81",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/60ce1900-2994-4da9-9032-294b56da2079",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b9fb4c87-e068-4a3d-ab5d-1b805ae9ebff",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3e5d7b88-2c18-492b-8bee-fcc7a16e4c6e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b6aee31b-5313-4fe0-9ceb-38d665248537",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/24912b98-93b9-47fa-9892-92e42e1eb43e",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5734a697-ae0a-4df2-9c18-586e9a835d60",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7dbd9bdb-e371-463e-b698-a50b787ebed3",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ca137c04-7264-418a-83e5-8c7f4b1ce193",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8ca2b163-7186-4b8c-ab78-3d3027056cb8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/db3ceca4-df68-430f-9fbd-81ad19748cf8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9795281f-c549-45c9-8ca0-90a369c27bdb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/356cead8-bc0f-4ef0-a912-da07fa30166a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/19bfcaf7-f0b7-439a-a3b4-8a2b4bd52d2d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/65f59c6b-9b24-477d-98c7-3c653354a2d9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/41e1adf0-bf8b-454f-92bd-c81c17f48b1c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/bdd56616-f303-4ca3-894a-0ddb18643bdb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/dbc3e21c-1a27-4279-ba4d-eb860d4a71d5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/73117b99-20a4-44fc-a4b5-c06baca0cba1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c940b1ac-9430-451b-bb2d-b0dfb405fa6c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2a376d6a-fd2c-4d48-8f9e-2e6699622028",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/bb356a7b-725d-48b7-b017-38706318e333",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/05826227-a2ee-4b3d-9f45-6225554d8155",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1243e17c-865e-487c-9b11-480d32e35ee8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/acd65bc0-7f80-43ca-8091-71b51304a4fc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0b3a34a3-d44b-4120-addb-6505609e5619",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1114a1b8-c785-4c4c-a0f9-7942ada7ccf4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/97815c4f-e07d-4bb1-b889-2f4bf9fea680",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3e5400f6-1f10-46a4-a448-dcdccf58e9ac",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3fce38aa-f2cd-40d7-a08a-0e7a7728e003",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f693f069-746f-4f19-97d0-9e237e8fa0b5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/37546ea1-93f2-41f1-bf2d-cc908b9b26e5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7ac65bde-edd0-453c-9960-4b29cc2a82e2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3f08c7fe-2c22-4ee9-b53c-136cc15550b2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ca58eb63-ddaa-4940-ac4d-8027096be534",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2d28f265-fcd2-4625-b988-fe405ad18d71",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f658819f-a559-4f40-a9c9-60941b078378",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/253692fe-3625-4967-bbcb-364804ec2d68",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build&test=1&profile=1",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/985364dd-136a-4faa-b15d-7424a8965aa6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/89af758b-3759-4dd2-86d8-bfb981de9c34",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5d55e671-e240-4ec8-9a08-41314ae683fc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8c84de7e-ed1f-4af8-9b5c-0dca5de350d6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3e4e628a-5ae2-4361-9d8c-341f21c46495",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5c2c907b-ad25-4a35-9a9e-2aa4fe3b0f8f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c4e02e46-7c65-4b10-bb1d-97b7d3272131",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c8b81d16-ae2e-4f5e-8737-caa5198992a1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d14b2458-28e7-4714-85d6-2ce846b1a961",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/99bbc862-517a-49be-b093-0bfb8035cb2f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/be1e7b57-fb73-44ea-8749-aec8f7f073ef",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/024a4131-2aa0-479d-8608-5a9079d043a2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f862d172-c838-4658-aa56-7db1ad24de82",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d7d3e552-e38a-4ab8-b8fb-7775b35e499d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/38f4c95e-f8b9-43c0-a0af-66934ee632f6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/140f422a-1835-4228-b61f-b4030c9463e7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7b84d4b0-f9f1-4946-ad89-e11939f8fb09",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0ec9fe8f-8bd9-4f55-ae97-a103ec5ed565",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6f6d33e8-b42c-44be-bd21-d5f8ef6a00b6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6601204a-ae69-4e33-a5d8-aaf1c3c8d2a2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f045428a-c469-4b02-97ff-50e9fa293cee",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2f0e29f4-14e5-40de-8245-a147ce4abe1b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2182c7a8-8052-4e96-af2f-0467131d8414",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a3526255-8e19-41c0-a012-34b01e6a8fcc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/53072486-aafb-47df-b9c4-9f7c2e4e957c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8c4541b7-06d5-4e17-829e-cd9b0c51a2c2",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9c3274ff-d7bf-4c15-8be2-e5e4561910d6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9b822570-1800-480d-bf13-0e164b402780",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9896c9af-d32c-4a96-94fb-ff28d303b4ec",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/finish-black-red.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=express&route=express&mode=test&play=preview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/express-BdLPRTf1.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor-lighting-DJq2-x-w.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/driving-camera-RoNxF37m.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/driving-camera-8pBO1Ms_.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/competition-BpQaVTNK.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/competition-eoblom2f.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/style-S_mbsQK_.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6c91fbca-843d-4186-9981-a682914e57df",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/34a89bf2-3924-4bbc-9ea5-427cdee719c5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0e6897b1-2a0f-4ab3-9c89-11be9356782a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1c53fadf-f2a5-480f-9041-61304a849594",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9b38b1ee-0e37-461f-acca-9f676735a8da",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2db8b947-4429-4b8a-aa4c-dc6460019ce4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0b213777-e3a6-416c-8fb7-129200129111",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/643fcd1e-e9a7-42bb-8109-0a8f7bfe8b93",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b5f08842-8805-4786-8c04-dec65c0049f2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4e7ecb4b-15cd-42eb-b4bd-24e061e1fff5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c038df80-ec28-4a7d-8468-666b27135bc7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2cda02c6-52a8-4a97-93c2-cccad85a3267",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d2504178-12ca-47f1-b392-121d624cf367",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/796b264a-c3a4-48d5-bba8-dac5587aaa22",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/71d97835-1565-48c5-9d30-f33c6d95952e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7695bd0d-f04e-4065-a526-cec3e7b39fde",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/71e7e6c3-98f5-492c-933a-511d753ec216",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/343a7945-9a85-4a5a-9716-5c5a97464fa4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ca72ad57-5944-480c-8b57-bdae8557b696",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-sign.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/99740745-b277-4c2e-98e9-7aa037e8d736",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/kit.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a86af50e-6d23-4874-89a8-95937fdad213",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fb6f6669-3f1f-449b-ad1e-39c98aadaf1b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4d7efdc9-2b22-4318-9c50-f8f4630087ea",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/49aed633-4d0e-4f07-9852-6066e403c281",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a1863eb4-897d-4acf-9017-7e4809ca55c4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3b8bea62-1711-43b8-9bab-b3f758659a89",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/403d755e-c4e0-4419-939d-49a6205a8dcf",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fa3b9807-979b-4a42-86bd-226c345e8d1e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/520ae512-fbb3-448d-98bd-2228ffdb5989",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8deb35dc-ed77-42d8-8214-a16efda23898",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/81df2cfe-ca3f-460e-aaf1-f129fea20705",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b7b7e878-f7e4-4daa-939b-dbf1d7348910",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d33616a1-db67-4355-ad83-1f5db9022b6d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/46523bfd-a01d-408a-ae9b-fc080d4481d8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6ec82c4b-f72d-4463-9b9e-59485e6dfb03",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/83aacc88-cddd-4e61-a2c8-a1e9f891550d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c5802b21-a257-4e6e-94fd-188dc6118797",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/be1a1971-03fc-488e-8866-8759257d9c3e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ac04f45d-3a64-4504-8803-d4cceef5bf81",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/238f8129-2beb-4b7a-8d55-1fb8df210019",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c7487176-9049-418c-895b-b00dfcc08fbf",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/93355b12-ecdd-4b43-8a77-f060610a26d5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/125d233b-2640-45ea-97c5-19eb0aa5679f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/abd94414-24d5-45c0-a6af-ad01b816f1b8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0561c25c-a69f-4ae8-923c-6094da47b3d4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e02a4e7c-4798-4b14-a647-073677befc38",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/finish-black-red.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2c253692-dc5f-4b7a-86e0-2a36387a023b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/be046a03-ce3f-40fc-8d41-cb23ff3afe4e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6a7afe00-e30d-4454-a774-38a0f0284575",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f8aadca3-fdc5-4d07-bd49-b3f1a81b47c1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f72e5995-c07f-4c33-a06d-4831843291a7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b1a39c9e-0d3b-47af-a2e4-0b40ac0d2769",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fe641fa6-32dc-43a4-9e30-ef4e4d5dc7ba",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/98ada47f-cc67-4859-9b2c-a87cf9fb85e8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/baa9c6f5-1009-446a-b51b-5bcb19af4fe6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/96c0c1d5-982d-4575-bfc9-c2866ca031ec",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/62a0e642-8e61-44a1-aab9-0303a85a17b5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b7ec2c39-feef-40d1-a763-5dcb6b1a2608",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6e67c142-8cbc-44b9-95c2-22ba5b63edf2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/054daae9-4fbe-4626-8570-18046e61f7bb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/da12df2c-4517-42b3-b547-a7ba1a74ad2a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fb918dee-4e1e-4493-971f-0e71ecd56e20",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/45161228-578f-40f9-8340-bae1bdc0dfa0",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/27d967e4-1660-40d2-ae90-d899972ddda0",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1e4ec4e1-e381-47e7-9b67-5b258bf9db91",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0d6be10d-8208-45aa-980e-d4d520e703de",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/215ca029-785b-4110-b666-d92f278e86cf",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5090da5f-a660-40eb-8b5d-a39e5ba6d281",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f4a54d51-7b37-4c40-99a5-927e8f1a5002",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a31b948d-3be7-4f98-b699-56a5602ef83b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/379f5f22-0896-4aa5-82c1-e853b31b68e6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ccfcd671-1a23-4d4f-9912-4d2c4cb0e3d2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6ed34959-fd9e-4c9c-b373-cba7b3998994",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2b7cf76b-0978-4851-b596-d36708b54781",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b53a9013-2326-4668-9df6-7a9cd71a55be",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/23811a70-1ac7-446a-a6b4-3a262b0bd07c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/95fc6e27-aa36-44d9-b96a-331e9d3a8e72",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/14960b9a-8b0b-463a-b263-8a0c6e664277",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/finish-black-red.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build&test=1&profile=1",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/03395e7e-76de-461a-8672-ffdcd32a8913",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/36d91435-597c-4f18-8972-7b57da57546e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/085d393c-c75f-4f3b-a84c-7bc3edf814c8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1761d3b6-581e-4b54-848c-42fbf7f78f68",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/45791fc1-5d89-4ce1-ba34-fc665d5c2b98",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4e0e7641-894e-47de-b4dd-e3fb055dbd38",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9aba427f-7301-49d0-b1eb-21d5c2130130",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a0718ada-1596-4998-b561-0ee3f501f5e8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/aa395e3c-039d-490b-8f9e-e82d59ccd6da",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a36ec3df-0c09-4d61-ada4-0d60603b5891",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8c6b8730-41f7-431e-9be9-01e92c73987e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/527029ad-bdb2-4d92-a2c0-342dbb43736d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4eea781c-a07f-4b5d-82b4-e422144d7c94",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9e362e89-2473-4d3b-b11a-5f72864ed633",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/757713a9-e843-406a-b04e-98d56cd46b0f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/da60e942-0d3d-4659-8af9-d35b51bb55c3",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/033dcc00-8572-4f8b-9389-3dca69b95ebe",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/46e30f00-e2b3-470f-8ed8-f0e3454b1ff8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8f5a7ca2-9596-43d9-b8b1-c76a7f4ad7c5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9505da4d-5bef-400d-8574-ddc8d39bef1f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a8cd58c2-6db7-4312-beef-b4f20fb36170",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/aa89676e-124d-4a9e-8550-995a7a8e9d15",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/879323ae-da76-4359-818f-30853a24a1a2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8329c2bf-91f5-4cda-89d7-99eb2794f9af",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1beec22c-f89c-4932-a1d2-c71c60c9b119",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e2aa1041-0353-44c8-a3a9-ba86b6e12274",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1fba39be-bcc9-4c39-991e-58b97cd5f251",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1236555e-32cd-4849-8884-5b76a330e4f9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/25511b9e-2beb-4729-8bd7-e29e760a2542",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/finish-black-red.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=express&route=express&mode=test&play=preview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/express-BdLPRTf1.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor-lighting-DJq2-x-w.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/driving-camera-RoNxF37m.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/driving-camera-8pBO1Ms_.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/competition-BpQaVTNK.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/competition-eoblom2f.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/style-S_mbsQK_.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4ab2c26e-f5e8-4532-923c-795f6700242c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5aaa0e9a-ee9e-410c-83b0-0e05d5185d8c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ff8ff1e7-6de6-42a9-9a0e-58d3e2d12b7e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f42bb730-c0dd-4e9c-951d-0f9ee04562be",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d685b544-4326-47bd-b57a-de77ea2c23fd",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1d6e60b5-48ca-4f1a-83af-f1611b7393fe",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7ce6f3ae-2140-40c8-81b2-27cdd29ab3d9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fb2bef54-970f-4f03-a367-a9a2d6aeb4d7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6b1f9212-ead9-4559-9419-a3d78955bf2d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5464b400-f039-4a3c-a12d-78a96d3c69dd",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e80dfefd-dad2-4426-a432-fa0ba145ec3c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/60d59fb0-8a6d-465f-be5a-3fbdcef0d9b1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9fd2940a-9400-45b3-8b50-0f43397fb931",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8b805173-6685-4349-97ee-a672cf2b0614",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a0855136-182d-42d7-97f1-b392d09e3633",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ad634fc9-f6ca-4064-9fce-9b566793eaba",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e7b3ad9b-0cc9-40e8-a3ef-f502b949ed54",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/708387d3-1f64-4a6e-af1c-5262d7438b87",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e8c8810b-2092-4e2d-b122-743900c40c7b",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-sign.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/65238e8b-3940-4e4b-b1c1-467855310d57",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/kit.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c84cb2d9-3e84-4088-8b21-3c7a86f7155b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/43c9f4ec-56e3-47ee-a035-3754a57f00a1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/21acecc2-ac0a-49d0-b197-24368109a8f1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/49a6da60-9e9c-4516-b178-87a307519c39",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2827e1e2-ab14-4975-9048-8f66380707e1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/654c9338-80fe-4455-ae63-c8872fe6703c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2d3db53d-3df1-45be-a697-39431b84e766",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/359d28b3-d91f-4dc9-950a-f3cecb818a07",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/836c287c-1154-49f8-8292-3ce4a177d2c4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9687e52d-facc-4218-ab90-c957140e95f8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0b7f8e64-22db-48cc-9e07-472b0cbb34e2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/773990fb-097a-4315-ad3e-763b717d9131",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/72345c6f-a48e-44ce-b4ff-6f181af3f4a7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/213442d5-36d2-4bb9-a184-715ad654d4e1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a98461d1-d4e5-4d96-a35e-03b0b15bef4d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/bb9bac24-9288-4b89-aa52-ede1f7ad4a46",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2e1633d8-cb1d-4641-80cd-2c5822e0a2c6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e80b1382-395e-4e8f-9f99-2dc8524ba22b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a4e11ff0-c71e-429e-bd95-a61c17ef4043",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/386bbde7-c412-470e-8476-ea13454f43e1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9e8a3956-2e4c-4d5f-95b0-b84afbf4a6f2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/bcf91dbe-ae4d-4191-91f1-3da9314880cf",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/688e5b2e-84b9-4da5-a24b-c84c29caa2b7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4719c295-7111-464e-904f-efceff44dd19",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8a5ce801-4aae-4dfe-9abb-5cc76ac25919",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/abe63b89-63b6-432d-9872-e033133e400b",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6139c180-63d8-4c77-872c-d5597fc78d3a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f65287ba-b25a-4c99-8f02-9fed17ad036c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0fded97f-3e04-4351-813e-693d477e5f52",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d42ff538-3f24-42c6-8991-fad90264baa6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f6e3b4e5-024d-4b8d-ade3-99808002160c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/33789fb9-d9b2-4e9d-9045-c47834725f9c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/39c43d79-f112-4011-97d5-02301f632eeb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ec5dc046-ef0b-437c-a978-dffc811b4f8f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4a6fd931-400c-4eb8-a774-41e95a8f7040",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9e4ab0f3-9578-4e2a-9388-9e2352cf9004",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/99c7b79e-3686-4a53-a526-2dc34fd43562",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a0466297-bd42-4b6e-894e-e06687a4245e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d8811fc4-18ca-48d4-92c7-a6d75611c29d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/50c66de2-f97d-4601-af5e-3e68cc49c43b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fe781132-b370-489e-a082-7e9f879ea3eb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6d6e0a5d-76ba-4066-aa37-5594322cb8dc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ea85eed8-2aa6-427e-a8d6-ed2b2f83b8f6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/051baf1b-bd7e-4431-9a4c-e0b85d086812",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/39c6485b-3ec6-4ee1-901f-8ea949031652",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4cc3ec7a-2efb-4941-b99b-a920c7aa876b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b185f3d9-8528-416a-94f7-f6d2aee8ebfa",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d39de829-848a-405b-9773-aa4ff7990e26",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c8c27d7d-666e-4195-940d-d47fbeffba1c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/17442099-8b98-4028-aed1-d8b9d3fba2ee",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/66d2b385-0141-4773-ac5b-e1350a35d791",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4dc2aaf0-bf33-4a70-b771-2cb7c516e5b2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c4b57585-9d8e-47cd-8ad3-32336671cf9b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c36581ad-bc2d-4088-9449-d563ae795280",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/68d8fcfb-0b13-40b2-93ff-dca74a42408a",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1188c049-bb5e-4fc5-8bb4-25b6b4333af7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e3f1e15f-cc9c-4465-a35d-be7091d9a7e8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/58052789-3df2-4905-8451-26ab9b422272",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build&test=1&profile=1",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3f3a163c-1454-49ad-9efa-3a785f4ebffc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/134c8ca6-e9dd-4a4a-a80b-dfd46fb83932",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/dad045ec-c285-4c58-8576-14db7dd995ed",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f72f3195-5184-4629-af62-2f34bea506d3",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a6721103-730b-40a2-9e06-4e4be08fbb83",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/90207538-03bc-4f28-b3ac-e252664c83a6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/203002f2-4ec4-41e6-a957-afb34b529824",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/63ab6088-5489-4c75-8ca8-aad00ced596a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/18c73828-f5d5-4fbf-a1be-c961db3b4d25",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/704ca90c-ff08-440e-bcf6-e14159b03e29",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ddf7e67e-bdf6-42c6-a9b5-23eedeefac04",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ec061d59-8174-491b-8f2a-62f9ae8ca2a1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/219df11e-4800-4b6e-b795-c85c9c126022",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2644944f-4fa7-4a13-ab65-fe8c6e45890f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f474eedb-9e2f-4cf2-8b22-347a97eafd21",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fb5b3b14-16a0-4cf9-bc2c-5a38f3011cdb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/27ef12c9-4578-418b-9215-8d4348eabfe7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a64de7d5-e44d-4fac-a775-cbdb0b66b9ae",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/779cd09d-dfba-4337-9689-3c2a777dd432",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/587297ed-8235-4e6d-aa4b-3e3185ffbf27",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/319ce82b-7e89-4354-a252-060103ba8cd9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3b69265e-f494-4efb-a1a3-ad5fd8f3b4f7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ff6745e0-2c7a-4737-9de0-f4261b8f7df4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8aadb7c9-7de6-483c-b3c1-3a5e12eb977a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/27247c9a-c4fb-4fc3-a9c3-9adf45d6c3f9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1160a04b-aee4-4d21-b6f6-781d3fe92228",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/578fa588-cfd9-449a-be7f-da74b38dc12a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1bfb1da1-fc64-454a-8415-65c5b82b6be8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b1c57f0c-ceb7-4b2b-8d4c-1f24c6801a85",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/finish-graphite-red.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=express&route=express&mode=test&play=preview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/express-BdLPRTf1.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor-lighting-DJq2-x-w.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/driving-camera-RoNxF37m.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/driving-camera-8pBO1Ms_.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/competition-BpQaVTNK.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/competition-eoblom2f.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/style-S_mbsQK_.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/75183947-f984-449d-b0e3-0eaf90bd3460",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9cd9ab8e-362f-43ac-81fb-1e6a9d7014d2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/62a2ddc0-1fc8-41e0-b123-b46437cc4af5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/67d44787-aba4-486e-b4f8-6acf42d091a9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0ca2bca0-4755-40b9-8e6f-f2b6d294df4e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/34563684-1c1f-4f2e-8ec9-ee09f3e5f7f9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a7f9df96-ebfe-4144-947a-21ca4ae54df0",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/15604e86-e641-495c-a83e-70b50164056b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8769aa26-c20a-4365-a618-1f722d6b595f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/56072ead-f7ed-4059-8fa2-b64e2ce9163f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1e59260e-219b-414f-95cf-5caeb79428db",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/56ef2e7c-4129-4f4a-ac01-6a41822c860b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a0d98106-a735-430e-ac31-0501283d0ace",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/65fea09b-af8f-4769-9aa4-7787d1bb7057",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/069ae567-f9a6-478e-84db-044f761ce47d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b54401db-b291-44c8-a7e7-50fcf6a1a6dd",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5339c169-30d5-4832-ba11-98e78bc95eba",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ae4c83a5-8f6f-4175-8f08-834db923720b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8178ea04-5ad7-4b48-8302-866159ef39bd",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-sign.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a86e6ca5-a0ec-4cda-a553-52df82e6e46e",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/showcase-quality/kit.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0349ec86-4313-443e-aa7f-1d11bf4fb276",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a8823e24-b987-49a2-9dff-d6db2441b326",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a84cf5b3-9e43-4c59-893f-1d1b957fa2d3",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7b73e141-698c-4354-b1d8-8dc277f65d1c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8aeef8cf-c2cb-4e7d-8fab-11793cb1faf0",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b41d12e5-2e79-49f2-90e6-1f81fd81d67b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e8bc9b3f-f700-4503-b7ee-fd58cd57e291",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a468b092-31a5-49a0-8c10-70aa5229e0ee",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fe1522fc-3bde-4f75-b924-450fffc68d89",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/568841f7-0453-4cca-befb-3f37c2838b09",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0ecb0da8-e4b6-4b3f-922b-36dc4650c9c7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f2cd7502-6fd8-46cf-820d-1dd419abc8e6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/fbd5ace5-d71f-495b-a0e4-cc843934da34",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/24785754-fdab-4e39-8901-c13a2d088d2e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a3c23713-565d-417b-b23e-5d6bd5733886",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2bec3f0e-9b53-4e7d-b683-3d198f12d586",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b1f513be-0bf0-4cff-b78b-6ae3ceaa09b6",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/70c5620b-13e8-4bf1-9a8b-c3dad00e6c11",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0df2d66d-4c9a-466b-b387-0572fc2f3d29",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b8610b00-a74b-4ecc-8f97-4917efeb44ba",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7335b1bb-80c8-4ed5-a44e-8a448f4f63e5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1d28fd59-c578-4718-8014-82725cce0ab8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d3234dde-0e77-47e9-affd-d08e4a086e2d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/383b201f-781e-43ea-aa36-33e44b90024d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2c7a31c4-48fd-4078-9c6b-59528161af13",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/106ee91d-805a-4e23-ac70-b1dd7ecba295",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/finish-graphite-red.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/b932b951-38e7-42a4-bbe4-739f04e493ac",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/513fb89c-d96f-43d2-a535-70d0b85a423b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/d2608a77-9e2e-4ca4-8ef0-1fa1cff0870d",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/df6d051c-df7b-4a2c-ab95-b3e564171a86",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c9c88708-0cd2-4048-82cf-e9d1f8093ab1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/85f38f7c-03cb-4d5e-97c0-abda538e8ec4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5a4b4b7f-6fb7-403d-ab73-4abd552bc303",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f2f353a8-a7ec-403f-ade9-b778ac9c10aa",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/73bbe096-b7bf-42b2-87a8-90bc7e48afa8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8a6a92d1-a1a6-472b-a227-fca92eecba99",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/197c9b88-4b09-4077-bb09-006acd5ee060",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f6eebf8c-e125-4f85-b366-169e17668d1b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6a0e9de9-0ab6-4ed6-88e2-b0e448b4917c",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3fd0ba9b-9102-48d0-a29d-5b924e435979",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6b907959-4567-4fd8-a904-3015bc390523",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7ec9bf88-f5d9-4a51-9ea4-87bd1e0ca848",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0cc74108-1c9d-4233-a34b-a1c28be3ba11",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2a808f07-fc56-4139-a34c-b6b397675409",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/430f78c2-02ff-4676-8536-5306c66c2a31",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e1d51af7-de69-4a40-9fef-5e36ed1794e7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/09f14b43-9f46-4ea5-8f2d-001c423a63a9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/12eb40fe-7370-46a5-ad04-243fa564b51f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/35de902a-fa64-4429-98ef-09065b0fbbdc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/11f0aa03-cb5f-40be-949e-d649cad77738",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5d30f089-c649-49fc-9c83-0ea91a081650",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5551a862-7af2-40fb-9e03-c654a3021f59",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8b603a5b-a5fe-4712-916d-cf4eff3ea4a9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/405eb971-a898-4325-8b9a-39a37440c35e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f749ebef-568f-4f24-b644-8d6bcda699e9",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9cf3b2b8-aa4c-4a42-90f2-c0c3f64fb3e0",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a8c63814-e40d-4c1f-959f-eac476e8fb16",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/bab65558-2ce6-4832-a8c6-ad992d6e3f62",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/finish-graphite-red.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build&test=1&profile=1",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/7bf1ce02-438f-4eb4-a25f-46dd32e48fcd",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5ddfd745-cff3-4fbe-ba29-c8c16e55bf2b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9739dcf2-9de2-4887-a3ab-dd0eae9c3ced",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c89cbecb-90d8-4890-953c-078f19c1928a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a4a55f60-4e0a-4103-946c-66732d50415b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/e7266e29-55d7-4269-b11e-8fdf6ece5546",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ab6e5b60-5756-4eae-80eb-f4d20bf41f81",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3c8872af-a386-4383-94d5-5104e7f4ff27",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6ad39faf-d3d5-4657-8c03-f0a3bdc49be4",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/ffbe3309-1ee3-4f1b-a718-6b44dea50646",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8b16b80d-7fab-42b4-bd22-3f2d6d7ef1d9",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f791fc44-4803-41ff-ac37-de3a340ea13b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2846ba77-5c3e-416a-af39-c5d11a39e8dc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/40872dd9-75bc-4222-9d46-1dc0cd622621",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/c2fcecf6-bff1-47be-b980-98e9762ca320",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/cb2500a8-770e-41d1-bd5b-e1d8e0662884",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/35f2402d-7197-473f-a295-b99f3ab56150",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/bbfded2f-eec9-425b-a9fd-e84501bcccbc",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2d82fd28-caba-4fba-bf59-ff5a27158b4d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/94005f1c-f96f-4409-9bf8-edbfc5d56b34",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/872b715f-4831-46e2-9975-ba9e9c53e9e7",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/28d556b4-9eeb-41e6-b7ba-c54c341c6aae",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/64267ecd-e0af-474e-81f3-9e4ec4ec1e2d",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/5cff9792-59c5-4980-9bb2-0fd56bb706a1",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2ec46770-1242-4b6b-8550-8ed446fbd721",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/bb0f46dc-e697-4adf-ae7b-8aa6b319197e",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/981254f7-1739-4e4a-a7ef-b319b8d36c92",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/83babfe3-a8a9-423c-8a79-171fe10ff848",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3d55861a-e916-4157-8674-e70081559bf9",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/finish-graphite-red.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/?scene=signature&screen=build&test=1&profile=1",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/index-yspu2S7_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/profile-BYVn74a4.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-Dv3vFEnD.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/recovery-C_RFDXna.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-GBIotSXh.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/save-BGQzU5Mb.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/OrbitControls-D28Fv8AQ.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/game-audio-CpA-u_A6.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/hero-DaQhPp0p.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/config-DHt8fApm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/signature-art-CxfJ8cAS.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/inspection-B4zBUgYx.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/scene-CL5d3OuT.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver-attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/drivers/test-driver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/slingshot-signature.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4db928a6-8b6e-43c3-b6c8-9f37a78ed968",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/36143887-06f9-4675-b6e1-5e806edfdd21",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/2c60968e-66ed-4a82-9c17-2b525d88f469",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/a3c9f2a9-5256-4431-86a0-c5034e8eb2b2",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8447864a-74d2-4256-92d3-8b8441c0d9eb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/9aeb4520-cf82-4f52-8957-607105be32b0",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/f0e9c265-2789-4595-a7e1-562313d79a8a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3516593e-e114-47e9-bbd1-be2ede4596c8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/cf254348-55fe-46dc-87f9-543158b188f5",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0f071ff7-4c41-44d3-8364-16ef928137ce",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/855bbcae-5367-4e90-9f31-52c8254223e8",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/35b11621-6ad2-4efc-9653-a03c0bfd34be",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4d237cc9-1388-427a-b91d-39d1a9ffe47a",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/1ae07db1-b303-487a-9a9c-155cc594925e",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/29674c78-b8ed-4675-ae74-4b76df97f9f3",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4877470e-4391-4216-86fc-aa62c998f291",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/614c5946-a266-4cd0-a8f2-d116a3a3c796",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/8f512ced-d421-409f-a622-627de2983895",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/6055cd9f-3f1b-4eb6-9d74-13df6303681b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4923888f-ccf0-42fc-a9e7-448d1ce837d3",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/3973aef4-14e2-41ab-9086-e76621973900",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/859903cf-eeb0-46cb-995a-0b60adbc9235",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0194d73f-b965-4a04-8610-c6c0b3a8f042",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/4ebae7a3-de92-46aa-a400-fcd89ee8df99",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/76389832-cc8f-4b76-9240-c9d31d62628b",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/cc620dfb-07eb-4e85-aab5-ddddea7bd2f5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.attachment.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/tricled-sm133-base.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/signature-products.glb",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/73d73907-f6c0-427c-8f19-13426b24648f",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/cce5a994-f605-4db7-b704-5ef78ad42b74",
+      "status": 200
+    },
+    {
+      "url": "blob:http://127.0.0.1:5199/0946ea94-54fe-4e6d-b267-1cde28c46a51",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/harbor/route.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/p08b/showroom-refinement/finish-white-graphite.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5199/assets/brand/slingmods-logo-main.png",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "method": "Four actual finish selections through ordinary free-drive navigation, back and full reload. ResourceTiming transferSize reports HTTP cache behavior; OS/GPU shader caches are not cleared. No timing thresholds inferred from transfer latency."
+}

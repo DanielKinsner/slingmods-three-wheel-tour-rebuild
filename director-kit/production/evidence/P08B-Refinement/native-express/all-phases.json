@@ -1,0 +1,77 @@
+{
+  "runtimeCommit": "822ff5f5a9cc211775076074c7d106e8d372286a",
+  "phases": [
+    {
+      "phase": "ready",
+      "samples": 15,
+      "p95Ms": 8266.3,
+      "maxMs": 8266.3,
+      "over100Ms": 1
+    },
+    {
+      "phase": "countdown",
+      "samples": 361,
+      "p95Ms": 16.70000000001164,
+      "maxMs": 16.80000000000291,
+      "over100Ms": 0
+    },
+    {
+      "phase": "running",
+      "samples": 10235,
+      "p95Ms": 16.70000000001164,
+      "maxMs": 33.30000000000291,
+      "over100Ms": 0
+    },
+    {
+      "phase": "finished",
+      "samples": 214,
+      "p95Ms": 16.70000000001164,
+      "maxMs": 16.800000000017462,
+      "over100Ms": 0
+    }
+  ],
+  "loadMs": 9845.60000000149,
+  "preparation": {
+    "ms": 32.70000000298023,
+    "stages": [
+      {
+        "name": "init-textures",
+        "ms": 0.10000000149011612
+      },
+      {
+        "name": "compile-async",
+        "ms": 5.199999995529652
+      },
+      {
+        "name": "first-all-mesh-render",
+        "ms": 24.30000000447035
+      },
+      {
+        "name": "loading-gpu-sync",
+        "ms": 0
+      }
+    ],
+    "textures": 56,
+    "programs": 27,
+    "parallelCompile": true,
+    "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+  },
+  "overflow": 0,
+  "outliersOver100": [
+    [
+      9920,
+      8266.3,
+      12.900000005960464,
+      10.399999998509884,
+      0,
+      0,
+      28,
+      6,
+      2,
+      0,
+      0,
+      0
+    ]
+  ],
+  "note": "All recorded phases retained; loading preparation is separately timed. Native race thresholds apply only to running phase; no film capture in this run."
+}

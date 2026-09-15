@@ -1,0 +1,35 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+Error: Transform failed with 1 error:
+C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\p08b-refinement-finish.test.ts:7:1847: ERROR: Unexpected "finally"
+    at failureErrorWithLog (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\node_modules\esbuild\lib\main.js:1752:15)
+    at C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\node_modules\esbuild\lib\main.js:1019:50
+    at responseCallbacks.<computed> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\node_modules\esbuild\lib\main.js:886:9)
+    at handleIncomingPacket (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\node_modules\esbuild\lib\main.js:941:12)
+    at Socket.readFromStdout (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\node_modules\esbuild\lib\main.js:864:7)
+    at Socket.emit (node:events:509:28)
+    at addChunk (node:internal/streams/readable:563:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:514:3)
+    at Readable.push (node:internal/streams/readable:394:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23) {
+  name: 'TransformError'
+}
+
+Node.js v24.15.0
+✖ tests\p08b-refinement-finish.test.ts (164.888ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 173.7361
+
+✖ failing tests:
+
+test at tests\p08b-refinement-finish.test.ts:1:1
+✖ tests\p08b-refinement-finish.test.ts (164.888ms)
+  'test failed'

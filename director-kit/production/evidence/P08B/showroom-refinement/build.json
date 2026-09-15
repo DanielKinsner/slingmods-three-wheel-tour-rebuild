@@ -1,0 +1,46 @@
+{
+  "name": "signature-showroom-refined",
+  "runtimeBytes": 4516936,
+  "sourceBytes": 8772125,
+  "meshes": 18,
+  "polygons": 20955,
+  "baselineSHA256": "93d13e9c51f0ce3ba3f3f82f052f3466aa1cffdf16afcb59f7bbe39645f30476",
+  "door": {
+    "group": "bay_door",
+    "curtain": "bay_door_curtain",
+    "slatPrefix": "bay_door_slat_",
+    "slatCount": 27,
+    "pitch": 0.12000000000000001,
+    "openingCenter": [
+      6,
+      1.625,
+      0.4
+    ],
+    "width": 3.6,
+    "height": 3.25,
+    "exitPoint": [
+      9,
+      0,
+      0.4
+    ],
+    "gameForwardYaw": -1.5707963267948966,
+    "openOffset": [
+      0,
+      3.35,
+      0
+    ],
+    "openScaleY": 0.025
+  },
+  "floor": {
+    "tileSizeMetres": 0.5,
+    "mapSize": 1024,
+    "pattern": "Rounded diagonal ribs at approx13mm pitch, four triangular chevron fields, transverse vent bridges",
+    "geometry": "original 624 thin tiles with corrected planar UVs",
+    "material": "original procedural albedo, tangent normal and roughness maps"
+  },
+  "limits": [
+    "Presentation rollup approximation; no new route or physical colliders",
+    "Room/lift dimensions are inferred from owner photos, not manufacturer specifications",
+    "Ribbed floor has mapped relief, not individually simulated holes"
+  ]
+}

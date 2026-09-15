@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "film": "P08B-Signature-Experience.mp4",
+  "bytes": 22017032,
+  "sha256": "98808dd47d0901cc0fb9632bcbaa412ebd210a01e724ab17583317232165eb2f",
+  "fullDecode": "pass",
+  "streams": [
+    {
+      "type": "video",
+      "codec": "h264",
+      "packets": 4571,
+      "firstDTS": -0.018984,
+      "lastDTS": 182.901016,
+      "maximumDTSGapSeconds": 0.0799999999999983,
+      "strictlyIncreasing": true
+    },
+    {
+      "type": "audio",
+      "codec": "aac",
+      "packets": 8582,
+      "firstDTS": -0.021333,
+      "lastDTS": 183.04,
+      "maximumDTSGapSeconds": 0.02133400000002439,
+      "strictlyIncreasing": true
+    }
+  ],
+  "method": "FFmpeg full audio/video decode and ffprobe packet DTS audit. Threshold <100ms gap in each stream; negative initial encoder-delay timestamps are allowed. This is technical playback validation, not human listening approval."
+}

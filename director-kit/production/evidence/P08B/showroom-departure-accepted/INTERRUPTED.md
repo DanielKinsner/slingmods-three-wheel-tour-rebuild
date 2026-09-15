@@ -1,0 +1,1 @@
+Harness stopped after completed rollout, pause/focus and skip checks because it awaited missing read-only reducedMotion inspector field. Added that field; retain this incomplete run. No runtime UI failure inferred. Final proof uses showroom-departure-complete.

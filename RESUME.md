@@ -1,3 +1,11 @@
+# Current pointer — Review16 owner showroom refinement
+
+Read HANDOFF.md and handoff/P08B-REFINEMENT.md / P08B-REFINEMENT-VALIDATION.json. Runtime `822ff5f5a9cc211775076074c7d106e8d372286a`, private branch `feature/p08b-slingmods-experience`. The refreshed ZIP MANIFEST identifies the pushed packaging commit. Give Astra-Review-16-Lean.zip to Astra; await director review. Preserve all newer work. No merge/publication or held-gate approval.
+
+---
+
+# Historical handoff below
+
 # Current pointer â€” P08B Signature Experience / Review16
 
 Read HANDOFF.md, handoff/P08B-VALIDATION.json and handoff/P08B-COMMANDS.md. Tested runtime `6aa1dafaac03168525a1f7e69a6831ea886f45d2`; private branch `feature/p08b-slingmods-experience`. Implementation and internal validation are complete. Give Astra-Review-16-Lean.zip to Astra; await director review. Preserve all current/newer work. No main merge, publication, spending, desktop takeover or G3/G4/fidelity/hardware/release approval.
