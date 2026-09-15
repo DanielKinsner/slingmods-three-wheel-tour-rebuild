@@ -1,0 +1,229 @@
+
+> slingmods-three-wheel-tour-rebuild@1.0.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ engine pitch: every contributing bed follows the one commanded engine RPM (3.8235ms)
+✔ engine pitch: finite nonnegative layer parameters and nonzero coverage across operating range (6.808ms)
+✔ engine pitch: lifecycle master muting and no-road-at-rest remain intact (0.7885ms)
+✔ audio mapper: actual RPM/load, contacting longitudinal speed/slip, wind and lifecycle sanitation (189.6961ms)
+✔ actual shift begins once, completion does not double-fire, reset establishes baseline (2.6215ms)
+✔ build menu replacement controller must release before back or confirmation (1.7307ms)
+✔ build menu native focus choices include summary and exclude disabled links (1.5402ms)
+✖ real IndexedDB migration, old-tab closure, concurrent tabs, aborted write/retry and corrupt protection (88.3934ms)
+✖ denied-IDB real scene navigation preserves session career and rejects unsupported transfers (84.6881ms)
+✖ corrupt career recovery is actionable above the real preparation veil and preserves the stored record (94.0919ms)
+✔ fresh unique valid awards pay 800 then100; duplicate ignores extra claimed amount and chapter never repeats (5.6496ms)
+✔ invalid, incomplete and corrupt finish payloads cannot create credits (0.7254ms)
+✔ purchase validates fitment and fixed price, atomically installs once; first loop0 800 200 300 (2.5908ms)
+✔ appearance/equip mutations preserve latest credits/receipts; unowned appearance rejected (0.8064ms)
+✔ session contract serializes concurrent awards/purchases and chapter entry claims (0.9015ms)
+✔ v1 fresh, earned, installed and unequipped careers migrate repeatably with exact old fields (15.2741ms)
+✔ unknown and corrupt schemas fail without mutation or silent reset (1.3023ms)
+✔ crew fixture300 ->850 ->850 ->1150 and immutable proof boundaries (0.9707ms)
+✔ new clean lap800, kit600, first second-place600 ->800; fourth100 never clears (0.4832ms)
+✔ invalid, unfinished, relocated, bad lap and bad placement cannot be certified (0.4054ms)
+✔ crew and solo receipts cannot be rebound and event flags are separate (2.9544ms)
+✔ concurrent crew claims share one first-clear and duplicate IDs never pay twice in fallback (1.5509ms)
+✔ grid fits physical full footprints, all behind line and player fourth; rejects narrow corridor (13.2667ms)
+✔ one countdown, freeze on pause, two ordered laps, fresh attempt IDs, terminal award proof stable (128.9483ms)
+✔ close finishes sort true fractions across all participants rather than insertion order; exact tie lexical (217.9022ms)
+✔ reverse, skipped gates, relocation and sustained tire cut invalidate only their own car with no proof (12.5282ms)
+✔ lap wrap and lapped cars rank by validated progress; postfinish rivals remain running then explicit DNF (231.4907ms)
+✔ aborted and stranded statuses never synthesize finish times or awards (3.2954ms)
+✔ control-only rivals brake for blockers, hold a passing side, and leave occupied adjacent corridors (21.4215ms)
+✔ physically stuck controller tries reverse then retires rather than writing poses (15.487ms)
+✔ contact-induced lateral speed is not mistaken for an invitation to apply full throttle (1.3288ms)
+✔ evidence player brakes before the old3.1metre tailgating contact and reserves a passing corridor (8.3299ms)
+✔ crew menu rejects held replacement controller after disconnect until focused neutral (2.7552ms)
+✔ controller identity change without an empty frame cannot inherit old menu arming (0.481ms)
+✔ unfocused neutral does not arm the menu; focus return with held control stays blocked (0.1887ms)
+✔ explicit lifecycle suspension catches same-identity reconnect between render samples (0.1985ms)
+✔ bare keyboard confirmation still works with absent or held unarmed controller (0.1875ms)
+✔ traffic cue excludes distant, useful forward view and nonfinite positions (2.2264ms)
+✔ real close traffic maps to sides and rear, nearest occupant only (2.5058ms)
+✔ held rearward view suppresses cars behind without hiding unseen side traffic (0.3132ms)
+✔ actual useful camera visibility suppresses otherwise close off-axis cues (0.1692ms)
+✔ driver analytic arm preserves segment lengths and clamps unreachable targets (1.5695ms)
+✔ driver regrip releases deliberately, returns to stable rim and resets discontinuity (0.8556ms)
+✔ driver alternating regrip retains a supporting hand on rim through rapid full locks (3.5035ms)
+✔ integrated RPM: straight, signed wheel phase and bounded engine coupling (357.0485ms)
+✔ integrated RPM: reverse, signed wheel phase and bounded engine coupling (131.4485ms)
+✔ integrated RPM: wet-traction-recovery, signed wheel phase and bounded engine coupling (142.8313ms)
+✔ integrated RPM: moving-reverse-interlock, signed wheel phase and bounded engine coupling (155.3502ms)
+✔ integrated RPM: wet-braking-rpm, signed wheel phase and bounded engine coupling (125.7872ms)
+✔ integrated RPM: rolling-and-shifts-rpm, signed wheel phase and bounded engine coupling (139.3965ms)
+✔ fixture: stationary zero-throttle engine stays at idle (2.318ms)
+✔ fixture: freely rolling rear wheel raises coupled engine RPM above idle (0.7125ms)
+✔ fixture: positive rear wheel overspeed raises RPM above rolling baseline (0.2642ms)
+✔ REGRESSION: zero-throttle wheel lock must not rev higher than free rolling (0.3623ms)
+✔ reverse wheel lock cancels signed rolling rotation while reverse wheelspin raises RPM (0.2996ms)
+✔ ordinary session: direction request goes through retained braking interlock; reset/pause do not latch throttle (430.6682ms)
+✔ camera: same fixed-physics maneuver across 30/60/120/144Hz presentation, finite horizon and continuous switches (429.2691ms)
+✔ loaded rest: three non-tensile contacts support stated loaded mass without drift (444.0521ms)
+✔ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (1161.0893ms)
+✔ straight acceleration, lift-off coast and braking have coherent measured distances (0.7417ms)
+✔ left/right asphalt circles have correct turn signs, mirrored radii and sustained support (1.0048ms)
+✔ slalom follows alternating input in authoritative yaw response (0.3759ms)
+✔ controlled reverse engages near rest and uses signed physical velocity (0.4441ms)
+✔ surface friction reduces acceleration; optional traction help limits wheel overspeed; lift/brake recovers (0.4431ms)
+✔ one-wheel bump, curb, seam and landing excite suspension and recover without tunneling (0.5681ms)
+✔ authoritative AutoDrive executes all five ratios, cuts torque during transitions, and has consistent SI torque/power (0.9341ms)
+✔ incline launch and high-speed curb produce physical vertical motion then recover; full-speed steering stays bounded (0.7988ms)
+✔ straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes (81.7701ms)
+✔ render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error (74.4248ms)
+✔ reset clears forces/drivetrain/history, fixed-step rejection and pause clock do not advance state (6.9726ms)
+✔ quality exports bind photographic channels to UV geometry and pack all image dependencies (74.4472ms)
+✔ all placed modules exist and palm LODs retain genuine decreasing geometry (55.3327ms)
+✔ camera/save: near/far preferences survive sound migration; cycle/restoration is deterministic (2.3728ms)
+✔ quick rearward cuts:100/200/500ms at30/60/120/144Hz, cycle while held and restore all modes (42.3593ms)
+✔ ordinary near/far follow remains damped; obstruction callback bounds follow and rear placement at16:9/21:9 (1.489ms)
+✔ final closed course measures correctly; seam and road/runoff edges share authoritative data (9.2933ms)
+✔ injected harbor has no hidden pad obstacle and session reset uses course spawn/hooks (323.934ms)
+✔ actual wheel contacts agree at both road edges and loop seam; exported barrier stops a crossing vehicle (408.6131ms)
+✔ countdown holds normal controls, initial crossing is not finish; ordered lap interpolates and commits once (16.1839ms)
+✔ backward finish, missing gate, teleport and interior shortcut cannot earn a best (7.2657ms)
+✔ two tires beyond runoff require over .35 seconds; invalid retains practice clock, never records (8.0928ms)
+✔ pause freezes countdown and lap clock; retry clears invalid and retains prior compatible best (6.5326ms)
+✔ directed plane test spans a whole tick and rejects crossing beyond the gate width (0.8374ms)
+✔ valid record survives volume/mute/camera writes and route/light/rules remain distinct (5.8578ms)
+✔ old settings migrate, malformed records drop, corrupt/unavailable storage remains safe (0.7634ms)
+✔ water time updates retain one shader variant and dispose restores the source material (4.359ms)
+✔ water rejects a missing authored normal map instead of silently dropping wave detail (1.4898ms)
+✔ input: signed fractional stick, rescaled deadzone, analog triggers and finite sanitation (3.385ms)
+✔ input: changed meaningful ownership, noisy drift and unsupported mappings (1.1723ms)
+✔ input: rising camera/direction edges and continuous monotonic reset hold fires once (0.6429ms)
+✔ input: pause/menu poll, neutral resume, interrupted hold, blur and held-button quarantine (0.8742ms)
+✔ input: disconnect/index reuse and held throttle require neutral plus deliberate resume (0.4291ms)
+✔ input: held new controller gesture does not trigger camera/throttle on scene entry (0.2888ms)
+✔ input: a deliberate slow analog ramp takes ownership without per-frame threshold starvation (6.2397ms)
+✔ input: a fresh menu edge can reclaim keyboard while another key remains held (14.1267ms)
+✔ keyboard event buffer: short released taps survive a frame and held repeats do not retoggle (1.0162ms)
+✔ keyboard reset uses monotonic down time and a fresh hold after interruption (0.4181ms)
+✔ keyboard release and repress between rendered frames restarts continuous reset hold (1.5853ms)
+✔ whole-vehicle framing respects perspective margin through the complete orbit (96.5467ms)
+✔ night practical slots stay present across distance changes; unused slots emit zero (34.1553ms)
+✖ live game capture includes both real graph buses, stereo media, sync anchors and retry cleanup (73.4682ms)
+✖ live capture faults release real audio tracks and connections without late aborted chunks (23.6285ms)
+✔ source HDR solar direction and probe suppression preserve the visible input (357.7581ms)
+✔ night environment has a coherent horizon and finite moon-free illumination (66.6245ms)
+✔ outdoor light lifecycle removes its lights and returns owned lens materials (11.166ms)
+✔ prepared product keeps resident slots but no unowned hardware or light contribution (26.3407ms)
+✔ rear link retains chassis pivot and matches raycast hub across complete supported travel (33.1208ms)
+✔ shared rear presenter is invariant to chassis transform and wheel spin; has no accumulated deformation (49.7523ms)
+✔ missing current rear mechanical groups fail explicitly instead of presenting a detached rig (1.43ms)
+✔ pad ground and markings receive vehicle shadows without entering the caster set (11.5506ms)
+✔ explicit diagnostic caster isolation cannot remove shadows from the restored normal policy (1.5505ms)
+✔ one step advances four independent vehicles, despawn retains world (313.7828ms)
+✔ equal dynamic bodies exchange symmetric head-on contact impulses (66.1292ms)
+✔ vehicle roofs and sensors are never suspension support (2.7971ms)
+✔ owned room teardown releases shared geometry, materials and channel textures once, and is idempotent (4.9163ms)
+✖ Showcase build controls scroll into reach at 720/1080, and pending/failed purchases preserve navigation and state (84.1412ms)
+✔ new save round-trip touches only the new namespace (2.892ms)
+✔ malformed or future schemas fall back without reading legacy data (0.869ms)
+✔ actual Rapier world falls onto a collider and settles (172.7379ms)
+ℹ tests 119
+ℹ suites 0
+ℹ pass 113
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2631.1029
+
+✖ failing tests:
+
+test at tests\career-browser.test.mjs:3:1
+✖ real IndexedDB migration, old-tab closure, concurrent tabs, aborted write/retry and corrupt protection (88.3934ms)
+  browserType.launch: Executable doesn't exist at C:\Users\Daniel Kinsner\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+  ╔════════════════════════════════════════════════════════════╗
+  ║ Looks like Playwright was just installed or updated.       ║
+  ║ Please run the following command to download new browsers: ║
+  ║                                                            ║
+  ║     npx playwright install                                 ║
+  ║                                                            ║
+  ║ <3 Playwright Team                                         ║
+  ╚════════════════════════════════════════════════════════════╝
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\career-browser.test.mjs:8:31) {
+    name: 'Error',
+    log: []
+  }
+
+test at tests\career-handoff.test.mjs:9:1
+✖ denied-IDB real scene navigation preserves session career and rejects unsupported transfers (84.6881ms)
+  browserType.launch: Executable doesn't exist at C:\Users\Daniel Kinsner\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+  ╔════════════════════════════════════════════════════════════╗
+  ║ Looks like Playwright was just installed or updated.       ║
+  ║ Please run the following command to download new browsers: ║
+  ║                                                            ║
+  ║     npx playwright install                                 ║
+  ║                                                            ║
+  ║ <3 Playwright Team                                         ║
+  ╚════════════════════════════════════════════════════════════╝
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\career-handoff.test.mjs:17:31) {
+    name: 'Error',
+    log: []
+  }
+
+test at tests\career-handoff.test.mjs:36:1
+✖ corrupt career recovery is actionable above the real preparation veil and preserves the stored record (94.0919ms)
+  browserType.launch: Executable doesn't exist at C:\Users\Daniel Kinsner\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+  ╔════════════════════════════════════════════════════════════╗
+  ║ Looks like Playwright was just installed or updated.       ║
+  ║ Please run the following command to download new browsers: ║
+  ║                                                            ║
+  ║     npx playwright install                                 ║
+  ║                                                            ║
+  ║ <3 Playwright Team                                         ║
+  ╚════════════════════════════════════════════════════════════╝
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\career-handoff.test.mjs:40:31) {
+    name: 'Error',
+    log: []
+  }
+
+test at tests\live-audio-capture.test.mjs:21:1
+✖ live game capture includes both real graph buses, stereo media, sync anchors and retry cleanup (73.4682ms)
+  browserType.launch: Executable doesn't exist at C:\Users\Daniel Kinsner\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+  ╔════════════════════════════════════════════════════════════╗
+  ║ Looks like Playwright was just installed or updated.       ║
+  ║ Please run the following command to download new browsers: ║
+  ║                                                            ║
+  ║     npx playwright install                                 ║
+  ║                                                            ║
+  ║ <3 Playwright Team                                         ║
+  ╚════════════════════════════════════════════════════════════╝
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\live-audio-capture.test.mjs:25:31) {
+    name: 'Error',
+    log: []
+  }
+
+test at tests\live-audio-capture.test.mjs:72:1
+✖ live capture faults release real audio tracks and connections without late aborted chunks (23.6285ms)
+  browserType.launch: Executable doesn't exist at C:\Users\Daniel Kinsner\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+  ╔════════════════════════════════════════════════════════════╗
+  ║ Looks like Playwright was just installed or updated.       ║
+  ║ Please run the following command to download new browsers: ║
+  ║                                                            ║
+  ║     npx playwright install                                 ║
+  ║                                                            ║
+  ║ <3 Playwright Team                                         ║
+  ╚════════════════════════════════════════════════════════════╝
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\live-audio-capture.test.mjs:76:31) {
+    name: 'Error',
+    log: []
+  }
+
+test at tests\showcase-ui.test.mjs:3:1
+✖ Showcase build controls scroll into reach at 720/1080, and pending/failed purchases preserve navigation and state (84.1412ms)
+  browserType.launch: Executable doesn't exist at C:\Users\Daniel Kinsner\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+  ╔════════════════════════════════════════════════════════════╗
+  ║ Looks like Playwright was just installed or updated.       ║
+  ║ Please run the following command to download new browsers: ║
+  ║                                                            ║
+  ║     npx playwright install                                 ║
+  ║                                                            ║
+  ║ <3 Playwright Team                                         ║
+  ╚════════════════════════════════════════════════════════════╝
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\showcase-ui.test.mjs:8:31) {
+    name: 'Error',
+    log: []
+  }

@@ -1,0 +1,366 @@
+TAP version 13
+# Subtest: engine pitch: every contributing bed follows the one commanded engine RPM
+ok 1 - engine pitch: every contributing bed follows the one commanded engine RPM
+  ---
+  duration_ms: 7.407716
+  type: 'test'
+  ...
+# Subtest: engine pitch: finite nonnegative layer parameters and nonzero coverage across operating range
+ok 2 - engine pitch: finite nonnegative layer parameters and nonzero coverage across operating range
+  ---
+  duration_ms: 8.633479
+  type: 'test'
+  ...
+# Subtest: engine pitch: lifecycle master muting and no-road-at-rest remain intact
+ok 3 - engine pitch: lifecycle master muting and no-road-at-rest remain intact
+  ---
+  duration_ms: 0.26491
+  type: 'test'
+  ...
+# Subtest: build menu replacement controller must release before back or confirmation
+ok 4 - build menu replacement controller must release before back or confirmation
+  ---
+  duration_ms: 1.347873
+  type: 'test'
+  ...
+# Subtest: build menu native focus choices include summary and exclude disabled links
+ok 5 - build menu native focus choices include summary and exclude disabled links
+  ---
+  duration_ms: 1.016973
+  type: 'test'
+  ...
+# Subtest: fresh unique valid awards pay 800 then100; duplicate ignores extra claimed amount and chapter never repeats
+ok 6 - fresh unique valid awards pay 800 then100; duplicate ignores extra claimed amount and chapter never repeats
+  ---
+  duration_ms: 2.451076
+  type: 'test'
+  ...
+# Subtest: invalid, incomplete and corrupt finish payloads cannot create credits
+ok 7 - invalid, incomplete and corrupt finish payloads cannot create credits
+  ---
+  duration_ms: 0.5768
+  type: 'test'
+  ...
+# Subtest: purchase validates fitment and fixed price, atomically installs once; first loop0 800 200 300
+ok 8 - purchase validates fitment and fixed price, atomically installs once; first loop0 800 200 300
+  ---
+  duration_ms: 1.869039
+  type: 'test'
+  ...
+# Subtest: appearance/equip mutations preserve latest credits/receipts; unowned appearance rejected
+ok 9 - appearance/equip mutations preserve latest credits/receipts; unowned appearance rejected
+  ---
+  duration_ms: 2.894905
+  type: 'test'
+  ...
+# Subtest: session contract serializes concurrent awards/purchases and chapter entry claims
+ok 10 - session contract serializes concurrent awards/purchases and chapter entry claims
+  ---
+  duration_ms: 0.594146
+  type: 'test'
+  ...
+# Subtest: v1 fresh, earned, installed and unequipped careers migrate repeatably with exact old fields
+ok 11 - v1 fresh, earned, installed and unequipped careers migrate repeatably with exact old fields
+  ---
+  duration_ms: 7.325217
+  type: 'test'
+  ...
+# Subtest: unknown and corrupt schemas fail without mutation or silent reset
+ok 12 - unknown and corrupt schemas fail without mutation or silent reset
+  ---
+  duration_ms: 8.752279
+  type: 'test'
+  ...
+# Subtest: crew fixture300 ->850 ->850 ->1150 and immutable proof boundaries
+ok 13 - crew fixture300 ->850 ->850 ->1150 and immutable proof boundaries
+  ---
+  duration_ms: 0.877063
+  type: 'test'
+  ...
+# Subtest: new clean lap800, kit600, first second-place600 ->800; fourth100 never clears
+ok 14 - new clean lap800, kit600, first second-place600 ->800; fourth100 never clears
+  ---
+  duration_ms: 0.314375
+  type: 'test'
+  ...
+# Subtest: invalid, unfinished, relocated, bad lap and bad placement cannot be certified
+ok 15 - invalid, unfinished, relocated, bad lap and bad placement cannot be certified
+  ---
+  duration_ms: 0.339943
+  type: 'test'
+  ...
+# Subtest: crew and solo receipts cannot be rebound and event flags are separate
+ok 16 - crew and solo receipts cannot be rebound and event flags are separate
+  ---
+  duration_ms: 0.346403
+  type: 'test'
+  ...
+# Subtest: concurrent crew claims share one first-clear and duplicate IDs never pay twice in fallback
+ok 17 - concurrent crew claims share one first-clear and duplicate IDs never pay twice in fallback
+  ---
+  duration_ms: 0.555618
+  type: 'test'
+  ...
+# node:internal/modules/run_main:123
+#     triggerUncaughtException(
+#     ^
+# TypeError [ERR_IMPORT_ATTRIBUTE_MISSING]: Module "file:///mnt/data/astra-review-12-input/public/assets/harbor/route.json" needs an import attribute of "type: json"
+#     at validateAttributes (node:internal/modules/esm/assert:88:15)
+#     at defaultLoad (node:internal/modules/esm/load:130:3)
+#     at async nextLoad (node:internal/modules/esm/hooks:748:22)
+#     at async nextLoad (node:internal/modules/esm/hooks:748:22)
+#     at async Hooks.load (node:internal/modules/esm/hooks:385:20)
+#     at async handleMessage (node:internal/modules/esm/worker:199:18) {
+#   code: 'ERR_IMPORT_ATTRIBUTE_MISSING'
+# }
+# Node.js v22.16.0
+# Subtest: tests/competition-rules.test.ts
+not ok 5 - tests/competition-rules.test.ts
+  ---
+  duration_ms: 617.573273
+  type: 'test'
+  location: '/mnt/data/astra-review-12-input/tests/competition-rules.test.ts:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/run_main:123
+#     triggerUncaughtException(
+#     ^
+# TypeError [ERR_IMPORT_ATTRIBUTE_MISSING]: Module "file:///mnt/data/astra-review-12-input/public/assets/harbor/route.json" needs an import attribute of "type: json"
+#     at validateAttributes (node:internal/modules/esm/assert:88:15)
+#     at defaultLoad (node:internal/modules/esm/load:130:3)
+#     at async nextLoad (node:internal/modules/esm/hooks:748:22)
+#     at async nextLoad (node:internal/modules/esm/hooks:748:22)
+#     at async Hooks.load (node:internal/modules/esm/hooks:385:20)
+#     at async handleMessage (node:internal/modules/esm/worker:199:18) {
+#   code: 'ERR_IMPORT_ATTRIBUTE_MISSING'
+# }
+# Node.js v22.16.0
+# Subtest: tests/competition-stability.test.ts
+not ok 6 - tests/competition-stability.test.ts
+  ---
+  duration_ms: 670.872527
+  type: 'test'
+  location: '/mnt/data/astra-review-12-input/tests/competition-stability.test.ts:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: crew menu rejects held replacement controller after disconnect until focused neutral
+ok 20 - crew menu rejects held replacement controller after disconnect until focused neutral
+  ---
+  duration_ms: 10.440583
+  type: 'test'
+  ...
+# Subtest: controller identity change without an empty frame cannot inherit old menu arming
+ok 21 - controller identity change without an empty frame cannot inherit old menu arming
+  ---
+  duration_ms: 0.3846
+  type: 'test'
+  ...
+# Subtest: unfocused neutral does not arm the menu; focus return with held control stays blocked
+ok 22 - unfocused neutral does not arm the menu; focus return with held control stays blocked
+  ---
+  duration_ms: 0.251689
+  type: 'test'
+  ...
+# Subtest: explicit lifecycle suspension catches same-identity reconnect between render samples
+ok 23 - explicit lifecycle suspension catches same-identity reconnect between render samples
+  ---
+  duration_ms: 0.309917
+  type: 'test'
+  ...
+# Subtest: bare keyboard confirmation still works with absent or held unarmed controller
+ok 24 - bare keyboard confirmation still works with absent or held unarmed controller
+  ---
+  duration_ms: 0.176636
+  type: 'test'
+  ...
+# Subtest: traffic cue excludes distant, useful forward view and nonfinite positions
+ok 25 - traffic cue excludes distant, useful forward view and nonfinite positions
+  ---
+  duration_ms: 1.104535
+  type: 'test'
+  ...
+# Subtest: real close traffic maps to sides and rear, nearest occupant only
+ok 26 - real close traffic maps to sides and rear, nearest occupant only
+  ---
+  duration_ms: 0.344289
+  type: 'test'
+  ...
+# Subtest: held rearward view suppresses cars behind without hiding unseen side traffic
+ok 27 - held rearward view suppresses cars behind without hiding unseen side traffic
+  ---
+  duration_ms: 0.139861
+  type: 'test'
+  ...
+# Subtest: actual useful camera visibility suppresses otherwise close off-axis cues
+ok 28 - actual useful camera visibility suppresses otherwise close off-axis cues
+  ---
+  duration_ms: 0.171348
+  type: 'test'
+  ...
+# Subtest: fixture: stationary zero-throttle engine stays at idle
+ok 29 - fixture: stationary zero-throttle engine stays at idle
+  ---
+  duration_ms: 0.896752
+  type: 'test'
+  ...
+# Subtest: fixture: freely rolling rear wheel raises coupled engine RPM above idle
+ok 30 - fixture: freely rolling rear wheel raises coupled engine RPM above idle
+  ---
+  duration_ms: 0.187713
+  type: 'test'
+  ...
+# Subtest: fixture: positive rear wheel overspeed raises RPM above rolling baseline
+ok 31 - fixture: positive rear wheel overspeed raises RPM above rolling baseline
+  ---
+  duration_ms: 0.133101
+  type: 'test'
+  ...
+# Subtest: REGRESSION: zero-throttle wheel lock must not rev higher than free rolling
+ok 32 - REGRESSION: zero-throttle wheel lock must not rev higher than free rolling
+  ---
+  duration_ms: 0.156696
+  type: 'test'
+  ...
+# Subtest: reverse wheel lock cancels signed rolling rotation while reverse wheelspin raises RPM
+ok 33 - reverse wheel lock cancels signed rolling rotation while reverse wheelspin raises RPM
+  ---
+  duration_ms: 0.248555
+  type: 'test'
+  ...
+# Subtest: quality exports bind photographic channels to UV geometry and pack all image dependencies
+ok 34 - quality exports bind photographic channels to UV geometry and pack all image dependencies
+  ---
+  duration_ms: 34.941395
+  type: 'test'
+  ...
+# Subtest: all placed modules exist and palm LODs retain genuine decreasing geometry
+ok 35 - all placed modules exist and palm LODs retain genuine decreasing geometry
+  ---
+  duration_ms: 21.978891
+  type: 'test'
+  ...
+# Subtest: countdown holds normal controls, initial crossing is not finish; ordered lap interpolates and commits once
+ok 36 - countdown holds normal controls, initial crossing is not finish; ordered lap interpolates and commits once
+  ---
+  duration_ms: 20.728966
+  type: 'test'
+  ...
+# Subtest: backward finish, missing gate, teleport and interior shortcut cannot earn a best
+ok 37 - backward finish, missing gate, teleport and interior shortcut cannot earn a best
+  ---
+  duration_ms: 7.484945
+  type: 'test'
+  ...
+# Subtest: two tires beyond runoff require over .35 seconds; invalid retains practice clock, never records
+ok 38 - two tires beyond runoff require over .35 seconds; invalid retains practice clock, never records
+  ---
+  duration_ms: 5.298399
+  type: 'test'
+  ...
+# Subtest: pause freezes countdown and lap clock; retry clears invalid and retains prior compatible best
+ok 39 - pause freezes countdown and lap clock; retry clears invalid and retains prior compatible best
+  ---
+  duration_ms: 5.066309
+  type: 'test'
+  ...
+# Subtest: directed plane test spans a whole tick and rejects crossing beyond the gate width
+ok 40 - directed plane test spans a whole tick and rejects crossing beyond the gate width
+  ---
+  duration_ms: 0.137818
+  type: 'test'
+  ...
+# Subtest: valid record survives volume/mute/camera writes and route/light/rules remain distinct
+ok 41 - valid record survives volume/mute/camera writes and route/light/rules remain distinct
+  ---
+  duration_ms: 3.65405
+  type: 'test'
+  ...
+# Subtest: old settings migrate, malformed records drop, corrupt/unavailable storage remains safe
+ok 42 - old settings migrate, malformed records drop, corrupt/unavailable storage remains safe
+  ---
+  duration_ms: 0.493864
+  type: 'test'
+  ...
+# Subtest: input: signed fractional stick, rescaled deadzone, analog triggers and finite sanitation
+ok 43 - input: signed fractional stick, rescaled deadzone, analog triggers and finite sanitation
+  ---
+  duration_ms: 1.745031
+  type: 'test'
+  ...
+# Subtest: input: changed meaningful ownership, noisy drift and unsupported mappings
+ok 44 - input: changed meaningful ownership, noisy drift and unsupported mappings
+  ---
+  duration_ms: 0.598432
+  type: 'test'
+  ...
+# Subtest: input: rising camera/direction edges and continuous monotonic reset hold fires once
+ok 45 - input: rising camera/direction edges and continuous monotonic reset hold fires once
+  ---
+  duration_ms: 0.388015
+  type: 'test'
+  ...
+# Subtest: input: pause/menu poll, neutral resume, interrupted hold, blur and held-button quarantine
+ok 46 - input: pause/menu poll, neutral resume, interrupted hold, blur and held-button quarantine
+  ---
+  duration_ms: 1.044996
+  type: 'test'
+  ...
+# Subtest: input: disconnect/index reuse and held throttle require neutral plus deliberate resume
+ok 47 - input: disconnect/index reuse and held throttle require neutral plus deliberate resume
+  ---
+  duration_ms: 0.267213
+  type: 'test'
+  ...
+# Subtest: input: held new controller gesture does not trigger camera/throttle on scene entry
+ok 48 - input: held new controller gesture does not trigger camera/throttle on scene entry
+  ---
+  duration_ms: 0.146521
+  type: 'test'
+  ...
+# Subtest: input: a deliberate slow analog ramp takes ownership without per-frame threshold starvation
+ok 49 - input: a deliberate slow analog ramp takes ownership without per-frame threshold starvation
+  ---
+  duration_ms: 1.904611
+  type: 'test'
+  ...
+# Subtest: input: a fresh menu edge can reclaim keyboard while another key remains held
+ok 50 - input: a fresh menu edge can reclaim keyboard while another key remains held
+  ---
+  duration_ms: 0.214393
+  type: 'test'
+  ...
+# Subtest: keyboard event buffer: short released taps survive a frame and held repeats do not retoggle
+ok 51 - keyboard event buffer: short released taps survive a frame and held repeats do not retoggle
+  ---
+  duration_ms: 0.388656
+  type: 'test'
+  ...
+# Subtest: keyboard reset uses monotonic down time and a fresh hold after interruption
+ok 52 - keyboard reset uses monotonic down time and a fresh hold after interruption
+  ---
+  duration_ms: 0.485832
+  type: 'test'
+  ...
+# Subtest: keyboard release and repress between rendered frames restarts continuous reset hold
+ok 53 - keyboard release and repress between rendered frames restarts continuous reset hold
+  ---
+  duration_ms: 0.164327
+  type: 'test'
+  ...
+1..53
+# tests 53
+# suites 0
+# pass 51
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2943.633188

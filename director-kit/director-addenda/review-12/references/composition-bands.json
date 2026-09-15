@@ -1,0 +1,36 @@
+{
+  "packet": "P06C",
+  "title": "Built Waterfront",
+  "scope": "presentation only; do not alter racing sectors, course or collision envelope",
+  "runtimeBaseline": "9348fa90311c5fbdfd74529feb50548582cdca17",
+  "stationUnits": "metres along existing route",
+  "totalRouteLengthMetres": 1230.86710531256,
+  "bands": [
+    {
+      "from": 300,
+      "to": 510,
+      "intent": "working-quay/service-arrival connected frontage"
+    },
+    {
+      "from": 510,
+      "to": 735,
+      "intent": "warehouse court/technical corner composed enclosure with readable exits"
+    },
+    {
+      "from": 735,
+      "to": 935,
+      "intent": "yard-to-promenade transition with controlled water opening"
+    }
+  ],
+  "placementRule": "Use actual locked course/runoff geometry and local normals. Do not blindly place left or right on the loop. Retain solid physical blockers and unobstructed sightlines.",
+  "preserve": [
+    "vehicle/rear/driver/product",
+    "photo-material source pipeline",
+    "outdoor sky/probe",
+    "physical route and shared physics",
+    "input/audio functionality",
+    "rivals/chapter/results/rewards/saves"
+  ],
+  "qualityHold": "G3/G4 and final environmental art remain unapproved",
+  "delivery": "Astra-Review-13.zip once the integrated local run is complete or precisely blocked"
+}

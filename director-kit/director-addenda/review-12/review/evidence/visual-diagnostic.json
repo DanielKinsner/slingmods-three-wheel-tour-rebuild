@@ -1,0 +1,85 @@
+{
+  "asphalt": {
+    "size": [
+      1024,
+      1024
+    ],
+    "horizontalReflectionMeanAbsoluteDifference8bit": 0.27955881754557294,
+    "verticalReflectionMeanAbsoluteDifference8bit": 0.0,
+    "sourceMethod": "scripts/p06b_acquire_materials.py: crop (460,190,972,702), reflect into four quadrants, repeat at1.5m. This measures symmetry; it does not numerically grade the art."
+  },
+  "palms": {
+    "source": "scripts/p06b_quality_build.py",
+    "material": "Quality_Leaflets",
+    "leafMaterialIsUntextured": true,
+    "nearLeafletHalfWidthMetres": 0.034,
+    "nearLeafletsPerSidePerFrond": 29,
+    "middleLeafletsPerSidePerFrond": 16,
+    "farLeafletsPerSidePerFrond": 9,
+    "diagnosis": "Actual code builds narrow geometry ribbons; current runtime crowns look wiry. Proposed canopy/card representation must be tested at distance; no numeric claim that one width change alone will fix them."
+  },
+  "districts": {
+    "serviceLengthMetres": 635,
+    "totalCourseMetres": 1230.86710531256,
+    "servicePercentOfRoute": 51.58964743303879,
+    "meaning": "More than half of the existing route is labeled service. Start-area polish alone cannot address most of the ordinary lap."
+  },
+  "matchedCameras": [
+    {
+      "name": "district-terminal-day",
+      "positionEqual": true,
+      "targetEqual": true,
+      "fovEqual": true,
+      "newStage": "full"
+    },
+    {
+      "name": "district-marina-day",
+      "positionEqual": true,
+      "targetEqual": true,
+      "fovEqual": true,
+      "newStage": "full"
+    },
+    {
+      "name": "district-service-day",
+      "positionEqual": true,
+      "targetEqual": true,
+      "fovEqual": true,
+      "newStage": "full"
+    },
+    {
+      "name": "district-promenade-day",
+      "positionEqual": true,
+      "targetEqual": true,
+      "fovEqual": true,
+      "newStage": "full"
+    },
+    {
+      "name": "district-terminal-night",
+      "positionEqual": true,
+      "targetEqual": true,
+      "fovEqual": true,
+      "newStage": "full"
+    },
+    {
+      "name": "district-marina-night",
+      "positionEqual": true,
+      "targetEqual": true,
+      "fovEqual": true,
+      "newStage": "full"
+    },
+    {
+      "name": "district-service-night",
+      "positionEqual": true,
+      "targetEqual": true,
+      "fovEqual": true,
+      "newStage": "full"
+    },
+    {
+      "name": "district-promenade-night",
+      "positionEqual": true,
+      "targetEqual": true,
+      "fovEqual": true,
+      "newStage": "full"
+    }
+  ]
+}
