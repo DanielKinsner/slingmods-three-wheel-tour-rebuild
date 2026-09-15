@@ -1,0 +1,1 @@
+Direct owner request: ignore carbon finish, remove inaccurate diagonal supports behind the roll hoops, and update Astra Review17 to include both hoop and front-end corrections. Keep existing finish and other model geometry.

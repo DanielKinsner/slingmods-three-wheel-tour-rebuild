@@ -1,0 +1,35 @@
+{
+  "branch": "feature/p09a-own-the-build",
+  "baseCommit": "de240f8952d19b15a3da55430f1d5e0f2deca691",
+  "assets": {
+    "assets/blender/hoop-refinement/slingshot-hoops-refined.blend": {
+      "bytes": 11911931,
+      "sha256": "f539b0e6cec85901db4dbb5be6e26f3427323d34d8322d4267f4377e505adf4f"
+    },
+    "public/assets/hoop-refinement/slingshot-hoops-refined.glb": {
+      "bytes": 13432392,
+      "sha256": "0e643e6d7f54e0f91c18aefdb3ea5a4e75afcf6943087c3432affb679318a55b"
+    },
+    "assets/blender/front-refinement/slingshot-front-refined.blend": {
+      "bytes": 11939411,
+      "sha256": "c7a9321455a3685d64f93044ba3ba1a4f50a07e43269fc76575fae575cea13a5"
+    },
+    "public/assets/front-refinement/slingshot-front-refined.glb": {
+      "bytes": 11942832,
+      "sha256": "4f8064539d58aae7bbe3cd89c0fbb4c8f77f7e2af84430ac41b30942c2ec2533"
+    }
+  },
+  "verification": {
+    "tests": 218,
+    "build": "PASS",
+    "runtime": "director-kit/production/evidence/Hoop-Refinement/runtime-01/verification.json",
+    "inspection": "director-kit/production/evidence/Hoop-Refinement/inspection-01/verification.json",
+    "authoring": "director-kit/production/evidence/Hoop-Refinement/build.json"
+  },
+  "scope": "Remove four invented rear roll-hoop braces; keep black finish and corrected front, wing mounts, binding nodes, materials and other geometry.",
+  "limits": [
+    "Existing hoop shapes are retained; not an OEM CAD/fidelity approval.",
+    "No physics or collision edits. Historical performance HOLD remains.",
+    "Original P09A gameplay film remains in updated packet; it predates these visual corrections. Updated stills and current asset hashes identify current appearance."
+  ]
+}

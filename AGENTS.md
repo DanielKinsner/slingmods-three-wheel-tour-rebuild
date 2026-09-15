@@ -1,3 +1,9 @@
+# Current owner refinement - roll hoops and Review17 update
+
+The latest request authorizes removing the four invented rear hoop braces while keeping the existing finish, and including this plus the front correction in the updated Astra Review17 ZIP. Preserve all other game/asset work. Read HANDOFF.md and handoff/HOOP-REFINEMENT.json; previous headers below are historical. Existing feature-branch push authorization and no spending/publication/main-merge/desktop-takeover boundaries continue.
+
+---
+
 # Current owner assignment - bounded front fascia refinement
 
 The latest direct request authorizes front gap closure, continuous accent lamps, a fuller splitter and honeycomb grille. Preserve the center lamp, non-target model, showroom/game/UI/saves and reviewed outputs. Read HANDOFF.md and handoff/FRONT-REFINEMENT.json. Continue the existing feature branch with ordinary commits/push; background Blender and isolated browsers only. No main merge, publication, spending, desktop takeover or gate approvals. Earlier assignment headers below are historical.

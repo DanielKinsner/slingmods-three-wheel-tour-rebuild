@@ -1,3 +1,19 @@
+# Current owner refinement - roll hoops and updated Review17
+
+The four invented rear diagonal braces have been removed. Outer/inner hoop shapes, black finish, wing mounts and the prior front correction remain. Current shared vehicle: `public/assets/hoop-refinement/slingshot-hoops-refined.glb`; editable source: `assets/blender/hoop-refinement/slingshot-hoops-refined.blend`. Branch remains `feature/p09a-own-the-build`. See `handoff/HOOP-REFINEMENT.json` for required assets and verification.
+
+218 tests and the isolated four-finish/five-preview/reload/departure/drive-return check pass. Only one runtime material batch changes; 74 other batches, all binding nodes and all materials retain the previous data. No simulation, collision or save changes. Global art/physical-device/release and historical performance HOLD remain.
+
+The updated root `Astra-Review-17-Lean.zip` includes both visual corrections, current source, references, verification, and the original P09A gameplay film with game audio (clearly labeled as predating the visual refinements). `MANIFEST.json` inside the ZIP identifies the pushed commit and runtime. The prior ZIP is preserved as `Astra-Review-17-P09A-original.zip`.
+
+Launch: `npm ci`, `npm run demo:build`, then set `$env:PORT='5197'` and run `npm run demo:preview`. Refresh http://127.0.0.1:5197/. Rebuild the hoop asset using background Blender 4.5.2: `./scripts/blender.ps1 -Script scripts/build-hoop-refinement.py`. It consumes the retained front-refinement Blend/GLB and exporter scripts. `npm test` validates preserved runtime data. With Vite at 5201 and a fresh `EVIDENCE_DIR`, run `node scripts/validate-hoop-refinement.mjs` or `node scripts/capture-hoop-refinement.mjs`. Build the updated review archive after push with `python scripts/package-review17-refinements.py` (Python plus Pillow).
+
+Next: Astra/owner reviews the updated packet. No merge to main or publication.
+
+---
+
+# Historical front-only refinement
+
 # Current owner refinement — front fascia
 
 Branch: `feature/p09a-own-the-build`; same private remote. Pushed implementation/runtime SHA: `0b926d99fb96924099fff9640384fc973e5e931d`; subsequent receipt-only commits preserve that runtime. The owner's front correction fills the fascia gaps and splitter, replaces upper individual bulbs with continuous diffusers, preserves the lower continuous lenses and center lamp, and adds an open honeycomb grille.

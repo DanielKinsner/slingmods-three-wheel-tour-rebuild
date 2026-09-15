@@ -1,0 +1,24 @@
+{
+  "name": "slingshot-hoops-refined",
+  "runtimeBytes": 13432392,
+  "sourceBytes": 11911931,
+  "meshes": 75,
+  "polygons": 108355,
+  "transplantedRuntimeBatches": [
+    "body_static__Textured_Polymer"
+  ],
+  "preservedRuntimeBatches": 74,
+  "originalRuntimeBufferPrefixUnchanged": true,
+  "method": "Keep original glTF nodes/materials/UV data; append only changed front batch vertex/index buffers. Other original runtime meshes and their bytes retained exactly.",
+  "source": "assets\\blender\\front-refinement\\slingshot-front-refined.blend",
+  "sourceSHA256": "c7a9321455a3685d64f93044ba3ba1a4f50a07e43269fc76575fae575cea13a5",
+  "removed": [
+    "hoop_rear_brace_driver",
+    "hoop_rear_brace_driver.001",
+    "hoop_rear_brace_passenger",
+    "hoop_rear_brace_passenger.001"
+  ],
+  "unchangedHoopsAndFinish": true,
+  "frontRefinementPreserved": true,
+  "change": "Delete four invented rear diagonal braces only. Keep original outer/inner hoop curves, black finish, seats, body and wing mounts. No carbon finish or simulation changes."
+}
