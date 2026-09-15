@@ -1,3 +1,11 @@
+# Current pointer - P09A Own the Build / Review17
+
+Read HANDOFF.md and handoff/P09A-VALIDATION.json. Runtime049c1cdd154f4ca83d087f99e0dad76040c049f7, private feature/p09a-own-the-build. Review17 MANIFEST identifies the pushed packaging commit and tested remote. Preserve all current/newer work. Performance HOLD: three of16 native races exceeded the maximum-frame limit despite valid results. No merge, publication, spending, desktop takeover or held-gate approval. Next action: Astra reviews Review17.
+
+---
+
+# Historical pointers (superseded)
+
 # Current pointer — Review16 owner showroom refinement
 
 Read HANDOFF.md and handoff/P08B-REFINEMENT.md / P08B-REFINEMENT-VALIDATION.json. Runtime `822ff5f5a9cc211775076074c7d106e8d372286a`, private branch `feature/p08b-slingmods-experience`. The refreshed ZIP MANIFEST identifies the pushed packaging commit. Give Astra-Review-16-Lean.zip to Astra; await director review. Preserve all newer work. No merge/publication or held-gate approval.

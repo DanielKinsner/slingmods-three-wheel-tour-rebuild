@@ -1,0 +1,16 @@
+{
+  "runtime": "049c1cdd154f4ca83d087f99e0dad76040c049f7",
+  "source": "scripts/p09a-finish-first-driver.ts",
+  "scope": "Only the evidence controller instance produces changed steering/pedal inputs. Production rivals, physics, player pose, checkpoints and rewards were untouched.",
+  "parameters": {
+    "pace": 58,
+    "lateral": 7,
+    "braking": 5.5,
+    "headway": 0.55,
+    "line": 2.6,
+    "initialLane": 2.6,
+    "initialSmoothedLane": 2.6
+  },
+  "outcome": "Evidence-only planner requested reverse recovery. Existing harness refused automatic reverse; bounded run ended. No finish-ahead pause/resume result.",
+  "actualFinishPauseResume": "NOT VERIFIED"
+}

@@ -1,0 +1,619 @@
+{
+  "provenance": "Independent read-only recalculation of supplied captured data, not a fresh game run. Historical and latest runtime samples deliberately separated. No outliers removed. Braking is to <0.2 m/s, not exact stationary; no OEM claim.",
+  "native": [
+    {
+      "label": "current-refinement-express",
+      "file": "/mnt/data/review16/director-kit/production/evidence/P08B-Refinement/native-express/run.json",
+      "sha256": "893dcec84e3ba4e676976d68a0bd08203929b0026671beea92e01d06d8b4d217",
+      "sourceCommit": "822ff5f5a9cc211775076074c7d106e8d372286a",
+      "width": 1920,
+      "browser": "153.0.8010.12",
+      "reportedLoadMs": 9845.60000000149,
+      "overflow": 0,
+      "phaseSummary": {
+        "0": {
+          "samples": 15,
+          "maxMs": 8266.3
+        },
+        "1": {
+          "samples": 361,
+          "maxMs": 16.80000000000291
+        },
+        "2": {
+          "samples": 10235,
+          "maxMs": 33.30000000000291
+        },
+        "3": {
+          "samples": 214,
+          "maxMs": 16.800000000017462
+        }
+      },
+      "races": [
+        {
+          "attempt": 1,
+          "samples": 5117,
+          "p95Ms": 16.70000000001164,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 33.30000000000291,
+          "over100Ms": 0,
+          "result": {
+            "event": "harbor-express-quick-race-v1",
+            "attemptId": "46f1a8dc-5087-4a3e-93bb-c727876335f4",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 85296.9147623563,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 78808.65829767172
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 80025.3774595871
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 83808.60903857784
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 85296.9147623563
+            }
+          ],
+          "pass": true
+        },
+        {
+          "attempt": 2,
+          "samples": 5118,
+          "p95Ms": 16.79999999998836,
+          "p99Ms": 16.800000000017462,
+          "maxMs": 16.800000000017462,
+          "over100Ms": 0,
+          "result": {
+            "event": "harbor-express-quick-race-v1",
+            "attemptId": "c69efa21-997e-4712-8ad9-22becc25bd37",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 85296.91500625784,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 78808.65829767172
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 80025.3774595871
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 83808.60903857784
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 85296.91500625784
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+    },
+    {
+      "label": "historical-p08b-equipped1080",
+      "file": "/mnt/data/review16-restored/native-1080-02/run.json",
+      "sha256": "420b4fe6bed550ae398655405d390f0e9697d7074ce36cc76b65de2873f61948",
+      "sourceCommit": "6aa1dafaac03168525a1f7e69a6831ea886f45d2",
+      "width": 1920,
+      "browser": "153.0.8010.12",
+      "reportedLoadMs": 4079.60000000149,
+      "overflow": 0,
+      "phaseSummary": {
+        "0": {
+          "samples": 51,
+          "maxMs": 483.3000000000002
+        },
+        "1": {
+          "samples": 361,
+          "maxMs": 16.800000000017462
+        },
+        "2": {
+          "samples": 17244,
+          "maxMs": 33.40000000002328
+        },
+        "3": {
+          "samples": 411,
+          "maxMs": 66.69999999995343
+        }
+      },
+      "races": [
+        {
+          "attempt": 1,
+          "samples": 8631,
+          "p95Ms": 16.70000000001164,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 33.40000000000873,
+          "over100Ms": 0,
+          "result": {
+            "event": "harbor-crew-night-v1",
+            "attemptId": "556dd833-7415-42ea-9635-fc800ac4a858",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 2,
+            "timeMs": 143915.78656928046,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 137409.54307013744
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 139200.0370830079
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 142313.12982507262
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 143915.78656928046
+            }
+          ],
+          "pass": true
+        },
+        {
+          "attempt": 2,
+          "samples": 8613,
+          "p95Ms": 16.79999999998836,
+          "p99Ms": 16.800000000017462,
+          "maxMs": 33.40000000002328,
+          "over100Ms": 0,
+          "result": {
+            "event": "harbor-crew-night-v1",
+            "attemptId": "d0142604-f8ce-4c17-9443-98fa9b55a890",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 2,
+            "timeMs": 143867.45341364475,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 137409.54307013744
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 139200.0370830079
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 142313.12982507262
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 143867.45341364475
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+    },
+    {
+      "label": "historical-p08b-stock720",
+      "file": "/mnt/data/review16-restored/native-stock720/run.json",
+      "sha256": "b52623fe73e5f4985acc92cb6cbd9218a81e84b04d7c6ea1727366a6415cf237",
+      "sourceCommit": "6aa1dafaac03168525a1f7e69a6831ea886f45d2",
+      "width": 1280,
+      "browser": "153.0.8010.12",
+      "reportedLoadMs": 4234.0999999940395,
+      "overflow": 0,
+      "phaseSummary": {
+        "0": {
+          "samples": 40,
+          "maxMs": 266.6999999999998
+        },
+        "1": {
+          "samples": 360,
+          "maxMs": 33.399999999999636
+        },
+        "2": {
+          "samples": 17180,
+          "maxMs": 50.10000000000582
+        },
+        "3": {
+          "samples": 396,
+          "maxMs": 49.89999999999418
+        }
+      },
+      "races": [
+        {
+          "attempt": 1,
+          "samples": 8622,
+          "p95Ms": 16.79999999998836,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 33.40000000000873,
+          "over100Ms": 0,
+          "result": {
+            "event": "harbor-crew-night-v1",
+            "attemptId": "c0faa3f0-82c3-4d08-9edb-d048e29c96c0",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 2,
+            "timeMs": 143875.01779399422,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 137409.54307013744
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 139200.0370830079
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 142313.12982507262
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 143875.01779399422
+            }
+          ],
+          "pass": true
+        },
+        {
+          "attempt": 2,
+          "samples": 8558,
+          "p95Ms": 16.79999999998836,
+          "p99Ms": 16.800000000046566,
+          "maxMs": 50.10000000000582,
+          "over100Ms": 0,
+          "result": {
+            "event": "harbor-crew-night-v1",
+            "attemptId": "8a2d2cae-7483-45df-8722-7570a2dada68",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 2,
+            "timeMs": 143895.83452787367,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 137409.54307013744
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 139200.0370830079
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 142313.12982507262
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "lap": 2,
+              "timeMs": 143895.83452787367
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+    },
+    {
+      "label": "historical-p08b-express1080",
+      "file": "/mnt/data/review16-restored/native-express1080/run.json",
+      "sha256": "73fa5372dc41bc52ea5d0f4867d246864dcf06290622e543e8ad81df6fc3b41a",
+      "sourceCommit": "6aa1dafaac03168525a1f7e69a6831ea886f45d2",
+      "width": 1920,
+      "browser": "153.0.8010.12",
+      "reportedLoadMs": 10286.30000000447,
+      "overflow": 0,
+      "phaseSummary": {
+        "0": {
+          "samples": 16,
+          "maxMs": 8849.7
+        },
+        "1": {
+          "samples": 181,
+          "maxMs": 16.80000000000109
+        },
+        "2": {
+          "samples": 5116,
+          "maxMs": 33.400000000001455
+        },
+        "3": {
+          "samples": 108,
+          "maxMs": 16.80000000000291
+        }
+      },
+      "races": [
+        {
+          "attempt": 1,
+          "samples": 5116,
+          "p95Ms": 16.70000000001164,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 33.400000000001455,
+          "over100Ms": 0,
+          "result": {
+            "event": "harbor-express-quick-race-v1",
+            "attemptId": "6e885298-12e1-4859-b05f-98a193f3328d",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 85296.91460076862,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 78808.65829767172
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 80025.3774595871
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 83808.60903857784
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "lap": 1,
+              "timeMs": 85296.91460076862
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+    }
+  ],
+  "driving": {
+    "legacy-p08a": {
+      "launch": {
+        "to60Seconds": 5.999999999999984,
+        "maxRecordedMph": 112.4626544203415,
+        "lastTimeSeconds": 22.000000000000032
+      },
+      "matched": {
+        "brake60": {
+          "entrySpeedMph": 59.97035075514833,
+          "finalSpeedMps": 0.10022329246961212,
+          "seconds": 2.733333333333362,
+          "pathMetres": 36.8420804480222,
+          "yawDegrees": -8.325003757558143e-07,
+          "radiusMetres": null,
+          "steeringInputDuringTurn": 0
+        },
+        "brake110": {
+          "entrySpeedMph": 109.90356827197967,
+          "finalSpeedMps": 0.11619113394526757,
+          "seconds": 5.149999999999707,
+          "pathMetres": 128.1831875600911,
+          "yawDegrees": 10.277910794213822,
+          "radiusMetres": 714.5767071515862,
+          "steeringInputDuringTurn": 0
+        },
+        "low-left": {
+          "entrySpeedMph": 8.985296949101608,
+          "finalSpeedMps": 4.23044158304504,
+          "seconds": 2.3166666666666593,
+          "pathMetres": 9.764806272260026,
+          "yawDegrees": 90.50235678560784,
+          "radiusMetres": 6.181962625445634,
+          "steeringInputDuringTurn": 1
+        },
+        "low-right": {
+          "entrySpeedMph": 8.985296949101608,
+          "finalSpeedMps": 4.230441106000222,
+          "seconds": 2.3166666666666593,
+          "pathMetres": 9.764804979966534,
+          "yawDegrees": -90.5023568258667,
+          "radiusMetres": 6.181961804562684,
+          "steeringInputDuringTurn": 1
+        },
+        "medium-left": {
+          "entrySpeedMph": 44.66203959430795,
+          "finalSpeedMps": 20.078856987094262,
+          "seconds": 6.933333333333477,
+          "pathMetres": 139.38732373089334,
+          "yawDegrees": 90.08283245153527,
+          "radiusMetres": 88.65513161678768,
+          "steeringInputDuringTurn": 1
+        },
+        "medium-right": {
+          "entrySpeedMph": 44.66203959430795,
+          "finalSpeedMps": 20.07885564624272,
+          "seconds": 6.933333333333477,
+          "pathMetres": 139.38731227294423,
+          "yawDegrees": -90.08291955913336,
+          "radiusMetres": 88.65503860217692,
+          "steeringInputDuringTurn": 1
+        },
+        "high-left": {
+          "entrySpeedMph": 78.18611960410328,
+          "finalSpeedMps": 34.81261581055373,
+          "seconds": 26.933333333332502,
+          "pathMetres": 938.0853966197091,
+          "yawDegrees": 90.01819113489893,
+          "radiusMetres": 597.0830270141662,
+          "steeringInputDuringTurn": 0.55
+        },
+        "high-right": {
+          "entrySpeedMph": 78.18611960410328,
+          "finalSpeedMps": 34.812611996744145,
+          "seconds": 26.933333333332502,
+          "pathMetres": 938.0852969663355,
+          "yawDegrees": -90.01819092769831,
+          "radiusMetres": 597.0829649600225,
+          "steeringInputDuringTurn": 0.55
+        }
+      }
+    },
+    "slingmods-sport-v1": {
+      "launch": {
+        "to60Seconds": 4.733333333333322,
+        "maxRecordedMph": 127.66506702726832,
+        "lastTimeSeconds": 22.000000000000032
+      },
+      "matched": {
+        "brake60": {
+          "entrySpeedMph": 59.956540017225116,
+          "finalSpeedMps": 0.1245124576638119,
+          "seconds": 3.7500000000000115,
+          "pathMetres": 49.93102600269574,
+          "yawDegrees": 3.0128471379425757e-06,
+          "radiusMetres": null,
+          "steeringInputDuringTurn": 0
+        },
+        "brake110": {
+          "entrySpeedMph": 109.90903204777634,
+          "finalSpeedMps": 0.1349608797038318,
+          "seconds": 6.633333333333184,
+          "pathMetres": 158.85056872155343,
+          "yawDegrees": 1.7451427475497358e-06,
+          "radiusMetres": null,
+          "steeringInputDuringTurn": 0
+        },
+        "low-left": {
+          "entrySpeedMph": 8.86680228644517,
+          "finalSpeedMps": 4.229854813555545,
+          "seconds": 1.8999999999999955,
+          "pathMetres": 8.019304766712537,
+          "yawDegrees": 90.2344553465857,
+          "radiusMetres": 5.091983056770975,
+          "steeringInputDuringTurn": 1
+        },
+        "low-right": {
+          "entrySpeedMph": 8.86680228644517,
+          "finalSpeedMps": 4.229852100121199,
+          "seconds": 1.8999999999999955,
+          "pathMetres": 8.019304356298615,
+          "yawDegrees": -90.23441669941428,
+          "radiusMetres": 5.091984977055528,
+          "steeringInputDuringTurn": 1
+        },
+        "medium-left": {
+          "entrySpeedMph": 44.76377123614975,
+          "finalSpeedMps": 20.047080194109714,
+          "seconds": 4.783333333333326,
+          "pathMetres": 96.0962867584465,
+          "yawDegrees": 90.24885209937712,
+          "radiusMetres": 61.008107361577,
+          "steeringInputDuringTurn": 1
+        },
+        "medium-right": {
+          "entrySpeedMph": 44.76377123614975,
+          "finalSpeedMps": 20.04708148525846,
+          "seconds": 4.783333333333326,
+          "pathMetres": 96.09628578218206,
+          "yawDegrees": -90.24888083981303,
+          "radiusMetres": 61.00808731329037,
+          "steeringInputDuringTurn": 1
+        },
+        "high-left": {
+          "entrySpeedMph": 78.27359490744776,
+          "finalSpeedMps": 34.908069305899005,
+          "seconds": 17.616666666666557,
+          "pathMetres": 615.4338781659137,
+          "yawDegrees": 90.05857527007502,
+          "radiusMetres": 391.54254531042153,
+          "steeringInputDuringTurn": 0.55
+        },
+        "high-right": {
+          "entrySpeedMph": 78.27359490744776,
+          "finalSpeedMps": 34.90807324725192,
+          "seconds": 17.616666666666557,
+          "pathMetres": 615.4338489086083,
+          "yawDegrees": -90.05852685021627,
+          "radiusMetres": 391.54273720912596,
+          "steeringInputDuringTurn": 0.55
+        }
+      }
+    }
+  }
+}

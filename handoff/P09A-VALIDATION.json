@@ -1,0 +1,108 @@
+{
+  "status": "Internal implementation/review/repair complete; performance HOLD; fresh remote-clone verification pending",
+  "baselineCommit": "51f34a341200cf76bf69106bdfae300590419e88",
+  "runtimeCommit": "049c1cdd154f4ca83d087f99e0dad76040c049f7",
+  "branch": "feature/p09a-own-the-build",
+  "remote": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+  "privateRemoteVerified": true,
+  "mainUnchanged": "ed363b28ec6ba933dd82c576153bd73c80ea6619",
+  "testedRemoteCommit": null,
+  "functional": {
+    "tests": 215,
+    "pass": 215,
+    "fail": 0,
+    "build": "PASS",
+    "staticBuild": "PASS",
+    "careerLoop": "career-loop-08/verification.json",
+    "preparation": "preparation-final-04/verification.json",
+    "stockEquivalence": "baseline-equivalence.json",
+    "driving": "driving-analysis.json",
+    "recovery": "tests/p09a-recovery.test.ts; actual simulated high-speed curb flip then supported upright reset",
+    "earlyFinishResume": "Repaired and independently reviewed in source; synthetic real-browser UI/controller test PASS. Two control-only actual-race attempts did not finish first; this specific naturally occurring full-loop edge remains unproven. Raw failures preserved."
+  },
+  "performance": {
+    "status": "HOLD",
+    "validRaces": 16,
+    "allFinishers": 64,
+    "targetPassRaces": 13,
+    "targetFailRaces": 3,
+    "framesOver100Ms": 8,
+    "worstFrameMs": 200,
+    "thresholds": {
+      "p95Ms": 20,
+      "p99Ms": 33.4,
+      "maxMs": 100
+    },
+    "summary": "native-matrix.json",
+    "cause": "Unresolved; no all-performance PASS. Optional tracing separate from native matrix.",
+    "instrumentedDiagnostic": "native-diagnostic-01/trace-analysis.json (separate overhead-bearing trace; maximum300ms; cause unresolved)"
+  },
+  "film": {
+    "relativePath": "film-02/P09A-Own-the-Build.mp4",
+    "status": "PASS technical capture/decode/synchronization; human listening held",
+    "seconds": 174.805,
+    "bytes": 21812041,
+    "sha256": "7667a6d464992887b34bf2bb84bcf6e3ea274ce95dde7b46ac2a37c4f27bc74f",
+    "receipt": "film-02/FILM-VERIFICATION.json",
+    "editingNote": "Actual paired flash/chirp sync for all audible segments. Authentically silent workshop starts at inspected source146.5s because its start flash was absent; disclosed in CAPTURE-NOTES.md."
+  },
+  "reviewScreenshots": [
+    [
+      "01-locked-career",
+      "film-02/01-locked-career.png"
+    ],
+    [
+      "02-free-exhaust",
+      "film-02/03-free-exhaust.png"
+    ],
+    [
+      "03-sport-v2",
+      "film-02/04-sport-v2.png"
+    ],
+    [
+      "04-preserved-bay-exit",
+      "film-02/05-bay-exit.png"
+    ],
+    [
+      "05-fast-straight",
+      "film-02/06-fast-straight.png"
+    ],
+    [
+      "06-stable-stop",
+      "film-02/07-braked.png"
+    ],
+    [
+      "07-earned-result",
+      "film-02/10-earned-result.png"
+    ],
+    [
+      "08-earned-installed",
+      "film-02/12-purchased-installed.png"
+    ],
+    [
+      "09-jett-duel",
+      "film-02/13-earned-exhaust-on-track.png"
+    ],
+    [
+      "10-five-owned-cup-complete",
+      "career-loop-08/06-five-owned.png"
+    ],
+    [
+      "11-cup-reload-standings",
+      "career-loop-08/04-cup-standings.png"
+    ],
+    [
+      "12-preparation-retry",
+      "preparation-final-04/01-retry.png"
+    ]
+  ],
+  "preserved": "Existing P08B runtime/editable art and audio unchanged; five free previews, finishes/swingarm, bay/departure, original Chapter01/demo and saved recipes retain identities; no personal saves copied.",
+  "holds": [
+    "Maximum-frame target failed in3of16native races; cause unresolved.",
+    "G3/G4 and final OEM/art fidelity not approved.",
+    "Physical controller/device breadth and human fun/listening unapproved.",
+    "Release and public hosting not approved; hosting separate from development."
+  ],
+  "nextAction": "Complete current film/remote recovery then Astra reviews Review17; no merge/publication.",
+  "assetFiles": 183
+}

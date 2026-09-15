@@ -1,0 +1,2027 @@
+{
+  "error": "page.waitForFunction: Timeout 30000ms exceeded.\n    at run (C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\p09a-career-loop.mjs:9:326)\n    at async file:///C:/Users/SM%20-%20Dan/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/p09a-career-loop.mjs:15:444",
+  "rows": [
+    {
+      "phase": "initial-earned-migration",
+      "state": {
+        "version": 4,
+        "buildMatters": {
+          "legacyCrewAccess": false,
+          "duelCompleted": true,
+          "duelWon": true
+        },
+        "suspension": {
+          "owned": true,
+          "equipped": true,
+          "setup": {
+            "frontCompression": 8,
+            "frontRebound": 10,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          }
+        },
+        "revision": 11,
+        "credits": 1250,
+        "owned": false,
+        "equipped": false,
+        "appearance": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "chapters": {
+          "entry": true,
+          "firstCompletion": true,
+          "firstBuild": false
+        },
+        "crew": {
+          "invitationSeen": true,
+          "completed": true,
+          "bestPlace": 3,
+          "cleared": true,
+          "clearAcknowledged": false
+        },
+        "receipts": {
+          "b270d6c8-4779-4d45-9807-9520467e399a": {
+            "id": "b270d6c8-4779-4d45-9807-9520467e399a",
+            "kind": "award",
+            "amount": 800,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-15T15:20:42.069Z"
+          },
+          "25df1675-1d46-4d7b-8604-577534c743a3": {
+            "id": "25df1675-1d46-4d7b-8604-577534c743a3",
+            "kind": "duel-award",
+            "amount": 750,
+            "balance": 1550,
+            "first": true,
+            "at": "2026-09-15T15:20:52.212Z",
+            "event": "harbor-maya-duel-v1",
+            "place": 1,
+            "timeMs": 78475.37144039295,
+            "chapterBonus": 500
+          },
+          "ab19c832-f774-490b-b559-305107fe4731": {
+            "id": "ab19c832-f774-490b-b559-305107fe4731",
+            "kind": "suspension-purchase",
+            "amount": -1000,
+            "balance": 550,
+            "first": true,
+            "at": "2026-09-15T15:20:53.919Z"
+          },
+          "980f7739-b5f6-41e6-9c8a-426a8d29251b": {
+            "id": "980f7739-b5f6-41e6-9c8a-426a8d29251b",
+            "kind": "crew-award",
+            "amount": 550,
+            "balance": 1100,
+            "first": true,
+            "at": "2026-09-15T15:21:13.677Z",
+            "event": "harbor-crew-night-v1",
+            "place": 3,
+            "timeMs": 165737.35527624786,
+            "chapterBonus": 400
+          },
+          "f2da037a-6d95-4a45-a270-48a0d4bb9959": {
+            "id": "f2da037a-6d95-4a45-a270-48a0d4bb9959",
+            "kind": "crew-award",
+            "amount": 150,
+            "balance": 1250,
+            "first": false,
+            "at": "2026-09-15T15:21:32.696Z",
+            "event": "harbor-crew-night-v1",
+            "place": 3,
+            "timeMs": 165737.35527624786,
+            "chapterBonus": 0
+          }
+        },
+        "ownBuild": {
+          "version": 1,
+          "finish": "blue-orange",
+          "products": {},
+          "completed": {
+            "open-it-up": false,
+            "hold-your-nerve": false,
+            "coastline-cup": false
+          },
+          "won": {
+            "open-it-up": false,
+            "hold-your-nerve": false,
+            "coastline-cup": false
+          },
+          "active": null,
+          "attempts": {},
+          "cups": {},
+          "activeCupId": null,
+          "records": []
+        }
+      },
+      "durable": true,
+      "pending": false,
+      "notice": "",
+      "dialog": null,
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {
+          "SM-3223": "silver"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 8,
+          "frontRebound": 10,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      }
+    }
+  ],
+  "errors": [],
+  "current": {
+    "recovery": {
+      "available": false,
+      "reason": "",
+      "heldSeconds": 0,
+      "recoveries": 0,
+      "policy": "Fresh scored attempt at grid; no reward for abandoned attempt"
+    },
+    "entry": {
+      "started": 61,
+      "firstControllable": 1699.8999999985099,
+      "totalMs": 1638.8999999985099,
+      "stages": [
+        {
+          "name": "sky-fetch-decode-probe",
+          "start": 80.39999999850988,
+          "end": 409.5,
+          "ms": 329.1000000014901
+        },
+        {
+          "name": "vehicle-fetch-decode-bind",
+          "start": 409.70000000298023,
+          "end": 554.8999999985099,
+          "ms": 145.19999999552965
+        },
+        {
+          "name": "express-fetch-decode-build",
+          "start": 554.8999999985099,
+          "end": 1078.1000000014901,
+          "ms": 523.2000000029802
+        },
+        {
+          "name": "finish-fetch-decode",
+          "start": 1078.8000000044703,
+          "end": 1078.8000000044703,
+          "ms": 0
+        },
+        {
+          "name": "products-fetch-decode-bind",
+          "start": 1078.8000000044703,
+          "end": 1146.3999999985099,
+          "ms": 67.59999999403954
+        },
+        {
+          "name": "initial-present",
+          "start": 1172.3000000044703,
+          "end": 1174.6000000014901,
+          "ms": 2.2999999970197678
+        },
+        {
+          "name": "graphics-preparation",
+          "start": 1174.6000000014901,
+          "end": 1687.3000000044703,
+          "ms": 512.7000000029802
+        }
+      ],
+      "raf": [
+        {
+          "at": 61.5,
+          "interval": 0
+        },
+        {
+          "at": 78.2,
+          "interval": 16.700000000000003
+        },
+        {
+          "at": 94.9,
+          "interval": 16.700000000000003
+        },
+        {
+          "at": 111.6,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 411.6,
+          "interval": 300
+        },
+        {
+          "at": 428.1,
+          "interval": 16.5
+        },
+        {
+          "at": 444.8,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 461.5,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 478.1,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 494.8,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 511.5,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 528.1,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 544.8,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 561.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 578.2,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 594.8,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 611.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 628.1,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 644.8,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 661.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 678.2,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 694.9,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 711.5,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 828.1,
+          "interval": 116.60000000000002
+        },
+        {
+          "at": 844.8,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 861.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 878.2,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 894.8,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 911.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 928.1,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 944.8,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 961.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 978.2,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 994.8,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1011.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1028.1,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1044.8,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1078.1,
+          "interval": 33.299999999999955
+        },
+        {
+          "at": 1094.8,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1111.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1144.8,
+          "interval": 33.299999999999955
+        },
+        {
+          "at": 1161.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1178.2,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1211.5,
+          "interval": 33.299999999999955
+        },
+        {
+          "at": 1228.1,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1261.5,
+          "interval": 33.40000000000009
+        },
+        {
+          "at": 1311.4,
+          "interval": 49.90000000000009
+        },
+        {
+          "at": 1361.5,
+          "interval": 50.09999999999991
+        },
+        {
+          "at": 1394.8,
+          "interval": 33.299999999999955
+        },
+        {
+          "at": 1411.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1428.1,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1494.8,
+          "interval": 66.70000000000005
+        },
+        {
+          "at": 1511.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1528.1,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1544.8,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1561.5,
+          "interval": 16.700000000000045
+        }
+      ],
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5201/@vite/client",
+          "start": 6.200000002980232,
+          "duration": 0.6999999955296516,
+          "fetchMs": 0.6999999955296516,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/main.ts?t=1789504267489",
+          "start": 6.300000004470348,
+          "duration": 0.7999999970197678,
+          "fetchMs": 0.7999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/vite/dist/client/env.mjs",
+          "start": 9.200000002980232,
+          "duration": 1.7999999970197678,
+          "fetchMs": 1.7999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/demo/profile.ts?t=1789503843870",
+          "start": 11.100000001490116,
+          "duration": 1,
+          "fetchMs": 1,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/demo/recovery.ts",
+          "start": 11.100000001490116,
+          "duration": 1.1000000014901161,
+          "fetchMs": 1.1000000014901161,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/demo/preview.css",
+          "start": 13,
+          "duration": 0.8999999985098839,
+          "fetchMs": 0.8999999985098839,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/express.ts?t=1789504267486",
+          "start": 15.100000001490116,
+          "duration": 0.7000000029802322,
+          "fetchMs": 0.7000000029802322,
+          "transferSize": 300,
+          "encodedBodySize": 56626,
+          "decodedBodySize": 56626
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/driving/recovery.ts",
+          "start": 24.200000002980232,
+          "duration": 2.5,
+          "fetchMs": 2.5,
+          "transferSize": 300,
+          "encodedBodySize": 9711,
+          "decodedBodySize": 9711
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career-experience/race-adapter.ts",
+          "start": 24.200000002980232,
+          "duration": 2.399999998509884,
+          "fetchMs": 2.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/entry-trace.ts",
+          "start": 24.200000002980232,
+          "duration": 3.7999999970197678,
+          "fetchMs": 3.7999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 5118,
+          "decodedBodySize": 5118
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/.vite/deps/three.js?v=18028ead",
+          "start": 24.399999998509884,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 72500,
+          "decodedBodySize": 72500
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_loaders_GLTFLoader__js.js?v=90b6c72b",
+          "start": 24.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 344114,
+          "decodedBodySize": 344114
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/express/index.ts?t=1789503706247",
+          "start": 24.5,
+          "duration": 4.200000002980232,
+          "fetchMs": 4.200000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 777,
+          "decodedBodySize": 777
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/course/environment.ts",
+          "start": 24.5,
+          "duration": 4.600000001490116,
+          "fetchMs": 4.600000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 10549,
+          "decodedBodySize": 10549
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/competition/index.ts?t=1789503706247",
+          "start": 24.600000001490116,
+          "duration": 5.5,
+          "fetchMs": 5.5,
+          "transferSize": 300,
+          "encodedBodySize": 466,
+          "decodedBodySize": 466
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/simulation/index.ts?t=1789503706247",
+          "start": 24.700000002980232,
+          "duration": 6.399999998509884,
+          "fetchMs": 6.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 69896,
+          "decodedBodySize": 69896
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/driving/session.ts?t=1789503706247",
+          "start": 24.700000002980232,
+          "duration": 5.799999997019768,
+          "fetchMs": 5.799999997019768,
+          "transferSize": 300,
+          "encodedBodySize": 6755,
+          "decodedBodySize": 6755
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/driving-camera.ts",
+          "start": 24.80000000447035,
+          "duration": 6.0999999940395355,
+          "fetchMs": 6.0999999940395355,
+          "transferSize": 300,
+          "encodedBodySize": 10148,
+          "decodedBodySize": 10148
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/driving/input.ts?t=1789503644043",
+          "start": 24.80000000447035,
+          "duration": 5.899999998509884,
+          "fetchMs": 5.899999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 31252,
+          "decodedBodySize": 31252
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/hero.ts",
+          "start": 24.899999998509884,
+          "duration": 6.200000002980232,
+          "fetchMs": 6.200000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 17480,
+          "decodedBodySize": 17480
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/signature-art.ts",
+          "start": 24.899999998509884,
+          "duration": 6.9000000059604645,
+          "fetchMs": 6.9000000059604645,
+          "transferSize": 300,
+          "encodedBodySize": 25498,
+          "decodedBodySize": 25498
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/product.ts",
+          "start": 24.899999998509884,
+          "duration": 7.200000002980232,
+          "fetchMs": 7.200000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 15152,
+          "decodedBodySize": 15152
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/suspension.ts",
+          "start": 24.899999998509884,
+          "duration": 7.4000000059604645,
+          "fetchMs": 7.4000000059604645,
+          "transferSize": 300,
+          "encodedBodySize": 16438,
+          "decodedBodySize": 16438
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/harbor-renderer.ts",
+          "start": 24.899999998509884,
+          "duration": 7.5,
+          "fetchMs": 7.5,
+          "transferSize": 300,
+          "encodedBodySize": 3627,
+          "decodedBodySize": 3627
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/outdoor-environment.ts",
+          "start": 24.899999998509884,
+          "duration": 7.700000002980232,
+          "fetchMs": 7.700000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 20821,
+          "decodedBodySize": 20821
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/showcase.ts",
+          "start": 24.899999998509884,
+          "duration": 7.800000004470348,
+          "fetchMs": 7.800000004470348,
+          "transferSize": 300,
+          "encodedBodySize": 53851,
+          "decodedBodySize": 53851
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/harbor-lighting.ts",
+          "start": 25,
+          "duration": 8.899999998509884,
+          "fetchMs": 8.899999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 15342,
+          "decodedBodySize": 15342
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/prepare.ts?t=1789503843886",
+          "start": 25.100000001490116,
+          "duration": 9.200000002980232,
+          "fetchMs": 9.200000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 14326,
+          "decodedBodySize": 14326
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/runtime-profile.ts",
+          "start": 25.100000001490116,
+          "duration": 9.200000002980232,
+          "fetchMs": 9.200000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 8151,
+          "decodedBodySize": 8151
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/audio/game-audio.ts?t=1789503843870",
+          "start": 25.100000001490116,
+          "duration": 9.399999998509884,
+          "fetchMs": 9.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 25330,
+          "decodedBodySize": 25330
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/crew-ui.ts?t=1789504267486",
+          "start": 25.100000001490116,
+          "duration": 9.700000002980232,
+          "fetchMs": 9.700000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 34705,
+          "decodedBodySize": 34705
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/signature/config.ts?t=1789503644041",
+          "start": 25.200000002980232,
+          "duration": 8.299999997019768,
+          "fetchMs": 8.299999997019768,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/save.ts?t=1789503843870",
+          "start": 25.200000002980232,
+          "duration": 10.399999998509884,
+          "fetchMs": 10.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 11133,
+          "decodedBodySize": 11133
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/style.css",
+          "start": 25.200000002980232,
+          "duration": 10.5,
+          "fetchMs": 10.5,
+          "transferSize": 300,
+          "encodedBodySize": 1363,
+          "decodedBodySize": 1363
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/harbor.css",
+          "start": 25.30000000447035,
+          "duration": 10.599999994039536,
+          "fetchMs": 10.599999994039536,
+          "transferSize": 300,
+          "encodedBodySize": 13844,
+          "decodedBodySize": 13844
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/crew.css",
+          "start": 25.30000000447035,
+          "duration": 10.699999995529652,
+          "fetchMs": 10.699999995529652,
+          "transferSize": 300,
+          "encodedBodySize": 4296,
+          "decodedBodySize": 4296
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7b4f27f5",
+          "start": 25.80000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 5965635,
+          "decodedBodySize": 5965635
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_BufferGeometryUtils__js.js?v=16c2143f",
+          "start": 25.899999998509884,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 111512,
+          "decodedBodySize": 111512
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_SkeletonUtils__js.js?v=bc26ebd3",
+          "start": 25.899999998509884,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 33473,
+          "decodedBodySize": 33473
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career/client.ts",
+          "start": 30.399999998509884,
+          "duration": 4.800000004470348,
+          "fetchMs": 4.800000004470348,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career-experience/model.ts",
+          "start": 30.399999998509884,
+          "duration": 5,
+          "fetchMs": 5,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/express/race.ts?t=1789503706247",
+          "start": 32.70000000298023,
+          "duration": 3.899999998509884,
+          "fetchMs": 3.899999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 6096,
+          "decodedBodySize": 6096
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/express/route.ts",
+          "start": 32.70000000298023,
+          "duration": 3.899999998509884,
+          "fetchMs": 3.899999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 10380,
+          "decodedBodySize": 10380
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/express/presentation.ts",
+          "start": 32.70000000298023,
+          "duration": 4.100000001490116,
+          "fetchMs": 4.100000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 33654,
+          "decodedBodySize": 33654
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/simulation/pad.ts",
+          "start": 33.600000001490116,
+          "duration": 3.2999999970197678,
+          "fetchMs": 3.2999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 5339,
+          "decodedBodySize": 5339
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/competition/race.ts?t=1789503633320",
+          "start": 36.399999998509884,
+          "duration": 1.1000000014901161,
+          "fetchMs": 1.1000000014901161,
+          "transferSize": 300,
+          "encodedBodySize": 31389,
+          "decodedBodySize": 31389
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/competition/grid.ts",
+          "start": 36.5,
+          "duration": 1.2000000029802322,
+          "fetchMs": 1.2000000029802322,
+          "transferSize": 300,
+          "encodedBodySize": 6999,
+          "decodedBodySize": 6999
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/competition/rival.ts?t=1789503706247",
+          "start": 36.5,
+          "duration": 1.3000000044703484,
+          "fetchMs": 1.3000000044703484,
+          "transferSize": 300,
+          "encodedBodySize": 27436,
+          "decodedBodySize": 27436
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career/suspension.ts",
+          "start": 37.80000000447035,
+          "duration": 0.5999999940395355,
+          "fetchMs": 0.5999999940395355,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/simulation/profile.ts?t=1789503706247",
+          "start": 37.80000000447035,
+          "duration": 0.5999999940395355,
+          "fetchMs": 0.5999999940395355,
+          "transferSize": 300,
+          "encodedBodySize": 5114,
+          "decodedBodySize": 5114
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=dc806524",
+          "start": 37.899999998509884,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 6917430,
+          "decodedBodySize": 6917430
+        },
+        {
+          "url": "http://127.0.0.1:5201/public/assets/slingshot-contact-layout.json?import",
+          "start": 37.899999998509884,
+          "duration": 1.5,
+          "fetchMs": 1.5,
+          "transferSize": 300,
+          "encodedBodySize": 5651,
+          "decodedBodySize": 5651
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/simulation/drivetrain.ts?t=1789503706247",
+          "start": 37.899999998509884,
+          "duration": 2,
+          "fetchMs": 2,
+          "transferSize": 300,
+          "encodedBodySize": 10059,
+          "decodedBodySize": 10059
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/chase.ts",
+          "start": 38.100000001490116,
+          "duration": 2.5,
+          "fetchMs": 2.5,
+          "transferSize": 300,
+          "encodedBodySize": 11288,
+          "decodedBodySize": 11288
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/driver.ts",
+          "start": 38.100000001490116,
+          "duration": 3.399999998509884,
+          "fetchMs": 3.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 23236,
+          "decodedBodySize": 23236
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/vehicle-asset.ts",
+          "start": 38.20000000298023,
+          "duration": 3.7999999970197678,
+          "fetchMs": 3.7999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 1016,
+          "decodedBodySize": 1016
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/shadows.ts",
+          "start": 38.20000000298023,
+          "duration": 4.199999995529652,
+          "fetchMs": 4.199999995529652,
+          "transferSize": 300,
+          "encodedBodySize": 3392,
+          "decodedBodySize": 3392
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/statistics.ts",
+          "start": 38.20000000298023,
+          "duration": 4.199999995529652,
+          "fetchMs": 4.199999995529652,
+          "transferSize": 300,
+          "encodedBodySize": 6588,
+          "decodedBodySize": 6588
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/rear.ts",
+          "start": 38.20000000298023,
+          "duration": 3.5,
+          "fetchMs": 3.5,
+          "transferSize": 300,
+          "encodedBodySize": 20550,
+          "decodedBodySize": 20550
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/signature-palette.ts",
+          "start": 39.600000001490116,
+          "duration": 2.7999999970197678,
+          "fetchMs": 2.7999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_lights_RectAreaLightUniformsLib__js.js?v=cf9e5267",
+          "start": 39.80000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1023496,
+          "decodedBodySize": 1023496
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career/catalog.ts",
+          "start": 39.80000000447035,
+          "duration": 2.7999999970197678,
+          "fetchMs": 2.7999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_loaders_HDRLoader__js.js?v=3b0d5957",
+          "start": 42.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 33857,
+          "decodedBodySize": 33857
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/branding.ts",
+          "start": 43,
+          "duration": 1.6000000014901161,
+          "fetchMs": 1.6000000014901161,
+          "transferSize": 300,
+          "encodedBodySize": 4455,
+          "decodedBodySize": 4455
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/presentation/harbor-water.ts",
+          "start": 43,
+          "duration": 2.7000000029802322,
+          "fetchMs": 2.7000000029802322,
+          "transferSize": 300,
+          "encodedBodySize": 13784,
+          "decodedBodySize": 13784
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/signature/catalog.ts",
+          "start": 43.30000000447035,
+          "duration": 3.2999999970197678,
+          "fetchMs": 3.2999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/audio/opponents.ts",
+          "start": 43.600000001490116,
+          "duration": 4.399999998509884,
+          "fetchMs": 4.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 8854,
+          "decodedBodySize": 8854
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/audio/evidence.ts",
+          "start": 43.600000001490116,
+          "duration": 4.899999998509884,
+          "fetchMs": 4.899999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 14693,
+          "decodedBodySize": 14693
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/audio/bay-door.ts",
+          "start": 43.600000001490116,
+          "duration": 5.100000001490116,
+          "fetchMs": 5.100000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 9223,
+          "decodedBodySize": 9223
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/audio/mapper.ts",
+          "start": 43.70000000298023,
+          "duration": 5.399999998509884,
+          "fetchMs": 5.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 8198,
+          "decodedBodySize": 8198
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/signature/race-accessibility.ts",
+          "start": 43.70000000298023,
+          "duration": 6.600000001490116,
+          "fetchMs": 6.600000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 5490,
+          "decodedBodySize": 5490
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/audio/graph.ts",
+          "start": 43.70000000298023,
+          "duration": 5.799999997019768,
+          "fetchMs": 5.799999997019768,
+          "transferSize": 300,
+          "encodedBodySize": 10894,
+          "decodedBodySize": 10894
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/signature/route-aid.ts",
+          "start": 43.70000000298023,
+          "duration": 6.5,
+          "fetchMs": 6.5,
+          "transferSize": 300,
+          "encodedBodySize": 5742,
+          "decodedBodySize": 5742
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/harbor-ui.ts?t=1789503843870",
+          "start": 43.70000000298023,
+          "duration": 6.699999995529652,
+          "fetchMs": 6.699999995529652,
+          "transferSize": 300,
+          "encodedBodySize": 20326,
+          "decodedBodySize": 20326
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/crew-proximity.ts",
+          "start": 43.70000000298023,
+          "duration": 7,
+          "fetchMs": 7,
+          "transferSize": 300,
+          "encodedBodySize": 3706,
+          "decodedBodySize": 3706
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career/store.ts",
+          "start": 48.100000001490116,
+          "duration": 2.399999998509884,
+          "fetchMs": 2.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/demo/store.ts",
+          "start": 48.20000000298023,
+          "duration": 2.600000001490116,
+          "fetchMs": 2.600000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/competition/road.ts",
+          "start": 52.399999998509884,
+          "duration": 1.3000000044703484,
+          "fetchMs": 1.3000000044703484,
+          "transferSize": 300,
+          "encodedBodySize": 6194,
+          "decodedBodySize": 6194
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/competition/stability.ts?t=1789503706247",
+          "start": 53.100000001490116,
+          "duration": 1.8999999985098839,
+          "fetchMs": 1.8999999985098839,
+          "transferSize": 300,
+          "encodedBodySize": 3743,
+          "decodedBodySize": 3743
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career/duel-result.ts",
+          "start": 53.399999998509884,
+          "duration": 1.6000000014901161,
+          "fetchMs": 1.6000000014901161,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career/crew-result.ts",
+          "start": 53.399999998509884,
+          "duration": 1.9000000059604645,
+          "fetchMs": 1.9000000059604645,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/race/attempt.ts",
+          "start": 53.399999998509884,
+          "duration": 2.5,
+          "fetchMs": 2.5,
+          "transferSize": 300,
+          "encodedBodySize": 17651,
+          "decodedBodySize": 17651
+        },
+        {
+          "url": "http://127.0.0.1:5201/src/career/menu.ts",
+          "start": 54.80000000447035,
+          "duration": 1.2999999970197678,
+          "fetchMs": 1.2999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/brand/slingmods-logo-main.png",
+          "start": 65.70000000298023,
+          "duration": 1.3999999985098839,
+          "fetchMs": 1.3999999985098839,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/showcase-quality/sky/day-puresky-2k.hdr",
+          "start": 81,
+          "duration": 5.200000002980232,
+          "fetchMs": 5.200000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 5451493,
+          "decodedBodySize": 5451493
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/p08b/slingshot-signature.glb",
+          "start": 410.5,
+          "duration": 33.20000000298023,
+          "fetchMs": 33.20000000298023,
+          "transferSize": 10270048,
+          "encodedBodySize": 10269748,
+          "decodedBodySize": 10269748
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/drivers/test-driver.glb",
+          "start": 410.80000000447035,
+          "duration": 20.099999994039536,
+          "fetchMs": 20.099999994039536,
+          "transferSize": 300,
+          "encodedBodySize": 3717076,
+          "decodedBodySize": 3717076
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/drivers/test-driver-attachment.json",
+          "start": 411,
+          "duration": 2.399999998509884,
+          "fetchMs": 2.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 11386,
+          "decodedBodySize": 11386
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "start": 411,
+          "duration": 3.2000000029802322,
+          "fetchMs": 3.2000000029802322,
+          "transferSize": 300,
+          "encodedBodySize": 3010,
+          "decodedBodySize": 3010
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/showcase-quality/kit.glb",
+          "start": 555.2000000029802,
+          "duration": 137.89999999850988,
+          "fetchMs": 137.89999999850988,
+          "transferSize": 28974672,
+          "encodedBodySize": 28974372,
+          "decodedBodySize": 28974372
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/brand/slingmods-sign.glb",
+          "start": 555.3999999985099,
+          "duration": 1.2000000029802322,
+          "fetchMs": 1.2000000029802322,
+          "transferSize": 300,
+          "encodedBodySize": 26016,
+          "decodedBodySize": 26016
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+          "start": 555.6000000014901,
+          "duration": 1.2999999970197678,
+          "fetchMs": 1.2999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+          "start": 555.7000000029802,
+          "duration": 1.2999999970197678,
+          "fetchMs": 1.2999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+          "start": 555.8000000044703,
+          "duration": 1.3999999985098839,
+          "fetchMs": 1.3999999985098839,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+          "start": 556,
+          "duration": 1.3000000044703484,
+          "fetchMs": 1.3000000044703484,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.glb",
+          "start": 1079.3000000044703,
+          "duration": 4.5,
+          "fetchMs": 4.5,
+          "transferSize": 300,
+          "encodedBodySize": 89992,
+          "decodedBodySize": 89992
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.attachment.json",
+          "start": 1079.3999999985099,
+          "duration": 6,
+          "fetchMs": 6,
+          "transferSize": 300,
+          "encodedBodySize": 16205,
+          "decodedBodySize": 16205
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/products/ddmworks-sm3223-silver.glb",
+          "start": 1079.5,
+          "duration": 7.300000004470348,
+          "fetchMs": 7.300000004470348,
+          "transferSize": 300,
+          "encodedBodySize": 250364,
+          "decodedBodySize": 250364
+        },
+        {
+          "url": "http://127.0.0.1:5201/assets/p08b/signature-products.glb",
+          "start": 1079.6000000014901,
+          "duration": 8.100000001490116,
+          "fetchMs": 8.100000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 339964,
+          "decodedBodySize": 339964
+        }
+      ],
+      "method": "Wall-clock stage boundaries and loading RAF intervals. Fetch timing includes cache behavior; load/decode phases overlap network as stated. Waiting is not CPU or GPU rendering cost."
+    },
+    "build": "51f34a341200-working",
+    "handlingProfile": "slingmods-sport-v2",
+    "eventId": "p09a-open-it-up-express-v1",
+    "preview": false,
+    "career": {
+      "attempt": {
+        "version": 1,
+        "id": "f0d1bd8d-ced7-4c3b-8d21-d6d9a3d3327b",
+        "event": "open-it-up",
+        "competitionId": "p09a-open-it-up-express-v1",
+        "route": "express",
+        "routeVersion": "express-layout-v1",
+        "handlingProfile": "slingmods-sport-v2",
+        "laps": 1,
+        "participants": [
+          "player"
+        ],
+        "recipe": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "blue-orange",
+          "products": {
+            "SM-133": "base-rgb",
+            "SM-3223": "silver"
+          },
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 8,
+            "frontRebound": 10,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v2"
+        },
+        "cupId": null,
+        "stage": 0,
+        "status": "prepared"
+      },
+      "state": {
+        "version": 4,
+        "buildMatters": {
+          "legacyCrewAccess": false,
+          "duelCompleted": true,
+          "duelWon": true
+        },
+        "suspension": {
+          "owned": true,
+          "equipped": true,
+          "setup": {
+            "frontCompression": 8,
+            "frontRebound": 10,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          }
+        },
+        "revision": 13,
+        "credits": 650,
+        "owned": true,
+        "equipped": true,
+        "appearance": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "chapters": {
+          "entry": true,
+          "firstCompletion": true,
+          "firstBuild": true
+        },
+        "crew": {
+          "invitationSeen": true,
+          "completed": true,
+          "bestPlace": 3,
+          "cleared": true,
+          "clearAcknowledged": false
+        },
+        "receipts": {
+          "b270d6c8-4779-4d45-9807-9520467e399a": {
+            "id": "b270d6c8-4779-4d45-9807-9520467e399a",
+            "kind": "award",
+            "amount": 800,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-15T15:20:42.069Z"
+          },
+          "25df1675-1d46-4d7b-8604-577534c743a3": {
+            "id": "25df1675-1d46-4d7b-8604-577534c743a3",
+            "kind": "duel-award",
+            "amount": 750,
+            "balance": 1550,
+            "first": true,
+            "at": "2026-09-15T15:20:52.212Z",
+            "event": "harbor-maya-duel-v1",
+            "place": 1,
+            "timeMs": 78475.37144039295,
+            "chapterBonus": 500
+          },
+          "ab19c832-f774-490b-b559-305107fe4731": {
+            "id": "ab19c832-f774-490b-b559-305107fe4731",
+            "kind": "suspension-purchase",
+            "amount": -1000,
+            "balance": 550,
+            "first": true,
+            "at": "2026-09-15T15:20:53.919Z"
+          },
+          "980f7739-b5f6-41e6-9c8a-426a8d29251b": {
+            "id": "980f7739-b5f6-41e6-9c8a-426a8d29251b",
+            "kind": "crew-award",
+            "amount": 550,
+            "balance": 1100,
+            "first": true,
+            "at": "2026-09-15T15:21:13.677Z",
+            "event": "harbor-crew-night-v1",
+            "place": 3,
+            "timeMs": 165737.35527624786,
+            "chapterBonus": 400
+          },
+          "f2da037a-6d95-4a45-a270-48a0d4bb9959": {
+            "id": "f2da037a-6d95-4a45-a270-48a0d4bb9959",
+            "kind": "crew-award",
+            "amount": 150,
+            "balance": 1250,
+            "first": false,
+            "at": "2026-09-15T15:21:32.696Z",
+            "event": "harbor-crew-night-v1",
+            "place": 3,
+            "timeMs": 165737.35527624786,
+            "chapterBonus": 0
+          },
+          "542c50a4-4edb-4cbd-ac89-534933735784": {
+            "id": "542c50a4-4edb-4cbd-ac89-534933735784",
+            "kind": "purchase",
+            "amount": -600,
+            "balance": 650,
+            "first": true,
+            "at": "2026-09-15T20:30:35.894Z"
+          }
+        },
+        "ownBuild": {
+          "version": 1,
+          "finish": "blue-orange",
+          "products": {},
+          "completed": {
+            "open-it-up": false,
+            "hold-your-nerve": false,
+            "coastline-cup": false
+          },
+          "won": {
+            "open-it-up": false,
+            "hold-your-nerve": false,
+            "coastline-cup": false
+          },
+          "active": {
+            "version": 1,
+            "id": "f0d1bd8d-ced7-4c3b-8d21-d6d9a3d3327b",
+            "event": "open-it-up",
+            "competitionId": "p09a-open-it-up-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v2",
+            "laps": 1,
+            "participants": [
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 8,
+                "frontRebound": 10,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v2"
+            },
+            "cupId": null,
+            "stage": 0,
+            "status": "prepared"
+          },
+          "attempts": {
+            "f0d1bd8d-ced7-4c3b-8d21-d6d9a3d3327b": {
+              "version": 1,
+              "id": "f0d1bd8d-ced7-4c3b-8d21-d6d9a3d3327b",
+              "event": "open-it-up",
+              "competitionId": "p09a-open-it-up-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "participants": [
+                "player"
+              ],
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "cupId": null,
+              "stage": 0,
+              "status": "prepared"
+            }
+          },
+          "cups": {},
+          "activeCupId": null,
+          "records": []
+        }
+      }
+    },
+    "free": false,
+    "recipe": {
+      "version": 1,
+      "vehicleId": "slingshot-r-2024",
+      "finish": "blue-orange",
+      "products": {
+        "SM-133": "base-rgb",
+        "SM-3223": "silver"
+      },
+      "lights": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "suspension": {
+        "frontCompression": 8,
+        "frontRebound": 10,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      },
+      "handlingProfile": "slingmods-sport-v2"
+    },
+    "race": {
+      "event": "p09a-open-it-up-express-v1",
+      "handlingProfileId": "slingmods-sport-v2",
+      "laps": 1,
+      "phase": "ready",
+      "paused": false,
+      "countdown": 0,
+      "elapsedMs": 0,
+      "attemptId": "",
+      "standings": [
+        {
+          "id": "player",
+          "place": 1,
+          "status": "running",
+          "lap": 1,
+          "nextGate": 1,
+          "progress": 0,
+          "timeMs": null,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "playerResult": null,
+      "allFinished": false
+    },
+    "telemetry": {
+      "time": 0,
+      "position": {
+        "x": -0.16633720695972443,
+        "y": 0.025000014305114726,
+        "z": 5.99769401550293
+      },
+      "quaternion": {
+        "x": 0,
+        "y": -0.013862766325473785,
+        "z": 0,
+        "w": 0.9999039173126221
+      },
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "angularVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "speed": 0,
+      "rpm": 950,
+      "engineWheelAngularSpeed": 0,
+      "gear": 1,
+      "shifting": false,
+      "shiftRemaining": 0,
+      "steer": 0,
+      "throttle": 0,
+      "brake": 0,
+      "reversePending": false,
+      "wheels": [
+        {
+          "id": "front_left",
+          "contact": false,
+          "load": 0,
+          "travel": 0,
+          "slipRatio": 0,
+          "slipAngle": 0,
+          "spin": 0,
+          "steer": 0,
+          "localCenter": {
+            "x": -0.8775,
+            "y": 0.32985,
+            "z": -1.3335
+          },
+          "surface": "air",
+          "angularSpeed": 0,
+          "longitudinalSpeed": 0,
+          "longitudinalForce": 0,
+          "lateralForce": 0,
+          "gripLimit": 0,
+          "driveTorque": 0
+        },
+        {
+          "id": "front_right",
+          "contact": false,
+          "load": 0,
+          "travel": 0,
+          "slipRatio": 0,
+          "slipAngle": 0,
+          "spin": 0,
+          "steer": 0,
+          "localCenter": {
+            "x": 0.8775,
+            "y": 0.32985,
+            "z": -1.3335
+          },
+          "surface": "air",
+          "angularSpeed": 0,
+          "longitudinalSpeed": 0,
+          "longitudinalForce": 0,
+          "lateralForce": 0,
+          "gripLimit": 0,
+          "driveTorque": 0
+        },
+        {
+          "id": "rear",
+          "contact": false,
+          "load": 0,
+          "travel": 0,
+          "slipRatio": 0,
+          "slipAngle": 0,
+          "spin": 0,
+          "steer": 0,
+          "localCenter": {
+            "x": 0,
+            "y": 0.3455,
+            "z": 1.3335
+          },
+          "surface": "air",
+          "angularSpeed": 0,
+          "longitudinalSpeed": 0,
+          "longitudinalForce": 0,
+          "lateralForce": 0,
+          "gripLimit": 0,
+          "driveTorque": 0
+        }
+      ]
+    },
+    "field": {
+      "player": {
+        "time": 0,
+        "position": {
+          "x": -0.16633720695972443,
+          "y": 0.025000014305114726,
+          "z": 5.99769401550293
+        },
+        "quaternion": {
+          "x": 0,
+          "y": -0.013862766325473785,
+          "z": 0,
+          "w": 0.9999039173126221
+        },
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "speed": 0,
+        "rpm": 950,
+        "engineWheelAngularSpeed": 0,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 0,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": false,
+            "load": 0,
+            "travel": 0,
+            "slipRatio": 0,
+            "slipAngle": 0,
+            "spin": 0,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.32985,
+              "z": -1.3335
+            },
+            "surface": "air",
+            "angularSpeed": 0,
+            "longitudinalSpeed": 0,
+            "longitudinalForce": 0,
+            "lateralForce": 0,
+            "gripLimit": 0,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": false,
+            "load": 0,
+            "travel": 0,
+            "slipRatio": 0,
+            "slipAngle": 0,
+            "spin": 0,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.32985,
+              "z": -1.3335
+            },
+            "surface": "air",
+            "angularSpeed": 0,
+            "longitudinalSpeed": 0,
+            "longitudinalForce": 0,
+            "lateralForce": 0,
+            "gripLimit": 0,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": false,
+            "load": 0,
+            "travel": 0,
+            "slipRatio": 0,
+            "slipAngle": 0,
+            "spin": 0,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.3455,
+              "z": 1.3335
+            },
+            "surface": "air",
+            "angularSpeed": 0,
+            "longitudinalSpeed": 0,
+            "longitudinalForce": 0,
+            "lateralForce": 0,
+            "gripLimit": 0,
+            "driveTorque": 0
+          }
+        ]
+      }
+    },
+    "ticks": 0,
+    "attemptId": null,
+    "rewardPending": false,
+    "rewardText": "",
+    "careerTouched": true,
+    "route": {
+      "id": "harbor-express",
+      "version": "express-layout-v1",
+      "length": 2317.160796673365
+    },
+    "design": {
+      "id": "express-layout-v1",
+      "lengthMetres": 2317.160796673365,
+      "mainStraightMetres": 800,
+      "brakingZone": {
+        "startMetres": 600,
+        "endMetres": 800,
+        "lengthMetres": 200
+      },
+      "widthMetres": 15,
+      "runoffMetres": 3,
+      "groundBounds": {
+        "center": [
+          -80,
+          -0.15,
+          -400
+        ],
+        "size": [
+          1800,
+          0.3,
+          1600
+        ]
+      },
+      "description": "Eight-hundred-metre quay straight, terminal sweeper, warehouse return, loading-yard transition and marina bend. Braking boards at 200/150/100/50m before terminal curve.",
+      "source": "src/express/route.ts; cubic control points and measured polyline, not old Harbor geometry"
+    },
+    "suspension": {
+      "equipped": true,
+      "inspection": null,
+      "stockVisible": [
+        {
+          "name": "suspension_front_left",
+          "visible": false
+        },
+        {
+          "name": "suspension_front_right",
+          "visible": false
+        },
+        {
+          "name": "shock_body_visual",
+          "visible": false
+        },
+        {
+          "name": "shock_piston_visual",
+          "visible": false
+        },
+        {
+          "name": "shock_spring_visual",
+          "visible": false
+        }
+      ],
+      "endpoints": [
+        [
+          [
+            -0.76,
+            0.28,
+            -1.3335
+          ],
+          [
+            -0.48,
+            0.64,
+            -1.31
+          ]
+        ],
+        [
+          [
+            0.76,
+            0.28,
+            -1.3335
+          ],
+          [
+            0.48,
+            0.64,
+            -1.31
+          ]
+        ],
+        [
+          [
+            0.28,
+            0.37285,
+            1.1374500000000003
+          ],
+          [
+            0.28,
+            0.8,
+            1.0250000000000004
+          ]
+        ]
+      ],
+      "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+    },
+    "simulationSuspension": {
+      "frontCompression": 4598,
+      "frontRebound": 4332.000000000001,
+      "rearCompression": 6500,
+      "rearRebound": 6500,
+      "rideHeight": 0
+    },
+    "products": {
+      "selected": [
+        "SM-133",
+        "SM-3223"
+      ],
+      "storageInspection": false,
+      "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+      "mounts": {
+        "exhaust": {
+          "position": [
+            2.7,
+            1.3,
+            3.9
+          ],
+          "target": [
+            0,
+            0.65,
+            1.3
+          ]
+        },
+        "wing": {
+          "position": [
+            2.8,
+            1.9,
+            3.3
+          ],
+          "target": [
+            0,
+            1.25,
+            1.2
+          ]
+        },
+        "storage": {
+          "position": [
+            -1.6,
+            2.1,
+            -0.3
+          ],
+          "target": [
+            -0.2,
+            0.48,
+            0.95
+          ]
+        }
+      },
+      "productRoot": "signature_catalog_products"
+    },
+    "audio": {
+      "enabled": false,
+      "loading": false,
+      "failure": "",
+      "soundTreatment": "original-stock-game-treatment",
+      "life": {
+        "enabled": false,
+        "paused": true,
+        "mute": false,
+        "volume": 0.55,
+        "cockpit": false,
+        "reset": false
+      }
+    },
+    "memory": {
+      "geometries": 172,
+      "textures": 59
+    },
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "size": [
+      1280,
+      720
+    ],
+    "dpr": 1,
+    "loadMs": 1638.8999999985099,
+    "preparation": {
+      "ms": 512.7000000029802,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 257.5
+        },
+        {
+          "name": "compile-async",
+          "ms": 140.5
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 111
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 56,
+      "programs": 24,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    }
+  }
+}

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "project": "SlingMods: Three-Wheel Tour",
-  "as_of": "2026-09-15T18:43:00Z",
+  "as_of": "2026-09-15",
   "workspace_verified": true,
   "branch": "feature/p09a-own-the-build",
-  "commit": null,
+  "commit": "049c1cdd154f4ca83d087f99e0dad76040c049f7",
   "current_gate": "G3",
   "current_packet": "P09A / Own the Build / Review17",
-  "next_action": "Finish integrated native/browser/remote verification and Review17. No main merge or publication.",
+  "next_action": "Astra reviews Review17 after film/remote receipt packaging. Performance HOLD; no main merge or publication.",
   "game_implementation_in_this_kit": false,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -58,9 +58,10 @@
     }
   },
   "blockers": [
-    "G3/G4, global fidelity and physical/human approval remain held.",
-    "Publication remains pending and is not a P08B development blocker.",
-    "Historical repeat slowdown cause remains unknown."
+    "P09A maximum-frame target failed in 3 of 16 native races (8 frames over 100ms, worst 200ms); cause unresolved.",
+    "G3/G4, global fidelity, physical-controller/device breadth and human fun/listening remain unapproved.",
+    "Publication remains pending separately; not a development blocker.",
+    "Natural finish-before-rivals pause/resume proof was not achieved in two bounded control-only driver attempts; source review and synthetic UI regression pass."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",

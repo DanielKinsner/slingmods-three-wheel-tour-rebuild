@@ -2,7 +2,9 @@
 
 Current branch: `feature/p09a-own-the-build`. Private remote: `https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git`. Baseline: P08B `51f34a341200cf76bf69106bdfae300590419e88`. No merge or publication authorized.
 
-Implementation checkpoint: Sport v2 braking, responsive route preparation, Chapter 02 earned exhaust/wing/bags, five free showroom previews, and explicit crash recovery. Full tests pass (213); final native performance, film, remote-clone verification and Review17 packaging are in progress. Do not infer release approval from this checkpoint.
+Runtime: `049c1cdd154f4ca83d087f99e0dad76040c049f7`. Implemented Sport v2 braking, responsive route preparation, Chapter 02 earned exhaust/wing/bags, five free showroom previews and explicit crash recovery. Full pinned tests: 215 pass / 0 fail. Build, static build, complete career loop and preparation/lifecycle checks pass. **Performance HOLD:** all 16 native races finished validly with all 64 finishers, but three exceeded the maximum-frame target (worst 200 ms). Full failures are retained; cause unresolved.
+
+`handoff/P09A-VALIDATION.json` records the runtime/tested-remote identity and remaining gaps. Review17 `MANIFEST.json` records the exact pushed packaging SHA.
 
 ## Launch
 
@@ -16,10 +18,18 @@ npm run demo:preview
 
 Open `http://127.0.0.1:5197/`. Continue Career opens Own the Build; new careers first complete Build Matters. Free showroom/test drives remain separate from career ownership. Prepared historical demo: `/?scene=crew&play=demo`. Existing browser saves do not transfer through Git.
 
-Read `handoff/P09A-DRIVING.md`, `handoff/P09A-CAREER.md`, and director-kit/director-addenda/review-16/CODEX_NEXT.md. Full current runtime assets are in `demo-assets.json`; editable/refinement dependencies remain those of `handoff/P08B-REFINEMENT-ASSETS.json`. No art/runtime asset was replaced in P09A. The previous authoritative handoff is preserved in `handoff/P08B-HANDOFF-PRESERVED.md`.
+Read `handoff/P09A-DRIVING.md`, `handoff/P09A-CAREER.md`, and director-kit/director-addenda/review-16/CODEX_NEXT.md. Full current runtime assets are in `demo-assets.json`; `handoff/P09A-ASSETS.json` hashes every required runtime/editable dependency, including contact-layout JSON and the isolated earned fixture. Run `python handoff/verify-p09a.py`. No art/runtime asset was replaced in P09A. The previous handoff is preserved in `handoff/P08B-HANDOFF-PRESERVED.md`.
 
 ## Limits
 
 Sport v2 is a documented game tune, not manufacturer physics. Deliberate extreme curb collisions can still overturn the car; recovery is explicit, never an invisible steering assist. Free test drives respawn on the road; scored events restart with a fresh attempt and no abandoned-attempt payment. Chapter 01 and prepared demo retain their historical Sport v1 setup; fresh preview and Chapter 02 use Sport v2. Historical saved preview recipes retain their version; select Sport v2 under Build Presets to compare.
 
 G3/G4, final OEM/art fidelity, hardware controllers, human fun/listening and release approval remain held. Hosting is separate and not a development blocker. Final next action: Astra reviews Review17; do not merge or publish before director approval.
+
+## Portable recovery
+
+Clone the private remote with `git clone --branch feature/p09a-own-the-build https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git`, then check out the exact packaging SHA from the Review17 manifest. `handoff/P09A-COMMANDS.md` contains tool versions, isolated validation/film commands and a next-machine resume prompt. Source, editable Blender inputs, runtime maps/models/audio, current raw verification and original film captures are in private Git. No live audio-service key is required.
+
+Ignored root director/review ZIPs, historical demo-dist outputs, local tools/dependencies, and prior isolated validation checkouts remain on the authoring machine; they were preserved. Personal browser saves are not in Git. The local 5197 origin is retained for in-place migration; 5202 was the isolated final runtime test server. Other machines start with their own browser saves.
+
+A repaired finish-before-rivals pause/resume edge has source review and synthetic real-browser UI/controller proof. Two physical input-only attempts did not achieve first place, so targeted natural full-runtime proof of that edge remains unverified. Do not label those attempts passing.

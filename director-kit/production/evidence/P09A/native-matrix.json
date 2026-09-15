@@ -1,0 +1,897 @@
+{
+  "runtimeCommit": "049c1cdd154f4ca83d087f99e0dad76040c049f7",
+  "status": "HOLD",
+  "method": "All 16 real-time races; no discarded intervals or outliers. 1e-6 ms arithmetic tolerance only. Original strict comparison remains in each summary.",
+  "functionalPass": true,
+  "failedRaces": 3,
+  "activeOver100Ms": 8,
+  "thresholds": {
+    "p95Ms": 20,
+    "p99Ms": 33.4,
+    "maxMs": 100
+  },
+  "browser": "153.0.8010.12",
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "races": [
+    {
+      "directory": "native-1920-express-stock-02",
+      "width": 1920,
+      "route": "express",
+      "build": "stock",
+      "attempt": 1,
+      "samples": 5167,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 16.80000000000291,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-express-quick-race-v1",
+        "attemptId": "dbae1bfe-64c8-475f-adfd-04cf037a54d4",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 86102.11059985285,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 79432.58429796918,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 80764.8923637602,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 84652.00361824926,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 86102.11059985285,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 172,
+        "textures": 71
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1920-express-stock-02",
+      "width": 1920,
+      "route": "express",
+      "build": "stock",
+      "attempt": 2,
+      "samples": 5167,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 16.800000000017462,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-express-quick-race-v1",
+        "attemptId": "8d3a45a3-c0ba-49b9-889a-dd955487f281",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 86102.11059985285,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 79432.58429796918,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 80764.8923637602,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 84652.00361824926,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 86102.11059985285,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 172,
+        "textures": 71
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1920-express-equipped-02",
+      "width": 1920,
+      "route": "express",
+      "build": "equipped",
+      "attempt": 1,
+      "samples": 5167,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 16.80000000000291,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-express-quick-race-v1",
+        "attemptId": "9e3d841c-8549-485d-a7e1-ed7e4c346af2",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 86102.11059985285,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 79432.58429796918,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 80764.8923637602,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 84652.00361824926,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 86102.11059985285,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 189,
+        "textures": 71
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1920-express-equipped-02",
+      "width": 1920,
+      "route": "express",
+      "build": "equipped",
+      "attempt": 2,
+      "samples": 5167,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 16.800000000017462,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-express-quick-race-v1",
+        "attemptId": "61ae23cd-66ef-4c9e-b04c-951248a6ea26",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 86102.11059985285,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 79432.58429796918,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 80764.8923637602,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 84652.00361824926,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 86102.11059985285,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 189,
+        "textures": 71
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1920-harbor-stock-02",
+      "width": 1920,
+      "route": "harbor",
+      "build": "stock",
+      "attempt": 1,
+      "samples": 4625,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 16.80000000000291,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "9994a9d7-7dc5-41cb-bfbc-9922a5096825",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 77062.8238935627,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70619.57782849153,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72473.88429284713,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 75548.9141188403,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 77062.8238935627,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 308,
+        "textures": 80
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1920-harbor-stock-02",
+      "width": 1920,
+      "route": "harbor",
+      "build": "stock",
+      "attempt": 2,
+      "samples": 4627,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 16.800000000017462,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "562b32ce-15d8-4fe3-8c6b-8091e71a5e41",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 77113.5985146589,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70619.57782849153,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72473.88429284713,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 75548.9141188403,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 77113.5985146589,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 308,
+        "textures": 80
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1920-harbor-equipped-02",
+      "width": 1920,
+      "route": "harbor",
+      "build": "equipped",
+      "attempt": 1,
+      "samples": 4627,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 16.80000000000291,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "b3214d9c-813b-452f-afa8-39d3ffbc8071",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 77113.5985146589,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70619.57782849153,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72473.88429284713,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 75548.9141188403,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 77113.5985146589,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 325,
+        "textures": 80
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1920-harbor-equipped-02",
+      "width": 1920,
+      "route": "harbor",
+      "build": "equipped",
+      "attempt": 2,
+      "samples": 4492,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 33.39999999999418,
+      "maxMs": 183.29999999998836,
+      "activeOver100Ms": 3,
+      "pass": false,
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "ef3f414c-0827-4167-baf9-7e0e78db5b85",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 77152.76159181034,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70619.57782849153,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72473.88429284713,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 75548.9141188403,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 77152.76159181034,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 325,
+        "textures": 80
+      },
+      "numericThresholdPass": false
+    },
+    {
+      "directory": "native-1280-express-stock-02",
+      "width": 1280,
+      "route": "express",
+      "build": "stock",
+      "attempt": 1,
+      "samples": 5127,
+      "p95Ms": 16.799999999995634,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 133.39999999999964,
+      "activeOver100Ms": 1,
+      "pass": false,
+      "result": {
+        "event": "harbor-express-quick-race-v1",
+        "attemptId": "afb40a83-c90b-4874-8923-c58873aad25c",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 86088.43265802703,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 79432.58429796918,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 80764.8923637602,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 84652.00361824926,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 86088.43265802703,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 172,
+        "textures": 71
+      },
+      "numericThresholdPass": false
+    },
+    {
+      "directory": "native-1280-express-stock-02",
+      "width": 1280,
+      "route": "express",
+      "build": "stock",
+      "attempt": 2,
+      "samples": 5167,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 16.800000000017462,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-express-quick-race-v1",
+        "attemptId": "52d9f69c-3f21-4bb0-a33e-32c677ba1dcc",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 86102.11059985285,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 79432.58429796918,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 80764.8923637602,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 84652.00361824926,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 86102.11059985285,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 172,
+        "textures": 71
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1280-express-equipped-02",
+      "width": 1280,
+      "route": "express",
+      "build": "equipped",
+      "attempt": 1,
+      "samples": 5002,
+      "p95Ms": 16.80000000000291,
+      "p99Ms": 33.400000000001455,
+      "maxMs": 200,
+      "activeOver100Ms": 4,
+      "pass": false,
+      "result": {
+        "event": "harbor-express-quick-race-v1",
+        "attemptId": "9ac63e26-7f58-47fc-a14e-7cee5de00dfa",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 86075.94475527262,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 79432.58429796918,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 80764.8923637602,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 84652.00361824926,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 86075.94475527262,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 189,
+        "textures": 71
+      },
+      "numericThresholdPass": false
+    },
+    {
+      "directory": "native-1280-express-equipped-02",
+      "width": 1280,
+      "route": "express",
+      "build": "equipped",
+      "attempt": 2,
+      "samples": 5167,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 16.800000000017462,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-express-quick-race-v1",
+        "attemptId": "89ebd400-4b75-4670-a3e1-debf749dd4cc",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 86102.11059985285,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 79432.58429796918,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 80764.8923637602,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 84652.00361824926,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 86102.11059985285,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 189,
+        "textures": 71
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1280-harbor-stock-02",
+      "width": 1280,
+      "route": "harbor",
+      "build": "stock",
+      "attempt": 1,
+      "samples": 4627,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 16.80000000000291,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "94b98b44-c4c5-43db-b047-8ac3efea49ab",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 77113.5985146589,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70619.57782849153,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72473.88429284713,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 75548.9141188403,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 77113.5985146589,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 308,
+        "textures": 80
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1280-harbor-stock-02",
+      "width": 1280,
+      "route": "harbor",
+      "build": "stock",
+      "attempt": 2,
+      "samples": 4626,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 33.40000000002328,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "119b0d37-aae5-473f-ae7a-fb32b66a85ab",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 77113.59990032738,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70619.57782849153,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72473.88429284713,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 75548.9141188403,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 77113.59990032738,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 308,
+        "textures": 80
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1280-harbor-equipped-02",
+      "width": 1280,
+      "route": "harbor",
+      "build": "equipped",
+      "attempt": 1,
+      "samples": 4620,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 66.70000000001164,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "b5e7bfb2-702c-468e-b2d1-3c880498a174",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 77113.59816697896,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70619.57782849153,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72473.88429284713,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 75548.9141188403,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 77113.59816697896,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 325,
+        "textures": 80
+      },
+      "numericThresholdPass": true
+    },
+    {
+      "directory": "native-1280-harbor-equipped-02",
+      "width": 1280,
+      "route": "harbor",
+      "build": "equipped",
+      "attempt": 2,
+      "samples": 4627,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 16.800000000017462,
+      "activeOver100Ms": 0,
+      "pass": true,
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "adeef493-f93e-422b-9e5b-91192f45c95f",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 77113.5985146589,
+        "place": 4,
+        "invalidReason": null
+      },
+      "allFinishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70619.57782849153,
+          "lap": 1
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72473.88429284713,
+          "lap": 1
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 75548.9141188403,
+          "lap": 1
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 77113.5985146589,
+          "lap": 1
+        }
+      ],
+      "memory": {
+        "geometries": 325,
+        "textures": 80
+      },
+      "numericThresholdPass": true
+    }
+  ]
+}

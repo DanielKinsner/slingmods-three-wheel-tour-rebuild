@@ -1,0 +1,174 @@
+{
+  "method": "Matched entry-speed measures through production input at60Hz. Radius is path length divided by actual yaw change; author game tuning, not manufacturer/hardware claims.",
+  "profiles": {
+    "slingmods-sport-v2": {
+      "brake60": {
+        "targetEntrySpeed": 26.8224,
+        "entry": {
+          "time": 4.716666666666667,
+          "speed": 26.802971649300346,
+          "position": {
+            "x": 4.880298176931256e-8,
+            "y": 0.04463221314660365,
+            "z": -31.803424832008794
+          }
+        },
+        "finish": {
+          "time": 7.399999999999979,
+          "speed": 0.1485382978487255,
+          "position": {
+            "x": 4.835253758135895e-7,
+            "y": -0.0019989971227817316,
+            "z": -67.83539841734877
+          }
+        },
+        "maneuverSeconds": 2.6833333333333123,
+        "pathMetres": 36.031973585339976,
+        "yawRadians": -2.395309202695572e-8,
+        "averageRadiusMetres": null,
+        "shifts": [
+          {
+            "time": 3.1499999999999937,
+            "from": 1,
+            "to": 2,
+            "speed": 18.69949992417695,
+            "remaining": 0
+          },
+          {
+            "time": 6.499999999999982,
+            "from": 2,
+            "to": 1,
+            "speed": 9.020912926422369,
+            "remaining": 0
+          }
+        ],
+        "threeContactsFraction": 1,
+        "maxSlipAngle": 2.383410576825219e-8,
+        "maxRoll": 8.27574767878292e-9
+      },
+      "brake110": {
+        "targetEntrySpeed": 49.1744,
+        "entry": {
+          "time": 13.85,
+          "speed": 49.13373368663799,
+          "position": {
+            "x": -2.7569592685910444e-7,
+            "y": 0.037229807167868556,
+            "z": -396.7427343504399
+          }
+        },
+        "finish": {
+          "time": 18.650000000000222,
+          "speed": 0.09883071187360021,
+          "position": {
+            "x": 4.236343856045553,
+            "y": -0.0017987259278841594,
+            "z": -512.8703171624253
+          }
+        },
+        "maneuverSeconds": 4.800000000000223,
+        "pathMetres": 116.29338209548268,
+        "yawRadians": -0.09737393155224511,
+        "averageRadiusMetres": null,
+        "shifts": [
+          {
+            "time": 3.1499999999999937,
+            "from": 1,
+            "to": 2,
+            "speed": 18.69949992417695,
+            "remaining": 0
+          },
+          {
+            "time": 5.6833333333333185,
+            "from": 2,
+            "to": 3,
+            "speed": 30.508839777747216,
+            "remaining": 0
+          },
+          {
+            "time": 12.333333333333526,
+            "from": 3,
+            "to": 4,
+            "speed": 47.26402861582306,
+            "remaining": 0
+          },
+          {
+            "time": 16.43333333333368,
+            "from": 4,
+            "to": 3,
+            "speed": 22.13726179635609,
+            "remaining": 0.18
+          },
+          {
+            "time": 16.616666666667005,
+            "from": 3,
+            "to": 2,
+            "speed": 20.281637263798267,
+            "remaining": 0
+          },
+          {
+            "time": 17.750000000000274,
+            "from": 2,
+            "to": 1,
+            "speed": 8.949491050275554,
+            "remaining": 0
+          }
+        ],
+        "threeContactsFraction": 1,
+        "maxSlipAngle": 0.046765955428933886,
+        "maxRoll": 0.019302108251807823
+      }
+    }
+  },
+  "tuning": {
+    "legacy-p08a": {
+      "id": "legacy-p08a",
+      "name": "Legacy P08A",
+      "torqueScale": 1,
+      "shiftSeconds": 0.24,
+      "steerLock": 0.53,
+      "steerFalloff": 0.037,
+      "lateralSteerLimit": 5.4,
+      "steerRate": 1.7,
+      "asphaltGripScale": 1,
+      "tireStiffness": 7,
+      "brakeScale": 1,
+      "brakeSteerRelief": 0,
+      "damperFront": 3800,
+      "damperRear": 6500
+    },
+    "slingmods-sport-v1": {
+      "id": "slingmods-sport-v1",
+      "name": "SlingMods Sport",
+      "torqueScale": 1.3,
+      "shiftSeconds": 0.18,
+      "steerLock": 0.6,
+      "steerFalloff": 0.021,
+      "lateralSteerLimit": 8.2,
+      "steerRate": 2.7,
+      "asphaltGripScale": 1.15,
+      "tireStiffness": 8,
+      "brakeScale": 0.7,
+      "brakeSteerRelief": 0.35,
+      "damperFront": 3800,
+      "damperRear": 6500
+    },
+    "slingmods-sport-v2": {
+      "id": "slingmods-sport-v2",
+      "name": "SlingMods Sport v2",
+      "torqueScale": 1.3,
+      "shiftSeconds": 0.18,
+      "steerLock": 0.6,
+      "steerFalloff": 0.021,
+      "lateralSteerLimit": 8.2,
+      "steerRate": 2.7,
+      "asphaltGripScale": 1.15,
+      "tireStiffness": 8,
+      "brakeScale": 1,
+      "brakeSteerRelief": 0.35,
+      "damperFront": 3800,
+      "damperRear": 6500
+    }
+  },
+  "build": "stock"
+}

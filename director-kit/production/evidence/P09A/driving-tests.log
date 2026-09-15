@@ -1,0 +1,44 @@
+✔ loaded rest: three non-tensile contacts support stated loaded mass without drift (140.0335ms)
+✔ all scripted maneuvers remain finite; combined tire ellipse, rear-only drive, front-only steering (750.284ms)
+✔ straight acceleration, lift-off coast and braking have coherent measured distances (0.7907ms)
+✔ left/right asphalt circles have correct turn signs, mirrored radii and sustained support (1.1268ms)
+✔ slalom follows alternating input in authoritative yaw response (0.4816ms)
+✔ controlled reverse engages near rest and uses signed physical velocity (0.4779ms)
+✔ surface friction reduces acceleration; optional traction help limits wheel overspeed; lift/brake recovers (0.6291ms)
+✔ one-wheel bump, curb, seam and landing excite suspension and recover without tunneling (0.6279ms)
+✔ authoritative AutoDrive executes all five ratios, cuts torque during transitions, and has consistent SI torque/power (1.1881ms)
+✔ incline launch and high-speed curb produce physical vertical motion then recover; full-speed steering stays bounded (0.6375ms)
+✔ straight ramp landing at9m/s preserves heading within3degrees and lateral position within0.5m across symmetric lanes (78.3438ms)
+✔ render cap independence: same fixed clock/input trace at30/60/120/144 gives under1% distance/speed error (86.2761ms)
+✔ reset clears forces/drivetrain/history, fixed-step rejection and pause clock do not advance state (8.0401ms)
+✔ Sport brake to stop stays forward until release and fresh brake; forward uses the same deliberate transition (1.1465ms)
+✔ Sport analog reverse works on first fresh controller ownership and keeps analog magnitude (0.4025ms)
+✔ Sport explicit direction keeps established explicit pedal mapping and reset clears reverse (0.1443ms)
+✔ Sport pause cannot inherit held pedals into a direction change (0.1259ms)
+✔ Sport direction stays deliberate with simultaneous pedals, disconnect and focus loss (0.2544ms)
+✔ Sport brake-reverse produces negative displacement and steering follows reverse orientation (126.9594ms)
+✔ Legacy remains default and explicit legacy telemetry is exactly equal for stock driving (184.8634ms)
+✔ Sport steering requests more medium-speed authority while retaining a falling high-speed cap (0.5537ms)
+✔ Sport street estimate and uninstalled suspension restore active Sport stock tick for tick (170.7001ms)
+✔ reviewed legacy-p08a long-throttle-brake-pad full telemetry remains byte equivalent (252.4999ms)
+✔ reviewed legacy-p08a mixed-pad full telemetry remains byte equivalent (103.7901ms)
+✔ reviewed slingmods-sport-v1 long-throttle-brake-pad full telemetry remains byte equivalent (103.3445ms)
+✔ reviewed slingmods-sport-v1 mixed-pad full telemetry remains byte equivalent (62.3595ms)
+✔ Sport v2 matched 60 mph stop meets distance, yaw and path goals inside three tire channels (15.9236ms)
+✔ Sport v2 matched 110 mph stop meets distance, yaw and path goals inside three tire channels (38.7433ms)
+✔ Sport v2 unchanged launch and steering, street estimate and removed product remain exactly stock (166.5126ms)
+✔ Sport v2 preserves wall collision and chassis landing while guards omit only planar floor (29.7144ms)
+✔ Sport v2 release/repress reverse, explicit selector and focus cancellation use existing input lifecycle (0.8485ms)
+✔ Sport v2 matched fast brake-turn 0.5 / -1 stops with secure support (29.7886ms)
+✔ Sport v2 matched fast brake-turn 0.5 / 1 stops with secure support (22.7903ms)
+✔ Sport v2 matched fast brake-turn 1 / -1 stops with secure support (17.6367ms)
+✔ Sport v2 matched fast brake-turn 1 / 1 stops with secure support (17.4754ms)
+✔ Sport v2 analog magnitude, pause and disconnect cannot inherit held reverse pedals (0.5947ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1246.9101

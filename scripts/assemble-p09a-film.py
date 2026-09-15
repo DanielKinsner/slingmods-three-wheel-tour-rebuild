@@ -17,14 +17,24 @@ omitted_groups={int(a.split('=',1)[1]) for a in sys.argv[2:] if a.startswith('--
 assert not omitted_groups or excluded, 'Only explicitly excluded segments may have unmatched marker groups omitted'
 assert all(0<=i<len(groups) for i in omitted_groups)
 groups=[g for i,g in enumerate(groups) if i not in omitted_groups]
-assert len(groups)==len(segments)*2, f'Expected two actual magenta sync groups per segment, got {len(groups)}'
+manual_silent={a.split('=',1)[1].split(':')[0]:float(a.rsplit(':',1)[1]) for a in sys.argv[2:] if a.startswith('--silent-start=')}
+assert set(manual_silent)<=set(s['name'] for s in segments if s.get('silent')), 'Manual cuts are allowed only for authentically silent UI'
+assert len(groups)==len(segments)*2-len(manual_silent), f'Unexpected sync group count: {len(groups)}'
+bounds=[];cursor=0
+for s in segments:
+ if s['name'] in manual_silent:
+  start,end=manual_silent[s['name']],groups[cursor][0]/fps;cursor+=1
+  assert start<end and (not bounds or start>bounds[-1][1])
+  bounds.append((start,end,'Silent UI start manually selected from inspected original frames; end uses actual flash. No audio synchronization is claimed for silence.'))
+ else:
+  bounds.append((groups[cursor][0]/fps,groups[cursor+1][0]/fps,'Actual paired video flashes'));cursor+=2
 cuts=[];parts=[]
 for i,s in enumerate(segments):
- start,end=groups[2*i][0]/fps,groups[2*i+1][0]/fps
+ start,end,boundary_method=bounds[i]
  if s.get('silent'):
   duration=end-start-.60;part=root/(s['name']+'.mp4');parts.append(part)
   subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',str(start+.30),'-i',str(video),'-f','lavfi','-i','anullsrc=r=48000:cl=stereo','-t',str(duration),'-map','0:v:0','-map','1:a:0','-c:v','libx264','-preset','medium','-crf','24','-maxrate','1050k','-bufsize','2100k','-pix_fmt','yuv420p','-r','25','-c:a','aac','-b:a','128k','-movflags','+faststart',str(part)],check=True)
-  cuts.append({'segment':s['name'],'sourceVideoStart':start+.30,'duration':duration,'audio':'Authentic silent career UI. Silent track for concatenation; no replacement sound.'});continue
+  cuts.append({'segment':s['name'],'sourceVideoStart':start+.30,'duration':duration,'boundaryMethod':boundary_method,'audio':'Authentic silent career UI. Silent track for concatenation; no replacement sound.'});continue
  marks=s['markers'];assert len(marks)==2
  audio=Path(root/(s['name']+'-audio.webm'))
  # Detect the actual recorded chirps, instead of trusting API call timestamps.

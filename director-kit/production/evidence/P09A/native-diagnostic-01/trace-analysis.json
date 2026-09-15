@@ -1,0 +1,1596 @@
+{
+  "method": "Instrumented CDP trace aligned by real performance mark to RAF rows. Extra tracing overhead; not clean performance evidence. Overlapping nested event durations must not be summed as independent work.",
+  "offsetMs": 62298279.661,
+  "outliers": [
+    {
+      "row": [
+        61775.9,
+        133.3000000000029,
+        160.5,
+        106.40000000596046,
+        3433,
+        54216.6666666645,
+        27,
+        6,
+        2,
+        2.100000001490116,
+        2,
+        1
+      ],
+      "precedingRows": [
+        [
+          61592.6,
+          33.400000000001455,
+          40,
+          31.69999999552965,
+          3424,
+          54066.666666664525,
+          27,
+          6,
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          61642.6,
+          50,
+          116.10000000149012,
+          92.5,
+          3427,
+          54116.66666666452,
+          27,
+          6,
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "topMainEvents": [
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 7104
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 117829,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 64458,
+          "tid": 588,
+          "ts": 62359932894,
+          "tts": 38768321
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 117749,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 64379,
+          "tid": 588,
+          "ts": 62359932947,
+          "tts": 38768374
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083028233,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 117422,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 64156,
+          "tid": 588,
+          "ts": 62359932950,
+          "tts": 38768377
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 7102
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 40333,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 31622,
+          "tid": 588,
+          "ts": 62359883499,
+          "tts": 38731720
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 40289,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 31580,
+          "tid": 588,
+          "ts": 62359883524,
+          "tts": 38731744
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083028454,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 40182,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 31478,
+          "tid": 588,
+          "ts": 62359883529,
+          "tts": 38731748
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 16,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 4054,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 1902,
+          "tid": 588,
+          "ts": 62359924533,
+          "tts": 38763859
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 16,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 3293,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 1716,
+          "tid": 588,
+          "ts": 62360053918,
+          "tts": 38833929
+        }
+      ],
+      "gcDurationsMs": {}
+    },
+    {
+      "row": [
+        61959.2,
+        183.29999999999563,
+        160.89999999850988,
+        92.79999999701977,
+        3439,
+        54316.66666666449,
+        27,
+        6,
+        2,
+        0.10000000149011612,
+        2,
+        1
+      ],
+      "precedingRows": [
+        [
+          61642.6,
+          50,
+          116.10000000149012,
+          92.5,
+          3427,
+          54116.66666666452,
+          27,
+          6,
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          61775.9,
+          133.3000000000029,
+          160.5,
+          106.40000000596046,
+          3433,
+          54216.6666666645,
+          27,
+          6,
+          2,
+          2.100000001490116,
+          2,
+          1
+        ]
+      ],
+      "topMainEvents": [
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 7106
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 165473,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 81557,
+          "tid": 588,
+          "ts": 62360068223,
+          "tts": 38839134
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 165350,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 81437,
+          "tid": 588,
+          "ts": 62360068311,
+          "tts": 38839220
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083028299,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 165086,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 81188,
+          "tid": 588,
+          "ts": 62360068318,
+          "tts": 38839226
+        },
+        {
+          "args": {
+            "type": "allocation failure",
+            "usedHeapSizeAfter": 28745004,
+            "usedHeapSizeBefore": 62156596
+          },
+          "cat": "devtools.timeline,v8",
+          "dur": 7530,
+          "name": "MinorGC",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 2981,
+          "tid": 588,
+          "ts": 62360101622,
+          "tts": 38857167
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 19,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 7467,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 2109,
+          "tid": 588,
+          "ts": 62360237174,
+          "tts": 38921962
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 6526,
+          "name": "V8.GCScavenger",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 2585,
+          "tid": 588,
+          "ts": 62360101659,
+          "tts": 38857201
+        },
+        {
+          "args": {
+            "epoch": 236
+          },
+          "cat": "devtools.timeline,disabled-by-default-v8.gc",
+          "dur": 6214,
+          "name": "V8.GC_SCAVENGER",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 2399,
+          "tid": 588,
+          "ts": 62360101962,
+          "tts": 38857378
+        },
+        {
+          "args": {},
+          "cat": "devtools.timeline,disabled-by-default-v8.gc",
+          "dur": 6017,
+          "name": "V8.GC_SCAVENGER_SCAVENGE",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 2298,
+          "tid": 588,
+          "ts": 62360102039,
+          "tts": 38857450
+        }
+      ],
+      "gcDurationsMs": {
+        "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_IDENTIFY": 0.169,
+        "V8.GC_SCAVENGER_SCAVENGE_FINALIZE": 0.667,
+        "V8.GC_HEAP_EPILOGUE": 0.035,
+        "V8.GC_HEAP_EPILOGUE_SAFEPOINT": 0.012,
+        "V8.GC_SCAVENGER_SCAVENGE_ROOTS": 0.235,
+        "V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE": 0.782,
+        "V8.GC_HEAP_DUMP_STATISTICS": 0.003,
+        "V8.GC_HEAP_PROLOGUE_SAFEPOINT": 0.002,
+        "MinorGC": 7.53,
+        "V8.GC_SCAVENGER_SCAVENGE_RESTORE_AND_QUARANTINE_PINNED": 0.166,
+        "V8.GC_HEAP_PROLOGUE": 0.011,
+        "V8.GC_SCAVENGER": 6.214,
+        "V8.GC_SCAVENGER_SCAVENGE_COLLECT_OLD_TO_NEW_PAGES": 0.122,
+        "V8.GC_SCAVENGER_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL": 0.069,
+        "V8.GC_SCAVENGER_TRACED_HANDLES_RESET_PARALLEL": 0.366,
+        "V8.GC_SCAVENGER_SCAVENGE_PARALLEL": 0.34,
+        "V8.GCScavenger": 6.526,
+        "V8.GC_SCAVENGER_RESIZE_NEW_SPACE": 0.016,
+        "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_PROCESS": 0.406,
+        "V8.GC_HEAP_EXTERNAL_PROLOGUE": 0.072,
+        "V8.GC_TIME_TO_SAFEPOINT": 0.006,
+        "V8.GC_HEAP_EXTERNAL_EPILOGUE": 0.009,
+        "V8.GC_SCAVENGER_FREE_REMEMBERED_SET": 0.009,
+        "V8.GC_SCAVENGER_SCAVENGE": 6.017
+      }
+    },
+    {
+      "row": [
+        62142.6,
+        183.40000000000146,
+        137.60000000149012,
+        91.70000000298023,
+        3445,
+        54416.666666664474,
+        27,
+        6,
+        2,
+        0,
+        2,
+        1
+      ],
+      "precedingRows": [
+        [
+          61775.9,
+          133.3000000000029,
+          160.5,
+          106.40000000596046,
+          3433,
+          54216.6666666645,
+          27,
+          6,
+          2,
+          2.100000001490116,
+          2,
+          1
+        ],
+        [
+          61959.2,
+          183.29999999999563,
+          160.89999999850988,
+          92.79999999701977,
+          3439,
+          54316.66666666449,
+          27,
+          6,
+          2,
+          0.10000000149011612,
+          2,
+          1
+        ]
+      ],
+      "topMainEvents": [
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 7108
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 161565,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 78769,
+          "tid": 588,
+          "ts": 62360253298,
+          "tts": 38928031
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 161475,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 78681,
+          "tid": 588,
+          "ts": 62360253363,
+          "tts": 38928094
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083036809,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 161287,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 78503,
+          "tid": 588,
+          "ts": 62360253372,
+          "tts": 38928101
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 16,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 8112,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 2600,
+          "tid": 588,
+          "ts": 62360415813,
+          "tts": 39007738
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 19,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 7467,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 2109,
+          "tid": 588,
+          "ts": 62360237174,
+          "tts": 38921962
+        },
+        {
+          "args": {
+            "endData": {
+              "move": true,
+              "nodeId": 28,
+              "nodeName": "CANVAS",
+              "rectilinear": true,
+              "x": 754,
+              "y": 579
+            }
+          },
+          "cat": "blink,devtools.timeline",
+          "dur": 1682,
+          "name": "HitTest",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 309,
+          "tid": 588,
+          "ts": 62360251302,
+          "tts": 38927437
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "isMainFrame": true,
+              "isOutermostMainFrame": true,
+              "page": "2903D602BE3898F32D63EFF0162C6A85"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 616,
+          "name": "PrePaint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 541,
+          "tid": 588,
+          "ts": 62360245549,
+          "tts": 38924239
+        },
+        {
+          "args": {
+            "data": {
+              "clip": [
+                0,
+                0,
+                1920,
+                0,
+                1920,
+                1080,
+                0,
+                1080
+              ],
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "layerId": 0,
+              "nodeId": 10,
+              "nodeName": "#document"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 556,
+          "name": "Paint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 541,
+          "tid": 588,
+          "ts": 62360246297,
+          "tts": 38924909
+        }
+      ],
+      "gcDurationsMs": {}
+    },
+    {
+      "row": [
+        62292.5,
+        149.90000000000146,
+        27.80000000447035,
+        9.900000005960464,
+        3451,
+        54516.66666666446,
+        27,
+        6,
+        2,
+        0,
+        2,
+        1
+      ],
+      "precedingRows": [
+        [
+          61959.2,
+          183.29999999999563,
+          160.89999999850988,
+          92.79999999701977,
+          3439,
+          54316.66666666449,
+          27,
+          6,
+          2,
+          0.10000000149011612,
+          2,
+          1
+        ],
+        [
+          62142.6,
+          183.40000000000146,
+          137.60000000149012,
+          91.70000000298023,
+          3445,
+          54416.666666664474,
+          27,
+          6,
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "topMainEvents": [
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 7110
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 138261,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 68345,
+          "tid": 588,
+          "ts": 62360435512,
+          "tts": 39015995
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 138158,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 68245,
+          "tid": 588,
+          "ts": 62360435602,
+          "tts": 39016082
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083036875,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 138030,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 68122,
+          "tid": 588,
+          "ts": 62360435615,
+          "tts": 39016094
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 16,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 8112,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 2600,
+          "tid": 588,
+          "ts": 62360415813,
+          "tts": 39007738
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "isMainFrame": true,
+              "isOutermostMainFrame": true,
+              "page": "2903D602BE3898F32D63EFF0162C6A85"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 4295,
+          "name": "PrePaint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 1058,
+          "tid": 588,
+          "ts": 62360424167,
+          "tts": 39010541
+        },
+        {
+          "args": {
+            "data": {
+              "clip": [
+                0,
+                0,
+                1920,
+                0,
+                1920,
+                1080,
+                0,
+                1080
+              ],
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "layerId": 0,
+              "nodeId": 10,
+              "nodeName": "#document"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 761,
+          "name": "Paint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 734,
+          "tid": 588,
+          "ts": 62360428685,
+          "tts": 39011808
+        },
+        {
+          "args": {
+            "data": {
+              "clip": [
+                -32,
+                -24,
+                1888,
+                -24,
+                1888,
+                1056,
+                -32,
+                1056
+              ],
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "layerId": 0,
+              "nodeId": 29,
+              "nodeName": "DIV class='race-top'"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 294,
+          "name": "Paint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 282,
+          "tid": 588,
+          "ts": 62360428898,
+          "tts": 39012020
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "isMainFrame": true,
+              "isOutermostMainFrame": true,
+              "page": "2903D602BE3898F32D63EFF0162C6A85"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 269,
+          "name": "Layerize",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 269,
+          "tid": 588,
+          "ts": 62360429850,
+          "tts": 39012945
+        }
+      ],
+      "gcDurationsMs": {}
+    },
+    {
+      "row": [
+        132773,
+        199.89999999999418,
+        19.600000001490116,
+        10.600000001490116,
+        7671,
+        34300.000000000735,
+        27,
+        6,
+        2,
+        0,
+        2,
+        2
+      ],
+      "precedingRows": [
+        [
+          132506.4,
+          16.699999999982538,
+          68.5,
+          64.80000000447035,
+          7661,
+          34133.33333333409,
+          27,
+          6,
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          132573.1,
+          66.70000000001164,
+          201.29999999701977,
+          196.40000000596046,
+          7665,
+          34200.00000000075,
+          27,
+          6,
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "topMainEvents": [
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 15148
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 201659,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 14732,
+          "tid": 588,
+          "ts": 62430856939,
+          "tts": 77645879
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 201640,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 14714,
+          "tid": 588,
+          "ts": 62430856946,
+          "tts": 77645886
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083058706,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 201539,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 14617,
+          "tid": 588,
+          "ts": 62430856947,
+          "tts": 77645887
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 15146
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 68508,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 16029,
+          "tid": 588,
+          "ts": 62430787396,
+          "tts": 77628838
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 68483,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 16004,
+          "tid": 588,
+          "ts": 62430787417,
+          "tts": 77628859
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083058934,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 68440,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 15965,
+          "tid": 588,
+          "ts": 62430787419,
+          "tts": 77628860
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 16,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 292,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 288,
+          "tid": 588,
+          "ts": 62430856055,
+          "tts": 77645012
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "isMainFrame": true,
+              "isOutermostMainFrame": true,
+              "page": "2903D602BE3898F32D63EFF0162C6A85"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 88,
+          "name": "PrePaint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 88,
+          "tid": 588,
+          "ts": 62430856368,
+          "tts": 77645320
+        }
+      ],
+      "gcDurationsMs": {}
+    },
+    {
+      "row": [
+        161405.3,
+        300,
+        28.099999994039536,
+        15.799999997019768,
+        9377,
+        62733.33333332993,
+        27,
+        6,
+        2,
+        0,
+        2,
+        2
+      ],
+      "precedingRows": [
+        [
+          161071.9,
+          16.699999999982538,
+          33.20000000298023,
+          31,
+          9369,
+          62599.99999999662,
+          27,
+          6,
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          161105.3,
+          33.39999999999418,
+          306.5,
+          302.6000000014901,
+          9371,
+          62633.333333329945,
+          27,
+          6,
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "topMainEvents": [
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 18548
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 306875,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 34040,
+          "tid": 588,
+          "ts": 62459387279,
+          "tts": 92094233
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 306851,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 34018,
+          "tid": 588,
+          "ts": 62459387289,
+          "tts": 92094242
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083171150,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 306751,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 33922,
+          "tid": 588,
+          "ts": 62459387290,
+          "tts": 92094243
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 18546
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 33486,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 28112,
+          "tid": 588,
+          "ts": 62459352693,
+          "tts": 92065038
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 33465,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 28092,
+          "tid": 588,
+          "ts": 62459352708,
+          "tts": 92065052
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083171108,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 33405,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 28036,
+          "tid": 588,
+          "ts": 62459352709,
+          "tts": 92065053
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 16,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 346,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 347,
+          "tid": 588,
+          "ts": 62459386340,
+          "tts": 92093306
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "isMainFrame": true,
+              "isOutermostMainFrame": true,
+              "page": "2903D602BE3898F32D63EFF0162C6A85"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 95,
+          "name": "PrePaint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 95,
+          "tid": 588,
+          "ts": 62459386711,
+          "tts": 92093676
+        }
+      ],
+      "gcDurationsMs": {}
+    },
+    {
+      "row": [
+        175538.1,
+        133.39999999999418,
+        14.400000005960464,
+        8.399999998509884,
+        10223,
+        76833.3333333328,
+        27,
+        6,
+        2,
+        0,
+        2,
+        2
+      ],
+      "precedingRows": [
+        [
+          175388,
+          16.60000000000582,
+          15.5,
+          13,
+          10216,
+          76716.6666666661,
+          27,
+          6,
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          175404.7,
+          16.70000000001164,
+          135.29999999701977,
+          131.19999999552965,
+          10217,
+          76733.33333333278,
+          27,
+          6,
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "topMainEvents": [
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "id": 20224
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 135410,
+          "name": "FireAnimationFrame",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 18994,
+          "tid": 588,
+          "ts": 62473685963,
+          "tts": 100982382
+        },
+        {
+          "args": {},
+          "cat": "v8",
+          "dur": 135378,
+          "name": "v8.callFunction",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 18964,
+          "tid": 588,
+          "ts": 62473685983,
+          "tts": 100982401
+        },
+        {
+          "args": {
+            "data": {
+              "columnNumber": 18230,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "functionName": "Pt",
+              "isolate": "771933328662111364",
+              "lineNumber": 1,
+              "sampleTraceId": 5671511083151075,
+              "scriptId": "83",
+              "url": "http://127.0.0.1:5202/assets/express-DGXvk6Lr.js"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 135311,
+          "name": "FunctionCall",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 18900,
+          "tid": 588,
+          "ts": 62473685985,
+          "tts": 100982403
+        },
+        {
+          "args": {
+            "beginData": {
+              "dirtyObjects": 16,
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "partialLayout": false,
+              "totalObjects": 72
+            },
+            "endData": {
+              "layoutRoots": [
+                {
+                  "depth": 1,
+                  "nodeId": 10,
+                  "nodeName": "#document",
+                  "quads": [
+                    [
+                      0,
+                      0,
+                      1920,
+                      0,
+                      1920,
+                      1080,
+                      0,
+                      1080
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 460,
+          "name": "Layout",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 461,
+          "tid": 588,
+          "ts": 62473684546,
+          "tts": 100980979
+        },
+        {
+          "args": {
+            "beginData": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85"
+            },
+            "elementCount": 1
+          },
+          "cat": "blink,devtools.timeline",
+          "dur": 162,
+          "name": "UpdateLayoutTree",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 159,
+          "tid": 588,
+          "ts": 62473684374,
+          "tts": 100980811
+        },
+        {
+          "args": {
+            "data": {
+              "clip": [
+                0,
+                0,
+                1920,
+                0,
+                1920,
+                1080,
+                0,
+                1080
+              ],
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "layerId": 0,
+              "nodeId": 10,
+              "nodeName": "#document"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 132,
+          "name": "Paint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 128,
+          "tid": 588,
+          "ts": 62473685209,
+          "tts": 100981639
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "isMainFrame": true,
+              "isOutermostMainFrame": true,
+              "page": "2903D602BE3898F32D63EFF0162C6A85"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 129,
+          "name": "PrePaint",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 129,
+          "tid": 588,
+          "ts": 62473685040,
+          "tts": 100981471
+        },
+        {
+          "args": {
+            "data": {
+              "frame": "2903D602BE3898F32D63EFF0162C6A85",
+              "isMainFrame": true,
+              "isOutermostMainFrame": true,
+              "page": "2903D602BE3898F32D63EFF0162C6A85"
+            }
+          },
+          "cat": "devtools.timeline",
+          "dur": 78,
+          "name": "Layerize",
+          "ph": "X",
+          "pid": 64200,
+          "tdur": 77,
+          "tid": 588,
+          "ts": 62473685387,
+          "tts": 100981812
+        }
+      ],
+      "gcDurationsMs": {}
+    }
+  ],
+  "finding": "Long main-thread animation callbacks accompany stalls. Trace categories do not isolate WebGL driver submission or OS scheduling, so root cause remains unresolved. No long garbage-collection event explains the largest stalls."
+}
