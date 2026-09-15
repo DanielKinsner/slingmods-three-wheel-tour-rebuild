@@ -1,6 +1,6 @@
 # Current owner refinement — front fascia
 
-Branch: `feature/p09a-own-the-build`; same private remote. The owner's front correction fills the fascia gaps and splitter, replaces upper individual bulbs with continuous diffusers, preserves the lower continuous lenses and center lamp, and adds an open honeycomb grille.
+Branch: `feature/p09a-own-the-build`; same private remote. Pushed implementation/runtime SHA: `0b926d99fb96924099fff9640384fc973e5e931d`; subsequent receipt-only commits preserve that runtime. The owner's front correction fills the fascia gaps and splitter, replaces upper individual bulbs with continuous diffusers, preserves the lower continuous lenses and center lamp, and adds an open honeycomb grille.
 
 Current runtime: `public/assets/front-refinement/slingshot-front-refined.glb`. Editable source: `assets/blender/front-refinement/slingshot-front-refined.blend`. Read `handoff/FRONT-REFINEMENT.json` for hashes and proof. Showroom, driving and rivals share this asset. Review17 ZIP/film and prior assets remain unchanged; they predate this correction.
 
