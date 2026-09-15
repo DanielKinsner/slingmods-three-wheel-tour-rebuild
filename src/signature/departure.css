@@ -1,0 +1,6 @@
+.sig-departure{position:fixed;inset:0;z-index:70;display:flex;align-items:flex-end;pointer-events:auto;color:#f9f9f7;font:16px/1.4 Arial,sans-serif;background:linear-gradient(transparent 70%,#101113da)}
+.sig-departure-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;padding:28px 36px}
+.sig-departure p{font-size:22px;margin:6px 0 0}.sig-departure-actions{display:flex;gap:12px}
+.sig-departure button{min-height:48px;padding:12px 20px;color:inherit;background:#222426;border:1px solid #818487;border-radius:3px;font:600 15px Arial,sans-serif;cursor:pointer}
+.sig-departure button:last-child{background:#a51219;border-color:#df4349}.sig-departure button:focus-visible{outline:3px solid white;outline-offset:4px}.sig-departure small{margin-left:16px;font-size:13px;font-weight:400}
+@media(max-width:700px){.sig-departure-bar{padding:20px;align-items:flex-start;flex-direction:column}.sig-departure p{font-size:18px}.sig-departure button{padding:12px}}

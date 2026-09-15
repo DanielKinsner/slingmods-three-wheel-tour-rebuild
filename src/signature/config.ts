@@ -1,8 +1,9 @@
+import {SIGNATURE_ACCENTS} from '../presentation/signature-palette';
 import {COLORS,defaultAppearance,type Appearance} from '../career/catalog';
 import {streetSetup,validSetup,type SuspensionSetup} from '../career/suspension';
 import {PRODUCTS,productById,fits,type ProductId} from './catalog';
 export type FinishId='blue-orange'|'black-red'|'white-graphite'|'graphite-red';
-export const FINISHES:readonly {id:FinishId;name:string;color:string;accent:string}[]=[{id:'blue-orange',name:'Radar blue / orange',color:'#176aac',accent:'#f07521'},{id:'black-red',name:'Gloss black / red',color:'#151719',accent:'#c91820'},{id:'white-graphite',name:'Pearl white / graphite',color:'#e8e8e1',accent:'#c91820'},{id:'graphite-red',name:'Satin graphite / red',color:'#56595e',accent:'#c91820'}];
+export const FINISHES:readonly {id:FinishId;name:string;color:string;accent:string}[]=[{id:'blue-orange',name:'Radar blue / orange',color:'#176aac',accent:SIGNATURE_ACCENTS['blue-orange']},{id:'black-red',name:'Gloss black / red',color:'#151719',accent:SIGNATURE_ACCENTS['black-red']},{id:'white-graphite',name:'Pearl white / graphite',color:'#e8e8e1',accent:SIGNATURE_ACCENTS['white-graphite']},{id:'graphite-red',name:'Satin graphite / red',color:'#56595e',accent:SIGNATURE_ACCENTS['graphite-red']}];
 export interface BuildRecipe {version:1;vehicleId:'slingshot-r-2024';finish:FinishId;products:Partial<Record<ProductId,string>>;lights:Appearance;suspension:SuspensionSetup;handlingProfile:'slingmods-sport-v1'}
 export const freshRecipe=():BuildRecipe=>({version:1,vehicleId:'slingshot-r-2024',finish:'blue-orange',products:{},lights:defaultAppearance(),suspension:streetSetup(),handlingProfile:'slingmods-sport-v1'});
 export function validateRecipe(raw:unknown):BuildRecipe {

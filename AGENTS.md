@@ -1,3 +1,9 @@
+# Current owner refinement — showroom materials, bay exit and swingarm palette
+
+The latest owner request and four photographs are recorded without credentials in `director-kit/director-addenda/review-16-owner-refinement/OWNER-REQUEST.md`. They authorize the bounded showroom texture/lift/closed-door refinement, skippable presentation exit, swingarm accent fix, suitable generated door audio, and updated Review16 packet. Continue the current P08B feature branch and preserve historical source/evidence. Ordinary feature-branch commits/push remain authorized; no main merge, publication, account changes, desktop takeover or gate approval. One bounded ElevenLabs generation used the owner-supplied temporary credential; never write a credential to source, evidence or a review packet.
+
+---
+
 # Current assignment â€” P08B SlingMods Signature Experience / Review16
 
 The owner authorizes director-kit/director-addenda/review-15/CODEX_NEXT.md and all six packets. Continue feature/p08b-slingmods-experience from P08A ef592752741333faee496edff95b8abb68b76840. This supersedes older freezes only for the authorized Sport handling, Express, showroom/vehicle repairs, five-product free configuration and overall UI. One integrator and up to three non-overlapping workers are authorized by the current packet. Isolated browser testing and background Blender only. Preserve the original Harbor, historical evidence, career saves and reviewed outputs. Ordinary commits and push to the existing private feature branch are authorized. No main merge, publication, spending, desktop takeover or account/store changes. G3/G4, final OEM fidelity, hardware, human listening/fun and release approval remain held. Public hosting is pending separately, not a development blocker. Read HANDOFF.md and handoff/P08B-VALIDATION.json for the final tested identities.

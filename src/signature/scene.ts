@@ -16,6 +16,7 @@ import {loadRouteGraphics} from './route-data';
 import {SignatureUI,type SignatureState} from './ui';
 import {evidenceEnabled} from '../demo/profile';
 import {pageActive} from '../demo/recovery';
+import {ShowroomDeparture} from './departure';
 
 const params=new URLSearchParams(location.search),started=performance.now(),app=document.querySelector('#app')!;
 document.body.className='signature-showroom';app.innerHTML='<div id="viewport"></div>';
@@ -37,6 +38,7 @@ const neutral=simulation.telemetry();hero.pose(neutral,0,false,true);hero.driver
 const thumbs=Object.fromEntries(PRODUCTS.map(p=>[p.id,`/assets/p08b/thumbnails/${p.id}.png`]));
 const routeGraphics=await loadRouteGraphics();
 const ui=new SignatureUI(app,{onChange:change,onAction:action,onSave:save});
+let departure:ShowroomDeparture|undefined,navigating=false;
 function state():SignatureState{return {recipe:structuredClone(recipe),pending,status,screen,lighting,driverVisible,compare,reducedMotion,canUndo:history.length>0,savedRecipes:saved.map(r=>({id:r.id,name:r.name})),ownedProductIds:[],thumbs,...routeGraphics}}
 function historyFragment(){window.history.replaceState(null,'',location.pathname+location.search+recipeFragment(recipe))}
 function refresh(){ui.update(state())}
@@ -55,10 +57,15 @@ function view(name:string){accessories.inspectStorage(false);shocks.inspectionVi
  else{controls.target.copy(fitInspectionCamera(camera,new THREE.Box3().setFromObject(hero.root,true),directions[name]??directions.hero,screen==='entry'?.76:.64))}
  controls.update();render();
 }
-function resize(){camera.aspect=innerWidth/innerHeight;camera.setViewOffset(innerWidth,innerHeight,innerWidth>=1100?(screen==='entry'?-Math.min(190,innerWidth*.14):70):0,0,innerWidth,innerHeight);camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)}
+function resize(){if(departure){camera.aspect=innerWidth/innerHeight;camera.clearViewOffset();camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);return}camera.aspect=innerWidth/innerHeight;camera.setViewOffset(innerWidth,innerHeight,innerWidth>=1100?(screen==='entry'?-Math.min(190,innerWidth*.14):70):0,0,innerWidth,innerHeight);camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)}
 async function change(next:BuildRecipe){if(pending)return;try{const verified=validateRecipe(next);storage.store.setDraft(verified);history.push(structuredClone(recipe));history=history.slice(-24);recipe=verified;historyFragment();compare=false;status='Preview updated · career credits unchanged';pending=true;refresh();await apply();pending=false;refresh()}catch(e){pending=false;status=(e as Error).message;refresh()}}
 async function save(name:string){if(pending)return;pending=true;refresh();try{await Promise.resolve();storage.store.save(name,recipe);saved=storage.store.recipes();original=structuredClone(recipe);status=storage.temporary?'Build kept for this temporary session. Browser storage is unavailable.':'Build saved on this browser.'}catch(e){status='Save failed: '+(e as Error).message}finally{pending=false;refresh()}}
 async function reapply(){pending=true;refresh();try{await apply()}finally{pending=false;refresh()}}
+function restoreDeparture(error:unknown){
+ navigating=false;departure?.dispose();departure=undefined;keyboard.clear();ui.root.hidden=false;ui.root.inert=false;controls.enabled=true;hero.driver.root.visible=driverVisible;
+ const audioPanel=document.getElementById('game-audio');if(audioPanel){audioPanel.inert=false;audioPanel.hidden=false}
+ pending=false;status='Could not leave the showroom. Your build is preserved. '+(error instanceof Error?error.message:String(error));resize();view('hero');refresh();ui.root.querySelector<HTMLButtonElement>('[data-action=test-drive]')?.focus();
+}
 async function action(name:string,value?:unknown){if(pending)return;try{
  if(name==='build'){screen='build';resize();view('hero')}
  else if(name==='quick-race'){screen='events'}
@@ -75,15 +82,26 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='shop'){screen='shop'}
  else if(name==='copy'){await navigator.clipboard.writeText(buildSummary(recipe));status='Build summary copied.'}
  else if(name==='back'){if(screen==='build')screen='entry';else screen='build';accessories.inspectStorage(false);shocks.inspectionView(null);resize();view('hero')}
- else if(name==='test-drive'||name==='race'){if(value==='duel'||value==='crew'){location.assign('?scene=bay&play=career');return}const route=value==='harbor'?'harbor':'express';storage.store.beginDrive(recipe,route,name==='race'?'race':'test');location.assign(`?scene=express&route=${route}&mode=${name==='race'?'race':'test'}&play=preview${recipeFragment(recipe)}`);return}
+ else if(name==='test-drive'||name==='race'){
+  if(value==='duel'||value==='crew'){location.assign('?scene=bay&play=career');return}
+  const route=value==='harbor'?'harbor':'express',snapshot=validateRecipe(recipe),destination=`?scene=express&route=${route}&mode=${name==='race'?'race':'test'}&play=preview${recipeFragment(snapshot)}`;
+  storage.store.beginDrive(snapshot,route,name==='race'?'race':'test');
+  if(name==='race'||reducedMotion){location.assign(destination);return}
+  compare=false;await reapply();pending=true;refresh();accessories.inspectStorage(false);shocks.inspectionView(null);
+  ui.root.hidden=true;ui.root.inert=true;controls.enabled=false;keyboard.clear();camera.clearViewOffset();camera.updateProjectionMatrix();
+  const audioPanel=document.getElementById('game-audio');if(audioPanel){audioPanel.inert=true;audioPanel.hidden=true}hero.driver.root.visible=true;
+  departure=new ShowroomDeparture({parent:app,car:hero.root,room,camera,target:controls.target,
+   onSoundStart:()=>audio.startBayDoor(),onSoundStop:()=>audio.stopBayDoor(),
+   onComplete:()=>{if(navigating)return;navigating=true;try{location.assign(destination)}catch(error){restoreDeparture(error)}}});return
+ }
  refresh();
- }catch(e){status=(e as Error).message;refresh()}}
+ }catch(e){if(departure||ui.root.hidden)restoreDeparture(e);else{status=(e as Error).message;refresh()}}}
 function constrainCamera(){const v=camera.position.clone().sub(controls.target);let scale=1;for(const [axis,lo,hi]of [['x',-5.6,5.6],['z',-5.5,5.8]]as const){const end=camera.position[axis];if(end<lo||end>hi)scale=Math.min(scale,((end<lo?lo:hi)-controls.target[axis])/v[axis])}if(scale<1)camera.position.copy(controls.target).addScaledVector(v,Math.max(.1,scale));camera.lookAt(controls.target)}
-function render(){constrainCamera();under.update();shocks.update();renderer.render(scene,camera)}
+function render(){if(!departure)constrainCamera();under.update();shocks.update();renderer.render(scene,camera)}
 resize();await apply();view('hero');const preparation=await prepareRenderer(renderer,scene,camera);veil.remove();const loadMs=performance.now()-started;
 const keyboard=new KeyboardBuffer();let virtual:DeviceSample|undefined;addEventListener('keydown',e=>keyboard.down(e.code,performance.now(),e.repeat));addEventListener('keyup',e=>keyboard.up(e.code));
 let showroomFocused=document.hasFocus();addEventListener('focus',()=>{showroomFocused=true});addEventListener('blur',()=>{showroomFocused=false;keyboard.clear();audio.lifecycle(true)});addEventListener('resize',resize);let last=performance.now(),frames=0;const intervals:number[]=[];
-function frame(now:number){if(!pageActive()){requestAnimationFrame(frame);return}const dt=Math.min(.1,(now-last)/1000);intervals.push(now-last);if(intervals.length>6000)intervals.shift();last=now;const input=virtual??{...keyboard.read(),pads:Array.from(navigator.getGamepads?.()??[]),focused:document.hasFocus()&&!document.hidden};ui.frame(input);controls.update();audio.update(simulation.telemetry(),document.hidden||!showroomFocused,false);render();frames++;requestAnimationFrame(frame)}requestAnimationFrame(frame);
-function inspect(){return {ready:true,build:__BUILD_REF__,recipe:structuredClone(recipe),original,compare,lighting,driverVisible,status,pending,screen,saved,loadMs,preparation,frames,memory:{...renderer.info.memory},calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,products:accessories.inspect?.(),suspension:shocks.inspect(),audio:audio.inspect(),simulation:simulation.telemetry(),profile:simulation.suspensionConfig(),camera:{position:camera.position.toArray(),target:controls.target.toArray()},bounds:projectedBounds(camera,new THREE.Box3().setFromObject(hero.root,true)),resources:performance.getEntriesByType('resource').map((r:any)=>({name:r.name,bytes:r.transferSize,duration:r.duration})),intervals}}
+function frame(now:number){if(!pageActive()){requestAnimationFrame(frame);return}const dt=Math.min(.1,(now-last)/1000);intervals.push(now-last);if(intervals.length>6000)intervals.shift();last=now;const input=virtual??{...keyboard.read(),pads:Array.from(navigator.getGamepads?.()??[]),focused:document.hasFocus()&&!document.hidden};if(departure)departure.frame(dt,{...input,focused:input.focused&&showroomFocused&&!document.hidden});else{ui.frame(input);controls.update()}audio.update(simulation.telemetry(),document.hidden||!showroomFocused||!!departure?.suspended,false);render();frames++;requestAnimationFrame(frame)}requestAnimationFrame(frame);
+function inspect(){return {ready:true,departure:departure?.inspect()??null,showroom:{driverRendered:hero.driver.root.visible,curtainPosition:room.getObjectByName('bay_door_curtain')?.position.toArray(),curtainScale:room.getObjectByName('bay_door_curtain')?.scale.toArray()},build:__BUILD_REF__,recipe:structuredClone(recipe),original,finish:finishes.inspect(),compare,lighting,driverVisible,reducedMotion,status,pending,screen,saved,loadMs,preparation,frames,memory:{...renderer.info.memory},calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,products:accessories.inspect?.(),suspension:shocks.inspect(),audio:audio.inspect(),simulation:simulation.telemetry(),profile:simulation.suspensionConfig(),camera:{position:camera.position.toArray(),target:controls.target.toArray()},bounds:projectedBounds(camera,new THREE.Box3().setFromObject(hero.root,true)),resources:performance.getEntriesByType('resource').map((r:any)=>({name:r.name,bytes:r.transferSize,duration:r.duration})),intervals}}
 if(evidenceEnabled())(window as any).__SIGNATURE={ready:true,inspect,view,referenceCamera:(position:number[],target:number[])=>{camera.position.fromArray(position);controls.target.fromArray(target);controls.update();render()},setDeviceSample:(s:any)=>{if(!params.has('test'))throw Error('Isolated test required');virtual=s?{...s,keys:new Set(s.keys)}:undefined},startAudioCapture:()=>audio.startEvidenceCapture(),audioSync:(id:string)=>audio.evidenceMarker(id),stopAudioCapture:()=>audio.stopEvidenceCapture()};
-addEventListener('pagehide',()=>{audio.dispose();simulation.dispose();controls.dispose();under.dispose();shocks.dispose();accessories.dispose();finishes.dispose();renderer.dispose()});
+addEventListener('pagehide',()=>{departure?.dispose();audio.dispose();simulation.dispose();controls.dispose();under.dispose();shocks.dispose();accessories.dispose();finishes.dispose();renderer.dispose()});
