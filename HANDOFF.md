@@ -1,4 +1,4 @@
-# P10B Cinematic Identity — internally validated, Review21 delivery
+# P10B Cinematic Identity — complete, Review21 delivered
 
 Continue on main. Frozen playable runtime: `bc657a1f9cd77506569e2ac1ee368d75431c42e2`. Cinematic entry/build/destinations/shop/career/HUD/results, scoped studio lighting/materials/framing, transitions and the physical left-side Tour Wall are implemented. All existing gameplay, Sport v3, routes, products, finishes, ownership/saves, dashboard and Thermal departure are preserved. The first-use finish hitch was repaired before final capture.
 
@@ -6,7 +6,7 @@ Continue on main. Frozen playable runtime: `bc657a1f9cd77506569e2ac1ee368d75431c
 
 Play: https://slingmods-three-wheel-tour-rebuild.vercel.app/ . Local http://127.0.0.1:5197/ ; recover with `npm ci`, `python scripts/verify-p10b-assets.py`, `npm run demo:build`, then PowerShell `$env:PORT='5197'` and `npm run demo:preview`. Required runtime/editable inputs: `P10B-REQUIRED-ASSETS.json` (166 files); all303 runtime input bytes match the frozen candidate. Git attributes preserve historical line endings across machines; their content was not rewritten.
 
-The completed `Astra-Review-21-Lean.zip` and receipt must be committed to main. `P10B-PACKET.json` records the archive after creation; `P10B-DELIVERY.json` records final remote retrieval and latest hosted identity after the archive push. Do not mistake this intermediate handoff for proof that the archive has already been delivered. Final source and raw media are recoverable from Git; tools, credentials and personal browser saves are not.
+Completed `Astra-Review-21-Lean.zip` (47,863,446 bytes) and its receipt are committed to main at archive commit `04d2fa325ae2218ac788693c7fc9b58d52755d10`, and verified after remote retrieval. `P10B-PACKET.json` records the archive after creation; `P10B-DELIVERY.json` records final remote retrieval and latest hosted identity after the archive push. All 310 ZIP entries, 145 numerical members and 619 original evidence files pass retrieval checks. Read `handoff/P10B-DELIVERY.json` for distinct runtime, packaging, archive, recovery and hosted identities. Final source and raw media are recoverable from Git; tools, credentials and personal browser saves are not.
 
 Next action after delivery: Astra/owner Review21 feedback. Preserve historical evidence/ZIPs and unrelated owner folder `SlingMods-Astra-Director-Review-17/`. No spending, new project/site/vehicle/route/engine, physics retune, visibility change, desktop takeover or force push.
 
