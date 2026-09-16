@@ -29,3 +29,5 @@ Judge ordinary steering and brake-turn freedom in the film and playable build, t
 The film uses a disclosed control-only driver for comparisons/racing, actual keyboard for free driving, and explicit restart; it does not fake a filmed rollover. Source tests cover the actual stress-case overturn/recovery. Human driving enjoyment/listening, physical controllers, destination-hardware behavior, G3/G4 and final OEM fidelity remain open. Current engine sources are unchanged; no new engine A/B is required for this driving-only pass.
 
 Next action: Astra review of this packet and owner driving feedback. Do not restart an older phase or invent a further assignment.
+
+The numerical archive uses standard TAR hardlinks for byte-identical decoded records, preserving every logical file path and SHA256. No rows or precision are removed. Python tarfile or 7-Zip can restore it; `python scripts/verify-p09c-packet.py` verifies the ZIP and all nested logical members directly. The first over-cap packaging attempt is recorded in packaging-01/failure.json.

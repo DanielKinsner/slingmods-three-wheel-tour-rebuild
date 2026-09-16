@@ -27,9 +27,9 @@ add(E/'film-03/P09C-Freedom-to-Drive.mp4','media/P09C-Freedom-to-Drive.mp4')
 add(E/'film-03/FILM-REVIEW.md','review/FILM-REVIEW.md')
 screens=[('profile-entry-final-01/slingmods-sport-v2-current-copy.png','01-current-copy.png'),('signature-integration-final-01/06-cockpit-actual-motion.png','02-dashboard.png'),('film-03/05-reverse.png','03-reverse.png'),('film-03/07-race-cockpit.png','04-native-cockpit.png'),('film-03/08-race-result.png','05-race-result.png'),('film-03/09-same-build.png','06-same-build.png'),('hosted-root-final-02/root.png','07-hosted-root.png'),('hosted-final-02/04-same-build.png','08-hosted-return.png'),('motion-plots/matched-sweepers.png','09-matched-motion.png'),('motion-plots/cross50-held.png','10-crossing50mph.png')]
 for source,name in screens:add(E/source,'screens/'+name)
-buf=io.BytesIO();data_index={};member_names=set()
+buf=io.BytesIO();data_index={};member_names=set();payload_targets={}
 with tarfile.open(fileobj=buf,mode='w:xz',preset=9) as tar:
- for p in sorted(E.rglob('*')):
+ for p in sorted(E.rglob('*'),key=lambda p:(p.name,p.as_posix())):
   if not p.is_file() or p.suffix.lower() not in ['.json','.txt','.md','.csv','.gz','.html'] or 'raw-video' in p.parts:continue
   original=p.read_bytes();name=p.relative_to(E).as_posix();data=original;archived=name
   # Decode JSON gzip containers before solid xz compression. Original gzip bytes
@@ -38,14 +38,21 @@ with tarfile.open(fileobj=buf,mode='w:xz',preset=9) as tar:
   assert archived not in member_names, 'Archive data path collision: '+archived
   member_names.add(archived)
   data_index[name]={'originalBytes':len(original),'originalSHA256':hashlib.sha256(original).hexdigest(),'member':archived,'memberBytes':len(data),'memberSHA256':hashlib.sha256(data).hexdigest()}
-  info=tarfile.TarInfo(archived);info.size=len(data);info.mtime=0;tar.addfile(info,io.BytesIO(data))
+  info=tarfile.TarInfo(archived);info.mtime=0;digest=hashlib.sha256(data).hexdigest()
+  if digest in payload_targets:
+   # Standard TAR hardlinks preserve every logical file/path while storing
+   # byte-identical payloads once. No numerical rows or precision are removed.
+   info.type=tarfile.LNKTYPE;info.linkname=payload_targets[digest];tar.addfile(info)
+   data_index[name]['hardlinkTarget']=info.linkname
+  else:
+   info.size=len(data);tar.addfile(info,io.BytesIO(data));payload_targets[digest]=archived
 files['verification/P09C-complete-data.tar.xz']=buf.getvalue()
 files['verification/DATA-INDEX.json']=json.dumps(data_index,indent=2).encode()
 files['START-HERE.md']=b'''# Astra Review19 - Freedom to Drive
 
 Start with review/REVIEW19-SUMMARY.md and review/P09C-AUDIT.md. Watch media/P09C-Freedom-to-Drive.mp4: retained-v2/current-v3 matched continuous takes, ordinary driving and current race with actual game audio. The pad is a diagnostic fixture. The race is real; input automation and cuts are disclosed.
 
-verification/P09C-complete-data.tar.xz contains all relevant numerical/verification data, including failed candidates and tests. Extract with Python tarfile or7-Zip. Original .json.gz members are expanded to .json before solid xz compression; no rows or values are removed. DATA-INDEX.json maps and hashes original and extracted bytes. Retrieve original compressed containers, raw videos and captured audio from Git if needed.
+verification/P09C-complete-data.tar.xz contains all relevant numerical/verification data, including failed candidates and tests. Extract with Python tarfile or7-Zip. Original .json.gz members are expanded to .json before solid xz compression; no rows or values are removed. Byte-identical decoded files use standard TAR hardlinks: every path is present, with one stored payload for exact duplicates. DATA-INDEX.json maps and hashes original and extracted bytes and identifies links. The Git script scripts/verify-p09c-packet.py checks every logical member without extracting. Retrieve original compressed containers, raw videos and captured audio from Git if needed.
 
 This is a review packet, not a standalone game distribution. Full runtime/editable assets and scripts are on main in the existing repository, which currently reports public. Follow HANDOFF.md and handoff/P09C-REQUIRED-ASSETS.json. Browser saves and installed tools/caches do not transfer with Git. No new account, spending, physical-device or final-fidelity approval is implied.
 '''
