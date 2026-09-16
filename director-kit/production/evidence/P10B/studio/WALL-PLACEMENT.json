@@ -1,0 +1,67 @@
+{
+  "chosen": {
+    "sourceMesh": "studio_left_wall",
+    "gameBounds": {
+      "min": [
+        -6.09,
+        0,
+        -4
+      ],
+      "max": [
+        -5.91,
+        4.2,
+        7
+      ]
+    },
+    "normal": [
+      1,
+      0,
+      0
+    ],
+    "innerFaceX": -5.91,
+    "panelCenter": [
+      -5.855,
+      2.1,
+      1.2
+    ],
+    "panelSize": [
+      8.7,
+      2.9
+    ],
+    "offsetMetres": 0.055
+  },
+  "alternate": {
+    "meshes": [
+      "left_bay_wall_pier",
+      "left_bay_wall_pier.001"
+    ],
+    "sideX": 5.91,
+    "unbrokenRearWidth": 4.8,
+    "reasonRejected": "Moving aperture divides opposite side; lift overlaps rear pier. It cannot support an 8.7m panorama without door/lift obstruction."
+  },
+  "cabinetWall": {
+    "mesh": "studio_back_wall",
+    "zRange": [
+      6.96,
+      7.14
+    ],
+    "preserved": true
+  },
+  "departure": {
+    "openingZ": [
+      -1.4,
+      2.2
+    ],
+    "curtainX": 5.965,
+    "untouched": true
+  },
+  "lettering": {
+    "exactMain": "BUILT TO BE YOURS.",
+    "exactSecondary": "Coast to ridge. Build to drive.",
+    "separateMesh": true,
+    "mainExtrusionMetres": 0.012,
+    "font": "Barlow Condensed ExtraBold / SIL OFL 1.1"
+  },
+  "dimensionsCaveat": "Measured from inferred game geometry, not measured physical set",
+  "art": "Original generated flat landscape, separately editable letter/frame asset; W01 reference not mapped"
+}

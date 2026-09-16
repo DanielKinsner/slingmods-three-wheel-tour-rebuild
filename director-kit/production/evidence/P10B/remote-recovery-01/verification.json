@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "commit": "33d7988db9e2117626597f58cda068fa2910994e",
+  "frozenRuntime": "bc657a1f9cd77506569e2ac1ee368d75431c42e2",
+  "remote": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+  "requiredAssets": 166,
+  "runtimeInputs": 303,
+  "runtimeInputsExactlyEqual": true,
+  "tests": 269,
+  "browserProof": [
+    "remote-loop-01",
+    "remote-race-01",
+    "remote-race-exact-01"
+  ],
+  "lineEndingRepair": "48 legacy text inputs differed only in LF/CRLF. Added exact-byte attributes; 15 historical Git blobs now retain original measured CRLF bytes. No semantic source diff. Fresh clone fast-forwarded and tracked inputs rematerialized directly from fetched Git objects, never original local files. Original mismatch/diagnosis retained.",
+  "method": "Fresh depth-one HTTPS remote clone. npm ci, all tests, curated build and isolated full UI loop/Ridge race. No ignored assets copied from original checkout. Shared npm/Playwright/OS/driver caches on one Windows workstation. Follow-up exact-byte race retained separately."
+}

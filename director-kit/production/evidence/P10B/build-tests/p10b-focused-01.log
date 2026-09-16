@@ -1,0 +1,38 @@
+✔ Hero fit contains every real corner inside measured UI safe space at all desktop sizes (2.2789ms)
+✖ Hidden attachments and light volumes cannot pull the result camera away from the visible car (4.2356ms)
+✔ Instruments use the retained drivetrain redline and explicit reverse/neutral gears (0.1053ms)
+✔ P10B showroom paint is opt-in, finish-aware and restores source/rival identity (2.8056ms)
+✔ Tour Wall occupies the existing uninterrupted negative-X wall, excludes door/cabinet envelope (3.4317ms)
+✔ Optional mural and lettering failures preserve an owned non-emissive fallback (1.4213ms)
+✔ Showcase build controls scroll into reach at 720/1080, and pending/failed purchases preserve navigation and state (1110.7242ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1785.8894
+
+✖ failing tests:
+
+test at tests\p10b-camera.test.ts:18:1
+✖ Hidden attachments and light volumes cannot pull the result camera away from the visible car (4.2356ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(box.getSize(new THREE.Vector3()).length()<6)
+  
+      at TestContext.<anonymous> (C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\p10b-camera.test.ts:21:39)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,2112 @@
+{
+  "simulationProfile": "slingmods-sport-v3",
+  "display": {
+    "power": true,
+    "values": {
+      "speed": 0,
+      "units": "mph",
+      "rpm": 900,
+      "gear": "1"
+    },
+    "pixels": [
+      512,
+      336
+    ],
+    "uploads": 6,
+    "thumbnailCaptures": 5,
+    "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"black-red\",\"products\":{\"SM-3223\":\"silver\",\"SM-7720\":\"brushed-silver\",\"SM-26801\":\"black-aluminum\",\"SM-133\":\"base-rgb\",\"SM-28919\":\"lower-pair\"},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v3\"}",
+    "mount": {
+      "width": 0.202,
+      "height": 0.133,
+      "position": [
+        0,
+        0.665,
+        -0.1735
+      ],
+      "pixels": [
+        512,
+        336
+      ]
+    },
+    "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+  },
+  "ready": true,
+  "drivePreparation": {
+    "route": "express",
+    "started": 10393.900000002235,
+    "ended": 10671.60000000149,
+    "ms": 277.69999999925494,
+    "resources": [
+      {
+        "url": "/assets/vehicles/slingshot-p04a1-rear-rig.json",
+        "ms": 33.19999999925494,
+        "bytes": 3010
+      },
+      {
+        "url": "/assets/drivers/test-driver-attachment.json",
+        "ms": 34.30000000074506,
+        "bytes": 11386
+      },
+      {
+        "url": "/assets/drivers/test-driver.glb",
+        "ms": 53.100000001490116,
+        "bytes": 3717076
+      },
+      {
+        "url": "/assets/brand/slingmods-sign.glb",
+        "ms": 35.100000001490116,
+        "bytes": 26016
+      },
+      {
+        "url": "/assets/products/tricled-sm133-base.glb",
+        "ms": 34.80000000074506,
+        "bytes": 89992
+      },
+      {
+        "url": "/assets/products/tricled-sm133-base.attachment.json",
+        "ms": 17,
+        "bytes": 16205
+      },
+      {
+        "url": "/assets/hoop-refinement/slingshot-hoops-refined.glb",
+        "ms": 135.29999999701977,
+        "bytes": 13432392
+      },
+      {
+        "url": "/assets/p08b/signature-products.glb",
+        "ms": 65.80000000074506,
+        "bytes": 339964
+      },
+      {
+        "url": "/assets/products/ddmworks-sm3223-silver.glb",
+        "ms": 66.5,
+        "bytes": 250364
+      },
+      {
+        "url": "/assets/showcase-quality/sky/day-puresky-2k.hdr",
+        "ms": 96.39999999850988,
+        "bytes": 5451493
+      },
+      {
+        "url": "/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+        "ms": 39.599999997764826,
+        "bytes": 145910
+      },
+      {
+        "url": "/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+        "ms": 40.399999998509884,
+        "bytes": 176487
+      },
+      {
+        "url": "/assets/p08b/finish-black-red.png",
+        "ms": 27.100000001490116,
+        "bytes": 98884
+      },
+      {
+        "url": "/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+        "ms": 36.5,
+        "bytes": 70923
+      },
+      {
+        "url": "/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+        "ms": 28.199999999254942,
+        "bytes": 462598
+      },
+      {
+        "url": "/assets/showcase-quality/kit.glb",
+        "ms": 137.10000000149012,
+        "bytes": 28974372
+      }
+    ],
+    "retries": 0,
+    "cancelled": false
+  },
+  "departure": {
+    "active": true,
+    "elapsed": 4.749800000000007,
+    "paused": true,
+    "focused": true,
+    "doorFound": true,
+    "pose": {
+      "door": 1,
+      "x": 4.952778875442694,
+      "z": 0.1873486893034524,
+      "yaw": -1.7144334439530127,
+      "travel": 0.7839279960820082,
+      "camera": 1,
+      "complete": false
+    },
+    "car": [
+      4.952778875442694,
+      8.344650304081824e-9,
+      0.1873486942139556
+    ],
+    "door": [
+      0,
+      3.35,
+      0
+    ]
+  },
+  "showroom": {
+    "tourWall": {
+      "placement": {
+        "sourceMesh": "studio_left_wall",
+        "center": [
+          -5.855,
+          2.1,
+          1.2
+        ],
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "width": 8.7,
+        "height": 2.9,
+        "text": "BUILT TO BE YOURS.",
+        "subtitle": "Coast to ridge. Build to drive.",
+        "camera": [
+          4.6,
+          2.45,
+          -4.3
+        ],
+        "target": [
+          -1,
+          1.25,
+          0.7
+        ],
+        "plateUrl": "/assets/p10b/tour-wall-plate.png",
+        "detailUrl": "/assets/p10b/tour-wall-details.glb"
+      },
+      "plateLoaded": true,
+      "detailLoaded": true,
+      "fallback": false,
+      "noEmissionOnPrint": true,
+      "disposed": false
+    },
+    "look": {
+      "exposure": 0.91,
+      "environment": 0.95,
+      "hemisphere": 0.55,
+      "key": 1.4,
+      "fill": 0.76,
+      "rim": 1.15,
+      "background": "#30373c",
+      "wallWash": 22
+    },
+    "safeRegion": {
+      "left": 16,
+      "top": 88,
+      "right": 176,
+      "bottom": 248
+    },
+    "view": "hero",
+    "driverRendered": true,
+    "curtainPosition": [
+      0,
+      3.35,
+      0
+    ],
+    "curtainScale": [
+      1,
+      0.025000000000000022,
+      1
+    ]
+  },
+  "build": "bc657a1f9cd7",
+  "recipe": {
+    "version": 1,
+    "vehicleId": "slingshot-r-2024",
+    "finish": "black-red",
+    "products": {
+      "SM-3223": "silver",
+      "SM-7720": "brushed-silver",
+      "SM-26801": "black-aluminum",
+      "SM-133": "base-rgb",
+      "SM-28919": "lower-pair"
+    },
+    "lights": {
+      "color": "red",
+      "brightness": 0.6,
+      "enabled": true
+    },
+    "suspension": {
+      "frontCompression": 2,
+      "frontRebound": 6,
+      "rearCompression": 1,
+      "rearRebound": 3,
+      "rideHeightMm": 0
+    },
+    "handlingProfile": "slingmods-sport-v3"
+  },
+  "original": {
+    "version": 1,
+    "vehicleId": "slingshot-r-2024",
+    "finish": "black-red",
+    "products": {
+      "SM-3223": "silver",
+      "SM-7720": "brushed-silver",
+      "SM-26801": "black-aluminum",
+      "SM-133": "base-rgb",
+      "SM-28919": "lower-pair"
+    },
+    "lights": {
+      "color": "red",
+      "brightness": 0.6,
+      "enabled": true
+    },
+    "suspension": {
+      "frontCompression": 2,
+      "frontRebound": 6,
+      "rearCompression": 1,
+      "rearRebound": 3,
+      "rideHeightMm": 0
+    },
+    "handlingProfile": "slingmods-sport-v3"
+  },
+  "finish": {
+    "finish": "black-red",
+    "accent": "#c91820",
+    "paintedAccents": [
+      {
+        "node": "body_static__Orange_Accent",
+        "color": "c91820"
+      },
+      {
+        "node": "rear_arm_visual__Orange_Accent",
+        "color": "c91820"
+      }
+    ],
+    "isolatedMaterialSlots": 6,
+    "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+    "textureCount": 3
+  },
+  "compare": false,
+  "lighting": "studio",
+  "destinationLighting": "day",
+  "driverVisible": false,
+  "reducedMotion": false,
+  "status": "",
+  "pending": true,
+  "screen": "build",
+  "saved": [
+    {
+      "id": "61f744e5-d3e1-4393-9d62-fe3de713f601",
+      "name": "Cinematic Tour",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "black-red",
+        "products": {
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-133": "base-rgb",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v3"
+      }
+    }
+  ],
+  "loadMs": 976.3999999985099,
+  "preparation": {
+    "ms": 37,
+    "stages": [
+      {
+        "name": "init-textures",
+        "ms": 30
+      },
+      {
+        "name": "compile-async",
+        "ms": 4
+      },
+      {
+        "name": "first-all-mesh-render",
+        "ms": 2.199999999254942
+      },
+      {
+        "name": "loading-gpu-sync",
+        "ms": 0
+      }
+    ],
+    "textures": 39,
+    "programs": 31,
+    "parallelCompile": true,
+    "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+  },
+  "frames": 855,
+  "memory": {
+    "geometries": 118,
+    "textures": 42
+  },
+  "calls": 222,
+  "triangles": 566671,
+  "products": {
+    "selected": [
+      "SM-3223",
+      "SM-7720",
+      "SM-26801",
+      "SM-133",
+      "SM-28919"
+    ],
+    "storageInspection": false,
+    "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+    "mounts": {
+      "exhaust": {
+        "position": [
+          2.7,
+          1.3,
+          3.9
+        ],
+        "target": [
+          0,
+          0.65,
+          1.3
+        ]
+      },
+      "wing": {
+        "position": [
+          2.8,
+          1.9,
+          3.3
+        ],
+        "target": [
+          0,
+          1.25,
+          1.2
+        ]
+      },
+      "storage": {
+        "position": [
+          -1.6,
+          2.1,
+          -0.3
+        ],
+        "target": [
+          -0.2,
+          0.48,
+          0.95
+        ]
+      }
+    },
+    "productRoot": "signature_catalog_products"
+  },
+  "suspension": {
+    "equipped": true,
+    "inspection": null,
+    "stockVisible": [
+      {
+        "name": "suspension_front_left",
+        "visible": false
+      },
+      {
+        "name": "suspension_front_right",
+        "visible": false
+      },
+      {
+        "name": "shock_body_visual",
+        "visible": false
+      },
+      {
+        "name": "shock_piston_visual",
+        "visible": false
+      },
+      {
+        "name": "shock_spring_visual",
+        "visible": false
+      }
+    ],
+    "endpoints": [
+      [
+        [
+          -0.76,
+          0.2799999896730695,
+          -1.3335
+        ],
+        [
+          -0.48,
+          0.64,
+          -1.31
+        ]
+      ],
+      [
+        [
+          0.76,
+          0.27999998967306955,
+          -1.3335
+        ],
+        [
+          0.48,
+          0.64,
+          -1.31
+        ]
+      ],
+      [
+        [
+          0.27999999999999997,
+          0.37284999883174363,
+          1.1374500000891123
+        ],
+        [
+          0.28,
+          0.7999999999999998,
+          1.0249999999999997
+        ]
+      ]
+    ],
+    "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+  },
+  "audio": {
+    "enabled": true,
+    "loading": false,
+    "failure": "",
+    "soundTreatment": "p09b-authored-sport-mix",
+    "life": {
+      "enabled": true,
+      "paused": false,
+      "mute": false,
+      "volume": 0.55,
+      "cockpit": false,
+      "reset": false
+    },
+    "levels": {
+      "master": 0.55,
+      "interface": 1,
+      "engine": 1
+    },
+    "bayDoor": {
+      "requested": false,
+      "playing": false,
+      "loaded": true,
+      "offset": 3.48,
+      "starts": 1,
+      "failed": false,
+      "gainTarget": 0.17600000000000002,
+      "gain": 0.17599999904632568
+    },
+    "thermal": {
+      "loaded": true,
+      "armed": true,
+      "playing": true,
+      "elapsed": 4.749800000000007,
+      "offset": 0.033299999999999275,
+      "starts": 1,
+      "paused": false,
+      "level": 0.55,
+      "clock": "cinematic-elapsed",
+      "bus": "captured-master"
+    },
+    "cues": {
+      "loaded": true,
+      "active": 0,
+      "poolLimit": 8,
+      "played": 3,
+      "rejected": 0,
+      "counts": {
+        "ui.nav": 3
+      },
+      "bus": "captured-master"
+    },
+    "graph": {
+      "contextState": "running",
+      "contextTime": 15.021333333333333,
+      "persistentLoops": 17,
+      "shiftCount": 0,
+      "masterTarget": 0,
+      "rms": 0,
+      "parameters": {
+        "rpm": 950,
+        "speed": 1.1817201486217037e-9,
+        "load": 0,
+        "layers": [
+          {
+            "name": "engine-1200-load",
+            "rate": 0.7916666666666666,
+            "gain": 0.055
+          },
+          {
+            "name": "engine-1200-lift",
+            "rate": 0.7916666666666666,
+            "gain": 0.16
+          },
+          {
+            "name": "engine-1650-load",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-1650-lift",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-2200-load",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-2200-lift",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-3000-load",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-3000-lift",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-4000-load",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-4000-lift",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-5300-load",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-5300-lift",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-6800-load",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "engine-6800-lift",
+            "rate": 0.72,
+            "gain": 0
+          },
+          {
+            "name": "road",
+            "rate": 1,
+            "gain": 1.0383347850800604e-11
+          },
+          {
+            "name": "wind",
+            "rate": 1,
+            "gain": 2.3903598079878144e-19
+          }
+        ],
+        "master": 0,
+        "cutoff": 6500,
+        "shiftGain": 0.18,
+        "reset": false
+      }
+    },
+    "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+  },
+  "simulation": {
+    "time": 1.4999999999999996,
+    "position": {
+      "x": -3.5582608876520534e-26,
+      "y": 8.344650304081824e-9,
+      "z": 4.91050323958575e-9
+    },
+    "quaternion": {
+      "x": 6.469465407832331e-9,
+      "y": 2.4320583424525124e-19,
+      "z": -1.6658375350366117e-27,
+      "w": 1
+    },
+    "velocity": {
+      "x": -2.630063244082985e-25,
+      "y": -9.57412424895665e-8,
+      "z": -1.1817213874110166e-9
+    },
+    "angularVelocity": {
+      "x": -1.0613036671713871e-8,
+      "y": -1.0514849174370447e-19,
+      "z": 0
+    },
+    "speed": 1.1817201486217037e-9,
+    "rpm": 950,
+    "engineWheelAngularSpeed": 1.2147789398480313e-9,
+    "gear": 1,
+    "shifting": false,
+    "shiftRemaining": 0,
+    "steer": 0,
+    "throttle": 0,
+    "brake": 1,
+    "reversePending": false,
+    "wheels": [
+      {
+        "id": "front_left",
+        "contact": true,
+        "load": 2084.625132664193,
+        "travel": -1.032693047742228e-8,
+        "slipRatio": 1.7781878404987594e-9,
+        "slipAngle": -3.519234540598335e-18,
+        "spin": -1.4792643690239445e-8,
+        "steer": 0,
+        "localCenter": {
+          "x": -0.8775,
+          "y": 0.3298499896730695,
+          "z": -1.3335
+        },
+        "surface": "asphalt",
+        "angularSpeed": -1.4690199101796448e-8,
+        "longitudinalSpeed": -4.845562173727558e-9,
+        "longitudinalForce": 0.00003706855062901582,
+        "lateralForce": 5.869027816856972e-14,
+        "gripLimit": 2517.184847692013,
+        "driveTorque": 0
+      },
+      {
+        "id": "front_right",
+        "contact": true,
+        "load": 2084.625132664193,
+        "travel": -1.032693047742228e-8,
+        "slipRatio": 1.7781878404987594e-9,
+        "slipAngle": -3.519234540598335e-18,
+        "spin": -1.4792643690239445e-8,
+        "steer": 0,
+        "localCenter": {
+          "x": 0.8775,
+          "y": 0.3298499896730695,
+          "z": -1.3335
+        },
+        "surface": "asphalt",
+        "angularSpeed": -1.4690199101796448e-8,
+        "longitudinalSpeed": -4.845562173727558e-9,
+        "longitudinalForce": 0.00003706855062901582,
+        "lateralForce": 5.869027816856972e-14,
+        "gripLimit": 2517.184847692013,
+        "driveTorque": 0
+      },
+      {
+        "id": "rear",
+        "contact": true,
+        "load": 4169.2504429962955,
+        "travel": -1.6689301052252858e-9,
+        "slipRatio": 1.7781879276917888e-9,
+        "slipAngle": 3.519234538267414e-18,
+        "spin": -1.4122584990285685e-8,
+        "steer": 0,
+        "localCenter": {
+          "x": 0,
+          "y": 0.34549999833106987,
+          "z": 1.3335
+        },
+        "surface": "asphalt",
+        "angularSpeed": -1.4024783264303236e-8,
+        "longitudinalSpeed": -4.845562617816768e-9,
+        "longitudinalForce": 0.00007413710805259655,
+        "lateralForce": -1.1738056126143425e-13,
+        "gripLimit": 5034.369909918028,
+        "driveTorque": 0
+      }
+    ]
+  },
+  "profile": {
+    "frontCompression": 3800,
+    "frontRebound": 3800,
+    "rearCompression": 6500,
+    "rearRebound": 6500,
+    "rideHeight": 0
+  },
+  "camera": {
+    "position": [
+      -2.8,
+      2.25,
+      -4.8
+    ],
+    "target": [
+      3.4669452128098857,
+      0.65,
+      0.1873486893034524
+    ]
+  },
+  "finishPreparation": [
+    {
+      "finish": "black-red",
+      "ms": 55.69999999925494
+    },
+    {
+      "finish": "white-graphite",
+      "ms": 66.30000000074506
+    },
+    {
+      "finish": "graphite-red",
+      "ms": 102.5
+    }
+  ],
+  "bounds3d": {
+    "isBox3": true,
+    "min": {
+      "x": 3.163027970345978,
+      "y": -0.02878294794575198,
+      "z": -0.9592854054932435
+    },
+    "max": {
+      "x": 7.216117049468898,
+      "y": 1.5099999885279256,
+      "z": 1.4565690744201523
+    }
+  },
+  "bounds": {
+    "minX": -0.42087620803208964,
+    "maxX": 0.18345110864525646,
+    "minY": -0.27248052182573007,
+    "maxY": 0.3180375097942065,
+    "allInFront": true
+  },
+  "resources": [
+    {
+      "name": "http://127.0.0.1:5212/assets/index-tPU-fQQ-.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/profile-hKDw4fAG.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/recovery-DHYQTjjv.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/preload-helper-BZ1Pz5am.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/recovery-DfwCQ0zU.css",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/scene-DCIBjrqD.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/GLTFLoader-BnLkgsPy.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/OrbitControls-DQu6meKp.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/menu-B0Hq5PZj.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/save-RUjMTVQE.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/tokens-DaNAEurl.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/route-BrZ4KHzx.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/environment-UbWa__xE.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/tokens-GUbiCmFm.css",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/shadows-Cde3WRG7.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/hero-D0ZMHVou.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/signature-art-DgZHtSEW.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/assets-Cj63lOUd.js",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/scene-DlKZOZlv.css",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/fonts/BarlowCondensed-Bold.woff2",
+      "bytes": 0,
+      "duration": 0
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/brand/slingmods-logo-main.png",
+      "bytes": 300,
+      "duration": 2
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/hoop-refinement/slingshot-hoops-refined.glb",
+      "bytes": 13432692,
+      "duration": 78.60000000149012
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/drivers/test-driver.glb",
+      "bytes": 300,
+      "duration": 13
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/drivers/test-driver-attachment.json",
+      "bytes": 300,
+      "duration": 4.600000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "bytes": 300,
+      "duration": 4
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "bytes": 300,
+      "duration": 29
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p10b/tour-wall-details.glb",
+      "bytes": 300,
+      "duration": 4.5
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p10b/tour-wall-plate.png",
+      "bytes": 300,
+      "duration": 7.300000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/products/tricled-sm133-base.glb",
+      "bytes": 300,
+      "duration": 3.100000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/products/tricled-sm133-base.attachment.json",
+      "bytes": 300,
+      "duration": 2.100000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/products/ddmworks-sm3223-silver.glb",
+      "bytes": 300,
+      "duration": 3
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p08b/signature-products.glb",
+      "bytes": 300,
+      "duration": 2.900000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/provenance.json",
+      "bytes": 300,
+      "duration": 3
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/harbor/route.json",
+      "bytes": 300,
+      "duration": 8.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-1200-load.wav",
+      "bytes": 300,
+      "duration": 7.099999997764826
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-1200-lift.wav",
+      "bytes": 300,
+      "duration": 6.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-1650-load.wav",
+      "bytes": 300,
+      "duration": 7.299999997019768
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-1650-lift.wav",
+      "bytes": 300,
+      "duration": 7.899999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-2200-load.wav",
+      "bytes": 300,
+      "duration": 10.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-2200-lift.wav",
+      "bytes": 300,
+      "duration": 11
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-3000-load.wav",
+      "bytes": 300,
+      "duration": 12
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-3000-lift.wav",
+      "bytes": 300,
+      "duration": 9
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-4000-load.wav",
+      "bytes": 300,
+      "duration": 11.900000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-4000-lift.wav",
+      "bytes": 300,
+      "duration": 12.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-5300-load.wav",
+      "bytes": 300,
+      "duration": 12.900000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-5300-lift.wav",
+      "bytes": 300,
+      "duration": 13.899999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-6800-load.wav",
+      "bytes": 300,
+      "duration": 14
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/engine-6800-lift.wav",
+      "bytes": 300,
+      "duration": 14.600000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/road.wav",
+      "bytes": 300,
+      "duration": 14.699999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/wind.wav",
+      "bytes": 300,
+      "duration": 14.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/shift.wav",
+      "bytes": 300,
+      "duration": 13.900000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b/thermal-mid.wav",
+      "bytes": 300,
+      "duration": 14.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/ridge/preview.json",
+      "bytes": 300,
+      "duration": 5.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p08b/finish-black-red.png",
+      "bytes": 300,
+      "duration": 2.900000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/provenance.json",
+      "bytes": 300,
+      "duration": 1.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-departure/provenance.json",
+      "bytes": 300,
+      "duration": 1.8999999985098839
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "bytes": 300,
+      "duration": 2.100000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/ui.nav.wav",
+      "bytes": 300,
+      "duration": 3
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/ui.confirm.wav",
+      "bytes": 300,
+      "duration": 3.100000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/ui.back.wav",
+      "bytes": 300,
+      "duration": 3.900000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/ui.detent.wav",
+      "bytes": 300,
+      "duration": 4.899999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/power.wav",
+      "bytes": 300,
+      "duration": 5.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/finish.apply.wav",
+      "bytes": 300,
+      "duration": 6
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/part.shocks.attach.wav",
+      "bytes": 300,
+      "duration": 6.300000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/part.lights.attach.wav",
+      "bytes": 300,
+      "duration": 7.400000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/part.aero.attach.wav",
+      "bytes": 300,
+      "duration": 7.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/part.exhaust.attach.wav",
+      "bytes": 300,
+      "duration": 8
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/part.storage.attach.wav",
+      "bytes": 300,
+      "duration": 8.400000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/part.remove.wav",
+      "bytes": 300,
+      "duration": 8.399999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/build.save.wav",
+      "bytes": 300,
+      "duration": 8.5
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/build.preset.wav",
+      "bytes": 300,
+      "duration": 8.699999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/career.unlock.wav",
+      "bytes": 300,
+      "duration": 9
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/race.count.wav",
+      "bytes": 300,
+      "duration": 9.099999997764826
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/race.start.wav",
+      "bytes": 300,
+      "duration": 9.699999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-cues/race.finish.wav",
+      "bytes": 300,
+      "duration": 9.799999997019768
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/p09b-departure/thermal.wav",
+      "bytes": 300,
+      "duration": 12.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p08b/showroom-refinement/finish-white-graphite.png",
+      "bytes": 300,
+      "duration": 2.5
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p08b/finish-graphite-red.png",
+      "bytes": 300,
+      "duration": 3
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/hoop-refinement/slingshot-hoops-refined.glb",
+      "bytes": 13432692,
+      "duration": 92.69999999925494
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/drivers/test-driver.glb",
+      "bytes": 300,
+      "duration": 21.700000002980232
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/drivers/test-driver-attachment.json",
+      "bytes": 300,
+      "duration": 5.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "bytes": 300,
+      "duration": 4.900000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/brand/slingmods-sign.glb",
+      "bytes": 300,
+      "duration": 4.599999997764826
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/products/tricled-sm133-base.glb",
+      "bytes": 300,
+      "duration": 4.600000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/products/tricled-sm133-base.attachment.json",
+      "bytes": 300,
+      "duration": 5.400000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/products/ddmworks-sm3223-silver.glb",
+      "bytes": 300,
+      "duration": 5.600000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p08b/signature-products.glb",
+      "bytes": 300,
+      "duration": 5.599999997764826
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "bytes": 5451793,
+      "duration": 73.20000000298023
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/showcase-quality/kit.glb",
+      "bytes": 28974672,
+      "duration": 108.69999999925494
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+      "bytes": 300,
+      "duration": 6.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+      "bytes": 300,
+      "duration": 6.400000002235174
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+      "bytes": 300,
+      "duration": 17
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+      "bytes": 300,
+      "duration": 9.300000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/p08b/finish-black-red.png",
+      "bytes": 300,
+      "duration": 7.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5212/assets/audio/showroom/bay-door-open.mp3",
+      "bytes": 57185,
+      "duration": 2.699999999254942
+    }
+  ],
+  "intervals": [
+    3.8999999977647803,
+    16.700000000000045,
+    16.59999999999991,
+    16.700000000000045,
+    16.700000000000045,
+    16.59999999999991,
+    16.700000000000045,
+    16.700000000000045,
+    16.59999999999991,
+    16.600000000000136,
+    16.799999999999955,
+    16.59999999999991,
+    16.700000000000045,
+    16.700000000000045,
+    16.59999999999991,
+    16.700000000000045,
+    16.600000000000136,
+    16.699999999999818,
+    16.700000000000045,
+    16.700000000000045,
+    16.700000000000045,
+    16.59999999999991,
+    16.600000000000136,
+    16.699999999999818,
+    16.700000000000045,
+    16.600000000000136,
+    16.699999999999818,
+    16.700000000000045,
+    16.600000000000136,
+    16.699999999999818,
+    16.700000000000045,
+    16.600000000000136,
+    16.699999999999818,
+    16.700000000000045,
+    16.600000000000136,
+    16.699999999999818,
+    16.700000000000045,
+    16.600000000000136,
+    16.699999999999818,
+    16.700000000000045,
+    16.700000000000045,
+    16.59999999999991,
+    16.700000000000045,
+    16.700000000000045,
+    16.59999999999991,
+    16.600000000000136,
+    16.799999999999955,
+    16.59999999999991,
+    16.700000000000045,
+    16.700000000000045,
+    16.59999999999991,
+    16.700000000000045,
+    16.600000000000136,
+    16.699999999999818,
+    16.600000000000136,
+    16.700000000000045,
+    16.699999999999818,
+    16.700000000000045,
+    16.600000000000136,
+    16.59999999999991,
+    16.800000000000182,
+    16.59999999999991,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.59999999999991,
+    16.800000000000182,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.800000000000182,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.700000000000273,
+    16.699999999999818,
+    16.59999999999991,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.59999999999991,
+    16.700000000000273,
+    16.699999999999818,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.700000000000273,
+    16.59999999999991,
+    16.699999999999818,
+    16.600000000000364,
+    16.799999999999727,
+    16.5,
+    16.800000000000182,
+    16.59999999999991,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.599999999999454,
+    16.800000000000182,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.599999999999454,
+    16.700000000000728,
+    16.799999999999272,
+    16.600000000000364,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.599999999999454,
+    16.800000000000182,
+    16.699999999999818,
+    16.600000000000364,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.699999999999818,
+    16.5,
+    16.800000000000182,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.699999999999818,
+    16.599999999999454,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.599999999999454,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.700000000000728,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.599999999999454,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.699999999999818,
+    16.700000000000728,
+    16.599999999999454,
+    16.600000000000364,
+    16.800000000000182,
+    16.599999999999454,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.699999999999818,
+    16.600000000000364,
+    16.699999999999818,
+    16.599999999999454,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.80000000000109,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    33.29999999999927,
+    83.30000000000109,
+    16.69999999999891,
+    16.600000000000364,
+    16.799999999999272,
+    16.700000000000728,
+    16.600000000000364,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.600000000000364,
+    16.799999999999272,
+    16.5,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.599999999998545,
+    16.80000000000109,
+    16.600000000000364,
+    16.599999999998545,
+    16.80000000000109,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.80000000000109,
+    16.600000000000364,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.5,
+    16.799999999999272,
+    16.600000000000364,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891,
+    16.5,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.700000000000728,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.80000000000109,
+    16.599999999998545,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.5,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.799999999999272,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.700000000000728,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.600000000000364,
+    16.69999999999891,
+    16.600000000000364,
+    16.700000000000728,
+    16.69999999999891,
+    16.700000000000728,
+    16.69999999999891,
+    16.5,
+    16.700000000000728,
+    16.700000000000728,
+    16.69999999999891
+  ]
+}

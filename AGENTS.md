@@ -1,8 +1,14 @@
-# Current assignment — P10B Cinematic Identity / candidate validation
+# P10B Cinematic Identity — internally validated, Review21 delivery
 
-Continue on main. The owner authorizes Review20 CODEX_NEXT.md and its linked presentation packets, ordinary main pushes and the existing curated Vercel site. P10B implementation and two visual repair passes are complete; final immutable regression/performance, media, remote recovery and Review21 delivery are in progress. Do not interpret prior completed assignments below as new work. Preserve Sport v3, all routes/gameplay/ownership/saves and historical artifacts. No spending, new site/vehicle/route/engine, visibility change or desktop takeover.
+Continue on main. Frozen playable runtime: `bc657a1f9cd77506569e2ac1ee368d75431c42e2`. Cinematic entry/build/destinations/shop/career/HUD/results, scoped studio lighting/materials/framing, transitions and the physical left-side Tour Wall are implemented. All existing gameplay, Sport v3, routes, products, finishes, ownership/saves, dashboard and Thermal departure are preserved. The first-use finish hitch was repaired before final capture.
 
-Source baseline: 3585a411bca855c415b6016454ecb38b776beedc. Current evidence lives in director-kit/production/evidence/P10B. The Tour Wall uses studio_left_wall only; generated panorama is flat art, with separate accurate lettering. Current vehicle/world remain stylized, not final OEM/photoreal fidelity. G3/G4 and human hardware/listening/fun approvals remain open. Final identities belong in handoff/P10B-VALIDATION.json and P10B-DELIVERY.json when completed.
+269 tests and 10 native races pass. Full UI/save/career/audio/display/departure regressions, real reference comparisons and remote-clone build/browser proof pass. Existing canonical hosted root was exercised through full race/retry/return, three destinations and physical mural; all111 public assets match Git. Runtime/source details, precise limits and commands: `handoff/P10B-CINEMATIC-IDENTITY.md`, `P10B-VALIDATION.json`. The 194-second current film includes actual game audio and a continuous race. Source remains stylized relative to photographic concepts; no G3/G4, final OEM fidelity, physical hardware or human listening/fun approval is implied.
+
+Play: https://slingmods-three-wheel-tour-rebuild.vercel.app/ . Local http://127.0.0.1:5197/ ; recover with `npm ci`, `python scripts/verify-p10b-assets.py`, `npm run demo:build`, then PowerShell `$env:PORT='5197'` and `npm run demo:preview`. Required runtime/editable inputs: `P10B-REQUIRED-ASSETS.json` (166 files); all303 runtime input bytes match the frozen candidate. Git attributes preserve historical line endings across machines; their content was not rewritten.
+
+The completed `Astra-Review-21-Lean.zip` and receipt must be committed to main. `P10B-PACKET.json` records the archive after creation; `P10B-DELIVERY.json` records final remote retrieval and latest hosted identity after the archive push. Do not mistake this intermediate handoff for proof that the archive has already been delivered. Final source and raw media are recoverable from Git; tools, credentials and personal browser saves are not.
+
+Next action after delivery: Astra/owner Review21 feedback. Preserve historical evidence/ZIPs and unrelated owner folder `SlingMods-Astra-Director-Review-17/`. No spending, new project/site/vehicle/route/engine, physics retune, visibility change, desktop takeover or force push.
 
 ---
 

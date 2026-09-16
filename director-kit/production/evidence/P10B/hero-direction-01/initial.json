@@ -1,0 +1,985 @@
+{
+  "errors": [],
+  "font": true,
+  "ui": {
+    "simulationProfile": "slingmods-sport-v3",
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"blue-orange\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v3\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    },
+    "ready": true,
+    "departure": null,
+    "showroom": {
+      "tourWall": {
+        "placement": {
+          "sourceMesh": "studio_left_wall",
+          "center": [
+            -5.855,
+            2.1,
+            1.2
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "width": 8.7,
+          "height": 2.9,
+          "text": "BUILT TO BE YOURS.",
+          "subtitle": "Coast to ridge. Build to drive.",
+          "camera": [
+            4.6,
+            2.45,
+            -4.3
+          ],
+          "target": [
+            -1,
+            1.25,
+            0.7
+          ],
+          "plateUrl": "/assets/p10b/tour-wall-plate.png",
+          "detailUrl": "/assets/p10b/tour-wall-details.glb"
+        },
+        "plateLoaded": true,
+        "detailLoaded": true,
+        "fallback": false,
+        "noEmissionOnPrint": true,
+        "disposed": false
+      },
+      "look": {
+        "exposure": 0.91,
+        "environment": 0.95,
+        "hemisphere": 0.55,
+        "key": 1.4,
+        "fill": 0.76,
+        "rim": 1.15,
+        "background": "#30373c",
+        "wallWash": 22
+      },
+      "safeRegion": {
+        "left": 230,
+        "top": 88,
+        "right": 940,
+        "bottom": 570
+      },
+      "view": "hero",
+      "driverRendered": false,
+      "curtainPosition": [
+        0,
+        0,
+        0
+      ],
+      "curtainScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "build": "3585a411bca8-working",
+    "recipe": {
+      "version": 1,
+      "vehicleId": "slingshot-r-2024",
+      "finish": "blue-orange",
+      "products": {},
+      "lights": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "suspension": {
+        "frontCompression": 2,
+        "frontRebound": 6,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      },
+      "handlingProfile": "slingmods-sport-v3"
+    },
+    "original": {
+      "version": 1,
+      "vehicleId": "slingshot-r-2024",
+      "finish": "blue-orange",
+      "products": {},
+      "lights": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "suspension": {
+        "frontCompression": 2,
+        "frontRebound": 6,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      },
+      "handlingProfile": "slingmods-sport-v3"
+    },
+    "finish": {
+      "finish": "blue-orange",
+      "accent": "#f07521",
+      "paintedAccents": [
+        {
+          "node": "body_static__Orange_Accent",
+          "color": "fa691b"
+        },
+        {
+          "node": "rear_arm_visual__Orange_Accent",
+          "color": "fa691b"
+        }
+      ],
+      "isolatedMaterialSlots": 6,
+      "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+      "textureCount": 0
+    },
+    "compare": false,
+    "lighting": "studio",
+    "destinationLighting": "day",
+    "driverVisible": false,
+    "reducedMotion": false,
+    "status": "",
+    "pending": false,
+    "screen": "build",
+    "saved": [],
+    "loadMs": 5717.89999999851,
+    "preparation": {
+      "ms": 496.6000000014901,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 10.199999999254942
+        },
+        {
+          "name": "compile-async",
+          "ms": 483
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 2.199999999254942
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 39,
+      "programs": 28,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "frames": 131,
+    "memory": {
+      "geometries": 107,
+      "textures": 39
+    },
+    "calls": 188,
+    "triangles": 533972,
+    "products": {
+      "selected": [],
+      "storageInspection": false,
+      "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+      "mounts": {
+        "exhaust": {
+          "position": [
+            2.7,
+            1.3,
+            3.9
+          ],
+          "target": [
+            0,
+            0.65,
+            1.3
+          ]
+        },
+        "wing": {
+          "position": [
+            2.8,
+            1.9,
+            3.3
+          ],
+          "target": [
+            0,
+            1.25,
+            1.2
+          ]
+        },
+        "storage": {
+          "position": [
+            -1.6,
+            2.1,
+            -0.3
+          ],
+          "target": [
+            -0.2,
+            0.48,
+            0.95
+          ]
+        }
+      },
+      "productRoot": "signature_catalog_products"
+    },
+    "suspension": {
+      "equipped": false,
+      "inspection": null,
+      "stockVisible": [
+        {
+          "name": "suspension_front_left",
+          "visible": true
+        },
+        {
+          "name": "suspension_front_right",
+          "visible": true
+        },
+        {
+          "name": "shock_body_visual",
+          "visible": true
+        },
+        {
+          "name": "shock_piston_visual",
+          "visible": true
+        },
+        {
+          "name": "shock_spring_visual",
+          "visible": true
+        }
+      ],
+      "endpoints": [],
+      "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+    },
+    "audio": {
+      "enabled": false,
+      "loading": false,
+      "failure": "",
+      "soundTreatment": "p09b-authored-stock-mix",
+      "life": {
+        "enabled": false,
+        "paused": false,
+        "mute": false,
+        "volume": 0.55,
+        "cockpit": false,
+        "reset": false
+      },
+      "levels": {
+        "master": 0.55,
+        "interface": 1,
+        "engine": 1
+      },
+      "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+    },
+    "simulation": {
+      "time": 1.4999999999999996,
+      "position": {
+        "x": -3.5582608876520534e-26,
+        "y": 8.344650304081824e-9,
+        "z": 4.91050323958575e-9
+      },
+      "quaternion": {
+        "x": 6.469465407832331e-9,
+        "y": 2.4320583424525124e-19,
+        "z": -1.6658375350366117e-27,
+        "w": 1
+      },
+      "velocity": {
+        "x": -2.630063244082985e-25,
+        "y": -9.57412424895665e-8,
+        "z": -1.1817213874110166e-9
+      },
+      "angularVelocity": {
+        "x": -1.0613036671713871e-8,
+        "y": -1.0514849174370447e-19,
+        "z": 0
+      },
+      "speed": 1.1817201486217037e-9,
+      "rpm": 950,
+      "engineWheelAngularSpeed": 1.2147789398480313e-9,
+      "gear": 1,
+      "shifting": false,
+      "shiftRemaining": 0,
+      "steer": 0,
+      "throttle": 0,
+      "brake": 1,
+      "reversePending": false,
+      "wheels": [
+        {
+          "id": "front_left",
+          "contact": true,
+          "load": 2084.625132664193,
+          "travel": -1.032693047742228e-8,
+          "slipRatio": 1.7781878404987594e-9,
+          "slipAngle": -3.519234540598335e-18,
+          "spin": -1.4792643690239445e-8,
+          "steer": 0,
+          "localCenter": {
+            "x": -0.8775,
+            "y": 0.3298499896730695,
+            "z": -1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -1.4690199101796448e-8,
+          "longitudinalSpeed": -4.845562173727558e-9,
+          "longitudinalForce": 0.00003706855062901582,
+          "lateralForce": 5.869027816856972e-14,
+          "gripLimit": 2517.184847692013,
+          "driveTorque": 0
+        },
+        {
+          "id": "front_right",
+          "contact": true,
+          "load": 2084.625132664193,
+          "travel": -1.032693047742228e-8,
+          "slipRatio": 1.7781878404987594e-9,
+          "slipAngle": -3.519234540598335e-18,
+          "spin": -1.4792643690239445e-8,
+          "steer": 0,
+          "localCenter": {
+            "x": 0.8775,
+            "y": 0.3298499896730695,
+            "z": -1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -1.4690199101796448e-8,
+          "longitudinalSpeed": -4.845562173727558e-9,
+          "longitudinalForce": 0.00003706855062901582,
+          "lateralForce": 5.869027816856972e-14,
+          "gripLimit": 2517.184847692013,
+          "driveTorque": 0
+        },
+        {
+          "id": "rear",
+          "contact": true,
+          "load": 4169.2504429962955,
+          "travel": -1.6689301052252858e-9,
+          "slipRatio": 1.7781879276917888e-9,
+          "slipAngle": 3.519234538267414e-18,
+          "spin": -1.4122584990285685e-8,
+          "steer": 0,
+          "localCenter": {
+            "x": 0,
+            "y": 0.34549999833106987,
+            "z": 1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -1.4024783264303236e-8,
+          "longitudinalSpeed": -4.845562617816768e-9,
+          "longitudinalForce": 0.00007413710805259655,
+          "lateralForce": -1.1738056126143425e-13,
+          "gripLimit": 5034.369909918028,
+          "driveTorque": 0
+        }
+      ]
+    },
+    "profile": null,
+    "camera": {
+      "position": [
+        -4.3815581680102484,
+        2.104611526904106,
+        -5.5
+      ],
+      "target": [
+        0.007064633071422576,
+        0.656366002547154,
+        -0.23365263870199238
+      ]
+    },
+    "bounds3d": {
+      "isBox3": true,
+      "min": {
+        "x": -0.99269999563694,
+        "y": -1.229870333352423e-8,
+        "z": -2.1463053161618024
+      },
+      "max": {
+        "x": 1.0068292617797852,
+        "y": 1.312732017393012,
+        "z": 1.6790000387578177
+      }
+    },
+    "bounds": {
+      "minX": -0.6231065561578736,
+      "maxX": 0.33776070406207703,
+      "minY": -0.5304819265822848,
+      "maxY": 0.43657686270383006,
+      "allInFront": true
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:5206/@vite/client",
+        "bytes": 300,
+        "duration": 48.399999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/main.ts?t=1789597823763",
+        "bytes": 300,
+        "duration": 46.400000002235174
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/demo/profile.ts",
+        "bytes": 300,
+        "duration": 1.800000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/demo/recovery.ts?t=1789597287401",
+        "bytes": 300,
+        "duration": 2
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/vite/dist/client/env.mjs",
+        "bytes": 300,
+        "duration": 0.7999999970197678
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/demo/preview.css?t=1789597287401",
+        "bytes": 300,
+        "duration": 0.8999999985098839
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/scene.ts?t=1789597823763",
+        "bytes": 300,
+        "duration": 1.199999999254942
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/studio-look.ts?t=1789596945481",
+        "bytes": 300,
+        "duration": 1.3999999985098839
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/safe-camera.ts?t=1789597823763",
+        "bytes": 300,
+        "duration": 2.199999999254942
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/vehicle-contact.ts",
+        "bytes": 300,
+        "duration": 2.599999997764826
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/powered-display.ts",
+        "bytes": 300,
+        "duration": 2.7999999970197678
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/actions.ts",
+        "bytes": 300,
+        "duration": 3
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/drive-preparation.ts",
+        "bytes": 300,
+        "duration": 3.599999997764826
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/.vite/deps/three.js?v=141dec10",
+        "bytes": 0,
+        "duration": 0
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/.vite/deps/three_addons_loaders_GLTFLoader__js.js?v=141dec10",
+        "bytes": 0,
+        "duration": 0
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/.vite/deps/three_addons_controls_OrbitControls__js.js?v=141dec10",
+        "bytes": 0,
+        "duration": 0
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/signature-art.ts?t=1789597293346",
+        "bytes": 300,
+        "duration": 4
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/product.ts",
+        "bytes": 300,
+        "duration": 4.200000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/suspension.ts",
+        "bytes": 300,
+        "duration": 4.300000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/hero.ts",
+        "bytes": 300,
+        "duration": 4.300000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/inspection.ts",
+        "bytes": 300,
+        "duration": 4.5
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/prepare.ts",
+        "bytes": 300,
+        "duration": 4.900000002235174
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/simulation/index.ts",
+        "bytes": 300,
+        "duration": 5.300000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/game-audio.ts",
+        "bytes": 300,
+        "duration": 5.600000001490116
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/driving/input.ts",
+        "bytes": 300,
+        "duration": 6.199999999254942
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/config.ts",
+        "bytes": 300,
+        "duration": 53.899999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/catalog.ts",
+        "bytes": 300,
+        "duration": 54.30000000074506
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/route-data.ts",
+        "bytes": 300,
+        "duration": 55.100000001490116
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/ui.ts?t=1789597546414",
+        "bytes": 300,
+        "duration": 56.600000001490116
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/departure.ts",
+        "bytes": 300,
+        "duration": 56.399999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=141dec10",
+        "bytes": 5965935,
+        "duration": 78.39999999850988
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/.vite/deps/three_addons_utils_BufferGeometryUtils__js.js?v=141dec10",
+        "bytes": 111812,
+        "duration": 53.900000002235174
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/.vite/deps/three_addons_utils_SkeletonUtils__js.js?v=141dec10",
+        "bytes": 33773,
+        "duration": 54
+      },
+      {
+        "name": "http://127.0.0.1:5206/public/assets/slingshot-contact-layout.json?import",
+        "bytes": 5951,
+        "duration": 52.80000000074506
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/ridge/assets.ts",
+        "bytes": 1915,
+        "duration": 52.19999999925494
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/vehicle-asset.ts",
+        "bytes": 1363,
+        "duration": 52.30000000074506
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/signature-palette.ts",
+        "bytes": 1210,
+        "duration": 50.600000001490116
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/career/catalog.ts",
+        "bytes": 3776,
+        "duration": 53
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/.vite/deps/three_addons_lights_RectAreaLightUniformsLib__js.js?v=141dec10",
+        "bytes": 1023796,
+        "duration": 57
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/driver.ts",
+        "bytes": 23536,
+        "duration": 53.899999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/rear.ts",
+        "bytes": 20850,
+        "duration": 54.100000001490116
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/statistics.ts",
+        "bytes": 6888,
+        "duration": 54.600000001490116
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/presentation/shadows.ts",
+        "bytes": 3692,
+        "duration": 54.400000002235174
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/simulation/profile.ts",
+        "bytes": 9674,
+        "duration": 55.79999999701977
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/career/suspension.ts",
+        "bytes": 6951,
+        "duration": 55.80000000074506
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/course/environment.ts",
+        "bytes": 14410,
+        "duration": 78
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/simulation/drivetrain.ts",
+        "bytes": 10343,
+        "duration": 78.30000000074506
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/simulation/pad.ts",
+        "bytes": 5639,
+        "duration": 79.40000000223517
+      },
+      {
+        "name": "http://127.0.0.1:5206/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=141dec10",
+        "bytes": 6917730,
+        "duration": 98.5
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/opponents.ts",
+        "bytes": 9154,
+        "duration": 79.5
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/evidence.ts",
+        "bytes": 14993,
+        "duration": 79.69999999925494
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/bay-door.ts",
+        "bytes": 9523,
+        "duration": 79.89999999850988
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/save.ts",
+        "bytes": 12155,
+        "duration": 82.30000000074506
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/thermal-departure.ts",
+        "bytes": 8704,
+        "duration": 82.10000000149012
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/interface.ts",
+        "bytes": 13328,
+        "duration": 81.60000000149012
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/mapper-legacy.ts",
+        "bytes": 8528,
+        "duration": 83.19999999925494
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/mapper.ts",
+        "bytes": 9608,
+        "duration": 82.69999999925494
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/audio/graph.ts",
+        "bytes": 13247,
+        "duration": 83.39999999850988
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/express/route.ts",
+        "bytes": 10680,
+        "duration": 24.399999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/departure.css",
+        "bytes": 1832,
+        "duration": 24
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/departure-motion.ts",
+        "bytes": 2739,
+        "duration": 24.400000002235174
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/ui.css?t=1789597467248",
+        "bytes": 20780,
+        "duration": 25.099999997764826
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/signature/tokens.css?t=1789597287401",
+        "bytes": 4819,
+        "duration": 24.899999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/src/career/menu.ts",
+        "bytes": 11433,
+        "duration": 25.399999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/drivers/test-driver.glb",
+        "bytes": 3717376,
+        "duration": 20.400000002235174
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/hoop-refinement/slingshot-hoops-refined.glb",
+        "bytes": 13432692,
+        "duration": 71.40000000223517
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/vehicles/slingshot-p04a1-rear-rig.json",
+        "bytes": 3310,
+        "duration": 3.300000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/drivers/test-driver-attachment.json",
+        "bytes": 11686,
+        "duration": 3.800000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+        "bytes": 4517236,
+        "duration": 35.600000001490116
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/brand/slingmods-logo-main.png",
+        "bytes": 24500,
+        "duration": 3.800000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/p10b/tour-wall-details.glb",
+        "bytes": 1177676,
+        "duration": 7.800000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/p10b/tour-wall-plate.png",
+        "bytes": 2747430,
+        "duration": 12.900000002235174
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/products/tricled-sm133-base.attachment.json",
+        "bytes": 16505,
+        "duration": 3.300000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/products/tricled-sm133-base.glb",
+        "bytes": 90292,
+        "duration": 3.399999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/products/ddmworks-sm3223-silver.glb",
+        "bytes": 250664,
+        "duration": 4
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/p08b/signature-products.glb",
+        "bytes": 340264,
+        "duration": 4.5
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/harbor/route.json",
+        "bytes": 232399,
+        "duration": 3.300000000745058
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/ridge/preview.json",
+        "bytes": 8464,
+        "duration": 1.4000000022351742
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/fonts/BarlowCondensed-ExtraBold.woff2",
+        "bytes": 39756,
+        "duration": 3913.300000000745
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/fonts/BarlowCondensed-Bold.woff2",
+        "bytes": 39732,
+        "duration": 3913.39999999851
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/fonts/BarlowCondensed-Bold.woff2",
+        "bytes": 300,
+        "duration": 1.5
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/p08b/thumbnails/SM-133.png",
+        "bytes": 4223,
+        "duration": 2.399999998509884
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/p10b/previews/express-day.jpg",
+        "bytes": 204573,
+        "duration": 2
+      },
+      {
+        "name": "http://127.0.0.1:5206/assets/p10b/previews/ridge-day.jpg",
+        "bytes": 227147,
+        "duration": 1.699999999254942
+      }
+    ],
+    "intervals": [
+      1.8999999999996362,
+      16.700000000000728,
+      16.699999999999818,
+      16.599999999999454,
+      16.700000000000728,
+      16.599999999999454,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.800000000000182,
+      16.599999999999454,
+      16.699999999999818,
+      16.700000000000728,
+      16.599999999999454,
+      16.699999999999818,
+      16.700000000000728,
+      16.599999999999454,
+      16.699999999999818,
+      16.600000000000364,
+      16.800000000000182,
+      16.599999999999454,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.699999999999818,
+      49.900000000000546,
+      16.699999999999818,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.800000000000182,
+      16.599999999999454,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.800000000000182,
+      16.5,
+      16.799999999999272,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.799999999999272,
+      33.20000000000073,
+      16.699999999999818,
+      16.699999999999818,
+      16.699999999999818,
+      33.30000000000018,
+      16.699999999999818,
+      16.600000000000364,
+      16.599999999999454,
+      16.800000000000182,
+      16.699999999999818,
+      16.600000000000364,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.599999999999454,
+      16.800000000000182,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.600000000000364,
+      16.699999999999818,
+      16.699999999999818,
+      16.600000000000364
+    ]
+  }
+}

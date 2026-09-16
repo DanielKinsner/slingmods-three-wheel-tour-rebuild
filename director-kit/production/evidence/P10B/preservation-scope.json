@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "baseline": "3585a411bca855c415b6016454ecb38b776beedc",
+  "candidate": "33cc47675883b98e786d7d9ab3f574d4b76540f3",
+  "protectedPaths": [
+    "src/simulation",
+    "src/competition",
+    "src/driving",
+    "src/course",
+    "src/express",
+    "src/ridge",
+    "src/audio",
+    "src/save.ts",
+    "src/career-experience",
+    "src/career",
+    "src/signature/config.ts",
+    "src/signature/catalog.ts",
+    "src/signature/departure.ts",
+    "src/signature/departure-motion.ts",
+    "src/presentation/hero.ts",
+    "src/presentation/rear.ts",
+    "src/presentation/driver.ts"
+  ],
+  "changes": [
+    "src/career-experience/hub.css",
+    "src/career/build.css",
+    "src/career/chapter.css"
+  ],
+  "method": "Git diff of protected gameplay, vehicle presenter, audio, recipes, departure and career paths. Only presentation CSS changes in these directories."
+}

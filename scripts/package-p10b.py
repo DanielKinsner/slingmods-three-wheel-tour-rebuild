@@ -4,7 +4,7 @@ import json,hashlib,subprocess,zipfile,tarfile,io,gzip
 ROOT=Path(__file__).resolve().parents[1]
 E=ROOT/'director-kit/production/evidence/P10B'
 receipt=json.loads((ROOT/'handoff/P10B-VALIDATION.json').read_text(encoding='utf-8'))
-assert receipt['functionalPass'] and receipt['remoteRecovery']['pass'] and receipt['hosted']['pass']
+assert receipt['functionalPass'] and receipt['native']['pass'] and receipt['film']['pass'] and receipt['remoteRecovery']['pass'] and receipt['hosted']['pass']
 head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
 branch=subprocess.check_output(['git','branch','--show-current'],cwd=ROOT,text=True).strip()
 assert branch=='main'
