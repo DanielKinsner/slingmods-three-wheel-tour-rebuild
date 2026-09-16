@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-15",
+  "generationCalls": 0,
+  "requestedGenerationSeconds": 0,
+  "spending": 0,
+  "accountChanges": false,
+  "sourceUpload": false,
+  "decision": "No metered requests: no ElevenLabs credential in Process/User/Machine namedvariables, repository/home env configuration or identified local provider configuration. Prior generator explicitly process-env-only. Current API/legacy pricing differ and no account-specific prepaid remaining allowance/cost cap can be verified without usable credential. Completed local authorship and retained owner audio instead.",
+  "sources": [
+    "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert",
+    "https://help.elevenlabs.io/hc/en-us/articles/25735337678481-How-much-does-it-cost-to-generate-sound-effects",
+    "https://elevenlabs.io/pricing/api"
+  ],
+  "documentedEndpoint": "POST /v1/sound-generation",
+  "documentedModel": "eleven_text_to_sound_v2",
+  "ceiling": {
+    "callsIncludingRetries": 24,
+    "seconds": 60,
+    "concurrency": 1,
+    "financial": "verified existing/prepaid only"
+  },
+  "secretValuesLogged": false
+}

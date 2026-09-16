@@ -1,10 +1,12 @@
-# P09B — Signature Finish (active)
+# Current assignment state — main / P09B complete
 
-Continue `feature/p09b-signature-finish` in the existing private DanielKinsner/slingmods-three-wheel-tour-rebuild repository. The owner adopted `director-kit/director-addenda/review-17/CODEX_NEXT.md` and its linked packets. This supersedes historical freezes only for UI, action audio, physical display, Thermal departure and a bounded running-engine improvement. Preserve P09A gameplay, career schema4 and the latest front/hoop assets. One integrator and two bounded workers; isolated browser and background Blender only. No merge, publication, spending, account changes or desktop takeover. Audio generation: no verified prepaid cap/key was available, so zero API calls; local authoring and supplied owner recording only. G3/G4, fidelity, physical devices and human listening/release approval remain held.
+The owner explicitly authorized merging and continuing directly on main. Merge/push completed at ea58b4f9c1df98ab16629bce24721596b6a43e32. Work directly on main for subsequent owner instructions; do not resume an older feature branch. The prior no-main restrictions below are historical and superseded. No public deployment, spending, account changes or desktop takeover.
 
-Read `handoff/P09B-SIGNATURE-FINISH.md` and the final P09B validation receipt for commands and exact tested identities. Historical sections below are retained as evidence, not current restrictions.
+P09B Signature Finish is implemented, internally repaired and validated. Read HANDOFF.md, handoff/P09B-SIGNATURE-FINISH.md, handoff/P09B-VALIDATION.json and handoff/P09B-PACKET.json for tested runtime, remote recovery, final media, exact packaging identity and limitations. Retain existing gameplay, schema4 saves, all products, owner front/hoop/showroom art and historical evidence. G3/G4, final OEM fidelity, physical hardware and human listening/release approval remain open. Next action is Astra review of Review18; do not invent a new assignment. Continue authorized future work on main.
 
 ---
+
+# Historical owner assignments
 
 # Current owner refinement - roll hoops and Review17 update
 

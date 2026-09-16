@@ -16,16 +16,17 @@ for tree in ['src','tests']:
     for p in (ROOT/tree).rglob('*'):
         if p.is_file(): add(p)
 for p in (ROOT/'scripts').iterdir():
-    if p.is_file() and ('p09' in p.name.lower() or p.name in ['build-demo.mjs','serve-demo.mjs','static-demo.mjs','p08b-driving-evidence-agent.ts']): add(p)
+    if p.is_file() and ('p09' in p.name.lower() or p.name in ['build-demo.mjs','serve-demo.mjs','static-demo.mjs','p08b-driving-evidence-agent.ts','audio-authoring-requirements.txt']): add(p)
 for name in ['AGENTS.md','HANDOFF.md','README.md','package.json','package-lock.json','demo-assets.json','tsconfig.json','vite.config.ts','index.html']:
     add(ROOT/name)
 for p in (ROOT/'handoff').glob('P09B*'):
     if p.is_file() and p.name != 'P09B-PACKET.json': add(p)
-for name in ['REVIEW18-SUMMARY.md','P09B-AUDIT.md','PERFORMANCE.md','UI-REVIEW.md']:
+for name in ['REVIEW18-SUMMARY.md','P09B-AUDIT.md','PERFORMANCE.md','DIAGNOSTIC.md','UI-REVIEW.md']:
     add(E/name, 'review/'+name)
-for p in (ROOT/'public/assets/audio').rglob('provenance.json'):
+for p in (ROOT/'public/assets/audio').rglob('*.json'):
     if 'p09b' in p.as_posix(): add(p)
-add(E/'film-02/P09B-Signature-Finish.mp4','media/P09B-Signature-Finish.mp4')
+add(E/'film-03/P09B-Signature-Finish.mp4','media/P09B-Signature-Finish.mp4')
+add(E/'film-03/FILM-REVIEW.md','review/FILM-REVIEW.md')
 for name in ['Engine-AB-level-matched.wav','LISTEN.html','level-matching.json','inputs.json']:
     add(E/'audio/engine-ab-03'/name,'media/engine-ab/'+name)
 add(E/'audio/AUDIO-REVIEW.md','review/AUDIO-REVIEW.md')
@@ -37,11 +38,11 @@ screens = [
  ('integration-final-03/01-display-on.png','05-display-on.png'),
  ('integration-final-03/02-display-off.png','06-display-off.png'),
  ('integration-final-03/06-cockpit-actual-motion.png','07-cockpit-telemetry.png'),
- ('film-02/05-thermal-departure.png','08-thermal-departure.png'),
- ('film-02/08-pause-settings.png','09-pause-settings.png'),
- ('film-02/10-race.png','10-race.png'),
- ('film-02/11-earned-result.png','11-earned-result.png'),
- ('film-02/13-purchased-installed.png','12-earned-workshop.png')]
+ ('film-03/05-thermal-departure.png','08-thermal-departure.png'),
+ ('film-03/08-pause-settings.png','09-pause-settings.png'),
+ ('film-03/10-race.png','10-race.png'),
+ ('film-03/11-earned-result.png','11-earned-result.png'),
+ ('film-03/12-earned-part.png','12-earned-workshop.png')]
 for source,name in screens: add(E/source,'screens/'+name)
 buf = io.BytesIO()
 with tarfile.open(fileobj=buf,mode='w:xz',preset=6) as tar:

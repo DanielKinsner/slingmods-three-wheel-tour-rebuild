@@ -1,0 +1,25 @@
+{
+  "pass": true,
+  "sourceCommit": "ea58b4f9c1df98ab16629bce24721596b6a43e32",
+  "remote": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+  "branch": "main",
+  "method": "Fresh depth1 clone FROM remote; no original-checkout assets copied. Same host, independent npm install/build and isolated Chromium. Not destination hardware proof.",
+  "commands": [
+    "git clone --depth 1 --single-branch --branch main <verified remote> .handoff-validation-p09b-main",
+    "npm ci",
+    "npm test",
+    "npm run build",
+    "npm run demo:build",
+    "PORT=5204 npm run demo:preview",
+    "BASE_URL=http://127.0.0.1:5204 node scripts/p09b-integration.mjs"
+  ],
+  "node": "24.15.0",
+  "npm": "11.6.2",
+  "tests": {
+    "pass": 226,
+    "fail": 0
+  },
+  "requiredAssetHashes": 128,
+  "browserIntegration": "integration/verification.json",
+  "serverStopped": true
+}

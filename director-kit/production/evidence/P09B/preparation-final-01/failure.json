@@ -1,0 +1,4374 @@
+{
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#enable-sound')\u001b[22m\n\u001b[2m    - locator resolved to <button hidden=\"\" id=\"enable-sound\">Enable sound</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\p09b-preparation-validation.mjs:10:290",
+  "rows": [
+    {
+      "case": "cancel",
+      "state": {
+        "route": "express",
+        "started": 13568.699999988079,
+        "ended": 13768.5,
+        "ms": 199.80000001192093,
+        "resources": [
+          {
+            "url": "/assets/drivers/test-driver-attachment.json",
+            "ms": 40.79999999701977,
+            "bytes": 11386
+          },
+          {
+            "url": "/assets/vehicles/slingshot-p04a1-rear-rig.json",
+            "ms": 41.400000005960464,
+            "bytes": 3010
+          }
+        ],
+        "retries": 0,
+        "cancelled": true
+      }
+    },
+    {
+      "case": "retry-and-skip",
+      "before": {
+        "route": "express",
+        "started": 16628.69999998808,
+        "ended": 17846.29999999702,
+        "ms": 1217.6000000089407,
+        "resources": [
+          {
+            "url": "/assets/vehicles/slingshot-p04a1-rear-rig.json",
+            "ms": 13.5,
+            "bytes": 3010
+          },
+          {
+            "url": "/assets/drivers/test-driver-attachment.json",
+            "ms": 14.200000002980232,
+            "bytes": 11386
+          },
+          {
+            "url": "/assets/drivers/test-driver.glb",
+            "ms": 92.79999999701977,
+            "bytes": 3717076
+          },
+          {
+            "url": "/assets/brand/slingmods-sign.glb",
+            "ms": 96.20000000298023,
+            "bytes": 26016
+          },
+          {
+            "url": "/assets/showcase-quality/sky/day-puresky-2k.hdr",
+            "ms": 176.20000000298023,
+            "bytes": 5451493
+          },
+          {
+            "url": "/assets/hoop-refinement/slingshot-hoops-refined.glb",
+            "ms": 289.20000000298023,
+            "bytes": 13432392
+          },
+          {
+            "url": "/assets/products/tricled-sm133-base.attachment.json",
+            "ms": 129.79999999701977,
+            "bytes": 16205
+          },
+          {
+            "url": "/assets/products/tricled-sm133-base.glb",
+            "ms": 131.79999999701977,
+            "bytes": 89992
+          },
+          {
+            "url": "/assets/products/ddmworks-sm3223-silver.glb",
+            "ms": 42.5,
+            "bytes": 250364
+          },
+          {
+            "url": "/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+            "ms": 73.79999999701977,
+            "bytes": 145910
+          },
+          {
+            "url": "/assets/p08b/signature-products.glb",
+            "ms": 95.29999999701977,
+            "bytes": 339964
+          },
+          {
+            "url": "/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+            "ms": 100.59999999403954,
+            "bytes": 176487
+          },
+          {
+            "url": "/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+            "ms": 56.900000005960464,
+            "bytes": 70923
+          },
+          {
+            "url": "/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+            "ms": 46.29999999701977,
+            "bytes": 462598
+          },
+          {
+            "url": "/assets/showcase-quality/kit.glb",
+            "ms": 488.40000000596046,
+            "bytes": 28974372
+          }
+        ],
+        "retries": 1,
+        "cancelled": false
+      },
+      "state": {
+        "display": {
+          "power": true,
+          "values": {
+            "speed": 0,
+            "units": "mph",
+            "rpm": 900,
+            "gear": "1"
+          },
+          "pixels": [
+            512,
+            336
+          ],
+          "uploads": 2,
+          "thumbnailCaptures": 1,
+          "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"blue-orange\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+          "mount": {
+            "width": 0.202,
+            "height": 0.133,
+            "position": [
+              0,
+              0.665,
+              -0.1735
+            ],
+            "pixels": [
+              512,
+              336
+            ]
+          },
+          "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+        },
+        "recovery": {
+          "available": false,
+          "reason": "",
+          "heldSeconds": 0,
+          "recoveries": 0,
+          "policy": "Unscored road respawn"
+        },
+        "entry": {
+          "started": 232.59999999403954,
+          "firstControllable": 7754.5,
+          "firstDrivingTick": null,
+          "readyBoundary": "First rendered ready menu and enabled start controls; firstDrivingTick is separate after user start/countdown",
+          "totalMs": 7521.9000000059605,
+          "stages": [
+            {
+              "name": "sky-fetch-decode-probe",
+              "start": 305.59999999403954,
+              "end": 1924.5999999940395,
+              "ms": 1619
+            },
+            {
+              "name": "gltf-decode-construct:/assets/drivers/",
+              "start": 1990.5,
+              "end": 2136.199999988079,
+              "ms": 145.69999998807907
+            },
+            {
+              "name": "gltf-decode-construct:/assets/hoop-refinement/",
+              "start": 2216.2999999970198,
+              "end": 2490.3999999910593,
+              "ms": 274.09999999403954
+            },
+            {
+              "name": "vehicle-fetch-decode-bind",
+              "start": 1924.699999988079,
+              "end": 2496.0999999940395,
+              "ms": 571.4000000059605
+            },
+            {
+              "name": "express-fetch-decode-build",
+              "start": 2496.199999988079,
+              "end": 3395.5999999940395,
+              "ms": 899.4000000059605
+            },
+            {
+              "name": "finish-fetch-decode",
+              "start": 3396.5,
+              "end": 3396.5999999940395,
+              "ms": 0.09999999403953552
+            },
+            {
+              "name": "gltf-decode-construct:/assets/products/",
+              "start": 3411.199999988079,
+              "end": 3413.3999999910593,
+              "ms": 2.2000000029802322
+            },
+            {
+              "name": "gltf-decode-construct:/assets/p08b/",
+              "start": 3416.2999999970198,
+              "end": 3419.3999999910593,
+              "ms": 3.0999999940395355
+            },
+            {
+              "name": "gltf-decode-construct:/assets/products/",
+              "start": 3419.699999988079,
+              "end": 3432.699999988079,
+              "ms": 13
+            },
+            {
+              "name": "products-fetch-decode-bind",
+              "start": 3396.699999988079,
+              "end": 3433.8999999910593,
+              "ms": 37.20000000298023
+            },
+            {
+              "name": "initial-present",
+              "start": 4979.5,
+              "end": 4982.699999988079,
+              "ms": 3.199999988079071
+            },
+            {
+              "name": "graphics-preparation",
+              "start": 4982.699999988079,
+              "end": 7725.29999999702,
+              "ms": 2742.6000000089407
+            }
+          ],
+          "raf": [
+            {
+              "at": 224.3,
+              "interval": 0
+            },
+            {
+              "at": 307.6,
+              "interval": 83.30000000000001
+            },
+            {
+              "at": 324.2,
+              "interval": 16.599999999999966
+            },
+            {
+              "at": 340.9,
+              "interval": 16.69999999999999
+            },
+            {
+              "at": 357.6,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 374.2,
+              "interval": 16.599999999999966
+            },
+            {
+              "at": 390.9,
+              "interval": 16.69999999999999
+            },
+            {
+              "at": 1924.2,
+              "interval": 1533.3000000000002
+            },
+            {
+              "at": 1940.9,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1957.5,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 1974.2,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1990.8,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2007.5,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 2040.8,
+              "interval": 33.299999999999955
+            },
+            {
+              "at": 2057.5,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 2074.2,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2090.8,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 2207.5,
+              "interval": 116.69999999999982
+            },
+            {
+              "at": 2274.1,
+              "interval": 66.59999999999991
+            },
+            {
+              "at": 2324.2,
+              "interval": 50.09999999999991
+            },
+            {
+              "at": 2340.8,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 2357.5,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2374.2,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2390.8,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 2407.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2440.8,
+              "interval": 33.40000000000009
+            },
+            {
+              "at": 2490.8,
+              "interval": 50
+            },
+            {
+              "at": 2507.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2524.2,
+              "interval": 16.799999999999727
+            },
+            {
+              "at": 2540.8,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 2557.5,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2574.2,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2590.8,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 2607.5,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2624.1,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2640.8,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 2657.5,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2674.2,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2690.8,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 2707.5,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2740.8,
+              "interval": 33.30000000000018
+            },
+            {
+              "at": 2790.7,
+              "interval": 49.899999999999636
+            },
+            {
+              "at": 2807.5,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 2824.2,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2857.4,
+              "interval": 33.20000000000027
+            },
+            {
+              "at": 3007.5,
+              "interval": 150.0999999999999
+            },
+            {
+              "at": 3024.2,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3040.8,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3057.5,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3074.1,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3090.8,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3107.5,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3124.2,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3140.8,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3157.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3174.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3224.1,
+              "interval": 50
+            },
+            {
+              "at": 3257.4,
+              "interval": 33.30000000000018
+            },
+            {
+              "at": 3307.5,
+              "interval": 50.09999999999991
+            },
+            {
+              "at": 3324.1,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3340.8,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3357.5,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3390.7,
+              "interval": 33.19999999999982
+            },
+            {
+              "at": 3407.5,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 3424.1,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3440.8,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3457.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 4990.7,
+              "interval": 1533.2999999999997
+            },
+            {
+              "at": 5007.4,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5174,
+              "interval": 166.60000000000036
+            },
+            {
+              "at": 5224,
+              "interval": 50
+            },
+            {
+              "at": 5357.3,
+              "interval": 133.30000000000018
+            },
+            {
+              "at": 5374,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5390.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5407.4,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5424,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5590.7,
+              "interval": 166.69999999999982
+            },
+            {
+              "at": 5607.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5624,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5640.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5657.4,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5674,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5690.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5707.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5724,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5740.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5757.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5774,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5790.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5807.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5824,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5840.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5857.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5874,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5890.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5907.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5924,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5940.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5957.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 5974,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 5990.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6007.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6024,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6040.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6057.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6074,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6090.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6107.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6124,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6140.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6157.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6174,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6190.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6207.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6224,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6240.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6257.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6274,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6290.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6307.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6324,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6340.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6357.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6373.9,
+              "interval": 16.599999999999454
+            },
+            {
+              "at": 6390.6,
+              "interval": 16.700000000000728
+            },
+            {
+              "at": 6407.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6424,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6440.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6457.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6474,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6490.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6507.4,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6524,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6540.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6557.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6574,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6590.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6607.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6624,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6640.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6657.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6673.9,
+              "interval": 16.599999999999454
+            },
+            {
+              "at": 6690.7,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 6707.4,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6723.9,
+              "interval": 16.5
+            },
+            {
+              "at": 6740.7,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 6757.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6773.9,
+              "interval": 16.599999999999454
+            },
+            {
+              "at": 6790.6,
+              "interval": 16.700000000000728
+            },
+            {
+              "at": 6807.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6823.9,
+              "interval": 16.599999999999454
+            },
+            {
+              "at": 6840.7,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 6857.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6874,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6890.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 6907.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6923.9,
+              "interval": 16.599999999999454
+            },
+            {
+              "at": 6940.7,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 6957.2,
+              "interval": 16.5
+            },
+            {
+              "at": 6973.9,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 6990.7,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 7007.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 7024,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7040.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7057.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 7073.9,
+              "interval": 16.599999999999454
+            },
+            {
+              "at": 7090.7,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 7107.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 7124,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7140.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7157.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 7174,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7190.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 7207.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7223.9,
+              "interval": 16.599999999999454
+            },
+            {
+              "at": 7240.6,
+              "interval": 16.700000000000728
+            },
+            {
+              "at": 7257.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7273.9,
+              "interval": 16.599999999999454
+            },
+            {
+              "at": 7290.6,
+              "interval": 16.700000000000728
+            },
+            {
+              "at": 7307.3,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7324,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 7340.6,
+              "interval": 16.600000000000364
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:5202/assets/index-nfNfYv15.js",
+              "start": 80.3999999910593,
+              "duration": 1.4000000059604645,
+              "fetchMs": 1.4000000059604645,
+              "transferSize": 0,
+              "encodedBodySize": 5198,
+              "decodedBodySize": 5198
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/profile-CBf642VZ.js",
+              "start": 80.5,
+              "duration": 2.199999988079071,
+              "fetchMs": 2.199999988079071,
+              "transferSize": 0,
+              "encodedBodySize": 1496,
+              "decodedBodySize": 1496
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/recovery-C2xUO17e.js",
+              "start": 80.59999999403954,
+              "duration": 2.2000000029802322,
+              "fetchMs": 2.2000000029802322,
+              "transferSize": 0,
+              "encodedBodySize": 1992,
+              "decodedBodySize": 1992
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/recovery-DhQDAYv2.css",
+              "start": 80.69999998807907,
+              "duration": 1.9000000059604645,
+              "fetchMs": 1.9000000059604645,
+              "transferSize": 0,
+              "encodedBodySize": 10968,
+              "decodedBodySize": 10968
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/express-DvrjuzZO.js",
+              "start": 108.3999999910593,
+              "duration": 21.799999997019768,
+              "fetchMs": 21.799999997019768,
+              "transferSize": 20202,
+              "encodedBodySize": 19902,
+              "decodedBodySize": 19902
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/GLTFLoader-Pl2xBtgQ.js",
+              "start": 108.79999999701977,
+              "duration": 26.899999991059303,
+              "fetchMs": 26.899999991059303,
+              "transferSize": 0,
+              "encodedBodySize": 636912,
+              "decodedBodySize": 636912
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/save-CuKBzi9g.js",
+              "start": 109,
+              "duration": 5.199999988079071,
+              "fetchMs": 5.199999988079071,
+              "transferSize": 0,
+              "encodedBodySize": 2269,
+              "decodedBodySize": 2269
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/menu-k5h2Zl6e.js",
+              "start": 109,
+              "duration": 12.599999994039536,
+              "fetchMs": 12.599999994039536,
+              "transferSize": 0,
+              "encodedBodySize": 39227,
+              "decodedBodySize": 39227
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/route-xmTalqF3.js",
+              "start": 109.09999999403954,
+              "duration": 19.299999997019768,
+              "fetchMs": 19.299999997019768,
+              "transferSize": 0,
+              "encodedBodySize": 1875,
+              "decodedBodySize": 1875
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/race-adapter-DzPIbCgh.js",
+              "start": 109.19999998807907,
+              "duration": 20.200000002980232,
+              "fetchMs": 20.200000002980232,
+              "transferSize": 1735,
+              "encodedBodySize": 1435,
+              "decodedBodySize": 1435
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/client-CG1vqcO7.js",
+              "start": 109.19999998807907,
+              "duration": 23.700000002980232,
+              "fetchMs": 23.700000002980232,
+              "transferSize": 29165,
+              "encodedBodySize": 28865,
+              "decodedBodySize": 28865
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/harbor-lighting-Cte8D4KC.js",
+              "start": 109.29999999701977,
+              "duration": 24.200000002980232,
+              "fetchMs": 24.200000002980232,
+              "transferSize": 25908,
+              "encodedBodySize": 25608,
+              "decodedBodySize": 25608
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/shadows-BW0ZefCP.js",
+              "start": 109.3999999910593,
+              "duration": 46.400000005960464,
+              "fetchMs": 46.400000005960464,
+              "transferSize": 0,
+              "encodedBodySize": 3141021,
+              "decodedBodySize": 3141021
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/hero-3aZZZqP4.js",
+              "start": 109.5,
+              "duration": 23,
+              "fetchMs": 23,
+              "transferSize": 0,
+              "encodedBodySize": 8425,
+              "decodedBodySize": 8425
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/driving-camera-CL33NSrd.js",
+              "start": 109.5,
+              "duration": 30.599999994039536,
+              "fetchMs": 30.599999994039536,
+              "transferSize": 19442,
+              "encodedBodySize": 19142,
+              "decodedBodySize": 19142
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/driving-camera-BFXSfTFY.css",
+              "start": 109.59999999403954,
+              "duration": 32.29999999701977,
+              "fetchMs": 32.29999999701977,
+              "transferSize": 18290,
+              "encodedBodySize": 17990,
+              "decodedBodySize": 17990
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/competition-C0TdVPLF.js",
+              "start": 109.69999998807907,
+              "duration": 32.5,
+              "fetchMs": 32.5,
+              "transferSize": 25225,
+              "encodedBodySize": 24925,
+              "decodedBodySize": 24925
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/competition-D7Sydgo8.css",
+              "start": 109.79999999701977,
+              "duration": 29.899999991059303,
+              "fetchMs": 29.899999991059303,
+              "transferSize": 7082,
+              "encodedBodySize": 6782,
+              "decodedBodySize": 6782
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/signature-art-DXrKpugu.js",
+              "start": 110,
+              "duration": 23.19999998807907,
+              "fetchMs": 23.19999998807907,
+              "transferSize": 0,
+              "encodedBodySize": 5009,
+              "decodedBodySize": 5009
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/style-S_mbsQK_.css",
+              "start": 110.09999999403954,
+              "duration": 30.900000005960464,
+              "fetchMs": 30.900000005960464,
+              "transferSize": 1163,
+              "encodedBodySize": 863,
+              "decodedBodySize": 863
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/brand/slingmods-logo-main.png",
+              "start": 237.5,
+              "duration": 9.299999997019768,
+              "fetchMs": 9.299999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 0,
+              "decodedBodySize": 0
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/sky/day-puresky-2k.hdr",
+              "start": 308.3999999910593,
+              "duration": 61.20000000298023,
+              "fetchMs": 61.20000000298023,
+              "transferSize": 300,
+              "encodedBodySize": 5451493,
+              "decodedBodySize": 5451493
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/hoop-refinement/slingshot-hoops-refined.glb",
+              "start": 1926.199999988079,
+              "duration": 225.70000000298023,
+              "fetchMs": 225.70000000298023,
+              "transferSize": 13432692,
+              "encodedBodySize": 13432392,
+              "decodedBodySize": 13432392
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/drivers/test-driver.glb",
+              "start": 1927,
+              "duration": 32.3999999910593,
+              "fetchMs": 32.3999999910593,
+              "transferSize": 300,
+              "encodedBodySize": 3717076,
+              "decodedBodySize": 3717076
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/drivers/test-driver-attachment.json",
+              "start": 1927.3999999910593,
+              "duration": 11,
+              "fetchMs": 11,
+              "transferSize": 300,
+              "encodedBodySize": 11386,
+              "decodedBodySize": 11386
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/vehicles/slingshot-p04a1-rear-rig.json",
+              "start": 1927.5,
+              "duration": 11.399999991059303,
+              "fetchMs": 11.399999991059303,
+              "transferSize": 300,
+              "encodedBodySize": 3010,
+              "decodedBodySize": 3010
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/kit.glb",
+              "start": 2499.699999988079,
+              "duration": 309.30000001192093,
+              "fetchMs": 309.30000001192093,
+              "transferSize": 28974672,
+              "encodedBodySize": 28974372,
+              "decodedBodySize": 28974372
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/brand/slingmods-sign.glb",
+              "start": 2500.3999999910593,
+              "duration": 9,
+              "fetchMs": 9,
+              "transferSize": 300,
+              "encodedBodySize": 26016,
+              "decodedBodySize": 26016
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+              "start": 2501.699999988079,
+              "duration": 10.5,
+              "fetchMs": 10.5,
+              "transferSize": 300,
+              "encodedBodySize": 145910,
+              "decodedBodySize": 145910
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+              "start": 2501.8999999910593,
+              "duration": 10.799999997019768,
+              "fetchMs": 10.799999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 176487,
+              "decodedBodySize": 176487
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+              "start": 2502,
+              "duration": 11.399999991059303,
+              "fetchMs": 11.399999991059303,
+              "transferSize": 300,
+              "encodedBodySize": 70923,
+              "decodedBodySize": 70923
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+              "start": 2502.0999999940395,
+              "duration": 12.5,
+              "fetchMs": 12.5,
+              "transferSize": 300,
+              "encodedBodySize": 462598,
+              "decodedBodySize": 462598
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/products/tricled-sm133-base.glb",
+              "start": 3397.5999999940395,
+              "duration": 8,
+              "fetchMs": 8,
+              "transferSize": 300,
+              "encodedBodySize": 89992,
+              "decodedBodySize": 89992
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/products/tricled-sm133-base.attachment.json",
+              "start": 3397.8999999910593,
+              "duration": 6.299999997019768,
+              "fetchMs": 6.299999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 16205,
+              "decodedBodySize": 16205
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/products/ddmworks-sm3223-silver.glb",
+              "start": 3398.0999999940395,
+              "duration": 8.299999997019768,
+              "fetchMs": 8.299999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 250364,
+              "decodedBodySize": 250364
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/p08b/signature-products.glb",
+              "start": 3398.3999999910593,
+              "duration": 8.100000008940697,
+              "fetchMs": 8.100000008940697,
+              "transferSize": 300,
+              "encodedBodySize": 339964,
+              "decodedBodySize": 339964
+            }
+          ],
+          "method": "Wall-clock stage boundaries and loading RAF intervals. Fetch timing includes cache behavior; load/decode phases overlap network as stated. Waiting is not CPU or GPU rendering cost."
+        },
+        "build": "bf1297c97703",
+        "handlingProfile": "slingmods-sport-v2",
+        "eventId": "harbor-express-test-v1",
+        "preview": true,
+        "career": null,
+        "free": true,
+        "recipe": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "blue-orange",
+          "products": {},
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 2,
+            "frontRebound": 6,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v2"
+        },
+        "race": {
+          "event": "harbor-express-test-v1",
+          "handlingProfileId": "slingmods-sport-v2",
+          "laps": 1,
+          "phase": "ready",
+          "paused": false,
+          "countdown": 0,
+          "elapsedMs": 0,
+          "attemptId": "",
+          "standings": [
+            {
+              "id": "player",
+              "place": 1,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": 0,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            }
+          ],
+          "playerResult": null,
+          "allFinished": false
+        },
+        "telemetry": {
+          "time": 0,
+          "position": {
+            "x": -0.16633720695972443,
+            "y": 0.025000014305114726,
+            "z": 5.99769401550293
+          },
+          "quaternion": {
+            "x": 0,
+            "y": -0.013862766325473785,
+            "z": 0,
+            "w": 0.9999039173126221
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "rpm": 950,
+          "engineWheelAngularSpeed": 0,
+          "gear": 1,
+          "shifting": false,
+          "shiftRemaining": 0,
+          "steer": 0,
+          "throttle": 0,
+          "brake": 0,
+          "reversePending": false,
+          "wheels": [
+            {
+              "id": "front_left",
+              "contact": false,
+              "load": 0,
+              "travel": 0,
+              "slipRatio": 0,
+              "slipAngle": 0,
+              "spin": 0,
+              "steer": 0,
+              "localCenter": {
+                "x": -0.8775,
+                "y": 0.32985,
+                "z": -1.3335
+              },
+              "surface": "air",
+              "angularSpeed": 0,
+              "longitudinalSpeed": 0,
+              "longitudinalForce": 0,
+              "lateralForce": 0,
+              "gripLimit": 0,
+              "driveTorque": 0
+            },
+            {
+              "id": "front_right",
+              "contact": false,
+              "load": 0,
+              "travel": 0,
+              "slipRatio": 0,
+              "slipAngle": 0,
+              "spin": 0,
+              "steer": 0,
+              "localCenter": {
+                "x": 0.8775,
+                "y": 0.32985,
+                "z": -1.3335
+              },
+              "surface": "air",
+              "angularSpeed": 0,
+              "longitudinalSpeed": 0,
+              "longitudinalForce": 0,
+              "lateralForce": 0,
+              "gripLimit": 0,
+              "driveTorque": 0
+            },
+            {
+              "id": "rear",
+              "contact": false,
+              "load": 0,
+              "travel": 0,
+              "slipRatio": 0,
+              "slipAngle": 0,
+              "spin": 0,
+              "steer": 0,
+              "localCenter": {
+                "x": 0,
+                "y": 0.3455,
+                "z": 1.3335
+              },
+              "surface": "air",
+              "angularSpeed": 0,
+              "longitudinalSpeed": 0,
+              "longitudinalForce": 0,
+              "lateralForce": 0,
+              "gripLimit": 0,
+              "driveTorque": 0
+            }
+          ]
+        },
+        "field": {
+          "player": {
+            "time": 0,
+            "position": {
+              "x": -0.16633720695972443,
+              "y": 0.025000014305114726,
+              "z": 5.99769401550293
+            },
+            "quaternion": {
+              "x": 0,
+              "y": -0.013862766325473785,
+              "z": 0,
+              "w": 0.9999039173126221
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "rpm": 950,
+            "engineWheelAngularSpeed": 0,
+            "gear": 1,
+            "shifting": false,
+            "shiftRemaining": 0,
+            "steer": 0,
+            "throttle": 0,
+            "brake": 0,
+            "reversePending": false,
+            "wheels": [
+              {
+                "id": "front_left",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": -0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "front_right",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "rear",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0,
+                  "y": 0.3455,
+                  "z": 1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              }
+            ]
+          }
+        },
+        "ticks": 0,
+        "attemptId": null,
+        "rewardPending": false,
+        "rewardText": "",
+        "careerTouched": false,
+        "route": {
+          "id": "harbor-express",
+          "version": "express-layout-v1",
+          "length": 2317.160796673365
+        },
+        "design": {
+          "id": "express-layout-v1",
+          "lengthMetres": 2317.160796673365,
+          "mainStraightMetres": 800,
+          "brakingZone": {
+            "startMetres": 600,
+            "endMetres": 800,
+            "lengthMetres": 200
+          },
+          "widthMetres": 15,
+          "runoffMetres": 3,
+          "groundBounds": {
+            "center": [
+              -80,
+              -0.15,
+              -400
+            ],
+            "size": [
+              1800,
+              0.3,
+              1600
+            ]
+          },
+          "description": "Eight-hundred-metre quay straight, terminal sweeper, warehouse return, loading-yard transition and marina bend. Braking boards at 200/150/100/50m before terminal curve.",
+          "source": "src/express/route.ts; cubic control points and measured polyline, not old Harbor geometry"
+        },
+        "suspension": {
+          "equipped": false,
+          "inspection": null,
+          "stockVisible": [
+            {
+              "name": "suspension_front_left",
+              "visible": true
+            },
+            {
+              "name": "suspension_front_right",
+              "visible": true
+            },
+            {
+              "name": "shock_body_visual",
+              "visible": true
+            },
+            {
+              "name": "shock_piston_visual",
+              "visible": true
+            },
+            {
+              "name": "shock_spring_visual",
+              "visible": true
+            }
+          ],
+          "endpoints": [],
+          "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+        },
+        "simulationSuspension": null,
+        "products": {
+          "selected": [],
+          "storageInspection": false,
+          "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+          "mounts": {
+            "exhaust": {
+              "position": [
+                2.7,
+                1.3,
+                3.9
+              ],
+              "target": [
+                0,
+                0.65,
+                1.3
+              ]
+            },
+            "wing": {
+              "position": [
+                2.8,
+                1.9,
+                3.3
+              ],
+              "target": [
+                0,
+                1.25,
+                1.2
+              ]
+            },
+            "storage": {
+              "position": [
+                -1.6,
+                2.1,
+                -0.3
+              ],
+              "target": [
+                -0.2,
+                0.48,
+                0.95
+              ]
+            }
+          },
+          "productRoot": "signature_catalog_products"
+        },
+        "audio": {
+          "enabled": false,
+          "loading": false,
+          "failure": "",
+          "soundTreatment": "p09b-authored-stock-mix",
+          "life": {
+            "enabled": false,
+            "paused": true,
+            "mute": false,
+            "volume": 0.55,
+            "cockpit": false,
+            "reset": false
+          },
+          "levels": {
+            "master": 0.55,
+            "interface": 1,
+            "engine": 1
+          },
+          "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+        },
+        "memory": {
+          "geometries": 173,
+          "textures": 60
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "size": [
+          1280,
+          720
+        ],
+        "dpr": 1,
+        "loadMs": 7521.600000008941,
+        "preparation": {
+          "ms": 2730.9000000059605,
+          "stages": [
+            {
+              "name": "init-textures",
+              "ms": 425.5
+            },
+            {
+              "name": "compile-async",
+              "ms": 1927.5
+            },
+            {
+              "name": "first-all-mesh-render",
+              "ms": 373.5
+            },
+            {
+              "name": "loading-gpu-sync",
+              "ms": 0
+            }
+          ],
+          "textures": 57,
+          "programs": 33,
+          "parallelCompile": true,
+          "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+        }
+      }
+    },
+    {
+      "case": "warm-quick-race",
+      "route": "express",
+      "garageCounts": {
+        "dom": {
+          "documents": 1,
+          "nodes": 199,
+          "jsEventListeners": 57
+        },
+        "audioContexts": [
+          {
+            "contextId": "7c7316dd-116b-45c9-97a9-bb84110a8ac1",
+            "contextType": "realtime",
+            "contextState": "running",
+            "callbackBufferSize": 480,
+            "maxOutputChannelCount": 2,
+            "sampleRate": 48000,
+            "renderQuantumSize": 128,
+            "reachable": true,
+            "realtime": {
+              "realtimeData": {
+                "currentTime": 0.432,
+                "renderCapacity": 0.07332770626714497,
+                "callbackIntervalMean": 0.009976662671676066,
+                "callbackIntervalVariance": 1.2587241200128467e-7
+              }
+            }
+          }
+        ],
+        "audioContextCount": 1
+      },
+      "raceCounts": {
+        "dom": {
+          "documents": 1,
+          "nodes": 200,
+          "jsEventListeners": 59
+        },
+        "audioContexts": [
+          {
+            "contextId": "7c7316dd-116b-45c9-97a9-bb84110a8ac1",
+            "contextType": "realtime",
+            "contextState": "running",
+            "callbackBufferSize": 480,
+            "maxOutputChannelCount": 2,
+            "sampleRate": 48000,
+            "renderQuantumSize": 128,
+            "reachable": false,
+            "reason": "cdpSession.send: Protocol error (WebAudio.getRealtimeData): Cannot find BaseAudioContext with such id."
+          },
+          {
+            "contextId": "e1c5d1c8-ee11-4165-a538-4fb8499d7b3b",
+            "contextType": "realtime",
+            "contextState": "running",
+            "callbackBufferSize": 480,
+            "maxOutputChannelCount": 2,
+            "sampleRate": 48000,
+            "renderQuantumSize": 128,
+            "reachable": true,
+            "realtime": {
+              "realtimeData": {
+                "currentTime": 2.32,
+                "renderCapacity": 0.16906135291033036,
+                "callbackIntervalMean": 0.009989326316427675,
+                "callbackIntervalVariance": 1.8639829320693632e-7
+              }
+            }
+          }
+        ],
+        "audioContextCount": 1
+      },
+      "clickToReadyMs": 5681,
+      "before": {
+        "route": "express",
+        "started": 2699.2999999970198,
+        "ended": 3240.3999999910593,
+        "ms": 541.0999999940395,
+        "resources": [
+          {
+            "url": "/assets/drivers/test-driver-attachment.json",
+            "ms": 22,
+            "bytes": 11386
+          },
+          {
+            "url": "/assets/vehicles/slingshot-p04a1-rear-rig.json",
+            "ms": 22.700000002980232,
+            "bytes": 3010
+          },
+          {
+            "url": "/assets/drivers/test-driver.glb",
+            "ms": 95.69999998807907,
+            "bytes": 3717076
+          },
+          {
+            "url": "/assets/showcase-quality/sky/day-puresky-2k.hdr",
+            "ms": 165.59999999403954,
+            "bytes": 5451493
+          },
+          {
+            "url": "/assets/brand/slingmods-sign.glb",
+            "ms": 103.6000000089407,
+            "bytes": 26016
+          },
+          {
+            "url": "/assets/products/tricled-sm133-base.glb",
+            "ms": 82.20000000298023,
+            "bytes": 89992
+          },
+          {
+            "url": "/assets/products/tricled-sm133-base.attachment.json",
+            "ms": 103.3999999910593,
+            "bytes": 16205
+          },
+          {
+            "url": "/assets/hoop-refinement/slingshot-hoops-refined.glb",
+            "ms": 386.5,
+            "bytes": 13432392
+          },
+          {
+            "url": "/assets/products/ddmworks-sm3223-silver.glb",
+            "ms": 132.70000000298023,
+            "bytes": 250364
+          },
+          {
+            "url": "/assets/p08b/signature-products.glb",
+            "ms": 120.09999999403954,
+            "bytes": 339964
+          },
+          {
+            "url": "/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+            "ms": 66.29999999701977,
+            "bytes": 145910
+          },
+          {
+            "url": "/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+            "ms": 57,
+            "bytes": 176487
+          },
+          {
+            "url": "/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+            "ms": 60.70000000298023,
+            "bytes": 70923
+          },
+          {
+            "url": "/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+            "ms": 73.3999999910593,
+            "bytes": 462598
+          },
+          {
+            "url": "/assets/showcase-quality/kit.glb",
+            "ms": 508.79999999701977,
+            "bytes": 28974372
+          }
+        ],
+        "retries": 0,
+        "cancelled": false
+      },
+      "state": {
+        "display": {
+          "power": true,
+          "values": {
+            "speed": 0,
+            "units": "mph",
+            "rpm": 900,
+            "gear": "1"
+          },
+          "pixels": [
+            512,
+            336
+          ],
+          "uploads": 2,
+          "thumbnailCaptures": 1,
+          "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"blue-orange\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+          "mount": {
+            "width": 0.202,
+            "height": 0.133,
+            "position": [
+              0,
+              0.665,
+              -0.1735
+            ],
+            "pixels": [
+              512,
+              336
+            ]
+          },
+          "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+        },
+        "recovery": {
+          "available": false,
+          "reason": "",
+          "heldSeconds": 0,
+          "recoveries": 0,
+          "policy": "Fresh scored attempt at grid; no reward for abandoned attempt"
+        },
+        "entry": {
+          "started": 193,
+          "firstControllable": 4521.4000000059605,
+          "firstDrivingTick": null,
+          "readyBoundary": "First rendered ready menu and enabled start controls; firstDrivingTick is separate after user start/countdown",
+          "totalMs": 4328.4000000059605,
+          "stages": [
+            {
+              "name": "sky-fetch-decode-probe",
+              "start": 240,
+              "end": 756.8000000119209,
+              "ms": 516.8000000119209
+            },
+            {
+              "name": "gltf-decode-construct:/assets/drivers/",
+              "start": 816.1000000089407,
+              "end": 1011.6000000089407,
+              "ms": 195.5
+            },
+            {
+              "name": "gltf-decode-construct:/assets/hoop-refinement/",
+              "start": 1013,
+              "end": 1231.9000000059605,
+              "ms": 218.90000000596046
+            },
+            {
+              "name": "vehicle-fetch-decode-bind",
+              "start": 756.9000000059605,
+              "end": 1237.5,
+              "ms": 480.59999999403954
+            },
+            {
+              "name": "express-fetch-decode-build",
+              "start": 1237.5,
+              "end": 1931,
+              "ms": 693.5
+            },
+            {
+              "name": "finish-fetch-decode",
+              "start": 1959.5,
+              "end": 1959.5,
+              "ms": 0
+            },
+            {
+              "name": "gltf-decode-construct:/assets/products/",
+              "start": 1975.6000000089407,
+              "end": 1978,
+              "ms": 2.3999999910593033
+            },
+            {
+              "name": "gltf-decode-construct:/assets/p08b/",
+              "start": 1985.6000000089407,
+              "end": 1988,
+              "ms": 2.3999999910593033
+            },
+            {
+              "name": "gltf-decode-construct:/assets/products/",
+              "start": 1979.9000000059605,
+              "end": 1996.5,
+              "ms": 16.599999994039536
+            },
+            {
+              "name": "products-fetch-decode-bind",
+              "start": 1959.6000000089407,
+              "end": 1997,
+              "ms": 37.3999999910593
+            },
+            {
+              "name": "initial-present",
+              "start": 2373.4000000059605,
+              "end": 2429.800000011921,
+              "ms": 56.400000005960464
+            },
+            {
+              "name": "graphics-preparation",
+              "start": 2429.800000011921,
+              "end": 4490,
+              "ms": 2060.199999988079
+            }
+          ],
+          "raf": [
+            {
+              "at": 192.198,
+              "interval": 0
+            },
+            {
+              "at": 242.2,
+              "interval": 50.00199999999998
+            },
+            {
+              "at": 258.9,
+              "interval": 16.69999999999999
+            },
+            {
+              "at": 275.5,
+              "interval": 16.600000000000023
+            },
+            {
+              "at": 292.2,
+              "interval": 16.69999999999999
+            },
+            {
+              "at": 308.8,
+              "interval": 16.600000000000023
+            },
+            {
+              "at": 758.8,
+              "interval": 449.99999999999994
+            },
+            {
+              "at": 775.5,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 792.1,
+              "interval": 16.600000000000023
+            },
+            {
+              "at": 808.9,
+              "interval": 16.799999999999955
+            },
+            {
+              "at": 842.2,
+              "interval": 33.30000000000007
+            },
+            {
+              "at": 858.8,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 875.5,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 925.4,
+              "interval": 49.89999999999998
+            },
+            {
+              "at": 942.2,
+              "interval": 16.800000000000068
+            },
+            {
+              "at": 1008.8,
+              "interval": 66.59999999999991
+            },
+            {
+              "at": 1092.1,
+              "interval": 83.29999999999995
+            },
+            {
+              "at": 1108.8,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1125.5,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1142.2,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1158.8,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 1175.4,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1208.8,
+              "interval": 33.399999999999864
+            },
+            {
+              "at": 1242.1,
+              "interval": 33.299999999999955
+            },
+            {
+              "at": 1258.8,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1275.4,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1292.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 1308.8,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1325.4,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1342.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 1358.8,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1375.5,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1392.1,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 1425.5,
+              "interval": 33.40000000000009
+            },
+            {
+              "at": 1442.1,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 1458.7,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1608.8,
+              "interval": 150.0999999999999
+            },
+            {
+              "at": 1625.4,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1642.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 1658.8,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1675.5,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1692.1,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 1708.7,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1725.4,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1742.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 1758.7,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1792.1,
+              "interval": 33.399999999999864
+            },
+            {
+              "at": 1808.7,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1842.1,
+              "interval": 33.399999999999864
+            },
+            {
+              "at": 1858.8,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1875.4,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 1892.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 1958.8,
+              "interval": 66.70000000000005
+            },
+            {
+              "at": 1975.5,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 1992.1,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2008.8,
+              "interval": 16.700000000000045
+            },
+            {
+              "at": 2025.4,
+              "interval": 16.600000000000136
+            },
+            {
+              "at": 2425.4,
+              "interval": 400
+            },
+            {
+              "at": 2442.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2458.8,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 2525.4,
+              "interval": 66.59999999999991
+            },
+            {
+              "at": 2608.8,
+              "interval": 83.40000000000009
+            },
+            {
+              "at": 2758.8,
+              "interval": 150
+            },
+            {
+              "at": 2775.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2808.8,
+              "interval": 33.40000000000009
+            },
+            {
+              "at": 2825.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2908.8,
+              "interval": 83.40000000000009
+            },
+            {
+              "at": 2925.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2942,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 2958.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 2975.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 2992.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3008.7,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3025.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3042,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3058.8,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 3075.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3092.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3108.8,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3125.4,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3142,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3158.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3175.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3192,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3208.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3225.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3242.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3258.7,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3275.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3292,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3308.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3325.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3342.1,
+              "interval": 16.799999999999727
+            },
+            {
+              "at": 3358.7,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3375.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3392.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3408.7,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3425.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3442,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3458.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3475.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3492,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3508.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3525.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3542,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3558.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3575.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3592,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3608.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3625.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3642,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3658.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3675.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3692,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3708.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3725.4,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3742,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3758.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3775.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3792.1,
+              "interval": 16.799999999999727
+            },
+            {
+              "at": 3808.6,
+              "interval": 16.5
+            },
+            {
+              "at": 3825.3,
+              "interval": 16.700000000000273
+            },
+            {
+              "at": 3842,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3858.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3875.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3892.1,
+              "interval": 16.799999999999727
+            },
+            {
+              "at": 3908.6,
+              "interval": 16.5
+            },
+            {
+              "at": 3925.4,
+              "interval": 16.800000000000182
+            },
+            {
+              "at": 3942.1,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 3958.7,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 3975.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 3992,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 4008.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 4025.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 4042.1,
+              "interval": 16.799999999999727
+            },
+            {
+              "at": 4058.7,
+              "interval": 16.59999999999991
+            },
+            {
+              "at": 4075.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 4092,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 4108.6,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 4125.4,
+              "interval": 16.799999999999272
+            },
+            {
+              "at": 4142,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 4158.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 4175.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 4192,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 4208.7,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 4225.3,
+              "interval": 16.600000000000364
+            },
+            {
+              "at": 4242,
+              "interval": 16.699999999999818
+            },
+            {
+              "at": 4258.7,
+              "interval": 16.699999999999818
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:5202/assets/index-nfNfYv15.js",
+              "start": 112.80000001192093,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 5198,
+              "decodedBodySize": 5198
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/profile-CBf642VZ.js",
+              "start": 112.80000001192093,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 1496,
+              "decodedBodySize": 1496
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/recovery-C2xUO17e.js",
+              "start": 112.90000000596046,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 1992,
+              "decodedBodySize": 1992
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/recovery-DhQDAYv2.css",
+              "start": 113,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 10968,
+              "decodedBodySize": 10968
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/express-DvrjuzZO.js",
+              "start": 121.70000000298023,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 19902,
+              "decodedBodySize": 19902
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/GLTFLoader-Pl2xBtgQ.js",
+              "start": 126.90000000596046,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 636912,
+              "decodedBodySize": 636912
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/save-CuKBzi9g.js",
+              "start": 127.6000000089407,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 2269,
+              "decodedBodySize": 2269
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/menu-k5h2Zl6e.js",
+              "start": 128.1000000089407,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 39227,
+              "decodedBodySize": 39227
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/route-xmTalqF3.js",
+              "start": 128.30000001192093,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 1875,
+              "decodedBodySize": 1875
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/race-adapter-DzPIbCgh.js",
+              "start": 128.70000000298023,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 1435,
+              "decodedBodySize": 1435
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/client-CG1vqcO7.js",
+              "start": 129.80000001192093,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 28865,
+              "decodedBodySize": 28865
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/harbor-lighting-Cte8D4KC.js",
+              "start": 130.80000001192093,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 25608,
+              "decodedBodySize": 25608
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/shadows-BW0ZefCP.js",
+              "start": 143.70000000298023,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 3141021,
+              "decodedBodySize": 3141021
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/hero-3aZZZqP4.js",
+              "start": 145.6000000089407,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 8425,
+              "decodedBodySize": 8425
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/driving-camera-CL33NSrd.js",
+              "start": 146.70000000298023,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 19142,
+              "decodedBodySize": 19142
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/driving-camera-BFXSfTFY.css",
+              "start": 147.30000001192093,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 17990,
+              "decodedBodySize": 17990
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/competition-C0TdVPLF.js",
+              "start": 149,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 24925,
+              "decodedBodySize": 24925
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/competition-D7Sydgo8.css",
+              "start": 149.40000000596046,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 6782,
+              "decodedBodySize": 6782
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/signature-art-DXrKpugu.js",
+              "start": 149.90000000596046,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 5009,
+              "decodedBodySize": 5009
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/style-S_mbsQK_.css",
+              "start": 150.20000000298023,
+              "duration": 0,
+              "fetchMs": 0,
+              "transferSize": 0,
+              "encodedBodySize": 863,
+              "decodedBodySize": 863
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/brand/slingmods-logo-main.png",
+              "start": 196.5,
+              "duration": 7.600000008940697,
+              "fetchMs": 7.600000008940697,
+              "transferSize": 300,
+              "encodedBodySize": 0,
+              "decodedBodySize": 0
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/sky/day-puresky-2k.hdr",
+              "start": 242,
+              "duration": 35.6000000089407,
+              "fetchMs": 35.6000000089407,
+              "transferSize": 300,
+              "encodedBodySize": 5451493,
+              "decodedBodySize": 5451493
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/hoop-refinement/slingshot-hoops-refined.glb",
+              "start": 758.1000000089407,
+              "duration": 191.59999999403954,
+              "fetchMs": 191.59999999403954,
+              "transferSize": 13432692,
+              "encodedBodySize": 13432392,
+              "decodedBodySize": 13432392
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/drivers/test-driver.glb",
+              "start": 758.4000000059605,
+              "duration": 25.599999994039536,
+              "fetchMs": 25.599999994039536,
+              "transferSize": 300,
+              "encodedBodySize": 3717076,
+              "decodedBodySize": 3717076
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/drivers/test-driver-attachment.json",
+              "start": 758.7000000029802,
+              "duration": 6.100000008940697,
+              "fetchMs": 6.100000008940697,
+              "transferSize": 300,
+              "encodedBodySize": 11386,
+              "decodedBodySize": 11386
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/vehicles/slingshot-p04a1-rear-rig.json",
+              "start": 758.8000000119209,
+              "duration": 6.5999999940395355,
+              "fetchMs": 6.5999999940395355,
+              "transferSize": 300,
+              "encodedBodySize": 3010,
+              "decodedBodySize": 3010
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/kit.glb",
+              "start": 1239.800000011921,
+              "duration": 201.59999999403954,
+              "fetchMs": 201.59999999403954,
+              "transferSize": 28974672,
+              "encodedBodySize": 28974372,
+              "decodedBodySize": 28974372
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/brand/slingmods-sign.glb",
+              "start": 1240.4000000059605,
+              "duration": 6.299999997019768,
+              "fetchMs": 6.299999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 26016,
+              "decodedBodySize": 26016
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+              "start": 1240.800000011921,
+              "duration": 7.699999988079071,
+              "fetchMs": 7.699999988079071,
+              "transferSize": 300,
+              "encodedBodySize": 145910,
+              "decodedBodySize": 145910
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+              "start": 1240.9000000059605,
+              "duration": 8.099999994039536,
+              "fetchMs": 8.099999994039536,
+              "transferSize": 300,
+              "encodedBodySize": 70923,
+              "decodedBodySize": 70923
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+              "start": 1240.9000000059605,
+              "duration": 8.299999997019768,
+              "fetchMs": 8.299999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 176487,
+              "decodedBodySize": 176487
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+              "start": 1241,
+              "duration": 8.900000005960464,
+              "fetchMs": 8.900000005960464,
+              "transferSize": 300,
+              "encodedBodySize": 462598,
+              "decodedBodySize": 462598
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/products/tricled-sm133-base.glb",
+              "start": 1960.4000000059605,
+              "duration": 7.299999997019768,
+              "fetchMs": 7.299999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 89992,
+              "decodedBodySize": 89992
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/products/tricled-sm133-base.attachment.json",
+              "start": 1960.6000000089407,
+              "duration": 4.5,
+              "fetchMs": 4.5,
+              "transferSize": 300,
+              "encodedBodySize": 16205,
+              "decodedBodySize": 16205
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/products/ddmworks-sm3223-silver.glb",
+              "start": 1960.800000011921,
+              "duration": 7.5,
+              "fetchMs": 7.5,
+              "transferSize": 300,
+              "encodedBodySize": 250364,
+              "decodedBodySize": 250364
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/p08b/signature-products.glb",
+              "start": 1961.2000000029802,
+              "duration": 7.600000008940697,
+              "fetchMs": 7.600000008940697,
+              "transferSize": 300,
+              "encodedBodySize": 339964,
+              "decodedBodySize": 339964
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/provenance.json",
+              "start": 2430.300000011921,
+              "duration": 5.699999988079071,
+              "fetchMs": 5.699999988079071,
+              "transferSize": 300,
+              "encodedBodySize": 11750,
+              "decodedBodySize": 11750
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-1200-load.wav",
+              "start": 2455.5,
+              "duration": 27.30000001192093,
+              "fetchMs": 27.30000001192093,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-1200-lift.wav",
+              "start": 2455.7000000029802,
+              "duration": 22.600000008940697,
+              "fetchMs": 22.600000008940697,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-1650-load.wav",
+              "start": 2456,
+              "duration": 29.100000008940697,
+              "fetchMs": 29.100000008940697,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-1650-lift.wav",
+              "start": 2456.2000000029802,
+              "duration": 27.400000005960464,
+              "fetchMs": 27.400000005960464,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-2200-lift.wav",
+              "start": 2456.300000011921,
+              "duration": 27.799999997019768,
+              "fetchMs": 27.799999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-2200-load.wav",
+              "start": 2456.300000011921,
+              "duration": 28.099999994039536,
+              "fetchMs": 28.099999994039536,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-3000-load.wav",
+              "start": 2456.300000011921,
+              "duration": 35.8999999910593,
+              "fetchMs": 35.8999999910593,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-4000-load.wav",
+              "start": 2456.5,
+              "duration": 45.5,
+              "fetchMs": 45.5,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-3000-lift.wav",
+              "start": 2456.5,
+              "duration": 53.70000000298023,
+              "fetchMs": 53.70000000298023,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-5300-load.wav",
+              "start": 2456.6000000089407,
+              "duration": 51.099999994039536,
+              "fetchMs": 51.099999994039536,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-4000-lift.wav",
+              "start": 2456.6000000089407,
+              "duration": 53.099999994039536,
+              "fetchMs": 53.099999994039536,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-5300-lift.wav",
+              "start": 2456.7000000029802,
+              "duration": 51.5,
+              "fetchMs": 51.5,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-6800-load.wav",
+              "start": 2456.7000000029802,
+              "duration": 55.5,
+              "fetchMs": 55.5,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/engine-6800-lift.wav",
+              "start": 2456.9000000059605,
+              "duration": 56.099999994039536,
+              "fetchMs": 56.099999994039536,
+              "transferSize": 300,
+              "encodedBodySize": 189164,
+              "decodedBodySize": 189164
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/wind.wav",
+              "start": 2457.1000000089407,
+              "duration": 56.599999994039536,
+              "fetchMs": 56.599999994039536,
+              "transferSize": 300,
+              "encodedBodySize": 192044,
+              "decodedBodySize": 192044
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/road.wav",
+              "start": 2457.1000000089407,
+              "duration": 56.8999999910593,
+              "fetchMs": 56.8999999910593,
+              "transferSize": 300,
+              "encodedBodySize": 192044,
+              "decodedBodySize": 192044
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/shift.wav",
+              "start": 2457.2000000029802,
+              "duration": 55.5,
+              "fetchMs": 55.5,
+              "transferSize": 300,
+              "encodedBodySize": 13484,
+              "decodedBodySize": 13484
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b/thermal-mid.wav",
+              "start": 2457.300000011921,
+              "duration": 56.19999998807907,
+              "fetchMs": 56.19999998807907,
+              "transferSize": 300,
+              "encodedBodySize": 69162,
+              "decodedBodySize": 69162
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/provenance.json",
+              "start": 2833.6000000089407,
+              "duration": 6.700000002980232,
+              "fetchMs": 6.700000002980232,
+              "transferSize": 300,
+              "encodedBodySize": 11050,
+              "decodedBodySize": 11050
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-departure/provenance.json",
+              "start": 2833.9000000059605,
+              "duration": 7.200000002980232,
+              "fetchMs": 7.200000002980232,
+              "transferSize": 300,
+              "encodedBodySize": 900,
+              "decodedBodySize": 900
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/ui.nav.wav",
+              "start": 2927.1000000089407,
+              "duration": 12.200000002980232,
+              "fetchMs": 12.200000002980232,
+              "transferSize": 300,
+              "encodedBodySize": 7244,
+              "decodedBodySize": 7244
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/ui.confirm.wav",
+              "start": 2927.300000011921,
+              "duration": 19.399999991059303,
+              "fetchMs": 19.399999991059303,
+              "transferSize": 300,
+              "encodedBodySize": 10604,
+              "decodedBodySize": 10604
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/ui.back.wav",
+              "start": 2927.4000000059605,
+              "duration": 19.799999997019768,
+              "fetchMs": 19.799999997019768,
+              "transferSize": 300,
+              "encodedBodySize": 6764,
+              "decodedBodySize": 6764
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/ui.detent.wav",
+              "start": 2927.5,
+              "duration": 17.900000005960464,
+              "fetchMs": 17.900000005960464,
+              "transferSize": 300,
+              "encodedBodySize": 3404,
+              "decodedBodySize": 3404
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/power.wav",
+              "start": 2927.6000000089407,
+              "duration": 27.599999994039536,
+              "fetchMs": 27.599999994039536,
+              "transferSize": 300,
+              "encodedBodySize": 12524,
+              "decodedBodySize": 12524
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/finish.apply.wav",
+              "start": 2927.7000000029802,
+              "duration": 29.5,
+              "fetchMs": 29.5,
+              "transferSize": 300,
+              "encodedBodySize": 24044,
+              "decodedBodySize": 24044
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/part.shocks.attach.wav",
+              "start": 2927.800000011921,
+              "duration": 29.899999991059303,
+              "fetchMs": 29.899999991059303,
+              "transferSize": 300,
+              "encodedBodySize": 26924,
+              "decodedBodySize": 26924
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/part.lights.attach.wav",
+              "start": 2927.800000011921,
+              "duration": 31.69999998807907,
+              "fetchMs": 31.69999998807907,
+              "transferSize": 300,
+              "encodedBodySize": 9644,
+              "decodedBodySize": 9644
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/part.exhaust.attach.wav",
+              "start": 2927.9000000059605,
+              "duration": 33.20000000298023,
+              "fetchMs": 33.20000000298023,
+              "transferSize": 300,
+              "encodedBodySize": 30764,
+              "decodedBodySize": 30764
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/part.aero.attach.wav",
+              "start": 2928,
+              "duration": 32.400000005960464,
+              "fetchMs": 32.400000005960464,
+              "transferSize": 300,
+              "encodedBodySize": 19244,
+              "decodedBodySize": 19244
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/part.remove.wav",
+              "start": 2928,
+              "duration": 35.400000005960464,
+              "fetchMs": 35.400000005960464,
+              "transferSize": 300,
+              "encodedBodySize": 14444,
+              "decodedBodySize": 14444
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/part.storage.attach.wav",
+              "start": 2928,
+              "duration": 38.30000001192093,
+              "fetchMs": 38.30000001192093,
+              "transferSize": 300,
+              "encodedBodySize": 26924,
+              "decodedBodySize": 26924
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/build.save.wav",
+              "start": 2928.1000000089407,
+              "duration": 39.5,
+              "fetchMs": 39.5,
+              "transferSize": 300,
+              "encodedBodySize": 15404,
+              "decodedBodySize": 15404
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/build.preset.wav",
+              "start": 2928.2000000029802,
+              "duration": 40.29999999701977,
+              "fetchMs": 40.29999999701977,
+              "transferSize": 300,
+              "encodedBodySize": 22124,
+              "decodedBodySize": 22124
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/career.unlock.wav",
+              "start": 2928.300000011921,
+              "duration": 52.69999998807907,
+              "fetchMs": 52.69999998807907,
+              "transferSize": 300,
+              "encodedBodySize": 48044,
+              "decodedBodySize": 48044
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/race.count.wav",
+              "start": 2928.4000000059605,
+              "duration": 56.29999999701977,
+              "fetchMs": 56.29999999701977,
+              "transferSize": 300,
+              "encodedBodySize": 11564,
+              "decodedBodySize": 11564
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/race.start.wav",
+              "start": 2928.5,
+              "duration": 48.5,
+              "fetchMs": 48.5,
+              "transferSize": 300,
+              "encodedBodySize": 23084,
+              "decodedBodySize": 23084
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-cues/race.finish.wav",
+              "start": 2928.6000000089407,
+              "duration": 59.5,
+              "fetchMs": 59.5,
+              "transferSize": 300,
+              "encodedBodySize": 57644,
+              "decodedBodySize": 57644
+            },
+            {
+              "url": "http://127.0.0.1:5202/assets/audio/p09b-departure/thermal.wav",
+              "start": 2930.6000000089407,
+              "duration": 72.09999999403954,
+              "fetchMs": 72.09999999403954,
+              "transferSize": 300,
+              "encodedBodySize": 1113644,
+              "decodedBodySize": 1113644
+            }
+          ],
+          "method": "Wall-clock stage boundaries and loading RAF intervals. Fetch timing includes cache behavior; load/decode phases overlap network as stated. Waiting is not CPU or GPU rendering cost."
+        },
+        "build": "bf1297c97703",
+        "handlingProfile": "slingmods-sport-v2",
+        "eventId": "harbor-express-quick-race-v1",
+        "preview": true,
+        "career": null,
+        "free": false,
+        "recipe": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "blue-orange",
+          "products": {},
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 2,
+            "frontRebound": 6,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v2"
+        },
+        "race": {
+          "event": "harbor-express-quick-race-v1",
+          "handlingProfileId": "slingmods-sport-v2",
+          "laps": 1,
+          "phase": "ready",
+          "paused": false,
+          "countdown": 0,
+          "elapsedMs": 0,
+          "attemptId": "",
+          "standings": [
+            {
+              "id": "maya",
+              "place": 1,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": 0,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "jett",
+              "place": 2,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -1,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "nico",
+              "place": 3,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -2,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            },
+            {
+              "id": "player",
+              "place": 4,
+              "status": "running",
+              "lap": 1,
+              "nextGate": 1,
+              "progress": -3,
+              "timeMs": null,
+              "invalidReason": null,
+              "valid": true
+            }
+          ],
+          "playerResult": null,
+          "allFinished": false
+        },
+        "telemetry": {
+          "time": 0,
+          "position": {
+            "x": 1.1519984006881714,
+            "y": 0.025000014305114726,
+            "z": 14.762301445007324
+          },
+          "quaternion": {
+            "x": 0,
+            "y": -0.07333606481552124,
+            "z": 0,
+            "w": 0.997307300567627
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "rpm": 950,
+          "engineWheelAngularSpeed": 0,
+          "gear": 1,
+          "shifting": false,
+          "shiftRemaining": 0,
+          "steer": 0,
+          "throttle": 0,
+          "brake": 0,
+          "reversePending": false,
+          "wheels": [
+            {
+              "id": "front_left",
+              "contact": false,
+              "load": 0,
+              "travel": 0,
+              "slipRatio": 0,
+              "slipAngle": 0,
+              "spin": 0,
+              "steer": 0,
+              "localCenter": {
+                "x": -0.8775,
+                "y": 0.32985,
+                "z": -1.3335
+              },
+              "surface": "air",
+              "angularSpeed": 0,
+              "longitudinalSpeed": 0,
+              "longitudinalForce": 0,
+              "lateralForce": 0,
+              "gripLimit": 0,
+              "driveTorque": 0
+            },
+            {
+              "id": "front_right",
+              "contact": false,
+              "load": 0,
+              "travel": 0,
+              "slipRatio": 0,
+              "slipAngle": 0,
+              "spin": 0,
+              "steer": 0,
+              "localCenter": {
+                "x": 0.8775,
+                "y": 0.32985,
+                "z": -1.3335
+              },
+              "surface": "air",
+              "angularSpeed": 0,
+              "longitudinalSpeed": 0,
+              "longitudinalForce": 0,
+              "lateralForce": 0,
+              "gripLimit": 0,
+              "driveTorque": 0
+            },
+            {
+              "id": "rear",
+              "contact": false,
+              "load": 0,
+              "travel": 0,
+              "slipRatio": 0,
+              "slipAngle": 0,
+              "spin": 0,
+              "steer": 0,
+              "localCenter": {
+                "x": 0,
+                "y": 0.3455,
+                "z": 1.3335
+              },
+              "surface": "air",
+              "angularSpeed": 0,
+              "longitudinalSpeed": 0,
+              "longitudinalForce": 0,
+              "lateralForce": 0,
+              "gripLimit": 0,
+              "driveTorque": 0
+            }
+          ]
+        },
+        "field": {
+          "maya": {
+            "time": 0,
+            "position": {
+              "x": -2.1655685901641846,
+              "y": 0.025000014305114726,
+              "z": 5.942248344421387
+            },
+            "quaternion": {
+              "x": 0,
+              "y": -0.013862766325473785,
+              "z": 0,
+              "w": 0.9999039173126221
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "rpm": 950,
+            "engineWheelAngularSpeed": 0,
+            "gear": 1,
+            "shifting": false,
+            "shiftRemaining": 0,
+            "steer": 0,
+            "throttle": 0,
+            "brake": 0,
+            "reversePending": false,
+            "wheels": [
+              {
+                "id": "front_left",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": -0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "front_right",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "rear",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0,
+                  "y": 0.3455,
+                  "z": 1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              }
+            ]
+          },
+          "jett": {
+            "time": 0,
+            "position": {
+              "x": 1.7749441862106323,
+              "y": 0.025000014305114726,
+              "z": 7.667724609375
+            },
+            "quaternion": {
+              "x": 0,
+              "y": -0.04283019155263901,
+              "z": 0,
+              "w": 0.9990823864936829
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "rpm": 950,
+            "engineWheelAngularSpeed": 0,
+            "gear": 1,
+            "shifting": false,
+            "shiftRemaining": 0,
+            "steer": 0,
+            "throttle": 0,
+            "brake": 0,
+            "reversePending": false,
+            "wheels": [
+              {
+                "id": "front_left",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": -0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "front_right",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "rear",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0,
+                  "y": 0.3455,
+                  "z": 1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              }
+            ]
+          },
+          "nico": {
+            "time": 0,
+            "position": {
+              "x": -2.6810803413391113,
+              "y": 0.025000014305114726,
+              "z": 12.805218696594238
+            },
+            "quaternion": {
+              "x": 0,
+              "y": -0.04283019155263901,
+              "z": 0,
+              "w": 0.9990823864936829
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "rpm": 950,
+            "engineWheelAngularSpeed": 0,
+            "gear": 1,
+            "shifting": false,
+            "shiftRemaining": 0,
+            "steer": 0,
+            "throttle": 0,
+            "brake": 0,
+            "reversePending": false,
+            "wheels": [
+              {
+                "id": "front_left",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": -0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "front_right",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "rear",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0,
+                  "y": 0.3455,
+                  "z": 1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              }
+            ]
+          },
+          "player": {
+            "time": 0,
+            "position": {
+              "x": 1.1519984006881714,
+              "y": 0.025000014305114726,
+              "z": 14.762301445007324
+            },
+            "quaternion": {
+              "x": 0,
+              "y": -0.07333606481552124,
+              "z": 0,
+              "w": 0.997307300567627
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "rpm": 950,
+            "engineWheelAngularSpeed": 0,
+            "gear": 1,
+            "shifting": false,
+            "shiftRemaining": 0,
+            "steer": 0,
+            "throttle": 0,
+            "brake": 0,
+            "reversePending": false,
+            "wheels": [
+              {
+                "id": "front_left",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": -0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "front_right",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0.8775,
+                  "y": 0.32985,
+                  "z": -1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              },
+              {
+                "id": "rear",
+                "contact": false,
+                "load": 0,
+                "travel": 0,
+                "slipRatio": 0,
+                "slipAngle": 0,
+                "spin": 0,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0,
+                  "y": 0.3455,
+                  "z": 1.3335
+                },
+                "surface": "air",
+                "angularSpeed": 0,
+                "longitudinalSpeed": 0,
+                "longitudinalForce": 0,
+                "lateralForce": 0,
+                "gripLimit": 0,
+                "driveTorque": 0
+              }
+            ]
+          }
+        },
+        "ticks": 0,
+        "attemptId": null,
+        "rewardPending": false,
+        "rewardText": "",
+        "careerTouched": false,
+        "route": {
+          "id": "harbor-express",
+          "version": "express-layout-v1",
+          "length": 2317.160796673365
+        },
+        "design": {
+          "id": "express-layout-v1",
+          "lengthMetres": 2317.160796673365,
+          "mainStraightMetres": 800,
+          "brakingZone": {
+            "startMetres": 600,
+            "endMetres": 800,
+            "lengthMetres": 200
+          },
+          "widthMetres": 15,
+          "runoffMetres": 3,
+          "groundBounds": {
+            "center": [
+              -80,
+              -0.15,
+              -400
+            ],
+            "size": [
+              1800,
+              0.3,
+              1600
+            ]
+          },
+          "description": "Eight-hundred-metre quay straight, terminal sweeper, warehouse return, loading-yard transition and marina bend. Braking boards at 200/150/100/50m before terminal curve.",
+          "source": "src/express/route.ts; cubic control points and measured polyline, not old Harbor geometry"
+        },
+        "suspension": {
+          "equipped": false,
+          "inspection": null,
+          "stockVisible": [
+            {
+              "name": "suspension_front_left",
+              "visible": true
+            },
+            {
+              "name": "suspension_front_right",
+              "visible": true
+            },
+            {
+              "name": "shock_body_visual",
+              "visible": true
+            },
+            {
+              "name": "shock_piston_visual",
+              "visible": true
+            },
+            {
+              "name": "shock_spring_visual",
+              "visible": true
+            }
+          ],
+          "endpoints": [],
+          "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+        },
+        "simulationSuspension": null,
+        "products": {
+          "selected": [],
+          "storageInspection": false,
+          "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+          "mounts": {
+            "exhaust": {
+              "position": [
+                2.7,
+                1.3,
+                3.9
+              ],
+              "target": [
+                0,
+                0.65,
+                1.3
+              ]
+            },
+            "wing": {
+              "position": [
+                2.8,
+                1.9,
+                3.3
+              ],
+              "target": [
+                0,
+                1.25,
+                1.2
+              ]
+            },
+            "storage": {
+              "position": [
+                -1.6,
+                2.1,
+                -0.3
+              ],
+              "target": [
+                -0.2,
+                0.48,
+                0.95
+              ]
+            }
+          },
+          "productRoot": "signature_catalog_products"
+        },
+        "audio": {
+          "enabled": true,
+          "loading": false,
+          "failure": "",
+          "soundTreatment": "p09b-authored-stock-mix",
+          "life": {
+            "enabled": true,
+            "paused": true,
+            "mute": false,
+            "volume": 0.55,
+            "cockpit": false,
+            "reset": false
+          },
+          "levels": {
+            "master": 0.55,
+            "interface": 1,
+            "engine": 1
+          },
+          "thermal": {
+            "loaded": true,
+            "armed": false,
+            "playing": false,
+            "elapsed": 0,
+            "offset": 0,
+            "starts": 0,
+            "paused": false,
+            "level": 0,
+            "clock": "cinematic-elapsed",
+            "bus": "captured-master"
+          },
+          "cues": {
+            "loaded": true,
+            "active": 0,
+            "poolLimit": 8,
+            "played": 0,
+            "rejected": 0,
+            "counts": {},
+            "bus": "captured-master"
+          },
+          "opponents": {
+            "slots": 2,
+            "sharedContext": true,
+            "sharedDecodedBuffers": true,
+            "selected": [
+              {
+                "id": "nico",
+                "distance": 4.30379664095756,
+                "pan": -0.8156250669309759,
+                "gain": 0.04167090961693201,
+                "rpm": 950
+              },
+              {
+                "id": "jett",
+                "distance": 7.121873484441503,
+                "pan": -0.05918801779375439,
+                "gain": 0.03148470950348399,
+                "rpm": 950
+              }
+            ],
+            "buses": [
+              {
+                "contextState": "running",
+                "contextTime": 2.050666666666667,
+                "persistentLoops": 17,
+                "shiftCount": 0,
+                "masterTarget": 0,
+                "rms": 0,
+                "parameters": {
+                  "rpm": 950,
+                  "speed": 0,
+                  "load": 0,
+                  "layers": [
+                    {
+                      "name": "engine-1200-load",
+                      "rate": 0.7916666666666666,
+                      "gain": 0.055
+                    },
+                    {
+                      "name": "engine-1200-lift",
+                      "rate": 0.7916666666666666,
+                      "gain": 0.16
+                    },
+                    {
+                      "name": "engine-1650-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-1650-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-2200-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-2200-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-3000-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-3000-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-4000-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-4000-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-5300-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-5300-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-6800-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-6800-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "road",
+                      "rate": 1,
+                      "gain": 0
+                    },
+                    {
+                      "name": "wind",
+                      "rate": 1,
+                      "gain": 0
+                    }
+                  ],
+                  "master": 0,
+                  "cutoff": 6500,
+                  "shiftGain": 0.18,
+                  "reset": false
+                }
+              },
+              {
+                "contextState": "running",
+                "contextTime": 2.050666666666667,
+                "persistentLoops": 17,
+                "shiftCount": 0,
+                "masterTarget": 0,
+                "rms": 0,
+                "parameters": {
+                  "rpm": 950,
+                  "speed": 0,
+                  "load": 0,
+                  "layers": [
+                    {
+                      "name": "engine-1200-load",
+                      "rate": 0.7916666666666666,
+                      "gain": 0.055
+                    },
+                    {
+                      "name": "engine-1200-lift",
+                      "rate": 0.7916666666666666,
+                      "gain": 0.16
+                    },
+                    {
+                      "name": "engine-1650-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-1650-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-2200-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-2200-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-3000-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-3000-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-4000-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-4000-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-5300-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-5300-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-6800-load",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "engine-6800-lift",
+                      "rate": 0.72,
+                      "gain": 0
+                    },
+                    {
+                      "name": "road",
+                      "rate": 1,
+                      "gain": 0
+                    },
+                    {
+                      "name": "wind",
+                      "rate": 1,
+                      "gain": 0
+                    }
+                  ],
+                  "master": 0,
+                  "cutoff": 6500,
+                  "shiftGain": 0.18,
+                  "reset": false
+                }
+              }
+            ]
+          },
+          "graph": {
+            "contextState": "running",
+            "contextTime": 2.050666666666667,
+            "persistentLoops": 17,
+            "shiftCount": 0,
+            "masterTarget": 0,
+            "rms": 0,
+            "parameters": {
+              "rpm": 950,
+              "speed": 0,
+              "load": 0,
+              "layers": [
+                {
+                  "name": "engine-1200-load",
+                  "rate": 0.7916666666666666,
+                  "gain": 0.055
+                },
+                {
+                  "name": "engine-1200-lift",
+                  "rate": 0.7916666666666666,
+                  "gain": 0.16
+                },
+                {
+                  "name": "engine-1650-load",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-1650-lift",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-2200-load",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-2200-lift",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-3000-load",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-3000-lift",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-4000-load",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-4000-lift",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-5300-load",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-5300-lift",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-6800-load",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "engine-6800-lift",
+                  "rate": 0.72,
+                  "gain": 0
+                },
+                {
+                  "name": "road",
+                  "rate": 1,
+                  "gain": 0
+                },
+                {
+                  "name": "wind",
+                  "rate": 1,
+                  "gain": 0
+                }
+              ],
+              "master": 0,
+              "cutoff": 6500,
+              "shiftGain": 0.18,
+              "reset": true
+            }
+          },
+          "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+        },
+        "memory": {
+          "geometries": 173,
+          "textures": 72
+        },
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "size": [
+          1280,
+          720
+        ],
+        "dpr": 1,
+        "loadMs": 4328.0999999940395,
+        "preparation": {
+          "ms": 2053.2000000029802,
+          "stages": [
+            {
+              "name": "init-textures",
+              "ms": 391
+            },
+            {
+              "name": "compile-async",
+              "ms": 1429.6000000089407
+            },
+            {
+              "name": "first-all-mesh-render",
+              "ms": 224
+            },
+            {
+              "name": "loading-gpu-sync",
+              "ms": 0
+            }
+          ],
+          "textures": 57,
+          "programs": 34,
+          "parallelCompile": true,
+          "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+        }
+      }
+    }
+  ],
+  "errors": []
+}

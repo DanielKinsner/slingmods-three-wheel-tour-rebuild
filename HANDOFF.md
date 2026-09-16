@@ -1,10 +1,41 @@
-# P09B — Signature Finish
+# Current handoff — P09B Signature Finish on main
 
-Branch: `feature/p09b-signature-finish`. Private remote: `https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git`. Baseline b967d6f887593d3c84181aa4f88d2a42ce79221d includes the current owner front/hoop refinements. Read `handoff/P09B-SIGNATURE-FINISH.md`; final runtime, packaging and remote recovery receipts will be recorded in `handoff/P09B-VALIDATION.json` after verification.
+Current branch: **main**. Private remote: https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git. The owner authorized merge and continued work on main, overriding earlier feature-only/no-merge instructions. Merge/push: `ea58b4f9c1df98ab16629bce24721596b6a43e32`. Future work stays on main.
 
-Implemented unified configurator/career/race UI, action-specific post-success cues, persisted mix levels, physical powered Driver-home approximation, owner-recorded Thermal departure synchronization and locally authored engine revision. Original owner WAV, processed banks and editable display/audio sources are in Git; no key is required to run. Current implementation tests:226 passed. Final film, native matrix and remote recovery are pending at this implementation checkpoint, not certified by this header.
+Tested frozen game runtime: `bf1297c9770357cf5a331288b14cae82d5510d86`. Remote-clone recovery tested main `ea58b4f9c1df98ab16629bce24721596b6a43e32`, with identical game source/assets. Later evidence/docs/package commits do not change those runtime inputs. The ZIP's MANIFEST.json records its exact packaging commit; `handoff/P09B-PACKET.json` records the ZIP SHA256 and packaging SHA. A receipt-only follow-up may be the current main tip; use `git rev-parse HEAD` and `git ls-remote origin refs/heads/main` to verify it.
 
-Launch from this checkout: `npm ci`, `npm run demo:build`, set `$env:PORT='5197'`, then `npm run demo:preview`. Open http://127.0.0.1:5197/. Terminal Ctrl+C stops its server. Use the final receipt for owned PID if a background launcher remains active. Saves remain local to browser/origin; the remote repository does not transfer personal saves.
+## Delivered
+
+Unified configurator/career/race UI;18 successful-action cues and saved mix levels; physical powered Driver-home display with actual telemetry; owner Thermal recording synchronized to equipped departure; bounded engine revision and level-matched A/B. Current front/grille/lenses/splitter/hoops, showroom, finishes, gameplay, ownership and saves preserved. No physics/collision/reward/route changes.
+
+226 tests pass; both builds pass; fresh remote clone passes all128 asset hashes and browser integration. Full chapter/Cup/reward/ownership/reload, preparation faults/cancel/retry, early-player-finish pause/resume, display/audio lifecycle and demo separation pass. All16 required native race attempts plus two additional cockpit attempts pass the unchanged targets, with no active intervals over100ms. Read the receipt and complete raw evidence for scope; no broad hardware or human listening certification.
+
+Review ZIP: `Astra-Review-18-Lean.zip` (review-only; full required assets in Git). Film: `director-kit/production/evidence/P09B/film-03/P09B-Signature-Finish.mp4`,184.362s, actual captured game master audio. Engine comparison: `director-kit/production/evidence/P09B/audio/engine-ab-03/LISTEN.html` and `Engine-AB-level-matched.wav`. Review introduction: `director-kit/production/evidence/P09B/REVIEW18-SUMMARY.md`.
+
+## Rebuild and play
+
+From the repository root, with Node24/npm11 (tested24.15.0/11.6.2):
+
+```powershell
+git switch main
+git pull --ff-only origin main
+npm ci
+npm test
+npm run build
+npm run demo:build
+$env:PORT='5197'
+npm run demo:preview
+```
+
+Open http://127.0.0.1:5197/. Ctrl+C stops the foreground server. If5197 is already serving the current local candidate, simply refresh the page; stop the owned server listed in handoff/P09B-LOCAL.json before starting another. The final local server serves the immutable testedbf1297 runtime. `python scripts/verify-p09b-assets.py` verifies required hashes (Python3.11+, tested3.13.5). No API key or audio generation connection is needed for runtime or rebuild. Original owner WAV, baked banks, authoring scripts and editable Blender sources are tracked.
+
+Showroom → enable sound once → equip Thermal under Exhaust → Test This Build triggers the synchronized bay departure. Reduced motion skips the cinematic; turn it off under More to watch it. Career and free preview/demo saves remain separate. Personal browser saves are origin-specific and do not transfer through Git; this handoff does not overwrite them.
+
+## Limits and next action
+
+Zero generation calls/spending: a secure available key and verified prepaid cap were unavailable, so authored local cues and supplied owner audio were used. Engine sound is an approximation; measured multi-RPM recordings and human listening approval remain missing. G3/G4, final OEM fidelity, physical controllers/devices, broad hardware and release approval remain open. Cross-document loading may briefly interrupt audio. No public deployment occurred.
+
+Astra reviews Review18 and supplies the next bounded direction. Existing untracked owner folder `SlingMods-Astra-Director-Review-17/` and older review ZIPs were preserved. Ignored clone/build/evidence caches remain local; pinned source and required assets recover from Git. Detailed commands, source hashes, evidence boundaries and same-host recovery disclosure are in handoff/P09B-SIGNATURE-FINISH.md and the validation receipt.
 
 ---
 

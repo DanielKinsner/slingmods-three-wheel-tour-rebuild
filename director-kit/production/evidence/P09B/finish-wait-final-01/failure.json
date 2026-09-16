@@ -1,0 +1,3065 @@
+{
+  "error": "page.evaluate: Error: Evidence driver requested reverse; recovery needs deliberate production direction input\n    at toDevice (<anonymous>:383:24)\n    at FinishFirstDriver.sample (<anonymous>:442:11)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:135)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\p09a-finish-wait-resume.mjs:9:74",
+  "current": {
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"white-graphite\",\"products\":{\"SM-133\":\"base-rgb\",\"SM-3223\":\"silver\",\"SM-7720\":\"brushed-silver\",\"SM-26801\":\"black-aluminum\",\"SM-28919\":\"lower-pair\"},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":8,\"frontRebound\":10,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    },
+    "recovery": {
+      "available": false,
+      "reason": "",
+      "heldSeconds": 0,
+      "recoveries": 0,
+      "policy": "Fresh scored attempt at grid; no reward for abandoned attempt"
+    },
+    "entry": {
+      "started": 194.70000000298023,
+      "firstControllable": 8120.5,
+      "firstDrivingTick": 9205.20000000298,
+      "readyBoundary": "First rendered ready menu and enabled start controls; firstDrivingTick is separate after user start/countdown",
+      "totalMs": 7925.79999999702,
+      "stages": [
+        {
+          "name": "sky-fetch-decode-probe",
+          "start": 273.29999999701977,
+          "end": 1428.7000000029802,
+          "ms": 1155.4000000059605
+        },
+        {
+          "name": "gltf-decode-construct:/assets/drivers/",
+          "start": 1508.2000000029802,
+          "end": 1636.0999999940395,
+          "ms": 127.8999999910593
+        },
+        {
+          "name": "gltf-decode-construct:/assets/hoop-refinement/",
+          "start": 1688.5,
+          "end": 1863.4000000059605,
+          "ms": 174.90000000596046
+        },
+        {
+          "name": "vehicle-fetch-decode-bind",
+          "start": 1428.7000000029802,
+          "end": 1870.0999999940395,
+          "ms": 441.3999999910593
+        },
+        {
+          "name": "express-fetch-decode-build",
+          "start": 1870.2999999970198,
+          "end": 2622.4000000059605,
+          "ms": 752.1000000089407
+        },
+        {
+          "name": "finish-fetch-decode",
+          "start": 2644.2000000029802,
+          "end": 2657.9000000059605,
+          "ms": 13.700000002980232
+        },
+        {
+          "name": "gltf-decode-construct:/assets/p08b/",
+          "start": 2691.9000000059605,
+          "end": 2695,
+          "ms": 3.0999999940395355
+        },
+        {
+          "name": "gltf-decode-construct:/assets/products/",
+          "start": 2697.9000000059605,
+          "end": 2700.2000000029802,
+          "ms": 2.2999999970197678
+        },
+        {
+          "name": "gltf-decode-construct:/assets/products/",
+          "start": 2682,
+          "end": 2721.4000000059605,
+          "ms": 39.400000005960464
+        },
+        {
+          "name": "products-fetch-decode-bind",
+          "start": 2657.9000000059605,
+          "end": 2723.2999999970198,
+          "ms": 65.3999999910593
+        },
+        {
+          "name": "initial-present",
+          "start": 4685,
+          "end": 4689.9000000059605,
+          "ms": 4.9000000059604645
+        },
+        {
+          "name": "graphics-preparation",
+          "start": 4689.9000000059605,
+          "end": 8088.9000000059605,
+          "ms": 3399
+        }
+      ],
+      "raf": [
+        {
+          "at": 191.1,
+          "interval": 0
+        },
+        {
+          "at": 207.8,
+          "interval": 16.700000000000017
+        },
+        {
+          "at": 274.4,
+          "interval": 66.59999999999997
+        },
+        {
+          "at": 291.1,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 307.8,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 324.5,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 341.2,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 357.8,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 374.5,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 1424.4,
+          "interval": 1049.9
+        },
+        {
+          "at": 1441.1,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 1457.7,
+          "interval": 16.600000000000136
+        },
+        {
+          "at": 1474.4,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1491.1,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 1507.8,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1524.4,
+          "interval": 16.600000000000136
+        },
+        {
+          "at": 1541.1,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 1557.8,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1591.1,
+          "interval": 33.299999999999955
+        },
+        {
+          "at": 1674.4,
+          "interval": 83.30000000000018
+        },
+        {
+          "at": 1741,
+          "interval": 66.59999999999991
+        },
+        {
+          "at": 1757.7,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1774.4,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1791,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1824.4,
+          "interval": 33.40000000000009
+        },
+        {
+          "at": 1857.8,
+          "interval": 33.399999999999864
+        },
+        {
+          "at": 1874.4,
+          "interval": 16.600000000000136
+        },
+        {
+          "at": 1891.1,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 1907.8,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1924.5,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1941.1,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1957.7,
+          "interval": 16.600000000000136
+        },
+        {
+          "at": 1974.4,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1991.1,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 2007.7,
+          "interval": 16.600000000000136
+        },
+        {
+          "at": 2041.1,
+          "interval": 33.399999999999864
+        },
+        {
+          "at": 2057.8,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 2074.4,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2091,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2207.7,
+          "interval": 116.69999999999982
+        },
+        {
+          "at": 2241,
+          "interval": 33.30000000000018
+        },
+        {
+          "at": 2257.7,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 2274.4,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 2291,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2307.7,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 2324.3,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 2341.1,
+          "interval": 16.799999999999727
+        },
+        {
+          "at": 2357.8,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 2374.4,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2407.7,
+          "interval": 33.29999999999973
+        },
+        {
+          "at": 2457.7,
+          "interval": 50
+        },
+        {
+          "at": 2474.4,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 2491,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2507.8,
+          "interval": 16.800000000000182
+        },
+        {
+          "at": 2524.4,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2541.1,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 2557.7,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2641.1,
+          "interval": 83.40000000000009
+        },
+        {
+          "at": 2657.7,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2674.4,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 2691.1,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 2707.7,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 2724.4,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 2774.3,
+          "interval": 49.90000000000009
+        },
+        {
+          "at": 2791,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 4691,
+          "interval": 1900
+        },
+        {
+          "at": 4707.7,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 4991,
+          "interval": 283.3000000000002
+        },
+        {
+          "at": 5024.3,
+          "interval": 33.30000000000018
+        },
+        {
+          "at": 5107.6,
+          "interval": 83.30000000000018
+        },
+        {
+          "at": 5257.6,
+          "interval": 150
+        },
+        {
+          "at": 5274.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 5307.6,
+          "interval": 33.400000000000546
+        },
+        {
+          "at": 5324.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 5390.9,
+          "interval": 66.69999999999982
+        },
+        {
+          "at": 5407.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 5474.2,
+          "interval": 66.59999999999945
+        },
+        {
+          "at": 5490.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 5507.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 5524.3,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 5540.9,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 5557.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 5624.2,
+          "interval": 66.59999999999945
+        },
+        {
+          "at": 5641,
+          "interval": 16.800000000000182
+        },
+        {
+          "at": 5657.6,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 5674.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 5774.2,
+          "interval": 100
+        },
+        {
+          "at": 5940.9,
+          "interval": 166.69999999999982
+        },
+        {
+          "at": 5957.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 5990.9,
+          "interval": 33.29999999999927
+        },
+        {
+          "at": 6040.9,
+          "interval": 50
+        },
+        {
+          "at": 6057.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 6074.3,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6257.6,
+          "interval": 183.30000000000018
+        },
+        {
+          "at": 6274.3,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6290.9,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 6307.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 6324.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 6340.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6357.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 6374.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 6390.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6407.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 6424.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 6440.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6457.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6474.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6490.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6507.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6524.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6540.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6557.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 6574.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 6590.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6607.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6624.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6640.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6657.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6674.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6690.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6707.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 6724.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 6740.8,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6757.6,
+          "interval": 16.800000000000182
+        },
+        {
+          "at": 6774.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 6790.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6807.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6824.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6840.8,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6857.5,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6874.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6890.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6907.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6924.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6940.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6957.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 6974.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 6990.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7007.6,
+          "interval": 16.700000000000728
+        },
+        {
+          "at": 7024.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 7040.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7057.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7074.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7090.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7107.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7124.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7140.8,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7157.6,
+          "interval": 16.800000000000182
+        },
+        {
+          "at": 7174.1,
+          "interval": 16.5
+        },
+        {
+          "at": 7190.8,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7207.5,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7224.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7240.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7257.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7274.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7290.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7307.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7324.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7340.8,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7357.5,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7374.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7390.8,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7407.5,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7424.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7440.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7457.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7474.1,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7490.9,
+          "interval": 16.799999999999272
+        },
+        {
+          "at": 7507.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7524.1,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7540.8,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7557.6,
+          "interval": 16.800000000000182
+        },
+        {
+          "at": 7574.2,
+          "interval": 16.599999999999454
+        },
+        {
+          "at": 7590.9,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7607.5,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7624.2,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7640.8,
+          "interval": 16.600000000000364
+        },
+        {
+          "at": 7657.5,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 7674.2,
+          "interval": 16.699999999999818
+        }
+      ],
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5202/assets/index-nfNfYv15.js",
+          "start": 31.299999997019768,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 5198,
+          "decodedBodySize": 5198
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/profile-CBf642VZ.js",
+          "start": 31.400000005960464,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1496,
+          "decodedBodySize": 1496
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/recovery-C2xUO17e.js",
+          "start": 31.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1992,
+          "decodedBodySize": 1992
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/recovery-DhQDAYv2.css",
+          "start": 31.700000002980232,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 10968,
+          "decodedBodySize": 10968
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/express-DvrjuzZO.js",
+          "start": 40.79999999701977,
+          "duration": 5.799999997019768,
+          "fetchMs": 5.799999997019768,
+          "transferSize": 20202,
+          "encodedBodySize": 19902,
+          "decodedBodySize": 19902
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/GLTFLoader-Pl2xBtgQ.js",
+          "start": 41.20000000298023,
+          "duration": 33.79999999701977,
+          "fetchMs": 33.79999999701977,
+          "transferSize": 637212,
+          "encodedBodySize": 636912,
+          "decodedBodySize": 636912
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/save-CuKBzi9g.js",
+          "start": 41.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 2269,
+          "decodedBodySize": 2269
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/menu-k5h2Zl6e.js",
+          "start": 41.599999994039536,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 39227,
+          "decodedBodySize": 39227
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/route-xmTalqF3.js",
+          "start": 41.599999994039536,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1875,
+          "decodedBodySize": 1875
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/race-adapter-DzPIbCgh.js",
+          "start": 41.599999994039536,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1435,
+          "decodedBodySize": 1435
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/client-CG1vqcO7.js",
+          "start": 41.70000000298023,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 28865,
+          "decodedBodySize": 28865
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/harbor-lighting-Cte8D4KC.js",
+          "start": 41.70000000298023,
+          "duration": 11.5,
+          "fetchMs": 11.5,
+          "transferSize": 25908,
+          "encodedBodySize": 25608,
+          "decodedBodySize": 25608
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/hero-3aZZZqP4.js",
+          "start": 41.79999999701977,
+          "duration": 21.299999997019768,
+          "fetchMs": 21.299999997019768,
+          "transferSize": 8725,
+          "encodedBodySize": 8425,
+          "decodedBodySize": 8425
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/driving-camera-CL33NSrd.js",
+          "start": 41.79999999701977,
+          "duration": 23.900000005960464,
+          "fetchMs": 23.900000005960464,
+          "transferSize": 19442,
+          "encodedBodySize": 19142,
+          "decodedBodySize": 19142
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/shadows-BW0ZefCP.js",
+          "start": 41.79999999701977,
+          "duration": 85,
+          "fetchMs": 85,
+          "transferSize": 3141321,
+          "encodedBodySize": 3141021,
+          "decodedBodySize": 3141021
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/driving-camera-BFXSfTFY.css",
+          "start": 41.900000005960464,
+          "duration": 25.899999991059303,
+          "fetchMs": 25.899999991059303,
+          "transferSize": 18290,
+          "encodedBodySize": 17990,
+          "decodedBodySize": 17990
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/competition-C0TdVPLF.js",
+          "start": 42,
+          "duration": 57.599999994039536,
+          "fetchMs": 57.599999994039536,
+          "transferSize": 25225,
+          "encodedBodySize": 24925,
+          "decodedBodySize": 24925
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/competition-D7Sydgo8.css",
+          "start": 42.099999994039536,
+          "duration": 29,
+          "fetchMs": 29,
+          "transferSize": 7082,
+          "encodedBodySize": 6782,
+          "decodedBodySize": 6782
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/signature-art-DXrKpugu.js",
+          "start": 42.20000000298023,
+          "duration": 57.8999999910593,
+          "fetchMs": 57.8999999910593,
+          "transferSize": 5309,
+          "encodedBodySize": 5009,
+          "decodedBodySize": 5009
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/style-S_mbsQK_.css",
+          "start": 42.29999999701977,
+          "duration": 53.70000000298023,
+          "fetchMs": 53.70000000298023,
+          "transferSize": 1163,
+          "encodedBodySize": 863,
+          "decodedBodySize": 863
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/brand/slingmods-logo-main.png",
+          "start": 210.59999999403954,
+          "duration": 9.700000002980232,
+          "fetchMs": 9.700000002980232,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/showcase-quality/sky/day-puresky-2k.hdr",
+          "start": 276.09999999403954,
+          "duration": 64.90000000596046,
+          "fetchMs": 64.90000000596046,
+          "transferSize": 5451793,
+          "encodedBodySize": 5451493,
+          "decodedBodySize": 5451493
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/hoop-refinement/slingshot-hoops-refined.glb",
+          "start": 1430.2999999970198,
+          "duration": 187,
+          "fetchMs": 187,
+          "transferSize": 13432692,
+          "encodedBodySize": 13432392,
+          "decodedBodySize": 13432392
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/drivers/test-driver.glb",
+          "start": 1431,
+          "duration": 48.79999999701977,
+          "fetchMs": 48.79999999701977,
+          "transferSize": 3717376,
+          "encodedBodySize": 3717076,
+          "decodedBodySize": 3717076
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/drivers/test-driver-attachment.json",
+          "start": 1431.0999999940395,
+          "duration": 8.900000005960464,
+          "fetchMs": 8.900000005960464,
+          "transferSize": 11686,
+          "encodedBodySize": 11386,
+          "decodedBodySize": 11386
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "start": 1431.2999999970198,
+          "duration": 8.299999997019768,
+          "fetchMs": 8.299999997019768,
+          "transferSize": 3310,
+          "encodedBodySize": 3010,
+          "decodedBodySize": 3010
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/showcase-quality/kit.glb",
+          "start": 1872,
+          "duration": 197.29999999701977,
+          "fetchMs": 197.29999999701977,
+          "transferSize": 28974672,
+          "encodedBodySize": 28974372,
+          "decodedBodySize": 28974372
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/brand/slingmods-sign.glb",
+          "start": 1872.2999999970198,
+          "duration": 4.700000002980232,
+          "fetchMs": 4.700000002980232,
+          "transferSize": 26316,
+          "encodedBodySize": 26016,
+          "decodedBodySize": 26016
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+          "start": 1872.7000000029802,
+          "duration": 4.5,
+          "fetchMs": 4.5,
+          "transferSize": 146210,
+          "encodedBodySize": 145910,
+          "decodedBodySize": 145910
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+          "start": 1872.7000000029802,
+          "duration": 5.700000002980232,
+          "fetchMs": 5.700000002980232,
+          "transferSize": 176787,
+          "encodedBodySize": 176487,
+          "decodedBodySize": 176487
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+          "start": 1872.7000000029802,
+          "duration": 6.299999997019768,
+          "fetchMs": 6.299999997019768,
+          "transferSize": 71223,
+          "encodedBodySize": 70923,
+          "decodedBodySize": 70923
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+          "start": 1872.7999999970198,
+          "duration": 7.600000008940697,
+          "fetchMs": 7.600000008940697,
+          "transferSize": 462898,
+          "encodedBodySize": 462598,
+          "decodedBodySize": 462598
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/p08b/showroom-refinement/finish-white-graphite.png",
+          "start": 2645.2999999970198,
+          "duration": 10.200000002980232,
+          "fetchMs": 10.200000002980232,
+          "transferSize": 99546,
+          "encodedBodySize": 99246,
+          "decodedBodySize": 99246
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/products/tricled-sm133-base.glb",
+          "start": 2659.4000000059605,
+          "duration": 14,
+          "fetchMs": 14,
+          "transferSize": 90292,
+          "encodedBodySize": 89992,
+          "decodedBodySize": 89992
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/products/tricled-sm133-base.attachment.json",
+          "start": 2659.7000000029802,
+          "duration": 9.700000002980232,
+          "fetchMs": 9.700000002980232,
+          "transferSize": 16505,
+          "encodedBodySize": 16205,
+          "decodedBodySize": 16205
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/products/ddmworks-sm3223-silver.glb",
+          "start": 2660,
+          "duration": 13.099999994039536,
+          "fetchMs": 13.099999994039536,
+          "transferSize": 250664,
+          "encodedBodySize": 250364,
+          "decodedBodySize": 250364
+        },
+        {
+          "url": "http://127.0.0.1:5202/assets/p08b/signature-products.glb",
+          "start": 2660.2000000029802,
+          "duration": 14.399999991059303,
+          "fetchMs": 14.399999991059303,
+          "transferSize": 340264,
+          "encodedBodySize": 339964,
+          "decodedBodySize": 339964
+        }
+      ],
+      "method": "Wall-clock stage boundaries and loading RAF intervals. Fetch timing includes cache behavior; load/decode phases overlap network as stated. Waiting is not CPU or GPU rendering cost."
+    },
+    "build": "bf1297c97703",
+    "handlingProfile": "slingmods-sport-v2",
+    "eventId": "p09a-hold-your-nerve-express-v1",
+    "preview": false,
+    "career": {
+      "attempt": {
+        "version": 1,
+        "id": "51777484-fe61-4bf0-b11a-bd8640ce4869",
+        "event": "hold-your-nerve",
+        "competitionId": "p09a-hold-your-nerve-express-v1",
+        "route": "express",
+        "routeVersion": "express-layout-v1",
+        "handlingProfile": "slingmods-sport-v2",
+        "laps": 1,
+        "participants": [
+          "jett",
+          "player"
+        ],
+        "recipe": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "white-graphite",
+          "products": {
+            "SM-133": "base-rgb",
+            "SM-3223": "silver",
+            "SM-7720": "brushed-silver",
+            "SM-26801": "black-aluminum",
+            "SM-28919": "lower-pair"
+          },
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 8,
+            "frontRebound": 10,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v2"
+        },
+        "cupId": null,
+        "stage": 0,
+        "status": "prepared"
+      },
+      "state": {
+        "version": 4,
+        "buildMatters": {
+          "legacyCrewAccess": false,
+          "duelCompleted": true,
+          "duelWon": true
+        },
+        "suspension": {
+          "owned": true,
+          "equipped": true,
+          "setup": {
+            "frontCompression": 8,
+            "frontRebound": 10,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          }
+        },
+        "revision": 27,
+        "credits": 1250,
+        "owned": true,
+        "equipped": true,
+        "appearance": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "chapters": {
+          "entry": true,
+          "firstCompletion": true,
+          "firstBuild": true
+        },
+        "crew": {
+          "invitationSeen": true,
+          "completed": true,
+          "bestPlace": 3,
+          "cleared": true,
+          "clearAcknowledged": false
+        },
+        "receipts": {
+          "b270d6c8-4779-4d45-9807-9520467e399a": {
+            "id": "b270d6c8-4779-4d45-9807-9520467e399a",
+            "kind": "award",
+            "amount": 800,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-15T15:20:42.069Z"
+          },
+          "25df1675-1d46-4d7b-8604-577534c743a3": {
+            "id": "25df1675-1d46-4d7b-8604-577534c743a3",
+            "kind": "duel-award",
+            "amount": 750,
+            "balance": 1550,
+            "first": true,
+            "at": "2026-09-15T15:20:52.212Z",
+            "event": "harbor-maya-duel-v1",
+            "place": 1,
+            "timeMs": 78475.37144039295,
+            "chapterBonus": 500
+          },
+          "ab19c832-f774-490b-b559-305107fe4731": {
+            "id": "ab19c832-f774-490b-b559-305107fe4731",
+            "kind": "suspension-purchase",
+            "amount": -1000,
+            "balance": 550,
+            "first": true,
+            "at": "2026-09-15T15:20:53.919Z"
+          },
+          "980f7739-b5f6-41e6-9c8a-426a8d29251b": {
+            "id": "980f7739-b5f6-41e6-9c8a-426a8d29251b",
+            "kind": "crew-award",
+            "amount": 550,
+            "balance": 1100,
+            "first": true,
+            "at": "2026-09-15T15:21:13.677Z",
+            "event": "harbor-crew-night-v1",
+            "place": 3,
+            "timeMs": 165737.35527624786,
+            "chapterBonus": 400
+          },
+          "f2da037a-6d95-4a45-a270-48a0d4bb9959": {
+            "id": "f2da037a-6d95-4a45-a270-48a0d4bb9959",
+            "kind": "crew-award",
+            "amount": 150,
+            "balance": 1250,
+            "first": false,
+            "at": "2026-09-15T15:21:32.696Z",
+            "event": "harbor-crew-night-v1",
+            "place": 3,
+            "timeMs": 165737.35527624786,
+            "chapterBonus": 0
+          },
+          "6162bb37-48ab-4804-9e7e-b24e46479536": {
+            "id": "6162bb37-48ab-4804-9e7e-b24e46479536",
+            "kind": "purchase",
+            "amount": -600,
+            "balance": 650,
+            "first": true,
+            "at": "2026-09-15T23:45:45.021Z"
+          },
+          "8369b009-8284-4924-8295-16799dadbdc7": {
+            "id": "8369b009-8284-4924-8295-16799dadbdc7",
+            "kind": "chapter-award",
+            "amount": 800,
+            "balance": 1450,
+            "first": true,
+            "at": "2026-09-15T23:46:05.413Z",
+            "event": "p09a-open-it-up-express-v1",
+            "place": 1,
+            "timeMs": 77547.67787761841,
+            "chapterBonus": 0,
+            "handlingProfile": "slingmods-sport-v2",
+            "chapterRecord": {
+              "attemptId": "8369b009-8284-4924-8295-16799dadbdc7",
+              "competitionId": "p09a-open-it-up-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "timeMs": 77547.67787761841,
+              "place": 1,
+              "standings": [
+                {
+                  "id": "player",
+                  "place": 1,
+                  "status": "finished",
+                  "timeMs": 77547.67787761841
+                }
+              ]
+            }
+          },
+          "731e2ef0-e3bc-47ea-a38f-079b0857ed43": {
+            "id": "731e2ef0-e3bc-47ea-a38f-079b0857ed43",
+            "kind": "chapter-purchase",
+            "amount": -700,
+            "balance": 750,
+            "first": true,
+            "at": "2026-09-15T23:46:06.297Z",
+            "productId": "SM-7720"
+          },
+          "61488575-f653-4eaa-a1d4-f85007d6c201": {
+            "id": "61488575-f653-4eaa-a1d4-f85007d6c201",
+            "kind": "chapter-award",
+            "amount": 700,
+            "balance": 1450,
+            "first": true,
+            "at": "2026-09-15T23:46:18.918Z",
+            "event": "p09a-hold-your-nerve-express-v1",
+            "place": 2,
+            "timeMs": 79170.24807545627,
+            "chapterBonus": 0,
+            "handlingProfile": "slingmods-sport-v2",
+            "chapterRecord": {
+              "attemptId": "61488575-f653-4eaa-a1d4-f85007d6c201",
+              "competitionId": "p09a-hold-your-nerve-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "timeMs": 79170.24807545627,
+              "place": 2,
+              "standings": [
+                {
+                  "id": "jett",
+                  "place": 1,
+                  "status": "finished",
+                  "timeMs": 77741.39038995563
+                },
+                {
+                  "id": "player",
+                  "place": 2,
+                  "status": "finished",
+                  "timeMs": 79170.24807545627
+                }
+              ]
+            }
+          },
+          "feec86c8-4b70-4017-89fb-d714b5046b9a": {
+            "id": "feec86c8-4b70-4017-89fb-d714b5046b9a",
+            "kind": "chapter-purchase",
+            "amount": -650,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-15T23:46:19.880Z",
+            "productId": "SM-26801"
+          },
+          "b69a820e-3350-4aec-ab03-c9320fb0d596": {
+            "id": "b69a820e-3350-4aec-ab03-c9320fb0d596",
+            "kind": "chapter-award",
+            "amount": 0,
+            "balance": 800,
+            "first": false,
+            "at": "2026-09-15T23:46:34.793Z",
+            "event": "p09a-coastline-cup-harbor-v1",
+            "place": 4,
+            "timeMs": 77073.05258363944,
+            "chapterBonus": 0,
+            "handlingProfile": "slingmods-sport-v2",
+            "chapterRecord": {
+              "attemptId": "b69a820e-3350-4aec-ab03-c9320fb0d596",
+              "competitionId": "p09a-coastline-cup-harbor-v1",
+              "route": "harbor",
+              "routeVersion": "1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "timeMs": 77073.05258363944,
+              "place": 4,
+              "standings": [
+                {
+                  "id": "maya",
+                  "place": 1,
+                  "status": "finished",
+                  "timeMs": 70619.57782849153
+                },
+                {
+                  "id": "jett",
+                  "place": 2,
+                  "status": "finished",
+                  "timeMs": 72473.88429284713
+                },
+                {
+                  "id": "nico",
+                  "place": 3,
+                  "status": "finished",
+                  "timeMs": 75548.9141188403
+                },
+                {
+                  "id": "player",
+                  "place": 4,
+                  "status": "finished",
+                  "timeMs": 77073.05258363944
+                }
+              ]
+            }
+          },
+          "d71f1cc5-0ca7-4a0f-a95b-b5162d8b0412": {
+            "id": "d71f1cc5-0ca7-4a0f-a95b-b5162d8b0412",
+            "kind": "chapter-award",
+            "amount": 900,
+            "balance": 1700,
+            "first": true,
+            "at": "2026-09-15T23:46:53.461Z",
+            "event": "p09a-coastline-cup-express-v1",
+            "place": 4,
+            "timeMs": 86089.6278167518,
+            "chapterBonus": 0,
+            "handlingProfile": "slingmods-sport-v2",
+            "chapterRecord": {
+              "attemptId": "d71f1cc5-0ca7-4a0f-a95b-b5162d8b0412",
+              "competitionId": "p09a-coastline-cup-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "timeMs": 86089.6278167518,
+              "place": 4,
+              "standings": [
+                {
+                  "id": "maya",
+                  "place": 1,
+                  "status": "finished",
+                  "timeMs": 79432.58429796918
+                },
+                {
+                  "id": "jett",
+                  "place": 2,
+                  "status": "finished",
+                  "timeMs": 80764.8923637602
+                },
+                {
+                  "id": "nico",
+                  "place": 3,
+                  "status": "finished",
+                  "timeMs": 84652.00361824926
+                },
+                {
+                  "id": "player",
+                  "place": 4,
+                  "status": "finished",
+                  "timeMs": 86089.6278167518
+                }
+              ]
+            }
+          },
+          "b69867bc-ae12-42fb-82c9-fef2599b552c": {
+            "id": "b69867bc-ae12-42fb-82c9-fef2599b552c",
+            "kind": "chapter-purchase",
+            "amount": -450,
+            "balance": 1250,
+            "first": true,
+            "at": "2026-09-15T23:46:54.590Z",
+            "productId": "SM-28919"
+          }
+        },
+        "ownBuild": {
+          "version": 1,
+          "finish": "white-graphite",
+          "products": {
+            "SM-7720": {
+              "owned": true,
+              "equipped": true
+            },
+            "SM-26801": {
+              "owned": true,
+              "equipped": true
+            },
+            "SM-28919": {
+              "owned": true,
+              "equipped": true
+            }
+          },
+          "completed": {
+            "open-it-up": true,
+            "hold-your-nerve": true,
+            "coastline-cup": true
+          },
+          "won": {
+            "open-it-up": false,
+            "hold-your-nerve": false,
+            "coastline-cup": false
+          },
+          "active": {
+            "version": 1,
+            "id": "51777484-fe61-4bf0-b11a-bd8640ce4869",
+            "event": "hold-your-nerve",
+            "competitionId": "p09a-hold-your-nerve-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v2",
+            "laps": 1,
+            "participants": [
+              "jett",
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 8,
+                "frontRebound": 10,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v2"
+            },
+            "cupId": null,
+            "stage": 0,
+            "status": "prepared"
+          },
+          "attempts": {
+            "8369b009-8284-4924-8295-16799dadbdc7": {
+              "version": 1,
+              "id": "8369b009-8284-4924-8295-16799dadbdc7",
+              "event": "open-it-up",
+              "competitionId": "p09a-open-it-up-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "participants": [
+                "player"
+              ],
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "cupId": null,
+              "stage": 0,
+              "status": "completed"
+            },
+            "61488575-f653-4eaa-a1d4-f85007d6c201": {
+              "version": 1,
+              "id": "61488575-f653-4eaa-a1d4-f85007d6c201",
+              "event": "hold-your-nerve",
+              "competitionId": "p09a-hold-your-nerve-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "participants": [
+                "jett",
+                "player"
+              ],
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "cupId": null,
+              "stage": 0,
+              "status": "completed"
+            },
+            "b69a820e-3350-4aec-ab03-c9320fb0d596": {
+              "version": 1,
+              "id": "b69a820e-3350-4aec-ab03-c9320fb0d596",
+              "event": "coastline-cup",
+              "competitionId": "p09a-coastline-cup-harbor-v1",
+              "route": "harbor",
+              "routeVersion": "1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "participants": [
+                "maya",
+                "jett",
+                "nico",
+                "player"
+              ],
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "cupId": "35c62d59-769d-4466-9727-f9d741fdf967",
+              "stage": 0,
+              "status": "completed"
+            },
+            "d71f1cc5-0ca7-4a0f-a95b-b5162d8b0412": {
+              "version": 1,
+              "id": "d71f1cc5-0ca7-4a0f-a95b-b5162d8b0412",
+              "event": "coastline-cup",
+              "competitionId": "p09a-coastline-cup-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "participants": [
+                "maya",
+                "jett",
+                "nico",
+                "player"
+              ],
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "cupId": "35c62d59-769d-4466-9727-f9d741fdf967",
+              "stage": 1,
+              "status": "completed"
+            },
+            "51777484-fe61-4bf0-b11a-bd8640ce4869": {
+              "version": 1,
+              "id": "51777484-fe61-4bf0-b11a-bd8640ce4869",
+              "event": "hold-your-nerve",
+              "competitionId": "p09a-hold-your-nerve-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "participants": [
+                "jett",
+                "player"
+              ],
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "white-graphite",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum",
+                  "SM-28919": "lower-pair"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "cupId": null,
+              "stage": 0,
+              "status": "prepared"
+            }
+          },
+          "cups": {
+            "35c62d59-769d-4466-9727-f9d741fdf967": {
+              "id": "35c62d59-769d-4466-9727-f9d741fdf967",
+              "status": "completed",
+              "stages": [
+                {
+                  "attemptId": "b69a820e-3350-4aec-ab03-c9320fb0d596",
+                  "competitionId": "p09a-coastline-cup-harbor-v1",
+                  "route": "harbor",
+                  "routeVersion": "1",
+                  "handlingProfile": "slingmods-sport-v2",
+                  "laps": 1,
+                  "recipe": {
+                    "version": 1,
+                    "vehicleId": "slingshot-r-2024",
+                    "finish": "blue-orange",
+                    "products": {
+                      "SM-133": "base-rgb",
+                      "SM-3223": "silver",
+                      "SM-7720": "brushed-silver",
+                      "SM-26801": "black-aluminum"
+                    },
+                    "lights": {
+                      "color": "red",
+                      "brightness": 0.6,
+                      "enabled": true
+                    },
+                    "suspension": {
+                      "frontCompression": 8,
+                      "frontRebound": 10,
+                      "rearCompression": 1,
+                      "rearRebound": 3,
+                      "rideHeightMm": 0
+                    },
+                    "handlingProfile": "slingmods-sport-v2"
+                  },
+                  "timeMs": 77073.05258363944,
+                  "place": 4,
+                  "standings": [
+                    {
+                      "id": "maya",
+                      "place": 1,
+                      "status": "finished",
+                      "timeMs": 70619.57782849153
+                    },
+                    {
+                      "id": "jett",
+                      "place": 2,
+                      "status": "finished",
+                      "timeMs": 72473.88429284713
+                    },
+                    {
+                      "id": "nico",
+                      "place": 3,
+                      "status": "finished",
+                      "timeMs": 75548.9141188403
+                    },
+                    {
+                      "id": "player",
+                      "place": 4,
+                      "status": "finished",
+                      "timeMs": 77073.05258363944
+                    }
+                  ]
+                },
+                {
+                  "attemptId": "d71f1cc5-0ca7-4a0f-a95b-b5162d8b0412",
+                  "competitionId": "p09a-coastline-cup-express-v1",
+                  "route": "express",
+                  "routeVersion": "express-layout-v1",
+                  "handlingProfile": "slingmods-sport-v2",
+                  "laps": 1,
+                  "recipe": {
+                    "version": 1,
+                    "vehicleId": "slingshot-r-2024",
+                    "finish": "blue-orange",
+                    "products": {
+                      "SM-133": "base-rgb",
+                      "SM-3223": "silver",
+                      "SM-7720": "brushed-silver",
+                      "SM-26801": "black-aluminum"
+                    },
+                    "lights": {
+                      "color": "red",
+                      "brightness": 0.6,
+                      "enabled": true
+                    },
+                    "suspension": {
+                      "frontCompression": 8,
+                      "frontRebound": 10,
+                      "rearCompression": 1,
+                      "rearRebound": 3,
+                      "rideHeightMm": 0
+                    },
+                    "handlingProfile": "slingmods-sport-v2"
+                  },
+                  "timeMs": 86089.6278167518,
+                  "place": 4,
+                  "standings": [
+                    {
+                      "id": "maya",
+                      "place": 1,
+                      "status": "finished",
+                      "timeMs": 79432.58429796918
+                    },
+                    {
+                      "id": "jett",
+                      "place": 2,
+                      "status": "finished",
+                      "timeMs": 80764.8923637602
+                    },
+                    {
+                      "id": "nico",
+                      "place": 3,
+                      "status": "finished",
+                      "timeMs": 84652.00361824926
+                    },
+                    {
+                      "id": "player",
+                      "place": 4,
+                      "status": "finished",
+                      "timeMs": 86089.6278167518
+                    }
+                  ]
+                }
+              ],
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "handlingProfile": "slingmods-sport-v2"
+            }
+          },
+          "activeCupId": null,
+          "records": [
+            {
+              "attemptId": "8369b009-8284-4924-8295-16799dadbdc7",
+              "competitionId": "p09a-open-it-up-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "timeMs": 77547.67787761841,
+              "place": 1,
+              "standings": [
+                {
+                  "id": "player",
+                  "place": 1,
+                  "status": "finished",
+                  "timeMs": 77547.67787761841
+                }
+              ]
+            },
+            {
+              "attemptId": "61488575-f653-4eaa-a1d4-f85007d6c201",
+              "competitionId": "p09a-hold-your-nerve-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "timeMs": 79170.24807545627,
+              "place": 2,
+              "standings": [
+                {
+                  "id": "jett",
+                  "place": 1,
+                  "status": "finished",
+                  "timeMs": 77741.39038995563
+                },
+                {
+                  "id": "player",
+                  "place": 2,
+                  "status": "finished",
+                  "timeMs": 79170.24807545627
+                }
+              ]
+            },
+            {
+              "attemptId": "b69a820e-3350-4aec-ab03-c9320fb0d596",
+              "competitionId": "p09a-coastline-cup-harbor-v1",
+              "route": "harbor",
+              "routeVersion": "1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "timeMs": 77073.05258363944,
+              "place": 4,
+              "standings": [
+                {
+                  "id": "maya",
+                  "place": 1,
+                  "status": "finished",
+                  "timeMs": 70619.57782849153
+                },
+                {
+                  "id": "jett",
+                  "place": 2,
+                  "status": "finished",
+                  "timeMs": 72473.88429284713
+                },
+                {
+                  "id": "nico",
+                  "place": 3,
+                  "status": "finished",
+                  "timeMs": 75548.9141188403
+                },
+                {
+                  "id": "player",
+                  "place": 4,
+                  "status": "finished",
+                  "timeMs": 77073.05258363944
+                }
+              ]
+            },
+            {
+              "attemptId": "d71f1cc5-0ca7-4a0f-a95b-b5162d8b0412",
+              "competitionId": "p09a-coastline-cup-express-v1",
+              "route": "express",
+              "routeVersion": "express-layout-v1",
+              "handlingProfile": "slingmods-sport-v2",
+              "laps": 1,
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 8,
+                  "frontRebound": 10,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v2"
+              },
+              "timeMs": 86089.6278167518,
+              "place": 4,
+              "standings": [
+                {
+                  "id": "maya",
+                  "place": 1,
+                  "status": "finished",
+                  "timeMs": 79432.58429796918
+                },
+                {
+                  "id": "jett",
+                  "place": 2,
+                  "status": "finished",
+                  "timeMs": 80764.8923637602
+                },
+                {
+                  "id": "nico",
+                  "place": 3,
+                  "status": "finished",
+                  "timeMs": 84652.00361824926
+                },
+                {
+                  "id": "player",
+                  "place": 4,
+                  "status": "finished",
+                  "timeMs": 86089.6278167518
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "free": false,
+    "recipe": {
+      "version": 1,
+      "vehicleId": "slingshot-r-2024",
+      "finish": "white-graphite",
+      "products": {
+        "SM-133": "base-rgb",
+        "SM-3223": "silver",
+        "SM-7720": "brushed-silver",
+        "SM-26801": "black-aluminum",
+        "SM-28919": "lower-pair"
+      },
+      "lights": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "suspension": {
+        "frontCompression": 8,
+        "frontRebound": 10,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      },
+      "handlingProfile": "slingmods-sport-v2"
+    },
+    "race": {
+      "event": "p09a-hold-your-nerve-express-v1",
+      "handlingProfileId": "slingmods-sport-v2",
+      "laps": 1,
+      "phase": "running",
+      "paused": false,
+      "countdown": 0,
+      "elapsedMs": 42333.3333333329,
+      "attemptId": "51777484-fe61-4bf0-b11a-bd8640ce4869",
+      "standings": [
+        {
+          "id": "jett",
+          "place": 1,
+          "status": "running",
+          "lap": 1,
+          "nextGate": 9,
+          "progress": 1287.9117421312694,
+          "timeMs": null,
+          "invalidReason": null,
+          "valid": true
+        },
+        {
+          "id": "player",
+          "place": 2,
+          "status": "running",
+          "lap": 1,
+          "nextGate": 7,
+          "progress": 888.254746294777,
+          "timeMs": null,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "playerResult": null,
+      "allFinished": false
+    },
+    "telemetry": {
+      "time": 45.33333333333204,
+      "position": {
+        "x": -35.983441486879094,
+        "y": -0.00039251100588838517,
+        "z": -875.3221858349884
+      },
+      "quaternion": {
+        "x": 0.0015009791823104024,
+        "y": 0.9450035691261292,
+        "z": -0.0015238900668919086,
+        "w": 0.32705315947532654
+      },
+      "velocity": {
+        "x": -0.00900205783545971,
+        "y": -0.000037823621823918074,
+        "z": 0.02108990214765072
+      },
+      "angularVelocity": {
+        "x": -0.0000023003753994998988,
+        "y": -0.02831709012389183,
+        "z": 0.0012437696568667889
+      },
+      "speed": 0.022142377157170573,
+      "rpm": 2243.3677446900692,
+      "engineWheelAngularSpeed": 0.07383118502361803,
+      "gear": 1,
+      "shifting": false,
+      "shiftRemaining": 0,
+      "steer": -0.18705163971817837,
+      "throttle": 1,
+      "brake": 0,
+      "reversePending": false,
+      "wheels": [
+        {
+          "id": "front_left",
+          "contact": true,
+          "load": 2011.5346419651162,
+          "travel": -0.0031384034906115077,
+          "slipRatio": -0.0042,
+          "slipAngle": 0.008427424259903624,
+          "spin": 2833.9253540573304,
+          "steer": -0.17631903632000234,
+          "localCenter": {
+            "x": -0.8775,
+            "y": 0.32671159650938847,
+            "z": -1.3335
+          },
+          "surface": "gravel",
+          "angularSpeed": 0.1498468076639785,
+          "longitudinalSpeed": 0.04942696950796331,
+          "longitudinalForce": -84.48445496253488,
+          "lateralForce": -135.61644673066695,
+          "gripLimit": 1146.5747459201161,
+          "driveTorque": 0
+        },
+        {
+          "id": "front_right",
+          "contact": true,
+          "load": 1884.3381815789087,
+          "travel": -0.0063855155263628505,
+          "slipRatio": -0.00438092414066884,
+          "slipAngle": 0.011797068248813505,
+          "spin": 2847.4086545585915,
+          "steer": -0.1991571140856252,
+          "localCenter": {
+            "x": 0.8775,
+            "y": 0.3234644844736371,
+            "z": -1.3335
+          },
+          "surface": "grass",
+          "angularSpeed": 0.03271497988831551,
+          "longitudinalSpeed": 0.01079103611616087,
+          "longitudinalForce": -82.55142628863064,
+          "lateralForce": -177.83732905545216,
+          "gripLimit": 979.8558544210325,
+          "driveTorque": 0
+        },
+        {
+          "id": "rear",
+          "contact": true,
+          "load": 4441.692393831601,
+          "travel": 0.005546180725097605,
+          "slipRatio": 0.04824000004805578,
+          "slipAngle": -0.01760333860807271,
+          "spin": 2635.9539126049153,
+          "steer": 0,
+          "localCenter": {
+            "x": 0,
+            "y": 0.3510461807250976,
+            "z": 1.3335
+          },
+          "surface": "gravel",
+          "angularSpeed": 0.0746957450769326,
+          "longitudinalSpeed": 0.025807379779912848,
+          "longitudinalForce": 2142.6724107843643,
+          "lateralForce": 625.5089216121498,
+          "gripLimit": 2531.7646644840124,
+          "driveTorque": 804.7467162528882
+        }
+      ]
+    },
+    "field": {
+      "jett": {
+        "time": 45.33333333333204,
+        "position": {
+          "x": -279.70022048538567,
+          "y": 0.03345679088723447,
+          "z": -736.5136405044908
+        },
+        "quaternion": {
+          "x": 0.003422470996156335,
+          "y": 0.9999252557754517,
+          "z": -0.004043586552143097,
+          "w": -0.011018440127372742
+        },
+        "velocity": {
+          "x": 1.0449703931808472,
+          "y": 0.003633599728345871,
+          "z": 32.293304443359375
+        },
+        "angularVelocity": {
+          "x": -0.00030336951022036374,
+          "y": -0.03646207973361015,
+          "z": -0.00405676057562232
+        },
+        "speed": 32.30749057335409,
+        "rpm": 4689.311728843034,
+        "engineWheelAngularSpeed": 93.37052001676857,
+        "gear": 3,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": -0.006716029196226583,
+        "throttle": 1,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2059.974223724832,
+            "travel": -0.03805256922585626,
+            "slipRatio": -0.0014,
+            "slipAngle": -0.015305212045361798,
+            "spin": 3922.0347027278294,
+            "steer": -0.006701221614091993,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.2917974307741437,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": 97.89290464026011,
+            "longitudinalSpeed": 32.2899745955898,
+            "longitudinalForce": -28.83963913214765,
+            "lateralForce": 252.22673841670493,
+            "gripLimit": 2487.4188751477345,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 1559.8290763095424,
+            "travel": -0.05010063488824029,
+            "slipRatio": -0.0014,
+            "slipAngle": -0.015352007784492831,
+            "spin": 3939.03225425946,
+            "steer": -0.006730902362447455,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.2797493651117597,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": 97.69841936828101,
+            "longitudinalSpeed": 32.22582362862749,
+            "longitudinalForce": -21.837607068333593,
+            "lateralForce": 191.57206497585886,
+            "gripLimit": 1883.4936096437723,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4719.231937551873,
+            "travel": -0.022719176292419485,
+            "slipRatio": 0.06409969350510049,
+            "slipAngle": -0.011633582819877067,
+            "spin": 3753.9253246929857,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.3227808237075805,
+              "z": 1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": 93.37337089023139,
+            "longitudinalSpeed": 32.26049964257494,
+            "longitudinalForce": 3025.0132077655658,
+            "lateralForce": 439.21260473374906,
+            "gripLimit": 5698.472564593887,
+            "driveTorque": 1067.9689881649413
+          }
+        ]
+      },
+      "player": {
+        "time": 45.33333333333204,
+        "position": {
+          "x": -35.983441486879094,
+          "y": -0.00039251100588838517,
+          "z": -875.3221858349884
+        },
+        "quaternion": {
+          "x": 0.0015009791823104024,
+          "y": 0.9450035691261292,
+          "z": -0.0015238900668919086,
+          "w": 0.32705315947532654
+        },
+        "velocity": {
+          "x": -0.00900205783545971,
+          "y": -0.000037823621823918074,
+          "z": 0.02108990214765072
+        },
+        "angularVelocity": {
+          "x": -0.0000023003753994998988,
+          "y": -0.02831709012389183,
+          "z": 0.0012437696568667889
+        },
+        "speed": 0.022142377157170573,
+        "rpm": 2243.3677446900692,
+        "engineWheelAngularSpeed": 0.07383118502361803,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": -0.18705163971817837,
+        "throttle": 1,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2011.5346419651162,
+            "travel": -0.0031384034906115077,
+            "slipRatio": -0.0042,
+            "slipAngle": 0.008427424259903624,
+            "spin": 2833.9253540573304,
+            "steer": -0.17631903632000234,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.32671159650938847,
+              "z": -1.3335
+            },
+            "surface": "gravel",
+            "angularSpeed": 0.1498468076639785,
+            "longitudinalSpeed": 0.04942696950796331,
+            "longitudinalForce": -84.48445496253488,
+            "lateralForce": -135.61644673066695,
+            "gripLimit": 1146.5747459201161,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 1884.3381815789087,
+            "travel": -0.0063855155263628505,
+            "slipRatio": -0.00438092414066884,
+            "slipAngle": 0.011797068248813505,
+            "spin": 2847.4086545585915,
+            "steer": -0.1991571140856252,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3234644844736371,
+              "z": -1.3335
+            },
+            "surface": "grass",
+            "angularSpeed": 0.03271497988831551,
+            "longitudinalSpeed": 0.01079103611616087,
+            "longitudinalForce": -82.55142628863064,
+            "lateralForce": -177.83732905545216,
+            "gripLimit": 979.8558544210325,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4441.692393831601,
+            "travel": 0.005546180725097605,
+            "slipRatio": 0.04824000004805578,
+            "slipAngle": -0.01760333860807271,
+            "spin": 2635.9539126049153,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.3510461807250976,
+              "z": 1.3335
+            },
+            "surface": "gravel",
+            "angularSpeed": 0.0746957450769326,
+            "longitudinalSpeed": 0.025807379779912848,
+            "longitudinalForce": 2142.6724107843643,
+            "lateralForce": 625.5089216121498,
+            "gripLimit": 2531.7646644840124,
+            "driveTorque": 804.7467162528882
+          }
+        ]
+      }
+    },
+    "ticks": 2720,
+    "attemptId": "51777484-fe61-4bf0-b11a-bd8640ce4869",
+    "rewardPending": false,
+    "rewardText": "",
+    "careerTouched": true,
+    "route": {
+      "id": "harbor-express",
+      "version": "express-layout-v1",
+      "length": 2317.160796673365
+    },
+    "design": {
+      "id": "express-layout-v1",
+      "lengthMetres": 2317.160796673365,
+      "mainStraightMetres": 800,
+      "brakingZone": {
+        "startMetres": 600,
+        "endMetres": 800,
+        "lengthMetres": 200
+      },
+      "widthMetres": 15,
+      "runoffMetres": 3,
+      "groundBounds": {
+        "center": [
+          -80,
+          -0.15,
+          -400
+        ],
+        "size": [
+          1800,
+          0.3,
+          1600
+        ]
+      },
+      "description": "Eight-hundred-metre quay straight, terminal sweeper, warehouse return, loading-yard transition and marina bend. Braking boards at 200/150/100/50m before terminal curve.",
+      "source": "src/express/route.ts; cubic control points and measured polyline, not old Harbor geometry"
+    },
+    "suspension": {
+      "equipped": true,
+      "inspection": null,
+      "stockVisible": [
+        {
+          "name": "suspension_front_left",
+          "visible": false
+        },
+        {
+          "name": "suspension_front_right",
+          "visible": false
+        },
+        {
+          "name": "shock_body_visual",
+          "visible": false
+        },
+        {
+          "name": "shock_piston_visual",
+          "visible": false
+        },
+        {
+          "name": "shock_spring_visual",
+          "visible": false
+        }
+      ],
+      "endpoints": [
+        [
+          [
+            -0.76,
+            0.27686159650938835,
+            -1.3335
+          ],
+          [
+            -0.48,
+            0.64,
+            -1.31
+          ]
+        ],
+        [
+          [
+            0.76,
+            0.273614484473637,
+            -1.3335
+          ],
+          [
+            0.48,
+            0.64,
+            -1.31
+          ]
+        ],
+        [
+          [
+            0.27999999999985903,
+            0.3767310944963822,
+            1.1371540188819154
+          ],
+          [
+            0.27999999999974534,
+            0.7999999999999998,
+            1.0249999999999773
+          ]
+        ]
+      ],
+      "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+    },
+    "simulationSuspension": {
+      "frontCompression": 4598,
+      "frontRebound": 4332.000000000001,
+      "rearCompression": 6500,
+      "rearRebound": 6500,
+      "rideHeight": 0
+    },
+    "products": {
+      "selected": [
+        "SM-133",
+        "SM-3223",
+        "SM-7720",
+        "SM-26801",
+        "SM-28919"
+      ],
+      "storageInspection": false,
+      "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+      "mounts": {
+        "exhaust": {
+          "position": [
+            2.7,
+            1.3,
+            3.9
+          ],
+          "target": [
+            0,
+            0.65,
+            1.3
+          ]
+        },
+        "wing": {
+          "position": [
+            2.8,
+            1.9,
+            3.3
+          ],
+          "target": [
+            0,
+            1.25,
+            1.2
+          ]
+        },
+        "storage": {
+          "position": [
+            -1.6,
+            2.1,
+            -0.3
+          ],
+          "target": [
+            -0.2,
+            0.48,
+            0.95
+          ]
+        }
+      },
+      "productRoot": "signature_catalog_products"
+    },
+    "input": {
+      "control": {
+        "throttle": 1,
+        "brake": 0,
+        "steer": -0.31191973324084726,
+        "reverse": false,
+        "tractionControl": true
+      },
+      "direction": "D",
+      "directionHelp": "Stop, release pedals, then press brake for reverse. Forward pedal brakes reverse; release and press again to drive. X/right face selects direction explicitly.",
+      "paused": false,
+      "armed": true,
+      "activeDevice": "pad:0:P08B labeled evidence-only virtual player",
+      "status": "Controller connected",
+      "camera": false,
+      "reset": false,
+      "lookBack": false,
+      "resetProgress": 0,
+      "dt": 0.01666666666666424,
+      "ticks": 2720,
+      "current": {
+        "time": 45.33333333333204,
+        "position": {
+          "x": -35.983441486879094,
+          "y": -0.00039251100588838517,
+          "z": -875.3221858349884
+        },
+        "quaternion": {
+          "x": 0.0015009791823104024,
+          "y": 0.9450035691261292,
+          "z": -0.0015238900668919086,
+          "w": 0.32705315947532654
+        },
+        "velocity": {
+          "x": -0.00900205783545971,
+          "y": -0.000037823621823918074,
+          "z": 0.02108990214765072
+        },
+        "angularVelocity": {
+          "x": -0.0000023003753994998988,
+          "y": -0.02831709012389183,
+          "z": 0.0012437696568667889
+        },
+        "speed": 0.022142377157170573,
+        "rpm": 2243.3677446900692,
+        "engineWheelAngularSpeed": 0.07383118502361803,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": -0.18705163971817837,
+        "throttle": 1,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2011.5346419651162,
+            "travel": -0.0031384034906115077,
+            "slipRatio": -0.0042,
+            "slipAngle": 0.008427424259903624,
+            "spin": 2833.9253540573304,
+            "steer": -0.17631903632000234,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.32671159650938847,
+              "z": -1.3335
+            },
+            "surface": "gravel",
+            "angularSpeed": 0.1498468076639785,
+            "longitudinalSpeed": 0.04942696950796331,
+            "longitudinalForce": -84.48445496253488,
+            "lateralForce": -135.61644673066695,
+            "gripLimit": 1146.5747459201161,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 1884.3381815789087,
+            "travel": -0.0063855155263628505,
+            "slipRatio": -0.00438092414066884,
+            "slipAngle": 0.011797068248813505,
+            "spin": 2847.4086545585915,
+            "steer": -0.1991571140856252,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3234644844736371,
+              "z": -1.3335
+            },
+            "surface": "grass",
+            "angularSpeed": 0.03271497988831551,
+            "longitudinalSpeed": 0.01079103611616087,
+            "longitudinalForce": -82.55142628863064,
+            "lateralForce": -177.83732905545216,
+            "gripLimit": 979.8558544210325,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4441.692393831601,
+            "travel": 0.005546180725097605,
+            "slipRatio": 0.04824000004805578,
+            "slipAngle": -0.01760333860807271,
+            "spin": 2635.9539126049153,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.3510461807250976,
+              "z": 1.3335
+            },
+            "surface": "gravel",
+            "angularSpeed": 0.0746957450769326,
+            "longitudinalSpeed": 0.025807379779912848,
+            "longitudinalForce": 2142.6724107843643,
+            "lateralForce": 625.5089216121498,
+            "gripLimit": 2531.7646644840124,
+            "driveTorque": 804.7467162528882
+          }
+        ]
+      },
+      "previous": {
+        "time": 45.31666666666538,
+        "position": {
+          "x": -35.98327779853055,
+          "y": -0.0003921095212486847,
+          "z": -875.3225530504812
+        },
+        "quaternion": {
+          "x": 0.0015059388242661953,
+          "y": 0.9450746178627014,
+          "z": -0.0015240092761814594,
+          "w": 0.3268478214740753
+        },
+        "velocity": {
+          "x": -0.011822126805782318,
+          "y": -0.000002477844873283175,
+          "z": 0.023151831701397896
+        },
+        "angularVelocity": {
+          "x": -0.0005523618892766535,
+          "y": -0.022674867883324623,
+          "z": -0.00041603288264013827
+        },
+        "speed": 0.025508674268963864,
+        "rpm": 2244.593871255769,
+        "engineWheelAngularSpeed": 0.06018177433499075,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": -0.18686927086121227,
+        "throttle": 1,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2014.8344073818964,
+            "travel": -0.0031369729791368983,
+            "slipRatio": -0.004200000000000001,
+            "slipAngle": 0.010614136589439768,
+            "spin": 2833.922856610536,
+            "steer": -0.1761567750622306,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.3267130270208631,
+              "z": -1.3335
+            },
+            "surface": "gravel",
+            "angularSpeed": 0.1471189322191864,
+            "longitudinalSpeed": 0.048527179792498626,
+            "longitudinalForce": -84.62304511003966,
+            "lateralForce": -171.08582084043502,
+            "gripLimit": 1148.4556122076808,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 1890.9634624920393,
+            "travel": -0.006394158199855282,
+            "slipRatio": -0.001294221531171232,
+            "slipAngle": 0.014674682316244704,
+            "spin": 2847.4081093089267,
+            "steer": -0.198950711514591,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3234558418001447,
+              "z": -1.3335
+            },
+            "surface": "grass",
+            "angularSpeed": 0.009698706890199848,
+            "longitudinalSpeed": 0.0031991184677324196,
+            "longitudinalForce": -24.473256278153013,
+            "lateralForce": -221.99430466957426,
+            "gripLimit": 983.3010004958604,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4434.38041644914,
+            "travel": 0.005549458980560251,
+            "slipRatio": 0.04824000005223205,
+            "slipAngle": -0.020794599182812134,
+            "spin": 2635.9526676758305,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.3510494589805602,
+              "z": 1.3335
+            },
+            "surface": "gravel",
+            "angularSpeed": 0.059901602575979304,
+            "longitudinalSpeed": 0.020696003533304683,
+            "longitudinalForce": 2139.1451128950653,
+            "lateralForce": 737.6893070733714,
+            "gripLimit": 2527.5968373760097,
+            "driveTorque": 803.4219307283385
+          }
+        ]
+      },
+      "alpha": 0
+    },
+    "audio": {
+      "enabled": false,
+      "loading": false,
+      "failure": "",
+      "soundTreatment": "p09b-authored-sport-mix",
+      "life": {
+        "enabled": false,
+        "paused": false,
+        "mute": false,
+        "volume": 0.55,
+        "cockpit": false,
+        "reset": false
+      },
+      "levels": {
+        "master": 0.55,
+        "interface": 1,
+        "engine": 1
+      },
+      "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+    },
+    "memory": {
+      "geometries": 190,
+      "textures": 64
+    },
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "size": [
+      1280,
+      720
+    ],
+    "dpr": 1,
+    "loadMs": 7925.5,
+    "preparation": {
+      "ms": 3385.9000000059605,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 605.2999999970198
+        },
+        {
+          "name": "compile-async",
+          "ms": 2360.300000011921
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 413.3999999910593
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0.10000000894069672
+        }
+      ],
+      "textures": 57,
+      "programs": 35,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    }
+  },
+  "errors": []
+}

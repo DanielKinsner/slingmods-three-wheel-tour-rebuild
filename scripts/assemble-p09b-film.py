@@ -1,7 +1,14 @@
 """Cut loading and 240ms top-layer sync mirrors from actual live captures; preserve real-speed audio/video."""
-import json, subprocess, sys, array, math, hashlib
+import json, subprocess, sys, array, math, hashlib, re, os
 from pathlib import Path
 root=Path(sys.argv[1]); recorded=json.loads((root/'video-path.json').read_text())['path']; video=root/'raw-video'/recorded.replace('\\','/').split('/')[-1]; assert video.is_file(), 'Recover original raw-video file from Git first'
+runtime=next((a.split('=',1)[1] for a in sys.argv[2:] if a.startswith('--runtime=')), '')
+assert re.fullmatch(r'[0-9a-f]{12,40}', runtime), 'Pass --runtime=verified-runtime-sha'
+font_candidates=[Path(os.environ.get('FILM_FONT','')),Path(os.environ.get('WINDIR','C:/Windows'))/'Fonts/arial.ttf',Path('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'),Path('/System/Library/Fonts/Supplemental/Arial.ttf')]
+font=next((p for p in font_candidates if p.is_file()),None)
+assert font, 'Set FILM_FONT to an installed redistributable or locally licensed font for metadata caption'
+font_path=font.resolve().as_posix().replace(':',r'\:')
+label="drawtext=fontfile='"+font_path+"':text='P09B "+runtime[:12]+" | EDITED CAPTURE':fontsize=12:fontcolor=white:box=1:boxcolor=black@0.72:boxborderw=3:x=8:y=h-th-7"
 all_segments=json.loads((root/'audio-segments.json').read_text());excluded=set(a.split('=',1)[1]for a in sys.argv[2:]if a.startswith('--exclude='));segments=[s for s in all_segments if s['name']not in excluded]
 def run(args): return subprocess.check_output(args)
 meta=json.loads(run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(video)]))
@@ -33,7 +40,7 @@ for i,s in enumerate(segments):
  start,end,boundary_method=bounds[i]
  if s.get('silent'):
   duration=end-start-.60;part=root/(s['name']+'.mp4');parts.append(part)
-  subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',str(start+.30),'-i',str(video),'-f','lavfi','-i','anullsrc=r=48000:cl=stereo','-t',str(duration),'-map','0:v:0','-map','1:a:0','-c:v','libx264','-preset','medium','-crf','24','-maxrate','1050k','-bufsize','2100k','-pix_fmt','yuv420p','-r','25','-c:a','aac','-b:a','128k','-movflags','+faststart',str(part)],check=True)
+  subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',str(start+.30),'-i',str(video),'-f','lavfi','-i','anullsrc=r=48000:cl=stereo','-t',str(duration),'-map','0:v:0','-map','1:a:0','-c:v','libx264','-preset','medium','-crf','24','-maxrate','1050k','-bufsize','2100k','-vf',label,'-pix_fmt','yuv420p','-r','25','-c:a','aac','-b:a','128k','-movflags','+faststart',str(part)],check=True)
   cuts.append({'segment':s['name'],'sourceVideoStart':start+.30,'duration':duration,'boundaryMethod':boundary_method,'audio':'Authentic silent career UI. Silent track for concatenation; no replacement sound.'});continue
  marks=s['markers'];assert len(marks)==2
  audio=Path(root/(s['name']+'-audio.webm'))
@@ -53,12 +60,12 @@ for i,s in enumerate(segments):
  assert abs(drift)<.16, f'A/V duration drift too large: {drift}'
  duration=end-start-.60; offset=.30
  part=root/(s['name']+'.mp4');parts.append(part)
- subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',str(start+offset),'-i',str(video),'-ss',str(max(0,astart+offset)),'-i',str(audio),'-t',str(duration),'-map','0:v:0','-map','1:a:0','-c:v','libx264','-preset','medium','-crf','24','-maxrate','1050k','-bufsize','2100k','-pix_fmt','yuv420p','-r','25','-c:a','aac','-b:a','128k','-ar','48000','-movflags','+faststart',str(part)],check=True)
+ subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',str(start+offset),'-i',str(video),'-ss',str(max(0,astart+offset)),'-i',str(audio),'-t',str(duration),'-map','0:v:0','-map','1:a:0','-c:v','libx264','-preset','medium','-crf','24','-maxrate','1050k','-bufsize','2100k','-vf',label,'-pix_fmt','yuv420p','-r','25','-c:a','aac','-b:a','128k','-ar','48000','-movflags','+faststart',str(part)],check=True)
  decoded=array.array('f');decoded.frombytes(run(['ffmpeg','-v','error','-i',str(part),'-vn','-f','f32le','-ac','1','-ar','12000','-']));body=decoded[6000:-6000];energy=math.sqrt(sum(x*x for x in body)/len(body));assert energy>.0003, f'Game audio missing between markers: {s["name"]}'
  cuts.append({'gameAudioRMSBetweenMarkers':energy,'segment':s['name'],'sourceVideoStart':start+offset,'sourceAudioStart':astart+offset,'duration':duration,'measuredAVDriftMs':drift*1000,'audioChirpCenters':tones,'videoFlashStarts':[start,end]})
 concat=root/'concat.txt';concat.write_text('\n'.join("file '"+p.name+"'" for p in parts))
 final=root/'P09B-Signature-Finish.mp4';subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-f','concat','-safe','0','-i',str(concat),'-c:v','copy','-af','aresample=async=1:first_pts=0','-c:a','aac','-b:a','128k','-ar','48000','-movflags','+faststart',str(final)],check=True)
 probe=json.loads(run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(final)]));duration=float(probe['format']['duration']);assert 180<=duration<=240
 pcm=array.array('f');pcm.frombytes(run(['ffmpeg','-v','error','-i',str(final),'-vn','-f','f32le','-ac','1','-ar','12000','-']));peak=max(abs(x) for x in pcm);rms=math.sqrt(sum(x*x for x in pcm)/len(pcm));assert all(math.isfinite(x) for x in pcm) and rms>.0005 and peak<1
-report={'pass':True,'method':'Real-speed edited demonstration, with only loading and disclosed sync-marker boundaries cut. Actual live game graph audio, measured recorded chirps aligned to captured video flashes. No synthesized replacement audio or time warping. Audio listening approval remains human.','excludedSegments':{name:'A required video sync flash is absent from captured frames; full original video/audio retained. Optional Original Harbor excerpt omitted rather than claiming unverified synchronization.' for name in excluded},'omittedVisualGroups':[{'groupIndex':i,'startSeconds':all_groups[i][0]/fps,'endSeconds':all_groups[i][-1]/fps} for i in sorted(omitted_groups)],'cuts':cuts,'video':str(video),'film':str(final),'duration':duration,'bytes':final.stat().st_size,'sha256':hashlib.sha256(final.read_bytes()).hexdigest(),'decodedAudio':{'peak':peak,'rms':rms,'samples':len(pcm)},'probe':probe}
+report={'runtime':runtime,'overlay':'Small encoded runtime / edited capture label added; original game UI and actual audio unchanged. Automated input label was captured live.','pass':True,'method':'Real-speed edited demonstration, with only loading and disclosed sync-marker boundaries cut. Actual live game graph audio, measured recorded chirps aligned to captured video flashes. No synthesized replacement audio or time warping. Audio listening approval remains human.','excludedSegments':{name:'A required video sync flash is absent from captured frames; full original video/audio retained. Optional Original Harbor excerpt omitted rather than claiming unverified synchronization.' for name in excluded},'omittedVisualGroups':[{'groupIndex':i,'startSeconds':all_groups[i][0]/fps,'endSeconds':all_groups[i][-1]/fps} for i in sorted(omitted_groups)],'cuts':cuts,'video':str(video),'film':str(final),'duration':duration,'bytes':final.stat().st_size,'sha256':hashlib.sha256(final.read_bytes()).hexdigest(),'decodedAudio':{'peak':peak,'rms':rms,'samples':len(pcm)},'probe':probe}
 (root/'FILM-VERIFICATION.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:report[k] for k in ['pass','duration','bytes','sha256']}))

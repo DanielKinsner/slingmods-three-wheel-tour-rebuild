@@ -1,0 +1,6454 @@
+{
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=toggle-product]')\u001b[22m\n\n    at C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\p09b-integration.mjs:5:85",
+  "errors": [],
+  "states": {
+    "on": {
+      "display": {
+        "power": true,
+        "values": {
+          "speed": 0,
+          "units": "mph",
+          "rpm": 950,
+          "gear": "1"
+        },
+        "pixels": [
+          512,
+          336
+        ],
+        "uploads": 3,
+        "thumbnailCaptures": 1,
+        "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"blue-orange\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+        "mount": {
+          "width": 0.202,
+          "height": 0.133,
+          "position": [
+            0,
+            0.665,
+            -0.1735
+          ],
+          "pixels": [
+            512,
+            336
+          ]
+        },
+        "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+      },
+      "ready": true,
+      "departure": null,
+      "showroom": {
+        "driverRendered": false,
+        "curtainPosition": [
+          0,
+          0,
+          0
+        ],
+        "curtainScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "build": "b967d6f88759-working",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      },
+      "original": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      },
+      "finish": {
+        "finish": "blue-orange",
+        "accent": "#f07521",
+        "paintedAccents": [
+          {
+            "node": "body_static__Orange_Accent",
+            "color": "fa691b"
+          },
+          {
+            "node": "rear_arm_visual__Orange_Accent",
+            "color": "fa691b"
+          }
+        ],
+        "isolatedMaterialSlots": 6,
+        "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+        "textureCount": 0
+      },
+      "compare": false,
+      "lighting": "studio",
+      "driverVisible": false,
+      "reducedMotion": false,
+      "status": "",
+      "pending": false,
+      "screen": "build",
+      "saved": [],
+      "loadMs": 8390.60000000894,
+      "preparation": {
+        "ms": 652.5,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 11.899999991059303
+          },
+          {
+            "name": "compile-async",
+            "ms": 633.9000000059605
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 5
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 36,
+        "programs": 25,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "frames": 17,
+      "memory": {
+        "geometries": 95,
+        "textures": 36
+      },
+      "calls": 143,
+      "triangles": 441691,
+      "products": {
+        "selected": [],
+        "storageInspection": false,
+        "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+        "mounts": {
+          "exhaust": {
+            "position": [
+              2.7,
+              1.3,
+              3.9
+            ],
+            "target": [
+              0,
+              0.65,
+              1.3
+            ]
+          },
+          "wing": {
+            "position": [
+              2.8,
+              1.9,
+              3.3
+            ],
+            "target": [
+              0,
+              1.25,
+              1.2
+            ]
+          },
+          "storage": {
+            "position": [
+              -1.6,
+              2.1,
+              -0.3
+            ],
+            "target": [
+              -0.2,
+              0.48,
+              0.95
+            ]
+          }
+        },
+        "productRoot": "signature_catalog_products"
+      },
+      "suspension": {
+        "equipped": false,
+        "inspection": null,
+        "stockVisible": [
+          {
+            "name": "suspension_front_left",
+            "visible": true
+          },
+          {
+            "name": "suspension_front_right",
+            "visible": true
+          },
+          {
+            "name": "shock_body_visual",
+            "visible": true
+          },
+          {
+            "name": "shock_piston_visual",
+            "visible": true
+          },
+          {
+            "name": "shock_spring_visual",
+            "visible": true
+          }
+        ],
+        "endpoints": [],
+        "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+      },
+      "audio": {
+        "enabled": false,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "p09b-authored-stock-mix",
+        "life": {
+          "enabled": false,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+      },
+      "simulation": {
+        "time": 1.4999999999999996,
+        "position": {
+          "x": -3.5582608876520534e-26,
+          "y": 8.344650304081824e-9,
+          "z": 4.91050323958575e-9
+        },
+        "quaternion": {
+          "x": 6.469465407832331e-9,
+          "y": 2.4320583424525124e-19,
+          "z": -1.6658375350366117e-27,
+          "w": 1
+        },
+        "velocity": {
+          "x": -2.630063244082985e-25,
+          "y": -9.57412424895665e-8,
+          "z": -1.1817213874110166e-9
+        },
+        "angularVelocity": {
+          "x": -1.0613036671713871e-8,
+          "y": -1.0514849174370447e-19,
+          "z": 0
+        },
+        "speed": 1.1817201486217037e-9,
+        "rpm": 950,
+        "engineWheelAngularSpeed": 1.2147789398480313e-9,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 0,
+        "brake": 1,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4169.2504429962955,
+            "travel": -1.6689301052252858e-9,
+            "slipRatio": 1.7781879276917888e-9,
+            "slipAngle": 3.519234538267414e-18,
+            "spin": -1.4122584990285685e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.34549999833106987,
+              "z": 1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4024783264303236e-8,
+            "longitudinalSpeed": -4.845562617816768e-9,
+            "longitudinalForce": 0.00007413710805259655,
+            "lateralForce": -1.1738056126143425e-13,
+            "gripLimit": 5034.369909918028,
+            "driveTorque": 0
+          }
+        ]
+      },
+      "profile": null,
+      "camera": {
+        "position": [
+          0,
+          0.8199999999999996,
+          0.75
+        ],
+        "target": [
+          0,
+          0.6649999999999998,
+          -0.174
+        ]
+      },
+      "bounds": {
+        "minX": -2.1358990867935974,
+        "maxX": 1.961115037814139,
+        "minY": -1.4460151859705297,
+        "maxY": 3.604529055111089,
+        "allInFront": false
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:5201/@vite/client",
+          "bytes": 211057,
+          "duration": 33.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/main.ts?t=1789515117425",
+          "bytes": 8235,
+          "duration": 32.6000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/profile.ts",
+          "bytes": 9428,
+          "duration": 3.3999999910593033
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/recovery.ts?t=1789514994330",
+          "bytes": 8212,
+          "duration": 4
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/vite/dist/client/env.mjs",
+          "bytes": 3941,
+          "duration": 4.899999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/preview.css?t=1789514994330",
+          "bytes": 12072,
+          "duration": 2.300000011920929
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/scene.ts?t=1789515117425",
+          "bytes": 60962,
+          "duration": 5.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/powered-display.ts?t=1789514927950",
+          "bytes": 22186,
+          "duration": 10.199999988079071
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/actions.ts",
+          "bytes": 5204,
+          "duration": 12.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/drive-preparation.ts",
+          "bytes": 14941,
+          "duration": 13
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_loaders_GLTFLoader__js.js?v=7abc3b5c",
+          "bytes": 344414,
+          "duration": 22.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.js?v=7abc3b5c",
+          "bytes": 72800,
+          "duration": 35
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/hero.ts",
+          "bytes": 17780,
+          "duration": 25.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_controls_OrbitControls__js.js?v=7abc3b5c",
+          "bytes": 122886,
+          "duration": 25.19999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/signature-art.ts",
+          "bytes": 25828,
+          "duration": 27.30000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/product.ts",
+          "bytes": 15452,
+          "duration": 28.30000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/suspension.ts",
+          "bytes": 16738,
+          "duration": 29.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/inspection.ts",
+          "bytes": 10589,
+          "duration": 31.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/prepare.ts",
+          "bytes": 14621,
+          "duration": 35
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/index.ts",
+          "bytes": 70148,
+          "duration": 37.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/game-audio.ts?t=1789515117425",
+          "bytes": 36624,
+          "duration": 36.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/driving/input.ts",
+          "bytes": 31552,
+          "duration": 36.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/config.ts",
+          "bytes": 22046,
+          "duration": 38.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/catalog.ts",
+          "bytes": 13276,
+          "duration": 40
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/route-data.ts",
+          "bytes": 5135,
+          "duration": 40.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure.ts",
+          "bytes": 21714,
+          "duration": 42.1000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.ts?t=1789515023688",
+          "bytes": 62635,
+          "duration": 41.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/vehicle-asset.ts",
+          "bytes": 1363,
+          "duration": 26.299999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_SkeletonUtils__js.js?v=7abc3b5c",
+          "bytes": 33773,
+          "duration": 13.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/driver.ts",
+          "bytes": 23536,
+          "duration": 14.099999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/rear.ts",
+          "bytes": 20850,
+          "duration": 14.599999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/statistics.ts",
+          "bytes": 6888,
+          "duration": 16.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/shadows.ts",
+          "bytes": 3692,
+          "duration": 15.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_BufferGeometryUtils__js.js?v=7abc3b5c",
+          "bytes": 111812,
+          "duration": 91.69999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7abc3b5c",
+          "bytes": 5965935,
+          "duration": 144.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/signature-palette.ts",
+          "bytes": 1190,
+          "duration": 91.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_lights_RectAreaLightUniformsLib__js.js?v=7abc3b5c",
+          "bytes": 1023796,
+          "duration": 104.59999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/catalog.ts",
+          "bytes": 3776,
+          "duration": 91.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/public/assets/slingshot-contact-layout.json?import",
+          "bytes": 5951,
+          "duration": 86.19999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/opponents.ts?t=1789515117395",
+          "bytes": 9170,
+          "duration": 81
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/evidence.ts",
+          "bytes": 14993,
+          "duration": 81.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/bay-door.ts",
+          "bytes": 9523,
+          "duration": 86.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/interface.ts",
+          "bytes": 13328,
+          "duration": 87.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/thermal-departure.ts",
+          "bytes": 8704,
+          "duration": 86.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/save.ts",
+          "bytes": 12155,
+          "duration": 87
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/mapper.ts?t=1789515117395",
+          "bytes": 9608,
+          "duration": 92.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/mapper-legacy.ts",
+          "bytes": 8528,
+          "duration": 95.70000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/graph.ts",
+          "bytes": 13247,
+          "duration": 96.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/profile.ts",
+          "bytes": 5414,
+          "duration": 96.40000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/suspension.ts",
+          "bytes": 6951,
+          "duration": 98.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=7abc3b5c",
+          "bytes": 6917730,
+          "duration": 185.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/drivetrain.ts",
+          "bytes": 10343,
+          "duration": 144.90000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/course/environment.ts",
+          "bytes": 10849,
+          "duration": 143.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/pad.ts",
+          "bytes": 5639,
+          "duration": 146.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/express/route.ts",
+          "bytes": 10680,
+          "duration": 146.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure.css",
+          "bytes": 1820,
+          "duration": 144.8999999910593
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure-motion.ts",
+          "bytes": 2739,
+          "duration": 147.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/tokens.css?t=1789514994330",
+          "bytes": 4967,
+          "duration": 159.40000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515023688",
+          "bytes": 22077,
+          "duration": 160.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/menu.ts?t=1789514934688",
+          "bytes": 11433,
+          "duration": 161.09999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/hoop-refinement/slingshot-hoops-refined.glb",
+          "bytes": 13432692,
+          "duration": 223.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 7.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 115.09999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 7.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 145.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 10.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 9.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 9.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 10.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 11.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 7.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515173124",
+          "bytes": 22289,
+          "duration": 7.4000000059604645
+        }
+      ],
+      "intervals": [
+        2.2000000000007276,
+        16.599999999998545,
+        16.700000000000728,
+        16.700000000000728,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891
+      ]
+    },
+    "off": {
+      "display": {
+        "power": false,
+        "values": {
+          "speed": 0,
+          "units": "mph",
+          "rpm": 950,
+          "gear": "1"
+        },
+        "pixels": [
+          512,
+          336
+        ],
+        "uploads": 4,
+        "thumbnailCaptures": 1,
+        "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"blue-orange\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+        "mount": {
+          "width": 0.202,
+          "height": 0.133,
+          "position": [
+            0,
+            0.665,
+            -0.1735
+          ],
+          "pixels": [
+            512,
+            336
+          ]
+        },
+        "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+      },
+      "ready": true,
+      "departure": null,
+      "showroom": {
+        "driverRendered": false,
+        "curtainPosition": [
+          0,
+          0,
+          0
+        ],
+        "curtainScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "build": "b967d6f88759-working",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      },
+      "original": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      },
+      "finish": {
+        "finish": "blue-orange",
+        "accent": "#f07521",
+        "paintedAccents": [
+          {
+            "node": "body_static__Orange_Accent",
+            "color": "fa691b"
+          },
+          {
+            "node": "rear_arm_visual__Orange_Accent",
+            "color": "fa691b"
+          }
+        ],
+        "isolatedMaterialSlots": 6,
+        "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+        "textureCount": 0
+      },
+      "compare": false,
+      "lighting": "studio",
+      "driverVisible": false,
+      "reducedMotion": false,
+      "status": "",
+      "pending": false,
+      "screen": "build",
+      "saved": [],
+      "loadMs": 8390.60000000894,
+      "preparation": {
+        "ms": 652.5,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 11.899999991059303
+          },
+          {
+            "name": "compile-async",
+            "ms": 633.9000000059605
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 5
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 36,
+        "programs": 25,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "frames": 35,
+      "memory": {
+        "geometries": 95,
+        "textures": 36
+      },
+      "calls": 143,
+      "triangles": 441691,
+      "products": {
+        "selected": [],
+        "storageInspection": false,
+        "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+        "mounts": {
+          "exhaust": {
+            "position": [
+              2.7,
+              1.3,
+              3.9
+            ],
+            "target": [
+              0,
+              0.65,
+              1.3
+            ]
+          },
+          "wing": {
+            "position": [
+              2.8,
+              1.9,
+              3.3
+            ],
+            "target": [
+              0,
+              1.25,
+              1.2
+            ]
+          },
+          "storage": {
+            "position": [
+              -1.6,
+              2.1,
+              -0.3
+            ],
+            "target": [
+              -0.2,
+              0.48,
+              0.95
+            ]
+          }
+        },
+        "productRoot": "signature_catalog_products"
+      },
+      "suspension": {
+        "equipped": false,
+        "inspection": null,
+        "stockVisible": [
+          {
+            "name": "suspension_front_left",
+            "visible": true
+          },
+          {
+            "name": "suspension_front_right",
+            "visible": true
+          },
+          {
+            "name": "shock_body_visual",
+            "visible": true
+          },
+          {
+            "name": "shock_piston_visual",
+            "visible": true
+          },
+          {
+            "name": "shock_spring_visual",
+            "visible": true
+          }
+        ],
+        "endpoints": [],
+        "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+      },
+      "audio": {
+        "enabled": false,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "p09b-authored-stock-mix",
+        "life": {
+          "enabled": false,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+      },
+      "simulation": {
+        "time": 1.4999999999999996,
+        "position": {
+          "x": -3.5582608876520534e-26,
+          "y": 8.344650304081824e-9,
+          "z": 4.91050323958575e-9
+        },
+        "quaternion": {
+          "x": 6.469465407832331e-9,
+          "y": 2.4320583424525124e-19,
+          "z": -1.6658375350366117e-27,
+          "w": 1
+        },
+        "velocity": {
+          "x": -2.630063244082985e-25,
+          "y": -9.57412424895665e-8,
+          "z": -1.1817213874110166e-9
+        },
+        "angularVelocity": {
+          "x": -1.0613036671713871e-8,
+          "y": -1.0514849174370447e-19,
+          "z": 0
+        },
+        "speed": 1.1817201486217037e-9,
+        "rpm": 950,
+        "engineWheelAngularSpeed": 1.2147789398480313e-9,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 0,
+        "brake": 1,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4169.2504429962955,
+            "travel": -1.6689301052252858e-9,
+            "slipRatio": 1.7781879276917888e-9,
+            "slipAngle": 3.519234538267414e-18,
+            "spin": -1.4122584990285685e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.34549999833106987,
+              "z": 1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4024783264303236e-8,
+            "longitudinalSpeed": -4.845562617816768e-9,
+            "longitudinalForce": 0.00007413710805259655,
+            "lateralForce": -1.1738056126143425e-13,
+            "gripLimit": 5034.369909918028,
+            "driveTorque": 0
+          }
+        ]
+      },
+      "profile": null,
+      "camera": {
+        "position": [
+          0,
+          0.8199999999999996,
+          0.75
+        ],
+        "target": [
+          0,
+          0.6649999999999998,
+          -0.174
+        ]
+      },
+      "bounds": {
+        "minX": -2.1358990867935974,
+        "maxX": 1.961115037814139,
+        "minY": -1.4460151859705297,
+        "maxY": 3.604529055111089,
+        "allInFront": false
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:5201/@vite/client",
+          "bytes": 211057,
+          "duration": 33.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/main.ts?t=1789515117425",
+          "bytes": 8235,
+          "duration": 32.6000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/profile.ts",
+          "bytes": 9428,
+          "duration": 3.3999999910593033
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/recovery.ts?t=1789514994330",
+          "bytes": 8212,
+          "duration": 4
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/vite/dist/client/env.mjs",
+          "bytes": 3941,
+          "duration": 4.899999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/preview.css?t=1789514994330",
+          "bytes": 12072,
+          "duration": 2.300000011920929
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/scene.ts?t=1789515117425",
+          "bytes": 60962,
+          "duration": 5.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/powered-display.ts?t=1789514927950",
+          "bytes": 22186,
+          "duration": 10.199999988079071
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/actions.ts",
+          "bytes": 5204,
+          "duration": 12.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/drive-preparation.ts",
+          "bytes": 14941,
+          "duration": 13
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_loaders_GLTFLoader__js.js?v=7abc3b5c",
+          "bytes": 344414,
+          "duration": 22.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.js?v=7abc3b5c",
+          "bytes": 72800,
+          "duration": 35
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/hero.ts",
+          "bytes": 17780,
+          "duration": 25.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_controls_OrbitControls__js.js?v=7abc3b5c",
+          "bytes": 122886,
+          "duration": 25.19999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/signature-art.ts",
+          "bytes": 25828,
+          "duration": 27.30000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/product.ts",
+          "bytes": 15452,
+          "duration": 28.30000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/suspension.ts",
+          "bytes": 16738,
+          "duration": 29.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/inspection.ts",
+          "bytes": 10589,
+          "duration": 31.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/prepare.ts",
+          "bytes": 14621,
+          "duration": 35
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/index.ts",
+          "bytes": 70148,
+          "duration": 37.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/game-audio.ts?t=1789515117425",
+          "bytes": 36624,
+          "duration": 36.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/driving/input.ts",
+          "bytes": 31552,
+          "duration": 36.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/config.ts",
+          "bytes": 22046,
+          "duration": 38.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/catalog.ts",
+          "bytes": 13276,
+          "duration": 40
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/route-data.ts",
+          "bytes": 5135,
+          "duration": 40.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure.ts",
+          "bytes": 21714,
+          "duration": 42.1000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.ts?t=1789515023688",
+          "bytes": 62635,
+          "duration": 41.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/vehicle-asset.ts",
+          "bytes": 1363,
+          "duration": 26.299999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_SkeletonUtils__js.js?v=7abc3b5c",
+          "bytes": 33773,
+          "duration": 13.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/driver.ts",
+          "bytes": 23536,
+          "duration": 14.099999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/rear.ts",
+          "bytes": 20850,
+          "duration": 14.599999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/statistics.ts",
+          "bytes": 6888,
+          "duration": 16.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/shadows.ts",
+          "bytes": 3692,
+          "duration": 15.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_BufferGeometryUtils__js.js?v=7abc3b5c",
+          "bytes": 111812,
+          "duration": 91.69999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7abc3b5c",
+          "bytes": 5965935,
+          "duration": 144.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/signature-palette.ts",
+          "bytes": 1190,
+          "duration": 91.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_lights_RectAreaLightUniformsLib__js.js?v=7abc3b5c",
+          "bytes": 1023796,
+          "duration": 104.59999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/catalog.ts",
+          "bytes": 3776,
+          "duration": 91.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/public/assets/slingshot-contact-layout.json?import",
+          "bytes": 5951,
+          "duration": 86.19999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/opponents.ts?t=1789515117395",
+          "bytes": 9170,
+          "duration": 81
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/evidence.ts",
+          "bytes": 14993,
+          "duration": 81.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/bay-door.ts",
+          "bytes": 9523,
+          "duration": 86.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/interface.ts",
+          "bytes": 13328,
+          "duration": 87.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/thermal-departure.ts",
+          "bytes": 8704,
+          "duration": 86.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/save.ts",
+          "bytes": 12155,
+          "duration": 87
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/mapper.ts?t=1789515117395",
+          "bytes": 9608,
+          "duration": 92.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/mapper-legacy.ts",
+          "bytes": 8528,
+          "duration": 95.70000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/graph.ts",
+          "bytes": 13247,
+          "duration": 96.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/profile.ts",
+          "bytes": 5414,
+          "duration": 96.40000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/suspension.ts",
+          "bytes": 6951,
+          "duration": 98.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=7abc3b5c",
+          "bytes": 6917730,
+          "duration": 185.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/drivetrain.ts",
+          "bytes": 10343,
+          "duration": 144.90000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/course/environment.ts",
+          "bytes": 10849,
+          "duration": 143.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/pad.ts",
+          "bytes": 5639,
+          "duration": 146.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/express/route.ts",
+          "bytes": 10680,
+          "duration": 146.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure.css",
+          "bytes": 1820,
+          "duration": 144.8999999910593
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure-motion.ts",
+          "bytes": 2739,
+          "duration": 147.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/tokens.css?t=1789514994330",
+          "bytes": 4967,
+          "duration": 159.40000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515023688",
+          "bytes": 22077,
+          "duration": 160.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/menu.ts?t=1789514934688",
+          "bytes": 11433,
+          "duration": 161.09999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/hoop-refinement/slingshot-hoops-refined.glb",
+          "bytes": 13432692,
+          "duration": 223.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 7.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 115.09999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 7.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 145.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 10.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 9.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 9.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 10.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 11.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 7.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515173124",
+          "bytes": 22289,
+          "duration": 7.4000000059604645
+        }
+      ],
+      "intervals": [
+        2.2000000000007276,
+        16.599999999998545,
+        16.700000000000728,
+        16.700000000000728,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.700000000000728,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891
+      ]
+    },
+    "muted": {
+      "display": {
+        "power": true,
+        "values": {
+          "speed": 0,
+          "units": "mph",
+          "rpm": 950,
+          "gear": "1"
+        },
+        "pixels": [
+          512,
+          336
+        ],
+        "uploads": 5,
+        "thumbnailCaptures": 1,
+        "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"blue-orange\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+        "mount": {
+          "width": 0.202,
+          "height": 0.133,
+          "position": [
+            0,
+            0.665,
+            -0.1735
+          ],
+          "pixels": [
+            512,
+            336
+          ]
+        },
+        "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+      },
+      "ready": true,
+      "departure": null,
+      "showroom": {
+        "driverRendered": false,
+        "curtainPosition": [
+          0,
+          0,
+          0
+        ],
+        "curtainScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "build": "b967d6f88759-working",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      },
+      "original": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      },
+      "finish": {
+        "finish": "blue-orange",
+        "accent": "#f07521",
+        "paintedAccents": [
+          {
+            "node": "body_static__Orange_Accent",
+            "color": "fa691b"
+          },
+          {
+            "node": "rear_arm_visual__Orange_Accent",
+            "color": "fa691b"
+          }
+        ],
+        "isolatedMaterialSlots": 6,
+        "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+        "textureCount": 0
+      },
+      "compare": false,
+      "lighting": "studio",
+      "driverVisible": false,
+      "reducedMotion": false,
+      "status": "",
+      "pending": false,
+      "screen": "build",
+      "saved": [],
+      "loadMs": 8390.60000000894,
+      "preparation": {
+        "ms": 652.5,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 11.899999991059303
+          },
+          {
+            "name": "compile-async",
+            "ms": 633.9000000059605
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 5
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 36,
+        "programs": 25,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "frames": 64,
+      "memory": {
+        "geometries": 95,
+        "textures": 36
+      },
+      "calls": 143,
+      "triangles": 441691,
+      "products": {
+        "selected": [],
+        "storageInspection": false,
+        "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+        "mounts": {
+          "exhaust": {
+            "position": [
+              2.7,
+              1.3,
+              3.9
+            ],
+            "target": [
+              0,
+              0.65,
+              1.3
+            ]
+          },
+          "wing": {
+            "position": [
+              2.8,
+              1.9,
+              3.3
+            ],
+            "target": [
+              0,
+              1.25,
+              1.2
+            ]
+          },
+          "storage": {
+            "position": [
+              -1.6,
+              2.1,
+              -0.3
+            ],
+            "target": [
+              -0.2,
+              0.48,
+              0.95
+            ]
+          }
+        },
+        "productRoot": "signature_catalog_products"
+      },
+      "suspension": {
+        "equipped": false,
+        "inspection": null,
+        "stockVisible": [
+          {
+            "name": "suspension_front_left",
+            "visible": true
+          },
+          {
+            "name": "suspension_front_right",
+            "visible": true
+          },
+          {
+            "name": "shock_body_visual",
+            "visible": true
+          },
+          {
+            "name": "shock_piston_visual",
+            "visible": true
+          },
+          {
+            "name": "shock_spring_visual",
+            "visible": true
+          }
+        ],
+        "endpoints": [],
+        "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+      },
+      "audio": {
+        "enabled": false,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "p09b-authored-stock-mix",
+        "life": {
+          "enabled": false,
+          "paused": false,
+          "mute": true,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+      },
+      "simulation": {
+        "time": 1.4999999999999996,
+        "position": {
+          "x": -3.5582608876520534e-26,
+          "y": 8.344650304081824e-9,
+          "z": 4.91050323958575e-9
+        },
+        "quaternion": {
+          "x": 6.469465407832331e-9,
+          "y": 2.4320583424525124e-19,
+          "z": -1.6658375350366117e-27,
+          "w": 1
+        },
+        "velocity": {
+          "x": -2.630063244082985e-25,
+          "y": -9.57412424895665e-8,
+          "z": -1.1817213874110166e-9
+        },
+        "angularVelocity": {
+          "x": -1.0613036671713871e-8,
+          "y": -1.0514849174370447e-19,
+          "z": 0
+        },
+        "speed": 1.1817201486217037e-9,
+        "rpm": 950,
+        "engineWheelAngularSpeed": 1.2147789398480313e-9,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 0,
+        "brake": 1,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4169.2504429962955,
+            "travel": -1.6689301052252858e-9,
+            "slipRatio": 1.7781879276917888e-9,
+            "slipAngle": 3.519234538267414e-18,
+            "spin": -1.4122584990285685e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.34549999833106987,
+              "z": 1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4024783264303236e-8,
+            "longitudinalSpeed": -4.845562617816768e-9,
+            "longitudinalForce": 0.00007413710805259655,
+            "lateralForce": -1.1738056126143425e-13,
+            "gripLimit": 5034.369909918028,
+            "driveTorque": 0
+          }
+        ]
+      },
+      "profile": null,
+      "camera": {
+        "position": [
+          0,
+          0.8199999999999996,
+          0.75
+        ],
+        "target": [
+          0,
+          0.6649999999999998,
+          -0.174
+        ]
+      },
+      "bounds": {
+        "minX": -2.1358990867935974,
+        "maxX": 1.961115037814139,
+        "minY": -1.4460151859705297,
+        "maxY": 3.604529055111089,
+        "allInFront": false
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:5201/@vite/client",
+          "bytes": 211057,
+          "duration": 33.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/main.ts?t=1789515117425",
+          "bytes": 8235,
+          "duration": 32.6000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/profile.ts",
+          "bytes": 9428,
+          "duration": 3.3999999910593033
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/recovery.ts?t=1789514994330",
+          "bytes": 8212,
+          "duration": 4
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/vite/dist/client/env.mjs",
+          "bytes": 3941,
+          "duration": 4.899999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/preview.css?t=1789514994330",
+          "bytes": 12072,
+          "duration": 2.300000011920929
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/scene.ts?t=1789515117425",
+          "bytes": 60962,
+          "duration": 5.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/powered-display.ts?t=1789514927950",
+          "bytes": 22186,
+          "duration": 10.199999988079071
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/actions.ts",
+          "bytes": 5204,
+          "duration": 12.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/drive-preparation.ts",
+          "bytes": 14941,
+          "duration": 13
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_loaders_GLTFLoader__js.js?v=7abc3b5c",
+          "bytes": 344414,
+          "duration": 22.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.js?v=7abc3b5c",
+          "bytes": 72800,
+          "duration": 35
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/hero.ts",
+          "bytes": 17780,
+          "duration": 25.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_controls_OrbitControls__js.js?v=7abc3b5c",
+          "bytes": 122886,
+          "duration": 25.19999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/signature-art.ts",
+          "bytes": 25828,
+          "duration": 27.30000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/product.ts",
+          "bytes": 15452,
+          "duration": 28.30000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/suspension.ts",
+          "bytes": 16738,
+          "duration": 29.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/inspection.ts",
+          "bytes": 10589,
+          "duration": 31.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/prepare.ts",
+          "bytes": 14621,
+          "duration": 35
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/index.ts",
+          "bytes": 70148,
+          "duration": 37.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/game-audio.ts?t=1789515117425",
+          "bytes": 36624,
+          "duration": 36.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/driving/input.ts",
+          "bytes": 31552,
+          "duration": 36.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/config.ts",
+          "bytes": 22046,
+          "duration": 38.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/catalog.ts",
+          "bytes": 13276,
+          "duration": 40
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/route-data.ts",
+          "bytes": 5135,
+          "duration": 40.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure.ts",
+          "bytes": 21714,
+          "duration": 42.1000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.ts?t=1789515023688",
+          "bytes": 62635,
+          "duration": 41.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/vehicle-asset.ts",
+          "bytes": 1363,
+          "duration": 26.299999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_SkeletonUtils__js.js?v=7abc3b5c",
+          "bytes": 33773,
+          "duration": 13.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/driver.ts",
+          "bytes": 23536,
+          "duration": 14.099999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/rear.ts",
+          "bytes": 20850,
+          "duration": 14.599999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/statistics.ts",
+          "bytes": 6888,
+          "duration": 16.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/shadows.ts",
+          "bytes": 3692,
+          "duration": 15.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_BufferGeometryUtils__js.js?v=7abc3b5c",
+          "bytes": 111812,
+          "duration": 91.69999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7abc3b5c",
+          "bytes": 5965935,
+          "duration": 144.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/signature-palette.ts",
+          "bytes": 1190,
+          "duration": 91.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_lights_RectAreaLightUniformsLib__js.js?v=7abc3b5c",
+          "bytes": 1023796,
+          "duration": 104.59999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/catalog.ts",
+          "bytes": 3776,
+          "duration": 91.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/public/assets/slingshot-contact-layout.json?import",
+          "bytes": 5951,
+          "duration": 86.19999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/opponents.ts?t=1789515117395",
+          "bytes": 9170,
+          "duration": 81
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/evidence.ts",
+          "bytes": 14993,
+          "duration": 81.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/bay-door.ts",
+          "bytes": 9523,
+          "duration": 86.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/interface.ts",
+          "bytes": 13328,
+          "duration": 87.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/thermal-departure.ts",
+          "bytes": 8704,
+          "duration": 86.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/save.ts",
+          "bytes": 12155,
+          "duration": 87
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/mapper.ts?t=1789515117395",
+          "bytes": 9608,
+          "duration": 92.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/mapper-legacy.ts",
+          "bytes": 8528,
+          "duration": 95.70000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/graph.ts",
+          "bytes": 13247,
+          "duration": 96.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/profile.ts",
+          "bytes": 5414,
+          "duration": 96.40000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/suspension.ts",
+          "bytes": 6951,
+          "duration": 98.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=7abc3b5c",
+          "bytes": 6917730,
+          "duration": 185.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/drivetrain.ts",
+          "bytes": 10343,
+          "duration": 144.90000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/course/environment.ts",
+          "bytes": 10849,
+          "duration": 143.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/pad.ts",
+          "bytes": 5639,
+          "duration": 146.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/express/route.ts",
+          "bytes": 10680,
+          "duration": 146.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure.css",
+          "bytes": 1820,
+          "duration": 144.8999999910593
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure-motion.ts",
+          "bytes": 2739,
+          "duration": 147.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/tokens.css?t=1789514994330",
+          "bytes": 4967,
+          "duration": 159.40000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515023688",
+          "bytes": 22077,
+          "duration": 160.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/menu.ts?t=1789514934688",
+          "bytes": 11433,
+          "duration": 161.09999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/hoop-refinement/slingshot-hoops-refined.glb",
+          "bytes": 13432692,
+          "duration": 223.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 7.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 115.09999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 7.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 145.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 10.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 9.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 9.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 10.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 11.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 7.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515173124",
+          "bytes": 22289,
+          "duration": 7.4000000059604645
+        }
+      ],
+      "intervals": [
+        2.2000000000007276,
+        16.599999999998545,
+        16.700000000000728,
+        16.700000000000728,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.700000000000728,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.80000000000109,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728
+      ]
+    },
+    "finish": {
+      "display": {
+        "power": true,
+        "values": {
+          "speed": 0,
+          "units": "mph",
+          "rpm": 950,
+          "gear": "1"
+        },
+        "pixels": [
+          512,
+          336
+        ],
+        "uploads": 6,
+        "thumbnailCaptures": 2,
+        "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"white-graphite\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+        "mount": {
+          "width": 0.202,
+          "height": 0.133,
+          "position": [
+            0,
+            0.665,
+            -0.1735
+          ],
+          "pixels": [
+            512,
+            336
+          ]
+        },
+        "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+      },
+      "ready": true,
+      "departure": null,
+      "showroom": {
+        "driverRendered": false,
+        "curtainPosition": [
+          0,
+          0,
+          0
+        ],
+        "curtainScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "build": "b967d6f88759-working",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      },
+      "original": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v2"
+      },
+      "finish": {
+        "finish": "white-graphite",
+        "accent": "#56595e",
+        "paintedAccents": [
+          {
+            "node": "body_static__Orange_Accent",
+            "color": "56595e"
+          },
+          {
+            "node": "rear_arm_visual__Orange_Accent",
+            "color": "56595e"
+          }
+        ],
+        "isolatedMaterialSlots": 6,
+        "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+        "textureCount": 1
+      },
+      "compare": false,
+      "lighting": "studio",
+      "driverVisible": false,
+      "reducedMotion": false,
+      "status": "Preview updated · career credits unchanged",
+      "pending": false,
+      "screen": "build",
+      "saved": [],
+      "loadMs": 8390.60000000894,
+      "preparation": {
+        "ms": 652.5,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 11.899999991059303
+          },
+          {
+            "name": "compile-async",
+            "ms": 633.9000000059605
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 5
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 36,
+        "programs": 25,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "frames": 116,
+      "memory": {
+        "geometries": 95,
+        "textures": 37
+      },
+      "calls": 143,
+      "triangles": 441691,
+      "products": {
+        "selected": [],
+        "storageInspection": false,
+        "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+        "mounts": {
+          "exhaust": {
+            "position": [
+              2.7,
+              1.3,
+              3.9
+            ],
+            "target": [
+              0,
+              0.65,
+              1.3
+            ]
+          },
+          "wing": {
+            "position": [
+              2.8,
+              1.9,
+              3.3
+            ],
+            "target": [
+              0,
+              1.25,
+              1.2
+            ]
+          },
+          "storage": {
+            "position": [
+              -1.6,
+              2.1,
+              -0.3
+            ],
+            "target": [
+              -0.2,
+              0.48,
+              0.95
+            ]
+          }
+        },
+        "productRoot": "signature_catalog_products"
+      },
+      "suspension": {
+        "equipped": false,
+        "inspection": null,
+        "stockVisible": [
+          {
+            "name": "suspension_front_left",
+            "visible": true
+          },
+          {
+            "name": "suspension_front_right",
+            "visible": true
+          },
+          {
+            "name": "shock_body_visual",
+            "visible": true
+          },
+          {
+            "name": "shock_piston_visual",
+            "visible": true
+          },
+          {
+            "name": "shock_spring_visual",
+            "visible": true
+          }
+        ],
+        "endpoints": [],
+        "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+      },
+      "audio": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "p09b-authored-stock-mix",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "thermal": {
+          "loaded": true,
+          "armed": false,
+          "playing": false,
+          "elapsed": 0,
+          "offset": 0,
+          "starts": 0,
+          "paused": false,
+          "level": 0,
+          "clock": "cinematic-elapsed",
+          "bus": "captured-master"
+        },
+        "cues": {
+          "loaded": true,
+          "active": 0,
+          "poolLimit": 8,
+          "played": 1,
+          "rejected": 0,
+          "counts": {
+            "finish.apply": 1
+          },
+          "bus": "captured-master"
+        },
+        "graph": {
+          "contextState": "running",
+          "contextTime": 1.032,
+          "persistentLoops": 17,
+          "shiftCount": 0,
+          "masterTarget": 0.55,
+          "rms": 0.020924887329486507,
+          "parameters": {
+            "rpm": 950,
+            "speed": 1.1817201486217037e-9,
+            "load": 0,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 0.7916666666666666,
+                "gain": 0.055
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 0.7916666666666666,
+                "gain": 0.16
+              },
+              {
+                "name": "engine-1650-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 1.0383347850800604e-11
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 2.3903598079878144e-19
+              }
+            ],
+            "master": 0.55,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+      },
+      "simulation": {
+        "time": 1.4999999999999996,
+        "position": {
+          "x": -3.5582608876520534e-26,
+          "y": 8.344650304081824e-9,
+          "z": 4.91050323958575e-9
+        },
+        "quaternion": {
+          "x": 6.469465407832331e-9,
+          "y": 2.4320583424525124e-19,
+          "z": -1.6658375350366117e-27,
+          "w": 1
+        },
+        "velocity": {
+          "x": -2.630063244082985e-25,
+          "y": -9.57412424895665e-8,
+          "z": -1.1817213874110166e-9
+        },
+        "angularVelocity": {
+          "x": -1.0613036671713871e-8,
+          "y": -1.0514849174370447e-19,
+          "z": 0
+        },
+        "speed": 1.1817201486217037e-9,
+        "rpm": 950,
+        "engineWheelAngularSpeed": 1.2147789398480313e-9,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 0,
+        "brake": 1,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4169.2504429962955,
+            "travel": -1.6689301052252858e-9,
+            "slipRatio": 1.7781879276917888e-9,
+            "slipAngle": 3.519234538267414e-18,
+            "spin": -1.4122584990285685e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.34549999833106987,
+              "z": 1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4024783264303236e-8,
+            "longitudinalSpeed": -4.845562617816768e-9,
+            "longitudinalForce": 0.00007413710805259655,
+            "lateralForce": -1.1738056126143425e-13,
+            "gripLimit": 5034.369909918028,
+            "driveTorque": 0
+          }
+        ]
+      },
+      "profile": null,
+      "camera": {
+        "position": [
+          0,
+          0.8199999999999996,
+          0.75
+        ],
+        "target": [
+          0,
+          0.6649999999999998,
+          -0.174
+        ]
+      },
+      "bounds": {
+        "minX": -2.1358990867935974,
+        "maxX": 1.961115037814139,
+        "minY": -1.4460151859705297,
+        "maxY": 3.604529055111089,
+        "allInFront": false
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:5201/@vite/client",
+          "bytes": 211057,
+          "duration": 33.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/main.ts?t=1789515117425",
+          "bytes": 8235,
+          "duration": 32.6000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/profile.ts",
+          "bytes": 9428,
+          "duration": 3.3999999910593033
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/recovery.ts?t=1789514994330",
+          "bytes": 8212,
+          "duration": 4
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/vite/dist/client/env.mjs",
+          "bytes": 3941,
+          "duration": 4.899999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/demo/preview.css?t=1789514994330",
+          "bytes": 12072,
+          "duration": 2.300000011920929
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/scene.ts?t=1789515117425",
+          "bytes": 60962,
+          "duration": 5.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/powered-display.ts?t=1789514927950",
+          "bytes": 22186,
+          "duration": 10.199999988079071
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/actions.ts",
+          "bytes": 5204,
+          "duration": 12.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/drive-preparation.ts",
+          "bytes": 14941,
+          "duration": 13
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_loaders_GLTFLoader__js.js?v=7abc3b5c",
+          "bytes": 344414,
+          "duration": 22.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.js?v=7abc3b5c",
+          "bytes": 72800,
+          "duration": 35
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/hero.ts",
+          "bytes": 17780,
+          "duration": 25.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_controls_OrbitControls__js.js?v=7abc3b5c",
+          "bytes": 122886,
+          "duration": 25.19999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/signature-art.ts",
+          "bytes": 25828,
+          "duration": 27.30000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/product.ts",
+          "bytes": 15452,
+          "duration": 28.30000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/suspension.ts",
+          "bytes": 16738,
+          "duration": 29.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/inspection.ts",
+          "bytes": 10589,
+          "duration": 31.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/prepare.ts",
+          "bytes": 14621,
+          "duration": 35
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/index.ts",
+          "bytes": 70148,
+          "duration": 37.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/game-audio.ts?t=1789515117425",
+          "bytes": 36624,
+          "duration": 36.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/driving/input.ts",
+          "bytes": 31552,
+          "duration": 36.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/config.ts",
+          "bytes": 22046,
+          "duration": 38.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/catalog.ts",
+          "bytes": 13276,
+          "duration": 40
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/route-data.ts",
+          "bytes": 5135,
+          "duration": 40.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure.ts",
+          "bytes": 21714,
+          "duration": 42.1000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.ts?t=1789515023688",
+          "bytes": 62635,
+          "duration": 41.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/vehicle-asset.ts",
+          "bytes": 1363,
+          "duration": 26.299999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_SkeletonUtils__js.js?v=7abc3b5c",
+          "bytes": 33773,
+          "duration": 13.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/driver.ts",
+          "bytes": 23536,
+          "duration": 14.099999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/rear.ts",
+          "bytes": 20850,
+          "duration": 14.599999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/statistics.ts",
+          "bytes": 6888,
+          "duration": 16.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/shadows.ts",
+          "bytes": 3692,
+          "duration": 15.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_BufferGeometryUtils__js.js?v=7abc3b5c",
+          "bytes": 111812,
+          "duration": 91.69999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7abc3b5c",
+          "bytes": 5965935,
+          "duration": 144.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/presentation/signature-palette.ts",
+          "bytes": 1190,
+          "duration": 91.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_lights_RectAreaLightUniformsLib__js.js?v=7abc3b5c",
+          "bytes": 1023796,
+          "duration": 104.59999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/catalog.ts",
+          "bytes": 3776,
+          "duration": 91.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/public/assets/slingshot-contact-layout.json?import",
+          "bytes": 5951,
+          "duration": 86.19999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/opponents.ts?t=1789515117395",
+          "bytes": 9170,
+          "duration": 81
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/evidence.ts",
+          "bytes": 14993,
+          "duration": 81.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/bay-door.ts",
+          "bytes": 9523,
+          "duration": 86.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/interface.ts",
+          "bytes": 13328,
+          "duration": 87.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/thermal-departure.ts",
+          "bytes": 8704,
+          "duration": 86.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/save.ts",
+          "bytes": 12155,
+          "duration": 87
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/mapper.ts?t=1789515117395",
+          "bytes": 9608,
+          "duration": 92.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/mapper-legacy.ts",
+          "bytes": 8528,
+          "duration": 95.70000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/audio/graph.ts",
+          "bytes": 13247,
+          "duration": 96.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/profile.ts",
+          "bytes": 5414,
+          "duration": 96.40000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/suspension.ts",
+          "bytes": 6951,
+          "duration": 98.80000001192093
+        },
+        {
+          "name": "http://127.0.0.1:5201/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=7abc3b5c",
+          "bytes": 6917730,
+          "duration": 185.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/drivetrain.ts",
+          "bytes": 10343,
+          "duration": 144.90000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/course/environment.ts",
+          "bytes": 10849,
+          "duration": 143.29999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/simulation/pad.ts",
+          "bytes": 5639,
+          "duration": 146.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/express/route.ts",
+          "bytes": 10680,
+          "duration": 146.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure.css",
+          "bytes": 1820,
+          "duration": 144.8999999910593
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/departure-motion.ts",
+          "bytes": 2739,
+          "duration": 147.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/tokens.css?t=1789514994330",
+          "bytes": 4967,
+          "duration": 159.40000000596046
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515023688",
+          "bytes": 22077,
+          "duration": 160.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/career/menu.ts?t=1789514934688",
+          "bytes": 11433,
+          "duration": 161.09999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/hoop-refinement/slingshot-hoops-refined.glb",
+          "bytes": 13432692,
+          "duration": 223.79999999701977
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/drivers/test-driver-attachment.json",
+          "bytes": 11686,
+          "duration": 7.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/drivers/test-driver.glb",
+          "bytes": 3717376,
+          "duration": 115.09999999403954
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 3310,
+          "duration": 7.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 4517236,
+          "duration": 145.20000000298023
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/brand/slingmods-logo-main.png",
+          "bytes": 24500,
+          "duration": 10.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.glb",
+          "bytes": 90292,
+          "duration": 9.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 16505,
+          "duration": 9.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 250664,
+          "duration": 10.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/signature-products.glb",
+          "bytes": 340264,
+          "duration": 11.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/harbor/route.json",
+          "bytes": 232399,
+          "duration": 7.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515173124",
+          "bytes": 22289,
+          "duration": 7.4000000059604645
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/provenance.json",
+          "bytes": 12050,
+          "duration": 3.8999999910593033
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-1200-load.wav",
+          "bytes": 189464,
+          "duration": 10.399999991059303
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-1200-lift.wav",
+          "bytes": 189464,
+          "duration": 14.099999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-1650-load.wav",
+          "bytes": 189464,
+          "duration": 15
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-1650-lift.wav",
+          "bytes": 189464,
+          "duration": 17.299999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-2200-load.wav",
+          "bytes": 189464,
+          "duration": 17.600000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-2200-lift.wav",
+          "bytes": 189464,
+          "duration": 18.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-3000-load.wav",
+          "bytes": 189464,
+          "duration": 19.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-3000-lift.wav",
+          "bytes": 189464,
+          "duration": 22.600000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-4000-load.wav",
+          "bytes": 189464,
+          "duration": 23
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-4000-lift.wav",
+          "bytes": 189464,
+          "duration": 26.299999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-5300-load.wav",
+          "bytes": 189464,
+          "duration": 26.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-5300-lift.wav",
+          "bytes": 189464,
+          "duration": 27.69999998807907
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-6800-load.wav",
+          "bytes": 189464,
+          "duration": 28.599999994039536
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-6800-lift.wav",
+          "bytes": 189464,
+          "duration": 31.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/road.wav",
+          "bytes": 192344,
+          "duration": 32.1000000089407
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/wind.wav",
+          "bytes": 192344,
+          "duration": 33.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/shift.wav",
+          "bytes": 13784,
+          "duration": 33.400000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b/thermal-mid.wav",
+          "bytes": 69462,
+          "duration": 33.3999999910593
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/provenance.json",
+          "bytes": 11350,
+          "duration": 6.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-departure/provenance.json",
+          "bytes": 1200,
+          "duration": 6.299999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.nav.wav",
+          "bytes": 7544,
+          "duration": 7.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.confirm.wav",
+          "bytes": 10904,
+          "duration": 7.4000000059604645
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.back.wav",
+          "bytes": 7064,
+          "duration": 7.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.detent.wav",
+          "bytes": 3704,
+          "duration": 7.0999999940395355
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/power.wav",
+          "bytes": 12824,
+          "duration": 7.5999999940395355
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/finish.apply.wav",
+          "bytes": 24344,
+          "duration": 7.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.shocks.attach.wav",
+          "bytes": 27224,
+          "duration": 14.300000011920929
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.lights.attach.wav",
+          "bytes": 9944,
+          "duration": 14.5
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.exhaust.attach.wav",
+          "bytes": 31064,
+          "duration": 14.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.aero.attach.wav",
+          "bytes": 19544,
+          "duration": 14.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.remove.wav",
+          "bytes": 14744,
+          "duration": 14.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.storage.attach.wav",
+          "bytes": 27224,
+          "duration": 14.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/build.save.wav",
+          "bytes": 15704,
+          "duration": 19.299999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/build.preset.wav",
+          "bytes": 22424,
+          "duration": 19.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/career.unlock.wav",
+          "bytes": 48344,
+          "duration": 19.799999997019768
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/race.start.wav",
+          "bytes": 23384,
+          "duration": 19.900000005960464
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/race.count.wav",
+          "bytes": 11864,
+          "duration": 20.100000008940697
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/race.finish.wav",
+          "bytes": 57944,
+          "duration": 20.200000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/audio/p09b-departure/thermal.wav",
+          "bytes": 1113944,
+          "duration": 25.700000002980232
+        },
+        {
+          "name": "http://127.0.0.1:5201/assets/p08b/showroom-refinement/finish-white-graphite.png",
+          "bytes": 99546,
+          "duration": 2.5
+        }
+      ],
+      "intervals": [
+        2.2000000000007276,
+        16.599999999998545,
+        16.700000000000728,
+        16.700000000000728,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.700000000000728,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.80000000000109,
+        16.599999999998545,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.600000000000364,
+        16.69999999999891,
+        16.700000000000728,
+        66.69999999999891,
+        16.700000000000728,
+        33.29999999999927,
+        16.600000000000364,
+        33.30000000000109,
+        16.69999999999891,
+        33.399999999999636,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.600000000000364,
+        16.600000000000364,
+        16.700000000000728,
+        33.399999999999636,
+        16.69999999999891,
+        16.600000000000364,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        750,
+        16.700000000000728,
+        16.600000000000364,
+        16.599999999998545,
+        16.80000000000109,
+        16.600000000000364,
+        16.69999999999891,
+        16.600000000000364,
+        16.700000000000728,
+        16.69999999999891,
+        16.700000000000728,
+        16.600000000000364
+      ]
+    }
+  },
+  "current": {
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 950,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 6,
+      "thumbnailCaptures": 2,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"white-graphite\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    },
+    "ready": true,
+    "departure": null,
+    "showroom": {
+      "driverRendered": false,
+      "curtainPosition": [
+        0,
+        0,
+        0
+      ],
+      "curtainScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "build": "b967d6f88759-working",
+    "recipe": {
+      "version": 1,
+      "vehicleId": "slingshot-r-2024",
+      "finish": "white-graphite",
+      "products": {},
+      "lights": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "suspension": {
+        "frontCompression": 2,
+        "frontRebound": 6,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      },
+      "handlingProfile": "slingmods-sport-v2"
+    },
+    "original": {
+      "version": 1,
+      "vehicleId": "slingshot-r-2024",
+      "finish": "blue-orange",
+      "products": {},
+      "lights": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "suspension": {
+        "frontCompression": 2,
+        "frontRebound": 6,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      },
+      "handlingProfile": "slingmods-sport-v2"
+    },
+    "finish": {
+      "finish": "white-graphite",
+      "accent": "#56595e",
+      "paintedAccents": [
+        {
+          "node": "body_static__Orange_Accent",
+          "color": "56595e"
+        },
+        {
+          "node": "rear_arm_visual__Orange_Accent",
+          "color": "56595e"
+        }
+      ],
+      "isolatedMaterialSlots": 6,
+      "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+      "textureCount": 1
+    },
+    "compare": false,
+    "lighting": "studio",
+    "driverVisible": false,
+    "reducedMotion": false,
+    "status": "Preview updated · career credits unchanged",
+    "pending": false,
+    "screen": "build",
+    "saved": [],
+    "loadMs": 8390.60000000894,
+    "preparation": {
+      "ms": 652.5,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 11.899999991059303
+        },
+        {
+          "name": "compile-async",
+          "ms": 633.9000000059605
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 5
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 36,
+      "programs": 25,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "frames": 1946,
+    "memory": {
+      "geometries": 95,
+      "textures": 37
+    },
+    "calls": 143,
+    "triangles": 441691,
+    "products": {
+      "selected": [],
+      "storageInspection": false,
+      "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+      "mounts": {
+        "exhaust": {
+          "position": [
+            2.7,
+            1.3,
+            3.9
+          ],
+          "target": [
+            0,
+            0.65,
+            1.3
+          ]
+        },
+        "wing": {
+          "position": [
+            2.8,
+            1.9,
+            3.3
+          ],
+          "target": [
+            0,
+            1.25,
+            1.2
+          ]
+        },
+        "storage": {
+          "position": [
+            -1.6,
+            2.1,
+            -0.3
+          ],
+          "target": [
+            -0.2,
+            0.48,
+            0.95
+          ]
+        }
+      },
+      "productRoot": "signature_catalog_products"
+    },
+    "suspension": {
+      "equipped": false,
+      "inspection": null,
+      "stockVisible": [
+        {
+          "name": "suspension_front_left",
+          "visible": true
+        },
+        {
+          "name": "suspension_front_right",
+          "visible": true
+        },
+        {
+          "name": "shock_body_visual",
+          "visible": true
+        },
+        {
+          "name": "shock_piston_visual",
+          "visible": true
+        },
+        {
+          "name": "shock_spring_visual",
+          "visible": true
+        }
+      ],
+      "endpoints": [],
+      "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+    },
+    "audio": {
+      "enabled": true,
+      "loading": false,
+      "failure": "",
+      "soundTreatment": "p09b-authored-stock-mix",
+      "life": {
+        "enabled": true,
+        "paused": false,
+        "mute": false,
+        "volume": 0.55,
+        "cockpit": false,
+        "reset": false
+      },
+      "levels": {
+        "master": 0.55,
+        "interface": 1,
+        "engine": 1
+      },
+      "thermal": {
+        "loaded": true,
+        "armed": false,
+        "playing": false,
+        "elapsed": 0,
+        "offset": 0,
+        "starts": 0,
+        "paused": false,
+        "level": 0,
+        "clock": "cinematic-elapsed",
+        "bus": "captured-master"
+      },
+      "cues": {
+        "loaded": true,
+        "active": 0,
+        "poolLimit": 8,
+        "played": 2,
+        "rejected": 0,
+        "counts": {
+          "finish.apply": 1,
+          "ui.nav": 1
+        },
+        "bus": "captured-master"
+      },
+      "graph": {
+        "contextState": "running",
+        "contextTime": 31.541333333333334,
+        "persistentLoops": 17,
+        "shiftCount": 0,
+        "masterTarget": 0.55,
+        "rms": 0.02144211360256732,
+        "parameters": {
+          "rpm": 950,
+          "speed": 1.1817201486217037e-9,
+          "load": 0,
+          "layers": [
+            {
+              "name": "engine-1200-load",
+              "rate": 0.7916666666666666,
+              "gain": 0.055
+            },
+            {
+              "name": "engine-1200-lift",
+              "rate": 0.7916666666666666,
+              "gain": 0.16
+            },
+            {
+              "name": "engine-1650-load",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-1650-lift",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-2200-load",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-2200-lift",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-3000-load",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-3000-lift",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-4000-load",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-4000-lift",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-5300-load",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-5300-lift",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-6800-load",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "engine-6800-lift",
+              "rate": 0.72,
+              "gain": 0
+            },
+            {
+              "name": "road",
+              "rate": 1,
+              "gain": 1.0383347850800604e-11
+            },
+            {
+              "name": "wind",
+              "rate": 1,
+              "gain": 2.3903598079878144e-19
+            }
+          ],
+          "master": 0.55,
+          "cutoff": 6500,
+          "shiftGain": 0.18,
+          "reset": false
+        }
+      },
+      "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+    },
+    "simulation": {
+      "time": 1.4999999999999996,
+      "position": {
+        "x": -3.5582608876520534e-26,
+        "y": 8.344650304081824e-9,
+        "z": 4.91050323958575e-9
+      },
+      "quaternion": {
+        "x": 6.469465407832331e-9,
+        "y": 2.4320583424525124e-19,
+        "z": -1.6658375350366117e-27,
+        "w": 1
+      },
+      "velocity": {
+        "x": -2.630063244082985e-25,
+        "y": -9.57412424895665e-8,
+        "z": -1.1817213874110166e-9
+      },
+      "angularVelocity": {
+        "x": -1.0613036671713871e-8,
+        "y": -1.0514849174370447e-19,
+        "z": 0
+      },
+      "speed": 1.1817201486217037e-9,
+      "rpm": 950,
+      "engineWheelAngularSpeed": 1.2147789398480313e-9,
+      "gear": 1,
+      "shifting": false,
+      "shiftRemaining": 0,
+      "steer": 0,
+      "throttle": 0,
+      "brake": 1,
+      "reversePending": false,
+      "wheels": [
+        {
+          "id": "front_left",
+          "contact": true,
+          "load": 2084.625132664193,
+          "travel": -1.032693047742228e-8,
+          "slipRatio": 1.7781878404987594e-9,
+          "slipAngle": -3.519234540598335e-18,
+          "spin": -1.4792643690239445e-8,
+          "steer": 0,
+          "localCenter": {
+            "x": -0.8775,
+            "y": 0.3298499896730695,
+            "z": -1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -1.4690199101796448e-8,
+          "longitudinalSpeed": -4.845562173727558e-9,
+          "longitudinalForce": 0.00003706855062901582,
+          "lateralForce": 5.869027816856972e-14,
+          "gripLimit": 2517.184847692013,
+          "driveTorque": 0
+        },
+        {
+          "id": "front_right",
+          "contact": true,
+          "load": 2084.625132664193,
+          "travel": -1.032693047742228e-8,
+          "slipRatio": 1.7781878404987594e-9,
+          "slipAngle": -3.519234540598335e-18,
+          "spin": -1.4792643690239445e-8,
+          "steer": 0,
+          "localCenter": {
+            "x": 0.8775,
+            "y": 0.3298499896730695,
+            "z": -1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -1.4690199101796448e-8,
+          "longitudinalSpeed": -4.845562173727558e-9,
+          "longitudinalForce": 0.00003706855062901582,
+          "lateralForce": 5.869027816856972e-14,
+          "gripLimit": 2517.184847692013,
+          "driveTorque": 0
+        },
+        {
+          "id": "rear",
+          "contact": true,
+          "load": 4169.2504429962955,
+          "travel": -1.6689301052252858e-9,
+          "slipRatio": 1.7781879276917888e-9,
+          "slipAngle": 3.519234538267414e-18,
+          "spin": -1.4122584990285685e-8,
+          "steer": 0,
+          "localCenter": {
+            "x": 0,
+            "y": 0.34549999833106987,
+            "z": 1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -1.4024783264303236e-8,
+          "longitudinalSpeed": -4.845562617816768e-9,
+          "longitudinalForce": 0.00007413710805259655,
+          "lateralForce": -1.1738056126143425e-13,
+          "gripLimit": 5034.369909918028,
+          "driveTorque": 0
+        }
+      ]
+    },
+    "profile": null,
+    "camera": {
+      "position": [
+        0,
+        0.8199999999999996,
+        0.75
+      ],
+      "target": [
+        0,
+        0.6649999999999998,
+        -0.174
+      ]
+    },
+    "bounds": {
+      "minX": -2.1358990867935974,
+      "maxX": 1.961115037814139,
+      "minY": -1.4460151859705297,
+      "maxY": 3.604529055111089,
+      "allInFront": false
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:5201/@vite/client",
+        "bytes": 211057,
+        "duration": 33.400000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/main.ts?t=1789515117425",
+        "bytes": 8235,
+        "duration": 32.6000000089407
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/demo/profile.ts",
+        "bytes": 9428,
+        "duration": 3.3999999910593033
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/demo/recovery.ts?t=1789514994330",
+        "bytes": 8212,
+        "duration": 4
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/vite/dist/client/env.mjs",
+        "bytes": 3941,
+        "duration": 4.899999991059303
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/demo/preview.css?t=1789514994330",
+        "bytes": 12072,
+        "duration": 2.300000011920929
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/scene.ts?t=1789515117425",
+        "bytes": 60962,
+        "duration": 5.399999991059303
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/powered-display.ts?t=1789514927950",
+        "bytes": 22186,
+        "duration": 10.199999988079071
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/actions.ts",
+        "bytes": 5204,
+        "duration": 12.399999991059303
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/drive-preparation.ts",
+        "bytes": 14941,
+        "duration": 13
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_loaders_GLTFLoader__js.js?v=7abc3b5c",
+        "bytes": 344414,
+        "duration": 22.900000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.js?v=7abc3b5c",
+        "bytes": 72800,
+        "duration": 35
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/hero.ts",
+        "bytes": 17780,
+        "duration": 25.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_controls_OrbitControls__js.js?v=7abc3b5c",
+        "bytes": 122886,
+        "duration": 25.19999998807907
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/signature-art.ts",
+        "bytes": 25828,
+        "duration": 27.30000001192093
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/product.ts",
+        "bytes": 15452,
+        "duration": 28.30000001192093
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/suspension.ts",
+        "bytes": 16738,
+        "duration": 29.400000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/inspection.ts",
+        "bytes": 10589,
+        "duration": 31.200000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/prepare.ts",
+        "bytes": 14621,
+        "duration": 35
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/simulation/index.ts",
+        "bytes": 70148,
+        "duration": 37.20000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/game-audio.ts?t=1789515117425",
+        "bytes": 36624,
+        "duration": 36.20000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/driving/input.ts",
+        "bytes": 31552,
+        "duration": 36.400000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/config.ts",
+        "bytes": 22046,
+        "duration": 38.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/catalog.ts",
+        "bytes": 13276,
+        "duration": 40
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/route-data.ts",
+        "bytes": 5135,
+        "duration": 40.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/departure.ts",
+        "bytes": 21714,
+        "duration": 42.1000000089407
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/ui.ts?t=1789515023688",
+        "bytes": 62635,
+        "duration": 41.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/vehicle-asset.ts",
+        "bytes": 1363,
+        "duration": 26.299999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_SkeletonUtils__js.js?v=7abc3b5c",
+        "bytes": 33773,
+        "duration": 13.900000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/driver.ts",
+        "bytes": 23536,
+        "duration": 14.099999994039536
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/rear.ts",
+        "bytes": 20850,
+        "duration": 14.599999994039536
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/statistics.ts",
+        "bytes": 6888,
+        "duration": 16.100000008940697
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/shadows.ts",
+        "bytes": 3692,
+        "duration": 15.799999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_utils_BufferGeometryUtils__js.js?v=7abc3b5c",
+        "bytes": 111812,
+        "duration": 91.69999998807907
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7abc3b5c",
+        "bytes": 5965935,
+        "duration": 144.29999999701977
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/presentation/signature-palette.ts",
+        "bytes": 1190,
+        "duration": 91.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/.vite/deps/three_addons_lights_RectAreaLightUniformsLib__js.js?v=7abc3b5c",
+        "bytes": 1023796,
+        "duration": 104.59999999403954
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/career/catalog.ts",
+        "bytes": 3776,
+        "duration": 91.20000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/public/assets/slingshot-contact-layout.json?import",
+        "bytes": 5951,
+        "duration": 86.19999998807907
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/opponents.ts?t=1789515117395",
+        "bytes": 9170,
+        "duration": 81
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/evidence.ts",
+        "bytes": 14993,
+        "duration": 81.20000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/bay-door.ts",
+        "bytes": 9523,
+        "duration": 86.80000001192093
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/interface.ts",
+        "bytes": 13328,
+        "duration": 87.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/thermal-departure.ts",
+        "bytes": 8704,
+        "duration": 86.79999999701977
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/save.ts",
+        "bytes": 12155,
+        "duration": 87
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/mapper.ts?t=1789515117395",
+        "bytes": 9608,
+        "duration": 92.80000001192093
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/mapper-legacy.ts",
+        "bytes": 8528,
+        "duration": 95.70000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/audio/graph.ts",
+        "bytes": 13247,
+        "duration": 96.29999999701977
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/simulation/profile.ts",
+        "bytes": 5414,
+        "duration": 96.40000000596046
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/career/suspension.ts",
+        "bytes": 6951,
+        "duration": 98.80000001192093
+      },
+      {
+        "name": "http://127.0.0.1:5201/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=7abc3b5c",
+        "bytes": 6917730,
+        "duration": 185.20000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/simulation/drivetrain.ts",
+        "bytes": 10343,
+        "duration": 144.90000000596046
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/course/environment.ts",
+        "bytes": 10849,
+        "duration": 143.29999999701977
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/simulation/pad.ts",
+        "bytes": 5639,
+        "duration": 146.20000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/express/route.ts",
+        "bytes": 10680,
+        "duration": 146.20000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/departure.css",
+        "bytes": 1820,
+        "duration": 144.8999999910593
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/departure-motion.ts",
+        "bytes": 2739,
+        "duration": 147.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/tokens.css?t=1789514994330",
+        "bytes": 4967,
+        "duration": 159.40000000596046
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515023688",
+        "bytes": 22077,
+        "duration": 160.79999999701977
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/career/menu.ts?t=1789514934688",
+        "bytes": 11433,
+        "duration": 161.09999999403954
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/hoop-refinement/slingshot-hoops-refined.glb",
+        "bytes": 13432692,
+        "duration": 223.79999999701977
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/drivers/test-driver-attachment.json",
+        "bytes": 11686,
+        "duration": 7.799999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/drivers/test-driver.glb",
+        "bytes": 3717376,
+        "duration": 115.09999999403954
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/vehicles/slingshot-p04a1-rear-rig.json",
+        "bytes": 3310,
+        "duration": 7.200000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+        "bytes": 4517236,
+        "duration": 145.20000000298023
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/brand/slingmods-logo-main.png",
+        "bytes": 24500,
+        "duration": 10.100000008940697
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.glb",
+        "bytes": 90292,
+        "duration": 9.400000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/products/tricled-sm133-base.attachment.json",
+        "bytes": 16505,
+        "duration": 9.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/products/ddmworks-sm3223-silver.glb",
+        "bytes": 250664,
+        "duration": 10.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/p08b/signature-products.glb",
+        "bytes": 340264,
+        "duration": 11.100000008940697
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/harbor/route.json",
+        "bytes": 232399,
+        "duration": 7.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/src/signature/ui.css?t=1789515173124",
+        "bytes": 22289,
+        "duration": 7.4000000059604645
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/provenance.json",
+        "bytes": 12050,
+        "duration": 3.8999999910593033
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-1200-load.wav",
+        "bytes": 189464,
+        "duration": 10.399999991059303
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-1200-lift.wav",
+        "bytes": 189464,
+        "duration": 14.099999994039536
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-1650-load.wav",
+        "bytes": 189464,
+        "duration": 15
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-1650-lift.wav",
+        "bytes": 189464,
+        "duration": 17.299999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-2200-load.wav",
+        "bytes": 189464,
+        "duration": 17.600000008940697
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-2200-lift.wav",
+        "bytes": 189464,
+        "duration": 18.799999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-3000-load.wav",
+        "bytes": 189464,
+        "duration": 19.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-3000-lift.wav",
+        "bytes": 189464,
+        "duration": 22.600000008940697
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-4000-load.wav",
+        "bytes": 189464,
+        "duration": 23
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-4000-lift.wav",
+        "bytes": 189464,
+        "duration": 26.299999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-5300-load.wav",
+        "bytes": 189464,
+        "duration": 26.799999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-5300-lift.wav",
+        "bytes": 189464,
+        "duration": 27.69999998807907
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-6800-load.wav",
+        "bytes": 189464,
+        "duration": 28.599999994039536
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/engine-6800-lift.wav",
+        "bytes": 189464,
+        "duration": 31.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/road.wav",
+        "bytes": 192344,
+        "duration": 32.1000000089407
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/wind.wav",
+        "bytes": 192344,
+        "duration": 33.900000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/shift.wav",
+        "bytes": 13784,
+        "duration": 33.400000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b/thermal-mid.wav",
+        "bytes": 69462,
+        "duration": 33.3999999910593
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/provenance.json",
+        "bytes": 11350,
+        "duration": 6.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-departure/provenance.json",
+        "bytes": 1200,
+        "duration": 6.299999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.nav.wav",
+        "bytes": 7544,
+        "duration": 7.200000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.confirm.wav",
+        "bytes": 10904,
+        "duration": 7.4000000059604645
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.back.wav",
+        "bytes": 7064,
+        "duration": 7.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.detent.wav",
+        "bytes": 3704,
+        "duration": 7.0999999940395355
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/power.wav",
+        "bytes": 12824,
+        "duration": 7.5999999940395355
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/finish.apply.wav",
+        "bytes": 24344,
+        "duration": 7.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.shocks.attach.wav",
+        "bytes": 27224,
+        "duration": 14.300000011920929
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.lights.attach.wav",
+        "bytes": 9944,
+        "duration": 14.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.exhaust.attach.wav",
+        "bytes": 31064,
+        "duration": 14.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.aero.attach.wav",
+        "bytes": 19544,
+        "duration": 14.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.remove.wav",
+        "bytes": 14744,
+        "duration": 14.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/part.storage.attach.wav",
+        "bytes": 27224,
+        "duration": 14.799999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/build.save.wav",
+        "bytes": 15704,
+        "duration": 19.299999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/build.preset.wav",
+        "bytes": 22424,
+        "duration": 19.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/career.unlock.wav",
+        "bytes": 48344,
+        "duration": 19.799999997019768
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/race.start.wav",
+        "bytes": 23384,
+        "duration": 19.900000005960464
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/race.count.wav",
+        "bytes": 11864,
+        "duration": 20.100000008940697
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-cues/race.finish.wav",
+        "bytes": 57944,
+        "duration": 20.200000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/audio/p09b-departure/thermal.wav",
+        "bytes": 1113944,
+        "duration": 25.700000002980232
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/p08b/showroom-refinement/finish-white-graphite.png",
+        "bytes": 99546,
+        "duration": 2.5
+      },
+      {
+        "name": "http://127.0.0.1:5201/assets/p08b/thumbnails/SM-7720.png",
+        "bytes": 21128,
+        "duration": 2.699999988079071
+      }
+    ],
+    "intervals": [
+      2.2000000000007276,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.80000000000109,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      66.69999999999891,
+      16.700000000000728,
+      33.29999999999927,
+      16.600000000000364,
+      33.30000000000109,
+      16.69999999999891,
+      33.399999999999636,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.700000000000728,
+      33.399999999999636,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      750,
+      16.700000000000728,
+      16.600000000000364,
+      16.599999999998545,
+      16.80000000000109,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000109,
+      16.600000000000364,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.80000000000109,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.80000000000109,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.5,
+      16.69999999999891,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.5,
+      16.799999999999272,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.5,
+      16.80000000000109,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.599999999998545,
+      16.80000000000109,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000109,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000109,
+      16.5,
+      16.799999999999272,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000109,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.5,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.5,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.5,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.5,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.600000000002183,
+      16.799999999999272,
+      16.5,
+      16.799999999999272,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.799999999999272,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.799999999999272,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.700000000000728,
+      16.5,
+      16.799999999999272,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.799999999995634,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.799999999995634,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.799999999995634,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.599999999998545,
+      16.80000000000291,
+      16.69999999999709,
+      16.60000000000582,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.5,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.5,
+      16.799999999995634,
+      16.599999999998545,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.5,
+      16.799999999995634,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.60000000000582,
+      16.799999999995634,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.599999999998545,
+      16.799999999995634,
+      16.60000000000582,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.799999999995634,
+      16.60000000000582,
+      16.599999999998545,
+      16.799999999995634,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.799999999995634,
+      16.60000000000582,
+      16.599999999998545,
+      16.69999999999709,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.5,
+      16.80000000000291,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.80000000000291,
+      16.5,
+      16.80000000000291,
+      16.599999999998545,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.700000000004366,
+      16.5,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.799999999995634,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.799999999995634,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.599999999998545,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.80000000000291,
+      16.599999999998545,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.599999999998545,
+      16.700000000004366,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.599999999998545,
+      16.799999999995634,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709,
+      16.69999999999709,
+      16.60000000000582,
+      16.69999999999709
+    ]
+  }
+}

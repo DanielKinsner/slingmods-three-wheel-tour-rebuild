@@ -1,0 +1,578 @@
+[
+  {
+    "case": "native-1280-express-equipped-final-01",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "loadMs": 3939.7999999970198,
+    "preparation": {
+      "ms": 1737,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 157.20000000298023
+        },
+        {
+          "name": "compile-async",
+          "ms": 1374.199999988079
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 202.30000001192093
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 57,
+      "programs": 35,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "cpuFrameMs": {
+      "p95": 8.599999994039536,
+      "max": 59.29999999701977
+    },
+    "renderSubmissionMs": {
+      "p95": 6.0999999940395355,
+      "max": 45.400000005960464
+    },
+    "collectorMs": {
+      "p95": 0,
+      "max": 0.20000000298023224
+    },
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"graphite-red\",\"products\":{\"SM-133\":\"base-rgb\",\"SM-3223\":\"silver\",\"SM-7720\":\"brushed-silver\",\"SM-26801\":\"black-aluminum\",\"SM-28919\":\"lower-pair\"},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    }
+  },
+  {
+    "case": "native-1280-express-stock-final-01",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "loadMs": 4158.600000008941,
+    "preparation": {
+      "ms": 1775.2000000029802,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 181.79999999701977
+        },
+        {
+          "name": "compile-async",
+          "ms": 1365.9000000059605
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 223.90000000596046
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 57,
+      "programs": 34,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "cpuFrameMs": {
+      "p95": 9.800000011920929,
+      "max": 34.30000001192093
+    },
+    "renderSubmissionMs": {
+      "p95": 7.0999999940395355,
+      "max": 27.299999997019768
+    },
+    "collectorMs": {
+      "p95": 0.09999999403953552,
+      "max": 0.19999998807907104
+    },
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"graphite-red\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    }
+  },
+  {
+    "case": "native-1280-harbor-equipped-final-01",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "loadMs": 5333.79999999702,
+    "preparation": {
+      "ms": 2181.0999999940395,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 241.6000000089407
+        },
+        {
+          "name": "compile-async",
+          "ms": 1640.5999999940395
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 288.5
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 66,
+      "programs": 35,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "cpuFrameMs": {
+      "p95": 14.400000005960464,
+      "max": 28.5
+    },
+    "renderSubmissionMs": {
+      "p95": 11.200000002980232,
+      "max": 23.799999997019768
+    },
+    "collectorMs": {
+      "p95": 0.09999999403953552,
+      "max": 0.10000000894069672
+    },
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"graphite-red\",\"products\":{\"SM-133\":\"base-rgb\",\"SM-3223\":\"silver\",\"SM-7720\":\"brushed-silver\",\"SM-26801\":\"black-aluminum\",\"SM-28919\":\"lower-pair\"},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    }
+  },
+  {
+    "case": "native-1280-harbor-stock-final-01",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "loadMs": 3883.8999999910593,
+    "preparation": {
+      "ms": 1633.8999999910593,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 186.80000001192093
+        },
+        {
+          "name": "compile-async",
+          "ms": 1201.0999999940395
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 240.30000001192093
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 66,
+      "programs": 34,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "cpuFrameMs": {
+      "p95": 12.099999994039536,
+      "max": 22.600000008940697
+    },
+    "renderSubmissionMs": {
+      "p95": 9.200000002980232,
+      "max": 19.299999997019768
+    },
+    "collectorMs": {
+      "p95": 0.09999999403953552,
+      "max": 0.10000000894069672
+    },
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"graphite-red\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    }
+  },
+  {
+    "case": "native-1920-express-equipped-final-01",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "loadMs": 5546.600000008941,
+    "preparation": {
+      "ms": 2321.7000000029802,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 285.20000000298023
+        },
+        {
+          "name": "compile-async",
+          "ms": 1745.2000000029802
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 283.3999999910593
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 57,
+      "programs": 35,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "cpuFrameMs": {
+      "p95": 11.400000005960464,
+      "max": 19.599999994039536
+    },
+    "renderSubmissionMs": {
+      "p95": 8.399999991059303,
+      "max": 16.299999997019768
+    },
+    "collectorMs": {
+      "p95": 0.09999999403953552,
+      "max": 0.20000000298023224
+    },
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"graphite-red\",\"products\":{\"SM-133\":\"base-rgb\",\"SM-3223\":\"silver\",\"SM-7720\":\"brushed-silver\",\"SM-26801\":\"black-aluminum\",\"SM-28919\":\"lower-pair\"},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    }
+  },
+  {
+    "case": "native-1920-express-stock-final-01",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "loadMs": 4849.5999999940395,
+    "preparation": {
+      "ms": 2203.0999999940395,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 220.59999999403954
+        },
+        {
+          "name": "compile-async",
+          "ms": 1712.5
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 264.5
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0.10000000894069672
+        }
+      ],
+      "textures": 57,
+      "programs": 34,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "cpuFrameMs": {
+      "p95": 11.399999991059303,
+      "max": 19.899999991059303
+    },
+    "renderSubmissionMs": {
+      "p95": 8.200000002980232,
+      "max": 16
+    },
+    "collectorMs": {
+      "p95": 0.09999999403953552,
+      "max": 0.29999999701976776
+    },
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"graphite-red\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    }
+  },
+  {
+    "case": "native-1920-harbor-equipped-final-01",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "loadMs": 4677.5,
+    "preparation": {
+      "ms": 2164.0999999940395,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 266.5
+        },
+        {
+          "name": "compile-async",
+          "ms": 1628.7000000029802
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 261.3999999910593
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 66,
+      "programs": 35,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "cpuFrameMs": {
+      "p95": 14.299999997019768,
+      "max": 24.400000005960464
+    },
+    "renderSubmissionMs": {
+      "p95": 10.900000005960464,
+      "max": 19.200000002980232
+    },
+    "collectorMs": {
+      "p95": 0.09999999403953552,
+      "max": 0.20000000298023224
+    },
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"graphite-red\",\"products\":{\"SM-133\":\"base-rgb\",\"SM-3223\":\"silver\",\"SM-7720\":\"brushed-silver\",\"SM-26801\":\"black-aluminum\",\"SM-28919\":\"lower-pair\"},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    }
+  },
+  {
+    "case": "native-1920-harbor-stock-final-01",
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "loadMs": 4508.20000000298,
+    "preparation": {
+      "ms": 1906.9000000059605,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 203.79999999701977
+        },
+        {
+          "name": "compile-async",
+          "ms": 1455.1000000089407
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 242.29999999701977
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 66,
+      "programs": 34,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    },
+    "cpuFrameMs": {
+      "p95": 11.900000005960464,
+      "max": 23.799999997019768
+    },
+    "renderSubmissionMs": {
+      "p95": 8.899999991059303,
+      "max": 19.400000005960464
+    },
+    "collectorMs": {
+      "p95": 0.09999999403953552,
+      "max": 0.20000000298023224
+    },
+    "display": {
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 900,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        336
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 1,
+      "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"graphite-red\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v2\"}",
+      "mount": {
+        "width": 0.202,
+        "height": 0.133,
+        "position": [
+          0,
+          0.665,
+          -0.1735
+        ],
+        "pixels": [
+          512,
+          336
+        ]
+      },
+      "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+    }
+  }
+]

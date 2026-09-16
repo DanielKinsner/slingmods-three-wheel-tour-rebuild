@@ -1,0 +1,98 @@
+{
+  "method": "Per-state A old then B new; matched RMS target -23dBFS, paired peak safeguard;5ms/10ms edge fades applied equally. Identical test-state timeline, no hardware/by-ear approval. Road and wind silent to isolate engine. Sport recording texture excluded here to compare shared stock source revision.",
+  "durationSeconds": 35.0,
+  "sha256": "d5a293134baf06871b71fef2813c46033437583f06a041835b4934d5733b02be",
+  "segments": [
+    {
+      "state": "Idle / 1050 RPM",
+      "version": "old",
+      "startSeconds": 0,
+      "durationSeconds": 3,
+      "gainDb": 4.568206883287183,
+      "matchedRmsDbFS": -23.01446993183831,
+      "peak": 0.203501138881536
+    },
+    {
+      "state": "Idle / 1050 RPM",
+      "version": "new",
+      "startSeconds": 3.5,
+      "durationSeconds": 3,
+      "gainDb": 10.837878534581494,
+      "matchedRmsDbFS": -23.002171251401652,
+      "peak": 0.1592046708246163
+    },
+    {
+      "state": "Steady / 3400 RPM",
+      "version": "old",
+      "startSeconds": 7.0,
+      "durationSeconds": 3,
+      "gainDb": 1.7213193948314278,
+      "matchedRmsDbFS": -23.010023232779282,
+      "peak": 0.19797451773821292
+    },
+    {
+      "state": "Steady / 3400 RPM",
+      "version": "new",
+      "startSeconds": 10.5,
+      "durationSeconds": 3,
+      "gainDb": 10.083081525932304,
+      "matchedRmsDbFS": -23.017919548271472,
+      "peak": 0.24874534156269962
+    },
+    {
+      "state": "Acceleration / 1600-6400 RPM",
+      "version": "old",
+      "startSeconds": 14.0,
+      "durationSeconds": 3,
+      "gainDb": 2.2047817771106066,
+      "matchedRmsDbFS": -23.008881267190674,
+      "peak": 0.24470866921713727
+    },
+    {
+      "state": "Acceleration / 1600-6400 RPM",
+      "version": "new",
+      "startSeconds": 17.5,
+      "durationSeconds": 3,
+      "gainDb": 5.242563943155795,
+      "matchedRmsDbFS": -23.014449757752843,
+      "peak": 0.20452775021153255
+    },
+    {
+      "state": "Lift / 5800-2400 RPM",
+      "version": "old",
+      "startSeconds": 21.0,
+      "durationSeconds": 3,
+      "gainDb": 5.433260022890272,
+      "matchedRmsDbFS": -23.013058725275826,
+      "peak": 0.23707655350675158
+    },
+    {
+      "state": "Lift / 5800-2400 RPM",
+      "version": "new",
+      "startSeconds": 24.5,
+      "durationSeconds": 3,
+      "gainDb": 11.312142619139598,
+      "matchedRmsDbFS": -23.009771601804346,
+      "peak": 0.2325663875677457
+    },
+    {
+      "state": "Shifts / real graph shift edges",
+      "version": "old",
+      "startSeconds": 28.0,
+      "durationSeconds": 3,
+      "gainDb": 1.5603573072909924,
+      "matchedRmsDbFS": -23.013013749064427,
+      "peak": 0.23294449165157052
+    },
+    {
+      "state": "Shifts / real graph shift edges",
+      "version": "new",
+      "startSeconds": 31.5,
+      "durationSeconds": 3,
+      "gainDb": 7.146744568726825,
+      "matchedRmsDbFS": -23.027496817355278,
+      "peak": 0.2853029344145213
+    }
+  ],
+  "worstPairRmsDifferenceDb": 0.014483068290850554
+}

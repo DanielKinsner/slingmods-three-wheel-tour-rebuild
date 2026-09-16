@@ -1,14 +1,15 @@
 # P09B portable implementation handoff
 
 ## Scope and preserved identity
-Feature `feature/p09b-signature-finish`, private origin DanielKinsner/slingmods-three-wheel-tour-rebuild. No main merge/publication. Starts at b967d6f887593d3c84181aa4f88d2a42ce79221d. Current immutable vehicle remains assets/hoop-refinement/slingshot-hoops-refined.glb, editable assets/blender/hoop-refinement/slingshot-hoops-refined.blend. Front fascia, honeycomb, diffuser lights, hoop geometry, showroom textures/door, all five products and Sport-v2 physics remain intact. No simulation coefficients, routes, collision or career reward rules changed.
+Current branch `main`, private origin DanielKinsner/slingmods-three-wheel-tour-rebuild. The owner's later direct instruction authorized merging and continuing on main, superseding the packet's feature-only restriction. Merge pushed at ea58b4f9c1df98ab16629bce24721596b6a43e32. No publication. Starts at b967d6f887593d3c84181aa4f88d2a42ce79221d. Current immutable vehicle remains public/assets/hoop-refinement/slingshot-hoops-refined.glb, editable assets/blender/hoop-refinement/slingshot-hoops-refined.blend. Front fascia, honeycomb, diffuser lights, hoop geometry, showroom textures/door, all five products and Sport-v2 physics remain intact. No simulation coefficients, routes, collision or career reward rules changed.
 
 ## Rebuild / play
 ```powershell
-git clone --branch feature/p09b-signature-finish https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git
+git clone --branch main https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git
 cd slingmods-three-wheel-tour-rebuild
 npm ci
 npm test
+python scripts/verify-p09b-assets.py
 npm run build
 npm run demo:build
 $env:PORT='5197'
@@ -26,11 +27,11 @@ With static candidate on5202, set `BASE_URL=http://127.0.0.1:5202` and a fresh `
 - `node scripts/p09b-integration.mjs` — screen fit/state, transactional exhaust cue, real cinematic pause/resume/skip, actual driving telemetry/reverse/reset (controlled clock).
 - `node scripts/p09b-ui-validation.mjs` — responsive ordinary UI/save-isolation checks.
 - `node scripts/p09a-career-loop.mjs` — preserved full earned chapter/Cup/purchase/remove/reload.
-- `node scripts/p09a-finish-wait-resume.mjs` — physically earned early-player finish with production input, pause field/resume/save (controlled clock, not native timings).
+- `node scripts/p09b-finish-wait-resume.mjs` — physically earned early-player finish with production input, pause field/resume/save (controlled clock, not native timings).
 - `node scripts/p09a-demo-smoke.mjs` — ordinary prepared-demo preservation.
 - `node scripts/profile-p09b.mjs` with WIDTH1280/1920, ROUTEharbor/express, BUILDstock/equipped, RACES2 — native full attempts/retries; thresholds unchanged,1e-6ms numerical tolerance.
 - `P09B_TRACE=1` adds diagnostic trace; never counted as native matrix. `VIEW=cockpit` adds separate cockpit cost case.
-- `node scripts/record-p09b.mjs` and `python scripts/assemble-p09b-film.py` — current wall-clock footage and real captured master mix with measured sync. See script env vars and final evidence receipt.
+- `node scripts/record-p09b.mjs` and `python scripts/assemble-p09b-film.py <capture-directory> --runtime=bf1297c9770357cf5a331288b14cae82d5510d86` — current wall-clock footage and real captured master mix with measured sync. See script env vars and final evidence receipt.
 
 ## Limits
 Same-host Chromium/RTX4080 proof is not other hardware or a physical controller test. Virtual standard-gamepad events verify mappings; human listening and subjective engine/OEM fidelity remain open. Local synthesis and narrow owner texture are disclosed approximations, not measured multi-RPM exhaust recordings. No physical service or manufacturer performance claims. Native matrix, exact runtime, remote recovery, film and ZIP receipts are recorded separately after completion. Keep failures and historical evidence.
