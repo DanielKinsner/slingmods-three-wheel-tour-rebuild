@@ -1,8 +1,10 @@
 # Current assignment — P10A Ridge Run, on main
 
-The owner authorizes CODEX_NEXT.md and packets01–03 in director-kit/director-addenda/review-19. Baseline main63da7a0202a0216cea5e9a70bd55f63f5283cba4 is verified against origin. Continue on main; preserve newer/uncommitted owner work and all historical evidence/archives. One lead plus two bounded specialists are authorized by this packet. The new Smoky Ridge destination adds physical elevation, district scenery, afternoon/blue-hour lighting, free preview/races and Chapter03. Preserve Sport v3, existing flat routes, Slingshot/showroom/products/audio/UI, historical recipes and career progress.
+P10A is implemented and locally validated. Frozen gameplay/native candidate: `28daf3a4dfb702e2b4829ffda683cffeb117c858`. All 263 tests, 22 native races, physical elevation/flat-equivalence, full chapter/reward/reload, UI/audio/lifecycle and current real-audio film pass. No runtime source change was needed during final native testing. Read `handoff/P10A-RIDGE-RUN.md` and `director-kit/production/evidence/P10A/REVIEW20-SUMMARY.md`.
 
-Complete road/art proofs, integrated implementation, critique/repair, regressions/native performance, continuous real-game audio film and recoverable Review20 delivery. Only completed tested checkpoints may push to main and its existing curated Vercel project. No spending, new hosting project, account/visibility changes, desktop takeover or force push. G3/G4, global OEM fidelity, physical hardware and human enjoyment/listening approval remain open. Current work is in progress; no P10A completion is claimed.
+Current delivery work: push all original evidence and portable assets; verify the existing curated Vercel site and a fresh remote clone; produce and track `Astra-Review-20-Lean.zip`. Final identities belong in `P10A-VALIDATION.json`, `P10A-PACKET.json` and `P10A-DELIVERY.json`. Do not infer hosted/recovery/ZIP completion until those receipts exist.
+
+Continue on main. Preserve all older evidence/archives and the unrelated untracked owner folder `SlingMods-Astra-Director-Review-17/`. No spending, new hosting project, account/visibility changes, desktop takeover or force push. Severe sustained rail wedging may retire AI; ordinary brush recovery passes. G3/G4, physical hardware, subjective fun/listening and global OEM fidelity remain open.
 
 ---
 

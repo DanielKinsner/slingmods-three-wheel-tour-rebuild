@@ -1,0 +1,500 @@
+{
+  "design": {
+    "id": "ridge-layout-v1",
+    "lengthMetres": 3200,
+    "elevationMin": 0,
+    "elevationMax": 84,
+    "elevationRangeMetres": 84,
+    "maxGrade": 0.0672,
+    "widthMetres": 12,
+    "runoffMetres": 3,
+    "straightMetres": 653.3694359349704,
+    "cornerGroups": 11,
+    "stationConvention": "Planar metres for projection, laps and gates; Y from the same sampled cross-sections. 3D arc length is reported separately.",
+    "brakingZones": [
+      {
+        "from": 2350,
+        "to": 2540,
+        "description": "Downhill linked return bends; 200/150/100/50 m boards"
+      }
+    ],
+    "districts": [
+      {
+        "id": "paddock",
+        "name": "Workshop paddock",
+        "from": 0,
+        "to": 380
+      },
+      {
+        "id": "woods",
+        "name": "Wooded climb",
+        "from": 380,
+        "to": 1400
+      },
+      {
+        "id": "overlook",
+        "name": "Rock-cut and overlook",
+        "from": 1400,
+        "to": 2130
+      },
+      {
+        "id": "descent",
+        "name": "Open descent",
+        "from": 2130,
+        "to": 3200
+      }
+    ],
+    "source": "src/ridge/route.ts; original cubic plan and integrated cosine grade; no surveyed route",
+    "terrainSupport": "One non-coincident physical road/shoulder/terrain ribbon to 60m on either side; farther scenic ridges visual only, no support floor"
+  },
+  "summaries": [
+    {
+      "name": "ascent",
+      "contacts": 1,
+      "minUp": 0.996611538987491,
+      "maxRoadError": 1.138443448793361,
+      "startY": 11.784465149361242,
+      "endY": 44.65214191695912,
+      "pass": true
+    },
+    {
+      "name": "crest",
+      "contacts": 1,
+      "minUp": 0.9964269417666376,
+      "maxRoadError": 1.9648487059949977,
+      "startY": 82.92880826577549,
+      "endY": 74.79147355112428,
+      "pass": true
+    },
+    {
+      "name": "descent-bends",
+      "contacts": 1,
+      "minUp": 0.9968266928713887,
+      "maxRoadError": 2.4206450152227275,
+      "startY": 53.448477017894575,
+      "endY": 11.77120721435017,
+      "pass": true
+    },
+    {
+      "name": "four-car-real-lap",
+      "result": {
+        "event": "p10a-road-proof",
+        "handlingProfileId": "slingmods-sport-v3",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 120733.33333334558,
+        "attemptId": "p10a-road-proof",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 3200,
+            "timeMs": 114472.70366893541,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 3200,
+            "timeMs": 116039.62597907914,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 3,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 3200,
+            "timeMs": 119435.43056539974,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 4,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 3200,
+            "timeMs": 120729.5218351285,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "p10a-road-proof",
+          "attemptId": "p10a-road-proof",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 120729.5218351285,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinished": true
+      },
+      "pass": true
+    },
+    {
+      "name": "elevated-recovery",
+      "cases": [
+        {
+          "station": 500,
+          "reason": "Below the road",
+          "pose": {
+            "x": 0,
+            "y": 21.4617992720831,
+            "z": -493.9999891679034,
+            "yaw": 0,
+            "pitch": 0.0670991183824022
+          },
+          "last": {
+            "time": 2.9999999999999942,
+            "position": {
+              "x": -1.8545955629914824e-10,
+              "y": 21.43266179564088,
+              "z": -493.9372240149536
+            },
+            "quaternion": {
+              "x": 0.034251414239406586,
+              "y": 9.277989834743927e-12,
+              "z": 1.0523507620874284e-9,
+              "w": 0.9994133114814758
+            },
+            "velocity": {
+              "x": -3.5333375114632304e-10,
+              "y": -0.0015869613271206617,
+              "z": 0.018591636791825294
+            },
+            "angularVelocity": {
+              "x": -5.286404984872206e-7,
+              "y": 1.3245857188870502e-10,
+              "z": 6.072091163211724e-10
+            },
+            "speed": -0.01865666244563771,
+            "rpm": 950,
+            "engineWheelAngularSpeed": -0.0539997372983777,
+            "gear": 1,
+            "shifting": false,
+            "shiftRemaining": 0,
+            "steer": 0,
+            "throttle": 0,
+            "brake": 1,
+            "reversePending": false,
+            "wheels": [
+              {
+                "id": "front_left",
+                "contact": true,
+                "load": 2030.635458544706,
+                "travel": -0.0019696756158556483,
+                "slipRatio": 0.007028450140121238,
+                "slipAngle": 2.2101111760744558e-10,
+                "spin": -0.16793278404961187,
+                "steer": 0,
+                "localCenter": {
+                  "x": -0.8775,
+                  "y": 0.32788032438414433,
+                  "z": -1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": -0.05656054821172901,
+                "longitudinalSpeed": -0.018656496827638813,
+                "longitudinalForce": 142.7222007314369,
+                "lateralForce": -0.0000035903440971701854,
+                "gripLimit": 2451.9923161927322,
+                "driveTorque": 0
+              },
+              {
+                "id": "front_right",
+                "contact": true,
+                "load": 2030.6354567793448,
+                "travel": -0.0019696756158556483,
+                "slipRatio": 0.007028450134469264,
+                "slipAngle": 2.2101111760884488e-10,
+                "spin": -0.16793278370881554,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0.8775,
+                  "y": 0.32788032438414433,
+                  "z": -1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": -0.05656054811707379,
+                "longitudinalSpeed": -0.018656496796416788,
+                "longitudinalForce": 142.72220049258843,
+                "lateralForce": -0.000003590344094071602,
+                "gripLimit": 2451.992314061059,
+                "driveTorque": 0
+              },
+              {
+                "id": "rear",
+                "contact": true,
+                "load": 4258.224430425923,
+                "travel": 0.0018122775554656467,
+                "slipRatio": 0.006703366727302661,
+                "slipAngle": 4.670914892105058e-11,
+                "spin": -0.16032599070926026,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0,
+                  "y": 0.3473122775554656,
+                  "z": 1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": -0.05399854329579082,
+                "longitudinalSpeed": -0.018656496708695725,
+                "longitudinalForce": 285.44439964304456,
+                "lateralForce": -0.0000015911843124801618,
+                "gripLimit": 5141.805999739302,
+                "driveTorque": 0
+              }
+            ]
+          },
+          "pass": true
+        },
+        {
+          "station": 1600,
+          "reason": "Below the road",
+          "pose": {
+            "x": 682.2244462121066,
+            "y": 84.025,
+            "z": -669.4743287919623,
+            "yaw": -2.9139954203523257,
+            "pitch": 0
+          },
+          "last": {
+            "time": 2.9999999999999942,
+            "position": {
+              "x": 682.2244259236716,
+              "y": 83.99998382568408,
+              "z": -669.4743036288074
+            },
+            "quaternion": {
+              "x": -4.439071688011609e-7,
+              "y": -0.9935319423675537,
+              "z": 5.733134571528353e-7,
+              "w": 0.11355315893888474
+            },
+            "velocity": {
+              "x": 3.2306945740856463e-7,
+              "y": 0.00010961380030494183,
+              "z": -6.38668495867023e-8
+            },
+            "angularVelocity": {
+              "x": -0.0000011532637245181832,
+              "y": 1.9855486341462808e-13,
+              "z": 9.367160203055391e-8
+            },
+            "speed": 1.0790553292063962e-8,
+            "rpm": 950,
+            "engineWheelAngularSpeed": 0.0000021880753684562503,
+            "gear": 1,
+            "shifting": false,
+            "shiftRemaining": 0,
+            "steer": 0,
+            "throttle": 0,
+            "brake": 1,
+            "reversePending": false,
+            "wheels": [
+              {
+                "id": "front_left",
+                "contact": true,
+                "load": 2084.6190966514573,
+                "travel": 0.000014890834263370234,
+                "slipRatio": -3.5341194801871266e-7,
+                "slipAngle": -1.2339870835709965e-7,
+                "spin": -0.000004589535358164142,
+                "steer": 0,
+                "localCenter": {
+                  "x": -0.8775,
+                  "y": 0.32986489083426335,
+                  "z": -1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": 0.000002919644781395388,
+                "longitudinalSpeed": 9.630448311432687e-7,
+                "longitudinalForce": -0.007367292958246005,
+                "lateralForce": 0.0020579144315466696,
+                "gripLimit": 2517.1775592066347,
+                "driveTorque": 0
+              },
+              {
+                "id": "front_right",
+                "contact": true,
+                "load": 2084.61911771681,
+                "travel": 0.00001492063658575793,
+                "slipRatio": -3.534119241253607e-7,
+                "slipAngle": -1.2339871477009922e-7,
+                "spin": -0.000004589518861144114,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0.8775,
+                  "y": 0.32986492063658573,
+                  "z": -1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": 0.0000029196446135084556,
+                "longitudinalSpeed": 9.63044775765764e-7,
+                "longitudinalForce": -0.007367292534608095,
+                "lateralForce": 0.00205791455929146,
+                "gripLimit": 2517.177584643048,
+                "driveTorque": 0
+              },
+              {
+                "id": "rear",
+                "contact": true,
+                "load": 4169.203221268588,
+                "travel": 0.000013945817947336181,
+                "slipRatio": -3.5341490394721697e-7,
+                "slipAngle": -1.2339878399197994e-7,
+                "spin": -0.000004381636335662358,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0,
+                  "y": 0.3455139458179473,
+                  "z": 1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": 0.0000027873945233886017,
+                "longitudinalSpeed": 9.630448078307618e-7,
+                "longitudinalForce": -0.014734585559810656,
+                "lateralForce": 0.004115796861759916,
+                "gripLimit": 5034.312889681821,
+                "driveTorque": 0
+              }
+            ]
+          },
+          "pass": true
+        },
+        {
+          "station": 2200,
+          "reason": "Below the road",
+          "pose": {
+            "x": 686.6084040731724,
+            "y": 55.86819983708358,
+            "z": -100.89966573079244,
+            "yaw": -3.0909030531337107,
+            "pitch": -0.06709911838239666
+          },
+          "last": {
+            "time": 2.9999999999999942,
+            "position": {
+              "x": 686.6083922868792,
+              "y": 55.84032394860586,
+              "z": -100.84681927791245
+            },
+            "quaternion": {
+              "x": -0.0008679103339090943,
+              "y": -0.9990960359573364,
+              "z": -0.03413049131631851,
+              "w": 0.025328269228339195
+            },
+            "velocity": {
+              "x": 0.0009411017526872456,
+              "y": -0.00138361775316298,
+              "z": 0.01852300390601158
+            },
+            "angularVelocity": {
+              "x": 0.0000068592257775890175,
+              "y": -8.80957742310784e-8,
+              "z": 3.044901220050633e-8
+            },
+            "speed": 0.018598082235118833,
+            "rpm": 950,
+            "engineWheelAngularSpeed": 0.05382641741596338,
+            "gear": 1,
+            "shifting": false,
+            "shiftRemaining": 0,
+            "steer": 0,
+            "throttle": 0,
+            "brake": 1,
+            "reversePending": false,
+            "wheels": [
+              {
+                "id": "front_left",
+                "contact": true,
+                "load": 2128.794707893987,
+                "travel": 0.0015635387148175695,
+                "slipRatio": -0.006682112862038778,
+                "slipAngle": -7.179650699412775e-7,
+                "spin": 0.16740551234874337,
+                "steer": 0,
+                "localCenter": {
+                  "x": -0.8775,
+                  "y": 0.33141353871481755,
+                  "z": -1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": 0.0563728075972679,
+                "longitudinalSpeed": 0.018594570585958814,
+                "longitudinalForce": -142.24846498258492,
+                "lateralForce": 0.012227201930749823,
+                "gripLimit": 2570.519609781989,
+                "driveTorque": 0
+              },
+              {
+                "id": "front_right",
+                "contact": true,
+                "load": 2128.6886791471593,
+                "travel": 0.0015607969011579015,
+                "slipRatio": -0.0066824043997533505,
+                "slipAngle": -7.898451047118582e-7,
+                "spin": 0.16741481807311223,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0.8775,
+                  "y": 0.3314107969011579,
+                  "z": -1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": 0.05637245923919915,
+                "longitudinalSpeed": 0.01859445568004984,
+                "longitudinalForce": -142.24758595238126,
+                "lateralForce": 0.01345067466143948,
+                "gripLimit": 2570.391580070195,
+                "driveTorque": 0
+              },
+              {
+                "id": "rear",
+                "contact": true,
+                "load": 4061.1027835499663,
+                "travel": -0.002264590740203909,
+                "slipRatio": -0.0070053876592407836,
+                "slipAngle": -8.731701158323078e-7,
+                "spin": 0.15982483658097724,
+                "steer": 0,
+                "localCenter": {
+                  "x": 0,
+                  "y": 0.34323540925979606,
+                  "z": 1.3335
+                },
+                "surface": "asphalt",
+                "angularSpeed": 0.0538191298445737,
+                "longitudinalSpeed": 0.018594509361300214,
+                "longitudinalForce": -284.4959932278933,
+                "lateralForce": 0.028368268703353853,
+                "gripLimit": 4903.781611136585,
+                "driveTorque": 0
+              }
+            ]
+          },
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

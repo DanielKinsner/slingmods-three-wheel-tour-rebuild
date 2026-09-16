@@ -41,3 +41,7 @@ Known art limits: foliage is an authored stylized broadleaf approximation, not a
 ## Review boundary
 
 This review does not certify the not-yet-completed native matrix, hosted deployment, chapter loop or remote recovery. Those require the lead's final evidence. No G3/G4, hardware, final-fidelity or release approval is implied.
+
+## Lead resolution after independent review
+
+Both loader findings are repaired in the frozen runtime: allSettled drains successful partial decodes on request failure, and Ridge preparation omits unused coastal sky/kit. `P10A/partial-load-final-02` deliberately fails the land request and observes43geometry/6material/9texture disposals with zero scene children. Final `art-proof-06` captures all later art refinements and current thumbnail. Normal lifecycle, the22race native matrix and actual-camera epochs pass separately. Severe sustained rail wedging remains the documented limit, not hidden by the ordinary-brush test.

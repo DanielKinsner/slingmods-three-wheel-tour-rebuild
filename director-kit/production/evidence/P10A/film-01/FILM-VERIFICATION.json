@@ -1,0 +1,220 @@
+{
+  "runtime": "28daf3a4dfb702e2b4829ffda683cffeb117c858",
+  "overlay": "Encoded runtime / edited capture identity label. Original game UI and actual audio unchanged. Automated input label captured live.",
+  "pass": true,
+  "method": "Real-speed edited demonstration, with only loading and disclosed sync-marker boundaries cut. Actual live game graph audio, measured recorded chirps aligned to captured video flashes. No synthesized replacement audio or time warping. Audio listening approval remains human.",
+  "excludedSegments": {},
+  "omittedVisualGroups": [],
+  "cuts": [
+    {
+      "gameAudioRMSBetweenMarkers": 0.029001491290890455,
+      "segment": "01-destination",
+      "sourceVideoStart": 5.58,
+      "sourceAudioStart": 0.405,
+      "duration": 8.92,
+      "measuredAVDriftMs": 18.66666666666461,
+      "audioChirpCenters": [
+        0.14500000000000002,
+        9.646333333333335
+      ],
+      "videoFlashStarts": [
+        5.28,
+        14.8
+      ]
+    },
+    {
+      "gameAudioRMSBetweenMarkers": 0.04373830311894439,
+      "segment": "02-ridge-complete-lap",
+      "sourceVideoStart": 19.78,
+      "sourceAudioStart": 0.37,
+      "duration": 128.76000000000002,
+      "measuredAVDriftMs": -64.3333333332805,
+      "audioChirpCenters": [
+        0.11,
+        129.5343333333333
+      ],
+      "videoFlashStarts": [
+        19.48,
+        148.84
+      ]
+    },
+    {
+      "gameAudioRMSBetweenMarkers": 0.028448409817339048,
+      "segment": "03-build-return",
+      "sourceVideoStart": 150.9,
+      "sourceAudioStart": 0.37,
+      "duration": 7.040000000000015,
+      "measuredAVDriftMs": -56.3333333333178,
+      "audioChirpCenters": [
+        0.11,
+        7.806333333333333
+      ],
+      "videoFlashStarts": [
+        150.6,
+        158.24
+      ]
+    },
+    {
+      "gameAudioRMSBetweenMarkers": 0.046328159712655304,
+      "segment": "04-blue-hour",
+      "sourceVideoStart": 162.38000000000002,
+      "sourceAudioStart": 0.37,
+      "duration": 47.519999999999975,
+      "measuredAVDriftMs": -8.000000000023988,
+      "audioChirpCenters": [
+        0.11,
+        48.238
+      ],
+      "videoFlashStarts": [
+        162.08,
+        210.2
+      ]
+    }
+  ],
+  "video": "director-kit\\production\\evidence\\P10A\\film-01\\raw-video\\page@149b9e4759cc7389e23a612e4ccda3a9.webm",
+  "film": "director-kit\\production\\evidence\\P10A\\film-01\\P10A-Ridge-Run.mp4",
+  "duration": 192.298,
+  "bytes": 25034988,
+  "sha256": "99773d01b1582622074334552267b757a10a0f5bdde89f4f913098f77df30c95",
+  "decodedAudio": {
+    "peak": 0.2004404217004776,
+    "rms": 0.0431764361126719,
+    "samples": 2307584
+  },
+  "probe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 1280,
+        "height": 720,
+        "coded_width": 1280,
+        "coded_height": 720,
+        "closed_captions": 0,
+        "film_grain": 0,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuv420p",
+        "level": 31,
+        "color_range": "tv",
+        "color_space": "bt470bg",
+        "chroma_location": "center",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "25/1",
+        "avg_frame_rate": "24010/961",
+        "time_base": "1/12800",
+        "start_pts": 781,
+        "start_time": "0.061016",
+        "duration_ts": 2460160,
+        "duration": "192.200000",
+        "bit_rate": "911009",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "4802",
+        "extradata_size": 51,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "eng",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]",
+          "encoder": "Lavc60.9.100 libx264"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 9230304,
+        "duration": "192.298000",
+        "bit_rate": "124815",
+        "nb_frames": "9015",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "eng",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      }
+    ],
+    "format": {
+      "filename": "director-kit\\production\\evidence\\P10A\\film-01\\P10A-Ridge-Run.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "192.298000",
+      "size": "25034988",
+      "bit_rate": "1041507",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf60.4.101"
+      }
+    }
+  }
+}

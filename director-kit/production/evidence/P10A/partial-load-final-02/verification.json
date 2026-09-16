@@ -1,0 +1,64 @@
+{
+  "pass": true,
+  "result": {
+    "counts": {
+      "geometry": 43,
+      "material": 6,
+      "texture": 9
+    },
+    "message": "Ridge land load failed",
+    "sceneChildren": 0
+  },
+  "responses": [
+    {
+      "url": "http://127.0.0.1:5204/missing-p10a-loader-fixture",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/ridge/ridge-land.json",
+      "status": 503
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/brand/slingmods-sign.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/ridge/ridge-kit.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/showcase-quality/textures/weathered_brown_planks_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/showcase-quality/textures/leafy_grass_nor_gl.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/showcase-quality/textures/palm_tree_bark_Diffuse.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5204/assets/showcase-quality/textures/concrete_wall_006_Diffuse.jpg",
+      "status": 200
+    }
+  ],
+  "browser": "153.0.8010.12",
+  "method": "Current source loader bundled unchanged into isolated browser fixture. Deliberate land503 while real GLTF and eight texture decodes run; dispose calls observed on Three prototypes. No extra renderer or gameplay state. Counts are disposal calls, not measured GPU memory."
+}

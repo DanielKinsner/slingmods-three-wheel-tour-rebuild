@@ -4,10 +4,10 @@
   "as_of": "2026-09-16",
   "workspace_verified": true,
   "branch": "main",
-  "commit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+  "commit": "28daf3a4dfb702e2b4829ffda683cffeb117c858",
   "current_gate": "G3",
   "current_packet": "P10A Ridge Run / Review20",
-  "next_action": "Implement and internally validate full Review19 director assignment; current work in progress.",
+  "next_action": "Finish hosted verification, fresh remote recovery and Review20 archive delivery; implementation and local validation complete.",
   "game_implementation_in_this_kit": true,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -693,12 +693,16 @@
     "packet_receipt": "handoff/P09C-PACKET.json"
   },
   "p10a": {
-    "status": "road-proof-and-integration",
+    "status": "implemented-locally-validated-delivery-in-progress",
     "baseline": "63da7a0202a0216cea5e9a70bd55f63f5283cba4",
     "packet": "director-kit/director-addenda/review-19",
     "specialists": [
       "route/art",
       "destination/chapter"
-    ]
+    ],
+    "runtime_commit": "28daf3a4dfb702e2b4829ffda683cffeb117c858",
+    "native_attempts_passed": 22,
+    "tests_passed": 263,
+    "film": "production/evidence/P10A/film-01/P10A-Ridge-Run.mp4"
   }
 }
