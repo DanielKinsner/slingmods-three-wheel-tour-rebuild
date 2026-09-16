@@ -6,8 +6,8 @@
   "branch": "main",
   "commit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
   "current_gate": "G3",
-  "current_packet": "P09C Freedom to Drive / Review19",
-  "next_action": "Astra Review19 and owner driving feedback; no automatic new assignment. Current validation: handoff/P09C-VALIDATION.json. Archive and retrieval: P09C-PACKET.json and P09C-DELIVERY.json.",
+  "current_packet": "P10A Ridge Run / Review20",
+  "next_action": "Implement and internally validate full Review19 director assignment; current work in progress.",
   "game_implementation_in_this_kit": true,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -620,7 +620,7 @@
   },
   "demo_readiness": "LOCAL DEMO READY",
   "git_handoff_authorized": true,
-  "hosting_authorized": false,
+  "hosting_authorized": true,
   "p07b": {
     "status": "LOCAL_PREFLIGHT_COMPLETE_REMOTE_RECOVERY_VERIFIED_HOSTING_PENDING",
     "testedCommit": "886a0d41d87320b87ea4458f8f261ad07f637ac6",
@@ -691,5 +691,14 @@
     "validation": "handoff/P09C-VALIDATION.json",
     "archive": "Astra-Review-19-Lean.zip",
     "packet_receipt": "handoff/P09C-PACKET.json"
+  },
+  "p10a": {
+    "status": "road-proof-and-integration",
+    "baseline": "63da7a0202a0216cea5e9a70bd55f63f5283cba4",
+    "packet": "director-kit/director-addenda/review-19",
+    "specialists": [
+      "route/art",
+      "destination/chapter"
+    ]
   }
 }

@@ -13,7 +13,7 @@ import {prepareRenderer,preparationVeil} from '../presentation/prepare';
 import {Simulation} from '../simulation';
 import {GameAudio} from '../audio/game-audio';
 import {KeyboardBuffer,type DeviceSample} from '../driving/input';
-import {buildRepository,fragmentRecipe,recipeFragment,validateRecipe,freshRecipe,stockRecipe,PRESETS,buildSummary,type BuildRecipe} from './config';
+import {buildRepository,fragmentRecipe,recipeFragment,validateRecipe,freshRecipe,stockRecipe,PRESETS,buildSummary,type BuildRecipe,type DestinationLighting} from './config';
 import {PRODUCTS,productById} from './catalog';
 import {loadRouteGraphics} from './route-data';
 import {SignatureUI,type SignatureState} from './ui';
@@ -40,10 +40,10 @@ let simulation=await Simulation.create(undefined,recipe.handlingProfile),simulat
 simulation.reset({x:0,z:0,y:0,yaw:0});for(let i=0;i<120;i++)simulation.step({throttle:0,brake:1,steer:0,reverse:false});
 let neutral=simulation.telemetry();const display=new PoweredDisplay(hero.asset);let ignition=true;hero.pose(neutral,0,false,true);hero.driver.root.visible=false;
 const thumbs=Object.fromEntries(PRODUCTS.map(p=>[p.id,`/assets/p08b/thumbnails/${p.id}.png`]));
-const routeGraphics=await loadRouteGraphics();
+const routeGraphics=await loadRouteGraphics();let destinationLighting:DestinationLighting='day';try{const prior=storage.store.drive();if(prior.route==='ridge')destinationLighting=prior.lighting??'day'}catch{/* Invalid drive snapshot stays untouched until an explicit new entry. */}
 const ui=new SignatureUI(app,{onChange:change,onAction:action,onSave:save,onNavigate:()=>audio.cue('ui.nav')});
 let departure:ShowroomDeparture|undefined,navigating=false;let drivePreparation:DrivePreparationReport|undefined;
-function state():SignatureState{return {ignition,recipe:structuredClone(recipe),pending,status,screen,lighting,driverVisible,compare,reducedMotion,canUndo:history.length>0,savedRecipes:saved.map(r=>({id:r.id,name:r.name})),ownedProductIds:[],thumbs,...routeGraphics}}
+function state():SignatureState{return {ignition,destinationLighting,recipe:structuredClone(recipe),pending,status,screen,lighting,driverVisible,compare,reducedMotion,canUndo:history.length>0,savedRecipes:saved.map(r=>({id:r.id,name:r.name})),ownedProductIds:[],thumbs,...routeGraphics}}
 function historyFragment(){window.history.replaceState(null,'',location.pathname+location.search+recipeFragment(recipe))}
 function refresh(){ui.update(state())}
 async function apply(){
@@ -74,6 +74,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  if(name==='ignition'){ignition=value==='true';display.setPower(ignition);audio.cue('power')}
  else if(name==='build'){audio.cue('ui.nav');screen='build';resize();view('hero')}
  else if(name==='quick-race'){audio.cue('ui.nav');screen='events'}
+ else if(name==='destination-lighting'){destinationLighting=value==='night'?'night':'day';audio.cue('ui.nav')}
  else if(name==='career'){location.assign('?scene=career&play=career');return}
  else if(name==='lighting'){lighting=value==='lights'?'lights':'studio';await reapply()}
  else if(name==='motion'){reducedMotion=value==='true';controls.enableDamping=!reducedMotion;try{localStorage.setItem('slingmods-signature-motion',reducedMotion?'reduced':'full')}catch{} }
@@ -91,9 +92,9 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='back'){audio.cue('ui.back');if(screen==='build')screen='entry';else screen='build';accessories.inspectStorage(false);shocks.inspectionView(null);resize();view('hero')}
  else if(name==='test-drive'||name==='race'){
   if(value==='duel'||value==='crew'){location.assign('?scene=career&play=career');return}
-  const route=value==='harbor'?'harbor':'express',snapshot=validateRecipe(recipe),destination=`?scene=express&route=${route}&mode=${name==='race'?'race':'test'}&play=preview${recipeFragment(snapshot)}`;
+  const route=value==='ridge'?'ridge':value==='harbor'?'harbor':'express',snapshot=validateRecipe(recipe),destination=`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='race'?'race':'test'}&play=preview${route==='ridge'?'&lighting='+destinationLighting:''}${recipeFragment(snapshot)}`;
   pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot);pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
-  storage.store.beginDrive(snapshot,route,name==='race'?'race':'test');
+  storage.store.beginDrive(snapshot,route,name==='race'?'race':'test',destinationLighting);
   if(name==='race'||reducedMotion){location.assign(destination);return}
   compare=false;await reapply();pending=true;refresh();accessories.inspectStorage(false);shocks.inspectionView(null);
   ui.root.hidden=true;ui.root.inert=true;controls.enabled=false;keyboard.clear();camera.clearViewOffset();camera.updateProjectionMatrix();
@@ -111,6 +112,6 @@ resize();await apply();view('hero');const preparation=await prepareRenderer(rend
 const keyboard=new KeyboardBuffer();let virtual:DeviceSample|undefined;addEventListener('keydown',e=>keyboard.down(e.code,performance.now(),e.repeat));addEventListener('keyup',e=>keyboard.up(e.code));
 let showroomFocused=document.hasFocus();addEventListener('focus',()=>{showroomFocused=true});addEventListener('blur',()=>{showroomFocused=false;keyboard.clear();audio.lifecycle(true)});addEventListener('visibilitychange',()=>audio.lifecycle(document.hidden||!showroomFocused));addEventListener('resize',resize);let last=performance.now(),frames=0;const intervals:number[]=[];
 function frame(now:number){if(!pageActive()){requestAnimationFrame(frame);return}const dt=Math.min(.1,(now-last)/1000);intervals.push(now-last);if(intervals.length>6000)intervals.shift();last=now;const input=virtual??{...keyboard.read(),pads:Array.from(navigator.getGamepads?.()??[]),focused:document.hasFocus()&&!document.hidden};if(departure)departure.frame(dt,{...input,focused:input.focused&&showroomFocused&&!document.hidden});else{ui.frame(input);controls.update()}audio.update(neutral,document.hidden||!showroomFocused||!!departure?.suspended,false);render();frames++;requestAnimationFrame(frame)}requestAnimationFrame(frame);
-function inspect(){return {simulationProfile,display:display.inspect(),ready:true,drivePreparation,departure:departure?.inspect()??null,showroom:{driverRendered:hero.driver.root.visible,curtainPosition:room.getObjectByName('bay_door_curtain')?.position.toArray(),curtainScale:room.getObjectByName('bay_door_curtain')?.scale.toArray()},build:__BUILD_REF__,recipe:structuredClone(recipe),original,finish:finishes.inspect(),compare,lighting,driverVisible,reducedMotion,status,pending,screen,saved,loadMs,preparation,frames,memory:{...renderer.info.memory},calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,products:accessories.inspect?.(),suspension:shocks.inspect(),audio:audio.inspect(),simulation:simulation.telemetry(),profile:simulation.suspensionConfig(),camera:{position:camera.position.toArray(),target:controls.target.toArray()},bounds:projectedBounds(camera,new THREE.Box3().setFromObject(hero.root,true)),resources:performance.getEntriesByType('resource').map((r:any)=>({name:r.name,bytes:r.transferSize,duration:r.duration})),intervals}}
+function inspect(){return {simulationProfile,display:display.inspect(),ready:true,drivePreparation,departure:departure?.inspect()??null,showroom:{driverRendered:hero.driver.root.visible,curtainPosition:room.getObjectByName('bay_door_curtain')?.position.toArray(),curtainScale:room.getObjectByName('bay_door_curtain')?.scale.toArray()},build:__BUILD_REF__,recipe:structuredClone(recipe),original,finish:finishes.inspect(),compare,lighting,destinationLighting,driverVisible,reducedMotion,status,pending,screen,saved,loadMs,preparation,frames,memory:{...renderer.info.memory},calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,products:accessories.inspect?.(),suspension:shocks.inspect(),audio:audio.inspect(),simulation:simulation.telemetry(),profile:simulation.suspensionConfig(),camera:{position:camera.position.toArray(),target:controls.target.toArray()},bounds:projectedBounds(camera,new THREE.Box3().setFromObject(hero.root,true)),resources:performance.getEntriesByType('resource').map((r:any)=>({name:r.name,bytes:r.transferSize,duration:r.duration})),intervals}}
 if(evidenceEnabled())(window as any).__SIGNATURE={ready:true,inspect,view,referenceCamera:(position:number[],target:number[])=>{controls.minDistance=.1;controls.enableDamping=false;camera.position.fromArray(position);controls.target.fromArray(target);controls.update();render()},setDeviceSample:(s:any)=>{if(!params.has('test'))throw Error('Isolated test required');virtual=s?{...s,keys:new Set(s.keys)}:undefined},startAudioCapture:()=>audio.startEvidenceCapture(),audioSync:(id:string)=>audio.evidenceMarker(id),stopAudioCapture:()=>audio.stopEvidenceCapture()};
 addEventListener('pagehide',()=>{departure?.dispose();display.dispose();audio.dispose();simulation.dispose();controls.dispose();under.dispose();shocks.dispose();accessories.dispose();finishes.dispose();renderer.dispose()});

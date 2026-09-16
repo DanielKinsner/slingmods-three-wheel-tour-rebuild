@@ -69,9 +69,9 @@ export class Simulation {
     }
     this.reset();
   }
-  reset(pose:{x?:number;z?:number;y?:number;yaw?:number}={}):void {
-    const yaw=pose.yaw??0;const q={x:0,y:Math.sin(yaw/2),z:0,w:Math.cos(yaw/2)};
-    this.body.setTranslation(v(pose.x??0,(pose.y??0.04)+SPEC.comHeight,pose.z??35),true);this.body.setRotation(q,true);
+  reset(pose:{x?:number;z?:number;y?:number;yaw?:number;pitch?:number}={}):void {
+    const yaw=pose.yaw??0,pitch=pose.pitch??0;const q=pitch?{x:Math.cos(yaw/2)*Math.sin(pitch/2),y:Math.sin(yaw/2)*Math.cos(pitch/2),z:-Math.sin(yaw/2)*Math.sin(pitch/2),w:Math.cos(yaw/2)*Math.cos(pitch/2)}:{x:0,y:Math.sin(yaw/2),z:0,w:Math.cos(yaw/2)};
+    const base=v(pose.x??0,pose.y??0.04,pose.z??35);this.body.setTranslation(pitch?add(base,rotate(v(0,SPEC.comHeight,0),q)):v(base.x,base.y+SPEC.comHeight,base.z),true);this.body.setRotation(q,true);
     this.body.setLinvel(v(),true);this.body.setAngvel(v(),true);this.body.resetForces(true);this.body.resetTorques(true);
     this.time=0;this.steering=0;this.drivetrain.reset();this.spin=[0,0,0];this.overspeed=[0,0,0];this.throttle=0;this.brake=0;
     this.wheels=layout.wheels.map(w=>({id:w.id,contact:false,load:0,travel:0,slipRatio:0,slipAngle:0,spin:0,steer:0,localCenter:v(...w.center as [number,number,number]),surface:'air',angularSpeed:0,longitudinalSpeed:0,longitudinalForce:0,lateralForce:0,gripLimit:0,driveTorque:0}));
@@ -193,12 +193,23 @@ export class RaceWorld {
     // A finite planar triangle surface has explicit face normals. The former700m-wide
     // convex slab produced a near-horizontal cylinder contact normal on flat ground
     // during a shallow landing (recorded in G2/revision02), injecting a spurious yaw impulse.
+    if(environment.supportMeshes){
+      // New height-aware support replaces, rather than overlays, the legacy plane.
+      // Same support group deliberately excludes passive wheel guards, while chassis contacts remain.
+      for(const mesh of environment.supportMeshes){
+        if(!mesh.vertices.length||mesh.vertices.length%3||!mesh.indices.length||mesh.indices.length%3||mesh.vertices.some(v=>!Number.isFinite(v))||mesh.indices.some(i=>!Number.isInteger(i)||i<0||i>=mesh.vertices.length/3))throw Error('Invalid elevated support mesh');
+        const shape=RAPIER.ColliderDesc.trimesh(new Float32Array(mesh.vertices),new Uint32Array(mesh.indices)).setFriction(.45);
+        if(profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3')shape.setCollisionGroups(0x0001ffff);
+        this.world.createCollider(shape);
+      }
+    }else{
     const [gx,gy,gz]=environment.ground.center,[gw,gh,gl]=environment.ground.size;
     const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
     const groundShape=RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45);
     if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'))groundShape.setCollisionGroups(0x0001ffff);
     this.world.createCollider(groundShape);
-    for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation({x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));
+    }
+    for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation(box.pitch?{x:Math.cos((box.yaw??0)/2)*Math.sin(box.pitch/2),y:Math.sin((box.yaw??0)/2)*Math.cos(box.pitch/2),z:-Math.sin((box.yaw??0)/2)*Math.sin(box.pitch/2),w:Math.cos((box.yaw??0)/2)*Math.cos(box.pitch/2)}:{x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));
     for(const ramp of environment.ramps){
       const points:number[]=[];for(const x of [-ramp.width/2,ramp.width/2])for(const z of [-ramp.length/2,ramp.length/2]){points.push(x,-0.1,z,x,z<0?ramp.rise:0,z)}
       const shape=RAPIER.ColliderDesc.convexHull(new Float32Array(points));if(!shape)throw new Error('Invalid ramp hull');
@@ -206,8 +217,8 @@ export class RaceWorld {
     }
 
  }
- initialize(){if(this.initialized)return;const poses=[...this.participants].map(([id,c])=>[id,c.telemetry()] as const);this.world.step();for(const [id,t]of poses){const q=t.quaternion;this.get(id).reset({x:t.position.x,y:t.position.y,z:t.position.z,yaw:Math.atan2(2*(q.w*q.y+q.x*q.z),1-2*(q.y*q.y+q.z*q.z))})}this.initialized=true}
- addVehicle(id:string,pose:{x?:number;z?:number;y?:number;yaw?:number}={}){if(this.disposed||this.participants.has(id))throw Error('Invalid participant registration');const car=new Simulation(this.environment,this.world,this.profileId);car.reset(pose);this.participants.set(id,car);return car}
+ initialize(){if(this.initialized)return;const poses=[...this.participants].map(([id,c])=>[id,c.telemetry()] as const);this.world.step();for(const [id,t]of poses){const q=t.quaternion;this.get(id).reset({x:t.position.x,y:t.position.y,z:t.position.z,yaw:Math.atan2(2*(q.w*q.y+q.x*q.z),1-2*(q.y*q.y+(this.environment.supportMeshes?q.x*q.x:q.z*q.z))),...(this.environment.supportMeshes?{pitch:Math.asin(Math.max(-1,Math.min(1,2*(q.w*q.x-q.y*q.z))))}:{})})}this.initialized=true}
+ addVehicle(id:string,pose:{x?:number;z?:number;y?:number;yaw?:number;pitch?:number}={}){if(this.disposed||this.participants.has(id))throw Error('Invalid participant registration');const car=new Simulation(this.environment,this.world,this.profileId);car.reset(pose);this.participants.set(id,car);return car}
  get(id:string){const car=this.participants.get(id);if(!car)throw Error('Unknown participant '+id);return car}
  step(controls:Record<string,VehicleControl>,dt=FIXED_DT){
   if(this.disposed)throw Error('RaceWorld disposed');if(Math.abs(dt-FIXED_DT)>1e-9)throw Error('Authoritative simulation accepts only fixed 1/60 second ticks');

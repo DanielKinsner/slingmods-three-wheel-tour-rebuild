@@ -1,3 +1,13 @@
+# Current assignment — P10A Ridge Run, on main
+
+The owner authorizes CODEX_NEXT.md and packets01–03 in director-kit/director-addenda/review-19. Baseline main63da7a0202a0216cea5e9a70bd55f63f5283cba4 is verified against origin. Continue on main; preserve newer/uncommitted owner work and all historical evidence/archives. One lead plus two bounded specialists are authorized by this packet. The new Smoky Ridge destination adds physical elevation, district scenery, afternoon/blue-hour lighting, free preview/races and Chapter03. Preserve Sport v3, existing flat routes, Slingshot/showroom/products/audio/UI, historical recipes and career progress.
+
+Complete road/art proofs, integrated implementation, critique/repair, regressions/native performance, continuous real-game audio film and recoverable Review20 delivery. Only completed tested checkpoints may push to main and its existing curated Vercel project. No spending, new hosting project, account/visibility changes, desktop takeover or force push. G3/G4, global OEM fidelity, physical hardware and human enjoyment/listening approval remain open. Current work is in progress; no P10A completion is claimed.
+
+---
+
+# Historical completed assignment
+
 # Current handoff — P09C Freedom to Drive, on main
 
 P09C is implemented, internally repaired and validated. Continue on **main**. The current remote is https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git and reports PUBLIC; do not change visibility. Preserve older assignments and all owner work below as historical context.

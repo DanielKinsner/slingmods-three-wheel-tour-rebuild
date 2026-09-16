@@ -2,13 +2,13 @@ import {projectRoad,sampleRoad,type CourseRoute} from '../course/environment';
 import type {VehicleTelemetry} from '../simulation';
 export function recoveryReason(t:VehicleTelemetry,route:CourseRoute){
  const q=t.quaternion,upright=1-2*(q.x*q.x+q.z*q.z),speed=Math.hypot(t.velocity.x,t.velocity.y,t.velocity.z);
- if(t.position.y<-3)return 'Below the road';
+ if(t.position.y<(route.elevations?(projectRoad(route,t.position.x,t.position.z).y??0)-6:-3))return 'Below the road';
  if(upright<.25&&speed<8)return 'Car overturned';
  if(speed<1.5&&projectRoad(route,t.position.x,t.position.z).distance>route.width/2+route.runoff+4)return 'Stranded off the course';
  if(speed<1&&!t.wheels.some(w=>w.contact))return 'Car stuck without tire support';
  return '';
 }
-export function freeRecoveryPose(route:CourseRoute,t:VehicleTelemetry){const projected=projectRoad(route,t.position.x,t.position.z),p=sampleRoad(route,projected.progress-6);return{x:p.x,y:route.start.y,z:p.z,yaw:Math.atan2(-p.dx,-p.dz)}}
+export function freeRecoveryPose(route:CourseRoute,t:VehicleTelemetry){const projected=projectRoad(route,t.position.x,t.position.z),p=sampleRoad(route,projected.progress-6);return{x:p.x,y:p.y===undefined?route.start.y:p.y+.025,z:p.z,yaw:Math.atan2(-p.dx,-p.dz),...(p.dy===undefined?{}:{pitch:Math.atan(p.dy)})}}
 /** Explicit arcade recovery. Scored events restart; a relocation cannot become a paid result. */
 export class CrashRecovery {
  private node=document.createElement('aside');private reason='';private held=0;private shown=false;private count=0;

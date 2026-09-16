@@ -1,21 +1,24 @@
+import {RIDGE_ASSETS} from '../ridge/assets';
 import {CURRENT_VEHICLE_URL} from '../presentation/vehicle-asset';
-import type {BuildRecipe} from './config';
-export function driveAssetURLs(route:'express'|'harbor',recipe:BuildRecipe){
- const shared=[CURRENT_VEHICLE_URL,'/assets/drivers/test-driver.glb','/assets/drivers/test-driver-attachment.json','/assets/vehicles/slingshot-p04a1-rear-rig.json','/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb','/assets/brand/slingmods-sign.glb','/assets/products/tricled-sm133-base.glb','/assets/products/tricled-sm133-base.attachment.json','/assets/products/ddmworks-sm3223-silver.glb','/assets/p08b/signature-products.glb'];
+import type {BuildRecipe,DestinationId} from './config';
+export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
+ const shared=[CURRENT_VEHICLE_URL,'/assets/drivers/test-driver.glb','/assets/drivers/test-driver-attachment.json','/assets/vehicles/slingshot-p04a1-rear-rig.json','/assets/brand/slingmods-sign.glb','/assets/products/tricled-sm133-base.glb','/assets/products/tricled-sm133-base.attachment.json','/assets/products/ddmworks-sm3223-silver.glb','/assets/p08b/signature-products.glb'];
+ if(route!=='ridge')shared.push('/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb');
  if(route==='harbor')shared.push('/assets/harbor/route.json','/assets/harbor/harbor.glb');
  else for(const name of ['p06c_asphalt_Diffuse.jpg','p06c_asphalt_nor_gl.jpg','p06c_asphalt_Rough.jpg','leafy_grass_Diffuse.jpg'])shared.push('/assets/showcase-quality/textures/'+name);
+ if(route==='ridge')shared.push(...RIDGE_ASSETS);
  if(recipe.finish!=='blue-orange')shared.push(recipe.finish==='white-graphite'?'/assets/p08b/showroom-refinement/finish-white-graphite.png':'/assets/p08b/finish-'+recipe.finish+'.png');
- return shared;
+ return [...new Set(shared)];
 }
 export interface DrivePreparationReport {route:string;started:number;ended:number;ms:number;resources:{url:string;ms:number;bytes:number}[];retries:number;cancelled:boolean}
 /** Warm HTTP bytes before departure. No speculative renderer, simulation, audio or save mutation. */
-export async function prepareDrive(route:'express'|'harbor',recipe:BuildRecipe):Promise<DrivePreparationReport>{
+export async function prepareDrive(route:DestinationId,recipe:BuildRecipe):Promise<DrivePreparationReport>{
  const started=performance.now(),report:DrivePreparationReport={route,started,ended:0,ms:0,resources:[],retries:0,cancelled:false};
  const dialog=document.createElement('dialog');dialog.className='sig-drive-loading';dialog.setAttribute('aria-label','Prepare test drive');
  dialog.style.cssText='border:1px solid #45494e;border-top:4px solid #c51f28;padding:30px;background:#191d21;color:white;width:min(470px,85vw);font:16px/1.5 system-ui';
  const title=document.createElement('h2');title.textContent='Getting your drive ready';
  const stage=document.createElement('p');stage.setAttribute('role','status');stage.dataset.driveLoading='';
- const detail=document.createElement('p');detail.textContent='Preparing route downloads before the bay opens. Graphics prepare on arrival. Your build stays safe.';
+ const detail=document.createElement('p');detail.textContent=(route==='ridge'?'Travel to Smoky Ridge after the bay exit. ':'')+'Preparing route downloads before the bay opens. Graphics prepare on arrival. Your build stays safe.';
  const cancel=document.createElement('button');cancel.textContent='Cancel · Stay in showroom';cancel.dataset.prepareCancel='';
  const retry=document.createElement('button');retry.textContent='Retry preparation';retry.hidden=true;retry.dataset.prepareRetry='';
  for(const b of[cancel,retry])b.style.cssText='padding:12px 16px;margin:8px 8px 0 0;color:white;background:#a51c25;border:1px solid #d4d4d4;cursor:pointer';

@@ -17,7 +17,7 @@ if (mode === 'calibration') {
   await loadScene(()=>import('./calibration'));
 } else if(mode==='signature') await loadScene(()=>import('./signature/scene'));
 else if(mode==='career') await loadScene(()=>import('./career-experience/hub'));
-else if(mode==='express') await loadScene(()=>import('./express'));
+else if((mode==='express'||mode==='ridge')) await loadScene(()=>import('./express'));
 else if(mode==='crew') await loadScene(()=>import('./crew'));
 else if(mode==='harbor') await loadScene(()=>import('./harbor'));
 else await loadScene(()=>import('./workbench'));

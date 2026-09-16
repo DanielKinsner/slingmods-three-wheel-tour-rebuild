@@ -22,3 +22,7 @@ body.signature-showroom{margin:0;overflow:hidden;height:100dvh;background:var(--
 .sig-view-tools button[aria-pressed=true]{background:#42484c;color:#fff}.sig-view-tools button[data-action=ignition][aria-pressed=true]{background:transparent;color:#c6e0cf}
 /* Visible controls keep the existing 44px / 13px accessibility contract. */
 .sig-view-tools button,.sig-detail-heading button{min-height:44px;font-size:13px}.sig-view-tools .sig-camera-rail{min-height:52px}
+
+/* P10A: a compact third destination inside the existing event surface. */
+.sig-destinations{grid-template-columns:repeat(3,minmax(0,1fr))}.sig-route-art:has(img){position:relative;overflow:hidden}.sig-route-art img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%}.sig-destination-light{display:flex;gap:6px;flex-wrap:wrap;min-height:44px}.sig-destination-light button{flex:1;font-size:13px;padding:8px}.sig-destination-light button[aria-pressed=true]{background:#40464a;border-color:#b5bdc1}.sig-destination-footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.sig-destination-footer span{font-size:13px;color:var(--sm-muted)}
+@media(max-width:1000px){.sig-destinations{grid-template-columns:1fr}.sig-destination-footer span{width:100%}}
