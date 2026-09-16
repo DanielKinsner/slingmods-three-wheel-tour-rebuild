@@ -1,0 +1,121 @@
+/* P10B design seed only. Opt-in; no game code or global reset is applied.
+   Font files are intentionally NOT supplied. Verify/acquire project fonts legally. */
+[data-cinematic-ui] {
+  --ci-red: #c91820;
+  --ci-red-hover: #e0232c;
+  --ci-ink: #f5f4f1;
+  --ci-muted: #b9bdc1;
+  --ci-bg: #111416;
+  --ci-surface: rgba(17,20,22,.86);
+  --ci-surface-raised: rgba(32,37,41,.92);
+  --ci-line: rgba(255,255,255,.16);
+  --ci-success: #6bd4af;
+  --ci-focus: #ffe5a0;
+  --ci-font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --ci-font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --ci-space-1: 4px;
+  --ci-space-2: 8px;
+  --ci-space-3: 12px;
+  --ci-space-4: 16px;
+  --ci-space-6: 24px;
+  --ci-space-8: 32px;
+  --ci-space-10: 40px;
+  --ci-space-12: 48px;
+  --ci-radius-control: 3px;
+  --ci-radius-utility: 6px;
+  --ci-radius-panel: 10px;
+  --ci-page-pad: clamp(20px, 2.3vw, 48px);
+  --ci-body-size: clamp(15px, .83vw, 18px);
+  --ci-eyebrow-size: clamp(12px, .72vw, 15px);
+  --ci-hero-size: clamp(54px, 5vw, 96px);
+  --ci-product-size: clamp(32px, 2.5vw, 48px);
+  --ci-speed-size: clamp(58px, 4vw, 78px);
+  --ci-action-height: 52px;
+  --ci-inspector-width: clamp(324px, 21vw, 390px);
+  --ci-rail-width: clamp(210px, 13vw, 250px);
+  --ci-duration-fast: 140ms;
+  --ci-duration-screen: 260ms;
+  --ci-ease: cubic-bezier(.2,.75,.2,1);
+  color: var(--ci-ink);
+  font-family: var(--ci-font-body);
+  font-size: var(--ci-body-size);
+  line-height: 1.5;
+}
+[data-cinematic-ui] .ci-hero-title {
+  font-family: var(--ci-font-display);
+  font-size: var(--ci-hero-size);
+  font-weight: 800;
+  line-height: .96;
+  letter-spacing: -.015em;
+  margin: 0;
+  text-wrap: balance;
+}
+[data-cinematic-ui] .ci-eyebrow {
+  font-family: var(--ci-font-display);
+  font-size: var(--ci-eyebrow-size);
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+[data-cinematic-ui] .ci-number {
+  font-family: var(--ci-font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 1;
+}
+[data-cinematic-ui] .ci-action {
+  min-height: var(--ci-action-height);
+  padding: 12px 24px;
+  border: 1px solid var(--ci-line);
+  border-radius: var(--ci-radius-control);
+  color: var(--ci-ink);
+  background: transparent;
+  font: 600 16px var(--ci-font-body);
+  transition: background var(--ci-duration-fast) var(--ci-ease);
+}
+[data-cinematic-ui] .ci-action--primary {
+  background: var(--ci-red);
+  border-color: transparent;
+}
+[data-cinematic-ui] .ci-action--primary:hover:not(:disabled) {
+  background: var(--ci-red-hover);
+}
+[data-cinematic-ui] :is(button,a,input,summary,select):focus-visible {
+  outline: 3px solid var(--ci-focus);
+  outline-offset: 3px;
+}
+[data-cinematic-ui] button:disabled { opacity: .48; cursor: default; }
+[data-cinematic-ui] .ci-rule { border: 0; height: 1px; background: var(--ci-line); }
+[data-cinematic-ui] .ci-category {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--ci-line);
+  border-left: 3px solid transparent;
+  background: transparent;
+  color: var(--ci-muted);
+}
+[data-cinematic-ui] .ci-category[aria-selected=true],
+[data-cinematic-ui] .ci-category[aria-current=true] {
+  color: var(--ci-ink);
+  border-left-color: var(--ci-red);
+  background: linear-gradient(90deg,rgba(255,255,255,.08),transparent);
+}
+[data-cinematic-ui] .ci-swatch {
+  width: 44px; height: 44px;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+}
+[data-cinematic-ui] .ci-swatch[aria-pressed=true] { border-color: var(--ci-ink); }
+[data-cinematic-ui] .ci-swatch > span {
+  display: block; width: 100%; height: 100%; border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.2);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-cinematic-ui] { --ci-duration-fast: 0ms; --ci-duration-screen: 0ms; }
+}

@@ -1,3 +1,13 @@
+# Current assignment — P10B Cinematic Identity / candidate validation
+
+Continue on main. The owner authorizes Review20 CODEX_NEXT.md and its linked presentation packets, ordinary main pushes and the existing curated Vercel site. P10B implementation and two visual repair passes are complete; final immutable regression/performance, media, remote recovery and Review21 delivery are in progress. Do not interpret prior completed assignments below as new work. Preserve Sport v3, all routes/gameplay/ownership/saves and historical artifacts. No spending, new site/vehicle/route/engine, visibility change or desktop takeover.
+
+Source baseline: 3585a411bca855c415b6016454ecb38b776beedc. Current evidence lives in director-kit/production/evidence/P10B. The Tour Wall uses studio_left_wall only; generated panorama is flat art, with separate accurate lettering. Current vehicle/world remain stylized, not final OEM/photoreal fidelity. G3/G4 and human hardware/listening/fun approvals remain open. Final identities belong in handoff/P10B-VALIDATION.json and P10B-DELIVERY.json when completed.
+
+---
+
+# Historical completed assignments
+
 # Current handoff - P10A Ridge Run, on main
 
 P10A is implemented, internally repaired and validated. Frozen gameplay/native/film candidate: `28daf3a4dfb702e2b4829ffda683cffeb117c858`. Fresh remote recovery and complete hosted gameplay: `f4bc5720afa70cec91dfebacf16c8ee6e92be106`. All 263 tests and 22 native race attempts pass. The physically elevated Smoky Ridge route, two lighting conditions, free drives/races and three-event Chapter 03 are playable. Sport v3, all products, prior routes, showroom, vehicle, audio, ownership and saves remain.
