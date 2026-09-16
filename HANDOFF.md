@@ -6,6 +6,8 @@ Tested frozen game runtime: `bf1297c9770357cf5a331288b14cae82d5510d86`. Remote-c
 
 ## Delivered
 
+The owner requested that the review ZIP itself and everything needed to continue on another machine be committed to main. `Astra-Review-18-Lean.zip` is now a tracked repository-root artifact (40,182,845 bytes; SHA256 `fa522a10442e2a0b9107d0fce1c39239cc26f9139582d7e0c3ca98e136d36886`). A normal clone/pull of main retrieves the packet, source, required runtime/editable assets, original supplied audio, current film, verification and director instructions. Its original packaging/runtime identity is preserved; adding it to Git does not repackage the reviewed bytes. Do not run the packager merely to retrieve the archive. For future review deliveries, commit the completed ZIP and portable handoff to main as the owner requested.
+
 Unified configurator/career/race UI;18 successful-action cues and saved mix levels; physical powered Driver-home display with actual telemetry; owner Thermal recording synchronized to equipped departure; bounded engine revision and level-matched A/B. Current front/grille/lenses/splitter/hoops, showroom, finishes, gameplay, ownership and saves preserved. No physics/collision/reward/route changes.
 
 226 tests pass; both builds pass; fresh remote clone passes all128 asset hashes and browser integration. Full chapter/Cup/reward/ownership/reload, preparation faults/cancel/retry, early-player-finish pause/resume, display/audio lifecycle and demo separation pass. All16 required native race attempts plus two additional cockpit attempts pass the unchanged targets, with no active intervals over100ms. Read the receipt and complete raw evidence for scope; no broad hardware or human listening certification.

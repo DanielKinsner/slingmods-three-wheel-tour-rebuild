@@ -4,6 +4,8 @@ The owner explicitly authorized merging and continuing directly on main. Merge/p
 
 P09B Signature Finish is implemented, internally repaired and validated. Read HANDOFF.md, handoff/P09B-SIGNATURE-FINISH.md, handoff/P09B-VALIDATION.json and handoff/P09B-PACKET.json for tested runtime, remote recovery, final media, exact packaging identity and limitations. Retain existing gameplay, schema4 saves, all products, owner front/hoop/showroom art and historical evidence. G3/G4, final OEM fidelity, physical hardware and human listening/release approval remain open. Next action is Astra review of Review18; do not invent a new assignment. Continue authorized future work on main.
 
+Delivery policy: the owner requires completed review ZIPs and all source, editable/runtime assets, evidence and portable handoff needed on another machine to be committed and pushed to main. The current tracked archive is Astra-Review-18-Lean.zip. Preserve its reviewed bytes and use its receipt for verification. Secrets, tool installs and personal browser saves do not belong in Git.
+
 ---
 
 # Historical owner assignments
