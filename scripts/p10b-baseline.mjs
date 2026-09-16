@@ -7,7 +7,7 @@ const out=process.env.EVIDENCE_DIR,base=process.env.BASE_URL||'http://127.0.0.1:
 const bundle=await build({configFile:false,logLevel:'silent',publicDir:false,build:{write:false,minify:false,lib:{entry:path.resolve('scripts/p09c-career-driver.ts'),name:'Evidence',formats:['iife']}}}),source=(Array.isArray(bundle)?bundle[0]:bundle).output.find(x=>x.type==='chunk').code;
 const b=await chromium.launch({headless:true,args:['--use-angle=d3d11','--mute-audio']}),rows=[],errors=[];
 try{
- for(const [width,height]of [[1280,720],[1920,1080]]){
+ for(const [width,height]of (process.env.RACE_ONLY?[]:[[1280,720],[1920,1080]])){
   const c=await b.newContext({viewport:{width,height}}),p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));
   const ready=()=>p.waitForFunction(()=>window.__SIGNATURE?.ready,null,{timeout:120000});
   async function shot(name){await p.waitForTimeout(220);const state=await p.evaluate(()=>window.__SIGNATURE.inspect());await p.screenshot({path:out+'/'+width+'-'+name+'.png'});rows.push({name,width,height,state})}
@@ -18,7 +18,7 @@ try{
   await p.goto(base+'/?scene=career&play=career&test=1&profile=1');await p.waitForFunction(()=>window.__CAREER_HUB?.ready);await p.screenshot({path:out+'/'+width+'-career.png'});
   await c.close();
  }
- for(const route of ['harbor','express','ridge']){
+ for(const route of (process.env.ROUTES?process.env.ROUTES.split(','):['harbor','express','ridge'])){
   const c=await b.newContext({viewport:{width:1920,height:1080}}),p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));
   await p.goto(base+'/?scene=express&route='+route+'&mode=race&test=1&profile=1&clock=controlled');await p.waitForFunction(()=>window.__EXPRESS?.ready,null,{timeout:120000});await p.addScriptTag({content:source});await p.evaluate(()=>{window.__driver=new window.Evidence.EvidenceDriver(window.__EXPRESS.route);window.__clock=0;window.__EXPRESS.setDeviceSample(window.Evidence.toDevice())});await p.locator('#start-crew').click();let captured=false;
   for(let n=0;n<220;n++){const s=await p.evaluate(()=>{const h=window.__EXPRESS;for(let i=0;i<60;i++){const t=h.lightweight();h.setDeviceSample(t.race.phase==='running'?window.__driver.sample(t.telemetry,t.field,1/60):window.Evidence.toDevice());h.normalFrame(window.__clock+=1000/60,i===59)}return h.inspect()});

@@ -1,7 +1,7 @@
 """Cut loading and 240ms top-layer sync mirrors from actual live captures; preserve real-speed audio/video."""
 import json, subprocess, sys, array, math, hashlib, re, os
 from pathlib import Path
-root=Path(sys.argv[1]); recorded=json.loads((root/'video-path.json').read_text())['path']; video=root/'raw-video'/recorded.replace('\\','/').split('/')[-1]; assert video.is_file(), 'Recover original raw-video file from Git first'
+root=Path(sys.argv[1]); recorded=json.loads((root/'video-path.json').read_text(encoding='utf-8'))['path']; video=root/'raw-video'/recorded.replace('\\','/').split('/')[-1]; assert video.is_file(), 'Recover original raw-video file from Git first'
 runtime=next((a.split('=',1)[1] for a in sys.argv[2:] if a.startswith('--runtime=')), '')
 assert re.fullmatch(r'[0-9a-f]{12,40}', runtime), 'Pass --runtime=verified-runtime-sha'
 identity=json.loads((root/'runtime-identity.json').read_text(encoding='utf8'));assert identity['commit'].startswith(runtime) and identity['buildRef'].startswith(runtime[:12]), 'Runtime label must identify the recorded candidate'
@@ -12,7 +12,7 @@ font=next((p for p in font_candidates if p.is_file()),None)
 assert font, 'Set FILM_FONT to an installed redistributable or locally licensed font for metadata caption'
 font_path=font.resolve().as_posix().replace(':',r'\:')
 label="drawtext=fontfile='"+font_path+"':text='P10B "+runtime[:12]+" | EDITED CAPTURE':fontsize=12:fontcolor=white:box=1:boxcolor=black@0.72:boxborderw=3:x=8:y=h-th-7"
-all_segments=json.loads((root/'audio-segments.json').read_text());excluded=set(a.split('=',1)[1]for a in sys.argv[2:]if a.startswith('--exclude='));segments=[s for s in all_segments if s['name']not in excluded]
+all_segments=json.loads((root/'audio-segments.json').read_text(encoding='utf-8'));excluded=set(a.split('=',1)[1]for a in sys.argv[2:]if a.startswith('--exclude='));segments=[s for s in all_segments if s['name']not in excluded]
 assert {'01-studio-build-tour','02-ridge-continuous-race','03-same-build-return','04-thermal-departure-excerpt'}<=set(s['name']for s in segments), 'Required continuous race/showcase/departure segments cannot be omitted'
 
 def run(args): return subprocess.check_output(args)
@@ -51,7 +51,7 @@ for i,s in enumerate(segments):
   segment_label+=",drawtext=fontfile='"+font_path+"':text='THERMAL DEPARTURE EXCERPT | PAUSED BEFORE TRAVEL':fontsize=12:fontcolor=white:box=1:boxcolor=black@0.72:boxborderw=3:x=8:y=h-th-29"
  motion=root/(s['name']+'-motion.json')
  if motion.exists():
-  measured=json.loads(motion.read_text());scored=[r for r in measured['samples'] if r['scored']];rms_error=math.sqrt(sum(r['error']**2 for r in scored)/len(scored));peak_error=max(abs(r['error']) for r in scored)
+  measured=json.loads(motion.read_text(encoding='utf-8'));scored=[r for r in measured['samples'] if r['scored']];rms_error=math.sqrt(sum(r['error']**2 for r in scored)/len(scored));peak_error=max(abs(r['error']) for r in scored)
   note=f'CAPTURED SCORED TRACE | RMS {rms_error:.2f} m | PEAK {peak_error:.2f} m | {len(scored)/60:.1f} s'
   segment_label+=",drawtext=fontfile='"+font_path+"':text='"+note+"':fontsize=15:fontcolor=white:box=1:boxcolor=black@0.78:boxborderw=5:x=8:y=h-th-32"
  # Detect the actual recorded chirps, instead of trusting API call timestamps.
@@ -78,4 +78,4 @@ final=root/'P10B-Cinematic-Identity.mp4';subprocess.run(['ffmpeg','-hide_banner'
 probe=json.loads(run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(final)]));duration=float(probe['format']['duration']);assert 180<=duration<=240;assert final.stat().st_size<35_000_000, 'Keep final film below 35MB for lean packet'
 pcm=array.array('f');pcm.frombytes(run(['ffmpeg','-v','error','-i',str(final),'-vn','-f','f32le','-ac','1','-ar','12000','-']));peak=max(abs(x) for x in pcm);rms=math.sqrt(sum(x*x for x in pcm)/len(pcm));assert all(math.isfinite(x) for x in pcm) and rms>.0005 and peak<1
 report={'runtime':runtime,'overlay':'Encoded runtime / edited capture identity label. Original game UI and actual audio unchanged. Automated input label captured live.','pass':True,'method':'Real-speed edited demonstration, with only loading and disclosed sync-marker boundaries cut. Actual live game graph audio, measured recorded chirps aligned to captured video flashes. No synthesized replacement audio or time warping. Audio listening approval remains human.','excludedSegments':{name:'A required video sync flash is absent from captured frames; full original video/audio retained. Optional excerpt omitted rather than claiming unverified synchronization; the required complete Ridge lap must remain.' for name in excluded},'omittedVisualGroups':[{'groupIndex':i,'startSeconds':all_groups[i][0]/fps,'endSeconds':all_groups[i][-1]/fps} for i in sorted(omitted_groups)],'departureDisclosure':'Thermal departure excerpt paused before the 5.8s travel transition; not presented as the full journey.', 'cuts':cuts,'video':str(video),'film':str(final),'duration':duration,'bytes':final.stat().st_size,'sha256':hashlib.sha256(final.read_bytes()).hexdigest(),'decodedAudio':{'peak':peak,'rms':rms,'samples':len(pcm)},'probe':probe}
-(root/'FILM-VERIFICATION.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:report[k] for k in ['pass','duration','bytes','sha256']}))
+(root/'FILM-VERIFICATION.json').write_text(json.dumps(report,indent=2),encoding='utf-8',newline='\n');print(json.dumps({k:report[k] for k in ['pass','duration','bytes','sha256']}))

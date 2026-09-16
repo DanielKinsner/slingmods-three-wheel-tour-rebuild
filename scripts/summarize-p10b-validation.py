@@ -1,0 +1,16 @@
+from pathlib import Path
+import json,platform
+r=Path(__file__).resolve().parents[1];e=r/'director-kit/production/evidence/P10B'
+expected=['native-1920-harbor-stock-01','native-1920-express-equipped-01','native-1920-ridge-stock-01','native-1920-ridge-night-cockpit-01','native-1280-ridge-equipped-01']
+runs=[dict(directory=n,**json.loads((e/n/'summary.json').read_text(encoding='utf-8'))) for n in expected];attempts=[dict(directory=s['directory'],width=s['width'],route=s['route'],lighting=s['lighting'],equipped=s['equipped'],view=s['view'],**a) for s in runs for a in s['attempts']]
+assert len(attempts)==9 and all(a['pass'] for a in attempts)
+show=json.loads((e/'native-showroom-01/verification.json').read_text(encoding='utf-8'))
+result=dict(pass_=True,runtime='d341ae77e48f0d3a99cb1b8dfa7d20be6ef91fa6',host='Windows 11 Pro / i9-12900K / RTX4080 / 128GB / Chromium153 ANGLE D3D11 / DPR1',thresholds=runs[0]['thresholds'],attempts=attempts,showroom={k:show[k] for k in ['runtime','readyMs','phases','method']},method='Isolated native RAF. One race benchmark at a time; no video capture, tracing, compression, Blender or second browser workload. Actual game audio enabled, host output muted. Object counts are not VRAM. Complete rows including loading preserved per run.')
+result['pass']=result.pop('pass_');(e/'native-matrix.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+lines=['# P10B native performance','',result['host'],'','Frozen runtime: `'+result['runtime']+'`. Native timing is distinct from controlled-clock functional proof and recorded film.','', '| Route / build / view | Resolution | Attempt | p95 ms | p99 ms | Max ms | Pass |','|---|---:|---:|---:|---:|---:|---|']
+for a in attempts:lines.append(f"| {a['route']} {a['lighting']} / {'equipped' if a['equipped'] else 'stock'} / {a['view']} | {a['width']} | {a['attempt']} | {a['p95Ms']:.2f} | {a['p99Ms']:.2f} | {a['maxMs']:.2f} | {a['pass']} |")
+lines+=['','Targets: p95 ≤20 ms, p99 ≤33.4 ms, maximum active interval ≤100 ms; numerical tolerance 1e-6 ms only. All participants must finish validly; no substituted outcomes.','',f"## Showroom costs\n\nCold entry to ready: {show['readyMs']} ms. Separate from scored racing.",'','| Phase | p95 ms | p99 ms | Max ms |','|---|---:|---:|---:|']
+for s in show['phases']:lines.append(f"| {s['name']} | {s['p95']:.2f} | {s['p99']:.2f} | {s['max']:.2f} |")
+lines+=['','Each original interval remains in native-showroom-01/verification.json. Material compilation/load stalls remain visible; ready/load is not relabeled as active racing. Two leave/return cycles and optional asset failures are separately covered by loop-final-01/preparation-final-01. Native render object counts are not GPU memory measurements.','', 'Baseline P10A retained in its historical native reports; this is a presentation-only change with unchanged Sport v3 and routes. Current checks support this workstation and browser only, not universal hardware/mobile certification.']
+(e/'PERFORMANCE.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+print(json.dumps({'pass':True,'attempts':len(attempts),'worstP95':max(a['p95Ms'] for a in attempts),'worstP99':max(a['p99Ms'] for a in attempts),'worstMax':max(a['maxMs'] for a in attempts),'showroomReadyMs':show['readyMs']}))
