@@ -5,6 +5,12 @@ import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {stagePublish,sha} from './stage-publish.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
+// Provider checkout metadata can mark a build dirty. Record paths, never file
+// contents, and reject unexpected changes to runtime inputs in the hosted build.
+const changedTrackedPaths=execFileSync('git',['diff','--name-only','HEAD'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(Boolean);
+const runtimeInputChanges=changedTrackedPaths.filter(n=>/^(src\/|tests\/|public\/)/.test(n)||['index.html','package.json','package-lock.json','tsconfig.json','vite.config.ts','demo-assets.json'].includes(n));
+console.log(JSON.stringify({providerSourceAudit:{changedTrackedPaths,runtimeInputChanges}}));
+if(process.env.VERCEL==='1'&&runtimeInputChanges.length)throw Error('Hosted checkout changed tracked runtime inputs; inspect the path-only source audit');
 execFileSync(process.execPath,['scripts/build-demo.mjs'],{cwd:root,stdio:'inherit'});
 const stage=await stagePublish(root),output=path.resolve(root,'vercel-dist');
 // Only this generated immediate child may be replaced. Never follow a linked output.
