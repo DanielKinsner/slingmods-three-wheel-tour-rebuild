@@ -37,3 +37,11 @@ Ordinary keyboard driving shows braking/turn input, released/repressed reverse, 
 ## Performance and deployment disposition
 
 Consult PERFORMANCE.md and P09C-VALIDATION.json for the completed native matrix and exact hosted/remote-recovery status. This critique does not predeclare those pending results. Keep previous failed/stalled native evidence if any; no100ms samples may be removed. Main may be pushed only as a completed tested checkpoint to the existing owner-authorized rebuild integration. No release/fidelity/device approval is inferred from internal checks.
+
+## Portability and provider follow-up
+
+The fresh remote checkout passed all 250 tests, both builds, 128 asset hashes, the browser entry matrix and a native Express race. Its 276 inventoried inputs match the frozen runtime after accounting for 33 explicit Windows line-ending-only differences; the corresponding Git runtime tree diff is empty. No local-only source/assets or personal saves were copied. Host tools and ordinary caches were reused and are disclosed.
+
+The provider-side source audit explains the hosted -working suffix: only vercel.json is reported changed inside Vercel. No tracked runtime input changed. The suffix remains truthful; the exact provider config transformation is not inferred. Actual root, headers, missing-file behavior and gameplay are tested separately. The earlier complete deployment remains recoverable.
+
+The historical comparison utility now requires a fresh output directory and does not rewrite committed goldens. Its portability check again matches all 3,600 retained-v2 telemetry ticks. A local rehearsal of the hosted test was repaired to respect neutral-input arming through the countdown before applying throttle. Both failed setup and passing rehearsal are retained.

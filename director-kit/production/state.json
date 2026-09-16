@@ -7,7 +7,7 @@
   "commit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
   "current_gate": "G3",
   "current_packet": "P09C Freedom to Drive / Review19",
-  "next_action": "P09C implementation and local validation complete; complete fresh remote recovery, actual hosted-root verification and tracked Review19 delivery on main.",
+  "next_action": "Astra Review19 and owner driving feedback; no automatic new assignment. Current validation: handoff/P09C-VALIDATION.json. Archive and retrieval: P09C-PACKET.json and P09C-DELIVERY.json.",
   "game_implementation_in_this_kit": true,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -685,5 +685,11 @@
   "p09b_validation": "handoff/P09B-VALIDATION.json (repository root)",
   "main_merge_commit": "ea58b4f9c1df98ab16629bce24721596b6a43e32",
   "repository_visibility": "public",
-  "existing_host": "https://slingmods-three-wheel-tour-rebuild.vercel.app"
+  "existing_host": "https://slingmods-three-wheel-tour-rebuild.vercel.app",
+  "p09c_delivery": {
+    "runtime": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+    "validation": "handoff/P09C-VALIDATION.json",
+    "archive": "Astra-Review-19-Lean.zip",
+    "packet_receipt": "handoff/P09C-PACKET.json"
+  }
 }

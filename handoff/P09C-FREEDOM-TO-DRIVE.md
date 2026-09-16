@@ -1,6 +1,6 @@
-# P09C â€” Freedom to Drive
+# P09C — Freedom to Drive
 
-Current source implementation: `5b2c99af2c567c04b5ea9d896765e7a6ddeec25e` on `main`. Final validation, deployed identity and archive receipt are recorded separately in P09C-VALIDATION.json and P09C-PACKET.json when complete. This document must not be read as a performance or delivery PASS without those receipts.
+Current source implementation: `5b2c99af2c567c04b5ea9d896765e7a6ddeec25e` on `main`. Completed validation, deployed identity and archive receipt are recorded separately in P09C-VALIDATION.json, P09C-PACKET.json and P09C-DELIVERY.json. These distinguish the frozen game, packaging, archive addition and later metadata commits.
 
 ## Continue on another machine
 
@@ -23,9 +23,9 @@ The canonical existing personal rebuild site is https://slingmods-three-wheel-to
 
 ## What changed
 
-Sport v3 permits a small, speed-dependent steering reserve beyond the old no-slip bicycle command ceiling. Reserve in radians is `0.025*vÂ²/(vÂ²+100)/(1+vÂ²/500)` for speed v in m/s. It is limited by the existing mechanical/speed envelope and smoothed with a0.10s first-order response, subject to the existing steering-rate cap. Brake input no longer scales down the v3 steering request. Actual combined tire forces, normal loads, drivetrain, braking allocation and three-contact chassis policy remain v2. These are authored game parameters, not measured OEM/product claims.
+Sport v3 permits a small, speed-dependent steering reserve beyond the old no-slip bicycle command ceiling. Reserve in radians is `0.025*v²/(v²+100)/(1+v²/500)` for speed v in m/s. It is limited by the existing mechanical/speed envelope and smoothed with a0.10s first-order response, subject to the existing steering-rate cap. Brake input no longer scales down the v3 steering request. Actual combined tire forces, normal loads, drivetrain, braking allocation and three-contact chassis policy remain v2. These are authored game parameters, not measured OEM/product claims.
 
-New showroom recipes/presets, fresh/direct preview routes, prepared demo time trial/duel/crew and newly begun Chapter02 events use shared CURRENT_HANDLING_PROFILE. Explicit v1/v2 recipes stay historical. Build Presets â†’ Use current driving creates an updated draft and preserves the original named recipe (or first saves an unsaved historical original). No credits or ownership are changed. Stock comparison removes products without changing tune or finish. Already-started events and Cups retain their frozen recipe through retry and later legs; new events after completion use current driving. Records and receipts retain their profile provenance.
+New showroom recipes/presets, fresh/direct preview routes, prepared demo time trial/duel/crew and newly begun Chapter02 events use shared CURRENT_HANDLING_PROFILE. Explicit v1/v2 recipes stay historical. Build Presets → Use current driving creates an updated draft and preserves the original named recipe (or first saves an unsaved historical original). No credits or ownership are changed. Stock comparison removes products without changing tune or finish. Already-started events and Cups retain their frozen recipe through retry and later legs; new events after completion use current driving. Records and receipts retain their profile provenance.
 
 Review18 UI, action sounds, dashboard, Thermal departure, showroom/closed bay, front/hoop refinements, finishes, swingarm palette and five products are retained. No new product, vehicle, destination, sound generation or spending.
 
@@ -59,6 +59,10 @@ The matched pad uses the same control-only driver for both versions. After the i
 
 Existing browser saves live in their browser/origin and are not copied by Git. Synthetic earned test fixtures are evidence, not the owner's career. Dependencies, tools, generated build folders and caches rebuild from the pinned inputs. No credentials or personal browser profiles belong in Git.
 
-Complete the pending validation/remote recovery/archive steps if receipts are absent. When receipts are complete, send the tracked Astra-Review-19-Lean.zip to Astra and await review; do not invent a further assignment. Subjective fun, human listening, physical-device/destination-hardware coverage, G3/G4 and final OEM fidelity remain separate open approvals.
+Send the tracked Astra-Review-19-Lean.zip to Astra and await review; do not invent a further assignment. Verify the archive hash against P09C-PACKET.json after pulling on another machine. Subjective fun, human listening, physical-device/destination-hardware coverage, G3/G4 and final OEM fidelity remain separate open approvals.
 
 The historical comparison requires a fresh output directory and never rewrites the committed test goldens. The native/regression collection scripts retain every case even if one fails; inspect each verification/summary and the final validation receipt. The full current Git working tree is approximately 4 GB because prior evidence remains recoverable; the Review19 ZIP is the smaller review transfer.
+
+Completed: 250 tests; full profile/career/preparation/UI/audio regressions; 16 native race attempts plus two cockpit attempts; fresh remote clone with 128 asset hashes, entry matrix and native Express race. Hosted root and complete previews/test-drive/race/retry/return/product-link sequence pass. The provider reports only vercel.json as changed, so its buildRef retains -working; no tracked runtime inputs changed.
+
+Next-machine resume prompt: Read HANDOFF.md, AGENTS.md, handoff/P09C-VALIDATION.json, P09C-PACKET.json and P09C-DELIVERY.json on main. Verify the tracked Review19 hash, install pinned dependencies, build and launch the curated game. Preserve historical tunes, frozen attempts, ownership and art; await the next owner/director instruction.

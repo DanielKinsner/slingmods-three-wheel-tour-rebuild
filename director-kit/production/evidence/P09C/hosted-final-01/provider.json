@@ -1,0 +1,21 @@
+{
+  "projectId": "prj_3UBN81UQim5W3obOGNHc9wpfNTDY",
+  "deploymentId": "dpl_5Ro1jkiv8EZEY8Fee3XW4BB9zvSc",
+  "url": "slingmods-three-wheel-tour-rebuild-93iky1he5.vercel.app",
+  "state": "READY",
+  "sourceCommit": "b45c13695cfb1f8277cb4755a63ca80b4fe4e8c7",
+  "branch": "main",
+  "aliases": [
+    "slingmods-three-wheel-tour-rebuild.vercel.app",
+    "slingmods-three-wheel-tour-rebuild-daniel-kinsners-projects.vercel.app",
+    "slingmods-three-wheel-tour-git-c57b27-daniel-kinsners-projects.vercel.app"
+  ],
+  "providerSourceAudit": {
+    "changedTrackedPaths": [
+      "vercel.json"
+    ],
+    "runtimeInputChanges": []
+  },
+  "interpretation": "The provider build reports only vercel.json as changed. No tracked src/tests/public or inventoried package/build inputs changed. The buildRef honestly retains -working. Exact provider configuration diff was not exposed; effective root, missing-file, media/cache and gameplay behavior are checked separately.",
+  "buildLog": "## Build Logs\n\n16:49:53  Running build in Washington, D.C., USA (East) – iad1\n16:49:53  Build machine configuration: 2 cores, 8 GB\n16:49:53  Cloning github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild (Branch: main, Commit: b45c136)\n16:52:27  Cloning completed: 2:34.074 (m:ss.mmm)\n16:52:27  Restored build cache from previous deployment (6zoYw6UKo6FVMxxKfYqp7x1Rq7nT)\n16:52:29  Running \"vercel build\"\n16:52:29  Vercel CLI 59.16.0\n16:52:32  Running \"install\" command: `npm ci`...\n16:52:35  added 36 packages, and audited 37 packages in 3s\n16:52:35  9 packages are looking for funding\n16:52:35    run `npm fund` for details\n16:52:35  found 0 vulnerabilities\n16:52:35  npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:\n16:52:35  npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)\n16:52:35  npm warn allow-scripts\n16:52:35  npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.\n16:52:39  > slingmods-three-wheel-tour-rebuild@1.0.0 deploy:build\n16:52:39  > node scripts/build-vercel.mjs\n16:52:40  {\"providerSourceAudit\":{\"changedTrackedPaths\":[\"vercel.json\"],\"runtimeInputChanges\":[]}}"
+}

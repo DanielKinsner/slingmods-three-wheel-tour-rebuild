@@ -1,0 +1,261 @@
+{
+  "pass": true,
+  "commit": "07be27016bd93b3a166ee064594e21ba26bb2fe0",
+  "remote": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+  "branch": "main",
+  "runtimeCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+  "checkout": ".handoff-validation-p09c-main",
+  "method": "Fresh depth-1 network clone from the verified GitHub remote. No ignored inputs or node_modules copied from the originating checkout. npm ci uses normal package cache; installed Node/Python/FFmpeg and Playwright browser cache are shared on this Windows host. This is not another-machine hardware certification.",
+  "commands": [
+    "git clone --depth 1 --single-branch --branch main https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git <new-empty-checkout>",
+    "npm ci",
+    "npm test",
+    "npm run build",
+    "npm run deploy:build",
+    "python scripts/verify-p09c-assets.py",
+    "PORT=5203 node scripts/serve-demo.mjs",
+    "BASE_URL=http://127.0.0.1:5203 EVIDENCE_DIR=<fresh> node scripts/p09c-profile-entry.mjs",
+    "BASE_URL=http://127.0.0.1:5203 EVIDENCE_DIR=<fresh> WIDTH=1280 ROUTE=express BUILD=stock RACES=1 node scripts/profile-p09c.mjs"
+  ],
+  "sourceTests": {
+    "passed": 250,
+    "failed": 0
+  },
+  "builds": [
+    "normal PASS",
+    "curated demo PASS",
+    "stable Vercel stage PASS"
+  ],
+  "assets": {
+    "pass": true,
+    "checked": 128,
+    "failures": []
+  },
+  "entryMatrix": {
+    "pass": true,
+    "path": "profile-entry/verification.json"
+  },
+  "nativeSmoke": {
+    "sourceCommit": "07be27016bd93b3a166ee064594e21ba26bb2fe0",
+    "browser": "153.0.8010.12",
+    "width": 1280,
+    "quality": "low",
+    "equipped": false,
+    "route": "express",
+    "duel": false,
+    "overflow": 0,
+    "thresholds": {
+      "p95Ms": 20,
+      "p99Ms": 33.4,
+      "maxMs": 100,
+      "numericalToleranceMs": 1e-06
+    },
+    "view": "near",
+    "runtime": "07be27016bd9",
+    "attempts": [
+      {
+        "attempt": 1,
+        "samples": 5128,
+        "p95Ms": 16.79999999998836,
+        "p99Ms": 16.80000000000291,
+        "maxMs": 33.40000000000873,
+        "activeOver100Ms": 0,
+        "pass": true,
+        "result": {
+          "event": "harbor-express-quick-race-v1",
+          "attemptId": "2f1279ed-f392-430d-866d-6df411e959f1",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 85891.40265832779,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinishers": [
+          {
+            "id": "maya",
+            "status": "finished",
+            "timeMs": 79337.19718235523,
+            "lap": 1
+          },
+          {
+            "id": "jett",
+            "status": "finished",
+            "timeMs": 80859.19523250079,
+            "lap": 1
+          },
+          {
+            "id": "nico",
+            "status": "finished",
+            "timeMs": 84628.83461289342,
+            "lap": 1
+          },
+          {
+            "id": "player",
+            "status": "finished",
+            "timeMs": 85891.40265832779,
+            "lap": 1
+          }
+        ],
+        "memory": {
+          "geometries": 173,
+          "textures": 72
+        }
+      }
+    ],
+    "errors": [],
+    "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+  },
+  "inputs": {
+    "pass": true,
+    "runtimeCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+    "recoveredCommit": "07be27016bd93b3a166ee064594e21ba26bb2fe0",
+    "inventoriedInputs": 276,
+    "rawByteDifferences": [
+      {
+        "path": "package-lock.json",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "package.json",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/audio/opponents.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/competition/index.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/competition/road.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/course/environment.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/presentation/harbor-water.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/presentation/rear-diagnostic.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/race/attempt.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/simulation/pad.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/simulation/scenarios.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/style.css",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "src/workbench.css",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/audio-pitch-coherence.test.mjs",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/competition-rules.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/drivetrain-integrated.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/driving-session-camera.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/driving.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/first-drive-camera.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/fixtures/first-drive-trace.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/fixtures/p09c-v2-baseline-digests.json",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/fixtures/practice-trace.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/harbor-course.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/harbor-water.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/inspection-framing.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/light-pool-stability.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/outdoor-environment.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/rear-presentation.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/shadow-casters.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/showcase-disposal.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tests/smoke.test.ts",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "tsconfig.json",
+        "lineEndingOnly": true
+      },
+      {
+        "path": "vite.config.ts",
+        "lineEndingOnly": true
+      }
+    ],
+    "gitRuntimeInputDiffEmpty": true,
+    "method": "Fresh remote output inputs compared against tested runtime manifest. All inventoried inputs identical after line-ending normalization; every nonidentical raw-byte input is explicitly listed."
+  },
+  "preservedReview18SHA256": "fa522a10442e2a0b9107d0fce1c39239cc26f9139582d7e0c3ca98e136d36886",
+  "cleanAfterBuild": true,
+  "tools": {
+    "node": "24.15.0",
+    "npm": "11.6.2",
+    "python": "3.13.5",
+    "browser": "153.0.8010.12"
+  },
+  "review19Archive": "Added and remote-byte-verified after the final packaging commit; see external packet receipt."
+}

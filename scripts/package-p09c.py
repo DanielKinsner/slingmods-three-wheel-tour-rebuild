@@ -25,7 +25,7 @@ for name in ['REVIEW19-SUMMARY.md','P09C-AUDIT.md','PERFORMANCE.md']:
  add(E/name,'review/'+name)
 add(E/'film-03/P09C-Freedom-to-Drive.mp4','media/P09C-Freedom-to-Drive.mp4')
 add(E/'film-03/FILM-REVIEW.md','review/FILM-REVIEW.md')
-screens=[('profile-entry-final-01/slingmods-sport-v2-current-copy.png','01-current-copy.png'),('signature-integration-final-01/06-cockpit-actual-motion.png','02-dashboard.png'),('film-03/05-reverse.png','03-reverse.png'),('film-03/07-race-cockpit.png','04-native-cockpit.png'),('film-03/08-race-result.png','05-race-result.png'),('film-03/09-same-build.png','06-same-build.png'),('hosted-final-01/01-canonical-root.png','07-hosted-root.png'),('hosted-final-01/04-same-build.png','08-hosted-return.png'),('motion-plots/matched-sweepers.png','09-matched-motion.png'),('motion-plots/cross50-held.png','10-crossing50mph.png')]
+screens=[('profile-entry-final-01/slingmods-sport-v2-current-copy.png','01-current-copy.png'),('signature-integration-final-01/06-cockpit-actual-motion.png','02-dashboard.png'),('film-03/05-reverse.png','03-reverse.png'),('film-03/07-race-cockpit.png','04-native-cockpit.png'),('film-03/08-race-result.png','05-race-result.png'),('film-03/09-same-build.png','06-same-build.png'),('hosted-root-final-02/root.png','07-hosted-root.png'),('hosted-final-02/04-same-build.png','08-hosted-return.png'),('motion-plots/matched-sweepers.png','09-matched-motion.png'),('motion-plots/cross50-held.png','10-crossing50mph.png')]
 for source,name in screens:add(E/source,'screens/'+name)
 buf=io.BytesIO();data_index={};member_names=set()
 with tarfile.open(fileobj=buf,mode='w:xz',preset=9) as tar:

@@ -1,0 +1,2081 @@
+{
+  "schemaVersion": 1,
+  "assignment": "P09C Freedom to Drive",
+  "branch": "main",
+  "runtimeCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+  "remote": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+  "repositoryVisibility": "PUBLIC",
+  "functionalPass": true,
+  "sourceTests": {
+    "passed": 250,
+    "failed": 0
+  },
+  "builds": [
+    "normal PASS",
+    "curated demo PASS",
+    "curated Vercel stage PASS"
+  ],
+  "functionalEvidence": [
+    "profile-entry-final-01",
+    "signature-integration-final-01",
+    "preparation-final-01",
+    "career-loop-final-01",
+    "ui-final-01",
+    "audio-final-03",
+    "finish-wait-final-04"
+  ],
+  "motion": {
+    "method": "Real 60 Hz Rapier simulation, control-only identical sweeper protocol; 4 seconds curve settling, 8 seconds scored; no postinitial transforms. Not native timing or human driving.",
+    "tuning": {
+      "legacy-p08a": {
+        "id": "legacy-p08a",
+        "name": "Legacy P08A",
+        "torqueScale": 1,
+        "shiftSeconds": 0.24,
+        "steerLock": 0.53,
+        "steerFalloff": 0.037,
+        "lateralSteerLimit": 5.4,
+        "steerRate": 1.7,
+        "asphaltGripScale": 1,
+        "tireStiffness": 7,
+        "brakeScale": 1,
+        "brakeSteerRelief": 0,
+        "damperFront": 3800,
+        "damperRear": 6500
+      },
+      "slingmods-sport-v1": {
+        "id": "slingmods-sport-v1",
+        "name": "SlingMods Sport",
+        "torqueScale": 1.3,
+        "shiftSeconds": 0.18,
+        "steerLock": 0.6,
+        "steerFalloff": 0.021,
+        "lateralSteerLimit": 8.2,
+        "steerRate": 2.7,
+        "asphaltGripScale": 1.15,
+        "tireStiffness": 8,
+        "brakeScale": 0.7,
+        "brakeSteerRelief": 0.35,
+        "damperFront": 3800,
+        "damperRear": 6500
+      },
+      "slingmods-sport-v2": {
+        "id": "slingmods-sport-v2",
+        "name": "SlingMods Sport v2",
+        "torqueScale": 1.3,
+        "shiftSeconds": 0.18,
+        "steerLock": 0.6,
+        "steerFalloff": 0.021,
+        "lateralSteerLimit": 8.2,
+        "steerRate": 2.7,
+        "asphaltGripScale": 1.15,
+        "tireStiffness": 8,
+        "brakeScale": 1,
+        "brakeSteerRelief": 0.15,
+        "damperFront": 3800,
+        "damperRear": 6500
+      },
+      "slingmods-sport-v3": {
+        "id": "slingmods-sport-v3",
+        "name": "SlingMods Sport v3",
+        "torqueScale": 1.3,
+        "shiftSeconds": 0.18,
+        "steerLock": 0.6,
+        "steerFalloff": 0.021,
+        "lateralSteerLimit": 8.2,
+        "steerRate": 2.7,
+        "asphaltGripScale": 1.15,
+        "tireStiffness": 8,
+        "brakeScale": 1,
+        "brakeSteerRelief": 0,
+        "damperFront": 3800,
+        "damperRear": 6500
+      }
+    },
+    "summaries": [
+      {
+        "profile": "slingmods-sport-v1",
+        "mph": 50,
+        "radius": 90,
+        "direction": 1,
+        "seconds": 8,
+        "rms": 0.9342007472721077,
+        "peak": 1.0892157583172661,
+        "speedPeak": 0.007162192872527174,
+        "limitFraction": 0,
+        "upMin": 0.9989570032818293,
+        "meanDemand": 0.8196829951712076,
+        "pass": true
+      },
+      {
+        "profile": "slingmods-sport-v1",
+        "mph": 50,
+        "radius": 90,
+        "direction": -1,
+        "seconds": 8,
+        "rms": 0.934194988386917,
+        "peak": 1.0892094034110187,
+        "speedPeak": 0.007162041093383399,
+        "limitFraction": 0,
+        "upMin": 0.9989570048731509,
+        "meanDemand": 0.8196824070652845,
+        "pass": true
+      },
+      {
+        "profile": "slingmods-sport-v1",
+        "mph": 65,
+        "radius": 150,
+        "direction": 1,
+        "seconds": 8,
+        "rms": 5.573429681753665,
+        "peak": 7.2460092638353615,
+        "speedPeak": 0.003494056809391928,
+        "limitFraction": 0.9145833333333333,
+        "upMin": 0.9991462426480401,
+        "meanDemand": 0.9663736943112679,
+        "pass": false
+      },
+      {
+        "profile": "slingmods-sport-v1",
+        "mph": 65,
+        "radius": 150,
+        "direction": -1,
+        "seconds": 8,
+        "rms": 5.573424549842134,
+        "peak": 7.246026318967495,
+        "speedPeak": 0.0034936916389947193,
+        "limitFraction": 0.9145833333333333,
+        "upMin": 0.9991462415990714,
+        "meanDemand": 0.9663738452363245,
+        "pass": false
+      },
+      {
+        "profile": "slingmods-sport-v2",
+        "mph": 50,
+        "radius": 90,
+        "direction": 1,
+        "seconds": 8,
+        "rms": 0.9342007472721077,
+        "peak": 1.0892157583172661,
+        "speedPeak": 0.007162192872527174,
+        "limitFraction": 0,
+        "upMin": 0.9989570032818293,
+        "meanDemand": 0.8196829951712076,
+        "pass": true
+      },
+      {
+        "profile": "slingmods-sport-v2",
+        "mph": 50,
+        "radius": 90,
+        "direction": -1,
+        "seconds": 8,
+        "rms": 0.934194988386917,
+        "peak": 1.0892094034110187,
+        "speedPeak": 0.007162041093383399,
+        "limitFraction": 0,
+        "upMin": 0.9989570048731509,
+        "meanDemand": 0.8196824070652845,
+        "pass": true
+      },
+      {
+        "profile": "slingmods-sport-v2",
+        "mph": 65,
+        "radius": 150,
+        "direction": 1,
+        "seconds": 8,
+        "rms": 5.573429681753665,
+        "peak": 7.2460092638353615,
+        "speedPeak": 0.003494056809391928,
+        "limitFraction": 0.9145833333333333,
+        "upMin": 0.9991462426480401,
+        "meanDemand": 0.9663736943112679,
+        "pass": false
+      },
+      {
+        "profile": "slingmods-sport-v2",
+        "mph": 65,
+        "radius": 150,
+        "direction": -1,
+        "seconds": 8,
+        "rms": 5.573424549842134,
+        "peak": 7.246026318967495,
+        "speedPeak": 0.0034936916389947193,
+        "limitFraction": 0.9145833333333333,
+        "upMin": 0.9991462415990714,
+        "meanDemand": 0.9663738452363245,
+        "pass": false
+      },
+      {
+        "profile": "slingmods-sport-v3",
+        "mph": 50,
+        "radius": 90,
+        "direction": 1,
+        "seconds": 8,
+        "rms": 0.9633061137475687,
+        "peak": 1.0873239584700656,
+        "speedPeak": 0.006702399238847663,
+        "limitFraction": 0,
+        "upMin": 0.9986437960371212,
+        "meanDemand": 0.6641556329890144,
+        "pass": true
+      },
+      {
+        "profile": "slingmods-sport-v3",
+        "mph": 50,
+        "radius": 90,
+        "direction": -1,
+        "seconds": 8,
+        "rms": 0.9633105606656521,
+        "peak": 1.0873239868966778,
+        "speedPeak": 0.006702490786120886,
+        "limitFraction": 0,
+        "upMin": 0.9986437960216323,
+        "meanDemand": 0.6641565200927891,
+        "pass": true
+      },
+      {
+        "profile": "slingmods-sport-v3",
+        "mph": 65,
+        "radius": 150,
+        "direction": 1,
+        "seconds": 8,
+        "rms": 1.104798252356956,
+        "peak": 1.315583702552658,
+        "speedPeak": 0.004146763887490751,
+        "limitFraction": 0,
+        "upMin": 0.998674792754082,
+        "meanDemand": 0.7160229286070153,
+        "pass": true
+      },
+      {
+        "profile": "slingmods-sport-v3",
+        "mph": 65,
+        "radius": 150,
+        "direction": -1,
+        "seconds": 8,
+        "rms": 1.1047982662382851,
+        "peak": 1.3155837952454021,
+        "speedPeak": 0.00414689619010433,
+        "limitFraction": 0,
+        "upMin": 0.9986747925502625,
+        "meanDemand": 0.7160232080429195,
+        "pass": true
+      }
+    ]
+  },
+  "historicalV2": {
+    "baselineCommit": "52c234cb8757cc2cfb387738f800a4056c221237",
+    "baselineSource": "git show exact index.ts and profile.ts; unchanged drivetrain/suspension/contact-layout imports from checkout",
+    "cases": [
+      {
+        "scenario": "long-throttle-brake-pad",
+        "profile": "slingmods-sport-v2",
+        "ticks": 1800,
+        "mismatchTicks": 0,
+        "telemetrySha256": "8944fce6f8d53a46e538e67d81f873f8892e0d64c7ae279dd3aa7622ea711b91",
+        "currentSha256": "8944fce6f8d53a46e538e67d81f873f8892e0d64c7ae279dd3aa7622ea711b91"
+      },
+      {
+        "scenario": "mixed-pad",
+        "profile": "slingmods-sport-v2",
+        "ticks": 1800,
+        "mismatchTicks": 0,
+        "telemetrySha256": "4295b2052b0dad0073c5a9e79ac1d92666365690d9b0dff4ab6112722ebb1068",
+        "currentSha256": "4295b2052b0dad0073c5a9e79ac1d92666365690d9b0dff4ab6112722ebb1068"
+      }
+    ],
+    "pass": true
+  },
+  "nativePerformance": {
+    "pass": true,
+    "passingAttempts": 16,
+    "totalAttempts": 16,
+    "activeFramesOver100Ms": 0,
+    "cases": [
+      {
+        "path": "native-1280-harbor-stock-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1280,
+        "quality": "low",
+        "equipped": false,
+        "route": "harbor",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "near",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 4634,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "d07fb436-6cec-4dc1-9c0e-2ba3b338261d",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77221.9451521467,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77221.9451521467,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 309,
+              "textures": 81
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 4633,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 33.30000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "2632174c-e97f-40bf-962a-b57dc60644dc",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77200.16481612739,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77200.16481612739,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 309,
+              "textures": 81
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      },
+      {
+        "path": "native-1280-harbor-equipped-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1280,
+        "quality": "low",
+        "equipped": true,
+        "route": "harbor",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "near",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 4634,
+            "p95Ms": 16.79999999998836,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "e4590b14-1ef6-4057-a4a3-ae757ab6b29e",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77221.94432188931,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77221.94432188931,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 326,
+              "textures": 81
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 4634,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.800000000017462,
+            "maxMs": 33.39999999999418,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "a0198679-6eef-42e9-801b-b6629b89257c",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77234.53465732065,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77234.53465732065,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 326,
+              "textures": 81
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      },
+      {
+        "path": "native-1280-express-stock-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1280,
+        "quality": "low",
+        "equipped": false,
+        "route": "express",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "near",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 5152,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "3712df94-64c2-498f-bc40-e363da9478a7",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31064265288,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31064265288,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 173,
+              "textures": 72
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 5151,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.800000000017462,
+            "maxMs": 33.29999999998836,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "6e06217f-0944-44a3-990f-351774366704",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31085223451,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31085223451,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 173,
+              "textures": 72
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      },
+      {
+        "path": "native-1280-express-equipped-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1280,
+        "quality": "low",
+        "equipped": true,
+        "route": "express",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "near",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 5152,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "9f1a86f0-02d4-45ab-ace3-26068fc792d3",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31064265288,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31064265288,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 190,
+              "textures": 72
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 5152,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.800000000017462,
+            "maxMs": 16.800000000017462,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "03afc08e-f5ed-489c-9864-031bc155eed9",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31064265288,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31064265288,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 190,
+              "textures": 72
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      },
+      {
+        "path": "native-1920-harbor-stock-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1920,
+        "quality": "standard",
+        "equipped": false,
+        "route": "harbor",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "near",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 4633,
+            "p95Ms": 16.79999999998836,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 33.39999999999782,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "ba11547a-567b-4afb-a395-43ad63a19481",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77221.94432191954,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77221.94432191954,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 309,
+              "textures": 81
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 4634,
+            "p95Ms": 16.79999999998836,
+            "p99Ms": 16.800000000017462,
+            "maxMs": 16.800000000017462,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "cdd2dbe6-02a8-4c24-b592-18c391dd5470",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77221.9451521467,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77221.9451521467,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 309,
+              "textures": 81
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      },
+      {
+        "path": "native-1920-harbor-equipped-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1920,
+        "quality": "standard",
+        "equipped": true,
+        "route": "harbor",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "near",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 4634,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "3f82e739-d295-40cc-9fc0-e512392fbbf3",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77221.9451521467,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77221.9451521467,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 326,
+              "textures": 81
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 4634,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.800000000017462,
+            "maxMs": 16.800000000017462,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "3d371c30-d819-4499-b79f-7bcc026397ac",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77221.9451521467,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77221.9451521467,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 326,
+              "textures": 81
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      },
+      {
+        "path": "native-1920-express-stock-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1920,
+        "quality": "standard",
+        "equipped": false,
+        "route": "express",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "near",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 5152,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "b5aff653-1e93-4355-8d1b-f16ee1449539",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31064265288,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31064265288,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 173,
+              "textures": 72
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 5152,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.800000000017462,
+            "maxMs": 16.800000000017462,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "f2496166-235f-4c5c-a3a3-d7e68ce5648b",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31064265288,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31064265288,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 173,
+              "textures": 72
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      },
+      {
+        "path": "native-1920-express-equipped-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1920,
+        "quality": "standard",
+        "equipped": true,
+        "route": "express",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "near",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 5152,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "70217b80-83dc-4c3d-8772-a92303fcdea2",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31064265288,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31064265288,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 190,
+              "textures": 72
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 5152,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.800000000017462,
+            "maxMs": 16.800000000017462,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "6190626f-ba02-44bb-b411-55a1685dfc9c",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31064265288,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31064265288,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 190,
+              "textures": 72
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      }
+    ],
+    "additionalCases": [
+      {
+        "path": "native-extra-1280-harbor-stock-cockpit-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1280,
+        "quality": "low",
+        "equipped": false,
+        "route": "harbor",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "cockpit",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 4635,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "4b35898b-435e-431d-9c2a-4e646a269406",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77221.94459850178,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70835.27061388305,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72659.99196201576,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75690.6698972189,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77221.94459850178,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 309,
+              "textures": 81
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      },
+      {
+        "path": "native-extra-1920-express-equipped-cockpit-final-01/summary.json",
+        "sourceCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+        "browser": "153.0.8010.12",
+        "width": 1920,
+        "quality": "standard",
+        "equipped": true,
+        "route": "express",
+        "duel": false,
+        "overflow": 0,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "numericalToleranceMs": 1e-06
+        },
+        "view": "cockpit",
+        "runtime": "5b2c99af2c56",
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 5152,
+            "p95Ms": 16.70000000001164,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 16.80000000000291,
+            "activeOver100Ms": 0,
+            "pass": true,
+            "result": {
+              "event": "harbor-express-quick-race-v1",
+              "attemptId": "ecf75e22-5a12-479f-9143-31913c6a8f2e",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 85861.31064265288,
+              "place": 4,
+              "invalidReason": null
+            },
+            "allFinishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 79337.19718235523,
+                "lap": 1
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 80859.19523250079,
+                "lap": 1
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 84628.83461289342,
+                "lap": 1
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 85861.31064265288,
+                "lap": 1
+              }
+            ],
+            "memory": {
+              "geometries": 190,
+              "textures": 72
+            }
+          }
+        ],
+        "errors": [],
+        "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+      }
+    ]
+  },
+  "additionalCockpitPass": true,
+  "remoteRecovery": {
+    "pass": true,
+    "commit": "07be27016bd93b3a166ee064594e21ba26bb2fe0",
+    "remote": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git",
+    "branch": "main",
+    "runtimeCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+    "checkout": ".handoff-validation-p09c-main",
+    "method": "Fresh depth-1 network clone from the verified GitHub remote. No ignored inputs or node_modules copied from the originating checkout. npm ci uses normal package cache; installed Node/Python/FFmpeg and Playwright browser cache are shared on this Windows host. This is not another-machine hardware certification.",
+    "commands": [
+      "git clone --depth 1 --single-branch --branch main https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git <new-empty-checkout>",
+      "npm ci",
+      "npm test",
+      "npm run build",
+      "npm run deploy:build",
+      "python scripts/verify-p09c-assets.py",
+      "PORT=5203 node scripts/serve-demo.mjs",
+      "BASE_URL=http://127.0.0.1:5203 EVIDENCE_DIR=<fresh> node scripts/p09c-profile-entry.mjs",
+      "BASE_URL=http://127.0.0.1:5203 EVIDENCE_DIR=<fresh> WIDTH=1280 ROUTE=express BUILD=stock RACES=1 node scripts/profile-p09c.mjs"
+    ],
+    "sourceTests": {
+      "passed": 250,
+      "failed": 0
+    },
+    "builds": [
+      "normal PASS",
+      "curated demo PASS",
+      "stable Vercel stage PASS"
+    ],
+    "assets": {
+      "pass": true,
+      "checked": 128,
+      "failures": []
+    },
+    "entryMatrix": {
+      "pass": true,
+      "path": "profile-entry/verification.json"
+    },
+    "nativeSmoke": {
+      "sourceCommit": "07be27016bd93b3a166ee064594e21ba26bb2fe0",
+      "browser": "153.0.8010.12",
+      "width": 1280,
+      "quality": "low",
+      "equipped": false,
+      "route": "express",
+      "duel": false,
+      "overflow": 0,
+      "thresholds": {
+        "p95Ms": 20,
+        "p99Ms": 33.4,
+        "maxMs": 100,
+        "numericalToleranceMs": 1e-06
+      },
+      "view": "near",
+      "runtime": "07be27016bd9",
+      "attempts": [
+        {
+          "attempt": 1,
+          "samples": 5128,
+          "p95Ms": 16.79999999998836,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 33.40000000000873,
+          "activeOver100Ms": 0,
+          "pass": true,
+          "result": {
+            "event": "harbor-express-quick-race-v1",
+            "attemptId": "2f1279ed-f392-430d-866d-6df411e959f1",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 85891.40265832779,
+            "place": 4,
+            "invalidReason": null
+          },
+          "allFinishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 79337.19718235523,
+              "lap": 1
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 80859.19523250079,
+              "lap": 1
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 84628.83461289342,
+              "lap": 1
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 85891.40265832779,
+              "lap": 1
+            }
+          ],
+          "memory": {
+            "geometries": 173,
+            "textures": 72
+          }
+        }
+      ],
+      "errors": [],
+      "method": "Native wall-clock RAF; existing control-only evidence driver; real rivals and shared simulation. No capture or screenshots during scored racing. Audio graph enabled, host output muted. Isolated browser, no desktop takeover."
+    },
+    "inputs": {
+      "pass": true,
+      "runtimeCommit": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+      "recoveredCommit": "07be27016bd93b3a166ee064594e21ba26bb2fe0",
+      "inventoriedInputs": 276,
+      "rawByteDifferences": [
+        {
+          "path": "package-lock.json",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "package.json",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/audio/opponents.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/competition/index.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/competition/road.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/course/environment.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/presentation/harbor-water.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/presentation/rear-diagnostic.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/race/attempt.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/simulation/pad.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/simulation/scenarios.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/style.css",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "src/workbench.css",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/audio-pitch-coherence.test.mjs",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/competition-rules.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/drivetrain-integrated.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/driving-session-camera.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/driving.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/first-drive-camera.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/fixtures/first-drive-trace.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/fixtures/p09c-v2-baseline-digests.json",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/fixtures/practice-trace.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/harbor-course.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/harbor-water.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/inspection-framing.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/light-pool-stability.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/outdoor-environment.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/rear-presentation.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/shadow-casters.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/showcase-disposal.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tests/smoke.test.ts",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "tsconfig.json",
+          "lineEndingOnly": true
+        },
+        {
+          "path": "vite.config.ts",
+          "lineEndingOnly": true
+        }
+      ],
+      "gitRuntimeInputDiffEmpty": true,
+      "method": "Fresh remote output inputs compared against tested runtime manifest. All inventoried inputs identical after line-ending normalization; every nonidentical raw-byte input is explicitly listed."
+    },
+    "preservedReview18SHA256": "fa522a10442e2a0b9107d0fce1c39239cc26f9139582d7e0c3ca98e136d36886",
+    "cleanAfterBuild": true,
+    "tools": {
+      "node": "24.15.0",
+      "npm": "11.6.2",
+      "python": "3.13.5",
+      "browser": "153.0.8010.12"
+    },
+    "review19Archive": "Added and remote-byte-verified after the final packaging commit; see external packet receipt."
+  },
+  "hostedRoot": {
+    "pass": true,
+    "evidence": "hosted-root-final-02/verification.json",
+    "diagnosticsExposed": false
+  },
+  "hosted": {
+    "pass": true,
+    "base": "https://slingmods-three-wheel-tour-rebuild.vercel.app",
+    "build": {
+      "commit": "b45c13695cfb1f8277cb4755a63ca80b4fe4e8c7",
+      "buildRef": "b45c13695cfb-working",
+      "inputs": {
+        "public/assets/audio/p03b2/engine-1200-lift.wav": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+        "public/assets/audio/p03b2/engine-1200-load.wav": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+        "public/assets/audio/p03b2/engine-3600-lift.wav": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+        "public/assets/audio/p03b2/engine-3600-load.wav": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+        "public/assets/audio/p03b2/engine-6200-lift.wav": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+        "public/assets/audio/p03b2/engine-6200-load.wav": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+        "public/assets/audio/p03b2/provenance.json": "322f35fdb70c08d5fcec745f8a0176fca9b8337f51e24b5b6208606393feb5a8",
+        "public/assets/audio/p03b2/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+        "public/assets/audio/p03b2/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+        "public/assets/audio/p03b2/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+        "public/assets/audio/p09b-cues/build.preset.wav": "4612189cddfe6ec55e9d430d7bb304d478bb933285a0c83db1ecc05e0a53a8ba",
+        "public/assets/audio/p09b-cues/build.save.wav": "dfa981cf4e389e2b6315e8674e1aaa71f69d147ab5da11724634697f7380366d",
+        "public/assets/audio/p09b-cues/career.unlock.wav": "9a0c0e2031f744e6395d7118f1fd6a30447daa807fbd31ce2c06c33c1cceca35",
+        "public/assets/audio/p09b-cues/finish.apply.wav": "5a84f7567a3a6d45374bc8d64a66a9610306bc49c3ecb998caa35461135b401e",
+        "public/assets/audio/p09b-cues/part.aero.attach.wav": "78fa06ae4b4ae1fd30837e3d55591491c3681ee847337c6acf0267069f93077e",
+        "public/assets/audio/p09b-cues/part.exhaust.attach.wav": "df362cacf78b78a6697de0273bb8cfa4fcfa0f1b884de5febeb687719321940c",
+        "public/assets/audio/p09b-cues/part.lights.attach.wav": "3959d15915256ae4ae8c661b3f39e410d5f1a5ba9d964392e33bf89720c42a1e",
+        "public/assets/audio/p09b-cues/part.remove.wav": "59f60b61cddc56c685b4989840881ef1511bc96799e8349453611fae7c29b185",
+        "public/assets/audio/p09b-cues/part.shocks.attach.wav": "d83ad878a886e46874d35c5cff7bcb80bd448f7b82eed28b1eb542ffe1b5f6db",
+        "public/assets/audio/p09b-cues/part.storage.attach.wav": "21f4d3171e9bf906ac50050234416f8338391d29166fdcf6e9eb2aaca227b92b",
+        "public/assets/audio/p09b-cues/power.wav": "bd54c39256bee8fd25226d1768833e305b62df150f1f30aaf9686e0847a73ee6",
+        "public/assets/audio/p09b-cues/provenance.json": "c48af8d43356436543431efc2a551787eef5595e15d971ba82b1f9df4fe5c9f3",
+        "public/assets/audio/p09b-cues/race.count.wav": "f5f077611ade409d2636fb987a7bed6a6293ed8c21dca634067bee45cd758510",
+        "public/assets/audio/p09b-cues/race.finish.wav": "4e371379a34f6c733ca97d3a913d0718ad09cef60eb74ff8fe9c20d44eb26a4a",
+        "public/assets/audio/p09b-cues/race.start.wav": "8ca22ed852e763ba287eb6be165805096b3ffced78d1a49f2660e58fc8be016b",
+        "public/assets/audio/p09b-cues/ui.back.wav": "b6b370a0386f236890a4ee1d02c8f3de5e8a3b52880d326699af085e88f27cdd",
+        "public/assets/audio/p09b-cues/ui.confirm.wav": "d8dcad31c97cfb7c6679e1527d098bc3eb56d4804b52b380e283c4814deca357",
+        "public/assets/audio/p09b-cues/ui.detent.wav": "eb5fc400c54897d6fc27147cd77e55bf77f51ebab24f77029b3a0edcb0931bb7",
+        "public/assets/audio/p09b-cues/ui.nav.wav": "9d8ef0d972252b40f283d7bcfcba9b0a744ec62316417ad098f0572229990222",
+        "public/assets/audio/p09b-departure/provenance.json": "be64328c946bb4164f934849357278f066bcc1f3f4920946cdf9395f6f397fae",
+        "public/assets/audio/p09b-departure/thermal.wav": "be6c4864ff1071a51be94a78576a481f9a86678f9127ad0d48b4944789fbb54d",
+        "public/assets/audio/p09b/engine-1200-lift.wav": "dde9eef41c4fb7c8632a536af409c9dbfe79c15f8b5c6c1c6ddfd051845bce0a",
+        "public/assets/audio/p09b/engine-1200-load.wav": "9ea773abbdd3cf542166fb8648f81cf470c1449c828bcfcb02019c7c67b6fc8a",
+        "public/assets/audio/p09b/engine-1650-lift.wav": "07665c776e1eecfa78f6086d4018345b6d73150a060837a8cc3fce96390f3e18",
+        "public/assets/audio/p09b/engine-1650-load.wav": "e723500567b39a666cd6ddf57df67537bf93989966b7c94c2bf5b37c3151e2e8",
+        "public/assets/audio/p09b/engine-2200-lift.wav": "abbd6c03c0b289a3f14cc2e41ebef1abf3e8f9fb344e1dc039818572b024a67e",
+        "public/assets/audio/p09b/engine-2200-load.wav": "aad679aa6b2a29ff5fe74b370ef2765ef5bf4a38a2c099c76bdc1ddaef173177",
+        "public/assets/audio/p09b/engine-3000-lift.wav": "40e32d8723c272a73582e06d792e0e0ae7769a509109dfb83d63a7b1a2e5284b",
+        "public/assets/audio/p09b/engine-3000-load.wav": "e895abcad899a1938a5b274e232210d95dd2601de7be18681a806c7e30e05502",
+        "public/assets/audio/p09b/engine-4000-lift.wav": "2b91abb7991bcfe35b52b7897d69da820e07d8015fa2f27f273a8160d3ae76d9",
+        "public/assets/audio/p09b/engine-4000-load.wav": "7f01fdd8eb4bc92535d3405071b6ae80e1f733fe25fd125a078d77651e3fca41",
+        "public/assets/audio/p09b/engine-5300-lift.wav": "c7aff1931a643954f02ae0a0607d72f0ba9551d9c56b0fc21932c764c19cdf1d",
+        "public/assets/audio/p09b/engine-5300-load.wav": "71b21e04cc09572c3c772d28b7181923299c0ed0595b236fc9c7f0fd1983f7c0",
+        "public/assets/audio/p09b/engine-6800-lift.wav": "6e6eb01f04e0f3645c7a573db506d11088d5ee126d46f39f97ba29e4c96b2a44",
+        "public/assets/audio/p09b/engine-6800-load.wav": "263bc0d7e01f96a7ebe43c0fcb6c515b5fbc9dd51dc0e199d507cf5df4fac191",
+        "public/assets/audio/p09b/provenance.json": "4a61526d88a63149aa587bc2c50f2c623ba7072f761f9ee867ccd48563084ba2",
+        "public/assets/audio/p09b/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+        "public/assets/audio/p09b/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+        "public/assets/audio/p09b/thermal-mid.wav": "15ada60daf62839288c284f651b8fd1523df1f4da00a6d721504de5e5b10dffe",
+        "public/assets/audio/p09b/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+        "public/assets/audio/showroom/bay-door-open.mp3": "2251c4624e5a7b1b201a8acb1266d73eca1acbdccbb4a820f0af9b740f80a9d8",
+        "public/assets/brand/sign-layout.json": "49f2eb84342c971beb3c4ed8878a7b7fccbcacfccf9337734ecd6ed8e3a4ff3a",
+        "public/assets/brand/slingmods-logo-main.png": "7f86698349f9c83abdd9a68d9c40810c2f89385a710fa209de6ad71fff75c3fd",
+        "public/assets/brand/slingmods-logo-main.source.json": "b4f39ac8ecd083a9ca5de9bc9e9d9ab9f5b46cd1adbcd44db082caa63720dec6",
+        "public/assets/brand/slingmods-sign.glb": "fce90da804681858fa4a796608a725932a56e32305b50d4d88b19720c8014f82",
+        "public/assets/drivers/test-driver-attachment.json": "7faed90c2e32858d7ce27c6b55d4763e1dc672e61de5a13c767aca8874ca72d4",
+        "public/assets/drivers/test-driver.glb": "c9909f146ec2fd17e1205abfef3c48e1b2f0006cde83af3382000a66995d75e5",
+        "public/assets/front-refinement/slingshot-front-refined.glb": "4f8064539d58aae7bbe3cd89c0fbb4c8f77f7e2af84430ac41b30942c2ec2533",
+        "public/assets/harbor/harbor.glb": "01b74c9ec465077304e158ac7e97e1ca1493e61ad48533d3bbb0a59b3109a1c1",
+        "public/assets/harbor/route.json": "e200643ff4a1e8e7f4de719b44b00b81fcca165008e445f314be9f9acaa7e1fa",
+        "public/assets/hoop-refinement/slingshot-hoops-refined.glb": "0e643e6d7f54e0f91c18aefdb3ea5a4e75afcf6943087c3432affb679318a55b",
+        "public/assets/p08b/checker-normal.png": "c91f67a7574cff406a17962a89f58e7847bf40ef47838537c5ed4087fc6462d7",
+        "public/assets/p08b/finish-black-red.png": "0afe42bebc7bc819b2b9f97833110cb6b16ba081fdcbd9e27b505c364343cac9",
+        "public/assets/p08b/finish-graphite-red.png": "90a024e1254c249099e039dcaecc25afe7f78e0930f0c25e645b6c588372abb2",
+        "public/assets/p08b/finish-white-graphite.png": "c60fe3d8cbd025e05e437b3ce7e89566039014d2072ab77ad9bc5b29b64b194c",
+        "public/assets/p08b/showroom-refinement/finish-white-graphite.png": "180f21d073fe1213a2c11ec243b104d371a3f64da5783446d9fbf23983eb7a11",
+        "public/assets/p08b/showroom-refinement/signature-showroom-refined.glb": "aaac85ed1f8c591328c17c64fbec666bf3c5cb4941b923af6e210014565beda3",
+        "public/assets/p08b/showroom-refinement/vented-tile-charcoal.png": "fc89796a4a83ab25adb398135d4c15e5e6135c12eed706fef2062ba10bd4bdf4",
+        "public/assets/p08b/showroom-refinement/vented-tile-gray.png": "13f920888503e570897aea14f5cac23dda321bec8c5d88b988d1da027b1b6b0b",
+        "public/assets/p08b/showroom-refinement/vented-tile-normal.png": "b04283c53fe1e327a526e5d329e87175248bcd0f850ffef4d767071acc3e736b",
+        "public/assets/p08b/showroom-refinement/vented-tile-orm.png": "4da0d80da31729d44ce0ee8a1f9c9e96d346f8dd3bfc8969b35d455d244a5ded",
+        "public/assets/p08b/showroom-refinement/vented-tile-red.png": "e740230019ce32e903b9185170904c93aecfc1095a5c0337e4d90b6254d36847",
+        "public/assets/p08b/signature-products.glb": "c8db9d532eff56d605d9be35fad356711c7849a225a4657f8cb0b279d99cffc6",
+        "public/assets/p08b/signature-showroom.glb": "49f99abb29eefde0501175e6e5d0b674f9520a8851c90b2f6e934a4608ece598",
+        "public/assets/p08b/slingshot-signature.glb": "d34c1ffde2048e2c5fc34bc86cc2a0bad19514961e1a68aee040b50d0fd90761",
+        "public/assets/p08b/thumbnails/SM-133.png": "1ddb4ff236ccae25e6c4af6ffa7db25a04023ee0402d3dea2b5934f755132830",
+        "public/assets/p08b/thumbnails/SM-26801.png": "0badea7aba3dd8e5326292d88c70ff93dc47168dff66e4a5a1a652a9724f6d72",
+        "public/assets/p08b/thumbnails/SM-28919.png": "f9de0a36ce490be287013424b686979433c44736be7f5fb34d3944357200e187",
+        "public/assets/p08b/thumbnails/SM-3223.png": "52f6835de1477853c401dce932523568fcd7ce0b498d023844aa3d8384ccea55",
+        "public/assets/p08b/thumbnails/SM-7720.png": "52010806308c10980645e4c3f0456e1b92fea7b60e4347be00e2a7a7749b3d86",
+        "public/assets/products/ddmworks-sm3223-silver.glb": "b02289e26c2b24cdd01fec57c22fadd5a82f926eed139ad2fdf95673700b2736",
+        "public/assets/products/tricled-sm133-base.attachment.json": "839902ec0b2be52b5f9a0614c0ed206963485f020177f3f49689e65bcab6aec2",
+        "public/assets/products/tricled-sm133-base.glb": "da206aaf6530a83479cb870e013c4efe7372a3ff9ffff038dccda9df19213d93",
+        "public/assets/showcase-quality/bay.glb": "4e26ed4a951c989cbf4344e97b6c42ba13e6355b2f874e1d904ecc36e6cdd7a5",
+        "public/assets/showcase-quality/foundation.glb": "de63a8f31a8ad8d8bed140a326a442fedecc0ebec3c667708ebf985d7888a838",
+        "public/assets/showcase-quality/kit.glb": "65166c2be3ee3f0a969a836015101ea2c7558219c518e67c054295e402001f31",
+        "public/assets/showcase-quality/scene-layout.json": "05ea799526456264603c0a90538a26a394ee77aa94520e652d621251c04e45b8",
+        "public/assets/showcase-quality/sky/day-puresky-2k.hdr": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+        "public/assets/showcase-quality/source-manifest.json": "8081e1443acb9a8ae2b05f75df7f4e6cbd7cfd0bcc13e4c6d259c57b448f2851",
+        "public/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg": "16767927a64de441008841a697b2990b72d2695a5443ec83483b89bca3cba3bb",
+        "public/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg": "03ccab322c78274dc76bedccefefb4ed589837ca2eda3fc64db80f98f0779341",
+        "public/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg": "3e2f59802a84190cba48d2fffb4a56ae136da07bb8738e1455299b5a7eae79c9",
+        "public/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg": "af7ef84573aaaeb19a472c1705cc83ae5313c56bec58b8476573656849447f44",
+        "public/assets/vehicles/slingshot-p04a1-rear-rig.json": "ed04ac1e646f6c27633cb94af307197c1f17020b7c7cf5ddbf7c0517b658150d",
+        "public/assets/vehicles/slingshot-p04a1.glb": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c"
+      },
+      "kind": "Development Preview; public asset provenance only"
+    },
+    "evidence": "hosted-final-02/verification.json"
+  },
+  "film": {
+    "runtime": "5b2c99af2c567c04b5ea9d896765e7a6ddeec25e",
+    "overlay": "Encoded runtime / edited capture label plus diagnostic-only scored RMS/peak calculated from captured trace added. Original game UI and actual audio unchanged. Automated input label captured live.",
+    "pass": true,
+    "method": "Real-speed edited demonstration, with only loading and disclosed sync-marker boundaries cut. Actual live game graph audio, measured recorded chirps aligned to captured video flashes. No synthesized replacement audio or time warping. Audio listening approval remains human.",
+    "excludedSegments": {},
+    "omittedVisualGroups": [],
+    "cuts": [
+      {
+        "gameAudioRMSBetweenMarkers": 0.033644438856127695,
+        "segment": "01-slingmods-sport-v2-50",
+        "sourceVideoStart": 4.3,
+        "sourceAudioStart": 0.4,
+        "duration": 18.439999999999998,
+        "measuredAVDriftMs": -5.000000000002558,
+        "audioChirpCenters": [
+          0.14,
+          19.185000000000002
+        ],
+        "videoFlashStarts": [
+          4.0,
+          23.04
+        ]
+      },
+      {
+        "gameAudioRMSBetweenMarkers": 0.03657282557793755,
+        "segment": "02-slingmods-sport-v3-50",
+        "sourceVideoStart": 26.220000000000002,
+        "sourceAudioStart": 0.37,
+        "duration": 18.199999999999996,
+        "measuredAVDriftMs": -35.000000000003695,
+        "audioChirpCenters": [
+          0.11,
+          18.945
+        ],
+        "videoFlashStarts": [
+          25.92,
+          44.72
+        ]
+      },
+      {
+        "gameAudioRMSBetweenMarkers": 0.03862874598242594,
+        "segment": "03-slingmods-sport-v2-65",
+        "sourceVideoStart": 47.699999999999996,
+        "sourceAudioStart": 0.37,
+        "duration": 20.64,
+        "measuredAVDriftMs": -56.333333333331126,
+        "audioChirpCenters": [
+          0.11,
+          21.406333333333333
+        ],
+        "videoFlashStarts": [
+          47.4,
+          68.64
+        ]
+      },
+      {
+        "gameAudioRMSBetweenMarkers": 0.03936420379904568,
+        "segment": "04-slingmods-sport-v3-65",
+        "sourceVideoStart": 70.7,
+        "sourceAudioStart": 0.37,
+        "duration": 19.199999999999996,
+        "measuredAVDriftMs": -24.250000000005656,
+        "audioChirpCenters": [
+          0.11,
+          19.934250000000002
+        ],
+        "videoFlashStarts": [
+          70.4,
+          90.2
+        ]
+      },
+      {
+        "gameAudioRMSBetweenMarkers": 0.04259632405527918,
+        "segment": "05-keyboard-drive",
+        "sourceVideoStart": 114.74,
+        "sourceAudioStart": 0.37,
+        "duration": 17.92000000000001,
+        "measuredAVDriftMs": -74.91666666665608,
+        "audioChirpCenters": [
+          0.11,
+          18.704916666666666
+        ],
+        "videoFlashStarts": [
+          114.44,
+          132.96
+        ]
+      },
+      {
+        "gameAudioRMSBetweenMarkers": 0.043749682446436455,
+        "segment": "06-current-race",
+        "sourceVideoStart": 137.62,
+        "sourceAudioStart": 0.37,
+        "duration": 93.48000000000002,
+        "measuredAVDriftMs": -38.58333333332098,
+        "audioChirpCenters": [
+          0.11,
+          94.22858333333333
+        ],
+        "videoFlashStarts": [
+          137.32,
+          231.4
+        ]
+      },
+      {
+        "gameAudioRMSBetweenMarkers": 0.02839103148401153,
+        "segment": "07-same-build",
+        "sourceVideoStart": 233.42000000000002,
+        "sourceAudioStart": 0.375,
+        "duration": 10.279999999999996,
+        "measuredAVDriftMs": -59.333333333338345,
+        "audioChirpCenters": [
+          0.115,
+          11.054333333333334
+        ],
+        "videoFlashStarts": [
+          233.12,
+          244.0
+        ]
+      }
+    ],
+    "video": "director-kit\\production\\evidence\\P09C\\film-03\\raw-video\\page@3b6794ce0f2cd58f5d08340477d40a67.webm",
+    "film": "director-kit\\production\\evidence\\P09C\\film-03\\P09C-Freedom-to-Drive.mp4",
+    "duration": 198.272,
+    "bytes": 23863553,
+    "sha256": "41fb22e56105bb61bbeafcb60190997dbcd0415540524fa854424b5a892d59e6",
+    "decodedAudio": {
+      "peak": 0.20480851829051971,
+      "rms": 0.04018806927085813,
+      "samples": 2379264
+    },
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1280,
+          "height": 720,
+          "coded_width": 1280,
+          "coded_height": 720,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "16:9",
+          "pix_fmt": "yuv420p",
+          "level": 31,
+          "color_range": "tv",
+          "color_space": "bt470bg",
+          "chroma_location": "center",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "25/1",
+          "avg_frame_rate": "41225/1651",
+          "time_base": "1/12800",
+          "start_pts": 781,
+          "start_time": "0.061016",
+          "duration_ts": 2535936,
+          "duration": "198.120000",
+          "bit_rate": "838308",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "4947",
+          "extradata_size": 51,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "eng",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.9.100 libx264"
+          }
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_long_name": "AAC (Advanced Audio Coding)",
+          "profile": "LC",
+          "codec_type": "audio",
+          "codec_tag_string": "mp4a",
+          "codec_tag": "0x6134706d",
+          "sample_fmt": "fltp",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "bits_per_sample": 0,
+          "initial_padding": 0,
+          "id": "0x2",
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 9517056,
+          "duration": "198.272000",
+          "bit_rate": "119121",
+          "nb_frames": "9295",
+          "extradata_size": 5,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "eng",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ],
+      "format": {
+        "filename": "director-kit\\production\\evidence\\P09C\\film-03\\P09C-Freedom-to-Drive.mp4",
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "198.272000",
+        "size": "23863553",
+        "bit_rate": "962861",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf60.4.101"
+        }
+      }
+    }
+  },
+  "preservedAssets": "handoff/P09C-REQUIRED-ASSETS.json",
+  "limitations": [
+    "Human driving enjoyment/listening, physical controllers, destination hardware, G3/G4 and final OEM fidelity remain unverified.",
+    "Browser/Node derived-math differences below2e-11 are disclosed in matched capture comparison; bitwise equivalence is claimed only for retained v2 within its exact Node baseline test.",
+    "Current-copy creates a session draft while preserving the original saved recipe; use Save build to retain the updated recipe as a named durable build.",
+    "Engine/audio sources are unchanged from Review18; measured multi-RPM stock/Thermal recordings remain unavailable.",
+    "Remote recovery uses a fresh network checkout on this same Windows host, sharing installed tools/package/browser caches; not another-machine hardware certification.",
+    "Vercel reports only vercel.json as changed inside its build; the honest -working label remains. No tracked runtime inputs changed; see hosted-final-01/provider.json.",
+    "Cross-document navigation can briefly interrupt audio; data, supported products and selected build are preserved."
+  ]
+}

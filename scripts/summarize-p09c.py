@@ -24,19 +24,22 @@ functional=['profile-entry-final-01','signature-integration-final-01','preparati
 for folder in functional:
  report=load(E/folder/'verification.json');assert report.get('pass') is True or report.get('status')=='PASS',folder
 remote=load(E/'remote-recovery/verification.json')
-hosted=load(E/'hosted-final-01/verification.json')
+hosted=load(E/'hosted-final-02/verification.json')
+root=load(E/'hosted-root-final-02/verification.json');assert root['pass']
+assert remote['pass'] and hosted['pass']
 receipt={'schemaVersion':1,'assignment':'P09C Freedom to Drive','branch':'main','runtimeCommit':RUNTIME,
  'remote':'https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild.git','repositoryVisibility':'PUBLIC',
  'functionalPass':True,'sourceTests':{'passed':250,'failed':0},'builds':['normal PASS','curated demo PASS','curated Vercel stage PASS'],
  'functionalEvidence':functional,'motion':load(E/'motion-final/summary.json'),'historicalV2':load(E/'historical-v2/verification.json'),
  'nativePerformance':native,'additionalCockpitPass':len(extras)>=2 and all(a['pass'] for c in extras for a in c['attempts']),
- 'remoteRecovery':remote,'hosted':{'pass':hosted['pass'],'base':hosted['base'],'build':hosted['states']['provenance'],'evidence':'hosted-final-01/verification.json'},
+ 'remoteRecovery':remote,'hostedRoot':{'pass':root['pass'],'evidence':'hosted-root-final-02/verification.json','diagnosticsExposed':root['state']['diagnosticsExposed']},'hosted':{'pass':hosted['pass'],'base':hosted['base'],'build':hosted['states']['provenance'],'evidence':'hosted-final-02/verification.json'},
  'film':load(E/'film-03/FILM-VERIFICATION.json'),'preservedAssets':'handoff/P09C-REQUIRED-ASSETS.json',
  'limitations':['Human driving enjoyment/listening, physical controllers, destination hardware, G3/G4 and final OEM fidelity remain unverified.',
  'Browser/Node derived-math differences below2e-11 are disclosed in matched capture comparison; bitwise equivalence is claimed only for retained v2 within its exact Node baseline test.',
  'Current-copy creates a session draft while preserving the original saved recipe; use Save build to retain the updated recipe as a named durable build.',
  'Engine/audio sources are unchanged from Review18; measured multi-RPM stock/Thermal recordings remain unavailable.',
  'Remote recovery uses a fresh network checkout on this same Windows host, sharing installed tools/package/browser caches; not another-machine hardware certification.',
+ 'Vercel reports only vercel.json as changed inside its build; the honest -working label remains. No tracked runtime inputs changed; see hosted-final-01/provider.json.',
  'Cross-document navigation can briefly interrupt audio; data, supported products and selected build are preserved.']}
 if passed!=16:receipt['limitations'].append('Native performance HOLD: complete unfiltered matrix records the failing intervals.')
 (ROOT/'handoff/P09C-VALIDATION.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8',newline='\n')
