@@ -1,0 +1,4 @@
+First separate graphics probe: page.waitForFunction timed out after 120000 ms.
+Cause: /?test=1&profile=1 selects the intentionally retained legacy bay in src/main.ts, while the probe awaited __SIGNATURE.ready.
+Repair: name scene=signature in this diagnostic probe. The second probe completed and recorded the actual NVIDIA RTX4080 ANGLE D3D11 backend in browser-backend.json.
+The hosted functional script was reviewed for the same setup mistake before its first run: its first canonical root load remains query-free; only its second diagnostic load adds scene=signature when no scene is present. No game routing code was changed.

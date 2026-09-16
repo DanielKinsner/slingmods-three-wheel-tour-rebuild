@@ -1,0 +1,389 @@
+{
+  "method": "Isolated headless Chromium real WebAudio; physical speakers muted by browser flag. Standard user-gesture unlock; service/network-independent baked assets; no hardware/by-ear claim.",
+  "checks": [
+    {
+      "name": "Gesture unlock loads all baked banks and actual engine graph runs",
+      "initial": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "p09b-authored-stock-mix",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "thermal": {
+          "loaded": true,
+          "armed": false,
+          "playing": false,
+          "elapsed": 0,
+          "offset": 0,
+          "starts": 0,
+          "paused": false,
+          "level": 0,
+          "clock": "cinematic-elapsed",
+          "bus": "captured-master"
+        },
+        "cues": {
+          "loaded": true,
+          "active": 0,
+          "poolLimit": 8,
+          "played": 0,
+          "rejected": 0,
+          "counts": {},
+          "bus": "captured-master"
+        },
+        "graph": {
+          "contextState": "running",
+          "contextTime": 0.2906666666666667,
+          "persistentLoops": 17,
+          "shiftCount": 0,
+          "masterTarget": 0.55,
+          "rms": 0.02483603803087874,
+          "parameters": {
+            "rpm": 3400,
+            "speed": 0,
+            "load": 0.6,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-load",
+                "rate": 1.1333333333333333,
+                "gain": 0.1729190664782018
+              },
+              {
+                "name": "engine-3000-lift",
+                "rate": 1.1333333333333333,
+                "gain": 0.04962699665742114
+              },
+              {
+                "name": "engine-4000-load",
+                "rate": 0.85,
+                "gain": 0.14081191870117826
+              },
+              {
+                "name": "engine-4000-lift",
+                "rate": 0.85,
+                "gain": 0.04041238922365654
+              },
+              {
+                "name": "engine-5300-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 0
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 0
+              }
+            ],
+            "master": 0.55,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+      }
+    },
+    {
+      "name": "Transaction and category cooldown reject duplicates; one preset cue; captured master contains active engine and cues",
+      "results": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "inspection": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "p09b-authored-stock-mix",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "thermal": {
+          "loaded": true,
+          "armed": false,
+          "playing": false,
+          "elapsed": 0,
+          "offset": 0,
+          "starts": 0,
+          "paused": false,
+          "level": 0,
+          "clock": "cinematic-elapsed",
+          "bus": "captured-master"
+        },
+        "cues": {
+          "loaded": true,
+          "active": 0,
+          "poolLimit": 8,
+          "played": 3,
+          "rejected": 2,
+          "counts": {
+            "part.shocks.attach": 1,
+            "build.preset": 1,
+            "ui.nav": 1
+          },
+          "bus": "captured-master"
+        },
+        "graph": {
+          "contextState": "running",
+          "contextTime": 0.6613333333333333,
+          "persistentLoops": 17,
+          "shiftCount": 0,
+          "masterTarget": 0.55,
+          "rms": 0.02688667929366625,
+          "parameters": {
+            "rpm": 3400,
+            "speed": 0,
+            "load": 0.6,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-load",
+                "rate": 1.1333333333333333,
+                "gain": 0.1729190664782018
+              },
+              {
+                "name": "engine-3000-lift",
+                "rate": 1.1333333333333333,
+                "gain": 0.04962699665742114
+              },
+              {
+                "name": "engine-4000-load",
+                "rate": 0.85,
+                "gain": 0.14081191870117826
+              },
+              {
+                "name": "engine-4000-lift",
+                "rate": 0.85,
+                "gain": 0.04041238922365654
+              },
+              {
+                "name": "engine-5300-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 0
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 0
+              }
+            ],
+            "master": 0.55,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+      }
+    },
+    {
+      "name": "Thermal pause resumes cinematic offset; synthetic graph ducked; stock negative session clears prior Thermal",
+      "paused": {
+        "loaded": true,
+        "armed": true,
+        "playing": false,
+        "elapsed": 1.3,
+        "offset": 0.4,
+        "starts": 1,
+        "paused": true,
+        "level": 0.55,
+        "clock": "cinematic-elapsed",
+        "bus": "captured-master"
+      },
+      "resumed": {
+        "loaded": true,
+        "armed": true,
+        "playing": true,
+        "elapsed": 1.3,
+        "offset": 1.3,
+        "starts": 2,
+        "paused": false,
+        "level": 0.55,
+        "clock": "cinematic-elapsed",
+        "bus": "captured-master"
+      }
+    },
+    {
+      "name": "Muted start never plays a late Thermal burst on unmute",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "blockedExternal": [],
+  "requests": [
+    "http://127.0.0.1:5201/assets/audio/p09b/provenance.json",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-1200-load.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-1200-lift.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-1650-load.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-1650-lift.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-2200-load.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-2200-lift.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-3000-load.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-3000-lift.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-4000-load.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-4000-lift.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-5300-load.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-5300-lift.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-6800-load.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/engine-6800-lift.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/road.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/wind.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/shift.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b/thermal-mid.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/provenance.json",
+    "http://127.0.0.1:5201/assets/audio/p09b-departure/provenance.json",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.nav.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.confirm.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.back.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/ui.detent.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/power.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/finish.apply.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/part.shocks.attach.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/part.lights.attach.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/part.exhaust.attach.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/part.aero.attach.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/part.storage.attach.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/part.remove.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/build.save.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/build.preset.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/career.unlock.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/race.count.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/race.start.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-cues/race.finish.wav",
+    "http://127.0.0.1:5201/assets/audio/p09b-departure/thermal.wav"
+  ],
+  "capture": {
+    "mimeType": "audio/webm;codecs=opus",
+    "contextSampleRate": 48000,
+    "channels": 2,
+    "startedWall": 634.5,
+    "endedWall": 991,
+    "startedAudio": 0.2906666666666667,
+    "endedAudio": 0.6506666666666666,
+    "markers": [],
+    "method": "Actual realtime player plus spatial-opponent mix tapped after all buses. Three disclosed evidence-only sync chirps and DOM flashes; no microphone, system loopback, offline synthesis or video-clock control."
+  },
+  "failure": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#enable-sound')\u001b[22m\n\u001b[2m    - locator resolved to <button hidden=\"\" id=\"enable-sound\">Enable sound</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+}

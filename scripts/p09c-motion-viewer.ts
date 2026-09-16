@@ -5,7 +5,7 @@ import {DrivingCamera} from '../src/presentation/driving-camera';
 import {GameAudio} from '../src/audio/game-audio';
 import {createSweeper} from './p09c-motion-protocol';
 import type {HandlingProfileId} from '../src/simulation';
-const query=new URLSearchParams(location.search),profile=(query.get('profile')||'slingmods-sport-v3') as HandlingProfileId,mph=Number(query.get('mph')||65),radius=mph===50?90:150,direction=query.get('direction')==='-1'?-1:1;
+const query=new URLSearchParams(location.search),profile=(query.get('handling')||'slingmods-sport-v3') as HandlingProfileId,mph=Number(query.get('mph')||65),radius=mph===50?90:150,direction=query.get('direction')==='-1'?-1:1;
 const {sim,protocol}=await createSweeper(profile,{mph,radius,direction,duration:12});
 const scene=new THREE.Scene();scene.background=new THREE.Color('#a7b4be');scene.fog=new THREE.Fog('#a7b4be',170,580);
 const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;document.body.prepend(renderer.domElement);

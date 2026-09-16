@@ -49,6 +49,8 @@ Zero generation calls/spending: a secure available key and verified prepaid cap 
 
 Astra reviews Review18 and supplies the next bounded direction. Existing untracked owner folder `SlingMods-Astra-Director-Review-17/` and older review ZIPs were preserved. Ignored clone/build/evidence caches remain local; pinned source and required assets recover from Git. Detailed commands, source hashes, evidence boundaries and same-host recovery disclosure are in handoff/P09B-SIGNATURE-FINISH.md and the validation receipt.
 
+Local completion: runtime 5b2c99af2c567c04b5ea9d896765e7a6ddeec25e; 250 tests and both builds pass. All 16 native race attempts and two cockpit attempts pass. Film and complete failed/final data are retained under director-kit/production/evidence/P09C. Fresh remote recovery, canonical hosted gameplay and final archive delivery are the remaining checks.
+
 ---
 
 # Historical handoffs

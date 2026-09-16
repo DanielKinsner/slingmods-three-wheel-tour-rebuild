@@ -1,0 +1,1 @@
+Film01 is rejected. A query-key collision between the recording test flag and diagnostic profile selected v3 for the segment named v2. The visible HUD and recorded telemetry correctly identify v3; this must not be used as baseline comparison evidence. Repaired by separate handling parameter and explicit profile/segment assertion. Original captured files are retained.
