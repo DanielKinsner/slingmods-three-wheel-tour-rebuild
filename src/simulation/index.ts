@@ -1,5 +1,5 @@
 import {handlingProfile,steeringLimit,type HandlingProfileId} from './profile';
-export {HANDLING_PROFILES,handlingProfile,steeringLimit,type HandlingProfileId} from './profile';
+export {HANDLING_PROFILES,CURRENT_HANDLING_PROFILE,handlingProfile,steeringLimit,steeringRequest,steeringDemandForAngle,type HandlingProfileId} from './profile';
 import {suspensionParameters,type SuspensionSetup} from '../career/suspension';
 import RAPIER from '@dimforge/rapier3d-compat';
 import layout from '../../public/assets/slingshot-contact-layout.json';
@@ -64,7 +64,7 @@ export class Simulation {
       // floor group is excluded. The chassis still catches a bottom-out/overturn.
       // Matched high-speed tests isolated asymmetric guard/floor response despite
       // zero reported solver impulses; cylinder-to-hull and CCD-off did not fix it.
-      if(profileId==='slingmods-sport-v2')guard.setCollisionGroups(0x0002fffe);
+      if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'))guard.setCollisionGroups(0x0002fffe);
       this.world.createCollider(guard.setTranslation(w.center[0],w.center[1]-SPEC.comHeight,w.center[2]).setDensity(0).setFriction(0).setFrictionCombineRule(RAPIER.CoefficientCombineRule.Min),this.body);
     }
     this.reset();
@@ -87,7 +87,8 @@ export class Simulation {
     const q=this.body.rotation(),p=this.body.translation(),up=rotate(v(0,1,0),q),forward=rotate(v(0,0,-1),q),velocity=this.body.linvel(),speed=dot(velocity,forward);
     const maxSteer=steeringLimit(speed,this.profileId,layout.wheelbase)*(this.profileId==='legacy-p08a'?1:1-handlingProfile(this.profileId).brakeSteerRelief*this.brake);
     const target=clamp(finite(control.steer),-1,1)*maxSteer;
-    this.steering+=clamp(target-this.steering,-handlingProfile(this.profileId).steerRate*dt,handlingProfile(this.profileId).steerRate*dt);
+    const response=this.profileId==='slingmods-sport-v3'?1-Math.exp(-dt/.10):1;
+    this.steering+=clamp((target-this.steering)*response,-handlingProfile(this.profileId).steerRate*dt,handlingProfile(this.profileId).steerRate*dt);
     const driveState=this.drivetrain.step(speed,this.overspeed[2],layout.wheels[2].radius,this.throttle,this.brake,Boolean(control.reverse),dt);
     this.throttle=driveState.throttle;this.brake=driveState.brake;const engineForce=driveState.force;
     this.body.resetForces(true);this.body.resetTorques(true);
@@ -148,7 +149,7 @@ export class Simulation {
         // V2 brake-by-load allocator sends the same total pedal demand to supported
         // tires in proportion to instantaneous non-tensile normal load. Friction
         // ellipse and near-zero stop limiter remain authoritative; no extra grip.
-        const braking=Math.min(stopLimit,this.brake*SPEC.mass*9.81*(this.profileId==='slingmods-sport-v2'?load/Math.max(1,supportedLoad):(rear?0.3:0.35))*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?110:0));
+        const braking=Math.min(stopLimit,this.brake*SPEC.mass*9.81*((this.profileId==='slingmods-sport-v2'||this.profileId==='slingmods-sport-v3')?load/Math.max(1,supportedLoad):(rear?0.3:0.35))*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?110:0));
         const request=drive-Math.sign(long)*braking;
         fy=-load*handlingProfile(this.profileId).tireStiffness*slipAngle;
         fy=clamp(fy,-Math.abs(lateral)*SPEC.mass*share/dt,Math.abs(lateral)*SPEC.mass*share/dt);
@@ -195,7 +196,7 @@ export class RaceWorld {
     const [gx,gy,gz]=environment.ground.center,[gw,gh,gl]=environment.ground.size;
     const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
     const groundShape=RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45);
-    if(profileId==='slingmods-sport-v2')groundShape.setCollisionGroups(0x0001ffff);
+    if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'))groundShape.setCollisionGroups(0x0001ffff);
     this.world.createCollider(groundShape);
     for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation({x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));
     for(const ramp of environment.ramps){

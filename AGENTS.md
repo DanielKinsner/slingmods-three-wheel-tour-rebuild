@@ -1,3 +1,13 @@
+# Active assignment — P09C Freedom to Drive / main
+
+The owner adopted director-kit/director-addenda/review-18/CODEX_NEXT.md and its three packets. Implement bounded versioned steering/brake-turn repair and consistent new-play profiles, preserving historical recipes, frozen events/Cups and career progress. Retain all Review18 UI/audio/dashboard/Thermal departure, showroom/vehicle refinements and products. One lead and at most two bounded helpers are authorized. Current work stays on main; push only complete tested checkpoints because the existing personal rebuild Vercel integration auto-deploys main. No force-push, account/plan/visibility changes, spending, other sites or desktop takeover. Return tracked Astra-Review-19-Lean.zip and all recoverable inputs.
+
+Verified2026-09-16: origin DanielKinsner/slingmods-three-wheel-tour-rebuild is PUBLIC; previous private/pending-hosting descriptions are historical. Existing authorized Vercel project prj_3UBN81UQim5W3obOGNHc9wpfNTDY / team_PBgvwaLCZgCbOUOfCircpnmu serves slingmods-three-wheel-tour-rebuild.vercel.app. Starting main52c234cb8757cc2cfb387738f800a4056c221237; preserve later work. G3/G4, final OEM fidelity and physical-device/human approval remain open. Read handoff/P09C-FREEDOM-TO-DRIVE.md when present for current commands/results.
+
+---
+
+# Historical completed assignment
+
 # Current assignment state — main / P09B complete
 
 The owner explicitly authorized merging and continuing directly on main. Merge/push completed at ea58b4f9c1df98ab16629bce24721596b6a43e32. Work directly on main for subsequent owner instructions; do not resume an older feature branch. The prior no-main restrictions below are historical and superseded. No public deployment, spending, account changes or desktop takeover.

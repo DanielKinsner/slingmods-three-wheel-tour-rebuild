@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "deploy:build": "node scripts/build-vercel.mjs",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "test": "tsx --test tests/*.test.ts tests/*.test.mjs",

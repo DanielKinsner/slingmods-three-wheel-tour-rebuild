@@ -1,6 +1,8 @@
-# Current entry point
+# Current entry point - P09C Freedom to Drive
 
-Read HANDOFF.md for P07B, fresh-clone setup and the pending publication boundary. Current local game: npm ci, npm run demo:build, npm run demo:preview (localhost5188). The sections below describe earlier milestones.
+Continue on main. Read HANDOFF.md and handoff/P09C-FREEDOM-TO-DRIVE.md for current validation, assets, review packet and next-machine recovery. Install pinned dependencies with `npm ci`, run `npm test`, then `npm run demo:build` and `$env:PORT=5197; npm run demo:preview`. Open http://127.0.0.1:5197/. The canonical hosted root is https://slingmods-three-wheel-tour-rebuild.vercel.app/; its verified deployment identity is recorded in the current handoff.
+
+New play uses Sport v3. Historical saved builds retain their tune; Build Presets offers Use current driving, preserving the original. Existing career ownership/progress and frozen event/Cup entries remain intact. No new audio, vehicle or destination in this assignment.
 
 ---
 
