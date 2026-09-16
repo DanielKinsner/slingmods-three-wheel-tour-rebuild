@@ -1,0 +1,737 @@
+{
+  "pass": true,
+  "base": "https://slingmods-three-wheel-tour-rebuild.vercel.app",
+  "commit": "f4bc5720afa70cec91dfebacf16c8ee6e92be106",
+  "provenance": {
+    "commit": "f4bc5720afa70cec91dfebacf16c8ee6e92be106",
+    "buildRef": "f4bc5720afa7-working",
+    "inputs": {
+      "public/assets/audio/p03b2/engine-1200-lift.wav": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+      "public/assets/audio/p03b2/engine-1200-load.wav": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+      "public/assets/audio/p03b2/engine-3600-lift.wav": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+      "public/assets/audio/p03b2/engine-3600-load.wav": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+      "public/assets/audio/p03b2/engine-6200-lift.wav": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+      "public/assets/audio/p03b2/engine-6200-load.wav": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+      "public/assets/audio/p03b2/provenance.json": "322f35fdb70c08d5fcec745f8a0176fca9b8337f51e24b5b6208606393feb5a8",
+      "public/assets/audio/p03b2/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "public/assets/audio/p03b2/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "public/assets/audio/p03b2/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "public/assets/audio/p09b-cues/build.preset.wav": "4612189cddfe6ec55e9d430d7bb304d478bb933285a0c83db1ecc05e0a53a8ba",
+      "public/assets/audio/p09b-cues/build.save.wav": "dfa981cf4e389e2b6315e8674e1aaa71f69d147ab5da11724634697f7380366d",
+      "public/assets/audio/p09b-cues/career.unlock.wav": "9a0c0e2031f744e6395d7118f1fd6a30447daa807fbd31ce2c06c33c1cceca35",
+      "public/assets/audio/p09b-cues/finish.apply.wav": "5a84f7567a3a6d45374bc8d64a66a9610306bc49c3ecb998caa35461135b401e",
+      "public/assets/audio/p09b-cues/part.aero.attach.wav": "78fa06ae4b4ae1fd30837e3d55591491c3681ee847337c6acf0267069f93077e",
+      "public/assets/audio/p09b-cues/part.exhaust.attach.wav": "df362cacf78b78a6697de0273bb8cfa4fcfa0f1b884de5febeb687719321940c",
+      "public/assets/audio/p09b-cues/part.lights.attach.wav": "3959d15915256ae4ae8c661b3f39e410d5f1a5ba9d964392e33bf89720c42a1e",
+      "public/assets/audio/p09b-cues/part.remove.wav": "59f60b61cddc56c685b4989840881ef1511bc96799e8349453611fae7c29b185",
+      "public/assets/audio/p09b-cues/part.shocks.attach.wav": "d83ad878a886e46874d35c5cff7bcb80bd448f7b82eed28b1eb542ffe1b5f6db",
+      "public/assets/audio/p09b-cues/part.storage.attach.wav": "21f4d3171e9bf906ac50050234416f8338391d29166fdcf6e9eb2aaca227b92b",
+      "public/assets/audio/p09b-cues/power.wav": "bd54c39256bee8fd25226d1768833e305b62df150f1f30aaf9686e0847a73ee6",
+      "public/assets/audio/p09b-cues/provenance.json": "c48af8d43356436543431efc2a551787eef5595e15d971ba82b1f9df4fe5c9f3",
+      "public/assets/audio/p09b-cues/race.count.wav": "f5f077611ade409d2636fb987a7bed6a6293ed8c21dca634067bee45cd758510",
+      "public/assets/audio/p09b-cues/race.finish.wav": "4e371379a34f6c733ca97d3a913d0718ad09cef60eb74ff8fe9c20d44eb26a4a",
+      "public/assets/audio/p09b-cues/race.start.wav": "8ca22ed852e763ba287eb6be165805096b3ffced78d1a49f2660e58fc8be016b",
+      "public/assets/audio/p09b-cues/ui.back.wav": "b6b370a0386f236890a4ee1d02c8f3de5e8a3b52880d326699af085e88f27cdd",
+      "public/assets/audio/p09b-cues/ui.confirm.wav": "d8dcad31c97cfb7c6679e1527d098bc3eb56d4804b52b380e283c4814deca357",
+      "public/assets/audio/p09b-cues/ui.detent.wav": "eb5fc400c54897d6fc27147cd77e55bf77f51ebab24f77029b3a0edcb0931bb7",
+      "public/assets/audio/p09b-cues/ui.nav.wav": "9d8ef0d972252b40f283d7bcfcba9b0a744ec62316417ad098f0572229990222",
+      "public/assets/audio/p09b-departure/provenance.json": "be64328c946bb4164f934849357278f066bcc1f3f4920946cdf9395f6f397fae",
+      "public/assets/audio/p09b-departure/thermal.wav": "be6c4864ff1071a51be94a78576a481f9a86678f9127ad0d48b4944789fbb54d",
+      "public/assets/audio/p09b/engine-1200-lift.wav": "dde9eef41c4fb7c8632a536af409c9dbfe79c15f8b5c6c1c6ddfd051845bce0a",
+      "public/assets/audio/p09b/engine-1200-load.wav": "9ea773abbdd3cf542166fb8648f81cf470c1449c828bcfcb02019c7c67b6fc8a",
+      "public/assets/audio/p09b/engine-1650-lift.wav": "07665c776e1eecfa78f6086d4018345b6d73150a060837a8cc3fce96390f3e18",
+      "public/assets/audio/p09b/engine-1650-load.wav": "e723500567b39a666cd6ddf57df67537bf93989966b7c94c2bf5b37c3151e2e8",
+      "public/assets/audio/p09b/engine-2200-lift.wav": "abbd6c03c0b289a3f14cc2e41ebef1abf3e8f9fb344e1dc039818572b024a67e",
+      "public/assets/audio/p09b/engine-2200-load.wav": "aad679aa6b2a29ff5fe74b370ef2765ef5bf4a38a2c099c76bdc1ddaef173177",
+      "public/assets/audio/p09b/engine-3000-lift.wav": "40e32d8723c272a73582e06d792e0e0ae7769a509109dfb83d63a7b1a2e5284b",
+      "public/assets/audio/p09b/engine-3000-load.wav": "e895abcad899a1938a5b274e232210d95dd2601de7be18681a806c7e30e05502",
+      "public/assets/audio/p09b/engine-4000-lift.wav": "2b91abb7991bcfe35b52b7897d69da820e07d8015fa2f27f273a8160d3ae76d9",
+      "public/assets/audio/p09b/engine-4000-load.wav": "7f01fdd8eb4bc92535d3405071b6ae80e1f733fe25fd125a078d77651e3fca41",
+      "public/assets/audio/p09b/engine-5300-lift.wav": "c7aff1931a643954f02ae0a0607d72f0ba9551d9c56b0fc21932c764c19cdf1d",
+      "public/assets/audio/p09b/engine-5300-load.wav": "71b21e04cc09572c3c772d28b7181923299c0ed0595b236fc9c7f0fd1983f7c0",
+      "public/assets/audio/p09b/engine-6800-lift.wav": "6e6eb01f04e0f3645c7a573db506d11088d5ee126d46f39f97ba29e4c96b2a44",
+      "public/assets/audio/p09b/engine-6800-load.wav": "263bc0d7e01f96a7ebe43c0fcb6c515b5fbc9dd51dc0e199d507cf5df4fac191",
+      "public/assets/audio/p09b/provenance.json": "4a61526d88a63149aa587bc2c50f2c623ba7072f761f9ee867ccd48563084ba2",
+      "public/assets/audio/p09b/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "public/assets/audio/p09b/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "public/assets/audio/p09b/thermal-mid.wav": "15ada60daf62839288c284f651b8fd1523df1f4da00a6d721504de5e5b10dffe",
+      "public/assets/audio/p09b/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "public/assets/audio/showroom/bay-door-open.mp3": "2251c4624e5a7b1b201a8acb1266d73eca1acbdccbb4a820f0af9b740f80a9d8",
+      "public/assets/brand/sign-layout.json": "49f2eb84342c971beb3c4ed8878a7b7fccbcacfccf9337734ecd6ed8e3a4ff3a",
+      "public/assets/brand/slingmods-logo-main.png": "7f86698349f9c83abdd9a68d9c40810c2f89385a710fa209de6ad71fff75c3fd",
+      "public/assets/brand/slingmods-logo-main.source.json": "b4f39ac8ecd083a9ca5de9bc9e9d9ab9f5b46cd1adbcd44db082caa63720dec6",
+      "public/assets/brand/slingmods-sign.glb": "fce90da804681858fa4a796608a725932a56e32305b50d4d88b19720c8014f82",
+      "public/assets/drivers/test-driver-attachment.json": "7faed90c2e32858d7ce27c6b55d4763e1dc672e61de5a13c767aca8874ca72d4",
+      "public/assets/drivers/test-driver.glb": "c9909f146ec2fd17e1205abfef3c48e1b2f0006cde83af3382000a66995d75e5",
+      "public/assets/front-refinement/slingshot-front-refined.glb": "4f8064539d58aae7bbe3cd89c0fbb4c8f77f7e2af84430ac41b30942c2ec2533",
+      "public/assets/harbor/harbor.glb": "01b74c9ec465077304e158ac7e97e1ca1493e61ad48533d3bbb0a59b3109a1c1",
+      "public/assets/harbor/route.json": "e200643ff4a1e8e7f4de719b44b00b81fcca165008e445f314be9f9acaa7e1fa",
+      "public/assets/hoop-refinement/slingshot-hoops-refined.glb": "0e643e6d7f54e0f91c18aefdb3ea5a4e75afcf6943087c3432affb679318a55b",
+      "public/assets/p08b/checker-normal.png": "c91f67a7574cff406a17962a89f58e7847bf40ef47838537c5ed4087fc6462d7",
+      "public/assets/p08b/finish-black-red.png": "0afe42bebc7bc819b2b9f97833110cb6b16ba081fdcbd9e27b505c364343cac9",
+      "public/assets/p08b/finish-graphite-red.png": "90a024e1254c249099e039dcaecc25afe7f78e0930f0c25e645b6c588372abb2",
+      "public/assets/p08b/finish-white-graphite.png": "c60fe3d8cbd025e05e437b3ce7e89566039014d2072ab77ad9bc5b29b64b194c",
+      "public/assets/p08b/showroom-refinement/finish-white-graphite.png": "180f21d073fe1213a2c11ec243b104d371a3f64da5783446d9fbf23983eb7a11",
+      "public/assets/p08b/showroom-refinement/signature-showroom-refined.glb": "aaac85ed1f8c591328c17c64fbec666bf3c5cb4941b923af6e210014565beda3",
+      "public/assets/p08b/showroom-refinement/vented-tile-charcoal.png": "fc89796a4a83ab25adb398135d4c15e5e6135c12eed706fef2062ba10bd4bdf4",
+      "public/assets/p08b/showroom-refinement/vented-tile-gray.png": "13f920888503e570897aea14f5cac23dda321bec8c5d88b988d1da027b1b6b0b",
+      "public/assets/p08b/showroom-refinement/vented-tile-normal.png": "b04283c53fe1e327a526e5d329e87175248bcd0f850ffef4d767071acc3e736b",
+      "public/assets/p08b/showroom-refinement/vented-tile-orm.png": "4da0d80da31729d44ce0ee8a1f9c9e96d346f8dd3bfc8969b35d455d244a5ded",
+      "public/assets/p08b/showroom-refinement/vented-tile-red.png": "e740230019ce32e903b9185170904c93aecfc1095a5c0337e4d90b6254d36847",
+      "public/assets/p08b/signature-products.glb": "c8db9d532eff56d605d9be35fad356711c7849a225a4657f8cb0b279d99cffc6",
+      "public/assets/p08b/signature-showroom.glb": "49f99abb29eefde0501175e6e5d0b674f9520a8851c90b2f6e934a4608ece598",
+      "public/assets/p08b/slingshot-signature.glb": "d34c1ffde2048e2c5fc34bc86cc2a0bad19514961e1a68aee040b50d0fd90761",
+      "public/assets/p08b/thumbnails/SM-133.png": "1ddb4ff236ccae25e6c4af6ffa7db25a04023ee0402d3dea2b5934f755132830",
+      "public/assets/p08b/thumbnails/SM-26801.png": "0badea7aba3dd8e5326292d88c70ff93dc47168dff66e4a5a1a652a9724f6d72",
+      "public/assets/p08b/thumbnails/SM-28919.png": "f9de0a36ce490be287013424b686979433c44736be7f5fb34d3944357200e187",
+      "public/assets/p08b/thumbnails/SM-3223.png": "52f6835de1477853c401dce932523568fcd7ce0b498d023844aa3d8384ccea55",
+      "public/assets/p08b/thumbnails/SM-7720.png": "52010806308c10980645e4c3f0456e1b92fea7b60e4347be00e2a7a7749b3d86",
+      "public/assets/products/ddmworks-sm3223-silver.glb": "b02289e26c2b24cdd01fec57c22fadd5a82f926eed139ad2fdf95673700b2736",
+      "public/assets/products/tricled-sm133-base.attachment.json": "839902ec0b2be52b5f9a0614c0ed206963485f020177f3f49689e65bcab6aec2",
+      "public/assets/products/tricled-sm133-base.glb": "da206aaf6530a83479cb870e013c4efe7372a3ff9ffff038dccda9df19213d93",
+      "public/assets/ridge/preview.json": "8433d7e204f1b1e17f86a506f4bf9f713754bb2116666848b410b8cb88696539",
+      "public/assets/ridge/ridge-kit.glb": "eefcba42db0658d3fc1be3d2ccee88131ae746a331625ee664605f4df0b91c2d",
+      "public/assets/ridge/ridge-land.json": "0922eba6a117d632b45a199a508bc7db8ac461b95ab15fb5e04b921d7903f564",
+      "public/assets/ridge/thumbnail.jpg": "4f3b481a4e6a3b038ceec6330d24b2ac1c57292d41d743aa19dc4f7629fecd50",
+      "public/assets/showcase-quality/bay.glb": "4e26ed4a951c989cbf4344e97b6c42ba13e6355b2f874e1d904ecc36e6cdd7a5",
+      "public/assets/showcase-quality/foundation.glb": "de63a8f31a8ad8d8bed140a326a442fedecc0ebec3c667708ebf985d7888a838",
+      "public/assets/showcase-quality/kit.glb": "65166c2be3ee3f0a969a836015101ea2c7558219c518e67c054295e402001f31",
+      "public/assets/showcase-quality/scene-layout.json": "05ea799526456264603c0a90538a26a394ee77aa94520e652d621251c04e45b8",
+      "public/assets/showcase-quality/sky/day-puresky-2k.hdr": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+      "public/assets/showcase-quality/source-manifest.json": "8081e1443acb9a8ae2b05f75df7f4e6cbd7cfd0bcc13e4c6d259c57b448f2851",
+      "public/assets/showcase-quality/textures/concrete_wall_006_Diffuse.jpg": "d4b6b3b5cff1f1c4e073e7016d6c7caf11d9bd16408404480dd3dc11a5d4ee4a",
+      "public/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg": "16767927a64de441008841a697b2990b72d2695a5443ec83483b89bca3cba3bb",
+      "public/assets/showcase-quality/textures/leafy_grass_nor_gl.jpg": "20c8c07e123c3b0efe934567a281b65bbe3e2f49b95b0572cd05f9e0b2b8ca00",
+      "public/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg": "03ccab322c78274dc76bedccefefb4ed589837ca2eda3fc64db80f98f0779341",
+      "public/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg": "3e2f59802a84190cba48d2fffb4a56ae136da07bb8738e1455299b5a7eae79c9",
+      "public/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg": "af7ef84573aaaeb19a472c1705cc83ae5313c56bec58b8476573656849447f44",
+      "public/assets/showcase-quality/textures/palm_tree_bark_Diffuse.jpg": "94ce970a8dfa4701d45a2e79c8088f1133b3be47ca5a2d056f2aaa8a5a6ee134",
+      "public/assets/showcase-quality/textures/weathered_brown_planks_Diffuse.jpg": "51cba385230f0a793ee73aaebff7c2cf8f9edf58bb5b436d03dc779bbfa3f217",
+      "public/assets/vehicles/slingshot-p04a1-rear-rig.json": "ed04ac1e646f6c27633cb94af307197c1f17020b7c7cf5ddbf7c0517b658150d",
+      "public/assets/vehicles/slingshot-p04a1.glb": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c"
+    },
+    "kind": "Development Preview; public asset provenance only"
+  },
+  "checks": [
+    {
+      "path": "public/assets/audio/p03b2/engine-1200-lift.wav",
+      "expectedHostedSHA256": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+      "gitBlobSHA256": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-1200-load.wav",
+      "expectedHostedSHA256": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+      "gitBlobSHA256": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-3600-lift.wav",
+      "expectedHostedSHA256": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+      "gitBlobSHA256": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-3600-load.wav",
+      "expectedHostedSHA256": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+      "gitBlobSHA256": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-6200-lift.wav",
+      "expectedHostedSHA256": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+      "gitBlobSHA256": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/engine-6200-load.wav",
+      "expectedHostedSHA256": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+      "gitBlobSHA256": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/provenance.json",
+      "expectedHostedSHA256": "322f35fdb70c08d5fcec745f8a0176fca9b8337f51e24b5b6208606393feb5a8",
+      "gitBlobSHA256": "322f35fdb70c08d5fcec745f8a0176fca9b8337f51e24b5b6208606393feb5a8",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/road.wav",
+      "expectedHostedSHA256": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "gitBlobSHA256": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/shift.wav",
+      "expectedHostedSHA256": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "gitBlobSHA256": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p03b2/wind.wav",
+      "expectedHostedSHA256": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "gitBlobSHA256": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/build.preset.wav",
+      "expectedHostedSHA256": "4612189cddfe6ec55e9d430d7bb304d478bb933285a0c83db1ecc05e0a53a8ba",
+      "gitBlobSHA256": "4612189cddfe6ec55e9d430d7bb304d478bb933285a0c83db1ecc05e0a53a8ba",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/build.save.wav",
+      "expectedHostedSHA256": "dfa981cf4e389e2b6315e8674e1aaa71f69d147ab5da11724634697f7380366d",
+      "gitBlobSHA256": "dfa981cf4e389e2b6315e8674e1aaa71f69d147ab5da11724634697f7380366d",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/career.unlock.wav",
+      "expectedHostedSHA256": "9a0c0e2031f744e6395d7118f1fd6a30447daa807fbd31ce2c06c33c1cceca35",
+      "gitBlobSHA256": "9a0c0e2031f744e6395d7118f1fd6a30447daa807fbd31ce2c06c33c1cceca35",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/finish.apply.wav",
+      "expectedHostedSHA256": "5a84f7567a3a6d45374bc8d64a66a9610306bc49c3ecb998caa35461135b401e",
+      "gitBlobSHA256": "5a84f7567a3a6d45374bc8d64a66a9610306bc49c3ecb998caa35461135b401e",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/part.aero.attach.wav",
+      "expectedHostedSHA256": "78fa06ae4b4ae1fd30837e3d55591491c3681ee847337c6acf0267069f93077e",
+      "gitBlobSHA256": "78fa06ae4b4ae1fd30837e3d55591491c3681ee847337c6acf0267069f93077e",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/part.exhaust.attach.wav",
+      "expectedHostedSHA256": "df362cacf78b78a6697de0273bb8cfa4fcfa0f1b884de5febeb687719321940c",
+      "gitBlobSHA256": "df362cacf78b78a6697de0273bb8cfa4fcfa0f1b884de5febeb687719321940c",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/part.lights.attach.wav",
+      "expectedHostedSHA256": "3959d15915256ae4ae8c661b3f39e410d5f1a5ba9d964392e33bf89720c42a1e",
+      "gitBlobSHA256": "3959d15915256ae4ae8c661b3f39e410d5f1a5ba9d964392e33bf89720c42a1e",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/part.remove.wav",
+      "expectedHostedSHA256": "59f60b61cddc56c685b4989840881ef1511bc96799e8349453611fae7c29b185",
+      "gitBlobSHA256": "59f60b61cddc56c685b4989840881ef1511bc96799e8349453611fae7c29b185",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/part.shocks.attach.wav",
+      "expectedHostedSHA256": "d83ad878a886e46874d35c5cff7bcb80bd448f7b82eed28b1eb542ffe1b5f6db",
+      "gitBlobSHA256": "d83ad878a886e46874d35c5cff7bcb80bd448f7b82eed28b1eb542ffe1b5f6db",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/part.storage.attach.wav",
+      "expectedHostedSHA256": "21f4d3171e9bf906ac50050234416f8338391d29166fdcf6e9eb2aaca227b92b",
+      "gitBlobSHA256": "21f4d3171e9bf906ac50050234416f8338391d29166fdcf6e9eb2aaca227b92b",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/power.wav",
+      "expectedHostedSHA256": "bd54c39256bee8fd25226d1768833e305b62df150f1f30aaf9686e0847a73ee6",
+      "gitBlobSHA256": "bd54c39256bee8fd25226d1768833e305b62df150f1f30aaf9686e0847a73ee6",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/provenance.json",
+      "expectedHostedSHA256": "c48af8d43356436543431efc2a551787eef5595e15d971ba82b1f9df4fe5c9f3",
+      "gitBlobSHA256": "c48af8d43356436543431efc2a551787eef5595e15d971ba82b1f9df4fe5c9f3",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/race.count.wav",
+      "expectedHostedSHA256": "f5f077611ade409d2636fb987a7bed6a6293ed8c21dca634067bee45cd758510",
+      "gitBlobSHA256": "f5f077611ade409d2636fb987a7bed6a6293ed8c21dca634067bee45cd758510",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/race.finish.wav",
+      "expectedHostedSHA256": "4e371379a34f6c733ca97d3a913d0718ad09cef60eb74ff8fe9c20d44eb26a4a",
+      "gitBlobSHA256": "4e371379a34f6c733ca97d3a913d0718ad09cef60eb74ff8fe9c20d44eb26a4a",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/race.start.wav",
+      "expectedHostedSHA256": "8ca22ed852e763ba287eb6be165805096b3ffced78d1a49f2660e58fc8be016b",
+      "gitBlobSHA256": "8ca22ed852e763ba287eb6be165805096b3ffced78d1a49f2660e58fc8be016b",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/ui.back.wav",
+      "expectedHostedSHA256": "b6b370a0386f236890a4ee1d02c8f3de5e8a3b52880d326699af085e88f27cdd",
+      "gitBlobSHA256": "b6b370a0386f236890a4ee1d02c8f3de5e8a3b52880d326699af085e88f27cdd",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/ui.confirm.wav",
+      "expectedHostedSHA256": "d8dcad31c97cfb7c6679e1527d098bc3eb56d4804b52b380e283c4814deca357",
+      "gitBlobSHA256": "d8dcad31c97cfb7c6679e1527d098bc3eb56d4804b52b380e283c4814deca357",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/ui.detent.wav",
+      "expectedHostedSHA256": "eb5fc400c54897d6fc27147cd77e55bf77f51ebab24f77029b3a0edcb0931bb7",
+      "gitBlobSHA256": "eb5fc400c54897d6fc27147cd77e55bf77f51ebab24f77029b3a0edcb0931bb7",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-cues/ui.nav.wav",
+      "expectedHostedSHA256": "9d8ef0d972252b40f283d7bcfcba9b0a744ec62316417ad098f0572229990222",
+      "gitBlobSHA256": "9d8ef0d972252b40f283d7bcfcba9b0a744ec62316417ad098f0572229990222",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-departure/provenance.json",
+      "expectedHostedSHA256": "be64328c946bb4164f934849357278f066bcc1f3f4920946cdf9395f6f397fae",
+      "gitBlobSHA256": "be64328c946bb4164f934849357278f066bcc1f3f4920946cdf9395f6f397fae",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b-departure/thermal.wav",
+      "expectedHostedSHA256": "be6c4864ff1071a51be94a78576a481f9a86678f9127ad0d48b4944789fbb54d",
+      "gitBlobSHA256": "be6c4864ff1071a51be94a78576a481f9a86678f9127ad0d48b4944789fbb54d",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-1200-lift.wav",
+      "expectedHostedSHA256": "dde9eef41c4fb7c8632a536af409c9dbfe79c15f8b5c6c1c6ddfd051845bce0a",
+      "gitBlobSHA256": "dde9eef41c4fb7c8632a536af409c9dbfe79c15f8b5c6c1c6ddfd051845bce0a",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-1200-load.wav",
+      "expectedHostedSHA256": "9ea773abbdd3cf542166fb8648f81cf470c1449c828bcfcb02019c7c67b6fc8a",
+      "gitBlobSHA256": "9ea773abbdd3cf542166fb8648f81cf470c1449c828bcfcb02019c7c67b6fc8a",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-1650-lift.wav",
+      "expectedHostedSHA256": "07665c776e1eecfa78f6086d4018345b6d73150a060837a8cc3fce96390f3e18",
+      "gitBlobSHA256": "07665c776e1eecfa78f6086d4018345b6d73150a060837a8cc3fce96390f3e18",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-1650-load.wav",
+      "expectedHostedSHA256": "e723500567b39a666cd6ddf57df67537bf93989966b7c94c2bf5b37c3151e2e8",
+      "gitBlobSHA256": "e723500567b39a666cd6ddf57df67537bf93989966b7c94c2bf5b37c3151e2e8",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-2200-lift.wav",
+      "expectedHostedSHA256": "abbd6c03c0b289a3f14cc2e41ebef1abf3e8f9fb344e1dc039818572b024a67e",
+      "gitBlobSHA256": "abbd6c03c0b289a3f14cc2e41ebef1abf3e8f9fb344e1dc039818572b024a67e",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-2200-load.wav",
+      "expectedHostedSHA256": "aad679aa6b2a29ff5fe74b370ef2765ef5bf4a38a2c099c76bdc1ddaef173177",
+      "gitBlobSHA256": "aad679aa6b2a29ff5fe74b370ef2765ef5bf4a38a2c099c76bdc1ddaef173177",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-3000-lift.wav",
+      "expectedHostedSHA256": "40e32d8723c272a73582e06d792e0e0ae7769a509109dfb83d63a7b1a2e5284b",
+      "gitBlobSHA256": "40e32d8723c272a73582e06d792e0e0ae7769a509109dfb83d63a7b1a2e5284b",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-3000-load.wav",
+      "expectedHostedSHA256": "e895abcad899a1938a5b274e232210d95dd2601de7be18681a806c7e30e05502",
+      "gitBlobSHA256": "e895abcad899a1938a5b274e232210d95dd2601de7be18681a806c7e30e05502",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-4000-lift.wav",
+      "expectedHostedSHA256": "2b91abb7991bcfe35b52b7897d69da820e07d8015fa2f27f273a8160d3ae76d9",
+      "gitBlobSHA256": "2b91abb7991bcfe35b52b7897d69da820e07d8015fa2f27f273a8160d3ae76d9",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-4000-load.wav",
+      "expectedHostedSHA256": "7f01fdd8eb4bc92535d3405071b6ae80e1f733fe25fd125a078d77651e3fca41",
+      "gitBlobSHA256": "7f01fdd8eb4bc92535d3405071b6ae80e1f733fe25fd125a078d77651e3fca41",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-5300-lift.wav",
+      "expectedHostedSHA256": "c7aff1931a643954f02ae0a0607d72f0ba9551d9c56b0fc21932c764c19cdf1d",
+      "gitBlobSHA256": "c7aff1931a643954f02ae0a0607d72f0ba9551d9c56b0fc21932c764c19cdf1d",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-5300-load.wav",
+      "expectedHostedSHA256": "71b21e04cc09572c3c772d28b7181923299c0ed0595b236fc9c7f0fd1983f7c0",
+      "gitBlobSHA256": "71b21e04cc09572c3c772d28b7181923299c0ed0595b236fc9c7f0fd1983f7c0",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-6800-lift.wav",
+      "expectedHostedSHA256": "6e6eb01f04e0f3645c7a573db506d11088d5ee126d46f39f97ba29e4c96b2a44",
+      "gitBlobSHA256": "6e6eb01f04e0f3645c7a573db506d11088d5ee126d46f39f97ba29e4c96b2a44",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/engine-6800-load.wav",
+      "expectedHostedSHA256": "263bc0d7e01f96a7ebe43c0fcb6c515b5fbc9dd51dc0e199d507cf5df4fac191",
+      "gitBlobSHA256": "263bc0d7e01f96a7ebe43c0fcb6c515b5fbc9dd51dc0e199d507cf5df4fac191",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/provenance.json",
+      "expectedHostedSHA256": "4a61526d88a63149aa587bc2c50f2c623ba7072f761f9ee867ccd48563084ba2",
+      "gitBlobSHA256": "4a61526d88a63149aa587bc2c50f2c623ba7072f761f9ee867ccd48563084ba2",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/road.wav",
+      "expectedHostedSHA256": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "gitBlobSHA256": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/shift.wav",
+      "expectedHostedSHA256": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "gitBlobSHA256": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/thermal-mid.wav",
+      "expectedHostedSHA256": "15ada60daf62839288c284f651b8fd1523df1f4da00a6d721504de5e5b10dffe",
+      "gitBlobSHA256": "15ada60daf62839288c284f651b8fd1523df1f4da00a6d721504de5e5b10dffe",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/p09b/wind.wav",
+      "expectedHostedSHA256": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "gitBlobSHA256": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+      "pass": true
+    },
+    {
+      "path": "public/assets/audio/showroom/bay-door-open.mp3",
+      "expectedHostedSHA256": "2251c4624e5a7b1b201a8acb1266d73eca1acbdccbb4a820f0af9b740f80a9d8",
+      "gitBlobSHA256": "2251c4624e5a7b1b201a8acb1266d73eca1acbdccbb4a820f0af9b740f80a9d8",
+      "pass": true
+    },
+    {
+      "path": "public/assets/brand/sign-layout.json",
+      "expectedHostedSHA256": "49f2eb84342c971beb3c4ed8878a7b7fccbcacfccf9337734ecd6ed8e3a4ff3a",
+      "gitBlobSHA256": "49f2eb84342c971beb3c4ed8878a7b7fccbcacfccf9337734ecd6ed8e3a4ff3a",
+      "pass": true
+    },
+    {
+      "path": "public/assets/brand/slingmods-logo-main.png",
+      "expectedHostedSHA256": "7f86698349f9c83abdd9a68d9c40810c2f89385a710fa209de6ad71fff75c3fd",
+      "gitBlobSHA256": "7f86698349f9c83abdd9a68d9c40810c2f89385a710fa209de6ad71fff75c3fd",
+      "pass": true
+    },
+    {
+      "path": "public/assets/brand/slingmods-logo-main.source.json",
+      "expectedHostedSHA256": "b4f39ac8ecd083a9ca5de9bc9e9d9ab9f5b46cd1adbcd44db082caa63720dec6",
+      "gitBlobSHA256": "b4f39ac8ecd083a9ca5de9bc9e9d9ab9f5b46cd1adbcd44db082caa63720dec6",
+      "pass": true
+    },
+    {
+      "path": "public/assets/brand/slingmods-sign.glb",
+      "expectedHostedSHA256": "fce90da804681858fa4a796608a725932a56e32305b50d4d88b19720c8014f82",
+      "gitBlobSHA256": "fce90da804681858fa4a796608a725932a56e32305b50d4d88b19720c8014f82",
+      "pass": true
+    },
+    {
+      "path": "public/assets/drivers/test-driver-attachment.json",
+      "expectedHostedSHA256": "7faed90c2e32858d7ce27c6b55d4763e1dc672e61de5a13c767aca8874ca72d4",
+      "gitBlobSHA256": "7faed90c2e32858d7ce27c6b55d4763e1dc672e61de5a13c767aca8874ca72d4",
+      "pass": true
+    },
+    {
+      "path": "public/assets/drivers/test-driver.glb",
+      "expectedHostedSHA256": "c9909f146ec2fd17e1205abfef3c48e1b2f0006cde83af3382000a66995d75e5",
+      "gitBlobSHA256": "c9909f146ec2fd17e1205abfef3c48e1b2f0006cde83af3382000a66995d75e5",
+      "pass": true
+    },
+    {
+      "path": "public/assets/front-refinement/slingshot-front-refined.glb",
+      "expectedHostedSHA256": "4f8064539d58aae7bbe3cd89c0fbb4c8f77f7e2af84430ac41b30942c2ec2533",
+      "gitBlobSHA256": "4f8064539d58aae7bbe3cd89c0fbb4c8f77f7e2af84430ac41b30942c2ec2533",
+      "pass": true
+    },
+    {
+      "path": "public/assets/harbor/harbor.glb",
+      "expectedHostedSHA256": "01b74c9ec465077304e158ac7e97e1ca1493e61ad48533d3bbb0a59b3109a1c1",
+      "gitBlobSHA256": "01b74c9ec465077304e158ac7e97e1ca1493e61ad48533d3bbb0a59b3109a1c1",
+      "pass": true
+    },
+    {
+      "path": "public/assets/harbor/route.json",
+      "expectedHostedSHA256": "e200643ff4a1e8e7f4de719b44b00b81fcca165008e445f314be9f9acaa7e1fa",
+      "gitBlobSHA256": "e200643ff4a1e8e7f4de719b44b00b81fcca165008e445f314be9f9acaa7e1fa",
+      "pass": true
+    },
+    {
+      "path": "public/assets/hoop-refinement/slingshot-hoops-refined.glb",
+      "expectedHostedSHA256": "0e643e6d7f54e0f91c18aefdb3ea5a4e75afcf6943087c3432affb679318a55b",
+      "gitBlobSHA256": "0e643e6d7f54e0f91c18aefdb3ea5a4e75afcf6943087c3432affb679318a55b",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/checker-normal.png",
+      "expectedHostedSHA256": "c91f67a7574cff406a17962a89f58e7847bf40ef47838537c5ed4087fc6462d7",
+      "gitBlobSHA256": "c91f67a7574cff406a17962a89f58e7847bf40ef47838537c5ed4087fc6462d7",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/finish-black-red.png",
+      "expectedHostedSHA256": "0afe42bebc7bc819b2b9f97833110cb6b16ba081fdcbd9e27b505c364343cac9",
+      "gitBlobSHA256": "0afe42bebc7bc819b2b9f97833110cb6b16ba081fdcbd9e27b505c364343cac9",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/finish-graphite-red.png",
+      "expectedHostedSHA256": "90a024e1254c249099e039dcaecc25afe7f78e0930f0c25e645b6c588372abb2",
+      "gitBlobSHA256": "90a024e1254c249099e039dcaecc25afe7f78e0930f0c25e645b6c588372abb2",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/finish-white-graphite.png",
+      "expectedHostedSHA256": "c60fe3d8cbd025e05e437b3ce7e89566039014d2072ab77ad9bc5b29b64b194c",
+      "gitBlobSHA256": "c60fe3d8cbd025e05e437b3ce7e89566039014d2072ab77ad9bc5b29b64b194c",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/showroom-refinement/finish-white-graphite.png",
+      "expectedHostedSHA256": "180f21d073fe1213a2c11ec243b104d371a3f64da5783446d9fbf23983eb7a11",
+      "gitBlobSHA256": "180f21d073fe1213a2c11ec243b104d371a3f64da5783446d9fbf23983eb7a11",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "expectedHostedSHA256": "aaac85ed1f8c591328c17c64fbec666bf3c5cb4941b923af6e210014565beda3",
+      "gitBlobSHA256": "aaac85ed1f8c591328c17c64fbec666bf3c5cb4941b923af6e210014565beda3",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/showroom-refinement/vented-tile-charcoal.png",
+      "expectedHostedSHA256": "fc89796a4a83ab25adb398135d4c15e5e6135c12eed706fef2062ba10bd4bdf4",
+      "gitBlobSHA256": "fc89796a4a83ab25adb398135d4c15e5e6135c12eed706fef2062ba10bd4bdf4",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/showroom-refinement/vented-tile-gray.png",
+      "expectedHostedSHA256": "13f920888503e570897aea14f5cac23dda321bec8c5d88b988d1da027b1b6b0b",
+      "gitBlobSHA256": "13f920888503e570897aea14f5cac23dda321bec8c5d88b988d1da027b1b6b0b",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/showroom-refinement/vented-tile-normal.png",
+      "expectedHostedSHA256": "b04283c53fe1e327a526e5d329e87175248bcd0f850ffef4d767071acc3e736b",
+      "gitBlobSHA256": "b04283c53fe1e327a526e5d329e87175248bcd0f850ffef4d767071acc3e736b",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/showroom-refinement/vented-tile-orm.png",
+      "expectedHostedSHA256": "4da0d80da31729d44ce0ee8a1f9c9e96d346f8dd3bfc8969b35d455d244a5ded",
+      "gitBlobSHA256": "4da0d80da31729d44ce0ee8a1f9c9e96d346f8dd3bfc8969b35d455d244a5ded",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/showroom-refinement/vented-tile-red.png",
+      "expectedHostedSHA256": "e740230019ce32e903b9185170904c93aecfc1095a5c0337e4d90b6254d36847",
+      "gitBlobSHA256": "e740230019ce32e903b9185170904c93aecfc1095a5c0337e4d90b6254d36847",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/signature-products.glb",
+      "expectedHostedSHA256": "c8db9d532eff56d605d9be35fad356711c7849a225a4657f8cb0b279d99cffc6",
+      "gitBlobSHA256": "c8db9d532eff56d605d9be35fad356711c7849a225a4657f8cb0b279d99cffc6",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/signature-showroom.glb",
+      "expectedHostedSHA256": "49f99abb29eefde0501175e6e5d0b674f9520a8851c90b2f6e934a4608ece598",
+      "gitBlobSHA256": "49f99abb29eefde0501175e6e5d0b674f9520a8851c90b2f6e934a4608ece598",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/slingshot-signature.glb",
+      "expectedHostedSHA256": "d34c1ffde2048e2c5fc34bc86cc2a0bad19514961e1a68aee040b50d0fd90761",
+      "gitBlobSHA256": "d34c1ffde2048e2c5fc34bc86cc2a0bad19514961e1a68aee040b50d0fd90761",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-133.png",
+      "expectedHostedSHA256": "1ddb4ff236ccae25e6c4af6ffa7db25a04023ee0402d3dea2b5934f755132830",
+      "gitBlobSHA256": "1ddb4ff236ccae25e6c4af6ffa7db25a04023ee0402d3dea2b5934f755132830",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-26801.png",
+      "expectedHostedSHA256": "0badea7aba3dd8e5326292d88c70ff93dc47168dff66e4a5a1a652a9724f6d72",
+      "gitBlobSHA256": "0badea7aba3dd8e5326292d88c70ff93dc47168dff66e4a5a1a652a9724f6d72",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-28919.png",
+      "expectedHostedSHA256": "f9de0a36ce490be287013424b686979433c44736be7f5fb34d3944357200e187",
+      "gitBlobSHA256": "f9de0a36ce490be287013424b686979433c44736be7f5fb34d3944357200e187",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-3223.png",
+      "expectedHostedSHA256": "52f6835de1477853c401dce932523568fcd7ce0b498d023844aa3d8384ccea55",
+      "gitBlobSHA256": "52f6835de1477853c401dce932523568fcd7ce0b498d023844aa3d8384ccea55",
+      "pass": true
+    },
+    {
+      "path": "public/assets/p08b/thumbnails/SM-7720.png",
+      "expectedHostedSHA256": "52010806308c10980645e4c3f0456e1b92fea7b60e4347be00e2a7a7749b3d86",
+      "gitBlobSHA256": "52010806308c10980645e4c3f0456e1b92fea7b60e4347be00e2a7a7749b3d86",
+      "pass": true
+    },
+    {
+      "path": "public/assets/products/ddmworks-sm3223-silver.glb",
+      "expectedHostedSHA256": "b02289e26c2b24cdd01fec57c22fadd5a82f926eed139ad2fdf95673700b2736",
+      "gitBlobSHA256": "b02289e26c2b24cdd01fec57c22fadd5a82f926eed139ad2fdf95673700b2736",
+      "pass": true
+    },
+    {
+      "path": "public/assets/products/tricled-sm133-base.attachment.json",
+      "expectedHostedSHA256": "839902ec0b2be52b5f9a0614c0ed206963485f020177f3f49689e65bcab6aec2",
+      "gitBlobSHA256": "839902ec0b2be52b5f9a0614c0ed206963485f020177f3f49689e65bcab6aec2",
+      "pass": true
+    },
+    {
+      "path": "public/assets/products/tricled-sm133-base.glb",
+      "expectedHostedSHA256": "da206aaf6530a83479cb870e013c4efe7372a3ff9ffff038dccda9df19213d93",
+      "gitBlobSHA256": "da206aaf6530a83479cb870e013c4efe7372a3ff9ffff038dccda9df19213d93",
+      "pass": true
+    },
+    {
+      "path": "public/assets/ridge/preview.json",
+      "expectedHostedSHA256": "8433d7e204f1b1e17f86a506f4bf9f713754bb2116666848b410b8cb88696539",
+      "gitBlobSHA256": "8433d7e204f1b1e17f86a506f4bf9f713754bb2116666848b410b8cb88696539",
+      "pass": true
+    },
+    {
+      "path": "public/assets/ridge/ridge-kit.glb",
+      "expectedHostedSHA256": "eefcba42db0658d3fc1be3d2ccee88131ae746a331625ee664605f4df0b91c2d",
+      "gitBlobSHA256": "eefcba42db0658d3fc1be3d2ccee88131ae746a331625ee664605f4df0b91c2d",
+      "pass": true
+    },
+    {
+      "path": "public/assets/ridge/ridge-land.json",
+      "expectedHostedSHA256": "0922eba6a117d632b45a199a508bc7db8ac461b95ab15fb5e04b921d7903f564",
+      "gitBlobSHA256": "0922eba6a117d632b45a199a508bc7db8ac461b95ab15fb5e04b921d7903f564",
+      "pass": true
+    },
+    {
+      "path": "public/assets/ridge/thumbnail.jpg",
+      "expectedHostedSHA256": "4f3b481a4e6a3b038ceec6330d24b2ac1c57292d41d743aa19dc4f7629fecd50",
+      "gitBlobSHA256": "4f3b481a4e6a3b038ceec6330d24b2ac1c57292d41d743aa19dc4f7629fecd50",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/bay.glb",
+      "expectedHostedSHA256": "4e26ed4a951c989cbf4344e97b6c42ba13e6355b2f874e1d904ecc36e6cdd7a5",
+      "gitBlobSHA256": "4e26ed4a951c989cbf4344e97b6c42ba13e6355b2f874e1d904ecc36e6cdd7a5",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/foundation.glb",
+      "expectedHostedSHA256": "de63a8f31a8ad8d8bed140a326a442fedecc0ebec3c667708ebf985d7888a838",
+      "gitBlobSHA256": "de63a8f31a8ad8d8bed140a326a442fedecc0ebec3c667708ebf985d7888a838",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/kit.glb",
+      "expectedHostedSHA256": "65166c2be3ee3f0a969a836015101ea2c7558219c518e67c054295e402001f31",
+      "gitBlobSHA256": "65166c2be3ee3f0a969a836015101ea2c7558219c518e67c054295e402001f31",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/scene-layout.json",
+      "expectedHostedSHA256": "05ea799526456264603c0a90538a26a394ee77aa94520e652d621251c04e45b8",
+      "gitBlobSHA256": "05ea799526456264603c0a90538a26a394ee77aa94520e652d621251c04e45b8",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/sky/day-puresky-2k.hdr",
+      "expectedHostedSHA256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+      "gitBlobSHA256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/source-manifest.json",
+      "expectedHostedSHA256": "8081e1443acb9a8ae2b05f75df7f4e6cbd7cfd0bcc13e4c6d259c57b448f2851",
+      "gitBlobSHA256": "8081e1443acb9a8ae2b05f75df7f4e6cbd7cfd0bcc13e4c6d259c57b448f2851",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/textures/concrete_wall_006_Diffuse.jpg",
+      "expectedHostedSHA256": "d4b6b3b5cff1f1c4e073e7016d6c7caf11d9bd16408404480dd3dc11a5d4ee4a",
+      "gitBlobSHA256": "d4b6b3b5cff1f1c4e073e7016d6c7caf11d9bd16408404480dd3dc11a5d4ee4a",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg",
+      "expectedHostedSHA256": "16767927a64de441008841a697b2990b72d2695a5443ec83483b89bca3cba3bb",
+      "gitBlobSHA256": "16767927a64de441008841a697b2990b72d2695a5443ec83483b89bca3cba3bb",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/textures/leafy_grass_nor_gl.jpg",
+      "expectedHostedSHA256": "20c8c07e123c3b0efe934567a281b65bbe3e2f49b95b0572cd05f9e0b2b8ca00",
+      "gitBlobSHA256": "20c8c07e123c3b0efe934567a281b65bbe3e2f49b95b0572cd05f9e0b2b8ca00",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg",
+      "expectedHostedSHA256": "03ccab322c78274dc76bedccefefb4ed589837ca2eda3fc64db80f98f0779341",
+      "gitBlobSHA256": "03ccab322c78274dc76bedccefefb4ed589837ca2eda3fc64db80f98f0779341",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg",
+      "expectedHostedSHA256": "3e2f59802a84190cba48d2fffb4a56ae136da07bb8738e1455299b5a7eae79c9",
+      "gitBlobSHA256": "3e2f59802a84190cba48d2fffb4a56ae136da07bb8738e1455299b5a7eae79c9",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg",
+      "expectedHostedSHA256": "af7ef84573aaaeb19a472c1705cc83ae5313c56bec58b8476573656849447f44",
+      "gitBlobSHA256": "af7ef84573aaaeb19a472c1705cc83ae5313c56bec58b8476573656849447f44",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/textures/palm_tree_bark_Diffuse.jpg",
+      "expectedHostedSHA256": "94ce970a8dfa4701d45a2e79c8088f1133b3be47ca5a2d056f2aaa8a5a6ee134",
+      "gitBlobSHA256": "94ce970a8dfa4701d45a2e79c8088f1133b3be47ca5a2d056f2aaa8a5a6ee134",
+      "pass": true
+    },
+    {
+      "path": "public/assets/showcase-quality/textures/weathered_brown_planks_Diffuse.jpg",
+      "expectedHostedSHA256": "51cba385230f0a793ee73aaebff7c2cf8f9edf58bb5b436d03dc779bbfa3f217",
+      "gitBlobSHA256": "51cba385230f0a793ee73aaebff7c2cf8f9edf58bb5b436d03dc779bbfa3f217",
+      "pass": true
+    },
+    {
+      "path": "public/assets/vehicles/slingshot-p04a1-rear-rig.json",
+      "expectedHostedSHA256": "ed04ac1e646f6c27633cb94af307197c1f17020b7c7cf5ddbf7c0517b658150d",
+      "gitBlobSHA256": "ed04ac1e646f6c27633cb94af307197c1f17020b7c7cf5ddbf7c0517b658150d",
+      "pass": true
+    },
+    {
+      "path": "public/assets/vehicles/slingshot-p04a1.glb",
+      "expectedHostedSHA256": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c",
+      "gitBlobSHA256": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c",
+      "pass": true
+    }
+  ],
+  "mismatches": [],
+  "method": "Actual HTTPS review-build.json GET; compare every curated input with its exact committed Git blob. Run real browser gameplay separately. Provider-only vercel.json changes are outside runtime inputs."
+}

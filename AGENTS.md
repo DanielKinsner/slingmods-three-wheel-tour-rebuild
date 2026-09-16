@@ -1,10 +1,12 @@
-# Current assignment — P10A Ridge Run, on main
+# Current handoff - P10A Ridge Run, on main
 
-P10A is implemented and locally validated. Frozen gameplay/native candidate: `28daf3a4dfb702e2b4829ffda683cffeb117c858`. All 263 tests, 22 native races, physical elevation/flat-equivalence, full chapter/reward/reload, UI/audio/lifecycle and current real-audio film pass. No runtime source change was needed during final native testing. Read `handoff/P10A-RIDGE-RUN.md` and `director-kit/production/evidence/P10A/REVIEW20-SUMMARY.md`.
+P10A is implemented, internally repaired and validated. Frozen gameplay/native/film candidate: `28daf3a4dfb702e2b4829ffda683cffeb117c858`. Fresh remote recovery and complete hosted gameplay: `f4bc5720afa70cec91dfebacf16c8ee6e92be106`. All 263 tests and 22 native race attempts pass. The physically elevated Smoky Ridge route, two lighting conditions, free drives/races and three-event Chapter 03 are playable. Sport v3, all products, prior routes, showroom, vehicle, audio, ownership and saves remain.
 
-Current delivery work: push all original evidence and portable assets; verify the existing curated Vercel site and a fresh remote clone; produce and track `Astra-Review-20-Lean.zip`. Final identities belong in `P10A-VALIDATION.json`, `P10A-PACKET.json` and `P10A-DELIVERY.json`. Do not infer hosted/recovery/ZIP completion until those receipts exist.
+Play at https://slingmods-three-wheel-tour-rebuild.vercel.app/ . Local: `npm ci`, `npm run demo:build`, then PowerShell `$env:PORT='5197'` and `npm run demo:preview`; open http://127.0.0.1:5197/ . Read `handoff/P10A-RIDGE-RUN.md` for exact next-machine/asset/validation commands.
 
-Continue on main. Preserve all older evidence/archives and the unrelated untracked owner folder `SlingMods-Astra-Director-Review-17/`. No spending, new hosting project, account/visibility changes, desktop takeover or force push. Severe sustained rail wedging may retire AI; ordinary brush recovery passes. G3/G4, physical hardware, subjective fun/listening and global OEM fidelity remain open.
+Deliverable: `Astra-Review-20-Lean.zip`, with current continuous full-lap film and actual game audio. Exact ZIP size/hash and packaging/runtime commits are in `handoff/P10A-PACKET.json`. `P10A-VALIDATION.json` records completed tests; `P10A-DELIVERY.json` records final remote archive retrieval and hosted identity after the archive push. Resolve archive commit with `git log -1 --format=%H -- Astra-Review-20-Lean.zip`; resolve actual main using `git ls-remote origin refs/heads/main`. Later receipt-only commits do not imply another gameplay version. Full runtime/editable assets and all original evidence/media are in Git; browser saves, tools, drivers and credentials are not.
+
+Next action: Astra/owner review of Review20 and driving feedback. No new assignment inferred. Continue on main; preserve every historical packet and unrelated owner folder `SlingMods-Astra-Director-Review-17/`. No spending, new project, account/visibility changes, desktop takeover or force push. Severe sustained rail wedging can retire AI; ordinary brush recovery passes. Art remains stylized; physical hardware breadth, human fun/listening, G3/G4 and global OEM fidelity remain unapproved.
 
 ---
 

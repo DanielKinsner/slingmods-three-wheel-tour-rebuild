@@ -32,7 +32,7 @@ for source,name in screens:add(E/source,'screens/'+name)
 buf=io.BytesIO();data_index={};member_names=set();payload_targets={}
 with tarfile.open(fileobj=buf,mode='w:xz',preset=9) as tar:
  for p in sorted(E.rglob('*'),key=lambda p:(p.name,p.as_posix())):
-  if not p.is_file() or p.suffix.lower() not in ['.json','.txt','.md','.csv','.gz','.html'] or 'raw-video' in p.parts:continue
+  if not p.is_file() or p.suffix.lower() not in ['.json','.txt','.md','.csv','.gz','.html','.log'] or 'raw-video' in p.parts:continue
   name=p.relative_to(E).as_posix()
   selected=receipt['packetDataDirectories']
   if p.parent!=E and name.split('/')[0] not in selected:continue

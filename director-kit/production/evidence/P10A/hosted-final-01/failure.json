@@ -1,0 +1,1467 @@
+{
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=\"test-drive\"][data-value=\"ridge\"]').first()\u001b[22m\n\n    at action (C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\p10a-hosted-gameplay.mjs:6:124)\n    at C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\scripts\\p10a-hosted-gameplay.mjs:16:8",
+  "states": {
+    "canonicalRoot": {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/",
+      "title": "SlingMods: Three-Wheel Tour",
+      "status": 200,
+      "query": ""
+    },
+    "provenance": {
+      "commit": "f4bc5720afa70cec91dfebacf16c8ee6e92be106",
+      "buildRef": "f4bc5720afa7-working",
+      "inputs": {
+        "public/assets/audio/p03b2/engine-1200-lift.wav": "10c93d7bdb4af33e32b2c571688e31da18da8b6acca6876c8c6ae6fc608f6216",
+        "public/assets/audio/p03b2/engine-1200-load.wav": "a1cb07992d5deeae62b2a293956d00f7816c00a006d8fff457b6253aee584d7a",
+        "public/assets/audio/p03b2/engine-3600-lift.wav": "37e161f7cc5e82a7c83d4e92ddd5ed314e237287627609f8ac7535c9ce510f7e",
+        "public/assets/audio/p03b2/engine-3600-load.wav": "ca5785692891191b0bc11ec17d2cc9b6b5ac8088ff7f92961fa01b5fd6318286",
+        "public/assets/audio/p03b2/engine-6200-lift.wav": "13a06e3fc3f34a7ba6fa53dd4c604b03c4f70ff4a4433e621f849ab2d735a8de",
+        "public/assets/audio/p03b2/engine-6200-load.wav": "f3c889184693434775a83c31213b8e7e8caacf898823f2e4c0cd9f843c6824ae",
+        "public/assets/audio/p03b2/provenance.json": "322f35fdb70c08d5fcec745f8a0176fca9b8337f51e24b5b6208606393feb5a8",
+        "public/assets/audio/p03b2/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+        "public/assets/audio/p03b2/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+        "public/assets/audio/p03b2/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+        "public/assets/audio/p09b-cues/build.preset.wav": "4612189cddfe6ec55e9d430d7bb304d478bb933285a0c83db1ecc05e0a53a8ba",
+        "public/assets/audio/p09b-cues/build.save.wav": "dfa981cf4e389e2b6315e8674e1aaa71f69d147ab5da11724634697f7380366d",
+        "public/assets/audio/p09b-cues/career.unlock.wav": "9a0c0e2031f744e6395d7118f1fd6a30447daa807fbd31ce2c06c33c1cceca35",
+        "public/assets/audio/p09b-cues/finish.apply.wav": "5a84f7567a3a6d45374bc8d64a66a9610306bc49c3ecb998caa35461135b401e",
+        "public/assets/audio/p09b-cues/part.aero.attach.wav": "78fa06ae4b4ae1fd30837e3d55591491c3681ee847337c6acf0267069f93077e",
+        "public/assets/audio/p09b-cues/part.exhaust.attach.wav": "df362cacf78b78a6697de0273bb8cfa4fcfa0f1b884de5febeb687719321940c",
+        "public/assets/audio/p09b-cues/part.lights.attach.wav": "3959d15915256ae4ae8c661b3f39e410d5f1a5ba9d964392e33bf89720c42a1e",
+        "public/assets/audio/p09b-cues/part.remove.wav": "59f60b61cddc56c685b4989840881ef1511bc96799e8349453611fae7c29b185",
+        "public/assets/audio/p09b-cues/part.shocks.attach.wav": "d83ad878a886e46874d35c5cff7bcb80bd448f7b82eed28b1eb542ffe1b5f6db",
+        "public/assets/audio/p09b-cues/part.storage.attach.wav": "21f4d3171e9bf906ac50050234416f8338391d29166fdcf6e9eb2aaca227b92b",
+        "public/assets/audio/p09b-cues/power.wav": "bd54c39256bee8fd25226d1768833e305b62df150f1f30aaf9686e0847a73ee6",
+        "public/assets/audio/p09b-cues/provenance.json": "c48af8d43356436543431efc2a551787eef5595e15d971ba82b1f9df4fe5c9f3",
+        "public/assets/audio/p09b-cues/race.count.wav": "f5f077611ade409d2636fb987a7bed6a6293ed8c21dca634067bee45cd758510",
+        "public/assets/audio/p09b-cues/race.finish.wav": "4e371379a34f6c733ca97d3a913d0718ad09cef60eb74ff8fe9c20d44eb26a4a",
+        "public/assets/audio/p09b-cues/race.start.wav": "8ca22ed852e763ba287eb6be165805096b3ffced78d1a49f2660e58fc8be016b",
+        "public/assets/audio/p09b-cues/ui.back.wav": "b6b370a0386f236890a4ee1d02c8f3de5e8a3b52880d326699af085e88f27cdd",
+        "public/assets/audio/p09b-cues/ui.confirm.wav": "d8dcad31c97cfb7c6679e1527d098bc3eb56d4804b52b380e283c4814deca357",
+        "public/assets/audio/p09b-cues/ui.detent.wav": "eb5fc400c54897d6fc27147cd77e55bf77f51ebab24f77029b3a0edcb0931bb7",
+        "public/assets/audio/p09b-cues/ui.nav.wav": "9d8ef0d972252b40f283d7bcfcba9b0a744ec62316417ad098f0572229990222",
+        "public/assets/audio/p09b-departure/provenance.json": "be64328c946bb4164f934849357278f066bcc1f3f4920946cdf9395f6f397fae",
+        "public/assets/audio/p09b-departure/thermal.wav": "be6c4864ff1071a51be94a78576a481f9a86678f9127ad0d48b4944789fbb54d",
+        "public/assets/audio/p09b/engine-1200-lift.wav": "dde9eef41c4fb7c8632a536af409c9dbfe79c15f8b5c6c1c6ddfd051845bce0a",
+        "public/assets/audio/p09b/engine-1200-load.wav": "9ea773abbdd3cf542166fb8648f81cf470c1449c828bcfcb02019c7c67b6fc8a",
+        "public/assets/audio/p09b/engine-1650-lift.wav": "07665c776e1eecfa78f6086d4018345b6d73150a060837a8cc3fce96390f3e18",
+        "public/assets/audio/p09b/engine-1650-load.wav": "e723500567b39a666cd6ddf57df67537bf93989966b7c94c2bf5b37c3151e2e8",
+        "public/assets/audio/p09b/engine-2200-lift.wav": "abbd6c03c0b289a3f14cc2e41ebef1abf3e8f9fb344e1dc039818572b024a67e",
+        "public/assets/audio/p09b/engine-2200-load.wav": "aad679aa6b2a29ff5fe74b370ef2765ef5bf4a38a2c099c76bdc1ddaef173177",
+        "public/assets/audio/p09b/engine-3000-lift.wav": "40e32d8723c272a73582e06d792e0e0ae7769a509109dfb83d63a7b1a2e5284b",
+        "public/assets/audio/p09b/engine-3000-load.wav": "e895abcad899a1938a5b274e232210d95dd2601de7be18681a806c7e30e05502",
+        "public/assets/audio/p09b/engine-4000-lift.wav": "2b91abb7991bcfe35b52b7897d69da820e07d8015fa2f27f273a8160d3ae76d9",
+        "public/assets/audio/p09b/engine-4000-load.wav": "7f01fdd8eb4bc92535d3405071b6ae80e1f733fe25fd125a078d77651e3fca41",
+        "public/assets/audio/p09b/engine-5300-lift.wav": "c7aff1931a643954f02ae0a0607d72f0ba9551d9c56b0fc21932c764c19cdf1d",
+        "public/assets/audio/p09b/engine-5300-load.wav": "71b21e04cc09572c3c772d28b7181923299c0ed0595b236fc9c7f0fd1983f7c0",
+        "public/assets/audio/p09b/engine-6800-lift.wav": "6e6eb01f04e0f3645c7a573db506d11088d5ee126d46f39f97ba29e4c96b2a44",
+        "public/assets/audio/p09b/engine-6800-load.wav": "263bc0d7e01f96a7ebe43c0fcb6c515b5fbc9dd51dc0e199d507cf5df4fac191",
+        "public/assets/audio/p09b/provenance.json": "4a61526d88a63149aa587bc2c50f2c623ba7072f761f9ee867ccd48563084ba2",
+        "public/assets/audio/p09b/road.wav": "9cb4104926416f1e44ce32f4f19a7620a53efed08403765af76fc42035d2a8bc",
+        "public/assets/audio/p09b/shift.wav": "b73efbb2bc717b8be698272cb2a9cbdc4936e7f8861aef0c94cee389081d8efa",
+        "public/assets/audio/p09b/thermal-mid.wav": "15ada60daf62839288c284f651b8fd1523df1f4da00a6d721504de5e5b10dffe",
+        "public/assets/audio/p09b/wind.wav": "ba154a9987c810786c32da7c86e1fbc8ec2cc1f45f8784931f11e8c3b17cc27d",
+        "public/assets/audio/showroom/bay-door-open.mp3": "2251c4624e5a7b1b201a8acb1266d73eca1acbdccbb4a820f0af9b740f80a9d8",
+        "public/assets/brand/sign-layout.json": "49f2eb84342c971beb3c4ed8878a7b7fccbcacfccf9337734ecd6ed8e3a4ff3a",
+        "public/assets/brand/slingmods-logo-main.png": "7f86698349f9c83abdd9a68d9c40810c2f89385a710fa209de6ad71fff75c3fd",
+        "public/assets/brand/slingmods-logo-main.source.json": "b4f39ac8ecd083a9ca5de9bc9e9d9ab9f5b46cd1adbcd44db082caa63720dec6",
+        "public/assets/brand/slingmods-sign.glb": "fce90da804681858fa4a796608a725932a56e32305b50d4d88b19720c8014f82",
+        "public/assets/drivers/test-driver-attachment.json": "7faed90c2e32858d7ce27c6b55d4763e1dc672e61de5a13c767aca8874ca72d4",
+        "public/assets/drivers/test-driver.glb": "c9909f146ec2fd17e1205abfef3c48e1b2f0006cde83af3382000a66995d75e5",
+        "public/assets/front-refinement/slingshot-front-refined.glb": "4f8064539d58aae7bbe3cd89c0fbb4c8f77f7e2af84430ac41b30942c2ec2533",
+        "public/assets/harbor/harbor.glb": "01b74c9ec465077304e158ac7e97e1ca1493e61ad48533d3bbb0a59b3109a1c1",
+        "public/assets/harbor/route.json": "e200643ff4a1e8e7f4de719b44b00b81fcca165008e445f314be9f9acaa7e1fa",
+        "public/assets/hoop-refinement/slingshot-hoops-refined.glb": "0e643e6d7f54e0f91c18aefdb3ea5a4e75afcf6943087c3432affb679318a55b",
+        "public/assets/p08b/checker-normal.png": "c91f67a7574cff406a17962a89f58e7847bf40ef47838537c5ed4087fc6462d7",
+        "public/assets/p08b/finish-black-red.png": "0afe42bebc7bc819b2b9f97833110cb6b16ba081fdcbd9e27b505c364343cac9",
+        "public/assets/p08b/finish-graphite-red.png": "90a024e1254c249099e039dcaecc25afe7f78e0930f0c25e645b6c588372abb2",
+        "public/assets/p08b/finish-white-graphite.png": "c60fe3d8cbd025e05e437b3ce7e89566039014d2072ab77ad9bc5b29b64b194c",
+        "public/assets/p08b/showroom-refinement/finish-white-graphite.png": "180f21d073fe1213a2c11ec243b104d371a3f64da5783446d9fbf23983eb7a11",
+        "public/assets/p08b/showroom-refinement/signature-showroom-refined.glb": "aaac85ed1f8c591328c17c64fbec666bf3c5cb4941b923af6e210014565beda3",
+        "public/assets/p08b/showroom-refinement/vented-tile-charcoal.png": "fc89796a4a83ab25adb398135d4c15e5e6135c12eed706fef2062ba10bd4bdf4",
+        "public/assets/p08b/showroom-refinement/vented-tile-gray.png": "13f920888503e570897aea14f5cac23dda321bec8c5d88b988d1da027b1b6b0b",
+        "public/assets/p08b/showroom-refinement/vented-tile-normal.png": "b04283c53fe1e327a526e5d329e87175248bcd0f850ffef4d767071acc3e736b",
+        "public/assets/p08b/showroom-refinement/vented-tile-orm.png": "4da0d80da31729d44ce0ee8a1f9c9e96d346f8dd3bfc8969b35d455d244a5ded",
+        "public/assets/p08b/showroom-refinement/vented-tile-red.png": "e740230019ce32e903b9185170904c93aecfc1095a5c0337e4d90b6254d36847",
+        "public/assets/p08b/signature-products.glb": "c8db9d532eff56d605d9be35fad356711c7849a225a4657f8cb0b279d99cffc6",
+        "public/assets/p08b/signature-showroom.glb": "49f99abb29eefde0501175e6e5d0b674f9520a8851c90b2f6e934a4608ece598",
+        "public/assets/p08b/slingshot-signature.glb": "d34c1ffde2048e2c5fc34bc86cc2a0bad19514961e1a68aee040b50d0fd90761",
+        "public/assets/p08b/thumbnails/SM-133.png": "1ddb4ff236ccae25e6c4af6ffa7db25a04023ee0402d3dea2b5934f755132830",
+        "public/assets/p08b/thumbnails/SM-26801.png": "0badea7aba3dd8e5326292d88c70ff93dc47168dff66e4a5a1a652a9724f6d72",
+        "public/assets/p08b/thumbnails/SM-28919.png": "f9de0a36ce490be287013424b686979433c44736be7f5fb34d3944357200e187",
+        "public/assets/p08b/thumbnails/SM-3223.png": "52f6835de1477853c401dce932523568fcd7ce0b498d023844aa3d8384ccea55",
+        "public/assets/p08b/thumbnails/SM-7720.png": "52010806308c10980645e4c3f0456e1b92fea7b60e4347be00e2a7a7749b3d86",
+        "public/assets/products/ddmworks-sm3223-silver.glb": "b02289e26c2b24cdd01fec57c22fadd5a82f926eed139ad2fdf95673700b2736",
+        "public/assets/products/tricled-sm133-base.attachment.json": "839902ec0b2be52b5f9a0614c0ed206963485f020177f3f49689e65bcab6aec2",
+        "public/assets/products/tricled-sm133-base.glb": "da206aaf6530a83479cb870e013c4efe7372a3ff9ffff038dccda9df19213d93",
+        "public/assets/ridge/preview.json": "8433d7e204f1b1e17f86a506f4bf9f713754bb2116666848b410b8cb88696539",
+        "public/assets/ridge/ridge-kit.glb": "eefcba42db0658d3fc1be3d2ccee88131ae746a331625ee664605f4df0b91c2d",
+        "public/assets/ridge/ridge-land.json": "0922eba6a117d632b45a199a508bc7db8ac461b95ab15fb5e04b921d7903f564",
+        "public/assets/ridge/thumbnail.jpg": "4f3b481a4e6a3b038ceec6330d24b2ac1c57292d41d743aa19dc4f7629fecd50",
+        "public/assets/showcase-quality/bay.glb": "4e26ed4a951c989cbf4344e97b6c42ba13e6355b2f874e1d904ecc36e6cdd7a5",
+        "public/assets/showcase-quality/foundation.glb": "de63a8f31a8ad8d8bed140a326a442fedecc0ebec3c667708ebf985d7888a838",
+        "public/assets/showcase-quality/kit.glb": "65166c2be3ee3f0a969a836015101ea2c7558219c518e67c054295e402001f31",
+        "public/assets/showcase-quality/scene-layout.json": "05ea799526456264603c0a90538a26a394ee77aa94520e652d621251c04e45b8",
+        "public/assets/showcase-quality/sky/day-puresky-2k.hdr": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+        "public/assets/showcase-quality/source-manifest.json": "8081e1443acb9a8ae2b05f75df7f4e6cbd7cfd0bcc13e4c6d259c57b448f2851",
+        "public/assets/showcase-quality/textures/concrete_wall_006_Diffuse.jpg": "d4b6b3b5cff1f1c4e073e7016d6c7caf11d9bd16408404480dd3dc11a5d4ee4a",
+        "public/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg": "16767927a64de441008841a697b2990b72d2695a5443ec83483b89bca3cba3bb",
+        "public/assets/showcase-quality/textures/leafy_grass_nor_gl.jpg": "20c8c07e123c3b0efe934567a281b65bbe3e2f49b95b0572cd05f9e0b2b8ca00",
+        "public/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg": "03ccab322c78274dc76bedccefefb4ed589837ca2eda3fc64db80f98f0779341",
+        "public/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg": "3e2f59802a84190cba48d2fffb4a56ae136da07bb8738e1455299b5a7eae79c9",
+        "public/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg": "af7ef84573aaaeb19a472c1705cc83ae5313c56bec58b8476573656849447f44",
+        "public/assets/showcase-quality/textures/palm_tree_bark_Diffuse.jpg": "94ce970a8dfa4701d45a2e79c8088f1133b3be47ca5a2d056f2aaa8a5a6ee134",
+        "public/assets/showcase-quality/textures/weathered_brown_planks_Diffuse.jpg": "51cba385230f0a793ee73aaebff7c2cf8f9edf58bb5b436d03dc779bbfa3f217",
+        "public/assets/vehicles/slingshot-p04a1-rear-rig.json": "ed04ac1e646f6c27633cb94af307197c1f17020b7c7cf5ddbf7c0517b658150d",
+        "public/assets/vehicles/slingshot-p04a1.glb": "e2724f0dfa071dc9a83d16cde492840e21ac096ee1d9002a175444fe6acede2c"
+      },
+      "kind": "Development Preview; public asset provenance only"
+    },
+    "selected": {
+      "simulationProfile": "slingmods-sport-v3",
+      "display": {
+        "power": true,
+        "values": {
+          "speed": 0,
+          "units": "mph",
+          "rpm": 900,
+          "gear": "1"
+        },
+        "pixels": [
+          512,
+          336
+        ],
+        "uploads": 8,
+        "thumbnailCaptures": 7,
+        "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"white-graphite\",\"products\":{\"SM-133\":\"base-rgb\",\"SM-3223\":\"silver\",\"SM-7720\":\"brushed-silver\",\"SM-26801\":\"black-aluminum\",\"SM-28919\":\"lower-pair\"},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v3\"}",
+        "mount": {
+          "width": 0.202,
+          "height": 0.133,
+          "position": [
+            0,
+            0.665,
+            -0.1735
+          ],
+          "pixels": [
+            512,
+            336
+          ]
+        },
+        "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+      },
+      "ready": true,
+      "departure": null,
+      "showroom": {
+        "driverRendered": false,
+        "curtainPosition": [
+          0,
+          0,
+          0
+        ],
+        "curtainScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "build": "f4bc5720afa7-working",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v3"
+      },
+      "original": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v3"
+      },
+      "finish": {
+        "finish": "white-graphite",
+        "accent": "#56595e",
+        "paintedAccents": [
+          {
+            "node": "body_static__Orange_Accent",
+            "color": "56595e"
+          },
+          {
+            "node": "rear_arm_visual__Orange_Accent",
+            "color": "56595e"
+          }
+        ],
+        "isolatedMaterialSlots": 6,
+        "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+        "textureCount": 1
+      },
+      "compare": false,
+      "lighting": "studio",
+      "destinationLighting": "day",
+      "driverVisible": false,
+      "reducedMotion": false,
+      "status": "Preview updated · career credits unchanged",
+      "pending": false,
+      "screen": "build",
+      "saved": [],
+      "loadMs": 1174.8999999985099,
+      "preparation": {
+        "ms": 34.19999999925494,
+        "stages": [
+          {
+            "name": "init-textures",
+            "ms": 9.599999999627471
+          },
+          {
+            "name": "compile-async",
+            "ms": 19.5
+          },
+          {
+            "name": "first-all-mesh-render",
+            "ms": 4.099999999627471
+          },
+          {
+            "name": "loading-gpu-sync",
+            "ms": 0
+          }
+        ],
+        "textures": 36,
+        "programs": 25,
+        "parallelCompile": true,
+        "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+      },
+      "frames": 117,
+      "memory": {
+        "geometries": 112,
+        "textures": 37
+      },
+      "calls": 208,
+      "triangles": 521664,
+      "products": {
+        "selected": [
+          "SM-133",
+          "SM-3223",
+          "SM-7720",
+          "SM-26801",
+          "SM-28919"
+        ],
+        "storageInspection": false,
+        "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+        "mounts": {
+          "exhaust": {
+            "position": [
+              2.7,
+              1.3,
+              3.9
+            ],
+            "target": [
+              0,
+              0.65,
+              1.3
+            ]
+          },
+          "wing": {
+            "position": [
+              2.8,
+              1.9,
+              3.3
+            ],
+            "target": [
+              0,
+              1.25,
+              1.2
+            ]
+          },
+          "storage": {
+            "position": [
+              -1.6,
+              2.1,
+              -0.3
+            ],
+            "target": [
+              -0.2,
+              0.48,
+              0.95
+            ]
+          }
+        },
+        "productRoot": "signature_catalog_products"
+      },
+      "suspension": {
+        "equipped": true,
+        "inspection": null,
+        "stockVisible": [
+          {
+            "name": "suspension_front_left",
+            "visible": false
+          },
+          {
+            "name": "suspension_front_right",
+            "visible": false
+          },
+          {
+            "name": "shock_body_visual",
+            "visible": false
+          },
+          {
+            "name": "shock_piston_visual",
+            "visible": false
+          },
+          {
+            "name": "shock_spring_visual",
+            "visible": false
+          }
+        ],
+        "endpoints": [
+          [
+            [
+              -0.76,
+              0.27999998967306955,
+              -1.3335
+            ],
+            [
+              -0.48,
+              0.64,
+              -1.31
+            ]
+          ],
+          [
+            [
+              0.76,
+              0.27999998967306955,
+              -1.3335
+            ],
+            [
+              0.48,
+              0.64,
+              -1.31
+            ]
+          ],
+          [
+            [
+              0.28,
+              0.37284999883174363,
+              1.1374500000891123
+            ],
+            [
+              0.28,
+              0.7999999999999999,
+              1.0249999999999997
+            ]
+          ]
+        ],
+        "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+      },
+      "audio": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "p09b-authored-sport-mix",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "thermal": {
+          "loaded": true,
+          "armed": false,
+          "playing": false,
+          "elapsed": 0,
+          "offset": 0,
+          "starts": 0,
+          "paused": false,
+          "level": 0,
+          "clock": "cinematic-elapsed",
+          "bus": "captured-master"
+        },
+        "cues": {
+          "loaded": true,
+          "active": 3,
+          "poolLimit": 8,
+          "played": 11,
+          "rejected": 0,
+          "counts": {
+            "finish.apply": 1,
+            "ui.nav": 5,
+            "part.lights.attach": 1,
+            "part.shocks.attach": 1,
+            "part.exhaust.attach": 1,
+            "part.aero.attach": 1,
+            "part.storage.attach": 1
+          },
+          "bus": "captured-master"
+        },
+        "graph": {
+          "contextState": "running",
+          "contextTime": 1.9813333333333334,
+          "persistentLoops": 17,
+          "shiftCount": 0,
+          "masterTarget": 0.55,
+          "rms": 0.006891439105794196,
+          "parameters": {
+            "rpm": 950,
+            "speed": 1.1817201486217037e-9,
+            "load": 0,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 0.7916666666666666,
+                "gain": 0.055
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 0.7916666666666666,
+                "gain": 0.16
+              },
+              {
+                "name": "engine-1650-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 1.0383347850800604e-11
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 2.3903598079878144e-19
+              }
+            ],
+            "master": 0.55,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door and Thermal"
+      },
+      "simulation": {
+        "time": 1.4999999999999996,
+        "position": {
+          "x": -3.5582608876520534e-26,
+          "y": 8.344650304081824e-9,
+          "z": 4.91050323958575e-9
+        },
+        "quaternion": {
+          "x": 6.469465407832331e-9,
+          "y": 2.4320583424525124e-19,
+          "z": -1.6658375350366117e-27,
+          "w": 1
+        },
+        "velocity": {
+          "x": -2.630063244082985e-25,
+          "y": -9.57412424895665e-8,
+          "z": -1.1817213874110166e-9
+        },
+        "angularVelocity": {
+          "x": -1.0613036671713871e-8,
+          "y": -1.0514849174370447e-19,
+          "z": 0
+        },
+        "speed": 1.1817201486217037e-9,
+        "rpm": 950,
+        "engineWheelAngularSpeed": 1.2147789398480313e-9,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 0,
+        "brake": 1,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 2084.625132664193,
+            "travel": -1.032693047742228e-8,
+            "slipRatio": 1.7781878404987594e-9,
+            "slipAngle": -3.519234540598335e-18,
+            "spin": -1.4792643690239445e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3298499896730695,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4690199101796448e-8,
+            "longitudinalSpeed": -4.845562173727558e-9,
+            "longitudinalForce": 0.00003706855062901582,
+            "lateralForce": 5.869027816856972e-14,
+            "gripLimit": 2517.184847692013,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4169.2504429962955,
+            "travel": -1.6689301052252858e-9,
+            "slipRatio": 1.7781879276917888e-9,
+            "slipAngle": 3.519234538267414e-18,
+            "spin": -1.4122584990285685e-8,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.34549999833106987,
+              "z": 1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -1.4024783264303236e-8,
+            "longitudinalSpeed": -4.845562617816768e-9,
+            "longitudinalForce": 0.00007413710805259655,
+            "lateralForce": -1.1738056126143425e-13,
+            "gripLimit": 5034.369909918028,
+            "driveTorque": 0
+          }
+        ]
+      },
+      "profile": {
+        "frontCompression": 3800,
+        "frontRebound": 3800,
+        "rearCompression": 6500,
+        "rearRebound": 6500,
+        "rideHeight": 0
+      },
+      "camera": {
+        "position": [
+          4.4044374474402535,
+          2.9416863980447236,
+          -5.5
+        ],
+        "target": [
+          0.007064633071422577,
+          0.7429999908603088,
+          -0.22315262275740064
+        ]
+      },
+      "bounds": {
+        "minX": -0.5293835266353775,
+        "maxX": 0.4190199359075267,
+        "minY": -0.7247797589084559,
+        "maxY": 0.4442668009399701,
+        "allInFront": true
+      },
+      "resources": [
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/index-CdoET8j7.js",
+          "bytes": 300,
+          "duration": 20.799999998882413
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/profile-hKDw4fAG.js",
+          "bytes": 300,
+          "duration": 20.59999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/recovery-DhQDAYv2.css",
+          "bytes": 300,
+          "duration": 19.199999999254942
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/recovery-C2xUO17e.js",
+          "bytes": 300,
+          "duration": 20.699999999254942
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/preload-helper-BZ1Pz5am.js",
+          "bytes": 300,
+          "duration": 21
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/scene-tswLIa29.js",
+          "bytes": 300,
+          "duration": 19.90000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/OrbitControls-DnYenRB9.js",
+          "bytes": 300,
+          "duration": 20.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/GLTFLoader-Pl2xBtgQ.js",
+          "bytes": 300,
+          "duration": 21.399999998509884
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/menu-B0Hq5PZj.js",
+          "bytes": 300,
+          "duration": 21.40000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/save-RUjMTVQE.js",
+          "bytes": 300,
+          "duration": 33.90000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/route-BrZ4KHzx.js",
+          "bytes": 300,
+          "duration": 20.300000000745058
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/tokens-DaW2q993.js",
+          "bytes": 300,
+          "duration": 22.800000000745058
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/environment-UbWa__xE.js",
+          "bytes": 300,
+          "duration": 24.90000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/tokens-IhVuJD4W.css",
+          "bytes": 300,
+          "duration": 24.200000001117587
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/hero-kVtF59NP.js",
+          "bytes": 300,
+          "duration": 24.40000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/shadows-CreT30TL.js",
+          "bytes": 300,
+          "duration": 41.09999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/scene-f4YtXNTs.css",
+          "bytes": 300,
+          "duration": 24.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/assets-Cj63lOUd.js",
+          "bytes": 300,
+          "duration": 24.800000000745058
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/signature-art-lvouESdF.js",
+          "bytes": 300,
+          "duration": 26.40000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/brand/slingmods-logo-main.png",
+          "bytes": 300,
+          "duration": 19.59999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/hoop-refinement/slingshot-hoops-refined.glb",
+          "bytes": 6771973,
+          "duration": 142.40000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/drivers/test-driver-attachment.json",
+          "bytes": 300,
+          "duration": 36.79999999888241
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/drivers/test-driver.glb",
+          "bytes": 300,
+          "duration": 80.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/vehicles/slingshot-p04a1-rear-rig.json",
+          "bytes": 300,
+          "duration": 32.20000000111759
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+          "bytes": 300,
+          "duration": 29.40000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/products/tricled-sm133-base.glb",
+          "bytes": 300,
+          "duration": 22.09999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/products/tricled-sm133-base.attachment.json",
+          "bytes": 300,
+          "duration": 22.199999999254942
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/products/ddmworks-sm3223-silver.glb",
+          "bytes": 300,
+          "duration": 23.300000000745058
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/signature-products.glb",
+          "bytes": 300,
+          "duration": 23.199999999254942
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/harbor/route.json",
+          "bytes": 300,
+          "duration": 19.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/ridge/preview.json",
+          "bytes": 300,
+          "duration": 18.899999998509884
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/provenance.json",
+          "bytes": 2746,
+          "duration": 109.09999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-1200-load.wav",
+          "bytes": 189464,
+          "duration": 238.7999999988824
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-1200-lift.wav",
+          "bytes": 189464,
+          "duration": 208.7999999988824
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-1650-load.wav",
+          "bytes": 189464,
+          "duration": 196.59999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-2200-load.wav",
+          "bytes": 189464,
+          "duration": 212.09999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-1650-lift.wav",
+          "bytes": 189464,
+          "duration": 265.2000000011176
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-3000-load.wav",
+          "bytes": 189464,
+          "duration": 217.30000000074506
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-2200-lift.wav",
+          "bytes": 189464,
+          "duration": 219
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-3000-lift.wav",
+          "bytes": 189464,
+          "duration": 213.19999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-4000-lift.wav",
+          "bytes": 189464,
+          "duration": 172.7999999988824
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-4000-load.wav",
+          "bytes": 189464,
+          "duration": 296.40000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-5300-load.wav",
+          "bytes": 189464,
+          "duration": 223.40000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-6800-load.wav",
+          "bytes": 189464,
+          "duration": 178.09999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-5300-lift.wav",
+          "bytes": 189464,
+          "duration": 193.7000000011176
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-6800-lift.wav",
+          "bytes": 189464,
+          "duration": 190.80000000074506
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/road.wav",
+          "bytes": 192344,
+          "duration": 314.80000000074506
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/shift.wav",
+          "bytes": 13784,
+          "duration": 135
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/wind.wav",
+          "bytes": 192344,
+          "duration": 220.19999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/thermal-mid.wav",
+          "bytes": 69462,
+          "duration": 166.69999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/provenance.json",
+          "bytes": 3137,
+          "duration": 107.59999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-departure/provenance.json",
+          "bytes": 1172,
+          "duration": 147.30000000074506
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/ui.nav.wav",
+          "bytes": 7544,
+          "duration": 111.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/ui.confirm.wav",
+          "bytes": 10904,
+          "duration": 108.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/ui.back.wav",
+          "bytes": 7064,
+          "duration": 110
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/ui.detent.wav",
+          "bytes": 3704,
+          "duration": 116.59999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/power.wav",
+          "bytes": 12824,
+          "duration": 111.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/finish.apply.wav",
+          "bytes": 24344,
+          "duration": 119.09999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.lights.attach.wav",
+          "bytes": 9944,
+          "duration": 109
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.exhaust.attach.wav",
+          "bytes": 31064,
+          "duration": 139.90000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.shocks.attach.wav",
+          "bytes": 27224,
+          "duration": 152.2000000011176
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.aero.attach.wav",
+          "bytes": 19544,
+          "duration": 158.30000000074506
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.storage.attach.wav",
+          "bytes": 27224,
+          "duration": 194.40000000037253
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/build.save.wav",
+          "bytes": 15704,
+          "duration": 118.19999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/build.preset.wav",
+          "bytes": 22424,
+          "duration": 130.39999999850988
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.remove.wav",
+          "bytes": 14744,
+          "duration": 133.69999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/career.unlock.wav",
+          "bytes": 48344,
+          "duration": 134.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/race.count.wav",
+          "bytes": 11864,
+          "duration": 130.7999999988824
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/race.finish.wav",
+          "bytes": 57944,
+          "duration": 133.19999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/race.start.wav",
+          "bytes": 23384,
+          "duration": 177.69999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-departure/thermal.wav",
+          "bytes": 1113944,
+          "duration": 235.39999999850988
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/showroom-refinement/finish-white-graphite.png",
+          "bytes": 99546,
+          "duration": 122.19999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/thumbnails/SM-133.png",
+          "bytes": 4223,
+          "duration": 117.09999999962747
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/thumbnails/SM-3223.png",
+          "bytes": 28505,
+          "duration": 163.5
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/thumbnails/SM-7720.png",
+          "bytes": 21128,
+          "duration": 103.69999999925494
+        },
+        {
+          "name": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/thumbnails/SM-26801.png",
+          "bytes": 19964,
+          "duration": 109.10000000149012
+        }
+      ],
+      "intervals": [
+        -2.80000000037262,
+        16.600000000000136,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.700000000000045,
+        16.59999999999991,
+        83.29999999999995,
+        16.700000000000045,
+        16.700000000000045,
+        33.399999999999864,
+        16.600000000000136,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.700000000000045,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.700000000000045,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.700000000000045,
+        16.59999999999991,
+        16.700000000000045,
+        16.699999999999818,
+        16.700000000000273,
+        16.59999999999991,
+        16.59999999999991,
+        16.800000000000182,
+        16.59999999999991,
+        16.699999999999818,
+        16.600000000000364,
+        16.699999999999818,
+        16.699999999999818,
+        16.700000000000273,
+        16.59999999999991,
+        16.699999999999818,
+        16.700000000000273,
+        16.59999999999991,
+        16.59999999999991,
+        16.700000000000273,
+        16.699999999999818,
+        16.699999999999818,
+        16.600000000000364,
+        16.799999999999727,
+        16.59999999999991,
+        16.600000000000364,
+        16.699999999999818,
+        16.699999999999818,
+        16.600000000000364,
+        16.699999999999818,
+        16.699999999999818,
+        16.600000000000364,
+        16.699999999999818,
+        16.699999999999818,
+        16.600000000000364,
+        16.699999999999818,
+        16.699999999999818,
+        466.60000000000036,
+        16.699999999999818,
+        16.59999999999991,
+        16.700000000000273,
+        16.699999999999818,
+        16.59999999999991,
+        16.700000000000273,
+        16.59999999999991,
+        16.699999999999818,
+        16.700000000000273,
+        16.699999999999818,
+        16.699999999999818,
+        16.700000000000273,
+        16.5,
+        16.699999999999818,
+        16.700000000000273,
+        66.69999999999982,
+        16.699999999999818,
+        16.600000000000364,
+        16.699999999999818,
+        16.59999999999991,
+        16.700000000000273,
+        16.699999999999818,
+        16.699999999999818,
+        16.600000000000364,
+        16.59999999999991,
+        16.699999999999818,
+        16.700000000000273,
+        16.699999999999818,
+        16.699999999999818,
+        16.600000000000364,
+        16.699999999999818,
+        16.59999999999991,
+        16.700000000000273,
+        16.699999999999818,
+        16.699999999999818,
+        16.600000000000364,
+        16.699999999999818,
+        16.59999999999991,
+        16.700000000000273,
+        16.59999999999991,
+        16.699999999999818
+      ]
+    },
+    "productLink": {
+      "href": "https://www.slingmods.com/polaris-slingshot-ceramic-coated-dual-rear-exit-sport-exhaust-system-2020-up",
+      "openedURL": "https://www.slingmods.com/polaris-slingshot-ceramic-coated-dual-rear-exit-sport-exhaust-system-2020-up",
+      "externalError": ""
+    }
+  },
+  "errors": [],
+  "responses": [
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/drivers/test-driver.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/hoop-refinement/slingshot-hoops-refined.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/products/tricled-sm133-base.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/signature-products.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/hoop-refinement/slingshot-hoops-refined.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/drivers/test-driver.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/p08b/signature-products.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/products/tricled-sm133-base.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/products/ddmworks-sm3223-silver.glb",
+      "status": 200,
+      "type": "model/gltf-binary",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/shift.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/thermal-mid.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-4000-lift.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-6800-load.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-6800-lift.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-5300-lift.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-1650-load.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-1200-lift.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-2200-load.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-3000-lift.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-3000-load.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-2200-lift.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/wind.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-5300-load.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-1200-load.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-1650-lift.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/engine-4000-load.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b/road.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/ui.confirm.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.lights.attach.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/ui.back.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/ui.nav.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/power.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/ui.detent.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/build.save.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/finish.apply.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/build.preset.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/race.count.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/race.finish.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.remove.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/career.unlock.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.exhaust.attach.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.shocks.attach.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.aero.attach.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/race.start.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-cues/part.storage.attach.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    },
+    {
+      "url": "https://slingmods-three-wheel-tour-rebuild.vercel.app/assets/audio/p09b-departure/thermal.wav",
+      "status": 200,
+      "type": "audio/wav",
+      "cache": "no-cache"
+    }
+  ]
+}

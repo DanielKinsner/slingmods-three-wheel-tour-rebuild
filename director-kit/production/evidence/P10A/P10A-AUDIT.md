@@ -23,3 +23,9 @@ Final art-proof-06 shows all four districts in afternoon and blue hour, with act
 Career correctness uses controlled simulation time with ordinary control inputs and real race gates. Native performance uses wall-clock RAF separately, without recording or tracing. The film uses actual game audio and automated pedals/steering, with a continuous full lap and disclosed loading cuts. Resource counters are logical counts, not GPU memory measurements. Same-host fresh remote clone recovery does not certify another computer. No owner subjective fun/listening or physical-controller approval is implied.
 
 Final performance, host and remote results are recorded in P10A-VALIDATION.json and PERFORMANCE.md when complete; no unfinished gate is inferred from this critique.
+
+## Final remote delivery review
+
+A fresh Git clone exposed byte mismatches in two Ridge JSON assets and the presentation source from inherited line-ending normalization. The exact authored bytes were committed with explicit no-normalization attributes; the remote clone received the repair by git pull, then passed all143 required assets,31 focused inputs,263 tests and two complete rendered day/night laps. Every307 previously pushed original evidence file matched the clone. No project assets were copied into it.
+
+The first hosted script used an obsolete direct test-drive button selector while still in the workshop. It was repaired to open Destinations first; production UI was unchanged. The retained hosted-final-01 failure is a harness failure. hosted-final-02 completes actual native keyboard movement, full Ridge race, results/retry and same-build return. All103 actual public HTTPS asset bodies match committed hashes. The existing curated Vercel build reports only its vercel.json checkout change and zero runtime changes.

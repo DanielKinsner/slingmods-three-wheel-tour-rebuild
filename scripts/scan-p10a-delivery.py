@@ -16,7 +16,7 @@ for name in names:
  for kind,pattern in patterns.items():
   count=len(pattern.findall(text))
   if count:findings.append({'path':name,'kind':kind,'count':count})
-result={'pass':not findings,'checked':checked,'findings':findings,'method':'Common credential-literal patterns on intended tracked/staged changes against origin/main. Matching values never emitted. This is a bounded hygiene check, not a comprehensive security audit.'}
+result={'pass':not findings,'checked':checked,'findings':findings,'method':'Common credential-literal patterns on intended tracked/staged changes against preserved baseline63da7a0. Matching values never emitted. This is a bounded hygiene check, not a comprehensive security audit.'}
 (root/'director-kit/production/evidence/P10A/secret-scan.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
 print(json.dumps({'pass':not findings,'checked':len(checked),'findings':findings}))
 sys.exit(1 if findings else 0)

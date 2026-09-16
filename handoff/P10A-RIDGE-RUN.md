@@ -1,4 +1,4 @@
-# P10A — Ridge Run portable handoff
+# P10A â€” Ridge Run portable handoff
 
 ## Play and continue on main
 
@@ -26,7 +26,7 @@ Open http://127.0.0.1:5197/ . The static server prints its owned PID and an exac
 
 ## What is playable
 
-Use **Quick Race / Destinations → Smoky Ridge**, select **Late afternoon** or **Blue hour**, then **Test Drive** or **Quick Race**. Every existing part remains freely previewable before career unlock. A showroom test drive keeps the existing bay departure and explicitly travels to Ridge; it is not claiming the mountain sits outside the showroom door. Return to the build retains the exact recipe.
+Use **Quick Race / Destinations â†’ Smoky Ridge**, select **Late afternoon** or **Blue hour**, then **Test Drive** or **Quick Race**. Every existing part remains freely previewable before career unlock. A showroom test drive keeps the existing bay departure and explicitly travels to Ridge; it is not claiming the mountain sits outside the showroom door. Return to the build retains the exact recipe.
 
 Complete the existing Coastline Cup to unlock Chapter 03. **Find the Ridge** is a one-lap afternoon solo event (400 first /75 repeat credits); **Nico Ridge Duel** is a one-lap afternoon duel (600/125); **Summit Invitational** is a two-lap blue-hour four-car race (900/175). Valid completion advances the chapter; winning records its own achievement. Rewards commit once after the field settles. Abandoning earns nothing. These are fictional game credits, not product prices or purchases.
 
@@ -34,7 +34,7 @@ Use the current pause/recovery controls when stranded. In a scored race, recover
 
 ## Identity and evidence
 
-The frozen gameplay implementation is `28daf3a4dfb702e2b4829ffda683cffeb117c858`. Final native tests, host, fresh-clone and packaging identities are recorded separately in `handoff/P10A-VALIDATION.json`, `P10A-PACKET.json` and `P10A-DELIVERY.json` when complete. Resolve the actual latest main with `git ls-remote origin refs/heads/main`; the archive commit is `git log -1 --format=%H -- Astra-Review-20-Lean.zip`. Later receipt-only commits do not imply a new gameplay test or recursive archive hash.
+The frozen gameplay implementation is `28daf3a4dfb702e2b4829ffda683cffeb117c858`. Final native tests, host, fresh-clone and packaging identities are recorded separately in `handoff/P10A-VALIDATION.json`, `P10A-PACKET.json` and `P10A-DELIVERY.json` as recorded. Resolve the actual latest main with `git ls-remote origin refs/heads/main`; the archive commit is `git log -1 --format=%H -- Astra-Review-20-Lean.zip`. Later receipt-only commits do not imply a new gameplay test or recursive archive hash.
 
 Full raw/final/failure evidence belongs in `director-kit/production/evidence/P10A/`. `DELIVERY-INVENTORY.json` lists exact files/bytes/hashes and packet selection. Review20 uses standard lossless XZ/TAR for selected final timing and motion data; exact duplicates may use TAR hardlinks. `python scripts/verify-p10a-packet.py` verifies every archive member. The lean ZIP is not a self-contained game distribution.
 
@@ -73,4 +73,4 @@ Pinned runtime dependencies are in package-lock.json. Validated host tools: Node
 
 ## Next action and limits
 
-After final receipts confirm completion, send Astra-Review-20-Lean.zip to Astra for director review and gather owner driving feedback. Do not invent another development assignment. Forest/rocks/distant ridges remain stylized, foliage LOD does not crossfade, and distant visual terrain outside the 60m banks has no support collision. Physical-controller/other-hardware testing, subjective fun/listening approval, G3/G4 and global OEM fidelity remain open.
+Send Astra-Review-20-Lean.zip to Astra for director review and gather owner driving feedback. Do not invent another development assignment. Forest/rocks/distant ridges remain stylized, foliage LOD does not crossfade, and distant visual terrain outside the 60m banks has no support collision. Physical-controller/other-hardware testing, subjective fun/listening approval, G3/G4 and global OEM fidelity remain open.

@@ -7,7 +7,7 @@
   "commit": "28daf3a4dfb702e2b4829ffda683cffeb117c858",
   "current_gate": "G3",
   "current_packet": "P10A Ridge Run / Review20",
-  "next_action": "Finish hosted verification, fresh remote recovery and Review20 archive delivery; implementation and local validation complete.",
+  "next_action": "Astra/owner review of Review20; see final archive and remote delivery receipts.",
   "game_implementation_in_this_kit": true,
   "accepted_game_evidence": [
     "production/evidence/G0/review.json",
@@ -58,10 +58,9 @@
     }
   },
   "blockers": [
-    "P09A maximum-frame target failed in 3 of 16 native races (8 frames over 100ms, worst 200ms); cause unresolved.",
-    "G3/G4, global fidelity, physical-controller/device breadth and human fun/listening remain unapproved.",
-    "Publication remains pending separately; not a development blocker.",
-    "Natural finish-before-rivals pause/resume proof was not achieved in two bounded control-only driver attempts; source review and synthetic UI regression pass."
+    "Sustained deliberate rail wedging can retire AI; ordinary contact-and-release recovery passes.",
+    "Stylized forest/rocks; LOD no crossfade; visual-only distant terrain beyond 60m banks; decorative off-road camera clipping possible.",
+    "Same-host fresh clone is not physical second-machine/controller qualification. Human fun/listening, G3/G4 and global OEM fidelity remain open."
   ],
   "unknowns": [
     "Game-redistribution permissions for any future third-party assets; reference photographs remain research-only and outside runtime assets.",
@@ -693,9 +692,9 @@
     "packet_receipt": "handoff/P09C-PACKET.json"
   },
   "p10a": {
-    "status": "implemented-locally-validated-delivery-in-progress",
+    "status": "internally-validated-director-review-pending",
     "baseline": "63da7a0202a0216cea5e9a70bd55f63f5283cba4",
-    "packet": "director-kit/director-addenda/review-19",
+    "packet": "Astra-Review-20-Lean.zip",
     "specialists": [
       "route/art",
       "destination/chapter"
@@ -703,6 +702,15 @@
     "runtime_commit": "28daf3a4dfb702e2b4829ffda683cffeb117c858",
     "native_attempts_passed": 22,
     "tests_passed": 263,
-    "film": "production/evidence/P10A/film-01/P10A-Ridge-Run.mp4"
-  }
+    "film": "production/evidence/P10A/film-01/P10A-Ridge-Run.mp4",
+    "validation": "handoff/P10A-VALIDATION.json",
+    "hosted_verified_commit": "f4bc5720afa70cec91dfebacf16c8ee6e92be106",
+    "recovery_verified_commit": "f4bc5720afa70cec91dfebacf16c8ee6e92be106"
+  },
+  "historical_blockers_pre_p10a": [
+    "P09A maximum-frame target failed in 3 of 16 native races (8 frames over 100ms, worst 200ms); cause unresolved.",
+    "G3/G4, global fidelity, physical-controller/device breadth and human fun/listening remain unapproved.",
+    "Publication remains pending separately; not a development blocker.",
+    "Natural finish-before-rivals pause/resume proof was not achieved in two bounded control-only driver attempts; source review and synthetic UI regression pass."
+  ]
 }

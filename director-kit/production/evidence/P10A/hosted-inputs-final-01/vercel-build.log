@@ -1,0 +1,93 @@
+## Build Logs
+
+21:04:47  Running build in Washington, D.C., USA (East) – iad1
+21:04:47  Build machine configuration: 2 cores, 8 GB
+21:04:48  Cloning github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild (Branch: main, Commit: f4bc572)
+21:06:08  Cloning completed: 1:20.838 (m:ss.mmm)
+21:06:09  Restored build cache from previous deployment (3Xeb3Detp477jj8oEMcz6Tz7Zk1f)
+21:06:13  Running "vercel build"
+21:06:13  Vercel CLI 59.16.0
+21:06:14  Running "install" command: `npm ci`...
+21:06:19  added 36 packages, and audited 37 packages in 5s
+21:06:19  9 packages are looking for funding
+21:06:19    run `npm fund` for details
+21:06:19  found 0 vulnerabilities
+21:06:19  npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+21:06:19  npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+21:06:19  npm warn allow-scripts
+21:06:19  npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+21:06:20  > slingmods-three-wheel-tour-rebuild@1.0.0 deploy:build
+21:06:20  > node scripts/build-vercel.mjs
+21:06:20  {"providerSourceAudit":{"changedTrackedPaths":["vercel.json"],"runtimeInputChanges":[]}}
+21:06:24  [36mvite v8.3.0 [32mbuilding client environment for demo...[36m[39m
+21:06:24  transforming...
+21:06:24  ✓ 123 modules transformed.
+21:06:24  rendering chunks...
+21:06:24  computing gzip size...
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/index.html                              1.03 kB │ gzip:     0.58 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/.vite/manifest.json                     9.34 kB │ gzip:     1.38 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/style-S_mbsQK_.css               0.86 kB │ gzip:     0.44 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/tokens-IhVuJD4W.css              4.06 kB │ gzip:     1.33 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/build-cza-csh3.css               4.86 kB │ gzip:     1.62 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/competition-D7Sydgo8.css         6.78 kB │ gzip:     2.06 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/hub-CMjut-8I.css                10.31 kB │ gzip:     2.67 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/recovery-DhQDAYv2.css           10.96 kB │ gzip:     3.01 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/workbench-DLvVosll.css          16.65 kB │ gzip:     4.25 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/driving-camera-BFXSfTFY.css     17.99 kB │ gzip:     4.54 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/scene-f4YtXNTs.css              22.28 kB │ gzip:     5.14 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/route-JX7c2baU.js                0.36 kB │ gzip:     0.24 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/assets-Cj63lOUd.js               0.39 kB │ gzip:     0.23 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/preload-helper-BZ1Pz5am.js       1.21 kB │ gzip:     0.69 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/tokens-DaW2q993.js               1.23 kB │ gzip:     0.60 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/race-adapter-C3BXsgHC.js         1.53 kB │ gzip:     0.74 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/profile-hKDw4fAG.js              1.55 kB │ gzip:     0.74 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/route-BrZ4KHzx.js                1.88 kB │ gzip:     1.03 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/recovery-C2xUO17e.js             1.99 kB │ gzip:     1.05 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/RoomEnvironment-Zvsewewc.js      2.03 kB │ gzip:     0.88 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/save-RUjMTVQE.js                 2.26 kB │ gzip:     1.04 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/calibration-DMHFrO13.js          2.44 kB │ gzip:     1.29 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/environment-UbWa__xE.js          3.20 kB │ gzip:     1.32 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/index-CdoET8j7.js                4.18 kB │ gzip:     1.79 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/route-Cik3XjjV.js                4.44 kB │ gzip:     2.30 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/signature-art-lvouESdF.js        5.00 kB │ gzip:     2.13 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/hero-kVtF59NP.js                 8.42 kB │ gzip:     3.70 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/presentation-DeE-BkuV.js        10.61 kB │ gzip:     5.09 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/harbor-DF6M2eqw.js              12.14 kB │ gzip:     5.32 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/hub-rNQ0k9jR.js                 12.85 kB │ gzip:     5.21 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/crew-Df_Wc497.js                14.02 kB │ gzip:     6.09 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/driving-camera-D8q5FBRX.js      19.14 kB │ gzip:     7.16 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/OrbitControls-DnYenRB9.js       19.84 kB │ gzip:     4.40 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/express-AdU3f8_a.js             21.88 kB │ gzip:     8.99 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/competition-DZ2M0NBx.js         25.55 kB │ gzip:     9.65 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/harbor-lighting-Cm38jEek.js     25.86 kB │ gzip:    10.81 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/client-DV9gwOuV.js              31.92 kB │ gzip:     9.79 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/scene-tswLIa29.js               38.12 kB │ gzip:    13.93 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/menu-B0Hq5PZj.js                39.29 kB │ gzip:    13.43 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/workbench-BpJeE-o8.js           50.74 kB │ gzip:    16.93 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/GLTFLoader-Pl2xBtgQ.js         636.91 kB │ gzip:   160.54 kB
+21:06:24  demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working/assets/shadows-CreT30TL.js          3,141.18 kB │ gzip: 1,215.25 kB
+21:06:24  [32m✓ built in 881ms[39m
+21:06:24  [33m[plugin builtin:vite-reporter]
+21:06:24  (!) Some chunks are larger than 500 kB after minification. Consider:
+21:06:24  - Using dynamic import() to code-split the application
+21:06:24  - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+21:06:24  - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+21:06:25  {
+21:06:25    "output": "demo-dist/2026-09-16T21-06-21-298Z-f4bc5720afa7-working",
+21:06:25    "buildRef": "f4bc5720afa7-working",
+21:06:25    "files": 147,
+21:06:25    "bytes": 169309196
+21:06:25  }
+21:06:26  {
+21:06:26    "output": "vercel-dist",
+21:06:26    "commit": "f4bc5720afa70cec91dfebacf16c8ee6e92be106",
+21:06:26    "buildRef": "f4bc5720afa7-working",
+21:06:26    "files": 148
+21:06:26  }
+21:06:28  Build Completed in /vercel/output [14s]
+21:06:28  Deploying outputs...
+21:06:30  Deployment completed
+21:06:30  Creating build cache...
+21:06:36  Created build cache: 6s
+21:06:36  Uploading build cache [51.26 MB]
+21:06:36  Build cache uploaded: 718.000ms
