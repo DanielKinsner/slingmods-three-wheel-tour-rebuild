@@ -4,6 +4,9 @@ from pathlib import Path
 root=Path(sys.argv[1]); recorded=json.loads((root/'video-path.json').read_text())['path']; video=root/'raw-video'/recorded.replace('\\','/').split('/')[-1]; assert video.is_file(), 'Recover original raw-video file from Git first'
 runtime=next((a.split('=',1)[1] for a in sys.argv[2:] if a.startswith('--runtime=')), '')
 assert re.fullmatch(r'[0-9a-f]{12,40}', runtime), 'Pass --runtime=verified-runtime-sha'
+identity=json.loads((root/'runtime-identity.json').read_text(encoding='utf8'));assert identity['commit'].startswith(runtime) and identity['buildRef'].startswith(runtime[:12]), 'Runtime label must identify the recorded candidate'
+assert not (root/'P10B-Cinematic-Identity.mp4').exists(), 'Preserve previous film; use a fresh evidence directory for a new assembly'
+
 font_candidates=[Path(os.environ.get('FILM_FONT','')),Path(os.environ.get('WINDIR','C:/Windows'))/'Fonts/arial.ttf',Path('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'),Path('/System/Library/Fonts/Supplemental/Arial.ttf')]
 font=next((p for p in font_candidates if p.is_file()),None)
 assert font, 'Set FILM_FONT to an installed redistributable or locally licensed font for metadata caption'
@@ -40,13 +43,7 @@ for s in segments:
 cuts=[];parts=[]
 for i,s in enumerate(segments):
  start,end,boundary_method=bounds[i]
- if s.get('silent'):
-  segment_label=label
- if s['name']=='04-thermal-departure-excerpt':
-  segment_label+=",drawtext=fontfile='"+font_path+"':text='THERMAL DEPARTURE EXCERPT | PAUSED BEFORE TRAVEL':fontsize=12:fontcolor=white:box=1:boxcolor=black@0.72:boxborderw=3:x=8:y=h-th-29"
-  duration=end-start-.60;part=root/(s['name']+'.mp4');parts.append(part)
-  subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',str(start+.30),'-i',str(video),'-f','lavfi','-i','anullsrc=r=48000:cl=stereo','-t',str(duration),'-map','0:v:0','-map','1:a:0','-c:v','libx264','-preset','medium','-crf','24','-maxrate','1250k','-bufsize','2500k','-vf',segment_label,'-pix_fmt','yuv420p','-r','25','-c:a','aac','-b:a','128k','-movflags','+faststart',str(part)],check=True)
-  cuts.append({'segment':s['name'],'sourceVideoStart':start+.30,'duration':duration,'boundaryMethod':boundary_method,'audio':'Authentic silent career UI. Silent track for concatenation; no replacement sound.'});continue
+ assert not s.get('silent'), 'Every required P10B segment must contain captured game audio'
  marks=s['markers'];assert len(marks)==2
  audio=Path(root/(s['name']+'-audio.webm'))
  segment_label=label
