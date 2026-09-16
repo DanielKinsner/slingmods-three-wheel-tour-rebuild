@@ -54,7 +54,7 @@ for(const id of ids)world.addVehicle(id,grid[id]);world.get('player').configureS
 const eventId=careerRace?.eventId??(ridge?'smoky-ridge':express?'harbor-express':'harbor-preview')+(free?'-test-v1':'-quick-race-v1'),race=new CrewRace(route,ids,'player',ids.length===2,{eventId,laps:careerRace?.laps??1,handlingProfileId:handlingProfile,freeDrive:free,timeTrial:!!careerRace&&ids.length===1});
 
 let rivals=Object.fromEntries(rivalIds.map(id=>[id,new RivalController(route,id,11,handlingProfile)]));world.initialize();let currentField=world.telemetry(),previousField=currentField,attemptId:string|null=null,attempt=0,prepared=false,confirmBlocked=false;
-const resultCamera=new ResultCamera(camera);const keyboard=new KeyboardBuffer(),releaseKeys=new Set<string>();let virtual:DeviceSample|undefined,sampled:DeviceSample={keys:new Set(),pads:[],focused:true},cameraMode:DrivingView=loadSave(browserStorage()).settings.camera,lookBack=false,resetPresentation=true;
+const resultCamera=new ResultCamera(camera,route.heightAt);const keyboard=new KeyboardBuffer(),releaseKeys=new Set<string>();let virtual:DeviceSample|undefined,sampled:DeviceSample={keys:new Set(),pads:[],focused:true},cameraMode:DrivingView=loadSave(browserStorage()).settings.camera,lookBack=false,resetPresentation=true;
 const display=new PoweredDisplay(hero.asset),raceCues=new RaceCues();display.snapshot(renderer,scene.environment,JSON.stringify(recipe));
 const audio=lifetime.own(new GameAudio(app),v=>v.dispose()),chase=new DrivingCamera(camera,handlingProfile);audio.setExhaustTreatment(!!recipe.products['SM-7720']);chase.eye.fromArray(hero.attachment.eye);
 lifetime.own(display,v=>v.dispose());

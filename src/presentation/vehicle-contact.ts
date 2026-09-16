@@ -17,5 +17,5 @@ export function vehicleContact(){
  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometry.setIndex(indices);
  const material=new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,toneMapped:false,polygonOffset:true,polygonOffsetFactor:-1});
  const mesh=new THREE.Mesh(geometry,material);mesh.name='presentation_tire_contact';mesh.userData.excludePresentationBounds=true;
- return {mesh,dispose(){mesh.removeFromParent();geometry.dispose();material.dispose();texture.dispose()}};
+ return {mesh,ground(root:THREE.Object3D,heightAt:(x:number,z:number)=>number){root.updateWorldMatrix(true,false);const a=geometry.getAttribute('position');for(let i=0;i<a.count;i++){const v=new THREE.Vector3(positions[i*3],0,positions[i*3+2]).applyMatrix4(root.matrixWorld);v.y=heightAt(v.x,v.z)+.025;root.worldToLocal(v);a.setXYZ(i,v.x,v.y,v.z)}a.needsUpdate=true;geometry.computeBoundingSphere()},dispose(){mesh.removeFromParent();geometry.dispose();material.dispose();texture.dispose()}};
 }

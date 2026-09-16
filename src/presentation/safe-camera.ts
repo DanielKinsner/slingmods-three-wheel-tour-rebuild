@@ -14,10 +14,10 @@ export function fitSafeCamera(camera:THREE.PerspectiveCamera,bounds:THREE.Box3,d
 /** Presentation-only result view in the existing world. No physics/pose/reward mutation. */
 export class ResultCamera {
  private active=false;private contact:ReturnType<typeof vehicleContact>|undefined;
- constructor(private camera:THREE.PerspectiveCamera){}
+ constructor(private camera:THREE.PerspectiveCamera,private heightAt:(x:number,z:number)=>number=()=>0){}
  update(root:THREE.Object3D,show:boolean,width:number,height:number){
   if(!show){if(this.contact)this.contact.mesh.visible=false;if(this.active){this.camera.clearViewOffset();this.camera.updateProjectionMatrix();this.active=false}return}
-  this.active=true;if(!this.contact){this.contact=vehicleContact();root.add(this.contact.mesh)}this.contact.mesh.visible=true;root.updateWorldMatrix(true,true);const direction=new THREE.Vector3(-5,1.65,-6).applyQuaternion(root.quaternion);
+  this.active=true;if(!this.contact){this.contact=vehicleContact();root.add(this.contact.mesh)}this.contact.mesh.visible=true;this.contact.ground(root,this.heightAt);root.updateWorldMatrix(true,true);const direction=new THREE.Vector3(-5,1.65,-6).applyQuaternion(root.quaternion);
   const region=width>760?{left:Math.min(width*.36,480)+30,top:100,right:width-36,bottom:height-45}:{left:20,top:height*.4,right:width-20,bottom:height-30};
   fitSafeCamera(this.camera,visibleBounds(root),direction,region,width,height,.9);
  }
