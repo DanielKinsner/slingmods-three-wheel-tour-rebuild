@@ -1,7 +1,8 @@
 # Current work
 
-- NOW: Finish MODEL03 production smoke and verify the existing Vercel deployment.
-  Implementation and 43 targeted regressions pass. See `handoff/MODEL03-FINISH.md`.
+- NOW: MODEL03 is implemented and locally validated. Play the 2026 at the existing
+  game URL; `/review-build.json` identifies the served main commit. See
+  `handoff/MODEL03-FINISH.md` for checks and concrete limits.
 - NEXT: Let Dan play the completed 2026. A distinct playable Spyder requires a
   usable source asset and is a separate future assignment; do not start it here.
 - LATER: Previously agreed loading cleanup, measured product mounts and a sourced

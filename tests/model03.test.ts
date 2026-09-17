@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import * as THREE from 'three';
 import {NativeCluster,dialAngle} from '../src/presentation/native-cluster';
 import {displayValues} from '../src/presentation/instrument-values';
-import {VehicleOptics,recolorRivalMaterial} from '../src/presentation/vehicle-materials';
+import {VehicleOptics,recolorRivalMaterial,decalTexture} from '../src/presentation/vehicle-materials';
 import {SignatureFinishPresenter,SignatureProducts} from '../src/presentation/signature-art';
 import {retailFitment} from '../src/signature/fitment';import {PRODUCTS,fits} from '../src/signature/catalog';
 import {freshRecipe,validateRecipe,buildSummary} from '../src/signature/config';import {vehicleContext} from '../src/presentation/vehicle-context';
@@ -45,4 +45,10 @@ test('2026 driver leg bindings reach the native pedals without stretching or mov
  const body=new THREE.Group(),nodes:THREE.Object3D[]=driver.nodes.map((n:any,i:number)=>{const o=joints.has(i)?new THREE.Bone():new THREE.Object3D();o.name=n.name;if(n.translation)o.position.fromArray(n.translation);if(n.rotation)o.quaternion.fromArray(n.rotation);if(n.scale)o.scale.fromArray(n.scale);return o});driver.nodes.forEach((n:any,i:number)=>n.children?.forEach((j:number)=>nodes[i].add(nodes[j])));driver.scenes[driver.scene??0].nodes.forEach((i:number)=>body.add(nodes[i]));body.position.fromArray(config.rootOffset);
  const car=asset(),root=new THREE.Group();root.add(car,body);const wheel=car.getObjectByName('steering_control')!,presenter=new DriverPresenter(body,root,wheel,config);
  for(const angle of [-.3,0,.3]){root.rotation.y=.8;wheel.rotateZ(angle);const report=presenter.update({speed:5,throttle:.5,brake:0}as any,1/60,false,true);for(const [side,foot]of Object.entries(report.feet)as [string,any][]){assert.ok(foot.gap<1e-5);assert.ok(new THREE.Vector3().fromArray(foot.ankle).distanceTo(new THREE.Vector3().fromArray(config.legs[side].ankle))<1e-5)}}
+});
+
+test('rival decals preserve repeated native UV sampling without changing the shared source pixels',()=>{
+ const original={width:2,height:2},pixels={width:2,height:2},source=new THREE.Texture(original as any);source.wrapS=source.wrapT=THREE.RepeatWrapping;source.flipY=false;source.colorSpace=THREE.SRGBColorSpace;source.offset.set(.1,.2);source.repeat.set(1.1,.9);source.updateMatrix();const map=decalTexture(source,pixels as any);
+ for(const p of [[.3,.6],[1.8,.4],[-.2,1.3]])assert.ok(map.transformUv(new THREE.Vector2(...p)).distanceTo(source.transformUv(new THREE.Vector2(...p)))<1e-10);
+ assert.notEqual(map.source,source.source);assert.equal(source.image,original);assert.equal(map.image,pixels);map.dispose();source.dispose();
 });

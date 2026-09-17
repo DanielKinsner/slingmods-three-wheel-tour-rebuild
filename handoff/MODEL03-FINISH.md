@@ -56,9 +56,28 @@ Steering/input, contacts, physics, Sport v4 and race/save schemas are unchanged.
 
 ## Validation
 
-43 targeted tests pass: MODEL02 source hashes/winding/rig/tread regression,
+44 targeted tests pass (43 initial, plus the affected-system rerun and new UV test): MODEL02 source hashes/winding/rig/tread regression,
 MODEL03 native pivots/calibration/power/pause/reverse and pedal targets,
 semantic finish/optics isolation, retail/save separation, actual-vs-empty stock
 exhaust, product restoration, career ownership and recipe/departure regressions.
 Assembled front, side, rear, cockpit, pedal and normal-travel inspection completed.
-Final production build, gameplay smoke and hosted identity verification pending.
+Packaged smoke passed four finishes, all five install/remove flows, stock restore,
+seat/door navigation restore, legacy recipe load, 2026 fitment links, desktop and
+600px shopping layout, ignition independent of mute, Thermal departure, forward
+steer/brake/reverse, cockpit, pause/reset and return. No page errors. Forward
+reached 18.59m/s (42mph), reverse -5.32m/s (12mph); pulley center and driver pedal
+errors stayed below 1e-5m. Native LCD matched actual speed/gear in every sample.
+
+The smoke harness was corrected to use Test Drive for the cinematic (Quick Race
+intentionally skips it), and a fresh document for legacy recipe loading (changing
+only a fragment does not reinitialize this app). Only interrupted checks resumed.
+The initial packaged smoke used runtime `1ddc3b28348e`. Final rival inspection
+exposed a real decal sampling bug: the native hood uses U coordinates up to1.99;
+new canvas textures had clamped them. The fix preserves original repeat/wrap,
+filtering and UV transform with separate pixel ownership. Its regression and
+focused rival appearance check pass; final package rebuilt for this correction.
+
+Runtime/editable assets are committed on main. The existing Vercel curated build
+serves the canonical root; `/review-build.json` is authoritative for current
+commit/input hashes. Verify that receipt and default 2026 loading after push.
+No full benchmark, film, review ZIP or unrelated changes were produced.
