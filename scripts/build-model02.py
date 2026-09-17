@@ -313,14 +313,14 @@ notes={'sourceFiles':original,'originalObjects':191,'originalTriangles':154524,'
 # the UI must not silently claim their older fitment covers a 2026 vehicle.
 bpy.ops.wm.open_mainfile(filepath=str(P/'assets/blender/p08b/signature-products.blend'))
 bpy.data.objects['product_SM-26801'].location.y+=.04
-bpy.data.objects['product_SM-28919'].location.y+=.10
+bpy.data.objects['product_SM-28919'].location.y+=.25
 bpy.data.objects['product_SM-7720'].location.y+=.22
 bpy.context.view_layer.update()
 for ob in bpy.data.objects['product_SM-28919'].children:
  pts=[game(ob.matrix_world@Vector(v))for v in ob.bound_box]
  center=sum(pts,Vector())/len(pts)
  ob.location.x+=.065 if center.x<0 else-.19
- ob.location.z-=.10
+ ob.location.z+=.04
 H['batch_and_export'].__globals__.update({'A':A,'O':O})
 H['batch_and_export']('2026-mounted-products',{'product_SM-26801','product_SM-7720','product_SM-28919'})
 print('MODEL02_DONE',len(original),'original files unchanged')
