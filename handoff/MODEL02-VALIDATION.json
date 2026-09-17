@@ -1,0 +1,140 @@
+{
+  "date": "2026-09-17T19:42:53.171Z",
+  "scope": "Focused production browser smoke and targeted checks; no film, review ZIP or benchmark",
+  "runtimeCommit": "703889a2c125cdb86487fe5805e58536646e7597",
+  "playable": "https://slingmods-three-wheel-tour-rebuild.vercel.app/?visual=2026",
+  "liveIdentity": "https://slingmods-three-wheel-tour-rebuild.vercel.app/review-build.json",
+  "status": "2026 default; prior Josh and legacy presentations remain optional comparisons",
+  "source": {
+    "files": 81,
+    "byteIdenticalToSuppliedZip": true,
+    "inventory": "assets/blender/model02/build-notes.json",
+    "suppliedZipSha256": "e590d599dec7b5cdd5da928d699d923ddd702b61b7e97fe4aac3d2e23f4e4400"
+  },
+  "targetedChecks": {
+    "passed": 35,
+    "failed": 0,
+    "finalAssetChecksRechecked": 5,
+    "areas": [
+      "Source bytes and actual exported 2026 shell",
+      "Unchanged tire contacts and Josh second UV channel",
+      "Front steer/travel and rear shock closure",
+      "Protected finishes and isolated decal textures",
+      "Driver attachment",
+      "Recipe identity, career storage and departure",
+      "Selector allowlist and product light lifecycle"
+    ]
+  },
+  "productionBuild": {
+    "command": "npm run deploy:build",
+    "result": "PASS",
+    "buildRef": "703889a2c125",
+    "localProductionBuilds": 2,
+    "repeatReason": "Final visual driving review exposed storage bag clipping below the 2026 compartment taper; corrected mounts then rebuilt once",
+    "typescript": "PASS",
+    "curatedFiles": 169
+  },
+  "browserSmoke": {
+    "result": "PASS",
+    "script": "scripts/smoke-model02.mjs",
+    "base": "http://127.0.0.1:5207",
+    "defaultAsset": "/assets/model02/slingshot-2026.glb",
+    "handlingProfile": "slingmods-sport-v4",
+    "finishes": [
+      "blue-orange",
+      "black-red",
+      "white-graphite",
+      "graphite-red"
+    ],
+    "products": [
+      "SM-133",
+      "SM-3223",
+      "SM-7720",
+      "SM-26801",
+      "SM-28919"
+    ],
+    "allInstallRemoveAndStockRestore": true,
+    "saveReload": true,
+    "careerSentinelRetained": true,
+    "displayMount": {
+      "width": 0.155,
+      "height": 0.096,
+      "position": [
+        0,
+        0.7850000262260437,
+        -0.37700000405311584
+      ],
+      "pixels": [
+        512,
+        336
+      ]
+    },
+    "thermalDeparture": {
+      "active": true,
+      "elapsed": 1.6833000000000007,
+      "paused": false,
+      "focused": true,
+      "doorFound": true,
+      "pose": {
+        "door": 0.515134308593539,
+        "x": 0,
+        "z": 0,
+        "yaw": 0,
+        "travel": 0,
+        "camera": 0.4148314255526683,
+        "complete": false
+      },
+      "car": [
+        -1.5903930141343831e-26,
+        8.344650304081824e-9,
+        4.91050323958575e-9
+      ],
+      "door": [
+        0,
+        1.7256999337883558,
+        0
+      ]
+    },
+    "extremeArticulation": [
+      {
+        "wheelError": 2.76565550461072e-8,
+        "shockError": 3.1401849173675503e-16
+      },
+      {
+        "wheelError": 2.76565550461072e-8,
+        "shockError": 3.1401849173675503e-16
+      },
+      {
+        "wheelError": 2.76565550461072e-8,
+        "shockError": 4.577566798522237e-16
+      }
+    ],
+    "speedSamples": [
+      15.878042858882223,
+      17.35330031782588,
+      18.664548159960784,
+      -0.00007312821185923607,
+      -0.000003858935200039484,
+      -0.0000011460752298939867,
+      -5.278929425121356
+    ],
+    "cockpit": true,
+    "returned": true,
+    "errors": []
+  },
+  "preserved": [
+    "Sport v4 and historical tune saves",
+    "Career identities/ownership/credits",
+    "UI and mural",
+    "All routes",
+    "Four finishes and five products",
+    "Powered telemetry display",
+    "Thermal departure"
+  ],
+  "limits": [
+    "2026 product mounts are game-only; retail fitment is unverified and Thermal source excludes 2025+",
+    "Manual source with a small automatic game-console insert",
+    "Native analog cluster/LCD remain static source artwork; central display uses real telemetry"
+  ],
+  "hostedVerification": "Pending push; verify the final commit and matching asset hashes at liveIdentity; this local receipt does not claim hosted success"
+}
