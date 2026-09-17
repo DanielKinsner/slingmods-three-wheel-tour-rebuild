@@ -9,9 +9,14 @@ import {SignatureFinishPresenter} from '../src/presentation/signature-art';
 import {CURRENT_VEHICLE_URL,PRODUCT_FITMENT_LABEL} from '../src/presentation/vehicle-asset';
 import {visitorSearch} from '../src/demo/profile';
 import {freshRecipe,validateRecipe,buildSummary} from '../src/signature/config';
+import {harborLighting} from '../src/presentation/harbor-lighting';
 const bytes=fs.readFileSync('public/assets/model02/slingshot-2026.glb');
 const gltf=JSON.parse(bytes.subarray(20,20+bytes.readUInt32LE(12)).toString());
 const layout=JSON.parse(fs.readFileSync('public/assets/slingshot-contact-layout.json','utf8'));
+function attribute(index:number){
+ const a=gltf.accessors[index],v=gltf.bufferViews[a.bufferView],size=a.componentType===5126||a.componentType===5125?4:2,components=a.type==='VEC3'?3:a.type==='VEC2'?2:1,start=28+bytes.readUInt32LE(12)+(v.byteOffset??0)+(a.byteOffset??0),stride=v.byteStride??size*components;
+ return Array.from({length:a.count},(_,i)=>Array.from({length:components},(_,j)=>{const offset=start+i*stride+j*size;return a.componentType===5126?bytes.readFloatLE(offset):size===4?bytes.readUInt32LE(offset):bytes.readUInt16LE(offset)}));
+}
 function scene(){
  const root=new THREE.Group(),nodes:THREE.Object3D[]=gltf.nodes.map((n:any)=>{const o=new THREE.Object3D();o.name=n.name;o.userData=n.extras??{};if(n.matrix)new THREE.Matrix4().fromArray(n.matrix).decompose(o.position,o.quaternion,o.scale);else{if(n.translation)o.position.fromArray(n.translation);if(n.rotation)o.quaternion.fromArray(n.rotation);if(n.scale)o.scale.fromArray(n.scale)}return o});
  gltf.nodes.forEach((n:any,i:number)=>n.children?.forEach((j:number)=>nodes[i].add(nodes[j])));gltf.scenes[gltf.scene??0].nodes.forEach((i:number)=>root.add(nodes[i]));root.updateMatrixWorld(true);return{root,nodes};
@@ -50,4 +55,20 @@ test('four finishes recolor 2026 native decal accents without altering protected
 test('2026 is the visual default while existing save identities and honest product fitment remain intact',()=>{
  assert.equal(CURRENT_VEHICLE_URL,'/assets/model02/slingshot-2026.glb');assert.equal(new URLSearchParams(visitorSearch('?visual=2026&asset=private')).get('visual'),'2026');
  const saved=freshRecipe();assert.equal(saved.vehicleId,'slingshot-r-2024');assert.deepEqual(validateRecipe(saved),saved);assert.match(PRODUCT_FITMENT_LABEL,/unverified/);assert.match(buildSummary(saved),/2026 Slingshot R/);
+});
+test('mirrored front panels keep outward triangle winding aligned with the supplied smooth normals',()=>{
+ const panels=gltf.nodes.filter((n:any)=>n.mesh!==undefined&&/^(FrontFascia|Painted_Outer_Front|US_Headlight_Surround)/.test(n.name));assert.ok(panels.length>=20);
+ for(const n of panels)for(const p of gltf.meshes[n.mesh].primitives){const positions=attribute(p.attributes.POSITION),normals=attribute(p.attributes.NORMAL),indices=attribute(p.indices).flat();let weighted=0,area=0;
+  for(let i=0;i<indices.length;i+=3){const [a,b,c]=indices.slice(i,i+3),pa=new THREE.Vector3().fromArray(positions[a]),face=new THREE.Vector3().fromArray(positions[b]).sub(pa).cross(new THREE.Vector3().fromArray(positions[c]).sub(pa)),weight=face.length();if(weight<1e-12)continue;const smooth=new THREE.Vector3().fromArray(normals[a]).add(new THREE.Vector3().fromArray(normals[b])).add(new THREE.Vector3().fromArray(normals[c])).normalize();weighted+=face.normalize().dot(smooth)*weight;area+=weight}
+  assert.ok(weighted/area>.6,`${n.name}: winding/normal alignment ${weighted/area}`);
+ }
+});
+test('2026 rear covers remain clear and brake response affects discrete optics only',()=>{
+ const car=new THREE.Group();
+ for(const name of ['Model02_Rear_Clear_Cover','Model02_Center_Clear_Cover','Model02_Rear_Reflector_Optics','lights_brake__Tail_Lens_2026_Guide_left','lights_brake__Tail_Lens_2026_Guide_right','lights_brake__Tail_Lens_2026_Center_Cell_0']){
+  const n=gltf.nodes.find((n:any)=>n.name===name);assert.ok(n,name);const m=gltf.materials[gltf.meshes[n.mesh].primitives[0].material];
+  if(name.includes('Clear_Cover')){assert.equal(m.alphaMode,'BLEND');assert.ok(m.pbrMetallicRoughness.baseColorFactor[3]<=.15);assert.ok(!m.emissiveFactor?.some((v:number)=>v>0))}
+  const material=new THREE.MeshStandardMaterial({opacity:m.pbrMetallicRoughness.baseColorFactor?.[3]??1});const mesh=new THREE.Mesh(new THREE.BufferGeometry(),material);mesh.name=name;car.add(mesh);
+ }
+ const cover=car.getObjectByName('Model02_Rear_Clear_Cover')as THREE.Mesh,original=cover.material,lights=harborLighting(new THREE.Scene(),car,{lamps:[]},'day','low');lights.update(new THREE.Vector3(),1);assert.equal(cover.material,original);assert.ok(lights.inspect().brakeEmission.every(v=>v===3.5));assert.equal(lights.inspect().brakeEmission.length,3);lights.update(new THREE.Vector3(),0);assert.ok(lights.inspect().brakeEmission.every(v=>v===.15));lights.dispose();
 });

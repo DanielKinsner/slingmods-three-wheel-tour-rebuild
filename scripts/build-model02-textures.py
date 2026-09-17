@@ -11,3 +11,11 @@ for part,name in [('front','257514552_HiddenWarmToneGray_R_Front.png'),('rear','
   out.putdata([(*[min(255,round(c*r/220))for c in tint],a)if use else(r,g,b,a)for(r,g,b,a),use in zip(pixels,mask)])
   out.save(O/f'decal-{part}-{finish}.png',optimize=True)
  print(part,'accent pixels',sum(mask),'native UV layout and alpha retained')
+
+# The captured source colors the six reflector wells solid red. In the 2026
+# rear photo these are clear/silver under the continuous red light guide. Keep
+# their original UV islands and the lower passive red reflector islands.
+rear=Image.open(D/'251588708_US_Rear_Lighting_DIFF.png').convert('RGB')
+optics=Image.new('RGB',rear.size)
+optics.putdata([(140,143,145)if i//rear.width<rear.height*.4 and r>g*2 and r>b*2 and r>100 else(r,g,b)for i,(r,g,b)in enumerate(rear.getdata())])
+optics.save(O/'rear-optics-diffuse.png',optimize=True)

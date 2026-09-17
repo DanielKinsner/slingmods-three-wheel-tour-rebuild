@@ -10,6 +10,10 @@ Continue on main through the existing authorized Vercel game. No new site,
 subagents, film, review ZIP or benchmark campaign. Current playable identity is
 served at `/review-build.json`. Earlier handoffs below remain historical.
 
+Latest owner corrections: fix mirrored front triangle winding causing asymmetric
+orange shading; restore clear rear covers and discrete brake optics matched to a
+2026 rear photo. Details and limits are in the MODEL02 handoff above.
+
 ---
 # MODEL01 — Josh donor adaptation candidate (2026-09-17)
 

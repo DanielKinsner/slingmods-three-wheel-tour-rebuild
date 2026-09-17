@@ -5,6 +5,7 @@ Original source files are read-only. Helper coordinates: game +Y up, -Z forward.
 import bpy, math, json, hashlib, runpy, shutil, tempfile, subprocess
 from pathlib import Path
 from mathutils import Vector, Matrix
+from mathutils.bvhtree import BVHTree
 P=Path(__file__).resolve().parents[1]
 D=P/'assets/source/model02/2026 model';J=P/'assets/source/model01/Slingshot-Build/textures'
 A=P/'assets/blender/model02';O=P/'public/assets/model02'
@@ -35,11 +36,11 @@ def points(o,faces=None):
  return [game(o.matrix_world@o.data.vertices[i].co)for i in ids]
 def bounds(o,faces=None):
  pts=points(o,faces);return (Vector([min(p[a]for p in pts)for a in range(3)]),Vector([max(p[a]for p in pts)for a in range(3)]))
-def subset(o,name,faces):
+def subset(o,name,faces,reverse=False):
  me=o.data;polys=[me.polygons[i]for i in faces];ids=sorted({v for f in polys for v in f.vertices});mapping={v:i for i,v in enumerate(ids)}
- out=bpy.data.meshes.new(name);out.from_pydata([me.vertices[i].co for i in ids],[],[[mapping[v]for v in f.vertices]for f in polys]);out.update()
+ out=bpy.data.meshes.new(name);out.from_pydata([me.vertices[i].co for i in ids],[],[[mapping[v]for v in (list(f.vertices)[::-1]if reverse else f.vertices)]for f in polys]);out.update()
  for m in me.materials:out.materials.append(m)
- loops=[i for f in polys for i in f.loop_indices]
+ loops=[i for f in polys for i in (list(f.loop_indices)[::-1]if reverse else f.loop_indices)]
  for layer in me.uv_layers:
   uv=out.uv_layers.new(name=layer.name)
   for j,i in enumerate(loops):uv.data[j].uv=layer.data[i].uv
@@ -79,6 +80,18 @@ def normal_image(material,path,uv=None,strength=1):
   channel=tree.nodes.new('ShaderNodeUVMap');channel.uv_map=uv;normal.uv_map=uv;tree.links.new(channel.outputs['UV'],texture.inputs['Vector'])
  return texture
 def srgb(c):return c/12.92 if c<=.04045 else ((c+.055)/1.055)**2.4
+
+# The reconstructed OBJ bakes mirrored front panels but leaves their triangle
+# winding reversed. Double-sided rendering then flips their correct supplied
+# normals, making one orange half shade brown. Reverse indices only; preserve
+# every position, UV and supplied corner normal (no remesh/recomputed shading).
+winding_repairs=[]
+for o in list(source):
+ if o.type!='MESH' or not o.name.startswith(('FrontFascia','Painted_Outer_Front','US_Headlight')):continue
+ dots=[f.normal.dot(o.data.corner_normals[i].vector)for f in o.data.polygons for i in f.loop_indices]
+ if sum(dots)/len(dots)>-.5:continue
+ name=o.name;fixed=subset(o,name+'_winding',range(len(o.data.polygons)),reverse=True)
+ source.remove(o);bpy.data.objects.remove(o,do_unlink=True);fixed.name=name;source.append(fixed);winding_repairs.append(name)
 
 # Reconstruct physically meaningful maps from the supplied MTL. map_Bump here
 # contains tangent normals, not a grayscale height map. Flat placeholder normals
@@ -194,18 +207,59 @@ for o in list(bpy.data.objects):
 bpy.data.objects.remove(bpy.data.objects['Ridecommand_1'],do_unlink=True)
 display=node('display_mount',body,(0,.785,-.377));display.rotation_euler.x=-.085;display['width']=.155;display['height']=.096
 
-# Optical bindings use only the supplied lens surfaces, with no duplicate lamps.
+# Retain the supplied lamp housings and add the missing internal optics.
+# The outer rear cover is clear/smoked, not the red emitting surface. Its opaque
+# replacement hid the source LED pockets and reflector geometry. Restore those
+# internals and the top-origin atlas UVs. The observed red light guide is a
+# separate thin optic following the cover, not a red fill of the entire shell.
+rear_cover=bpy.data.objects['US_Rear_Lighting_1'];cover=rear_cover.data.materials[0].copy();rear_cover.data.materials[0]=cover
+cover.name='Model02_Rear_Clear_Cover';q=cover.node_tree.nodes.get('Principled BSDF')
+q.inputs['Base Color'].default_value=(.025,.030,.035,1);q.inputs['Alpha'].default_value=.12
+q.inputs['Metallic'].default_value=0;q.inputs['Roughness'].default_value=.15;cover.surface_render_method='DITHERED'
+rear_cover.name='Model02_Rear_Clear_Cover'
+rear_optics=bpy.data.objects['US_Rear_Lighting_0']
+for uv in rear_optics.data.uv_layers.active.data:uv.uv.y=1-uv.uv.y
+optic=rear_optics.data.materials[0].copy();rear_optics.data.materials[0]=optic;optic.name='Model02_Rear_Reflector_Optics'
+tree=optic.node_tree;q=tree.nodes.get('Principled BSDF');q.inputs['Metallic'].default_value=.38;q.inputs['Roughness'].default_value=.28
+for texture in tree.nodes:
+ if texture.type=='TEX_IMAGE'and texture.image and 'US_Rear_Lighting_DIFF' in texture.image.name:texture.image=bpy.data.images.load(str(O/'rear-optics-diffuse.png'),check_existing=True)
+rear_optics.name='Model02_Rear_Reflector_Optics'
+guide=mat('Model02_Red_Light_Guide',(.38,.003,.006),.08,.25)
+q=guide.node_tree.nodes.get('Principled BSDF');q.inputs['Emission Color'].default_value=(1,.007,.003,1);q.inputs['Emission Strength'].default_value=.3
+tree=BVHTree.FromPolygons([rear_cover.matrix_world@v.co for v in rear_cover.data.vertices],[list(f.vertices)for f in rear_cover.data.polygons])
+profile=[(.26,.943),(.30,.945),(.40,.95),(.48,.95),(.52,.944),(.555,.925),(.585,.889),(.61,.845),(.63,.800)]
+for side,s in [('left',-1),('right',1)]:
+ curve=bpy.data.curves.new('2026_tail_guide_'+side,'CURVE');curve.dimensions='3D';curve.bevel_depth=.005;curve.bevel_resolution=3
+ path=[]
+ for j in range(len(profile)-1):
+  p0=Vector(profile[max(0,j-1)]);p1=Vector(profile[j]);p2=Vector(profile[j+1]);p3=Vector(profile[min(len(profile)-1,j+2)])
+  for k in range(8):
+   t=k/8;xy=.5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t*t+(-p0+3*p1-3*p2+p3)*t*t*t)
+   hit=tree.ray_cast(Vector((s*xy.x,-2,xy.y)),Vector((0,1,0)))[0]
+   if hit is None:raise RuntimeError('Light guide left supplied cover')
+   hit.y+=.002;path.append(hit)
+ hit=tree.ray_cast(Vector((s*profile[-1][0],-2,profile[-1][1])),Vector((0,1,0)))[0];hit.y+=.002;path.append(hit)
+ spline=curve.splines.new('POLY');spline.points.add(len(path)-1)
+ for p,v in zip(spline.points,path):p.co=(*v,1)
+ ob=bpy.data.objects.new('lights_brake__Tail_Lens_2026_Guide_'+side,curve);bpy.context.collection.objects.link(ob);curve.materials.append(guide)
+ bpy.ops.object.select_all(action='DESELECT');ob.select_set(True);bpy.context.view_layer.objects.active=ob;bpy.ops.object.convert(target='MESH');parent(bpy.context.object,body)
+
+# Clear center lens and discrete cells, matching the photographed unlit bar.
+center_cover=bpy.data.objects['lightbar_0'];center_cover.data.materials[0]=cover.copy();center_cover.name='Model02_Center_Clear_Cover'
+cell=mat('Model02_Center_LED_Cell',(.38,.40,.43),.2,.25);q=cell.node_tree.nodes.get('Principled BSDF');q.inputs['Emission Color'].default_value=(1,.01,.004,1);q.inputs['Emission Strength'].default_value=0
+for i in range(8):
+ t=(i+.5)/8;p=Vector((0,1.22,1.025)).lerp(Vector((0,1.068,1.39)),t)+Vector((0,.004,.0017))
+ ob=box('lights_brake__Tail_Lens_2026_Center_Cell_'+str(i),p,(.014,.003,.024),cell,body,.001);ob.rotation_euler.x=.394
 for o in list(bpy.data.objects):
  if o.type!='MESH' or not o.data.materials:continue
  n=o.name;m=o.data.materials[0];mn=m.name
  head=(n.startswith('US_Headlight')and'GlassHeadlight' in mn)or(n.startswith('Front_LED_AccentPanel')and'GlassPoly' in mn)or n=='Noselight_low_1'
- brake=n=='US_Rear_Lighting_1'or n=='lightbar_0'
- if head or brake:
-  copy=m.copy();o.data.materials[0]=copy;copy.name='Model02_Optical_Lens'if head else'Model02_Tail_Lens';q=copy.node_tree.nodes.get('Principled BSDF')
+ if head:
+  copy=m.copy();o.data.materials[0]=copy;copy.name='Model02_Optical_Lens';q=copy.node_tree.nodes.get('Principled BSDF')
   q.inputs['Alpha'].default_value=1;q.inputs['Metallic'].default_value=.15;q.inputs['Roughness'].default_value=.21
-  if not q.inputs['Base Color'].links:q.inputs['Base Color'].default_value=(.48,.55,.62,1)if head else(.3,.007,.012,1)
-  q.inputs['Emission Color'].default_value=(.6,.75,1,1)if head else(.8,.008,.003,1);q.inputs['Emission Strength'].default_value=.10
-  o.name=('lights_head__Optical_Lens_'if head else'lights_brake__Tail_Lens_')+n
+  if not q.inputs['Base Color'].links:q.inputs['Base Color'].default_value=(.48,.55,.62,1)
+  q.inputs['Emission Color'].default_value=(.6,.75,1,1);q.inputs['Emission Strength'].default_value=.10
+  o.name='lights_head__Optical_Lens_'+n
 
 # Front wishbones, uprights and tie rods are separated using connected source
 # components. Fixed bolts stay with the chassis. No whole-assembly wheel spin.
@@ -307,6 +361,8 @@ bpy.context.view_layer.update();bpy.ops.file.pack_all();bpy.ops.wm.save_as_mainf
 bpy.ops.export_scene.gltf(filepath=str(O/'slingshot-2026.glb'),export_format='GLB',use_selection=True,export_apply=True,export_extras=True,export_yup=True)
 assert original=={p.name:hashlib.sha256(p.read_bytes()).hexdigest()for p in D.iterdir()if p.is_file()}
 notes={'sourceFiles':original,'originalObjects':191,'originalTriangles':154524,'sourceUnchanged':True,'sourceIdentity':'Owner supplied 2026 R Manual configurator reconstruction, not CAD','bodyTransform':'Rigid 180 degree yaw, -0.217m longitudinal offset and -0.025m vertical offset; no body remesh or global scale','wheelAdaptation':tire_notes,'materials':material_decisions,'joshReuse':['Slingshot_TireDisplacement.png: remapped tread normal only, retaining 2026 tire geometry'],'retainedNativeTextures':'2026 decals, seat stitching, dashboard, steering controls, rear lamps, wheel caps and reflectors keep native UVs','rearRig':rig,'storageDoorTriangles':{k:len(v)for k,v in doors.items()},'gameControls':'Existing automatic driving preserved; local console insert replaces manual shifter and clutch'}
+notes['frontWindingRepairs']=winding_repairs
+notes['rearOptics']='Original clear covers/reflector geometry with corrected atlas UVs; observed continuous red light guides follow source-cover surfaces, discrete center LED cells; housing and passive reflectors never emit'
 (A/'build-notes.json').write_text(json.dumps(notes,indent=2)+'\n')
 
 # Existing retail models retain identity/options. This is a game mount adaptation;
