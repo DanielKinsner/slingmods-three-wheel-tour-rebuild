@@ -1,3 +1,19 @@
+# MODEL03 — finish the 2026 experience (2026-09-17)
+
+The current owner assignment is MODEL03, on main and the existing Vercel game.
+Keep the supplied 2026 as the default; preserve its source, Josh tread reuse,
+owner front/rear/pulley corrections, Sport v4, saves, products and all routes.
+One lead, deliberate assembled visual/motion inspection, targeted checks and
+one final build/smoke. No subagents, film, review ZIP, benchmark matrix, spending,
+new engine or Spyder in this pass. This policy outranks historical process below.
+
+Read `handoff/MODEL03-FINISH.md` and `TODO.md`. Retail fitment now uses the 2026
+context and supplied researched seed independently of legacy saved vehicle IDs.
+Four listings support 2026 (wing conditional on square hoops); the older Thermal
+SM-7720 remains an experimental preview and a separate reference shopping link.
+Do not revert these facts to MODEL02's blanket unverified label or rewrite saves.
+
+---
 # MODEL02 — owner-supplied 2026 model (2026-09-17)
 
 The latest direct owner request supersedes MODEL01's 2024 target: use the supplied

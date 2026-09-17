@@ -135,11 +135,16 @@ for m in list(bpy.data.materials):
   if file.stat().st_size>500:normal_image(m,file,strength=.65)
  if 'GlassPoly_Tinted' in name:q.inputs['Base Color'].default_value=(.18,.24,.28,1);q.inputs['Alpha'].default_value=.27;q.inputs['Roughness'].default_value=.13;m.surface_render_method='DITHERED'
  m.use_backface_culling=False
+ # Author semantic roles once. Runtime paint/light adapters never infer them
+ # from broad material-name matches on the current vehicle.
+ m['vehicleRole']='paint'if 'PC_A30' in name else'accent'if 'PC_930' in name else'decal'if name in ['HiddenWarmToneGray_R_Front','HiddenWarmToneGray_R_Rear']else'clear-cover'if 'Glass' in name else'rubber'if'Tire'in name or'Rubber'in name else'metal'if metal>.5 else'interior'
+ if m['vehicleRole']=='decal':m['decalPart']='front'if name.endswith('Front')else'rear'
  material_decisions.append({'source':original_name,'runtime':m.name})
 
 root=node('vehicle_root');root['model02']='Owner supplied 2026 R configurator reconstruction; game presentation adaptation'
 body=node('body_static',root);foundation=node('model02_2026_foundation',body)
 root['preserveFrontCarriers']=True
+root['materialBindingsVersion']=1
 for o in source:
  if o.name=='back_top_Top_TRIs_0':bpy.data.objects.remove(o,do_unlink=True)
  else:parent(o,foundation)
@@ -147,7 +152,7 @@ for o in source:
 # OBJ/MTL loses the configurator's clear instrument lens transparency. Restore
 # only this lens; keep the native high-resolution 2026 dial artwork behind it.
 cluster=bpy.data.objects['Dash_7'];lens=cluster.data.materials[0].copy();cluster.data.materials[0]=lens
-lens.name='Model02_instrument_clear_lens';q=lens.node_tree.nodes.get('Principled BSDF')
+lens['vehicleRole']='clear-cover';lens.name='Model02_instrument_clear_lens';q=lens.node_tree.nodes.get('Principled BSDF')
 q.inputs['Base Color'].default_value=(.12,.15,.18,1);q.inputs['Alpha'].default_value=.045
 q.inputs['Metallic'].default_value=0;q.inputs['Roughness'].default_value=.18;lens.surface_render_method='DITHERED'
 # The configurator's instrument atlas uses top-origin UVs; these two OBJ decal
@@ -157,9 +162,28 @@ for name in ['Dash_4','Dash_6']:
 labels=bpy.data.objects['Dash_6'].data.materials[0]
 for texture in labels.node_tree.nodes:
  if texture.type=='TEX_IMAGE':texture.image=bpy.data.images.load(str(D/'251589615_Dash_DiffMask.jpg'),check_existing=True)
-# The source LCD is unpowered artwork. Actual speed/RPM/gear remain on the
-# existing telemetry display; do not put a static fabricated reading here.
+# Preserve the native LCD surface as its unpowered background. The runtime
+# mounts actual speed/gear on the small plane above it, beneath the clear lens.
 lcd=bpy.data.objects['Dash_3'];lcd.data.materials.clear();lcd.data.materials.append(mat('Model02_native_cluster_LCD',(.007,.012,.015),0,.32))
+
+# Native needles are real separate geometry, not painted onto the face. Preserve
+# the face artwork and park positions; pivots come from the two original caps.
+caps=[]
+for faces in components(bpy.data.objects['Dash_2']):
+ lo,hi=bounds(bpy.data.objects['Dash_2'],faces)
+ if hi.x-lo.x<.02:caps.append((lo+hi)/2)
+needles=split(bpy.data.objects['Dash_5'],lambda lo,hi,f:'speed'if(lo.x+hi.x)/2<-.375 else'rpm')
+for kind,o in needles.items():
+ center=min(caps,key=lambda c:abs(c.x-(sum(bounds(o),Vector())[0]/2)))
+ pivot=node('native_'+kind+'_needle',body,center);parent(o,pivot)
+ pivot['instrumentKind']=kind;pivot['center']=list(center);pivot['axis']=[0,.3184,.94795]
+# Existing face is MPH with irregular 100-220 upper numerals; use its actual
+# marked angles, not a fabricated linear 140-mph face. Digital MPH stays exact.
+bpy.data.objects['native_speed_needle']['scale']=[[0,0],[10,14],[20,28],[30,41],[40,55],[50,69],[60,83],[70,97],[80,111],[90,125],[100,139],[120,147],[140,154],[160,160],[180,167],[200,174],[220,180]]
+bpy.data.objects['native_rpm_needle']['scale']=[[0,0],[1000,18],[2000,36],[3000,54],[4000,72],[5000,90],[6000,108],[7000,126],[8000,144],[9000,162],[10000,180]]
+# Fit the live LCD just ahead of the original surface and behind its glass.
+lo,hi=bounds(lcd);lcd_mount=node('native_cluster_lcd',body,(lo+hi)/2+Vector((0,.0007,.0021)));lcd_mount.rotation_euler.x=-math.atan2(.3184,.94795)
+lcd_mount['width']=hi.x-lo.x;lcd_mount['height']=math.hypot(hi.y-lo.y,hi.z-lo.z)
 
 layout=json.loads((P/'public/assets/slingshot-contact-layout.json').read_text())
 # The source batches the small chassis drive pulley with the rear sprocket.
@@ -232,6 +256,7 @@ cover.name='Model02_Rear_Clear_Cover';q=cover.node_tree.nodes.get('Principled BS
 q.inputs['Base Color'].default_value=(.025,.030,.035,1);q.inputs['Alpha'].default_value=.12
 q.inputs['Metallic'].default_value=0;q.inputs['Roughness'].default_value=.15;cover.surface_render_method='DITHERED'
 rear_cover.name='Model02_Rear_Clear_Cover'
+cover['vehicleRole']='clear-cover'
 rear_optics=bpy.data.objects['US_Rear_Lighting_0']
 for uv in rear_optics.data.uv_layers.active.data:uv.uv.y=1-uv.uv.y
 optic=rear_optics.data.materials[0].copy();rear_optics.data.materials[0]=optic;optic.name='Model02_Rear_Reflector_Optics'
@@ -239,7 +264,9 @@ tree=optic.node_tree;q=tree.nodes.get('Principled BSDF');q.inputs['Metallic'].de
 for texture in tree.nodes:
  if texture.type=='TEX_IMAGE'and texture.image and 'US_Rear_Lighting_DIFF' in texture.image.name:texture.image=bpy.data.images.load(str(O/'rear-optics-diffuse.png'),check_existing=True)
 rear_optics.name='Model02_Rear_Reflector_Optics'
+optic['vehicleRole']='passive-reflector'
 guide=mat('Model02_Red_Light_Guide',(.38,.003,.006),.08,.25)
+guide['vehicleRole']='running-brake'
 q=guide.node_tree.nodes.get('Principled BSDF');q.inputs['Emission Color'].default_value=(1,.007,.003,1);q.inputs['Emission Strength'].default_value=.3
 tree=BVHTree.FromPolygons([rear_cover.matrix_world@v.co for v in rear_cover.data.vertices],[list(f.vertices)for f in rear_cover.data.polygons])
 profile=[(.26,.943),(.30,.945),(.40,.95),(.48,.95),(.52,.944),(.555,.925),(.585,.889),(.61,.845),(.63,.800)]
@@ -262,6 +289,7 @@ for side,s in [('left',-1),('right',1)]:
 # Clear center lens and discrete cells, matching the photographed unlit bar.
 center_cover=bpy.data.objects['lightbar_0'];center_cover.data.materials[0]=cover.copy();center_cover.name='Model02_Center_Clear_Cover'
 cell=mat('Model02_Center_LED_Cell',(.38,.40,.43),.2,.25);q=cell.node_tree.nodes.get('Principled BSDF');q.inputs['Emission Color'].default_value=(1,.01,.004,1);q.inputs['Emission Strength'].default_value=0
+cell['vehicleRole']='brake'
 for i in range(8):
  t=(i+.5)/8;p=Vector((0,1.22,1.025)).lerp(Vector((0,1.068,1.39)),t)+Vector((0,.004,.0017))
  ob=box('lights_brake__Tail_Lens_2026_Center_Cell_'+str(i),p,(.014,.003,.024),cell,body,.001);ob.rotation_euler.x=.394
@@ -271,6 +299,7 @@ for o in list(bpy.data.objects):
  head=(n.startswith('US_Headlight')and'GlassHeadlight' in mn)or(n.startswith('Front_LED_AccentPanel')and'GlassPoly' in mn)or n=='Noselight_low_1'
  if head:
   copy=m.copy();o.data.materials[0]=copy;copy.name='Model02_Optical_Lens';q=copy.node_tree.nodes.get('Principled BSDF')
+  copy['vehicleRole']='headlamp'
   q.inputs['Alpha'].default_value=1;q.inputs['Metallic'].default_value=.15;q.inputs['Roughness'].default_value=.21
   if not q.inputs['Base Color'].links:q.inputs['Base Color'].default_value=(.48,.55,.62,1)
   q.inputs['Emission Color'].default_value=(.6,.75,1,1);q.inputs['Emission Strength'].default_value=.10
@@ -331,6 +360,7 @@ chrome=mat('Model02_rear_shaft_metal',(.36,.39,.42),.8,.24)
 upper=Vector(rig['shockUpper']);lower=Vector(rig['shockLower']);axis=lower-upper
 rod('Model02_rear_telescoping_shaft',upper+axis*.06,upper+axis*.92,.009,chrome,rear_groups['shockBody'],16)
 node('stock_exhaust',body)
+body['stockExhaustGeometry']='Source contains no named exhaust or muffler mesh; stock_exhaust is an empty compatibility anchor, not hidden body geometry'
 
 # The actual compartment front panels hinge for the existing storage inspection.
 back=bpy.data.objects['back_0'];doors={'left':[],'right':[]};keep=[]
@@ -365,6 +395,7 @@ if any(inside.values()):
 for name in ['Manual_Shifter_Knob_Low_0','Manual_Shifter_Knob_Low_1','clutch-pedal_0']:
  if name in bpy.data.objects:bpy.data.objects.remove(bpy.data.objects[name],do_unlink=True)
 panel=mat('Model02_AutoDrive_console',(.019,.022,.026),.1,.4);silver=mat('Model02_AutoDrive_keys',(.18,.20,.22),.5,.3)
+panel['vehicleRole']='interior';silver['vehicleRole']='metal'
 box('Model02_AutoDrive_insert',(0,.581,-.119),(.105,.03,.13),panel,body,.012)
 for x in [-.032,0,.032]:box('Model02_AutoDrive_key',(x,.602,-.12),(.026,.014,.06),silver,body,.005)
 root['variant']='2026 R exterior; game AutoDrive console adaptation'
@@ -372,12 +403,20 @@ root['variant']='2026 R exterior; game AutoDrive console adaptation'
 driver=json.loads((P/'public/assets/drivers/test-driver-attachment.json').read_text());offset=[-.015,.02,-.06];driver['rootOffset']=offset;driver['eye']=[a+b for a,b in zip(driver['eye'],offset)]
 for arm in driver['arms'].values():
  arm['poleHint']=[a+b for a,b in zip(arm['poleHint'],offset)];arm['wheelGripLocal'][0]*=.175/.165
+# Local two-bone leg targets match the native pedals; the shared driver source stays intact.
+driver['legs']={}
+for side,ankle,pitch in [('left',[-.365,.345,-.47],.42),('right',[-.27,.36,-.56],.30)]:
+ upper=driver['boneRest']['driver_thigh_'+side];lower=driver['boneRest']['driver_shin_'+side]
+ driver['legs'][side]={'upperBone':'driver_thigh_'+side,'lowerBone':'driver_shin_'+side,'footBone':'driver_foot_'+side,'ankle':ankle,'pole':[ankle[0],.8,-.1],'upperLength':(Vector(upper['tail'])-Vector(upper['head'])).length,'lowerLength':(Vector(lower['tail'])-Vector(lower['head'])).length,'footPitch':pitch}
 (O/'driver-attachment.json').write_text(json.dumps(driver,indent=2)+'\n');(O/'rear-rig.json').write_text(json.dumps(rig,indent=2)+'\n')
 
+for m in bpy.data.materials:
+ if 'vehicleRole'not in m:m['vehicleRole']='interior'
 bpy.context.view_layer.update();bpy.ops.file.pack_all();bpy.ops.wm.save_as_mainfile(filepath=str(A/'slingshot-2026.blend'));bpy.ops.object.select_all(action='SELECT')
 bpy.ops.export_scene.gltf(filepath=str(O/'slingshot-2026.glb'),export_format='GLB',use_selection=True,export_apply=True,export_extras=True,export_yup=True)
 assert original=={p.name:hashlib.sha256(p.read_bytes()).hexdigest()for p in D.iterdir()if p.is_file()}
 notes={'sourceFiles':original,'originalObjects':191,'originalTriangles':154524,'sourceUnchanged':True,'sourceIdentity':'Owner supplied 2026 R Manual configurator reconstruction, not CAD','bodyTransform':'Rigid 180 degree yaw, -0.217m longitudinal offset and -0.025m vertical offset; no body remesh or global scale','wheelAdaptation':tire_notes,'materials':material_decisions,'joshReuse':['Slingshot_TireDisplacement.png: remapped tread normal only, retaining 2026 tire geometry'],'retainedNativeTextures':'2026 decals, seat stitching, dashboard, steering controls, rear lamps, wheel caps and reflectors keep native UVs','rearRig':rig,'storageDoorTriangles':{k:len(v)for k,v in doors.items()},'gameControls':'Existing automatic driving preserved; local console insert replaces manual shifter and clutch'}
+notes['model03']={'materialBindingsVersion':1,'nativeCluster':'Original separate needle meshes, cap pivots, clear lens, face UVs retained; game telemetry drives MPH, RPM x1000 and native LCD speed/gear; source upper MPH numerals are irregular, mapped piecewise; no simulated fuel/temperature','speedMarks':[list(row)for row in bpy.data.objects['native_speed_needle']['scale']],'rpmMarks':[list(row)for row in bpy.data.objects['native_rpm_needle']['scale']],'driverLegs':driver['legs'],'stockExhaust':'Empty compatibility anchor; no visible stock rear outlet or muffler in assembled source inspection'}
 notes['frontWindingRepairs']=winding_repairs
 notes['rearOptics']='Original clear covers/reflector geometry with corrected atlas UVs; observed continuous red light guides follow source-cover surfaces, discrete center LED cells; housing and passive reflectors never emit'
 (A/'build-notes.json').write_text(json.dumps(notes,indent=2)+'\n')

@@ -1,7 +1,7 @@
 export type ProductId='SM-133'|'SM-3223'|'SM-7720'|'SM-26801'|'SM-28919';
 export type ProductCategory='Lighting'|'Suspension'|'Exhaust'|'Aero'|'Storage';
-export interface ProductDefinition {id:ProductId;name:string;brand:string;category:ProductCategory;option:string;options:{id:string;label:string}[];vehicleId:string;years:number[];slot:string;mount:string;asset:string;shopUrl:string;sources:string[];description:string;effect:string;prerequisites:ProductId[];conflicts:ProductId[];verifiedAt:string}
-const common={vehicleId:'slingshot-r-2024',years:[2024],prerequisites:[] as ProductId[],conflicts:[] as ProductId[],verifiedAt:'2026-09-15'};
+export interface ProductDefinition {id:ProductId;name:string;brand:string;category:ProductCategory;option:string;options:{id:string;label:string}[];saveVehicleId:string;slot:string;mount:string;asset:string;shopUrl:string;sources:string[];description:string;effect:string;prerequisites:ProductId[];conflicts:ProductId[];verifiedAt:string}
+const common={saveVehicleId:'slingshot-r-2024',prerequisites:[] as ProductId[],conflicts:[] as ProductId[],verifiedAt:'2026-09-15'};
 export const PRODUCTS:readonly ProductDefinition[]=[
  {...common,id:'SM-133',name:'Standard RGB Underglow · Base Kit #1',brand:'TricLED',category:'Lighting',option:'base-rgb',options:[{id:'base-rgb',label:'Base Kit #1 · RF remote'}],slot:'lighting.underglow',mount:'underbody strips',asset:'/assets/products/tricled-sm133-base.glb',shopUrl:'https://www.slingmods.com/polaris-slingshot-underglow-kit',sources:[],description:'Installed RGB strips with adjustable color and brightness. Base kit only.',effect:'Visual lighting only. No power or grip change.'},
  {...common,id:'SM-3223',name:'3-Way Adjustable Sport Shocks',brand:'DDMWorks',category:'Suspension',option:'silver',options:[{id:'silver',label:'Silver (Standard) · set of 3'}],slot:'suspension.coilovers',mount:'front pair and rear shock',asset:'/assets/products/ddmworks-sm3223-silver.glb',shopUrl:'https://www.slingmods.com/polaris-slingshot-3-way-adjustable-sport-shocks-coilovers-ddmworks',sources:['https://www.ddmworks.com/Polaris-Slingshot-3-Way-Adjustable-Coilovers-by-DDMWorks_p_823.html','https://www.slingmods.com/pdf/ddmworks-adjustable-shocks-install-instructions.pdf'],description:'Independent compression and rebound clicks, plus modeled ride-height offset.',effect:'Estimated simulation damping and preload. Street starts match the active stock profile; no manufacturer dyno claim.'},
@@ -10,10 +10,11 @@ export const PRODUCTS:readonly ProductDefinition[]=[
  {...common,id:'SM-28919',name:'Lower Rear Storage Organizer Bags · Pair',brand:'EvolutionR',category:'Storage',option:'lower-pair',options:[{id:'lower-pair',label:'Black lower pair · no overnight bags'}],slot:'storage.lower-pair',mount:'driver and passenger rear lower compartments',asset:'/assets/p08b/signature-products.glb',shopUrl:'https://www.slingmods.com/polaris-slingshot-rear-storage-compartment-stealth-bags-evolutionr',sources:[],description:'Distinct driver/passenger lower-compartment organizers in black 900D polyester.',effect:'Visual storage preview only. Optional overnight bags are not included.'},
 ];
 export function productById(id:string){return PRODUCTS.find(p=>p.id===id)}
+/** Saved-key/preview compatibility only. Retail fitment is evaluated separately. */
 export function fits(product:ProductDefinition,recipe:{vehicleId:string;products:Partial<Record<ProductId,string>>}){
- if(recipe.vehicleId!==product.vehicleId)return {ok:false,reason:'This product does not fit the selected vehicle.'};
+ if(recipe.vehicleId!==product.saveVehicleId)return {ok:false,reason:'This product does not fit the selected vehicle.'};
  if(product.prerequisites.some(id=>!recipe.products[id]))return {ok:false,reason:'A required mounting product is missing.'};
  if(product.conflicts.some(id=>recipe.products[id]))return {ok:false,reason:'Remove the conflicting product first.'};
  if(PRODUCTS.some(p=>p.id!==product.id&&p.slot===product.slot&&recipe.products[p.id]))return {ok:false,reason:'This mounting slot is already occupied.'};
- return {ok:true,reason:'2024 Slingshot R'};
+ return {ok:true,reason:'Available in game preview'};
 }

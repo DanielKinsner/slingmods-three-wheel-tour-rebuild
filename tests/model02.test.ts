@@ -6,7 +6,7 @@ import * as THREE from 'three';
 import {FrontLinks} from '../src/presentation/front-links';
 import {RearPresenter} from '../src/presentation/rear';
 import {SignatureFinishPresenter} from '../src/presentation/signature-art';
-import {CURRENT_VEHICLE_URL,PRODUCT_FITMENT_LABEL} from '../src/presentation/vehicle-asset';
+import {CURRENT_VEHICLE_URL} from '../src/presentation/vehicle-asset';
 import {visitorSearch} from '../src/demo/profile';
 import {freshRecipe,validateRecipe,buildSummary} from '../src/signature/config';
 import {harborLighting} from '../src/presentation/harbor-lighting';
@@ -69,7 +69,7 @@ test('four finishes recolor 2026 native decal accents without altering protected
 });
 test('2026 is the visual default while existing save identities and honest product fitment remain intact',()=>{
  assert.equal(CURRENT_VEHICLE_URL,'/assets/model02/slingshot-2026.glb');assert.equal(new URLSearchParams(visitorSearch('?visual=2026&asset=private')).get('visual'),'2026');
- const saved=freshRecipe();assert.equal(saved.vehicleId,'slingshot-r-2024');assert.deepEqual(validateRecipe(saved),saved);assert.match(PRODUCT_FITMENT_LABEL,/unverified/);assert.match(buildSummary(saved),/2026 Slingshot R/);
+ const saved=freshRecipe();assert.equal(saved.vehicleId,'slingshot-r-2024');assert.deepEqual(validateRecipe(saved),saved);assert.match(buildSummary(saved),/2026 Slingshot R/);
 });
 test('mirrored front panels keep outward triangle winding aligned with the supplied smooth normals',()=>{
  const panels=gltf.nodes.filter((n:any)=>n.mesh!==undefined&&/^(FrontFascia|Painted_Outer_Front|US_Headlight_Surround)/.test(n.name));assert.ok(panels.length>=20);

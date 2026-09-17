@@ -81,7 +81,7 @@ export function ownBuildTransition(s:Career,c:OwnBuildCommand,at:string):{change
  const b=s.ownBuild;
  if(c.type==='chapter-finish'){const recipe=careerRecipe(s);recipe.finish=c.finish;validateRecipe(recipe);b.finish=c.finish;return {changed:true}}
  if(c.type==='chapter-purchase'){
-  const p=productById(c.productId);if(!uuid(c.id)||!p||!['SM-7720','SM-26801','SM-28919'].includes(c.productId)||p.vehicleId!==c.vehicleId||p.option!==c.option)throw Error('Invalid product, option or fitment');
+  const p=productById(c.productId);if(!uuid(c.id)||!p||!['SM-7720','SM-26801','SM-28919'].includes(c.productId)||p.saveVehicleId!==c.vehicleId||p.option!==c.option)throw Error('Invalid product, option or fitment');
   if(productOwned(s,c.productId))return {changed:false};if(!productUnlocked(s,c.productId))throw Error('Complete the named chapter event to unlock this product');if(s.receipts[c.id])throw Error('Transaction ID already used');const price=CREDIT_TABLE[c.productId];if(s.credits<price)throw Error(`${price} game credits required`);s.credits-=price;b.products[c.productId]={owned:true,equipped:true};return {changed:true,receipt:{id:c.id,kind:'chapter-purchase',amount:-price,balance:s.credits,first:true,at,productId:c.productId}}
  }
  if(c.type==='chapter-equip'){if(!productOwned(s,c.productId)||!['SM-7720','SM-26801','SM-28919'].includes(c.productId)||typeof c.equipped!=='boolean')throw Error('Owned chapter product required');b.products[c.productId]!.equipped=c.equipped;return {changed:true}}

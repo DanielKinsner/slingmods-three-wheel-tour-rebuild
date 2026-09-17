@@ -1,4 +1,5 @@
-import {VEHICLE_MODEL_LABEL,PRODUCT_FITMENT_LABEL} from '../presentation/vehicle-asset';
+import {VEHICLE_MODEL_LABEL,CURRENT_VEHICLE_CONTEXT} from '../presentation/vehicle-asset';
+import {retailFitment} from './fitment';
 import {CURRENT_HANDLING_PROFILE} from '../simulation/profile';
 import {SIGNATURE_ACCENTS} from '../presentation/signature-palette';
 import {COLORS,defaultAppearance,type Appearance} from '../career/catalog';
@@ -25,7 +26,10 @@ export interface SavedRecipe {id:string;name:string;recipe:BuildRecipe}
 export type DestinationId='express'|'harbor'|'ridge';
 export type DestinationLighting='day'|'night';
 export interface DriveSnapshot {version:1;scope:'preview';recipe:BuildRecipe;route:DestinationId;lighting?:DestinationLighting;mode:'test'|'race';returnTo:string}
-export function buildSummary(r:BuildRecipe){return ['SlingMods: Three-Wheel Tour — Game build',FINISHES.find(f=>f.id===r.finish)!.name,VEHICLE_MODEL_LABEL+' · '+r.handlingProfile,PRODUCT_FITMENT_LABEL,...PRODUCTS.filter(p=>r.products[p.id]).map(p=>`${p.brand} ${p.name} / ${p.options.find(o=>o.id===r.products[p.id])!.label}\n${p.shopUrl}`),'Free game preview. No retail bundle, purchase or performance claim.'].join('\n\n')}
+export function buildSummary(r:BuildRecipe){
+ const selected=PRODUCTS.filter(p=>r.products[p.id]),line=(p:typeof PRODUCTS[number])=>{const fit=retailFitment(p.id,CURRENT_VEHICLE_CONTEXT,r.products[p.id]);return `${p.brand} ${p.name} / ${p.options.find(o=>o.id===r.products[p.id])!.label}\n${fit.label}. ${fit.condition}\n${fit.linkLabel.replace(' ↗','')}: ${fit.source}`};
+ return ['SlingMods: Three-Wheel Tour — Game build',FINISHES.find(f=>f.id===r.finish)!.name,VEHICLE_MODEL_LABEL+' · '+r.handlingProfile,'COMPATIBLE LISTINGS',...selected.filter(p=>retailFitment(p.id).compatible).map(line),'EXPERIMENTAL / REFERENCE ONLY',...selected.filter(p=>!retailFitment(p.id).compatible).map(line),'Free game preview. Listing support does not verify our modeled mounts. No retail bundle or purchase.'].join('\n\n');
+}
 /** Explicit showroom scope. Career IndexedDB and its keys are never opened here. */
 export class BuildRepository {
  constructor(private durable:Pick<Storage,'getItem'|'setItem'>,private session:Pick<Storage,'getItem'|'setItem'>){}

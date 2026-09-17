@@ -712,6 +712,165 @@
     "right": 16
   },
   "gameControls": "Existing automatic driving preserved; local console insert replaces manual shifter and clutch",
+  "model03": {
+    "materialBindingsVersion": 1,
+    "nativeCluster": "Original separate needle meshes, cap pivots, clear lens, face UVs retained; game telemetry drives MPH, RPM x1000 and native LCD speed/gear; source upper MPH numerals are irregular, mapped piecewise; no simulated fuel/temperature",
+    "speedMarks": [
+      [
+        0,
+        0
+      ],
+      [
+        10,
+        14
+      ],
+      [
+        20,
+        28
+      ],
+      [
+        30,
+        41
+      ],
+      [
+        40,
+        55
+      ],
+      [
+        50,
+        69
+      ],
+      [
+        60,
+        83
+      ],
+      [
+        70,
+        97
+      ],
+      [
+        80,
+        111
+      ],
+      [
+        90,
+        125
+      ],
+      [
+        100,
+        139
+      ],
+      [
+        120,
+        147
+      ],
+      [
+        140,
+        154
+      ],
+      [
+        160,
+        160
+      ],
+      [
+        180,
+        167
+      ],
+      [
+        200,
+        174
+      ],
+      [
+        220,
+        180
+      ]
+    ],
+    "rpmMarks": [
+      [
+        0,
+        0
+      ],
+      [
+        1000,
+        18
+      ],
+      [
+        2000,
+        36
+      ],
+      [
+        3000,
+        54
+      ],
+      [
+        4000,
+        72
+      ],
+      [
+        5000,
+        90
+      ],
+      [
+        6000,
+        108
+      ],
+      [
+        7000,
+        126
+      ],
+      [
+        8000,
+        144
+      ],
+      [
+        9000,
+        162
+      ],
+      [
+        10000,
+        180
+      ]
+    ],
+    "driverLegs": {
+      "left": {
+        "upperBone": "driver_thigh_left",
+        "lowerBone": "driver_shin_left",
+        "footBone": "driver_foot_left",
+        "ankle": [
+          -0.365,
+          0.345,
+          -0.47
+        ],
+        "pole": [
+          -0.365,
+          0.8,
+          -0.1
+        ],
+        "upperLength": 0.38470768219934914,
+        "lowerLength": 0.3940177740878419,
+        "footPitch": 0.42
+      },
+      "right": {
+        "upperBone": "driver_thigh_right",
+        "lowerBone": "driver_shin_right",
+        "footBone": "driver_foot_right",
+        "ankle": [
+          -0.27,
+          0.36,
+          -0.56
+        ],
+        "pole": [
+          -0.27,
+          0.8,
+          -0.1
+        ],
+        "upperLength": 0.38470768219934914,
+        "lowerLength": 0.3940177740878419,
+        "footPitch": 0.3
+      }
+    },
+    "stockExhaust": "Empty compatibility anchor; no visible stock rear outlet or muffler in assembled source inspection"
+  },
   "frontWindingRepairs": [
     "FrontFasciaLowerWhisker_FrontFasciaLowerWhisker_0.001",
     "FrontFasciaUpperWhisker_FrontFasciaUpperWhisker_0",

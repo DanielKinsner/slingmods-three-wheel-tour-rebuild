@@ -5,7 +5,7 @@ import './departure.css';
 import {departurePose,DEPARTURE_SECONDS} from './departure-motion';
 interface DepartureOptions {
  parent:Element;car:THREE.Object3D;room:THREE.Object3D;camera:THREE.PerspectiveCamera;target:THREE.Vector3;
- onComplete:()=>void;onSoundStart?:()=>void;onSoundStop?:()=>void;onSoundFrame?:(elapsed:number,paused:boolean)=>void;
+ onComplete:()=>void;onSoundStart?:()=>void;onSoundStop?:()=>void;onSoundFrame?:(elapsed:number,paused:boolean)=>void;onWheelPose?:(spin:number)=>void;
 }
 /** An interruptible real-scene animation; scene owns the immutable navigation snapshot. */
 export class ShowroomDeparture {
@@ -37,6 +37,7 @@ export class ShowroomDeparture {
   if(this.curtain&&this.doorStart&&this.doorScale){this.curtain.position.copy(this.doorStart).add(new THREE.Vector3(0,3.35*pose.door,0));this.curtain.scale.y=this.doorScale.y*(1-.975*pose.door);}
   this.options.car.position.copy(this.carStart).add(new THREE.Vector3(pose.x,0,pose.z));this.options.car.quaternion.copy(this.carRotation).premultiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0),pose.yaw));
   for(const wheel of this.wheels)wheel.node.quaternion.copy(wheel.rotation).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),-pose.travel*8.3/.32));
+  this.options.onWheelPose?.(pose.travel*8.3/.32);
   this.options.camera.position.lerpVectors(this.cameraStart,new THREE.Vector3(-2.8,2.25,-4.8),pose.camera);this.options.target.lerpVectors(this.targetStart,new THREE.Vector3(pose.x*.7,.65,pose.z),pose.camera);this.options.camera.fov=this.cameraFov+(46-this.cameraFov)*Math.min(1,this.elapsed);this.options.camera.updateProjectionMatrix();this.options.camera.lookAt(this.options.target);
   this.options.onSoundFrame?.(this.elapsed,false);if(pose.complete)this.finish();
  }
