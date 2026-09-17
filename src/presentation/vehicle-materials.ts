@@ -4,7 +4,7 @@ export const materialRole=(m:THREE.Material)=>m.userData.vehicleRole as VehicleM
 export const hasMaterialBindings=(car:THREE.Object3D)=>car.getObjectByName('vehicle_root')?.userData.materialBindingsVersion===1;
 /** Source decal accent pixels only; white legends and original alpha stay intact. */
 /** Preserve repeated native UVs and sampling without sharing mutable image data. */
-export function decalTexture(source:THREE.Texture,canvas:HTMLCanvasElement){const map=new THREE.CanvasTexture(canvas),pixels=map.source;map.copy(source);map.source=pixels;map.needsUpdate=true;return map}
+export function decalTexture(source:THREE.Texture,canvas:HTMLCanvasElement){const map:THREE.Texture=new THREE.CanvasTexture(canvas),pixels=map.source;map.copy(source);map.source=pixels;map.needsUpdate=true;return map}
 export function rivalDecal(source:THREE.Texture,color:string){
  const canvas=document.createElement('canvas'),im=source.image as HTMLImageElement;canvas.width=im.width;canvas.height=im.height;const c=canvas.getContext('2d')!;c.drawImage(im,0,0);const data=c.getImageData(0,0,canvas.width,canvas.height),tint=new THREE.Color(color).getHex();const rgb=[tint>>16&255,tint>>8&255,tint&255];
  for(let i=0;i<data.data.length;i+=4){const [r,g,b]=data.data.subarray(i,i+3);if(r>50&&r>g*1.45&&r>b*1.35)for(let j=0;j<3;j++)data.data[i+j]=Math.min(255,Math.round(rgb[j]*r/240))}
