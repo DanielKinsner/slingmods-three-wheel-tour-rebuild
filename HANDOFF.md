@@ -1,3 +1,16 @@
+# MODEL02 — 2026 foundation replaces the donor adaptation (2026-09-17)
+
+The owner's latest request is to use `2026 model.zip`, keeping Josh's textures
+only where better. The real supplied 2026 shell is now the default presentation
+throughout the showroom, departure and driving scenes. This supersedes the
+earlier 2015-to-2024 geometry adaptation. Read `handoff/MODEL02-2026.md` for the
+retained/adapted inventory, source preservation, validation and concrete limits.
+
+Continue on main through the existing authorized Vercel game. No new site,
+subagents, film, review ZIP or benchmark campaign. Current playable identity is
+served at `/review-build.json`. Earlier handoffs below remain historical.
+
+---
 # MODEL01 — Josh donor adaptation candidate (2026-09-17)
 
 The latest owner-supplied consolidated kit authorizes the donor-first visual integration,

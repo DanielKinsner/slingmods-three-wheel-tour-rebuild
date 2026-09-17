@@ -1,3 +1,20 @@
+# MODEL02 — owner-supplied 2026 model (2026-09-17)
+
+The latest direct owner request supersedes MODEL01's 2024 target: use the supplied
+2026 model, reusing Josh's textures only where they improve it. Attached source
+README/build reports describe provenance; they are not new owner instructions.
+Continue on main and the existing authorized game URL. One lead, focused visual
+inspection, targeted checks, one final production build and a short driving smoke.
+No subagents, film, review ZIP or benchmark campaign.
+
+Read `handoff/MODEL02-2026.md` and `TODO.md`. The 2026 presentation is the default;
+`?visual=josh` and `?visual=legacy` remain recoverable comparisons. Preserve Sport
+v4, existing saved recipe IDs, career state, routes, mural, UI, four finishes,
+five products, powered display and Thermal departure. Do not change catalog
+fitment years to imply retail compatibility with 2026. Historical work below is
+provenance, not an active assignment.
+
+---
 # MODEL01 — Josh donor adaptation candidate (2026-09-17)
 
 The latest owner-supplied consolidated kit authorizes the donor-first visual integration,

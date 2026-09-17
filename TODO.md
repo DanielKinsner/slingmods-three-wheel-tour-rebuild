@@ -1,12 +1,15 @@
 # Current work
 
-- NOW: Josh donor integration is a verified playable candidate at the existing
-  game URL with `?visual=josh`; current default retained.
-- NEXT: Blend front fascia returns into donor fenders; refine rear compartment /
-  shoulder and cockpit cowl joins. These block promotion to the default.
+- NOW: Complete final production build, brief gameplay smoke and existing-URL
+  deployment of the supplied 2026 model. See `handoff/MODEL02-2026.md`.
+- DONE: Real 2026 shell, newer lights/fascia/cockpit, original native texture UVs,
+  Josh tread remap, four finishes, shared driver/display/rig and five product
+  mounts. All 81 supplied source files remain unchanged.
+- REMAINING LIMITS: Product mounts are game adaptations, not verified 2026 retail
+  fitment. Source is an R Manual configurator reconstruction with an automatic
+  game-console insert; the small native cluster LCD is unpowered. The central
+  powered display continues to show actual game telemetry.
+- HISTORICAL: `?visual=josh` retains the previous donor adaptation as a candidate;
+  its fascia/cowl/compartment refinement is superseded by the owner's new source.
+  `?visual=legacy` retains the prior procedural car.
 - LATER: Previously agreed loading cleanup and Spyder work, outside this task.
-- DONE: Original 43-file donor source retained; derived editable vehicle and product
-  assets; semantic rig, neutral finishes, AutoDrive/display integration, shared
-  candidate selector. Runtime commit: 625559c6dea34ec25fc8d992d55e10a4f761f5b5.
-  Thirty focused checks, production build and gameplay smoke passed; local receipt:
-  handoff/MODEL01-VALIDATION.json. Live served identity: /review-build.json.

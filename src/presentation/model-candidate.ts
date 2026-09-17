@@ -7,6 +7,6 @@ export function showModelCandidate(){
  const title=document.createElement('strong');title.textContent='JOSH MODEL · ADAPTATION CANDIDATE';
  const detail=document.createElement('div');detail.textContent='2015 donor → 2024 R · fit refinements pending';
  const link=document.createElement('a');link.textContent='Use current default';link.style.color='#d7e9ff';
- const url=new URL(location.href);url.searchParams.set('visual','legacy');link.href=url.pathname+url.search+url.hash;
+ const url=new URL(location.href);url.searchParams.set('visual','2026');link.href=url.pathname+url.search+url.hash;
  tag.append(title,detail,link);document.body.append(tag);
 }

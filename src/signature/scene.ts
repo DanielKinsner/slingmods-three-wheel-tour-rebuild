@@ -56,7 +56,7 @@ async function apply(){
  const look=STUDIO_LOOKS[lighting];renderer.toneMappingExposure=look.exposure;scene.environmentIntensity=look.environment;hemi.intensity=look.hemisphere;key.intensity=look.key;fill.intensity=look.fill;rim.intensity=look.rim;scene.background=new THREE.Color(look.background);wall.setLook(lighting);display.snapshot(renderer,scene.environment,JSON.stringify(shown));layoutKey='';refresh();
 }
 function view(name:string,animate=true){currentView=name;const before=camera.position.clone(),beforeTarget=controls.target.clone();cameraTween=undefined;camera.clearViewOffset();camera.fov=name==='tour-wall'?(screen==='build'?60:52):38;camera.updateProjectionMatrix();controls.minDistance=name==='interior'||name==='cockpit'?.45:3;accessories.inspectStorage(false);shocks.inspectionView(null);const directions:Record<string,THREE.Vector3>={hero:new THREE.Vector3(-5,1.65,-6),front:new THREE.Vector3(0,1.8,-7),rear:new THREE.Vector3(4,2.2,6),side:new THREE.Vector3(7,1.8,0),'tour-wall':new THREE.Vector3(6,1.8,-5)};
- if(name==='interior'||name==='cockpit'){camera.position.set(-.65,1.35,.95);controls.target.set(0,.62,-.12)}
+ if(name==='interior'||name==='cockpit'){if(hero.asset.getObjectByName('model02_2026_foundation')){camera.position.set(-.72,1.42,.22);controls.target.set(-.1,.71,-.33)}else{camera.position.set(-.65,1.35,.95);controls.target.set(0,.62,-.12)}}
  else if(name==='tour-wall'){camera.position.set(5.4,2.25,-1.4);controls.target.set(-2.3,screen==='build'?.8:1.45,.8)}
  else if(name==='SM-28919'){accessories.inspectStorage(true);camera.position.set(-1.4,1.8,-.35);controls.target.set(-.22,.43,1)}
  else if(name==='SM-3223'){camera.position.set(3,1.3,-3.6);controls.target.set(.5,.55,-1.25)}

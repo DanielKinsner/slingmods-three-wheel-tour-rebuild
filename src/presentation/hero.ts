@@ -4,16 +4,17 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {DriverPresenter,type DriverAttachment} from './driver';
 import {RearPresenter,type RearRig} from './rear';
 import {FrontLinks} from './front-links';
-import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL} from './vehicle-asset';
+import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT} from './vehicle-asset';
 import {assetStatistics} from './statistics';
 import {configureShadows} from './shadows';
 import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
 export async function loadDrivingHero(loader:GLTFLoader){
- const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync('/assets/drivers/test-driver.glb'),fetch('/assets/drivers/test-driver-attachment.json').then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
+ const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync('/assets/drivers/test-driver.glb'),fetch(CURRENT_DRIVER_ATTACHMENT).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
  return bindDrivingHero(asset.scene,person.scene,attachment,rig);
 }
 function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttachment,rig:RearRig){
+ if(attachment.rootOffset)body.position.fromArray(attachment.rootOffset);
  const asset={scene:car},person={scene:body};
  const root=new THREE.Group();root.add(asset.scene);configureShadows(root,new THREE.Group(),'repaired',false);root.add(person.scene);
  const axisX=new THREE.Vector3(1,0,0),axisY=new THREE.Vector3(0,1,0),axisZ=new THREE.Vector3(0,0,1),q=new THREE.Quaternion();

@@ -11,7 +11,7 @@ export class SuspensionPresenter {
  constructor(private car:THREE.Object3D,source:THREE.Group){
   this.source=source;this.root.name='ddmworks_sm3223_installed';car.add(this.root);
   for(const name of ['suspension_front_left','suspension_front_right','shock_body_visual','shock_piston_visual','shock_spring_visual']){const o=car.getObjectByName(name);if(!o)throw Error('Missing stock suspension slot '+name);this.originals.push(o)}
-  for(const side of ['left','right']){const c=source.getObjectByName('carrier_front_'+side);if(!c)throw Error('Missing suspension carrier');const carrier=c.clone(true);carrier.visible=!car.getObjectByName('josh_donor_foundation');this.root.add(carrier)}
+  for(const side of ['left','right']){const c=source.getObjectByName('carrier_front_'+side);if(!c)throw Error('Missing suspension carrier');const carrier=c.clone(true);carrier.visible=!car.getObjectByName('josh_donor_foundation')&&!car.getObjectByName('model02_2026_foundation');this.root.add(carrier)}
   for(let i=0;i<3;i++){const parts={} as typeof this.shocks[number];for(const key of ['lower','upper','spring']as const){const group=new THREE.Group();const child=source.getObjectByName('ddm_'+key)!.clone(true);if(key==='spring')child.position.y-=.0855;group.add(child);this.root.add(group);parts[key]=group}this.shocks.push(parts)}
   this.root.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true}});this.set(false);this.update();
  }
@@ -24,7 +24,7 @@ export class SuspensionPresenter {
   (this.car.parent??this.car).traverse(o=>{if(o instanceof THREE.Mesh&&!belongs(o)){this.masks.set(o,o.visible);o.visible=false}});
  }
  update(){if(!this.enabled)return;this.car.updateWorldMatrix(true,true);const inverse=this.car.matrixWorld.clone().invert(),point=(name:string)=>this.car.getObjectByName(name)!.getWorldPosition(new THREE.Vector3()).applyMatrix4(inverse);this.endpoints=[];
-  for(let i=0;i<3;i++){let a:THREE.Vector3,b:THREE.Vector3;if(i===2){a=point('shock_lower');b=point('shock_upper')}else{const side=i===0?-1:1,node=point(i===0?'front_left_steer':'front_right_steer'),travel=node.y-layout.wheels[i].center[1];a=new THREE.Vector3(side*.76,.28+travel,-1.3335);b=new THREE.Vector3(side*.48,.64,-1.31)}
+  for(let i=0;i<3;i++){let a:THREE.Vector3,b:THREE.Vector3;if(i===2){a=point('shock_lower');b=point('shock_upper')}else{const side=i===0?-1:1,node=point(i===0?'front_left_steer':'front_right_steer'),travel=node.y-layout.wheels[i].center[1];const authored=this.car.getObjectByName('vehicle_root')?.userData.frontShockMounts?.[i===0?'left':'right'];a=authored?new THREE.Vector3().fromArray(authored.lower):new THREE.Vector3(side*.76,.28,-1.3335);a.y+=travel;b=authored?new THREE.Vector3().fromArray(authored.upper):new THREE.Vector3(side*.48,.64,-1.31)}
    const delta=b.clone().sub(a),q=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),delta.clone().normalize()),parts=this.shocks[i];
    for(const [key,group]of Object.entries(parts)){group.position.copy(key==='upper'?b.clone().addScaledVector(delta.clone().normalize(),-.45):key==='spring'?a.clone().addScaledVector(delta.clone().normalize(),.0855):a);group.quaternion.copy(q);group.scale.set(1,key==='spring'?(delta.length()-.1575)/.2925:1,1)}
    this.endpoints.push([a.toArray(),b.toArray()]);
