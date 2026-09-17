@@ -36,9 +36,13 @@ try{
  report.drive=[];
  for(const [keys,ms]of [[['w'],2500],[['w','a'],250],[['w','d'],250],[['s'],2600],[[],250],[['x'],100],[['w'],1300]]){for(const k of keys)await page.keyboard.down(k);await page.waitForTimeout(ms);for(const k of keys)await page.keyboard.up(k);report.drive.push(await page.evaluate(()=>window.__EXPRESS.inspect()))}
  assert.ok(report.drive.some(s=>s.telemetry.speed>3));assert.ok(report.drive.some(s=>s.telemetry.steer!==0));assert.ok(report.drive.some(s=>s.telemetry.speed<-.5),'reverse must move');
- await page.screenshot({path:out+'/drive.png'});await page.keyboard.press('c');await page.waitForTimeout(300);await page.screenshot({path:out+'/cockpit.png'});
- // Use the game's build link, retaining the exact recipe and tab visual choice.
- await page.locator('a.shop-build-route').click();await ready('__SIGNATURE');assert.deepEqual((await state()).recipe,recipe);assert.match((await state()).visual.asset,/josh/);assert.equal(await page.evaluate(()=>localStorage.getItem('model01-career-sentinel')),'unchanged');
+ await page.screenshot({path:out+'/drive.png'});
+ // C cycles near -> far -> cockpit. Confirm the driver's head is hidden in-eye.
+ for(let i=0;i<3&&(await page.evaluate(()=>window.__EXPRESS.inspect().visual.driver.headVisible));i++){await page.keyboard.press('c',{delay:100});await page.waitForTimeout(300)}
+ assert.equal(await page.evaluate(()=>window.__EXPRESS.inspect().visual.driver.headVisible),false);report.cockpit=true;await page.screenshot({path:out+'/cockpit.png'});
+ // Use the game's pause menu, retaining the exact recipe and tab visual choice.
+ await page.keyboard.press('Escape',{delay:100});await page.waitForFunction(()=>window.__EXPRESS.inspect().race.paused);
+ await page.locator('#race-menu [data-action=bay]').click();await ready('__SIGNATURE');assert.deepEqual((await state()).recipe,recipe);assert.match((await state()).visual.asset,/josh/);assert.equal(await page.evaluate(()=>localStorage.getItem('model01-career-sentinel')),'unchanged');
  report.returned=true;assert.deepEqual(errors,[]);report.errors=errors;
  await fs.writeFile(out+'/result.json',JSON.stringify(report,null,2));console.log(JSON.stringify({result:'PASS',finishes:report.finishes,products:products.length,returned:true,speeds:report.drive.map(s=>s.telemetry.speed),out}));
 }catch(e){await page.screenshot({path:out+'/failure.png'});await fs.writeFile(out+'/failure.json',JSON.stringify({error:String(e),errors,url:page.url(),body:await page.locator('body').innerText(),report},null,2));throw e}finally{await browser.close()}

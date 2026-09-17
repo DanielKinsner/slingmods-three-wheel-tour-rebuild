@@ -67,5 +67,6 @@ The original default remains available and unchanged.
 
 Verification uses focused model/driver/rear/finish/save/product checks and
 `scripts/smoke-model01.mjs`, an isolated browser flow with real keyboard input.
-Final results and served identity are recorded in `MODEL01-VALIDATION.json`.
+Focused local production-build results are recorded in `MODEL01-VALIDATION.json`.
+The live `/review-build.json` reports the currently served commit and input hashes.
 No personal browser save data or tool installs are committed.

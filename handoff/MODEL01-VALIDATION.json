@@ -1,0 +1,116 @@
+{
+  "scope": "Focused local production-build verification; not a benchmark or exact OEM certification",
+  "date": "2026-09-17T18:29:03.933Z",
+  "runtimeCommit": "625559c6dea34ec25fc8d992d55e10a4f761f5b5",
+  "playableCandidate": "https://slingmods-three-wheel-tour-rebuild.vercel.app/?visual=josh",
+  "liveIdentity": "https://slingmods-three-wheel-tour-rebuild.vercel.app/review-build.json",
+  "status": "Labeled adaptation candidate; legacy shared model remains the default",
+  "provenance": {
+    "ownerIdentifiedDonorYear": 2015,
+    "target": "2024 Slingshot R AutoDrive",
+    "ownerAuthorizedExistingPublicGame": true,
+    "sourceFiles": 43,
+    "sourceMatchesSuppliedStandaloneZip": true,
+    "sourceHashInventory": "../assets/blender/model01/build-notes.json"
+  },
+  "targetedChecks": {
+    "passed": 30,
+    "areas": [
+      "Exported semantic graph and front links",
+      "Rear presentation and driver bindings",
+      "Finish isolation",
+      "Departure state",
+      "Demo selector allowlist",
+      "Recipe validation and career storage",
+      "Product light lifecycle"
+    ]
+  },
+  "productionBuild": {
+    "command": "npm run deploy:build",
+    "result": "PASS",
+    "buildRef": "625559c6dea3",
+    "output": "demo-dist/2026-09-17T18-21-00-040Z-625559c6dea3",
+    "localProductionBuilds": 1
+  },
+  "matchedComparison": {
+    "legacy": {
+      "asset": "/assets/hoop-refinement/slingshot-hoops-refined.glb",
+      "build": "625559c6dea3",
+      "finish": "blue-orange",
+      "lighting": "studio",
+      "errors": [],
+      "otherModelLoaded": false
+    },
+    "josh": {
+      "asset": "/assets/model01/slingshot-josh-adapted.glb",
+      "build": "625559c6dea3",
+      "finish": "blue-orange",
+      "lighting": "studio",
+      "errors": [],
+      "otherModelLoaded": false
+    }
+  },
+  "browserSmoke": {
+    "result": "PASS",
+    "script": "scripts/smoke-model01.mjs",
+    "base": "http://127.0.0.1:5206",
+    "handlingProfile": "slingmods-sport-v4",
+    "finishes": [
+      "blue-orange",
+      "black-red",
+      "white-graphite",
+      "graphite-red"
+    ],
+    "products": [
+      "SM-133",
+      "SM-3223",
+      "SM-7720",
+      "SM-26801",
+      "SM-28919"
+    ],
+    "installRemoveRestore": true,
+    "stockComparison": true,
+    "savedBuildReload": true,
+    "poweredDisplay": true,
+    "thermalDepartureDoorFound": true,
+    "steeringTravelExtremes": true,
+    "forwardReverseSpeeds": [
+      15.984629706659794,
+      17.555143773663794,
+      18.62259245328628,
+      -0.00006722481201592101,
+      -0.000003056054968764708,
+      -9.493416502553403e-7,
+      -5.315257434659789
+    ],
+    "cockpitConfirmed": true,
+    "returnedWithSameRecipe": true,
+    "careerSentinelUnchanged": true,
+    "pageErrors": []
+  },
+  "harnessCorrection": "Final static run uses the visible pause-menu Back to Showroom control and confirms cockpit after cycling both exterior views. No runtime change or second local production build was needed.",
+  "preservedRuntimeSources": [
+    "simulation",
+    "driving input",
+    "career",
+    "routes",
+    "showroom UI and lighting",
+    "mural",
+    "audio"
+  ],
+  "runtimeAssets": {
+    "public/assets/model01/slingshot-josh-adapted.glb": {
+      "bytes": 8972224,
+      "sha256": "afe145a9e62421aa39388c11610d754754d9f8212cb46baba1bd3844632ee7d8"
+    },
+    "public/assets/model01/josh-mounted-products.glb": {
+      "bytes": 340088,
+      "sha256": "b3c28f834b2c8ce0a3248ff8f8545fee523f01eaa7b9cd6a37e94d48ea32e895"
+    }
+  },
+  "remainingPromotionBlockers": [
+    "Front fascia/gap-return transitions into donor fenders remain too planar",
+    "Rear compartment joins under retained donor shoulders and seat access opening remain coarse",
+    "Cockpit cowl join remains visible; retained upper body is a selective adaptation, not exact 2024 OEM geometry"
+  ]
+}
