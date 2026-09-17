@@ -1,0 +1,55 @@
+{
+  "completedAt": "2026-09-17T20:54:49.217Z",
+  "runtimeCommit": "10415cc6763ad6c38912031d62042238f5cd8c53",
+  "defaultVisual": "2026",
+  "canonicalUrl": "https://slingmods-three-wheel-tour-rebuild.vercel.app/?visual=2026",
+  "corrections": {
+    "front": "Reverse winding on 11 mirrored meshes; retain original positions, UVs and supplied smooth normals",
+    "rear": "Clear original covers; corrected reflector atlas; source-surface red light guides and discrete center LED cells",
+    "reference": "https://cdn.dealerspike.com/imglib/v1/800x600/imglib/Assets/Inventory/6F/72/6F723FBE-DD3B-4D29-A6E4-4C42E4A5F302.jpg",
+    "limitation": "Visual optic placement on supplied configurator reconstruction, not measured OEM optical CAD"
+  },
+  "originalSource": {
+    "files": 81,
+    "byteIdentical": true
+  },
+  "vehicleGlb": {
+    "bytes": 8633440,
+    "sha256": "c69a545629ad1a9ff0043a9f16e7096189147555f77be0cbc8d1349a303532cf"
+  },
+  "targetedTests": {
+    "command": "node --import tsx --test tests/model02.test.ts tests/product-light-lifecycle.test.ts tests/p08b-refinement-finish.test.ts",
+    "passed": 12,
+    "failed": 0
+  },
+  "productionBuild": {
+    "command": "npm run deploy:build",
+    "result": "PASS",
+    "buildRef": "10415cc6763a",
+    "localBuilds": 1
+  },
+  "visualInspection": {
+    "front": "All four finishes; consistent left/right fascia shading",
+    "rear": "Clear covers, curved red guides and center cells inspected against 2026 photograph"
+  },
+  "smoke": {
+    "command": "BASE_URL=http://127.0.0.1:5207 node scripts/smoke-model02.mjs",
+    "result": "PASS",
+    "finishes": [
+      "blue-orange",
+      "black-red",
+      "white-graphite",
+      "graphite-red"
+    ],
+    "products": 5,
+    "saveReload": true,
+    "poweredThermalDeparture": true,
+    "handlingProfile": "slingmods-sport-v4",
+    "steeringAndTravelExtremes": true,
+    "accelerationSteeringBrakingReverse": true,
+    "cockpit": true,
+    "returnedToShowroom": true,
+    "errors": []
+  },
+  "scope": "Vehicle assets and conversion only; gameplay, products, UI, routes, saves and Josh tread reuse retained. No film, review ZIP, subagents or benchmark campaign."
+}
