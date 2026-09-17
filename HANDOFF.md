@@ -1,3 +1,16 @@
+# MODEL01 — Josh donor adaptation candidate (2026-09-17)
+
+The latest owner-supplied consolidated kit authorizes the donor-first visual integration,
+ordinary main commits/push and the existing hosted game. Owner confirmed permission to
+serve Josh's adapted model publicly. One lead only; no subagents, film, review ZIP or
+benchmark campaign. Preserve Sport v4, saves, routes, mural and the five-product flow.
+
+Use `handoff/MODEL01-JOSH.md` and `TODO.md`. `?visual=josh` is the labeled playable
+candidate; the current default is retained because fascia, rear-compartment and cowl
+joins still need visual refinement. Original source and packed derived sources are
+tracked. Do not reactivate historical review-packet requirements below.
+
+---
 # Sport v4 — forgiving stock handling (2026-09-17)
 
 Latest owner priority supersedes the prior physics freeze. Stock/new entries now use Sport v4, with bounded game-only stability, unchanged steering range, progressive rear traction reserve, front-biased load-aware braking and smaller suspension impact kicks. Existing builds/records/active events retain their versions. **Build → Use forgiving driving** makes a current copy while keeping the original and all career progress. No purchase or reset required.

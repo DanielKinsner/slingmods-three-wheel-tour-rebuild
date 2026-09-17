@@ -1,8 +1,9 @@
 import {RIDGE_ASSETS} from '../ridge/assets';
-import {CURRENT_VEHICLE_URL} from '../presentation/vehicle-asset';
+import {CURRENT_VEHICLE_URL,VEHICLE_VISUAL} from '../presentation/vehicle-asset';
 import type {BuildRecipe,DestinationId} from './config';
 export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
  const shared=[CURRENT_VEHICLE_URL,'/assets/drivers/test-driver.glb','/assets/drivers/test-driver-attachment.json','/assets/vehicles/slingshot-p04a1-rear-rig.json','/assets/brand/slingmods-sign.glb','/assets/products/tricled-sm133-base.glb','/assets/products/tricled-sm133-base.attachment.json','/assets/products/ddmworks-sm3223-silver.glb','/assets/p08b/signature-products.glb'];
+ if(VEHICLE_VISUAL==='josh')shared[shared.length-1]='/assets/model01/josh-mounted-products.glb';
  if(route!=='ridge')shared.push('/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb');
  if(route==='harbor')shared.push('/assets/harbor/route.json','/assets/harbor/harbor.glb');
  else for(const name of ['p06c_asphalt_Diffuse.jpg','p06c_asphalt_nor_gl.jpg','p06c_asphalt_Rough.jpg','leafy_grass_Diffuse.jpg'])shared.push('/assets/showcase-quality/textures/'+name);

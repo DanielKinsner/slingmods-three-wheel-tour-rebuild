@@ -15,7 +15,7 @@ export class SignatureFinishPresenter {
   car.traverse(o=>{if(!(o instanceof THREE.Mesh))return;const original=o.material;const mats=Array.isArray(original)?original:[original];let changed=false;
    const owned=mats.map(m=>{if(!(m instanceof THREE.MeshStandardMaterial))return m;
     let rearArm=false;for(let node:THREE.Object3D|null=o;node;node=node.parent)if(/^rear_arm_visual(?:__|$)/.test(node.name)){rearArm=true;break}
-    const paint=/Radar_Blue/.test(m.name),accent=/Orange_Accent/.test(m.name)&&(/^body_static(?:__|$)/.test(o.name)||rearArm);if(!paint&&!accent)return m;
+    const paint=/Radar_Blue/.test(m.name),accent=/Orange_Accent/.test(m.name)&&(/^body_static(?:__|$)/.test(o.name)||rearArm||m.name.startsWith('Josh_'));if(!paint&&!accent)return m;
     changed=true;const c=options.studio?new THREE.MeshPhysicalMaterial():m.clone();if(options.studio){THREE.MeshStandardMaterial.prototype.copy.call(c,m);const physical=c as THREE.MeshPhysicalMaterial;physical.defines={STANDARD:'',PHYSICAL:''};physical.metalness=Math.min(m.metalness,.18);physical.clearcoat=.7;physical.clearcoatRoughness=.16;physical.envMapIntensity=1.05}this.materials.push({material:c,map:m.map,color:m.color.clone(),roughness:m.roughness,roughnessMap:m.roughnessMap,node:o.name,role:paint?'paint':'accent'});return c;
    });if(changed){o.material=Array.isArray(original)?owned:owned[0];this.slots.push({mesh:o,original,owned:o.material})}
   });
@@ -23,11 +23,11 @@ export class SignatureFinishPresenter {
  async set(finish:SignatureFinish){
   if(!['blue-orange','black-red','white-graphite','graphite-red'].includes(finish))throw Error('Unknown finish');const ticket=++this.generation;
   let texture:THREE.Texture|undefined;
-  if(finish!=='blue-orange'){
+  if(finish!=='blue-orange'&&this.materials.some(s=>s.role==='paint'&&!s.material.name.startsWith('Josh_'))){
    texture=this.textures.get(finish);if(!texture){texture=await new THREE.TextureLoader().loadAsync(finish==='white-graphite'?'/assets/p08b/showroom-refinement/finish-white-graphite.png':'/assets/p08b/finish-'+finish+'.png');texture.colorSpace=THREE.SRGBColorSpace;if(this.options.studio)texture.channel=this.materials.find(s=>s.role==='paint')?.map?.channel??0;texture.flipY=false;texture.anisotropy=4;if(this.dead){texture.dispose();return}const old=this.textures.get(finish);if(old){texture.dispose();texture=old}else this.textures.set(finish,texture)}
   }
   if(this.dead||ticket!==this.generation)return;this.current=finish;
-  for(const s of this.materials){const m=s.material;if(finish==='blue-orange'){m.map=s.map;m.color.copy(s.color);m.roughness=s.roughness}else if(s.role==='paint'){m.map=texture!;m.color.set(0xffffff);m.roughness=finish==='graphite-red'?.44:finish==='white-graphite'?.24:.19}else{m.color.set(SIGNATURE_ACCENTS[finish]);m.map=null}if(this.options.studio){const physical=m as THREE.MeshPhysicalMaterial;physical.roughnessMap=finish==='graphite-red'?null:s.roughnessMap;physical.roughness=finish==='graphite-red'?.48:s.roughnessMap?1:finish==='white-graphite'?.28:.24;physical.clearcoat=finish==='graphite-red'?.12:.7;physical.clearcoatRoughness=finish==='graphite-red'?.42:.16}m.needsUpdate=true}
+  for(const s of this.materials){const m=s.material;if(m.name.startsWith('Josh_')){m.map=s.map;m.color.set(s.role==='accent'?SIGNATURE_ACCENTS[finish]:{'blue-orange':'#126cb5','black-red':'#14191f','white-graphite':'#e8e9e7','graphite-red':'#535a61'}[finish]);m.roughness=finish==='graphite-red'?.44:.26}else if(finish==='blue-orange'){m.map=s.map;m.color.copy(s.color);m.roughness=s.roughness}else if(s.role==='paint'){m.map=texture!;m.color.set(0xffffff);m.roughness=finish==='graphite-red'?.44:finish==='white-graphite'?.24:.19}else{m.color.set(SIGNATURE_ACCENTS[finish]);m.map=null}if(this.options.studio){const physical=m as THREE.MeshPhysicalMaterial;physical.roughnessMap=finish==='graphite-red'?null:s.roughnessMap;physical.roughness=finish==='graphite-red'?.48:s.roughnessMap?1:finish==='white-graphite'?.28:.24;physical.clearcoat=finish==='graphite-red'?.12:.7;physical.clearcoatRoughness=finish==='graphite-red'?.42:.16}m.needsUpdate=true}
  }
  inspect(){return{finish:this.current,accent:SIGNATURE_ACCENTS[this.current],paintedAccents:this.materials.filter(s=>s.role==='accent').map(s=>({node:s.node,color:s.material.color.getHexString()})),isolatedMaterialSlots:this.materials.length,mask:'Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged',textureCount:this.textures.size}}
  dispose(){if(this.dead)return;this.dead=true;this.generation++;for(const s of this.slots)s.mesh.material=s.original;for(const s of this.materials)s.material.dispose();this.textures.forEach(t=>t.dispose());this.textures.clear()}
@@ -35,7 +35,7 @@ export class SignatureFinishPresenter {
 /** Original separately editable catalog meshes are mounted in canonical vehicle coordinates. */
 export class SignatureProducts {
  private stock:THREE.Object3D|undefined;private stockVisible=true;private selected=new Set<string>();private saved=new Map<THREE.Object3D,{visible:boolean;rotation:THREE.Euler}>();private root:THREE.Group;
- static async load(loader:GLTFLoader,car:THREE.Object3D){const gltf=await loader.loadAsync(SIGNATURE_PRODUCTS_URL);return new SignatureProducts(car,gltf.scene)}
+ static async load(loader:GLTFLoader,car:THREE.Object3D){const gltf=await loader.loadAsync(car.getObjectByName('josh_donor_foundation')?'/assets/model01/josh-mounted-products.glb':SIGNATURE_PRODUCTS_URL);return new SignatureProducts(car,gltf.scene)}
  constructor(private car:THREE.Object3D,source:THREE.Group){this.root=source;source.name='signature_catalog_products';car.add(source);this.stock=car.getObjectByName('stock_exhaust');this.stockVisible=this.stock?.visible??true;source.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true}});this.set([])}
  set(ids:Iterable<string>){this.selected=new Set(ids);for(const id of ['SM-7720','SM-26801','SM-28919']){const part=this.root.getObjectByName('product_'+id);if(!part)throw Error('Missing authored product '+id);part.visible=this.selected.has(id)}if(this.stock)this.stock.visible=this.selected.has('SM-7720')?false:this.stockVisible;if(!this.selected.has('SM-28919'))this.inspectStorage(false)}
  inspectStorage(enabled:boolean){

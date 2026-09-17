@@ -11,7 +11,7 @@ export class SuspensionPresenter {
  constructor(private car:THREE.Object3D,source:THREE.Group){
   this.source=source;this.root.name='ddmworks_sm3223_installed';car.add(this.root);
   for(const name of ['suspension_front_left','suspension_front_right','shock_body_visual','shock_piston_visual','shock_spring_visual']){const o=car.getObjectByName(name);if(!o)throw Error('Missing stock suspension slot '+name);this.originals.push(o)}
-  for(const side of ['left','right']){const c=source.getObjectByName('carrier_front_'+side);if(!c)throw Error('Missing suspension carrier');this.root.add(c.clone(true))}
+  for(const side of ['left','right']){const c=source.getObjectByName('carrier_front_'+side);if(!c)throw Error('Missing suspension carrier');const carrier=c.clone(true);carrier.visible=!car.getObjectByName('josh_donor_foundation');this.root.add(carrier)}
   for(let i=0;i<3;i++){const parts={} as typeof this.shocks[number];for(const key of ['lower','upper','spring']as const){const group=new THREE.Group();const child=source.getObjectByName('ddm_'+key)!.clone(true);if(key==='spring')child.position.y-=.0855;group.add(child);this.root.add(group);parts[key]=group}this.shocks.push(parts)}
   this.root.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true}});this.set(false);this.update();
  }

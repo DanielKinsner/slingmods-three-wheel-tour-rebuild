@@ -1,3 +1,16 @@
+# MODEL01 — Josh donor adaptation candidate (2026-09-17)
+
+The latest owner-supplied consolidated kit authorizes the donor-first visual integration,
+ordinary main commits/push and the existing hosted game. Owner confirmed permission to
+serve Josh's adapted model publicly. One lead only; no subagents, film, review ZIP or
+benchmark campaign. Preserve Sport v4, saves, routes, mural and the five-product flow.
+
+Use `handoff/MODEL01-JOSH.md` and `TODO.md`. `?visual=josh` is the labeled playable
+candidate; the current default is retained because fascia, rear-compartment and cowl
+joins still need visual refinement. Original source and packed derived sources are
+tracked. Do not reactivate historical review-packet requirements below.
+
+---
 # Sport v4 — forgiving stock handling (2026-09-17)
 
 Latest owner priority supersedes the prior physics freeze. Stock/new entries now use Sport v4, with bounded game-only stability, unchanged steering range, progressive rear traction reserve, front-biased load-aware braking and smaller suspension impact kicks. Existing builds/records/active events retain their versions. **Build → Use forgiving driving** makes a current copy while keeping the original and all career progress. No purchase or reset required.
@@ -92,7 +105,7 @@ The latest owner request authorizes `director-kit/director-addenda/review-16/COD
 
 # Historical assignments (all headers below are historical)
 
-# Current owner refinement � showroom materials, bay exit and swingarm palette
+# Current owner refinement � showroom materials, bay exit and swingarm palette
 
 The latest owner request and four photographs are recorded without credentials in `director-kit/director-addenda/review-16-owner-refinement/OWNER-REQUEST.md`. They authorize the bounded showroom texture/lift/closed-door refinement, skippable presentation exit, swingarm accent fix, suitable generated door audio, and updated Review16 packet. Continue the current P08B feature branch and preserve historical source/evidence. Ordinary feature-branch commits/push remain authorized; no main merge, publication, account changes, desktop takeover or gate approval. One bounded ElevenLabs generation used the owner-supplied temporary credential; never write a credential to source, evidence or a review packet.
 
