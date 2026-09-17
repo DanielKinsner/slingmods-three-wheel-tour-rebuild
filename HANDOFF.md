@@ -12,7 +12,9 @@ served at `/review-build.json`. Earlier handoffs below remain historical.
 
 Latest owner corrections: fix mirrored front triangle winding causing asymmetric
 orange shading; restore clear rear covers and discrete brake optics matched to a
-2026 rear photo. Details and limits are in the MODEL02 handoff above.
+2026 rear photo. A subsequent driving report also exposed the input pulley
+orbiting the rear wheel; its original mesh now turns on its own chassis axle.
+Details and limits are in the MODEL02 handoff above.
 
 ---
 # MODEL01 — Josh donor adaptation candidate (2026-09-17)

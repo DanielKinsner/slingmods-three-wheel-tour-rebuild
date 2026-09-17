@@ -46,6 +46,21 @@ test('actual 2026 front links retain fixed ends, tie rods follow steer, and rear
   assert.ok(rear.inspect().shockEndpointError<1e-6);assert.ok(rear.inspect().armEndpointError<1e-6);
  }
 });
+test('drive pulley stays on its chassis axle while rear sprocket turns with the wheel',()=>{
+ const {root,nodes}=scene(),rig=JSON.parse(fs.readFileSync('public/assets/model02/rear-rig.json','utf8')),wheel=root.getObjectByName('rear_spin')!,center=new THREE.Vector3().fromArray(rig.wheelCenter);
+ // A rear-spinning vertex outside the tire radius exposed the batched input
+ // pulley orbiting freely, even though the wheel and shock endpoints passed.
+ wheel.traverse(n=>{const source=gltf.nodes[nodes.indexOf(n)];if(source?.mesh===undefined)return;for(const p of gltf.meshes[source.mesh].primitives)for(const v of attribute(p.attributes.POSITION)){const point=new THREE.Vector3().fromArray(v).applyMatrix4(n.matrixWorld).sub(center);assert.ok(Math.hypot(point.y,point.z)<.36,`${n.name} includes hardware outside the rear rotating assembly`)}});
+ assert.ok(rig.drivePulley);const presenter=new RearPresenter(root,rig),pulley=root.getObjectByName(rig.drivePulley.node)!,mount=new THREE.Vector3().fromArray(rig.drivePulley.center);
+ assert.equal(pulley.parent!.name,'body_static');assert.ok(rig.drivePulley.spinRatio>1&&rig.drivePulley.spinRatio<3);
+ const mesh=pulley.children.find(n=>n.name.startsWith('Rear_Sprocket_RearSproket_0'))!,source=gltf.nodes[nodes.indexOf(mesh)],vertex=new THREE.Vector3().fromArray(attribute(gltf.meshes[source.mesh].primitives[0].attributes.POSITION)[0]),rest=mesh.localToWorld(vertex.clone());
+ root.position.set(12,3,-8);root.rotation.set(.1,1.3,-.05);
+ for(const travel of [-.14,0,.14])for(const spin of [0,Math.PI/2,Math.PI,Math.PI*1.5,Math.PI*2]){
+  wheel.position.y=center.y+travel;wheel.rotation.x=-spin;presenter.update({localCenter:{x:center.x,y:center.y+travel,z:center.z},spin});root.updateMatrixWorld(true);
+  const actual=root.worldToLocal(mesh.localToWorld(vertex.clone())),expected=rest.clone().sub(mount).applyAxisAngle(new THREE.Vector3(1,0,0),-spin*rig.drivePulley.spinRatio).add(mount);
+  assert.ok(actual.distanceTo(expected)<1e-6);assert.ok(root.worldToLocal(pulley.getWorldPosition(new THREE.Vector3())).distanceTo(mount)<1e-6);assert.ok(presenter.inspect().drivePulley.centerError<1e-6);
+ }
+});
 test('four finishes recolor 2026 native decal accents without altering protected tire materials',async()=>{
  const car=new THREE.Group(),paint=new THREE.MeshStandardMaterial(),decal=new THREE.MeshStandardMaterial(),rubber=new THREE.MeshStandardMaterial();paint.name='Model02_Radar_Blue_body';decal.name='Model02_AccentDecal_front';rubber.name='Model02_Josh_tire_tread';decal.map=new THREE.Texture();
  const meshes=[paint,decal,rubber].map(m=>new THREE.Mesh(new THREE.BufferGeometry(),m));car.add(...meshes);const presenter=new SignatureFinishPresenter(car),old=THREE.TextureLoader.prototype.loadAsync,urls:string[]=[];

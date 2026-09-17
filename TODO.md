@@ -1,9 +1,10 @@
 # Current work
 
-- NOW: Front shading and rear optics corrections are complete. Focused visual
-  inspection, 12 targeted tests, one production build and the short drive smoke
-  pass. See `handoff/MODEL02-OPTICS-VALIDATION.json`; hosted identity is exposed
-  by the existing game's `/review-build.json`.
+- NOW: Front shading, rear optics and detached drive-pulley corrections are
+  implemented. The additional pulley report passes 16 targeted tests and focused
+  before/after inspection; final production drive validation is recorded in
+  `handoff/MODEL02-OPTICS-VALIDATION.json`. Hosted identity is exposed by the
+  existing game's `/review-build.json`.
 - DONE: Real 2026 shell, newer lights/fascia/cockpit, original native texture UVs,
   Josh tread remap, four finishes, shared driver/display/rig and five product
   mounts. All 81 supplied source files remain unchanged.

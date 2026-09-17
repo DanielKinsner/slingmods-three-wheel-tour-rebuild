@@ -162,6 +162,21 @@ for texture in labels.node_tree.nodes:
 lcd=bpy.data.objects['Dash_3'];lcd.data.materials.clear();lcd.data.materials.append(mat('Model02_native_cluster_LCD',(.007,.012,.015),0,.32))
 
 layout=json.loads((P/'public/assets/slingshot-contact-layout.json').read_text())
+# The source batches the small chassis drive pulley with the rear sprocket.
+# Split connected pieces before fitting the wheel: the input pulley must keep
+# its own chassis-mounted axis, not orbit around the rear wheel center.
+sprockets={}
+for o in list(bpy.data.objects):
+ if o.name.startswith('Rear_Sprocket'):
+  name=o.name;sprockets[name]=split(o,lambda lo,hi,f:'drive'if hi.z<.9 else'rear')
+drive_lo,drive_hi=bounds(sprockets['Rear_Sprocket_RearSproket_0']['drive'])
+drive_center=(drive_lo+drive_hi)/2;drive_radius=(drive_hi.z-drive_lo.z)/2
+drive_pulley=node('drive_pulley_spin',body,drive_center)
+rear_sprockets=[]
+for parts in sprockets.values():
+ for role,o in parts.items():
+  if role=='drive':parent(o,drive_pulley)
+  else:rear_sprockets.append(o)
 spins={};steers={};tire_notes=[]
 tread=mat('Model02_Josh_tire_tread',(.017,.019,.022),0,.81)
 normal_image(tread,J/'Slingshot_TireDisplacement.png','JoshTread',.78)
@@ -176,7 +191,7 @@ for wheel in layout['wheels']:
  transform=Matrix.Translation(cv(center))@Matrix.Diagonal((scale.x,scale.z,scale.y,1))@Matrix.Translation(-cv(old_center))
  for o in list(bpy.data.objects):
   if o.type!='MESH':continue
-  selected=o==tire or o.name.startswith(('R_Rear_Wheel','Rear_Sprocket'))if rear else o==tire or(o.name.startswith(('R_Front_Wheel','1913985_Brembo'))and(sum(bounds(o),Vector())[0]<0)==(side=='left'))
+  selected=o==tire or o.name.startswith('R_Rear_Wheel')or o in rear_sprockets if rear else o==tire or(o.name.startswith(('R_Front_Wheel','1913985_Brembo'))and(sum(bounds(o),Vector())[0]<0)==(side=='left'))
   if selected:o.matrix_world=transform@o.matrix_world;parent(o,spin)
   elif not rear and o.name.startswith('brakeCalipers')and(sum(bounds(o),Vector())[0]<0)==(side=='left'):o.matrix_world=transform@o.matrix_world;parent(o,steer)
  # Keep the newer tire mesh. A second cylindrical UV channel places Josh's
@@ -295,6 +310,8 @@ for o in list(bpy.data.objects):
 # Source rear drive and brakes follow their own 2026 hardpoints. Physics and wheel
 # contacts retain Sport v4; only these visible linkage matrices are adapted.
 rig={'version':1,'asset':'/assets/model02/slingshot-2026.glb','basis':'game metres +X right +Y up -Z forward','wheelCenter':[0,.3455,1.3335],'armPivot':[.215,.35,.78],'armHub':[.215,.3455,1.3335],'shockUpper':[.215,.766,.982],'shockLower':[.215,.525,1.22],'groups':{'arm':'rear_arm_visual','belt':'belt_visual','axle':'rear_axle_visual','caliper':'rear_caliper_visual','shockBody':'shock_body_visual','shockPiston':'shock_piston_visual','shockSpring':'shock_spring_visual'},'storageEnvelopes':[],'authorEstimate':True,'provenance':'Measured visible 2026 source hardpoints adapted to unchanged game contacts; no physical suspension redesign'}
+rear_lo,rear_hi=bounds(sprockets['Rear_Sprocket_RearSproket_0']['rear'])
+rig['drivePulley']={'node':drive_pulley.name,'center':list(drive_center),'spinRatio':((rear_hi.z-rear_lo.z)/2)/drive_radius}
 rear_groups={k:node(v,root)for k,v in rig['groups'].items()}
 for name,key in [('rear_arm_pivot','armPivot'),('rear_hub','wheelCenter'),('shock_upper','shockUpper'),('shock_lower','shockLower')]:node(name,root,rig[key])
 for o in list(bpy.data.objects):

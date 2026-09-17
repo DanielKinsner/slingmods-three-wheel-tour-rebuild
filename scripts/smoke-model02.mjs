@@ -39,6 +39,7 @@ try{
  report.drive=[];
  for(const [keys,ms]of [[['w'],2500],[['w','a'],250],[['w','d'],250],[['s'],2600],[[],250],[['x'],100],[['w'],1300]]){for(const k of keys)await page.keyboard.down(k);await page.waitForTimeout(ms);for(const k of keys)await page.keyboard.up(k);report.drive.push(await page.evaluate(()=>window.__EXPRESS.inspect()))}
  assert.ok(report.drive.some(s=>s.telemetry.speed>3));assert.ok(report.drive.some(s=>s.telemetry.steer!==0));assert.ok(report.drive.some(s=>s.telemetry.speed<-.5),'reverse must move');
+ assert.ok(report.drive.every(s=>s.visual.rear.drivePulley.centerError<1e-6),'drive pulley must remain on its chassis axle');assert.ok(report.drive.some(s=>Math.abs(s.visual.rear.drivePulley.angle)>1),'drive pulley must turn in gameplay');
  await page.screenshot({path:out+'/drive.png'});
  // C cycles near -> far -> cockpit. Confirm the driver's head is hidden in-eye.
  for(let i=0;i<3&&(await page.evaluate(()=>window.__EXPRESS.inspect().visual.driver.headVisible));i++){await page.keyboard.press('c',{delay:100});await page.waitForTimeout(300)}
