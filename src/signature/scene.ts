@@ -87,7 +87,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='driver'){driverVisible=typeof value==='boolean'?value:!driverVisible;hero.driver.root.visible=driverVisible}
  else if(name==='view'){audio.cue('ui.nav');view(String(value))}
  else if(name==='use-current-driving'){const next=storage.store.useCurrentDriving(recipe);saved=storage.store.recipes();await change(next);status='Current driving copy ready · historical build kept · no career spend'}
- else if(name==='handling'){if(value==='slingmods-sport-v1'||value==='slingmods-sport-v2')await change({...recipe,handlingProfile:value})}
+ else if(name==='handling'){if(value==='slingmods-sport-v1'||value==='slingmods-sport-v2'||value==='slingmods-sport-v3')await change({...recipe,handlingProfile:value})}
  else if(name==='preset'){const p=PRESETS.find(p=>p.id===value);if(p)await change(p.recipe,true)}
  else if(name==='load-recipe'){const r=saved.find(r=>r.id===value);if(r)await change(r.recipe,true)}
  else if(name==='undo'){const prior=history.at(-1);if(prior){storage.store.setDraft(prior);recipe=history.pop()!;historyFragment();compare=false;await reapply()}}

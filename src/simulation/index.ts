@@ -64,7 +64,7 @@ export class Simulation {
       // floor group is excluded. The chassis still catches a bottom-out/overturn.
       // Matched high-speed tests isolated asymmetric guard/floor response despite
       // zero reported solver impulses; cylinder-to-hull and CCD-off did not fix it.
-      if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'))guard.setCollisionGroups(0x0002fffe);
+      if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4'))guard.setCollisionGroups(0x0002fffe);
       this.world.createCollider(guard.setTranslation(w.center[0],w.center[1]-SPEC.comHeight,w.center[2]).setDensity(0).setFriction(0).setFrictionCombineRule(RAPIER.CoefficientCombineRule.Min),this.body);
     }
     this.reset();
@@ -87,11 +87,12 @@ export class Simulation {
     const q=this.body.rotation(),p=this.body.translation(),up=rotate(v(0,1,0),q),forward=rotate(v(0,0,-1),q),velocity=this.body.linvel(),speed=dot(velocity,forward);
     const maxSteer=steeringLimit(speed,this.profileId,layout.wheelbase)*(this.profileId==='legacy-p08a'?1:1-handlingProfile(this.profileId).brakeSteerRelief*this.brake);
     const target=clamp(finite(control.steer),-1,1)*maxSteer;
-    const response=this.profileId==='slingmods-sport-v3'?1-Math.exp(-dt/.10):1;
+    const response=(this.profileId==='slingmods-sport-v3'||this.profileId==='slingmods-sport-v4')?1-Math.exp(-dt/.10):1;
     this.steering+=clamp((target-this.steering)*response,-handlingProfile(this.profileId).steerRate*dt,handlingProfile(this.profileId).steerRate*dt);
     const driveState=this.drivetrain.step(speed,this.overspeed[2],layout.wheels[2].radius,this.throttle,this.brake,Boolean(control.reverse),dt);
     this.throttle=driveState.throttle;this.brake=driveState.brake;const engineForce=driveState.force;
     this.body.resetForces(true);this.body.resetTorques(true);
+    const forgiving=this.profileId==='slingmods-sport-v4';
     const newWheels:WheelTelemetry[]=[];if(this.diagnosticEnabled)this.forceDiagnostics=[];
     const samples=layout.wheels.map((wheel,i)=>{
       const rear=i===2,k=rear?SPEC.rearSpring:SPEC.frontSpring,weight=SPEC.mass*9.81*(rear?0.5:0.25),preload=weight/k;
@@ -118,6 +119,9 @@ export class Simulation {
       // Positive point velocity = extension/rebound. Stock keeps the exact equation above.
       if(contact&&this.suspension){const p=this.suspension,vertical=dot(pointVel,up),d=rear?(vertical>0?p.rearRebound:p.rearCompression):(vertical>0?p.frontRebound:p.frontCompression);load=clamp(k*(SPEC.restLength-length+p.rideHeight)-d*vertical,0,weight*4.5)}
       if(contact&&length<0.055)load+=Math.min(weight*2,(0.055-length)*130000);
+      // Game-only curb compliance: cap a single suspension channel's kick,
+      // including the bump stop. Rigid chassis/guard collisions remain physical.
+      if(forgiving)load=Math.min(load,weight*3);
       return {wheel,rear,k,weight,preload,ray,hit,contact,length,point,pointVel,load};
     });
     // Bounded anti-roll transfers support between the two fronts; total support stays unchanged.
@@ -126,6 +130,9 @@ export class Simulation {
       samples[0].load+=transfer;samples[1].load-=transfer;
     }
     const supportedLoad=samples.reduce((sum,s)=>sum+s.load,0);
+    // Preserve total 1g pedal demand, with a small front bias to protect the
+    // single rear tire's cornering reserve during trail braking.
+    const brakeLoad=forgiving?samples.reduce((sum,s)=>sum+s.load*(s.rear?.8:1.2),0):supportedLoad;
     for(let i=0;i<3;i++){
       const {wheel,rear,preload,hit,contact,length,point,pointVel}=samples[i];
       const travel=SPEC.restLength-preload-length;
@@ -142,14 +149,18 @@ export class Simulation {
         long=dot(pointVel,tireFwd);const lateral=dot(pointVel,tireRight);const surf=this.environment.surfaceAt(point.x,point.z);surface=surf.id;
         muLimit=this.profileId==='legacy-p08a'?load*surf.mu:load*surf.mu*(surf.id==='asphalt'?handlingProfile(this.profileId).asphaltGripScale:1);slipAngle=Math.atan2(lateral,Math.max(Math.abs(long),2));
         let drive=rear?engineForce:0;
-        if(control.tractionControl!==false)drive=clamp(drive,-muLimit*0.92,muLimit*0.92);
+        if(control.tractionControl!==false){
+          // Reserve part of the rear tire's finite friction budget while sliding.
+          const reserve=forgiving?1-.35*clamp(Math.abs(slipAngle)/.16,0,1):1;
+          drive=clamp(drive,-muLimit*.92*reserve,muLimit*.92*reserve);
+        }
         driveTorque=drive*wheel.radius;
         const share=rear?0.5:0.25;
         const stopLimit=Math.abs(long)*SPEC.mass*share*0.6/dt;
         // V2 brake-by-load allocator sends the same total pedal demand to supported
         // tires in proportion to instantaneous non-tensile normal load. Friction
         // ellipse and near-zero stop limiter remain authoritative; no extra grip.
-        const braking=Math.min(stopLimit,this.brake*SPEC.mass*9.81*((this.profileId==='slingmods-sport-v2'||this.profileId==='slingmods-sport-v3')?load/Math.max(1,supportedLoad):(rear?0.3:0.35))*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?110:0));
+        const braking=Math.min(stopLimit,this.brake*SPEC.mass*9.81*((this.profileId==='slingmods-sport-v2'||this.profileId==='slingmods-sport-v3'||this.profileId==='slingmods-sport-v4')?load*(forgiving?(rear?.8:1.2):1)/Math.max(1,brakeLoad):(rear?0.3:0.35))*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?110:0));
         const request=drive-Math.sign(long)*braking;
         fy=-load*handlingProfile(this.profileId).tireStiffness*slipAngle;
         fy=clamp(fy,-Math.abs(lateral)*SPEC.mass*share/dt,Math.abs(lateral)*SPEC.mass*share/dt);
@@ -157,7 +168,12 @@ export class Simulation {
         const norm=Math.hypot(request,fy),sat=norm>muLimit?muLimit/Math.max(norm,1e-9):1;
         if(this.diagnosticEnabled)this.forceDiagnostics.push({id:wheel.id,load,contact,travel,length,point:{...point},pointVelocity:{...pointVel},requestedLongitudinal:request,requestedLateral:fy,frictionLimit:muLimit,saturation:sat,braking,drive});
         fx=request*sat;fy*=sat;
-        this.body.addForceAtPoint(add(scale(tireFwd,fx),scale(tireRight,fy)),point,true);
+        if(forgiving){
+          this.body.addForceAtPoint(scale(tireFwd,fx),point,true);
+          // 18 cm virtual lateral roll centre reduces tripping leverage only.
+          // Longitudinal forces retain actual contact points and braking pitch.
+          this.body.addForceAtPoint(scale(tireRight,fy),add(point,scale(up,.18)),true);
+        }else this.body.addForceAtPoint(add(scale(tireFwd,fx),scale(tireRight,fy)),point,true);
         const excess=drive-fx-Math.sign(long)*braking;
         this.overspeed[i]=rear?clamp((this.overspeed[i]+excess*wheel.radius/2.8*dt)*Math.exp(-dt*5),-190,190):0;
         slipRatio=fx/Math.max(load*10,1)+this.overspeed[i]*wheel.radius/Math.max(Math.abs(long),3);
@@ -165,6 +181,18 @@ export class Simulation {
       const angularSpeed=wheelAngularSpeed(long,this.overspeed[i],wheel.radius);
       this.spin[i]+=angularSpeed*dt;
       newWheels.push({id:wheel.id,contact,load,travel,slipRatio,slipAngle,spin:this.spin[i],steer,localCenter:v(wheel.center[0],wheel.center[1]+travel,wheel.center[2]),surface,angularSpeed,longitudinalSpeed:long,longitudinalForce:fx,lateralForce:fy,gripLimit:muLimit,driveTorque});
+    }
+    if(forgiving&&samples.filter(s=>s.contact&&s.load>100).length>=2&&up.y>.65){
+      // Bounded grounded yaw/roll damping; no pose, velocity or pitch locks.
+      // Fade out when tipped/airborne so severe crashes still need recovery.
+      const omega=this.body.angvel(),right=rotate(v(1,0,0),q);
+      const slip=Math.atan2(dot(velocity,right),Math.max(Math.abs(speed),3));
+      const slipExcess=Math.sign(slip)*Math.max(0,Math.abs(slip)-.04);
+      const yawTarget=speed*Math.tan(this.steering)/layout.wheelbase;
+      const yawTorque=Math.abs(speed)>5?clamp(-3500*slipExcess-450*(dot(omega,up)-yawTarget),-650,650):0;
+      const rollTorque=clamp(-700*dot(omega,forward),-650,650);
+      const fade=clamp((up.y-.65)/.25,0,1);
+      this.body.addTorque(scale(add(scale(up,yawTorque),scale(forward,rollTorque)),fade),true);
     }
     this.wheels=newWheels;
     // Aerodynamic drag is a COM force. Load transfer is solely rigid-body response at tire contacts.
@@ -199,14 +227,14 @@ export class RaceWorld {
       for(const mesh of environment.supportMeshes){
         if(!mesh.vertices.length||mesh.vertices.length%3||!mesh.indices.length||mesh.indices.length%3||mesh.vertices.some(v=>!Number.isFinite(v))||mesh.indices.some(i=>!Number.isInteger(i)||i<0||i>=mesh.vertices.length/3))throw Error('Invalid elevated support mesh');
         const shape=RAPIER.ColliderDesc.trimesh(new Float32Array(mesh.vertices),new Uint32Array(mesh.indices)).setFriction(.45);
-        if(profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3')shape.setCollisionGroups(0x0001ffff);
+        if(profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4')shape.setCollisionGroups(0x0001ffff);
         this.world.createCollider(shape);
       }
     }else{
     const [gx,gy,gz]=environment.ground.center,[gw,gh,gl]=environment.ground.size;
     const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
     const groundShape=RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45);
-    if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'))groundShape.setCollisionGroups(0x0001ffff);
+    if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4'))groundShape.setCollisionGroups(0x0001ffff);
     this.world.createCollider(groundShape);
     }
     for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation(box.pitch?{x:Math.cos((box.yaw??0)/2)*Math.sin(box.pitch/2),y:Math.sin((box.yaw??0)/2)*Math.cos(box.pitch/2),z:-Math.sin((box.yaw??0)/2)*Math.sin(box.pitch/2),w:Math.cos((box.yaw??0)/2)*Math.cos(box.pitch/2)}:{x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));

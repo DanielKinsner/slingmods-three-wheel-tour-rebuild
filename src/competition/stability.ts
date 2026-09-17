@@ -8,5 +8,5 @@ export function stabilizeRival(v:VehicleTelemetry,control:VehicleControl,profile
  // A spun car can still be moving fast even when its longitudinal speed approaches zero.
  // Cut power, shed speed, and point the fronts toward the velocity rather than adding wheelspin.
  const maxSteer=steeringLimit(v.speed,profileId),angle=Math.max(-.24,Math.min(.24,slip*.45-v.angularVelocity.y*.08));
- return {...control,throttle:0,brake:Math.max(control.brake,.4),steer:profileId==='slingmods-sport-v3'?steeringDemandForAngle(angle,v.speed,profileId,Math.max(control.brake,.4)):Math.max(-1,Math.min(1,angle/maxSteer))};
+ return {...control,throttle:0,brake:Math.max(control.brake,.4),steer:(profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4')?steeringDemandForAngle(angle,v.speed,profileId,Math.max(control.brake,.4)):Math.max(-1,Math.min(1,angle/maxSteer))};
 }

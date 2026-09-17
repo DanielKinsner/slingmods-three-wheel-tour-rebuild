@@ -1,3 +1,11 @@
+# Sport v4 — forgiving stock handling (2026-09-17)
+
+Latest owner priority supersedes the prior physics freeze. Stock/new entries now use Sport v4, with bounded game-only stability, unchanged steering range, progressive rear traction reserve, front-biased load-aware braking and smaller suspension impact kicks. Existing builds/records/active events retain their versions. **Build → Use forgiving driving** makes a current copy while keeping the original and all career progress. No purchase or reset required.
+
+See `handoff/FORGIVING-HANDLING.md` for the focused diagnosis, assist bounds and smoke-test results. Continue on main through the existing Vercel Git deployment. This assignment adds no review ZIP, film, vehicle, performance project or reviewer agents. Historical handoffs below remain provenance, not current tune instructions.
+
+---
+
 # P10B Cinematic Identity — complete, Review21 delivered
 
 Continue on main. Frozen playable runtime: `bc657a1f9cd77506569e2ac1ee368d75431c42e2`. Cinematic entry/build/destinations/shop/career/HUD/results, scoped studio lighting/materials/framing, transitions and the physical left-side Tour Wall are implemented. All existing gameplay, Sport v3, routes, products, finishes, ownership/saves, dashboard and Thermal departure are preserved. The first-use finish hitch was repaired before final capture.

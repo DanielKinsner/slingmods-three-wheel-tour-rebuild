@@ -2,7 +2,8 @@ import {InputResolver} from '../src/driving/input';
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import {Simulation,steeringLimit,steeringRequest,steeringDemandForAngle,CURRENT_HANDLING_PROFILE} from '../src/simulation';
 import {createSweeper,MOTION_PAD,yaw} from '../scripts/p09c-motion-protocol';import {streetSetup} from '../src/career/suspension';
-const profile=CURRENT_HANDLING_PROFILE;
+// Historical v3 contract stays pinned when the default advances.
+const profile='slingmods-sport-v3' as const;
 test('v3 request preserves left/right symmetry, meaningful analog magnitude, continuous speed change, brake reserve and inverse controller mapping',()=>{
  for(const speed of[0,4.4704,13.4112,22.352,31.2928,49.1744])for(const brake of[0,.25,.5,1])for(const d of[.25,.5,.75,1]){const request=steeringRequest(d,speed,profile,brake);assert.equal(request,-steeringRequest(-d,speed,profile,brake));assert.equal(request,steeringRequest(d,speed,profile,0));assert.ok(Math.abs(steeringDemandForAngle(request,speed,profile,brake)-d)<1e-12);assert.ok(Math.abs(steeringLimit(speed+.0001,profile)-steeringLimit(speed-.0001,profile))<.0001)}
  assert.ok(steeringLimit(49.1744,profile)<.02,'110 mph is bounded below 1.15 degrees, not parking lock');
