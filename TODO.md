@@ -1,8 +1,8 @@
 # Current work
 
 - NOW: Front shading, rear optics and detached drive-pulley corrections are
-  implemented. The additional pulley report passes 16 targeted tests and focused
-  before/after inspection; final production drive validation is recorded in
+  complete. Sixteen targeted tests, focused before/after inspection and final
+  production drive smoke pass. Validation is recorded in
   `handoff/MODEL02-OPTICS-VALIDATION.json`. Hosted identity is exposed by the
   existing game's `/review-build.json`.
 - DONE: Real 2026 shell, newer lights/fascia/cockpit, original native texture UVs,
