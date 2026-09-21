@@ -17,6 +17,6 @@ export function configureShadows(vehicle:THREE.Object3D,environment:THREE.Object
  */
 export function trimSmallCasters(vehicle:THREE.Object3D,minimumMetres=.15){
  let kept=0,trimmed=0;vehicle.updateWorldMatrix(true,true);
- vehicle.traverse(o=>{if(!(o instanceof THREE.Mesh)||!o.castShadow)return;if(!o.geometry.boundingSphere)o.geometry.computeBoundingSphere();const size=2*(o.geometry.boundingSphere?.radius??Infinity)*o.matrixWorld.getMaxScaleOnAxis();if(size<minimumMetres){o.castShadow=false;trimmed++}else kept++});
+ vehicle.traverse(o=>{if(!(o instanceof THREE.Mesh)||!o.castShadow)return;if(!o.geometry.boundingSphere)o.geometry.computeBoundingSphere();const size=2*(o.geometry.boundingSphere?.radius??Infinity)*o.matrixWorld.getMaxScaleOnAxis();if(size<minimumMetres||o.userData.subTexelParts){o.castShadow=false;trimmed++}else kept++});
  return{kept,trimmed,minimumMetres};
 }
