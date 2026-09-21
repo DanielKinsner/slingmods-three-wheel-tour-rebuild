@@ -57,6 +57,17 @@ for x in [-2.5,2.5]:
  for dx in [-.9,.9]:box('ridge_pavilion_bench_leg',(x+dx,.5,.27),(.1,.4,.55),metal)
 for x in [-7.5,7.5]:box('ridge_gantry_post',(x,0,3.0),(.34,.34,6),metal)
 box('ridge_gantry_header',(0,0,6),(15.5,.5,1),timber)
+# Painted plank sign board on the driver-facing (-Y) side of the header. The face texture already holds the
+# official logo multiplied into the painted grain with 12% clear margin: scripts/build-ridge-gantry-sign.py.
+SIGN=ROOT/'assets/source/ridge';sign=json.loads((SIGN/'gantry-sign.json').read_text());bw,bh=sign['boardMetres']
+box('ridge_gantry_signboard',(0,-.31,6),(bw,.12,bh),timber)
+# Steel hanger straps sit in the clear margin outside the artwork, in front of the painted face.
+for x in [-bw*.46,bw*.46]:box('ridge_gantry_sign_strap',(x,-.39,6),(.09,.03,bh+.16),metal)
+painted=bpy.data.materials.new('Ridge_gantry_sign_paint');painted.use_nodes=True;nt=painted.node_tree;pb=nt.nodes.get('Principled BSDF');pb.inputs['Metallic'].default_value=0
+color=nt.nodes.new('ShaderNodeTexImage');color.image=bpy.data.images.load(str(SIGN/'gantry-sign-color.png'));color.image.pack();nt.links.new(color.outputs['Color'],pb.inputs['Base Color'])
+orm=nt.nodes.new('ShaderNodeTexImage');orm.image=bpy.data.images.load(str(SIGN/'gantry-sign-orm.png'));orm.image.colorspace_settings.name='Non-Color';orm.image.pack();split=nt.nodes.new('ShaderNodeSeparateColor');nt.links.new(orm.outputs['Color'],split.inputs['Color']);nt.links.new(split.outputs['Green'],pb.inputs['Roughness'])
+face=mesh('ridge_gantry_sign_face',[(-bw/2,-.374,6-bh/2),(bw/2,-.374,6-bh/2),(bw/2,-.374,6+bh/2),(-bw/2,-.374,6+bh/2)],[(0,1,2,3)],painted);uv=face.data.uv_layers.new(name='UVMap')
+for loop,coord in zip(uv.data,[(0,0),(1,0),(1,1),(0,1)]):loop.uv=coord
 for i in range(3):
  rng=random.Random(350+i);bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2,radius=1);o=bpy.context.object;o.name=f'ridge_rock{i}'
  for p in o.data.vertices:p.co*=rng.uniform(.8,1.15);p.co.x*=4+i;p.co.y*=2.3;p.co.z=(p.co.z+1)*2.6
@@ -70,5 +81,5 @@ box('ridge_crate_lid',(0,0,.84),(1,.8,.08),metal)
 for o in bpy.context.scene.objects:
  if o.type=='MESH':o['author']='SlingMods rebuild P10A deterministic district kit';o['generator']='scripts/author-p10a-ridge.py'
 bpy.ops.wm.save_as_mainfile(filepath=str(EDIT/'ridge-district-kit.blend'))
-bpy.ops.export_scene.gltf(filepath=str(OUT/'ridge-kit.glb'),export_format='GLB',export_apply=True,export_yup=True)
+bpy.ops.export_scene.gltf(filepath=str(OUT/'ridge-kit.glb'),export_format='GLB',export_apply=True,export_yup=True,export_image_format='JPEG',export_jpeg_quality=90)
 (OUT/'kit-manifest.json').write_text(json.dumps({'generator':'scripts/author-p10a-ridge.py','coordinateBasis':'Blender Z up -> glTF Y up','objects':len(bpy.context.scene.objects),'license':'Original project asset; no third-party model or reference photograph reused','treeLOD':'Four branched broadleaf variants, opaque nonplanar lobed foliage; near/far geometry explicitly switched in 100m spatial chunks'},indent=2),encoding='utf-8')
