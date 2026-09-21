@@ -1,0 +1,1 @@
+Board 2.4m×0.9m / five planks / 2K weathered-wood PBR; painted and 3mm routed variants with 2 LODs; grain/flaking derivative preserves original logo; tested ≥12% padding; existing scenery integration remains separate.

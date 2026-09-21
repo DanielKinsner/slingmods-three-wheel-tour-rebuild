@@ -1,0 +1,16 @@
+Encoding harbor-water\chop-normal.png
+Encoding harbor-water\foam-source.png
+Encoding harbor-water\swell-normal.png
+Encoding race-asphalt\dry-4m-height.png
+Encoding race-asphalt\puddle-mask.png
+Encoding race-asphalt\wet-normal.png
+Encoding race-asphalt\wet-ORM.png
+Encoding shared-textures\f48be17a0a2fb4910942813978ce055afb344e52ad458e4502bd41418ea739ef.png
+Encoding trackside-props\trim-height.png
+Traceback (most recent call last):
+  File "C:\Users\SM - Dan\Documents\GitHub\slingmods-three-wheel-tour-rebuild\scripts\p11\compress.py", line 31, in <module>
+    existing,old=encoded[key];shutil.copyfile(existing,dest);record={**old,'source':p.name,'output':dest.name};sidecar.write_text(json.dumps(record,indent=2));continue
+                              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\SM - Dan\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 240, in copyfile
+    raise SameFileError("{!r} and {!r} are the same file".format(src, dst))
+shutil.SameFileError: WindowsPath('C:/Users/SM - Dan/Documents/GitHub/slingmods-three-wheel-tour-rebuild/public/assets/p11/vfx/tire-smoke-source.ktx2') and WindowsPath('C:/Users/SM - Dan/Documents/GitHub/slingmods-three-wheel-tour-rebuild/public/assets/p11/vfx/tire-smoke-source.ktx2') are the same file

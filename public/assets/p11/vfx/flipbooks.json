@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "provenance": "Original deterministic analytic particle simulation and periodic shader fields; not edits of the AI smoke source.",
+  "flipbooks": [
+    {
+      "name": "tire-smoke",
+      "file": "tire-smoke.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": "tire-smoke-normal.png"
+    },
+    {
+      "name": "burnout-smoke",
+      "file": "burnout-smoke.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": true,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": "burnout-smoke-normal.png"
+    },
+    {
+      "name": "dust-kickup",
+      "file": "dust-kickup.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": "dust-kickup-normal.png"
+    },
+    {
+      "name": "dry-leaf-burst",
+      "file": "dry-leaf-burst.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "water-rooster-tail",
+      "file": "water-rooster-tail.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": "water-rooster-tail-normal.png"
+    },
+    {
+      "name": "brake-scrape-sparks",
+      "file": "brake-scrape-sparks.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "drift-sparks-white",
+      "file": "drift-sparks-white.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "drift-sparks-orange",
+      "file": "drift-sparks-orange.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "drift-sparks-red",
+      "file": "drift-sparks-red.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "exhaust-flame-pop",
+      "file": "exhaust-flame-pop.png",
+      "frames": 16,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 40,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "boost-speed-lines",
+      "file": "boost-speed-lines.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": true,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "points-pickup-burst",
+      "file": "points-pickup-burst.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "podium-confetti",
+      "file": "podium-confetti.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "framePixels": [
+        256,
+        256
+      ],
+      "fps": 30,
+      "loop": false,
+      "alpha": "straight",
+      "frameOrder": "left-to-right, top-to-bottom",
+      "normal": null
+    },
+    {
+      "name": "heat-shimmer",
+      "file": "heat-shimmer-normal.png",
+      "frames": 64,
+      "columns": 8,
+      "rows": 8,
+      "fps": 30,
+      "loop": true,
+      "tileable": true,
+      "normalConvention": "OpenGL +Y"
+    }
+  ],
+  "noiseVolume": {
+    "file": "fog-noise-64x64x64.raw",
+    "dimensions": [
+      64,
+      64,
+      64
+    ],
+    "format": "R8_UNORM",
+    "order": "x fastest then y then z",
+    "wrap": "repeat all axes"
+  },
+  "sampling": "Inset UVs by half a pixel; avoid ordinary whole-atlas mipmaps bleeding between cells. Use per-frame textures or clamp LOD at distance.",
+  "pending": "In-game effect-size, exposure and timing review; these are authored particle renders, not fluid-sim cinematics."
+}
