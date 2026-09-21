@@ -1,9 +1,10 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 const glb=path=>{const b=fs.readFileSync(path),n=b.readUInt32LE(12);return JSON.parse(b.subarray(20,20+n).toString())};
-const ARTWORK=360/86;
+// PNG IHDR: width and height are the big-endian uint32s at bytes 16 and 20.
+const wide=fs.readFileSync('public/assets/brand/slingmods-logo-wide.png'),ARTWORK=wide.readUInt32BE(16)/wide.readUInt32BE(20);
 test('ridge gantry logo is authored into a painted timber board with 12% clear margin',()=>{
  const sign=JSON.parse(fs.readFileSync('assets/source/ridge/gantry-sign.json','utf8')),[bw,bh]=sign.boardMetres,[lw,lh]=sign.logoMetres;
- assert.ok(Math.abs(lw/lh-ARTWORK)<1e-6,'artwork aspect preserved');assert.ok((bw-lw)/2/bw>=.12-1e-9&&(bh-lh)/2/bh>=.12-1e-9,'at least 12% clear on every side');
+ assert.ok(Math.abs(lw/lh-ARTWORK)<1e-6,'artwork aspect preserved');assert.ok(wide.readUInt32BE(16)>=1900,'signs use the owner-supplied high-resolution wordmark');assert.ok((bw-lw)/2/bw>=.12-1e-9&&(bh-lh)/2/bh>=.12-1e-9,'at least 12% clear on every side');
  assert.ok(Math.abs(sign.clearMetres[0]-(bw-lw)/2)<1e-9&&Math.abs(sign.clearMetres[1]-(bh-lh)/2)<1e-9,'centred');
  const g=glb('public/assets/ridge/ridge-kit.glb'),node=name=>g.nodes.find(n=>n.name===name);assert.ok(node('ridge_gantry_signboard'),'board is part of the kit source export');
  const face=g.meshes[node('ridge_gantry_sign_face').mesh].primitives[0],bounds=g.accessors[face.attributes.POSITION],material=g.materials[face.material];
@@ -17,5 +18,9 @@ test('express logo is fitted inside the gantry header face instead of a fixed 10
  const g=glb('public/assets/showcase-quality/kit.glb'),header=g.nodes.find(n=>n.name==='kit_gantry__Quality_Powdercoat'),b=g.accessors[g.meshes[header.mesh].primitives[0].attributes.POSITION];
  // The constants quoted in presentation.ts must stay true to the kit the runtime loads.
  assert.ok(Math.abs(b.max[1]-b.min[1]-.75)<1e-3&&Math.abs((b.max[1]+b.min[1])/2-4.6)<1e-3&&Math.abs(b.max[2]-.3)<1e-3);
- const source=fs.readFileSync('src/express/presentation.ts','utf8');assert.match(source,/sign\.scale\.setScalar\(\.75\*gantry\.scale\*\(1-2\*\.12\)\*360\/86\)/);assert.match(source,/sign\.position\.set\(gantry\.x,4\.6\*gantry\.scale,/);assert.doesNotMatch(source,/sign\.scale\.setScalar\(10\)/);
+ const source=fs.readFileSync('src/express/presentation.ts','utf8');assert.match(source,/sign\.scale\.setScalar\(\.75\*gantry\.scale\*\(1-2\*\.12\)\*art\.x\/art\.y\)/);assert.match(source,/sign\.position\.set\(gantry\.x,4\.6\*gantry\.scale,/);assert.doesNotMatch(source,/sign\.scale\.setScalar\(10\)/);
+});
+test('harbor start gantry logo keeps 12% of its .75 m header clear with the wide artwork',()=>{
+ const layout=JSON.parse(fs.readFileSync('public/assets/brand/sign-layout.json','utf8')),start=layout.placements.find(p=>p.id==='start-finish');
+ assert.ok(Math.abs(layout.aspectRatio-ARTWORK)<1e-9);assert.ok(start.width/layout.aspectRatio<=.75*(1-2*.12)+1e-3);
 });

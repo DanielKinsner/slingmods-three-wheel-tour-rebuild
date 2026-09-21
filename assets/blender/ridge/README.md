@@ -15,6 +15,7 @@ npm ci
 python -m pip install -r scripts/p10a-art-requirements.txt
 npx tsx scripts/export-p10a-terrain.ts
 python scripts/author-p10a-land.py
+python scripts/build-brand-logo-wide.py
 python scripts/build-ridge-gantry-sign.py
 ./scripts/blender.ps1 -Script scripts/author-p10a-ridge.py
 ./scripts/blender.ps1 -Script scripts/author-p10a-terrain.py
@@ -22,7 +23,7 @@ python scripts/build-ridge-gantry-sign.py
 
 Validated authoring tools: Python 3.13.5, NumPy 2.2.6, SciPy 1.17.1, Blender 4.5.2 LTS. Existing project Blender wrapper locates the configured executable or optional portable installation. Blender works in the background.
 
-`scripts/build-ridge-gantry-sign.py` (Pillow + NumPy) writes the start-gantry sign face to `assets/source/ridge/`: the official logo multiplied into cream-painted planks, exact aspect, centred, 12% clear margin, with its own roughness map. The kit script reads the board size from `gantry-sign.json`, so run it first. The ridge runtime no longer places a separate logo plane.
+`scripts/build-ridge-gantry-sign.py` (Pillow + NumPy) writes the start-gantry sign face to `assets/source/ridge/`: the owner-supplied high-resolution wordmark (`public/assets/brand/slingmods-logo-wide.png`) multiplied into cream-painted planks, exact aspect, centred, 12% clear margin, with its own roughness map. The kit script reads the board size from `gantry-sign.json`, so run it first. The ridge runtime no longer places a separate logo plane.
 
 `ridge-district-kit.blend` contains individually editable tree trunks, branched crowns, two LODs for four broadleaf variants, pavilion, gantry, tables, crates and rocks. `ridge-kit.glb` is the runtime export. Foliage uses opaque non-planar lobed leaf fans and vertex color; it uses no alpha cards, giant spherical crowns or cones. The runtime groups trees into 100 m cells, switches detailed meshes at 180 m and simpler meshes through 520 m, and bounds shadow casting to the near mesh set. This is explicit spatial LOD, not a claim that instancing supplies LOD automatically.
 

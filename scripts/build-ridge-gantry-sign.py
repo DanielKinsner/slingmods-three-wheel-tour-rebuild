@@ -1,7 +1,7 @@
 """Painted timber sign face for the Smoky Ridge start gantry. Plain Python + Pillow + NumPy; run BEFORE author-p10a-ridge.py.
 
-The official logo is printed INTO cream-painted planks (multiply), never laid over them, so grain, seams and wear
-read through the ink. The logo keeps its exact aspect and sits centred with 12% of the board width clear each side.
+The owner's high-resolution wordmark is printed INTO cream-painted planks (multiply), never laid over them, so grain, seams and wear
+read through the ink. The logo keeps its exact aspect and sits centred with 12% of the board clear on every side.
 Board dimensions here are the single source for the Blender kit script (gantry-sign.json).
 """
 from pathlib import Path
@@ -9,11 +9,14 @@ import json, hashlib
 import numpy as np
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-TEXTURES=ROOT/'public/assets/showcase-quality/textures';LOGO=ROOT/'public/assets/brand/slingmods-logo-main.png'
+TEXTURES=ROOT/'public/assets/showcase-quality/textures';LOGO=ROOT/'public/assets/brand/slingmods-logo-wide.png'  # scripts/build-brand-logo-wide.py
 OUT=ROOT/'assets/source/ridge';OUT.mkdir(parents=True,exist_ok=True)
-BOARD=(8.4,2.1);SIZE=(2048,512);PADDING=.12;PLANKS_ACROSS=7;SOURCE_PLANKS=13
+PADDING=.12;BOARD_WIDTH=10.0;SOURCE_PLANKS=13
+# The board takes the artwork's own proportions, so the same 12% stays clear on all four sides.
+logo=Image.open(LOGO).convert('RGBA');aspect=logo.width/logo.height
+BOARD=(BOARD_WIDTH,round(BOARD_WIDTH/aspect,3));SIZE=(2048,round(2048*BOARD[1]/BOARD[0]));PLANKS_ACROSS=round(BOARD[1]/.3)
 def tiled(name,mode):
- # Scale the seamless plank photo so exactly seven boards span the sign, then repeat it along the length.
+ # Scale the seamless plank photo so whole planks of about .3 m span the sign, then repeat it along the length.
  source=Image.open(TEXTURES/name).convert(mode);scale=SIZE[1]/(source.height*PLANKS_ACROSS/SOURCE_PLANKS);tile=source.resize((round(source.width*scale),round(source.height*scale)),Image.LANCZOS)
  sheet=Image.new(mode,SIZE)
  for x in range(0,SIZE[0],tile.width):sheet.paste(tile,(x,0))
@@ -28,7 +31,6 @@ bare=np.clip((wear-.66)*3.0,0,1)*.40+(1-edge)*.35;bare=np.clip(bare+np.clip(.75-
 paint=np.array([.80,.765,.655],dtype=np.float32)*(0.50+0.50*grain[...,None])
 face=paint*(1-bare)+wood*1.15*bare
 # Fit the artwork: 12% clear on the limiting axis, exact aspect, centred.
-logo=Image.open(LOGO).convert('RGBA');aspect=logo.width/logo.height
 fit_w=min(BOARD[0]*(1-2*PADDING),BOARD[1]*(1-2*PADDING)*aspect);fit_h=fit_w/aspect
 px=(round(fit_w/BOARD[0]*SIZE[0]),round(fit_h/BOARD[1]*SIZE[1]));art=np.asarray(logo.resize(px,Image.LANCZOS),dtype=np.float32)/255
 x0=(SIZE[0]-px[0])//2;y0=(SIZE[1]-px[1])//2;ink=np.ones((SIZE[1],SIZE[0],3),np.float32);cover=np.zeros((SIZE[1],SIZE[0],1),np.float32)
