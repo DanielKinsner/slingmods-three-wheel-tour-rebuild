@@ -10,6 +10,8 @@ test('garage-only GLB retains every original bay node, transform, primitive, ima
 });
 test('official artwork is preserved in the Blender sign export with bounded scene placements',()=>{
  const logo=fs.readFileSync('public/assets/brand/slingmods-logo-main.png'),source=JSON.parse(fs.readFileSync('public/assets/brand/slingmods-logo-main.source.json')),g=glb('public/assets/brand/slingmods-sign.glb'),layout=JSON.parse(fs.readFileSync('public/assets/brand/sign-layout.json'));
- assert.equal(sha(logo),source.sha256);assert.equal(layout.sourceImageSHA256,source.sha256);assert.ok(g.j.images.some(image=>sha(g.view(image.bufferView))===source.sha256));
- assert.equal(layout.placements.length,4);assert.equal(layout.placements.filter(p=>p.scene==='bay').length,1);assert.equal(layout.placements.filter(p=>p.scene==='harbor').length,3);assert.equal(layout.aspectRatio,360/86);assert.equal(g.j.meshes[0].primitives.length,1);
+ // The 360 px interface logo stays exactly as retrieved; 3D signs carry the owner-supplied wide wordmark, byte for byte.
+ const wide=fs.readFileSync('public/assets/brand/slingmods-logo-wide.png'),wideSource=JSON.parse(fs.readFileSync('public/assets/brand/slingmods-logo-wide.source.json'));
+ assert.equal(sha(logo),source.sha256);assert.equal(sha(wide),wideSource.runtime.sha256);assert.equal(sha(fs.readFileSync(wideSource.original.file)),wideSource.original.sha256);assert.equal(layout.sourceImageSHA256,wideSource.runtime.sha256);assert.ok(g.j.images.some(image=>sha(g.view(image.bufferView))===wideSource.runtime.sha256));
+ assert.equal(layout.placements.length,4);assert.equal(layout.placements.filter(p=>p.scene==='bay').length,1);assert.equal(layout.placements.filter(p=>p.scene==='harbor').length,3);assert.equal(layout.aspectRatio,wide.readUInt32BE(16)/wide.readUInt32BE(20));assert.equal(g.j.meshes[0].primitives.length,1);
 });

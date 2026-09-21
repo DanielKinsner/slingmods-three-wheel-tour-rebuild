@@ -1,4 +1,8 @@
-"""Background Blender: editable original-logo sign placements and exact retained bay source."""
+"""Background Blender: editable original-logo sign placements and exact retained bay source.
+
+HISTORICAL for the sign half: slingmods-sign.glb, sign-layout.json and showcase-branding.blend are now built by
+scripts/build-brand-sign.py from the owner-supplied wide wordmark. Re-running this file would put the 360 px logo back.
+"""
 from pathlib import Path
 import bpy,json,math,hashlib
 from mathutils import Vector
