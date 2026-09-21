@@ -119,7 +119,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  refresh();
  }catch(e){pending=false;if(departure||ui.root.hidden)restoreDeparture(e);else{status=(e as Error).message;refresh()}}}
 function constrainCamera(){const v=camera.position.clone().sub(controls.target);let scale=1;for(const [axis,lo,hi]of [['x',-5.6,5.6],['z',-5.5,5.8]]as const){const end=camera.position[axis];if(end<lo||end>hi)scale=Math.min(scale,((end<lo?lo:hi)-controls.target[axis])/v[axis])}if(scale<1)camera.position.copy(controls.target).addScaledVector(v,Math.max(.1,scale));camera.lookAt(controls.target)}
-function render(){if(!departure)constrainCamera();mirrors.update(camera,innerHeight,!departure&&(currentView==='interior'||currentView==='cockpit'));under.update();shocks.update();optics.update(0,ignition);display.update(neutral,camera,performance.now());renderer.render(scene,camera)}
+function render(){if(!departure)constrainCamera();mirrors.update(camera,innerHeight,!departure&&(currentView==='interior'||currentView==='cockpit'));mirrors.render(renderer,scene,camera);under.update();shocks.update();optics.update(0,ignition);display.update(neutral,camera,performance.now());renderer.render(scene,camera)}
 resize();await apply();view('hero',false);
 // Compile showroom-only paint and dashboard-thumbnail variants while the existing
 // loading veil is present. Never change the recipe, save, history or action sounds.

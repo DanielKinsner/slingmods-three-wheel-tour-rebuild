@@ -34,14 +34,41 @@ test('a live mirror face only stays on where it is allowed and large enough to r
 test('mirror passes reuse one cached material list instead of walking the scene every frame',()=>{
  const rig=mirrorRig(),extra=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial());rig.scene.add(extra);rig.place(1);
  let walks=0,passes=0;const traverse=rig.scene.traverse.bind(rig.scene);rig.scene.traverse=callback=>{walks++;traverse(callback)};
- const clippedDuringPass:number[]=[],renderer={localClippingEnabled:false,shadowMap:{autoUpdate:true},xr:{enabled:false},getRenderTarget:()=>null,setRenderTarget(){},render(){passes++;clippedDuringPass.push(extra.material.clippingPlanes?.length??0)}} as unknown as THREE.WebGLRenderer;
+ const clippedDuringPass:number[]=[],realPlaneDuringPass:boolean[]=[],renderer={localClippingEnabled:false,shadowMap:{autoUpdate:true},xr:{enabled:false},getRenderTarget:()=>null,setRenderTarget(){},render(){passes++;const planes=extra.material.clippingPlanes??[];clippedDuringPass.push(planes.length);realPlaneDuringPass.push(planes.length===1&&planes[0].constant<1e6)}} as unknown as THREE.WebGLRenderer;
  const frame=()=>{for(const face of rig.faces)face.onBeforeRender(renderer,rig.scene,rig.camera,face.geometry,face.material as THREE.Material,null as never)};
  for(let i=0;i<30;i++)frame();
  assert.ok(passes>=30,'at least the facing mirror rendered each frame');assert.equal(walks,1,'scene walked once for '+passes+' passes');assert.ok(clippedDuringPass.every(n=>n===1),'every pass is clipped by exactly its own mirror plane');
- assert.equal(extra.material.clippingPlanes,null,'materials are restored after each pass');assert.equal(renderer.localClippingEnabled,false);
- const late=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial());rig.scene.add(late);rig.mirrors.invalidate();frame();assert.equal(walks,2,'a build change re-lists materials once');assert.equal(late.material.clippingPlanes,null);
+ assert.ok(realPlaneDuringPass.every(Boolean),'during a pass the plane is the real glass plane');
+ // The plane COUNT must never change between main view and mirror pass: changing it makes three.js re-resolve every
+ // material's program each frame, and the garbage from that was the 30-80 ms hitching.
+ const parked=extra.material.clippingPlanes!;assert.equal(parked.length,1,'same plane count outside the pass');assert.ok(parked[0].constant>=1e6&&parked[0].normal.y===1,'parked where it clips nothing');assert.equal(renderer.localClippingEnabled,true);const sameArray=parked;frame();assert.equal(extra.material.clippingPlanes,sameArray,'no per-frame array churn');
+ const late=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial());rig.scene.add(late);rig.mirrors.invalidate();frame();assert.equal(walks,2,'a build change re-lists materials once');assert.equal(late.material.clippingPlanes?.length,1,'new materials join with the same single plane');
  // With a post-processing pipeline the main view is an offscreen target: mirrors must follow it, and still ignore every other target.
  const main={}as THREE.WebGLRenderTarget,other={}as THREE.WebGLRenderTarget;let current:THREE.WebGLRenderTarget|null=main;const targets:(THREE.WebGLRenderTarget|null)[]=[];Object.assign(renderer,{getRenderTarget:()=>current,setRenderTarget:(t:THREE.WebGLRenderTarget|null)=>{targets.push(t)}});
  rig.mirrors.viewTarget=main;let before=passes;frame();assert.ok(passes>before,'renders when the main view target is current');assert.equal(targets.at(-1),main,'hands the main target back');current=other;before=passes;frame();assert.equal(passes,before,'never renders inside thumbnails or other offscreen passes');
- assert.ok(rig.mirrors.inspect().cachedMaterials>=3);for(const mesh of[extra,late]){mesh.geometry.dispose();mesh.material.dispose()}rig.dispose();
+ assert.ok(rig.mirrors.inspect().cachedMaterials>=3);rig.dispose();assert.equal(extra.material.clippingPlanes,null,'dispose hands every material back as it was');assert.equal(late.material.clippingPlanes,null);assert.equal(renderer.localClippingEnabled,false);for(const mesh of[extra,late]){mesh.geometry.dispose();mesh.material.dispose()}
+});
+test('chase view refreshes one mirror per frame, taking turns; cockpit refreshes both every frame',()=>{
+ const rig=mirrorRig();rig.place(1);let passes=0;
+ const renderer={localClippingEnabled:false,shadowMap:{autoUpdate:true},xr:{enabled:false},getRenderTarget:()=>null,setRenderTarget(){},render(){passes++}} as unknown as THREE.WebGLRenderer;
+ // Stand where BOTH faces look at the camera: on the shared side of the two glass planes.
+ const normal=new THREE.Vector3();for(const face of rig.faces)normal.add(new THREE.Vector3(0,0,1).transformDirection(face.matrixWorld));const middle=rig.faces[0].getWorldPosition(new THREE.Vector3()).add(rig.faces[1].getWorldPosition(new THREE.Vector3())).multiplyScalar(.5);rig.camera.position.copy(middle).addScaledVector(normal.normalize(),3);rig.camera.lookAt(middle);rig.camera.updateMatrixWorld(true);
+ const frame=(alternate:boolean)=>{rig.mirrors.update(rig.camera,1440,true,alternate);for(const face of rig.faces)if(face.visible)face.onBeforeRender(renderer,rig.scene,rig.camera,face.geometry,face.material as THREE.Material,null as never)};
+ for(let i=0;i<40;i++)frame(false);const everyFrame=passes;assert.equal(everyFrame,80,'both faces, every frame');const before=[...rig.mirrors.inspect().updates];
+ for(let i=0;i<40;i++)frame(true);assert.equal(passes-everyFrame,40,'exactly one pass per frame');const after=rig.mirrors.inspect().updates;assert.deepEqual(after.map((n,i)=>n-before[i]),[20,20],'the faces share the work evenly');
+ const fresh=mirrorRig();fresh.camera.position.copy(rig.camera.position);fresh.camera.quaternion.copy(rig.camera.quaternion);fresh.camera.updateMatrixWorld(true);passes=0;
+ fresh.mirrors.update(fresh.camera,1440,true,true);for(const face of fresh.faces)face.onBeforeRender(renderer,fresh.scene,fresh.camera,face.geometry,face.material as THREE.Material,null as never);assert.equal(passes,2,'a face never shows an empty picture: both render once before taking turns');
+ rig.dispose();fresh.dispose();
+});
+test('mirrors are drawn as their own step before the frame, never twice, and never when off screen',()=>{
+ const rig=mirrorRig();let passes=0;const depths:number[]=[];let depth=0;
+ const renderer={localClippingEnabled:false,shadowMap:{autoUpdate:true},xr:{enabled:false},getRenderTarget:()=>null,setRenderTarget(){},render(){passes++;depths.push(depth)}} as unknown as THREE.WebGLRenderer;
+ const normal=new THREE.Vector3();for(const face of rig.faces)normal.add(new THREE.Vector3(0,0,1).transformDirection(face.matrixWorld));const middle=rig.faces[0].getWorldPosition(new THREE.Vector3()).add(rig.faces[1].getWorldPosition(new THREE.Vector3())).multiplyScalar(.5);
+ rig.camera.position.copy(middle).addScaledVector(normal.normalize(),3);rig.camera.lookAt(middle);rig.camera.updateMatrixWorld(true);
+ // One game frame: gate, explicit mirror step, then the main render (which fires onBeforeRender on visible faces, one level deeper).
+ const gameFrame=()=>{rig.mirrors.update(rig.camera,1440,true);rig.mirrors.render(renderer,rig.scene,rig.camera);depth=1;for(const face of rig.faces)if(face.visible)face.onBeforeRender(renderer,rig.scene,rig.camera,face.geometry,face.material as THREE.Material,null as never);depth=0};
+ for(let i=0;i<10;i++)gameFrame();assert.equal(passes,20,'two faces, once each per frame');assert.ok(depths.every(d=>d===0),'every reflection is a top-level render sharing the main lights state, never nested');
+ // Turn the camera away: faces are still gated live by size, but nothing is drawn for glass that is out of frame.
+ rig.camera.lookAt(rig.camera.position.clone().add(normal));rig.camera.updateMatrixWorld(true);passes=0;rig.mirrors.update(rig.camera,1440,true);rig.mirrors.render(renderer,rig.scene,rig.camera);assert.equal(passes,0);
+ rig.dispose();
 });
