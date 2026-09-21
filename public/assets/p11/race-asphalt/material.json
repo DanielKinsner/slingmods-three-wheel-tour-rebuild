@@ -1,0 +1,37 @@
+{
+  "dry": {
+    "prefix": "dry-4m",
+    "size": 4096,
+    "tileMetres": [
+      4,
+      4
+    ],
+    "pixelsPerMetre": 1024,
+    "source": "asphalt_track, CC0, native 4K 2m scan reduced to 2K and repeated 2x2 to preserve physical aggregate scale"
+  },
+  "wet": {
+    "prefix": "wet",
+    "baseColorValueMultiplier": 0.65,
+    "puddleRoughnessRange": [
+      0.05,
+      0.25
+    ],
+    "puddleCoverage": 0.249983549118042,
+    "puddleMaskSize": 2048
+  },
+  "detail": {
+    "file": "detail-normal.png",
+    "size": 2048,
+    "tileMetres": [
+      0.5,
+      0.5
+    ],
+    "authoring": "Original periodic numerical aggregate field"
+  },
+  "normalConvention": "OpenGL +Y",
+  "ORM": [
+    "occlusion",
+    "roughness",
+    "metallic"
+  ]
+}

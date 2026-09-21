@@ -1,0 +1,1 @@
+Bark 2048², intended 1m×2m = 2048×1024px/m (source dimensions in provenance); leaf atlases 4096² resampled from 1254² sources; 12k/3k/600 triangle LODs; COLOR_0 stores wind weights, use wind-material.mjs; eight-view imposters have individual scale metadata.
