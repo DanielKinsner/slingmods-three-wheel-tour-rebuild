@@ -1,4 +1,5 @@
 import {RIDGE_ASSETS} from '../ridge/assets';
+import {speedDressingURLs} from '../presentation/p11-assets';
 import {CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,CURRENT_PRODUCTS_URL,VEHICLE_VISUAL} from '../presentation/vehicle-asset';
 import type {BuildRecipe,DestinationId} from './config';
 export const DRIVE_DESTINATIONS:Record<DestinationId,string>={harbor:'Original Harbor',express:'Harbor Express',ridge:'Smoky Ridge'};
@@ -7,7 +8,7 @@ export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
  if(route!=='ridge')shared.push('/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb');
  if(route==='harbor')shared.push('/assets/harbor/route.json','/assets/harbor/harbor.glb');
  else for(const name of ['p06c_asphalt_Diffuse.jpg','p06c_asphalt_nor_gl.jpg','p06c_asphalt_Rough.jpg','leafy_grass_Diffuse.jpg'])shared.push('/assets/showcase-quality/textures/'+name);
- if(route==='ridge')shared.push(...RIDGE_ASSETS);
+ if(route==='ridge')shared.push(...RIDGE_ASSETS);else shared.push(...speedDressingURLs(route));
  if(VEHICLE_VISUAL==='legacy'&&recipe.finish!=='blue-orange')shared.push(recipe.finish==='white-graphite'?'/assets/p08b/showroom-refinement/finish-white-graphite.png':'/assets/p08b/finish-'+recipe.finish+'.png');
  if(VEHICLE_VISUAL==='2026'&&recipe.finish!=='blue-orange')for(const part of ['front','rear'])shared.push('/assets/model02/decal-'+part+'-'+recipe.finish+'.png');
  return [...new Set(shared)];
