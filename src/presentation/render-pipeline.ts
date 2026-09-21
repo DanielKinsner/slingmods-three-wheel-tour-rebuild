@@ -10,7 +10,7 @@ import {GRAPHICS_PRESETS,DynamicResolution,type GraphicsQuality} from './graphic
  * every reader multiplies its UVs by `scale`. If the GPU cannot provide the HDR target, drawing falls back to direct.
  */
 const FULLSCREEN_VERTEX='varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}';
-export interface FrameLook {/** 0..1 speed edge blur (already 0 under reduced motion). */edgeBlur?:number;focus?:THREE.Vector3;bloom?:{threshold:number;intensity:number}}
+export interface FrameLook {/** 0..1 speed edge blur (already 0 under reduced motion). */edgeBlur?:number;focus?:THREE.Vector3;bloom?:{threshold:number;intensity:number};/** Scene-linear colour grade, applied before tone mapping. */grade?:{tint:[number,number,number];saturation:number;contrast:number}}
 /** Daylight: only things brighter than sunlit white glow. After dark the whole scene is dimmer, so lamps need a lower bar. */
 export const DEFAULT_BLOOM={threshold:1.35,intensity:.55},NIGHT_BLOOM={threshold:.8,intensity:.95};
 export class RenderPipeline {
@@ -28,8 +28,8 @@ void main(){vec3 c=min(texture2D(tSource,min(vUv,vec2(.999))*uvScale).rgb,vec3(6
 void main(){vec3 c=texture2D(tSource,vUv).rgb*4.;c+=texture2D(tSource,vUv+texel*vec2(-1.,-1.)).rgb+texture2D(tSource,vUv+texel*vec2(1.,-1.)).rgb+texture2D(tSource,vUv+texel*vec2(-1.,1.)).rgb+texture2D(tSource,vUv+texel*vec2(1.,1.)).rgb;gl_FragColor=vec4(c/8.,1.);}`,{tSource:{value:null},texel:{value:new THREE.Vector2()}});
   this.up=material(`uniform sampler2D tSource;uniform vec2 texel;varying vec2 vUv;
 void main(){vec3 c=texture2D(tSource,vUv).rgb*4.;c+=(texture2D(tSource,vUv+texel*vec2(-1.,0.)).rgb+texture2D(tSource,vUv+texel*vec2(1.,0.)).rgb+texture2D(tSource,vUv+texel*vec2(0.,-1.)).rgb+texture2D(tSource,vUv+texel*vec2(0.,1.)).rgb)*2.;c+=texture2D(tSource,vUv+texel*vec2(-1.,-1.)).rgb+texture2D(tSource,vUv+texel*vec2(1.,-1.)).rgb+texture2D(tSource,vUv+texel*vec2(-1.,1.)).rgb+texture2D(tSource,vUv+texel*vec2(1.,1.)).rgb;gl_FragColor=vec4(c/16.,1.);}`,{tSource:{value:null},texel:{value:new THREE.Vector2()}},THREE.AdditiveBlending);
-  this.composite=new THREE.ShaderMaterial({name:'RenderPipelineComposite',depthTest:false,depthWrite:false,vertexShader:FULLSCREEN_VERTEX,uniforms:{tScene:{value:null},tBloom:{value:this.black},uvScale:{value:new THREE.Vector2(1,1)},bloomIntensity:{value:0},strength:{value:0},centre:{value:new THREE.Vector2(.5,.5)},aspect:{value:1}},
-   fragmentShader:`uniform sampler2D tScene;uniform sampler2D tBloom;uniform vec2 uvScale;uniform float bloomIntensity;uniform float strength;uniform vec2 centre;uniform float aspect;varying vec2 vUv;
+  this.composite=new THREE.ShaderMaterial({name:'RenderPipelineComposite',depthTest:false,depthWrite:false,vertexShader:FULLSCREEN_VERTEX,uniforms:{tScene:{value:null},tBloom:{value:this.black},uvScale:{value:new THREE.Vector2(1,1)},bloomIntensity:{value:0},strength:{value:0},centre:{value:new THREE.Vector2(.5,.5)},aspect:{value:1},gradeTint:{value:new THREE.Vector3(1,1,1)},gradeSaturation:{value:1},gradeContrast:{value:1}},
+   fragmentShader:`uniform sampler2D tScene;uniform sampler2D tBloom;uniform vec2 uvScale;uniform float bloomIntensity;uniform float strength;uniform vec2 centre;uniform float aspect;uniform vec3 gradeTint;uniform float gradeSaturation;uniform float gradeContrast;varying vec2 vUv;
 vec3 scene(vec2 uv){return texture2D(tScene,clamp(uv,vec2(0.),vec2(.9995))*uvScale).rgb;}
 void main(){
  vec2 away=vUv-centre;float radius=length(away*vec2(aspect,1.));
@@ -38,6 +38,8 @@ void main(){
  if(amount>.002){vec3 sum=colour;for(int i=1;i<10;i++)sum+=scene(vUv-away*amount*.095*float(i)/9.);colour=sum/10.;}
  colour+=texture2D(tBloom,vUv).rgb*bloomIntensity;
  colour*=1.-strength*.30*smoothstep(.55,1.15,radius);
+ // Look grade in scene-linear light: tint, saturation about luminance, contrast pivoting on 18% grey.
+ colour*=gradeTint;float luma=dot(colour,vec3(.2126,.7152,.0722));colour=max(mix(vec3(luma),colour,gradeSaturation),0.);colour=.18*pow(colour/.18,vec3(gradeContrast));
  gl_FragColor=vec4(colour,1.);
  #include <tonemapping_fragment>
  #include <colorspace_fragment>
@@ -74,6 +76,7 @@ void main(){
    for(let i=chain.length-1;i>0;i--){this.up.uniforms.tSource.value=chain[i].texture;(this.up.uniforms.texel.value as THREE.Vector2).set(1/chain[i].width,1/chain[i].height);this.pass(this.up,chain[i-1],false)}
    uv.tBloom.value=chain[0].texture;uv.bloomIntensity.value=bloom.intensity;
   }else{uv.tBloom.value=this.black;uv.bloomIntensity.value=0}
+  const grade=look.grade;(uv.gradeTint.value as THREE.Vector3).set(grade?.tint[0]??1,grade?.tint[1]??1,grade?.tint[2]??1);uv.gradeSaturation.value=grade?.saturation??1;uv.gradeContrast.value=grade?.contrast??1;
   uv.tScene.value=target.texture;uv.strength.value=THREE.MathUtils.clamp(look.edgeBlur??0,0,1);uv.aspect.value=camera.aspect;
   // Blur streams away from where the car is heading, kept near the middle of the frame.
   if(look.focus){const ndc=look.focus.clone().project(camera);(uv.centre.value as THREE.Vector2).set(THREE.MathUtils.clamp(ndc.x*.5+.5,.35,.65),THREE.MathUtils.clamp(ndc.y*.5+.5,.4,.62))}

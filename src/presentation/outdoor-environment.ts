@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {HDRLoader} from 'three/addons/loaders/HDRLoader.js';
 import type {LightPreset} from './harbor-lighting';
+import type {Look} from './time-of-day';
 
 export const DAY_SKY_URL='/assets/showcase-quality/sky/day-puresky-2k.hdr';
 export const NIGHT_MOON_DIRECTION=new THREE.Vector3(-22,42,-28).normalize();
@@ -56,16 +57,18 @@ function skyTexture(data:Float32Array,width:number,height:number){
  texture.flipY=true;texture.minFilter=texture.magFilter=THREE.LinearFilter;texture.needsUpdate=true;return texture;
 }
 
-export async function loadOutdoorEnvironment(scene:THREE.Scene,renderer:THREE.WebGLRenderer,preset:LightPreset){
+/** @param look optional Phase 2 time-of-day look. Its HDR sky goes through the same sun-capped probe as the day sky. */
+export async function loadOutdoorEnvironment(scene:THREE.Scene,renderer:THREE.WebGLRenderer,preset:LightPreset,look?:Look){
  let background:THREE.DataTexture,probe:THREE.DataTexture,metadata:Record<string,unknown>;
- if(preset==='day'){
-  const source=await new HDRLoader().setDataType(THREE.FloatType).loadAsync(DAY_SKY_URL);
+ const skyURL=look?.sky??(preset==='day'?DAY_SKY_URL:null);
+ if(skyURL){
+  const source=await new HDRLoader().setDataType(THREE.FloatType).loadAsync(skyURL);
   const {data,width,height}=source.image as unknown as {data:Float32Array;width:number;height:number};
   const prepared=prepareDayProbe(data,width,height);
   background=skyTexture(data,width,height);probe=skyTexture(prepared.probe,width,height);source.dispose();
-  scene.backgroundIntensity=prepared.displayScale*1.6;scene.environmentIntensity=.95;
+  scene.backgroundIntensity=prepared.displayScale*1.6*(look?.skyGain??1);scene.environmentIntensity=look?.environment??.95;
   scene.userData.outdoorSunDirection=prepared.sunDirection.toArray();
-  metadata={source:DAY_SKY_URL,sourceResolution:[width,height],solarDirection:prepared.sunDirection.toArray(),p95:prepared.p95,probeCap:prepared.ceiling,sourceMaximum:prepared.maximum,cappedPixels:prepared.cappedPixels,normalization:prepared.displayScale,backgroundDisplayGain:1.6,probe:'sun-capped source, PMREM'};
+  metadata={source:skyURL,look:look?.id??preset,sourceResolution:[width,height],solarDirection:prepared.sunDirection.toArray(),p95:prepared.p95,probeCap:prepared.ceiling,sourceMaximum:prepared.maximum,cappedPixels:prepared.cappedPixels,normalization:prepared.displayScale,backgroundDisplayGain:1.6,probe:'sun-capped source, PMREM'};
  }else{
   background=skyTexture(createNightSky(1024,512),1024,512);probe=skyTexture(createNightSky(512,256,false),512,256);
   scene.backgroundIntensity=1;scene.environmentIntensity=1;
@@ -76,7 +79,7 @@ export async function loadOutdoorEnvironment(scene:THREE.Scene,renderer:THREE.We
  const environment=generator.fromEquirectangular(probe);generator.dispose();probe.dispose();
  scene.background=background;scene.environment=environment.texture;scene.backgroundBlurriness=0;
  scene.backgroundRotation.set(0,0,0);scene.environmentRotation.set(0,0,0);
- renderer.toneMappingExposure=preset==='day'?.95:1.05;
+ renderer.toneMappingExposure=look?.exposure??(preset==='day'?.95:1.05);
  scene.userData.outdoorEnvironment={...metadata,preset,environmentIntensity:scene.environmentIntensity,backgroundIntensity:scene.backgroundIntensity,exposure:renderer.toneMappingExposure};
  let disposed=false;
  return{inspect:()=>({...scene.userData.outdoorEnvironment}),dispose(){if(disposed)return;disposed=true;if(scene.background===background)scene.background=null;if(scene.environment===environment.texture)scene.environment=null;background.dispose();environment.dispose();delete scene.userData.outdoorSunDirection;delete scene.userData.outdoorEnvironment}};
