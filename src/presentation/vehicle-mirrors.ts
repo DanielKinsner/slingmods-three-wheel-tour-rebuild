@@ -29,7 +29,7 @@ export class VehicleMirrors {
  // same shader for every material. (Adding and removing planes per pass made three.js re-resolve hundreds of programs a
  // frame; the garbage from that was the 30-80 ms hitching behind the old performance hold.) See invalidate().
  private readonly clip=new THREE.Plane(new THREE.Vector3(0,1,0),1e7);private localClipping?:{renderer:THREE.WebGLRenderer;previous:boolean};
- private clipScene?:THREE.Scene;private clipList:{material:THREE.Material;original:THREE.Plane[]|null;clipped:THREE.Plane[]}[]=[];private clipAge=0;private wasVisible=[false,false];private alternate=false;private frame=0;private explicitFrame=-1;private passes:((renderer:THREE.WebGLRenderer,scene:THREE.Object3D,camera:THREE.Camera,nested:boolean)=>void)[]=[];private frustum=new THREE.Frustum();private viewProjection=new THREE.Matrix4();private sphere=new THREE.Sphere();private eye=new THREE.Vector3();private point=new THREE.Vector3();
+ private clipScene?:THREE.Scene;private clipList:{material:THREE.Material;original:THREE.Plane[]|null;clipped:THREE.Plane[]}[]=[];private clipAge=0;private wasVisible=[false,false];private alternate=false;private frame=0;private explicitFrame=-1;private passes:((renderer:THREE.WebGLRenderer,scene:THREE.Object3D,camera:THREE.Camera,nested:boolean)=>void)[]=[];private faceProjection=new THREE.Matrix4();private cropMatrix=new THREE.Matrix4();private corner=new THREE.Vector4();private cropped=0;private frustum=new THREE.Frustum();private viewProjection=new THREE.Matrix4();private sphere=new THREE.Sphere();private eye=new THREE.Vector3();private point=new THREE.Vector3();
  private release(){for(const entry of this.clipList)if(entry.material.clippingPlanes===entry.clipped)entry.material.clippingPlanes=entry.original;this.clipList=[]}
  private collect(scene:THREE.Scene){const known=new Map(this.clipList.map(e=>[e.material,e])),seen=new Set<THREE.Material>(),next:typeof this.clipList=[];scene.traverse(o=>{if(o instanceof THREE.Mesh)for(const material of Array.isArray(o.material)?o.material:[o.material]){if(seen.has(material))continue;seen.add(material);let entry=known.get(material);if(!entry||material.clippingPlanes!==entry.clipped){const original=entry&&material.clippingPlanes===entry.clipped?entry.original:material.clippingPlanes;entry={material,original,clipped:[...(original??[]),this.clip]};material.clippingPlanes=entry.clipped}known.delete(material);next.push(entry)}});for(const gone of known.values())if(gone.material.clippingPlanes===gone.clipped)gone.material.clippingPlanes=gone.original;this.clipList=next;this.clipScene=scene;this.clipAge=0}
  constructor(root:THREE.Object3D,car:THREE.Object3D){
@@ -59,7 +59,10 @@ export class VehicleMirrors {
     if(view.dot(normal)<0||!(camera instanceof THREE.PerspectiveCamera))return;
     reflectedCamera.copy(camera,false);reflectedCamera.position.copy(view.reflect(normal).add(position));camera.getWorldDirection(direction).reflect(normal);
     reflectedCamera.up.set(0,1,0).transformDirection(camera.matrixWorld).reflect(normal);reflectedCamera.lookAt(direction.add(reflectedCamera.position));reflectedCamera.updateMatrixWorld();
-    (shader.uniforms.textureMatrix.value as THREE.Matrix4).set(.5,0,0,.5,0,.5,0,.5,0,0,.5,.5,0,0,0,1).multiply(camera.projectionMatrix).multiply(reflectedCamera.matrixWorldInverse).multiply(mirror.matrixWorld);
+    // The glass covers a few percent of the view, so draw only that slice of the rear scene: the frustum is cropped to the
+    // face, which culls most of the world out of the pass and spends the whole texture on what the face can show.
+    this.fit(reflectedCamera,mirror);
+    (shader.uniforms.textureMatrix.value as THREE.Matrix4).set(.5,0,0,.5,0,.5,0,.5,0,0,.5,.5,0,0,0,1).multiply(reflectedCamera.projectionMatrix).multiply(reflectedCamera.matrixWorldInverse).multiply(mirror.matrixWorld);
     plane.setFromNormalAndCoplanarPoint(normal,position);
     this.rendering=true;this.mirrors.forEach((m,i)=>this.wasVisible[i]=m.visible);const glassVisible=glass.visible,shadow=renderer.shadowMap.autoUpdate,xr=renderer.xr.enabled;
     // Materials are listed once, then re-listed about every two seconds as a bound on anything added without invalidate().
@@ -97,6 +100,19 @@ export class VehicleMirrors {
   camera.updateMatrixWorld();this.group.updateWorldMatrix(true,true);this.frustum.setFromProjectionMatrix(this.viewProjection.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse),camera.coordinateSystem,camera.reversedDepth);
   this.mirrors.forEach((mirror,slot)=>{const bounds=mirror.geometry.boundingSphere;if(!mirror.visible||!bounds||!this.frustum.intersectsSphere(this.sphere.copy(bounds).applyMatrix4(mirror.matrixWorld)))return;this.passes[slot](renderer,scene,camera,false)});
  }
- inspect(){return{count:this.mirrors.length,resolution:[768,512],updates:[...this.updates],live:this.mirrors.map(m=>m.visible),alternate:this.alternate,cachedMaterials:this.clipList.length,mirrors:this.mirrors.map(m=>({name:m.name,position:m.getWorldPosition(new THREE.Vector3()).toArray()}))}}
+ /**
+  * Crops a reflected camera's projection to the screen rectangle of its mirror face (8% padding for filtering). The face
+  * lies on the mirror plane, so it projects to the same place through the reflected camera as through the real one.
+  * Left untouched when the face reaches behind the eye or already fills most of the view.
+  */
+ private fit(camera:THREE.PerspectiveCamera,mirror:THREE.Mesh){
+  const box=mirror.geometry.boundingBox??(mirror.geometry.computeBoundingBox(),mirror.geometry.boundingBox!);let x0=1,x1=-1,y0=1,y1=-1;
+  this.faceProjection.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse).multiply(mirror.matrixWorld);
+  for(let i=0;i<8;i++){const p=this.corner.set(i&1?box.max.x:box.min.x,i&2?box.max.y:box.min.y,i&4?box.max.z:box.min.z,1).applyMatrix4(this.faceProjection);if(p.w<1e-4)return false;x0=Math.min(x0,p.x/p.w);x1=Math.max(x1,p.x/p.w);y0=Math.min(y0,p.y/p.w);y1=Math.max(y1,p.y/p.w)}
+  const padX=(x1-x0)*.08,padY=(y1-y0)*.08;x0=Math.max(-1,x0-padX);x1=Math.min(1,x1+padX);y0=Math.max(-1,y0-padY);y1=Math.min(1,y1+padY);
+  const w=x1-x0,h=y1-y0;if(w<1e-3||h<1e-3||w*h>2.4)return false;
+  camera.projectionMatrix.premultiply(this.cropMatrix.set(2/w,0,0,-(x0+x1)/w,0,2/h,0,-(y0+y1)/h,0,0,1,0,0,0,0,1));camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();this.cropped++;return true;
+ }
+ inspect(){return{cropped:this.cropped,count:this.mirrors.length,resolution:[768,512],updates:[...this.updates],live:this.mirrors.map(m=>m.visible),alternate:this.alternate,cachedMaterials:this.clipList.length,mirrors:this.mirrors.map(m=>({name:m.name,position:m.getWorldPosition(new THREE.Vector3()).toArray()}))}}
  dispose(){this.group.removeFromParent();for(const mirror of this.mirrors){mirror.dispose();mirror.geometry.dispose()}this.mirrors=[];this.passes=[];this.release();this.clipScene=undefined;if(this.localClipping){this.localClipping.renderer.localClippingEnabled=this.localClipping.previous;this.localClipping=undefined}}
 }

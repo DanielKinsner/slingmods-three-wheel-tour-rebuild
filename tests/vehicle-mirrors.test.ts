@@ -72,3 +72,14 @@ test('mirrors are drawn as their own step before the frame, never twice, and nev
  rig.camera.lookAt(rig.camera.position.clone().add(normal));rig.camera.updateMatrixWorld(true);passes=0;rig.mirrors.update(rig.camera,1440,true);rig.mirrors.render(renderer,rig.scene,rig.camera);assert.equal(passes,0);
  rig.dispose();
 });
+test('each reflection pass draws only the slice of the rear view its glass can show, and looks the picture up the same way',()=>{
+ const rig=mirrorRig();rig.place(1.2);const seen:{projection:THREE.Matrix4;view:THREE.Matrix4}[]=[];
+ const renderer={localClippingEnabled:false,shadowMap:{autoUpdate:true},xr:{enabled:false},getRenderTarget:()=>null,setRenderTarget(){},render(_:THREE.Scene,c:THREE.Camera){seen.push({projection:c.projectionMatrix.clone(),view:c.matrixWorldInverse.clone()})}} as unknown as THREE.WebGLRenderer;
+ rig.mirrors.update(rig.camera,1440,true);rig.mirrors.render(renderer,rig.scene,rig.camera);assert.ok(seen.length>=1);assert.equal(rig.mirrors.inspect().cropped,seen.length);
+ const face=rig.faces[0],pass=seen[0],zoomX=pass.projection.elements[0]/rig.camera.projectionMatrix.elements[0],zoomY=pass.projection.elements[5]/rig.camera.projectionMatrix.elements[5];
+ assert.ok(zoomX>2&&zoomY>2,`the pass frustum is a fraction of the main view (zoom ${zoomX.toFixed(1)} x ${zoomY.toFixed(1)}), so the world outside the glass is culled`);
+ const lookup=(face.material as THREE.ShaderMaterial).uniforms.textureMatrix.value as THREE.Matrix4,rendered=new THREE.Matrix4().set(.5,0,0,.5,0,.5,0,.5,0,0,.5,.5,0,0,0,1).multiply(pass.projection).multiply(pass.view).multiply(face.matrixWorld),points=face.geometry.getAttribute('position');
+ for(let i=0;i<points.count;i++){const local=new THREE.Vector4(points.getX(i),points.getY(i),points.getZ(i),1),uv=local.clone().applyMatrix4(lookup),drawn=local.clone().applyMatrix4(rendered);
+  assert.ok(uv.x/uv.w>=0&&uv.x/uv.w<=1&&uv.y/uv.w>=0&&uv.y/uv.w<=1,'every point of the glass samples inside the rendered slice');assert.ok(Math.abs(uv.x/uv.w-drawn.x/drawn.w)<1e-6&&Math.abs(uv.y/uv.w-drawn.y/drawn.w)<1e-6,'lookup and render use the same cropped projection')}
+ rig.dispose();
+});
