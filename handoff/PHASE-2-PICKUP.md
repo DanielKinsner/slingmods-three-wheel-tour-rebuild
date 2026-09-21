@@ -8,7 +8,7 @@ Written so any agent can be told "pick up at 2D" with no access to earlier chats
 | 2A | Post pipeline, Low/Medium/High/Ultra, dynamic resolution, bloom | done | `PHASE-2A-RENDER-PIPELINE.md` |
 | 2B | Time of day: Golden hour, Dusk, Night, After rain (+rain variants) | done | `PHASE-2B-TIME-OF-DAY.md` |
 | 2C | Wet road, puddles, mirrored underglow | done | `PHASE-2C-WET-ROAD.md` |
-| — | Draw-call cleanup | done; car decision open | `PHASE-2-DRAW-CALLS.md` |
+| — | Draw-call cleanup + merged rivals | done (player car untouched, see note) | `PHASE-2-DRAW-CALLS.md` |
 | **2D** | **Harbor water** | **next** | below |
 | 2E | Car touches the world (smoke, spray, sparks, skids, brake glow, exhaust) | todo | P11 `vfx/` |
 | 2F | Contact shadows / AO, shadow tuning for the chase cam | todo | |
@@ -26,7 +26,7 @@ Master prompt: replace the harbor water shader with two scrolling normal maps at
 - There is no depth buffer to sample cheaply: the existing shader uses an authored quay-distance gradient for depth. Keep that approach (or bake a shore-distance map) rather than adding a depth pre-pass.
 - Every look in `src/presentation/time-of-day.ts` must read well: the water takes sun colour, fog and env from the active look. Night streaks: stretch the lamp reflections vertically in the shader; do not add a second planar pass (the wet road already owns one, see 2C).
 - Boats: the `skiff` module is an instanced batch (`showcase.ts`); bob by rewriting instance matrices, not by un-instancing.
-- Budget: harbor High must stay under 10 ms. It is ~840 draw calls / 7–11 ms after the cleanup. Water must add no render pass on Low/Medium.
+- Budget: harbor High must stay under 10 ms. It is ~840 draw calls / 7–11 ms in a test drive and ~1,380 / ~10–11 ms in a four-car race after the cleanup, so a race has no headroom: measure 2D in race mode (`MODE=race`). Water must add no render pass on Low/Medium.
 - Toggle: effects follow the Graphics preset (`graphics-settings.ts`); honour reduced motion for swell/bob (`motionReduced()` in `speed-feel.ts`).
 
 ## Rules that have already cost us once

@@ -28,10 +28,23 @@ The test-drive benchmark has ONE car. A real race has four, and each is 239 mesh
 - Harbor race, main pass: **1,708 calls, ~1,360 of them cars** (713 in view + ~650 shadow casters). Scenery is ~350.
 - `slingshot-2026.glb`: 224 primitives, 132 materials, but only **53 distinct material definitions** (24 copies of one black plastic, 10 of one chassis metal, ...). 15 rigid groups (`body_static`, steer, spin, rear arm, shocks...).
 
-Options put to the owner (not started; the 2026 model is on the protected list):
-- **A. Rivals only, at clone time** — merge each rival's static body by material when `cloneRival` builds it. Rivals take no products, mirrors or showroom interaction. ~239 -> ~60 calls per rival, x2 with shadows. No asset file changes.
-- **B. Fix the model at source** — Blender: dedupe the 132 materials to 53, join meshes per rigid group x material, keep every name the code looks up (`Mirrors_1`, `stock_exhaust`, `steering_control`, optics roles, paint-zone materials). Helps the player car and showroom too; needs the material-binding and optics tests re-run and a showroom visual pass.
-- **C. Leave it** and accept ~1,700 calls in races.
+Owner chose **A: merge the rivals only** (done, below). B (fix the model at source) and the player car are untouched.
+
+## Rivals are drawn from one merged copy of the car
+`src/presentation/merge-rigid.ts` + `cloneRival` in `hero.ts`. On the first rival, the car is cloned once into a private template and `mergeRigidParts` joins every part that (a) hangs off the same rigid body and (b) renders identically. All rivals clone that template, so the merged geometry exists once per race, not once per rival.
+
+- A rigid body is the nearest ancestor something animates: `*_steer`, `*_spin`, the rear-rig groups and points, `drive_pulley_spin`, `steering_control`, any node with `userData.frontLink`. Those nodes, `Mirrors_1` and `stock_exhaust` are never merged themselves.
+- Left alone: transparent parts (three sorts glass per object), multi-material, skinned, instanced, morphed, and anything under a hidden ancestor (a stock part hidden by a product must not reappear).
+- "Renders identically" = `materialSignature`: every material property except name/uuid; paint and accent ignore colour because a rival repaints them by role; lamp roles keep lamps apart from trim.
+- Mirrored parts (negative scale) get their winding flipped when baked.
+- Sub-15 cm parts merge separately and carry `userData.subTexelParts`, which `trimSmallCasters` honours.
+- Semantic (2026) car only. `?rivalmerge=off` disables it for A/B.
+
+Result per rival: **236 -> 121 parts, 163 -> 75 shadow casters.** Harbor four-car race, dusk, High, interleaved runs: **1,875 -> 1,377 draw calls, 12.0-13.1 ms -> 9.9-10.8 ms.** p99 stays ~34 ms in both: the measured window is the race launch, and those spikes are not call-bound.
+
+Proof it does not show: `scripts/perf/rival-merge-ab.mjs` photographs one rival from five angles with the merge off and on. Express day: 0 differing pixels of 1.44 M on every angle. Harbor night: 3 pixels (bloom noise). A moving mid-race rival was checked by eye (wheels, swing arm, shocks, driver in place). Pinned by `tests/merge-rigid.test.ts` (5): no triangle moves or flips, rigid bodies stay separate, addressed/glass/hidden parts survive, signature rules, sub-texel shadow rule.
+
+What is left in a race (1,377): the player car is now the largest single item (~239 parts + 163 casters). Halving it means option B, at source, with a showroom visual pass.
 
 ## Known limits
 - The mirror crop leaves the target at 768x512. It is now oversampled in chase view; halving it would save fill cost if needed.
