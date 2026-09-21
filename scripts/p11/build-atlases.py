@@ -12,7 +12,9 @@ def read(path):
  return np.asarray(im.convert('RGB').resize((2048,2048),Image.Resampling.LANCZOS))
 def save(path,a):Image.fromarray(a.astype(np.uint8)).save(path)
 # Each row is a 4m x .5m trim domain. Surfaces may repeat along U.
-bands=[('steel','metal',None),('graphite','metal',[.12,.14,.16]),('concrete','concrete',None),('rubber','concrete',[.07,.075,.08]),('red','metal',[.9,.025,.04]),('white','metal',[.85,.85,.8]),('wood','cedar',None),('orange','metal',[.95,.21,.03])]
+# Steel is galvanized guardrail: a metal's base colour IS its reflectance, so the raw rusty plate scan (about 3% linear)
+# rendered near-black in engine. Graphite is powder-coat paint over steel, i.e. a dielectric, not bare metal.
+bands=[('steel','metal',[.74,.76,.77]),('graphite','metal',[.12,.14,.16]),('concrete','concrete',None),('rubber','concrete',[.07,.075,.08]),('red','metal',[.9,.025,.04]),('white','metal',[.85,.85,.8]),('wood','cedar',None),('orange','metal',[.95,.21,.03])]
 for channel in ['baseColor','normal','ORM','height']:
  atlas=np.zeros((4096,4096,3),np.uint8)
  for i,(name,source,tint) in enumerate(bands):
@@ -21,7 +23,7 @@ for channel in ['baseColor','normal','ORM','height']:
   if channel=='baseColor' and tint is not None:
    gray=np.mean(row,axis=-1,keepdims=True)/255;row=np.array(tint)[None,None,:]*255*(.78+gray*.3)
   if channel=='ORM':
-   row[:,:,2]=255 if name in ['steel','graphite'] else 0;row[:,:,1]=90 if name=='steel' else 115 if name in ['red','white','orange'] else 230 if name in ['concrete','rubber'] else row[:,:,1]
+   row[:,:,2]=255 if name=='steel' else 0;row[:,:,1]=np.clip(105+(row[:,:,1]-128)*.5,70,170) if name=='steel' else 115 if name in ['red','white','orange'] else 230 if name in ['concrete','rubber'] else row[:,:,1]
   # Duplicate four pixels at band edges to provide a small isolated mip gutter.
   row[:4]=row[4];row[-4:]=row[-5];atlas[i*512:(i+1)*512]=np.clip(row,0,255)
  save(props/('trim-'+channel+'.png'),atlas)
