@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import './loading.css';
 /** Loading-only preparation; does not advance simulation or modify persistent equipment. */
-export async function prepareRenderer(renderer:THREE.WebGLRenderer,scene:THREE.Scene,camera:THREE.Camera){
+/** @param alsoRender draws the same frame through any other path gameplay uses (e.g. the post target), so those shader variants are built under the veil too. */
+export async function prepareRenderer(renderer:THREE.WebGLRenderer,scene:THREE.Scene,camera:THREE.Camera,alsoRender?:()=>void){
  const announce=(text:string)=>{if(typeof document!=='undefined'){const node=document.querySelector('[data-loading-stage]');if(node)node.textContent=text;for(const step of document.querySelectorAll<HTMLElement>('[data-loading-step]')){if(step.dataset.loadingStep==='scene')step.setAttribute('aria-current','step');else step.removeAttribute('aria-current')}}};
  await new Promise(resolve=>setTimeout(resolve,0));
  const start=performance.now(),textures=new Set<THREE.Texture>(),culling=new Map<THREE.Object3D,boolean>(),lodVisibility=new Map<THREE.Object3D,boolean>();
@@ -14,6 +15,7 @@ export async function prepareRenderer(renderer:THREE.WebGLRenderer,scene:THREE.S
   await renderer.compileAsync(scene,camera);stages.push({name:'compile-async',ms:performance.now()-t});t=performance.now();
   // Actual render initializes depth/shadow variants and unseen geometry buffers. Loading veil is still present.
   renderer.render(scene,camera);stages.push({name:'first-all-mesh-render',ms:performance.now()-t});t=performance.now();
+  if(alsoRender){alsoRender();stages.push({name:'post-path-all-mesh-render',ms:performance.now()-t});t=performance.now()}
   // Explicit loading-only synchronization. This is CPU wait time, not a GPU timer query.
   renderer.getContext().finish();stages.push({name:'loading-gpu-sync',ms:performance.now()-t});
  }finally{for(const[o,value]of culling)o.frustumCulled=value;for(const[o,value]of lodVisibility)o.visible=value}

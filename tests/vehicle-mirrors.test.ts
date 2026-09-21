@@ -40,5 +40,8 @@ test('mirror passes reuse one cached material list instead of walking the scene 
  assert.ok(passes>=30,'at least the facing mirror rendered each frame');assert.equal(walks,1,'scene walked once for '+passes+' passes');assert.ok(clippedDuringPass.every(n=>n===1),'every pass is clipped by exactly its own mirror plane');
  assert.equal(extra.material.clippingPlanes,null,'materials are restored after each pass');assert.equal(renderer.localClippingEnabled,false);
  const late=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial());rig.scene.add(late);rig.mirrors.invalidate();frame();assert.equal(walks,2,'a build change re-lists materials once');assert.equal(late.material.clippingPlanes,null);
+ // With a post-processing pipeline the main view is an offscreen target: mirrors must follow it, and still ignore every other target.
+ const main={}as THREE.WebGLRenderTarget,other={}as THREE.WebGLRenderTarget;let current:THREE.WebGLRenderTarget|null=main;const targets:(THREE.WebGLRenderTarget|null)[]=[];Object.assign(renderer,{getRenderTarget:()=>current,setRenderTarget:(t:THREE.WebGLRenderTarget|null)=>{targets.push(t)}});
+ rig.mirrors.viewTarget=main;let before=passes;frame();assert.ok(passes>before,'renders when the main view target is current');assert.equal(targets.at(-1),main,'hands the main target back');current=other;before=passes;frame();assert.equal(passes,before,'never renders inside thumbnails or other offscreen passes');
  assert.ok(rig.mirrors.inspect().cachedMaterials>=3);for(const mesh of[extra,late]){mesh.geometry.dispose();mesh.material.dispose()}rig.dispose();
 });

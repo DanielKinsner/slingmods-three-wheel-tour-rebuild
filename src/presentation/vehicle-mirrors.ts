@@ -21,6 +21,8 @@ export function mirrorFaces(source:THREE.BufferGeometry){
 
 /** Two bounded live planar reflections on the player's native glass only. */
 export class VehicleMirrors {
+ /** The target the MAIN view renders to: null for the screen, or the post-processing scene target. */
+ viewTarget:THREE.WebGLRenderTarget|null=null;
  readonly group=new THREE.Group();private mirrors:Reflector[]=[];private planes:THREE.Plane[]=[];private updates=[0,0];private rendering=false;
  // One shared material list per scene, reused by both faces every frame. See invalidate().
  private clipScene?:THREE.Scene;private clipList:{material:THREE.Material;original:THREE.Plane[]|null;clipped:THREE.Plane[][]}[]=[];private clipAge=0;private wasVisible=[false,false];private eye=new THREE.Vector3();private point=new THREE.Vector3();
@@ -41,7 +43,7 @@ export class VehicleMirrors {
    const shader=mirror.material as THREE.ShaderMaterial;
    mirror.onBeforeRender=(renderer,scene,camera)=>{
     // Never recurse through the other mirror, thumbnails, or other offscreen passes.
-    if(this.rendering||renderer.getRenderTarget()!==null)return;
+    if(this.rendering||renderer.getRenderTarget()!==this.viewTarget)return;
     normal.set(0,0,1).transformDirection(mirror.matrixWorld);
     // A small optical tilt aims the glass for the seated eye without changing
     // the supplied housing or face vertices. Keep it attached to vehicle roll.
@@ -57,7 +59,7 @@ export class VehicleMirrors {
     if(this.clipScene!==scene||++this.clipAge>240)this.collect(scene as THREE.Scene);
     for(const entry of this.clipList){if(entry.material.clippingPlanes!==entry.original)Object.assign(entry,this.clipEntry(entry.material));entry.material.clippingPlanes=entry.clipped[slot]}
     try{glass.visible=false;this.mirrors.forEach(m=>m.visible=false);renderer.localClippingEnabled=true;renderer.shadowMap.autoUpdate=false;renderer.xr.enabled=false;renderer.setRenderTarget(mirror.getRenderTarget());renderer.render(scene,reflectedCamera);this.updates[slot]++}
-    finally{renderer.setRenderTarget(null);for(const entry of this.clipList)entry.material.clippingPlanes=entry.original;renderer.localClippingEnabled=localClipping;renderer.shadowMap.autoUpdate=shadow;renderer.xr.enabled=xr;glass.visible=glassVisible;this.mirrors.forEach((m,i)=>m.visible=this.wasVisible[i]);this.rendering=false}
+    finally{renderer.setRenderTarget(this.viewTarget);for(const entry of this.clipList)entry.material.clippingPlanes=entry.original;renderer.localClippingEnabled=localClipping;renderer.shadowMap.autoUpdate=shadow;renderer.xr.enabled=xr;glass.visible=glassVisible;this.mirrors.forEach((m,i)=>m.visible=this.wasVisible[i]);this.rendering=false}
    };
    this.mirrors.push(mirror);this.planes.push(plane);this.group.add(mirror);
   }
