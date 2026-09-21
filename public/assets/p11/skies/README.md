@@ -1,0 +1,1 @@
+8K equirectangular HDR skies (22.76px/degree), 1K inputs and genuine 768×1024 CubeUV PMREM EXRs; CC0 provenance; measured directions/colors plus estimated Kelvin and suggested rig intensity; source sun elevation differs from exact 8° brief.

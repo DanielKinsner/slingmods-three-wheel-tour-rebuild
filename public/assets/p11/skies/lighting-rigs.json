@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "rigs": [
+    {
+      "preset": "golden-hour",
+      "source": "golden-hour-1k.hdr",
+      "prefiltered": "golden-hour-pmrem.exr",
+      "layout": "Three.js CubeUVReflectionMapping",
+      "width": 768,
+      "height": 1024,
+      "inputResolution": [
+        1024,
+        512
+      ],
+      "direction": [
+        0.8039986854353259,
+        0.10717242495680887,
+        -0.5848933109098999
+      ],
+      "colorLinear": [
+        1,
+        0.3474178612232208,
+        0.023474179208278656
+      ],
+      "peakRadiance": [
+        109483.671875,
+        38036.583121677395,
+        2570.0393339741277
+      ],
+      "peakLuminance": 50665.549729161605,
+      "prefilterRadianceScale": 0.0011691241059775608,
+      "environmentIntensityToRestoreRadiance": 855.3411865234375,
+      "fogColorLinear": [
+        12.076413877585457,
+        5.197484705924514,
+        1.5270397149961843
+      ],
+      "directionMethod": "Brightest upper-hemisphere source texel; verify against full resolution before rig adoption",
+      "intensityUnits": "source relative radiance, not calibrated lux",
+      "colorTemperatureKelvin": 2342,
+      "temperatureMethod": "Approximate McCamy CCT from measured source RGB assuming linear sRGB primaries; not calibrated photometry.",
+      "elevationDegrees": 6.152343750000002,
+      "lightKind": "sun",
+      "suggestedDirectionalIntensity": 3.2,
+      "intensityNote": "Art-direction starting value for Three.js; scene exposure and retained HDR sun energy require integration review."
+    },
+    {
+      "preset": "dusk",
+      "source": "dusk-1k.hdr",
+      "prefiltered": "dusk-pmrem.exr",
+      "layout": "Three.js CubeUVReflectionMapping",
+      "width": 768,
+      "height": 1024,
+      "inputResolution": [
+        1024,
+        512
+      ],
+      "direction": [
+        0.7754226056451544,
+        0.34554132496398915,
+        -0.5285082548046058
+      ],
+      "colorLinear": [
+        0.948148153985969,
+        0.948148153985969,
+        1
+      ],
+      "peakRadiance": [
+        4.015686511993408,
+        4.015686511993408,
+        4.235294342041016
+      ],
+      "peakLuminance": 4.031542197322845,
+      "prefilterRadianceScale": 1,
+      "environmentIntensityToRestoreRadiance": 1,
+      "fogColorLinear": [
+        0.6860346001500147,
+        0.755683422848233,
+        0.920420517376624
+      ],
+      "directionMethod": "Brightest upper-hemisphere source texel; verify against full resolution before rig adoption",
+      "intensityUnits": "source relative radiance, not calibrated lux",
+      "colorTemperatureKelvin": 6747,
+      "temperatureMethod": "Approximate McCamy CCT from measured source RGB assuming linear sRGB primaries; not calibrated photometry.",
+      "elevationDegrees": 20.214843750000004,
+      "lightKind": "dominant sky",
+      "suggestedDirectionalIntensity": 0.15,
+      "intensityNote": "Art-direction starting value for Three.js; scene exposure and retained HDR sun energy require integration review."
+    },
+    {
+      "preset": "clear-night",
+      "source": "clear-night-1k.hdr",
+      "prefiltered": "clear-night-pmrem.exr",
+      "layout": "Three.js CubeUVReflectionMapping",
+      "width": 768,
+      "height": 1024,
+      "inputResolution": [
+        1024,
+        512
+      ],
+      "direction": [
+        0.7850208925140515,
+        0.2400030224487415,
+        -0.5710873379194384
+      ],
+      "colorLinear": [
+        1,
+        0.77625572681427,
+        0.6164383888244629
+      ],
+      "peakRadiance": [
+        112567.71875,
+        87381.33633410558,
+        69391.06317989528
+      ],
+      "peakLuminance": 91437.06351399074,
+      "prefilterRadianceScale": 0.0011370933107765408,
+      "environmentIntensityToRestoreRadiance": 879.435302734375,
+      "fogColorLinear": [
+        1.1788296881010143,
+        1.356347690163494,
+        1.4149716930054317
+      ],
+      "directionMethod": "Brightest upper-hemisphere source texel; verify against full resolution before rig adoption",
+      "intensityUnits": "source relative radiance, not calibrated lux",
+      "colorTemperatureKelvin": 4943,
+      "temperatureMethod": "Approximate McCamy CCT from measured source RGB assuming linear sRGB primaries; not calibrated photometry.",
+      "elevationDegrees": 13.88671875,
+      "lightKind": "moon",
+      "suggestedDirectionalIntensity": 0.08,
+      "intensityNote": "Art-direction starting value for Three.js; scene exposure and retained HDR sun energy require integration review."
+    },
+    {
+      "preset": "after-rain",
+      "source": "after-rain-1k.hdr",
+      "prefiltered": "after-rain-pmrem.exr",
+      "layout": "Three.js CubeUVReflectionMapping",
+      "width": 768,
+      "height": 1024,
+      "inputResolution": [
+        1024,
+        512
+      ],
+      "direction": [
+        0.6390245534430732,
+        0.6128100824294097,
+        -0.4648778581194644
+      ],
+      "colorLinear": [
+        1,
+        0.966183602809906,
+        0.8937197923660278
+      ],
+      "peakRadiance": [
+        26599.90625,
+        25700.393255030736,
+        23772.862690705806
+      ],
+      "peakLuminance": 25752.46201101694,
+      "prefilterRadianceScale": 0.004812047034940208,
+      "environmentIntensityToRestoreRadiance": 207.811767578125,
+      "fogColorLinear": [
+        0.4028598085285975,
+        0.4328419045387689,
+        0.4567100486870244
+      ],
+      "directionMethod": "Brightest upper-hemisphere source texel; verify against full resolution before rig adoption",
+      "intensityUnits": "source relative radiance, not calibrated lux",
+      "colorTemperatureKelvin": 6077,
+      "temperatureMethod": "Approximate McCamy CCT from measured source RGB assuming linear sRGB primaries; not calibrated photometry.",
+      "elevationDegrees": 37.79296875000001,
+      "lightKind": "sun",
+      "suggestedDirectionalIntensity": 2.2,
+      "intensityNote": "Art-direction starting value for Three.js; scene exposure and retained HDR sun energy require integration review."
+    },
+    {
+      "preset": "marine-layer",
+      "source": "marine-layer-1k.hdr",
+      "prefiltered": "marine-layer-pmrem.exr",
+      "layout": "Three.js CubeUVReflectionMapping",
+      "width": 768,
+      "height": 1024,
+      "inputResolution": [
+        1024,
+        512
+      ],
+      "direction": [
+        0.8021448881393326,
+        0.391170384302254,
+        -0.4511643922970477
+      ],
+      "colorLinear": [
+        1,
+        0.8809523895686986,
+        0.7428571614683889
+      ],
+      "peakRadiance": [
+        6.588235378265381,
+        5.803921699523926,
+        4.894117832183838
+      ],
+      "peakLuminance": 5.904978948402404,
+      "prefilterRadianceScale": 1,
+      "environmentIntensityToRestoreRadiance": 1,
+      "fogColorLinear": [
+        0.7019663548693643,
+        0.7504898296669126,
+        0.8440150302543771
+      ],
+      "directionMethod": "Brightest upper-hemisphere source texel; verify against full resolution before rig adoption",
+      "intensityUnits": "source relative radiance, not calibrated lux",
+      "colorTemperatureKelvin": 5484,
+      "temperatureMethod": "Approximate McCamy CCT from measured source RGB assuming linear sRGB primaries; not calibrated photometry.",
+      "elevationDegrees": 23.027343750000007,
+      "lightKind": "dominant sky",
+      "suggestedDirectionalIntensity": 0.25,
+      "intensityNote": "Art-direction starting value for Three.js; scene exposure and retained HDR sun energy require integration review."
+    }
+  ],
+  "notes": "Source-matched measured directions/colors, estimated Kelvin and suggested intensity. Golden-hour source sun elevation is measured, not guaranteed 8 degrees. Prefilters are genuine Three.js CubeUV EXRs with 1024px atlas height."
+}
