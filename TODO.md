@@ -1,3 +1,15 @@
+# Current work — mirrors and steering
+
+- Implemented: live reflections on the player's 2026 mirrors in showroom and all
+  three current routes; Sport v5 adds high-speed steering range with v4 stability.
+- Existing builds: Build -> Use responsive steering keeps the original and
+  creates a v5 copy; no purchase or reset. Historical recipes/records retain v4.
+- Validate/deploy: `handoff/MIRRORS-STEERING.md` and its validation receipt.
+- Next: owner plays the mirror and highway-turning changes on the existing game.
+
+---
+# Previous completed pass
+
 # Current work
 
 - NOW: Loading/drive-flow polish is implemented and packaged checks pass. See

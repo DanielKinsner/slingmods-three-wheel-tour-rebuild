@@ -1,0 +1,66 @@
+{
+  "scope": "Owner-requested live mirrors and high-speed steering response",
+  "created": "2026-09-21T15:58:09.545689+00:00",
+  "sourceParent": "03c395613316ae1fe85016353bba4b134c0fa19f",
+  "candidate": "demo-dist/2026-09-21T15-55-46-014Z-03c395613316-working",
+  "candidateBuildRef": "03c395613316-working",
+  "candidateInputsVerified": 333,
+  "sourceAssetChanges": false,
+  "tests": {
+    "fullBaselinePassed": 296,
+    "finalFocusedPassed": 13,
+    "depthModes": [
+      "standard",
+      "reversed",
+      "logarithmic"
+    ],
+    "typecheck": "passed in final packaged build"
+  },
+  "packagedSmoke": {
+    "result": "PASS",
+    "originalV4Preserved": true,
+    "returned": true,
+    "startMph": 65.06563010503011,
+    "steerRadians": 0.05334638909804711,
+    "yawRateBefore": -2.4174649837505058e-08,
+    "yawRateAfter": 0.46476542949676514,
+    "routes": [
+      "express",
+      "biscayne-harbor",
+      "smoky-ridge"
+    ],
+    "mirrors": {
+      "count": 2,
+      "resolution": [
+        768,
+        512
+      ],
+      "updates": [
+        31,
+        634
+      ],
+      "mirrors": [
+        {
+          "name": "mirror_right_live",
+          "position": [
+            -3.6379913767901018,
+            0.886779590092328,
+            -126.47200515332251
+          ]
+        },
+        {
+          "name": "mirror_left_live",
+          "position": [
+            -5.2497843725442985,
+            0.8931816153167376,
+            -125.98793127368211
+          ]
+        }
+      ]
+    },
+    "errors": [],
+    "evidenceDirectory": ".tools/mirrors-steering/final"
+  },
+  "handling": "Fresh entries use Sport v5; historical builds and active events remain versioned. Steering range increased, response timing unchanged.",
+  "hosted": "Verify after this source commit deploys; exact served identity is in /review-build.json. No hosted claim implied by this pre-push receipt."
+}

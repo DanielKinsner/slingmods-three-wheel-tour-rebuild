@@ -1,3 +1,13 @@
+# Live mirrors and responsive steering (2026-09-21)
+
+Latest owner request: live mirror reflections and high-speed steering that does
+not run wide. This supersedes the prior handling freeze. The current tune is
+Sport v5; preserve v4 and all historical saves/records. Existing builds opt in
+through Build -> Use responsive steering. See `handoff/MIRRORS-STEERING.md`.
+Continue on main and the existing authorized Vercel game. One lead, focused
+checks, no film, review archive, new vehicle/site, subagents or spending.
+
+---
 # Loading and drive flow polish (2026-09-21)
 
 The owner approved the loading, first-minute flow and visible-polish pass. Work
