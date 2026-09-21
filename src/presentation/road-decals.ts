@@ -4,7 +4,7 @@ import {sampleRoad,type CourseRoute} from '../course/environment';
 import {routeCurvature,brakingPoints} from './trackside';
 
 /**
- * P11 road decals laid over a flat route as ONE merged, alpha-blended mesh (one draw call): racing-line rubber, expansion
+ * P11 road decals laid over a flat route as two merged, alpha-blended meshes (matte rubber, then everything else: two draw calls): racing-line rubber, expansion
  * seams, tar snakes, patches, cracks, oil, worn lane paint and braking/launch marks. Things that run ALONG the road are
  * what streak under the car and sell speed, so those dominate. Deterministic from the seed; visual only.
  */
@@ -46,17 +46,24 @@ export function planRoadDecals(route:CourseRoute,plan:RoadDecalPlan):RoadDecalQu
 export async function loadRoadDecals(renderer:THREE.WebGLRenderer,route:CourseRoute,plan:RoadDecalPlan){
  const [map,normalMap,orm,atlas]=await Promise.all([loadKTX2(renderer,ROAD_DECAL_URLS[0],{srgb:true,repeat:false,anisotropy:16}),loadKTX2(renderer,ROAD_DECAL_URLS[1],{repeat:false,anisotropy:16}),loadKTX2(renderer,ROAD_DECAL_URLS[2],{repeat:false,anisotropy:16}),fetch(ROAD_DECAL_URLS[3]).then(r=>{if(!r.ok)throw Error('Road decal atlas unavailable');return r.json() as Promise<{tiles:Tile[]}>})]);
  const tiles=new Map(atlas.tiles.map(t=>[t.id,t])),quads=planRoadDecals(route,plan).filter(q=>tiles.has(q.tile)),n=quads.length;
- const position=new Float32Array(n*12),normal=new Float32Array(n*12),uv=new Float32Array(n*8),color=new Float32Array(n*16),index=new Uint32Array(n*6);
- quads.forEach((q,i)=>{
-  const tx=Math.sin(q.yaw),tz=Math.cos(q.yaw),nx=-tz,nz=tx,hw=q.width/2,hl=q.length/2,y=plan.y+q.layer*.0012,[u0,v0,w,h]=tiles.get(q.tile)!.uvRectBottomLeft;
-  // Compressed textures are not flipped on upload: image-top is v=0, so the atlas' bottom-left rectangles are mirrored in v.
-  const corners=[[-1,-1,u0,1-v0],[1,-1,u0+w,1-v0],[1,1,u0+w,1-v0-h],[-1,1,u0,1-v0-h]];
-  corners.forEach(([a,b,u,v],k)=>{position.set([q.x+nx*hw*a+tx*hl*b,y,q.z+nz*hw*a+tz*hl*b],i*12+k*3);normal.set([0,1,0],i*12+k*3);uv.set([u,v],i*8+k*2);color.set([1,1,1,q.alpha],i*16+k*4)});
-  index.set([i*4,i*4+1,i*4+2,i*4,i*4+2,i*4+3],i*6);
- });
- const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(position,3));geometry.setAttribute('normal',new THREE.BufferAttribute(normal,3));geometry.setAttribute('uv',new THREE.BufferAttribute(uv,2));geometry.setAttribute('color',new THREE.BufferAttribute(color,4));geometry.setIndex(new THREE.BufferAttribute(index,1));geometry.computeBoundingSphere();
- const material=new THREE.MeshStandardMaterial({name:'P11_road_decals',map,normalMap,normalScale:new THREE.Vector2(1,-1),roughnessMap:orm,roughness:1,metalness:0,transparent:true,depthWrite:false,vertexColors:true,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:0});
- const mesh=new THREE.Mesh(geometry,material);mesh.name='P11_road_decals';mesh.receiveShadow=true;mesh.renderOrder=1;
+ const build=(list:RoadDecalQuad[])=>{
+  const count=list.length,position=new Float32Array(count*12),normal=new Float32Array(count*12),uv=new Float32Array(count*8),color=new Float32Array(count*16),index=new Uint32Array(count*6);
+  list.forEach((q,i)=>{
+   const tx=Math.sin(q.yaw),tz=Math.cos(q.yaw),nx=-tz,nz=tx,hw=q.width/2,hl=q.length/2,y=plan.y+q.layer*.0012,[u0,v0,w,h]=tiles.get(q.tile)!.uvRectBottomLeft;
+   // Compressed textures are not flipped on upload: image-top is v=0, so the atlas' bottom-left rectangles are mirrored in v.
+   const corners=[[-1,-1,u0,1-v0],[1,-1,u0+w,1-v0],[1,1,u0+w,1-v0-h],[-1,1,u0,1-v0-h]];
+   corners.forEach(([a,b,u,v],k)=>{position.set([q.x+nx*hw*a+tx*hl*b,y,q.z+nz*hw*a+tz*hl*b],i*12+k*3);normal.set([0,1,0],i*12+k*3);uv.set([u,v],i*8+k*2);color.set([1,1,1,q.alpha],i*16+k*4)});
+   index.set([i*4,i*4+1,i*4+2,i*4,i*4+2,i*4+3],i*6);
+  });
+  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(position,3));geometry.setAttribute('normal',new THREE.BufferAttribute(normal,3));geometry.setAttribute('uv',new THREE.BufferAttribute(uv,2));geometry.setAttribute('color',new THREE.BufferAttribute(color,4));geometry.setIndex(new THREE.BufferAttribute(index,1));geometry.computeBoundingSphere();return geometry;
+ };
+ const shared={transparent:true,depthWrite:false,vertexColors:true,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:0,metalness:0};
+ const material=new THREE.MeshStandardMaterial({name:'P11_road_decals',map,normalMap,normalScale:new THREE.Vector2(1,-1),roughnessMap:orm,roughness:1,...shared});
+ // Laid rubber is matte and nearly flat. With the atlas' glossy roughness it mirrored the sky and read as a PALE strip, so
+ // the racing line gets its own material: same colour map, no gloss, a whisper of the normal.
+ const rubber=new THREE.MeshStandardMaterial({name:'P11_road_rubber',map,normalMap,normalScale:new THREE.Vector2(.2,-.2),roughness:.96,color:'#8d8d8d',...shared});
+ const mesh=new THREE.Group();mesh.name='P11_road_decals';
+ for(const[name,list,m,order]of[['rubber',quads.filter(q=>q.layer===0),rubber,1],['marks',quads.filter(q=>q.layer>0),material,2]]as const){const part=new THREE.Mesh(build(list),m);part.name='P11_road_'+name;part.receiveShadow=true;part.renderOrder=order;mesh.add(part)}
  const byTile:Record<string,number>={};for(const q of quads)byTile[q.tile.replace(/-\d+$/,'')]=(byTile[q.tile.replace(/-\d+$/,'')]??0)+1;
- return{mesh,inspect:()=>({quads:n,triangles:n*2,drawCalls:1,byKind:byTile}),dispose(){mesh.removeFromParent();geometry.dispose();material.dispose();for(const t of[map,normalMap,orm])t.dispose()}};
+ return{mesh,inspect:()=>({quads:n,triangles:n*2,drawCalls:2,byKind:byTile}),dispose(){mesh.removeFromParent();for(const part of mesh.children as THREE.Mesh[])part.geometry.dispose();material.dispose();rubber.dispose();for(const t of[map,normalMap,orm])t.dispose()}};
 }
