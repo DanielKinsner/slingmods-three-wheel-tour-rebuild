@@ -1,0 +1,7 @@
+# Phase 0 — showroom wiring fixes (2026-09-21)
+
+1. Mirrors: material list cached (re-listed on build change via `invalidate()`, and every ~2 s as a bound); arrays reused; faces go dark under ~40 px or outside near/cockpit (showroom: interior/cockpit only). Uncapped 1440p RTX 4080, old -> new: far 14.4 -> 4.4 ms, near 13.6 -> 12.2, cockpit 8.3 -> 7.3. Each live face still costs about 4 ms; near-view p99 is ~37 ms uncapped.
+2. `keyboard` is declared before `SignatureUI` (no TDZ crash under the veil); undo plays `ui.back`; showroom and drive `resize` re-read `devicePixelRatio`, plus a monitor-change watcher in the showroom.
+3. Signs: Smoky Ridge gantry now carries a Blender-authored painted plank board (8.4 x 2.1 m) with the logo multiplied into the grain, 12% clear, own roughness map. Sources: `scripts/build-ridge-gantry-sign.py` then `scripts/author-p10a-ridge.py`. Express logo fitted to its steel header face (was a fixed 10 m). Harbor already fitted; showroom wall logo untouched.
+4. Item 1 of the prompt (UI cannot animate) is deliberately left for Phase 3. Logo source art is only 360x86 px, so it is soft up close; a larger official file would sharpen every sign.
+5. Checks: typecheck clean, 306/306 tests (8 new: mirror cache/gate, showroom wiring, gantry signs), production build OK, headless 1440p drive + showroom smoke with zero page errors (`.tools/phase0-smoke.mjs`, local only).
