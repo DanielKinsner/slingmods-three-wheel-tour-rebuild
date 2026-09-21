@@ -1,0 +1,1 @@
+Metres: standard tokens 0.6m diameter, 100 token 0.78m; 604/732 triangles, animated idle and emissive inset; neutral three-spoke glyph; pickup-animation.mjs supplies scale/flash/shards; 80m readability still needs in-game validation.

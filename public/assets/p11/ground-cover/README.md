@@ -1,0 +1,1 @@
+Ground sets 4096² at intended 4m tile = 1024px/m; source scan dimensions in provenance; 4K card atlas resampled from 1254² artwork; six rocks / three LODs / shared 2K PBR; shoulder RGBA weights and density bands in placement.json.

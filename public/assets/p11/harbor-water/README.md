@@ -1,0 +1,1 @@
+Swell 2048²/16m = 128px/m; chop 2048²/2m = 1024px/m; foam 1024²; caustics 512²; LUT 256×1; create-material.mjs uses same-camera opaque depth and a CubeTexture; in-game shoreline/night calibration remains.

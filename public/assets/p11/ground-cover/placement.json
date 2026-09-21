@@ -1,0 +1,59 @@
+{
+  "distanceBandsMetres": [
+    [
+      0,
+      6
+    ],
+    [
+      6,
+      20
+    ],
+    [
+      20,
+      120
+    ]
+  ],
+  "instancesPerSquareMetre": {
+    "grass": [
+      2,
+      0.3,
+      0
+    ],
+    "shrubs": [
+      0.08,
+      0.015,
+      0
+    ],
+    "flowers": [
+      0.07,
+      0.01,
+      0
+    ],
+    "rocks": [
+      0.03,
+      0.006,
+      0
+    ]
+  },
+  "impostersBeyondMetres": 20,
+  "roadClearanceMetres": 0.35,
+  "shoulderMask": {
+    "file": "shoulder-blend-weights.png",
+    "channels": [
+      "asphalt",
+      "gravel",
+      "dirt",
+      "leaf-litter"
+    ],
+    "xRangeMetres": [
+      0,
+      6
+    ],
+    "yTileMetres": 16
+  },
+  "groundMaterialTileMetres": [
+    4,
+    4
+  ],
+  "note": "Scanned source scales differ slightly; see per-material provenance. Density is an initial authored recommendation, not a measured performance budget."
+}

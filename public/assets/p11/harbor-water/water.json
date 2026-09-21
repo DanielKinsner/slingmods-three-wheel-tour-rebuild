@@ -1,0 +1,48 @@
+{
+  "units": "metres",
+  "normalConvention": "OpenGL +Y",
+  "maps": {
+    "swell-normal.png": {
+      "size": [
+        2048,
+        2048
+      ],
+      "tileMetres": 16,
+      "wavelengthMetres": [
+        2.5,
+        3.9
+      ]
+    },
+    "chop-normal.png": {
+      "size": [
+        2048,
+        2048
+      ],
+      "tileMetres": 2,
+      "wavelengthMetres": [
+        0.13,
+        0.21
+      ]
+    },
+    "caustics.png": {
+      "size": [
+        512,
+        512
+      ],
+      "tileMetres": 2
+    },
+    "depth-color-lut.png": {
+      "size": [
+        256,
+        1
+      ],
+      "colorSpace": "sRGB",
+      "depthMetres": [
+        0,
+        3,
+        12
+      ]
+    }
+  },
+  "seamMethod": "Integer-frequency analytic periodic functions sampled on [0,1); no duplicated border texels."
+}
