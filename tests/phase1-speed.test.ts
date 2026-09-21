@@ -54,7 +54,11 @@ test('speed camera: 55 to 78 degrees, bounded roll, blur from 70 mph, shake from
  assert.ok(Math.abs(rest.camera.fov-SPEED_FEEL.restFov)<.01);assert.ok(Math.abs(top.camera.fov-SPEED_FEEL.topFov)<.01);
  let last=0;for(const mph of[0,20,40,60,80,100,120]){const fov=settle(new SpeedFeel(false),telemetry(mph,{throttle:0})).camera.fov;assert.ok(fov>=last-1e-6,'FOV never narrows as speed rises');last=fov}
  const throttle=settle(new SpeedFeel(false),telemetry(100)),brake=settle(new SpeedFeel(false),telemetry(100,{throttle:0,brake:1})),reach=(r:ReturnType<typeof settle>)=>r.camera.position.distanceTo(r.target);
- assert.ok(reach(throttle)>reach(brake)+.8,'trails under throttle, tucks in under braking');assert.ok(throttle.camera.position.y<rest.camera.position.y-.4,'sits lower at speed');
+ assert.ok(reach(throttle)>reach(brake)+.6,'trails a little under throttle, tucks in under braking');assert.ok(throttle.camera.position.y<rest.camera.position.y-.2,'sits lower at speed');
+ // Owner report: at high speed the car shrank to a small fraction of the frame (wider FOV AND a pull-back). On-screen size
+ // goes with 1/(distance*tan(fov/2)); measured against the validated camera the test rig starts from (6.2 m, 42 degrees).
+ const size=(r:ReturnType<typeof settle>)=>1/(reach(r)*Math.tan(THREE.MathUtils.degToRad(r.camera.fov)/2)),validated=1/(Math.hypot(6+2,2.4-.85)*Math.tan(THREE.MathUtils.degToRad(42)/2));
+ assert.ok(size(rest)/validated>.9,'as large at rest as it always was, despite the wider lens');assert.ok(size(top)/validated>.78,'still about 80% at top speed (was under 50%)');assert.ok(size(throttle)/size(rest)>.8,'never shrinks by more than a fifth from rest, even trailing under full throttle');assert.ok(reach(top)<reach(rest)+.01,'the camera closes in as the view widens, it does not back off');
  for(const mph of[60,70]){const f=new SpeedFeel(false);settle(f,telemetry(mph));assert.equal(f.edgeBlur,0)}
  const f80=new SpeedFeel(false);settle(f80,telemetry(80));assert.ok(f80.edgeBlur>0&&f80.edgeBlur<.3);const f120=new SpeedFeel(false);settle(f120,telemetry(120));assert.equal(f120.edgeBlur,1);
  const corner=new SpeedFeel(false);settle(corner,telemetry(90,{angularVelocity:{x:0,y:.9,z:0}}));assert.ok(Math.abs(corner.inspect().rollDegrees)<=SPEED_FEEL.maxRoll+1e-9&&Math.abs(corner.inspect().rollDegrees)>1);
