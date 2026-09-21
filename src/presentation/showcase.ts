@@ -9,6 +9,17 @@ type Layout={version:string;routeSHA256:string;spatialChunkMetres:number;instanc
 type Piece={geometry:THREE.BufferGeometry;material:THREE.Material;name:string};
 const prefix='/assets/showcase-quality/';
 
+/**
+ * Groups placements into instanced batches by module and spatial cell. Cells exist for culling, but at the authored 45 m
+ * almost every cell held ONE placement, so instancing batched nothing and the harbor cost ~420 draw calls for 245k
+ * triangles. Palms keep 90 m cells because their LOD is chosen per cell; everything else is cheap enough that 180 m cells
+ * cost fewer calls than they add triangles.
+ */
+export function batchPlacements<P extends{module:string;position:number[]}>(layout:{spatialChunkMetres:number;lod?:Record<string,unknown>},placements:P[]){
+ const batches=new Map<string,P[]>();
+ for(const p of placements){const cell=layout.spatialChunkMetres*(Array.isArray(layout.lod?.[p.module])?2:4),key=[p.module,Math.floor(p.position[0]/cell),Math.floor(p.position[2]/cell)].join(':');const list=batches.get(key)??[];list.push(p);batches.set(key,list)}
+ return batches;
+}
 /** Reuses Blender-authored modules inside bounded spatial instance cells. No physics mutation. */
 export async function loadShowcaseHarbor(scene:THREE.Scene,legacyHarbor:THREE.Object3D,preset:'day'|'night',stage:'sample'|'full'='full'){
  const loader=new GLTFLoader();
@@ -20,9 +31,8 @@ export async function loadShowcaseHarbor(scene:THREE.Scene,legacyHarbor:THREE.Ob
  shareIdenticalMaterials([foundation.scene,kit.scene]);
  const library=readLibrary(kit.scene,preset),instances:THREE.InstancedMesh[]=[];
  const bayPieces=library.get('bay')??[];library.delete('bay');disposePieces(bayPieces,[...library.values()].flat(),foundation.scene);
- const batches=new Map<string,Placement[]>();
  const use=layout.instances.filter(p=>stage==='full'||['terminal','water','horizon'].includes(p.district)||(p.district==='marina'&&p.position[2]>-165));
- for(const p of use){const key=[p.module,Math.floor(p.position[0]/layout.spatialChunkMetres),Math.floor(p.position[2]/layout.spatialChunkMetres)].join(':');const list=batches.get(key)??[];list.push(p);batches.set(key,list)}
+ const batches=batchPlacements(layout,use);
  const lodGroups=new Map<string,{sphere:THREE.Sphere;meshes:THREE.InstancedMesh[]}>();
  const matrix=new THREE.Matrix4(),rotation=new THREE.Quaternion(),scale=new THREE.Vector3(),position=new THREE.Vector3();
  for(const [key,placements]of batches){

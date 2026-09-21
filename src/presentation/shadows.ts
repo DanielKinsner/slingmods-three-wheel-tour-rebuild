@@ -10,3 +10,13 @@ export function configureShadows(vehicle:THREE.Object3D,environment:THREE.Object
  environment.traverse(o=>{if(o instanceof THREE.Mesh){o.receiveShadow=true;o.castShadow=mode==='legacy'||(mode==='repaired'&&!bay&&obstacles.has(o.name));census.push({name:o.name,caster:o.castShadow,receiver:true})}});
  return census;
 }
+/**
+ * Drive scenes only. The sun's shadow map resolves about 6 cm per texel (1024 px across 60 m), so a part smaller than a
+ * couple of texels cannot change the car's shadow, yet every caster is one more draw call in the shadow pass. The showroom
+ * keeps every caster: its shadow camera is close enough to resolve them.
+ */
+export function trimSmallCasters(vehicle:THREE.Object3D,minimumMetres=.15){
+ let kept=0,trimmed=0;vehicle.updateWorldMatrix(true,true);
+ vehicle.traverse(o=>{if(!(o instanceof THREE.Mesh)||!o.castShadow)return;if(!o.geometry.boundingSphere)o.geometry.computeBoundingSphere();const size=2*(o.geometry.boundingSphere?.radius??Infinity)*o.matrixWorld.getMaxScaleOnAxis();if(size<minimumMetres){o.castShadow=false;trimmed++}else kept++});
+ return{kept,trimmed,minimumMetres};
+}
