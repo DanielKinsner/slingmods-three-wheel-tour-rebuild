@@ -1,6 +1,7 @@
 import {RIDGE_ASSETS} from '../ridge/assets';
 import {CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,CURRENT_PRODUCTS_URL,VEHICLE_VISUAL} from '../presentation/vehicle-asset';
 import type {BuildRecipe,DestinationId} from './config';
+export const DRIVE_DESTINATIONS:Record<DestinationId,string>={harbor:'Original Harbor',express:'Harbor Express',ridge:'Smoky Ridge'};
 export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
  const shared=[CURRENT_VEHICLE_URL,'/assets/drivers/test-driver.glb',CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,'/assets/brand/slingmods-sign.glb','/assets/products/tricled-sm133-base.glb','/assets/products/tricled-sm133-base.attachment.json','/assets/products/ddmworks-sm3223-silver.glb',CURRENT_PRODUCTS_URL];
  if(route!=='ridge')shared.push('/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb');
@@ -13,30 +14,32 @@ export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
 }
 export interface DrivePreparationReport {route:string;started:number;ended:number;ms:number;resources:{url:string;ms:number;bytes:number}[];retries:number;cancelled:boolean}
 /** Warm HTTP bytes before departure. No speculative renderer, simulation, audio or save mutation. */
-export async function prepareDrive(route:DestinationId,recipe:BuildRecipe):Promise<DrivePreparationReport>{
+export async function prepareDrive(route:DestinationId,recipe:BuildRecipe,mode:'test'|'race'='test'):Promise<DrivePreparationReport>{
  const started=performance.now(),report:DrivePreparationReport={route,started,ended:0,ms:0,resources:[],retries:0,cancelled:false};
  const dialog=document.createElement('dialog');dialog.className='sig-drive-loading';dialog.setAttribute('aria-label','Prepare test drive');
- dialog.style.cssText='border:1px solid #45494e;border-top:4px solid #c51f28;padding:30px;background:#191d21;color:white;width:min(470px,85vw);font:16px/1.5 system-ui';
- const title=document.createElement('h2');title.textContent='Getting your drive ready';
+ const eyebrow=document.createElement('p');eyebrow.className='drive-loading-eyebrow';eyebrow.textContent=mode==='race'?'Quick race':'Test drive';
+ const title=document.createElement('h2');title.textContent=DRIVE_DESTINATIONS[route];
  const stage=document.createElement('p');stage.setAttribute('role','status');stage.dataset.driveLoading='';
- const detail=document.createElement('p');detail.textContent=(route==='ridge'?'Travel to Smoky Ridge after the bay exit. ':'')+'Preparing route downloads before the bay opens. Graphics prepare on arrival. Your build stays safe.';
- const cancel=document.createElement('button');cancel.textContent='Cancel · Stay in showroom';cancel.dataset.prepareCancel='';
- const retry=document.createElement('button');retry.textContent='Retry preparation';retry.hidden=true;retry.dataset.prepareRetry='';
- for(const b of[cancel,retry])b.style.cssText='padding:12px 16px;margin:8px 8px 0 0;color:white;background:#a51c25;border:1px solid #d4d4d4;cursor:pointer';
- dialog.append(title,stage,detail,retry,cancel);document.body.append(dialog);try{dialog.showModal();cancel.focus()}catch(e){dialog.remove();throw e}
+ const progress=document.createElement('progress');progress.className='drive-loading-track';progress.setAttribute('aria-label','Drive download progress');
+ const detail=document.createElement('p');detail.className='drive-loading-detail';detail.textContent=mode==='race'?'One lap against the field. Your current build comes with you.':'Explore at your own pace. Your current build comes with you.';
+ const cancel=document.createElement('button');cancel.className='drive-loading-button';cancel.textContent='Stay in showroom';cancel.dataset.prepareCancel='';
+ const retry=document.createElement('button');retry.className='drive-loading-button drive-loading-primary';retry.textContent='Try again';retry.hidden=true;retry.dataset.prepareRetry='';
+ const actions=document.createElement('div');actions.className='drive-loading-actions';actions.append(retry,cancel);
+ dialog.append(eyebrow,title,progress,stage,detail,actions);document.body.append(dialog);try{dialog.showModal();cancel.focus()}catch(e){dialog.remove();throw e}
  let controller=new AbortController(),cancelled=false,retryWake:(()=>void)|undefined;
  const abort=()=>{cancelled=true;controller.abort();retryWake?.()};cancel.onclick=abort;dialog.addEventListener('cancel',e=>{e.preventDefault();abort()});
  const pageExit=()=>abort();addEventListener('pagehide',pageExit,{once:true});
  try{
-  const urls=driveAssetURLs(route,recipe);
+  const urls=driveAssetURLs(route,recipe),completedURLs=new Set<string>();progress.max=urls.length;progress.value=0;
+  const updateProgress=()=>{progress.value=completedURLs.size;progress.setAttribute('aria-valuetext',`${completedURLs.size} of ${urls.length} downloads complete`)};
   while(!cancelled){
-   controller=new AbortController();let next=0,completed=0;report.resources=[];retry.hidden=true;stage.textContent=`Preparing 0 of ${urls.length} route resources`;
+   controller=new AbortController();let next=0;const remaining=urls.filter(url=>!completedURLs.has(url));retry.hidden=true;stage.textContent=completedURLs.size?'Picking up where we left off…':'Loading your build and route…';
    const timeout=setTimeout(()=>controller.abort('timeout'),45000);
    try{
-    const jobs=Array.from({length:4},async()=>{while(next<urls.length&&!cancelled){const url=urls[next++],at=performance.now(),response=await fetch(url,{signal:controller.signal});if(!response.ok)throw Error('Required route resource unavailable');const data=await response.arrayBuffer();report.resources.push({url,ms:performance.now()-at,bytes:data.byteLength});stage.textContent=`Prepared ${++completed} of ${urls.length} route resources`}});
+    const jobs=Array.from({length:4},async()=>{while(next<remaining.length&&!cancelled){const url=remaining[next++],at=performance.now(),response=await fetch(url,{signal:controller.signal});if(!response.ok)throw Error('Required route resource unavailable');const data=await response.arrayBuffer();report.resources.push({url,ms:performance.now()-at,bytes:data.byteLength});completedURLs.add(url);updateProgress()}});
     try{await Promise.all(jobs)}catch(e){controller.abort();await Promise.allSettled(jobs);throw e}
     break;
-   }catch(error){controller.abort();if(cancelled)break;stage.textContent='Preparation interrupted. Retry, or stay in the showroom.';retry.hidden=false;retry.focus();await new Promise<void>(resolve=>{retryWake=resolve;retry.onclick=()=>{report.retries++;resolve()}});retryWake=undefined}
+   }catch(error){controller.abort();clearTimeout(timeout);if(cancelled)break;stage.textContent='Download interrupted. Check your connection and try again.';detail.textContent='Your build is unchanged. Completed downloads are ready for your retry.';retry.hidden=false;retry.focus();await new Promise<void>(resolve=>{retryWake=resolve;retry.onclick=()=>{report.retries++;resolve()}});retryWake=undefined}
    finally{clearTimeout(timeout)}
   }
  }finally{removeEventListener('pagehide',pageExit);controller.abort();dialog.close();dialog.remove();report.cancelled=cancelled;report.ended=performance.now();report.ms=report.ended-started}

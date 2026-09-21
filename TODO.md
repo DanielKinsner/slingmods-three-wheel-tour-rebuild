@@ -1,12 +1,15 @@
 # Current work
 
-- NOW: MODEL03 is implemented and locally validated. Play the 2026 at the existing
-  game URL; `/review-build.json` identifies the served main commit. See
-  `handoff/MODEL03-FINISH.md` for checks and concrete limits.
-- NEXT: Let Dan play the completed 2026. A distinct playable Spyder requires a
-  usable source asset and is a separate future assignment; do not start it here.
-- LATER: Previously agreed loading cleanup, measured product mounts and a sourced
-  2026-compatible exhaust replacement if desired. No invented SKU or fit claim.
+- NOW: Loading/drive-flow polish is implemented and packaged checks pass. See
+  `handoff/FLOW-POLISH.md`; the live `/review-build.json` identifies deployment.
+- NEXT: Dan plays the updated loading, destination and drive-return flow.
+  A playable Spyder still requires a usable source asset and a separate assignment.
+- LATER: Measured product mounts and a sourced 2026-compatible exhaust replacement
+  if desired. No invented SKU or fit claim.
+- DONE THIS PASS: Branded loading stages and responsive retry dialog; completed
+  downloads retained on retry; independent sky/vehicle and showroom loads overlap;
+  last-driven destination restored; clearer entry and pending copy; duplicate
+  development exit removed from current showroom/drive loading.
 - DONE: 2026 semantic finish/rival/optics bindings; live original analog needles
   and native LCD; original dashboard face/glass/UVs; local pedal/leg pose; storage
   navigation restoration; departure pulley rotation; per-product fitment and

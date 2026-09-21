@@ -28,14 +28,14 @@ import {ShowroomDeparture} from './departure';
 
 const params=new URLSearchParams(location.search),started=performance.now(),app=document.querySelector('#app')!;
 document.body.className='signature-showroom';app.innerHTML='<div id="viewport"></div>';
-const veil=preparationVeil(app),renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:params.has('captureBuffer')});
+const veil=preparationVeil(app,{showroom:true}),renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:params.has('captureBuffer')});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
 app.querySelector('#viewport')!.append(renderer.domElement);
 const scene=new THREE.Scene();scene.background=new THREE.Color('#777d80');
 const camera=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.06,80),controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.enablePan=false;controls.minDistance=3;controls.maxDistance=10;controls.maxPolarAngle=Math.PI*.48;controls.minPolarAngle=.35;
 const env=createStudioReflectionEnvironment(),pmrem=new THREE.PMREMGenerator(renderer),probe=pmrem.fromScene(env,.04);scene.environment=probe.texture;scene.environmentIntensity=.88;pmrem.dispose();env.traverse(o=>{if(o instanceof THREE.Mesh){o.geometry.dispose();(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.dispose())}});
 const hemi=new THREE.HemisphereLight(0xf3f4f5,0x6f6a66,1.1),key=new THREE.DirectionalLight(0xfffbf3,2.1),fill=new THREE.DirectionalLight(0xe5edf7,.8),rim=new THREE.DirectionalLight(0xffffff,.95);key.position.set(-3,6,-4);fill.position.set(5,3,-2);rim.position.set(1,4,5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-6,right:6,top:6,bottom:-6,near:.1,far:25});key.shadow.normalBias=.012;scene.add(hemi,key,fill,rim,key.target);
-const loader=new GLTFLoader();const [hero,room]=await Promise.all([loadDrivingHero(loader),loadSignatureShowroom(loader)]);scene.add(hero.root,room);const contact=vehicleContact();hero.root.add(contact.mesh);const wall=await loadTourWall(loader);scene.add(wall.group,createStudioContactOcclusion());
+const loader=new GLTFLoader();const [hero,room,wall,routeGraphics]=await Promise.all([loadDrivingHero(loader),loadSignatureShowroom(loader),loadTourWall(loader),loadRouteGraphics()]);scene.add(hero.root,room);const contact=vehicleContact();hero.root.add(contact.mesh);scene.add(wall.group,createStudioContactOcclusion());
 const [under,shocks,accessories]=await Promise.all([ProductPresenter.load(loader,hero.root,scene),SuspensionPresenter.load(loader,hero.asset),SignatureProducts.load(loader,hero.asset)]),finishes=new SignatureFinishPresenter(hero.asset,{studio:true}),audio=new GameAudio(app);
 let reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;try{reducedMotion=localStorage.getItem('slingmods-signature-motion')==='reduced'||reducedMotion}catch{}controls.enableDamping=!reducedMotion;
 const storage=buildRepository();let recipe:BuildRecipe=freshRecipe(),original=freshRecipe(),history:BuildRecipe[]=[],compare=false,lighting:'studio'|'lights'='studio',driverVisible=false,pending=false,status=storage.temporary?'Temporary build session; browser storage is unavailable.':'',screen:SignatureState['screen']=params.get('screen')==='build'?'build':params.get('screen')==='events'?'events':'entry';
@@ -45,10 +45,10 @@ let simulation=await Simulation.create(undefined,recipe.handlingProfile),simulat
 simulation.reset({x:0,z:0,y:0,yaw:0});for(let i=0;i<120;i++)simulation.step({throttle:0,brake:1,steer:0,reverse:false});
 let neutral=simulation.telemetry();const display=new PoweredDisplay(hero.asset),optics=new VehicleOptics(hero.asset,true);let ignition=true;hero.pose(neutral,0,false,true);hero.driver.root.visible=false;
 const thumbs=Object.fromEntries(PRODUCTS.map(p=>[p.id,`/assets/p08b/thumbnails/${p.id}.png`]));
-const routeGraphics=await loadRouteGraphics();let destinationLighting:DestinationLighting='day';try{const prior=storage.store.drive();if(prior.route==='ridge')destinationLighting=prior.lighting??'day'}catch{/* Invalid drive snapshot stays untouched until an explicit new entry. */}
+let initialDestination:'harbor'|'express'|'ridge'='express',destinationLighting:DestinationLighting='day';try{const prior=storage.store.drive();initialDestination=prior.route;if(prior.route==='ridge')destinationLighting=prior.lighting??'day'}catch{/* Invalid drive snapshot stays untouched until an explicit new entry. */}
 const ui=new SignatureUI(app,{onChange:change,onAction:action,onSave:save,onNavigate:()=>audio.cue('ui.nav'),onLayout:()=>queueMicrotask(refitLayout)});
 let currentView='hero',layoutKey='',cameraTween:{from:THREE.Vector3;to:THREE.Vector3;fromTarget:THREE.Vector3;toTarget:THREE.Vector3;start:number}|undefined;let departure:ShowroomDeparture|undefined,navigating=false;let drivePreparation:DrivePreparationReport|undefined;
-function state():SignatureState{return {ignition,destinationLighting,recipe:structuredClone(recipe),pending,status,screen,lighting,driverVisible,compare,reducedMotion,canUndo:history.length>0,savedRecipes:saved.map(r=>({id:r.id,name:r.name})),ownedProductIds:[],thumbs,routePreviews:{harbor:'/assets/p10b/previews/harbor-day.jpg',express:'/assets/p10b/previews/express-day.jpg',ridge:'/assets/p10b/previews/ridge-day.jpg','ridge-night':'/assets/p10b/previews/ridge-night.jpg'},...routeGraphics}}
+function state():SignatureState{return {ignition,initialDestination,destinationLighting,recipe:structuredClone(recipe),pending,status,screen,lighting,driverVisible,compare,reducedMotion,canUndo:history.length>0,savedRecipes:saved.map(r=>({id:r.id,name:r.name})),ownedProductIds:[],thumbs,routePreviews:{harbor:'/assets/p10b/previews/harbor-day.jpg',express:'/assets/p10b/previews/express-day.jpg',ridge:'/assets/p10b/previews/ridge-day.jpg','ridge-night':'/assets/p10b/previews/ridge-night.jpg'},...routeGraphics}}
 function historyFragment(){window.history.replaceState(null,'',location.pathname+location.search+recipeFragment(recipe))}
 function refresh(){ui.update(state())}
 async function apply(){
@@ -101,7 +101,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='test-drive'||name==='race'){
   if(value==='duel'||value==='crew'){location.assign('?scene=career&play=career');return}
   const route=value==='ridge'?'ridge':value==='harbor'?'harbor':'express',snapshot=validateRecipe(recipe),destination=`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='race'?'race':'test'}&play=preview${route==='ridge'?'&lighting='+destinationLighting:''}${recipeFragment(snapshot)}`;
-  pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot);pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
+  pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot,name==='race'?'race':'test');pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
   storage.store.beginDrive(snapshot,route,name==='race'?'race':'test',destinationLighting);
   if(name==='race'||reducedMotion){location.assign(destination);return}
   compare=false;await reapply();pending=true;refresh();accessories.inspectStorage(false);shocks.inspectionView(null);

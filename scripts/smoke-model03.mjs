@@ -2,7 +2,7 @@
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-const base=process.env.BASE_URL||'http://127.0.0.1:5205';const out='.tools/model03-smoke';await fs.mkdir(out,{recursive:true});
+const base=process.env.BASE_URL||'http://127.0.0.1:5205';const out=process.env.EVIDENCE_DIR||'.tools/model03-smoke';await fs.mkdir(out,{recursive:true});
 const browser=await chromium.launch({headless:true,args:['--use-angle=d3d11','--mute-audio']});
 const page=await browser.newPage({viewport:{width:1600,height:1000}}),errors=[],report={};
 await page.addInitScript(()=>{const u=new URL(location.href);if(u.protocol.startsWith('http')){u.searchParams.set('test','1');u.searchParams.set('profile','1');history.replaceState(null,'',u.pathname+u.search+u.hash)}});

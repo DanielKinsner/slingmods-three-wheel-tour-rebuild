@@ -1,3 +1,13 @@
+# Loading and drive flow polish (2026-09-21)
+
+The owner approved the loading, first-minute flow and visible-polish pass. Work
+continues on main and the existing game. See `handoff/FLOW-POLISH.md` and
+`handoff/FLOW-POLISH-VALIDATION.json`. Local implementation and packaged checks
+are complete. Keep the 2026 model, Sport v4 steering/handling, products and saves.
+One lead; focused checks and playable inspection. No new vehicle, engine, film,
+review archive, benchmark matrix or spending. Prior handoffs below are historical.
+
+---
 # MODEL03 — finish the 2026 experience (2026-09-17)
 
 The current owner assignment is MODEL03, on main and the existing Vercel game.

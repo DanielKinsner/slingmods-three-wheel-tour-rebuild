@@ -10,7 +10,7 @@ try{
 if(!params.has('scene')&&!params.has('test')&&params.get('play')!=='career'){
  await loadScene(()=>import('./signature/scene'));
 }else{
-loadingExit=document.createElement('a');loadingExit.className='preview-loading-exit';loadingExit.href=location.pathname;loadingExit.textContent='Return to Development Preview';document.body.append(loadingExit);
+if(!['signature','express','ridge'].includes(mode)){loadingExit=document.createElement('a');loadingExit.className='preview-loading-exit';loadingExit.href=location.pathname;loadingExit.textContent='Return to Development Preview';document.body.append(loadingExit)}
 if (mode === 'calibration') {
   document.querySelector('#stage')!.textContent='P00 / CALIBRATION';
   document.querySelector('#title')!.textContent='Materials. Scale. Motion.';
@@ -22,7 +22,7 @@ else if((mode==='express'||mode==='ridge')) await loadScene(()=>import('./expres
 else if(mode==='crew') await loadScene(()=>import('./crew'));
 else if(mode==='harbor') await loadScene(()=>import('./harbor'));
 else await loadScene(()=>import('./workbench'));
-loadingExit.remove();
+loadingExit?.remove();
 if(activeProfile()==='demo'){const link=document.createElement('a');link.className='preview-return';link.textContent='Development Preview · Demo profile';link.href=location.pathname;document.body.append(link)}
 }
 showModelCandidate();
