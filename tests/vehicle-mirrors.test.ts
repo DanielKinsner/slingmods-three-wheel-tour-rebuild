@@ -18,3 +18,27 @@ test('live mirror targets stay outside cloned vehicle assets and dispose with th
  let disposed=0;for(const mirror of mirrors.group.children){const target=(mirror as any).getRenderTarget() as THREE.WebGLRenderTarget;target.addEventListener('dispose',()=>disposed++)}
  mirrors.dispose();assert.equal(disposed,2);assert.equal(root.getObjectByName('live_vehicle_mirrors'),undefined);assert.equal(glass.visible,true);glass.geometry.dispose();(glass.material as THREE.Material).dispose();
 });
+function mirrorRig(){
+ const scene=new THREE.Scene(),root=new THREE.Group(),car=new THREE.Group(),glass=new THREE.Mesh(nativeGlass(),new THREE.MeshStandardMaterial());glass.name='Mirrors_1';car.add(glass);root.add(car);scene.add(root);
+ const mirrors=new VehicleMirrors(root,car),faces=mirrors.group.children as THREE.Mesh[],camera=new THREE.PerspectiveCamera(55,16/9,.05,500);scene.updateMatrixWorld(true);
+ // Stand behind the first face, along its own normal, looking at it.
+ const place=(distance:number)=>{const at=faces[0].getWorldPosition(new THREE.Vector3()),normal=new THREE.Vector3(0,0,1).transformDirection(faces[0].matrixWorld);camera.position.copy(at).addScaledVector(normal,distance);camera.lookAt(at);camera.updateMatrixWorld(true)};
+ return{scene,glass,mirrors,faces,camera,place,dispose(){mirrors.dispose();glass.geometry.dispose();(glass.material as THREE.Material).dispose()}};
+}
+test('a live mirror face only stays on where it is allowed and large enough to read',()=>{
+ const rig=mirrorRig();rig.place(1);rig.mirrors.update(rig.camera,1440,true);assert.equal(rig.faces[0].visible,true,'close seated view is live');
+ rig.mirrors.update(rig.camera,1440,false);assert.deepEqual(rig.mirrors.inspect().live,[false,false],'far view or showroom exterior never pays for a reflection');
+ rig.place(60);rig.mirrors.update(rig.camera,1440,true);assert.equal(rig.faces[0].visible,false,'a face of a few pixels is skipped');
+ rig.place(1);rig.mirrors.update(rig.camera,1440,true);assert.equal(rig.faces[0].visible,true);assert.equal(rig.glass.visible,true,'supplied glass is never hidden by the gate');rig.dispose();
+});
+test('mirror passes reuse one cached material list instead of walking the scene every frame',()=>{
+ const rig=mirrorRig(),extra=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial());rig.scene.add(extra);rig.place(1);
+ let walks=0,passes=0;const traverse=rig.scene.traverse.bind(rig.scene);rig.scene.traverse=callback=>{walks++;traverse(callback)};
+ const clippedDuringPass:number[]=[],renderer={localClippingEnabled:false,shadowMap:{autoUpdate:true},xr:{enabled:false},getRenderTarget:()=>null,setRenderTarget(){},render(){passes++;clippedDuringPass.push(extra.material.clippingPlanes?.length??0)}} as unknown as THREE.WebGLRenderer;
+ const frame=()=>{for(const face of rig.faces)face.onBeforeRender(renderer,rig.scene,rig.camera,face.geometry,face.material as THREE.Material,null as never)};
+ for(let i=0;i<30;i++)frame();
+ assert.ok(passes>=30,'at least the facing mirror rendered each frame');assert.equal(walks,1,'scene walked once for '+passes+' passes');assert.ok(clippedDuringPass.every(n=>n===1),'every pass is clipped by exactly its own mirror plane');
+ assert.equal(extra.material.clippingPlanes,null,'materials are restored after each pass');assert.equal(renderer.localClippingEnabled,false);
+ const late=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial());rig.scene.add(late);rig.mirrors.invalidate();frame();assert.equal(walks,2,'a build change re-lists materials once');assert.equal(late.material.clippingPlanes,null);
+ assert.ok(rig.mirrors.inspect().cachedMaterials>=3);for(const mesh of[extra,late]){mesh.geometry.dispose();mesh.material.dispose()}rig.dispose();
+});

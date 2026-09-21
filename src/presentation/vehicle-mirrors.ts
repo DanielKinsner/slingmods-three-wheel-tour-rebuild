@@ -21,7 +21,11 @@ export function mirrorFaces(source:THREE.BufferGeometry){
 
 /** Two bounded live planar reflections on the player's native glass only. */
 export class VehicleMirrors {
- readonly group=new THREE.Group();private mirrors:Reflector[]=[];private updates=[0,0];private rendering=false;
+ readonly group=new THREE.Group();private mirrors:Reflector[]=[];private planes:THREE.Plane[]=[];private updates=[0,0];private rendering=false;
+ // One shared material list per scene, reused by both faces every frame. See invalidate().
+ private clipScene?:THREE.Scene;private clipList:{material:THREE.Material;original:THREE.Plane[]|null;clipped:THREE.Plane[][]}[]=[];private clipAge=0;private wasVisible=[false,false];private eye=new THREE.Vector3();private point=new THREE.Vector3();
+ private clipEntry(material:THREE.Material){const original=material.clippingPlanes;return{material,original,clipped:this.planes.map(plane=>[...(original??[]),plane])}}
+ private collect(scene:THREE.Scene){const seen=new Set<THREE.Material>();this.clipList=[];scene.traverse(o=>{if(o instanceof THREE.Mesh)for(const material of Array.isArray(o.material)?o.material:[o.material])if(!seen.has(material)){seen.add(material);this.clipList.push(this.clipEntry(material))}});this.clipScene=scene;this.clipAge=0}
  constructor(root:THREE.Object3D,car:THREE.Object3D){
   this.group.name='live_vehicle_mirrors';
   const glass=car.getObjectByName('Mirrors_1');if(!(glass instanceof THREE.Mesh))return;
@@ -48,16 +52,28 @@ export class VehicleMirrors {
     reflectedCamera.up.set(0,1,0).transformDirection(camera.matrixWorld).reflect(normal);reflectedCamera.lookAt(direction.add(reflectedCamera.position));reflectedCamera.updateMatrixWorld();
     (shader.uniforms.textureMatrix.value as THREE.Matrix4).set(.5,0,0,.5,0,.5,0,.5,0,0,.5,.5,0,0,0,1).multiply(camera.projectionMatrix).multiply(reflectedCamera.matrixWorldInverse).multiply(mirror.matrixWorld);
     plane.setFromNormalAndCoplanarPoint(normal,position);
-    this.rendering=true;const visibility=this.mirrors.map(m=>m.visible),glassVisible=glass.visible,localClipping=renderer.localClippingEnabled,shadow=renderer.shadowMap.autoUpdate,xr=renderer.xr.enabled;
-    const clipping=new Map<THREE.Material,THREE.Plane[]|null>();scene.traverse(o=>{if(o instanceof THREE.Mesh)for(const material of Array.isArray(o.material)?o.material:[o.material])if(!clipping.has(material)){clipping.set(material,material.clippingPlanes);material.clippingPlanes=[...(material.clippingPlanes??[]),plane]}});
+    this.rendering=true;this.mirrors.forEach((m,i)=>this.wasVisible[i]=m.visible);const glassVisible=glass.visible,localClipping=renderer.localClippingEnabled,shadow=renderer.shadowMap.autoUpdate,xr=renderer.xr.enabled;
+    // Materials are listed once, then re-listed about every two seconds as a bound on anything added without invalidate().
+    if(this.clipScene!==scene||++this.clipAge>240)this.collect(scene as THREE.Scene);
+    for(const entry of this.clipList){if(entry.material.clippingPlanes!==entry.original)Object.assign(entry,this.clipEntry(entry.material));entry.material.clippingPlanes=entry.clipped[slot]}
     try{glass.visible=false;this.mirrors.forEach(m=>m.visible=false);renderer.localClippingEnabled=true;renderer.shadowMap.autoUpdate=false;renderer.xr.enabled=false;renderer.setRenderTarget(mirror.getRenderTarget());renderer.render(scene,reflectedCamera);this.updates[slot]++}
-    finally{renderer.setRenderTarget(null);for(const[material,planes]of clipping)material.clippingPlanes=planes;renderer.localClippingEnabled=localClipping;renderer.shadowMap.autoUpdate=shadow;renderer.xr.enabled=xr;glass.visible=glassVisible;this.mirrors.forEach((m,i)=>m.visible=visibility[i]);this.rendering=false}
+    finally{renderer.setRenderTarget(null);for(const entry of this.clipList)entry.material.clippingPlanes=entry.original;renderer.localClippingEnabled=localClipping;renderer.shadowMap.autoUpdate=shadow;renderer.xr.enabled=xr;glass.visible=glassVisible;this.mirrors.forEach((m,i)=>m.visible=this.wasVisible[i]);this.rendering=false}
    };
-   this.mirrors.push(mirror);this.group.add(mirror);
+   this.mirrors.push(mirror);this.planes.push(plane);this.group.add(mirror);
   }
   // Keep live targets outside the asset tree cloned for rivals and dash thumbnails.
   root.add(this.group);
  }
- inspect(){return{count:this.mirrors.length,resolution:[768,512],updates:[...this.updates],mirrors:this.mirrors.map(m=>({name:m.name,position:m.getWorldPosition(new THREE.Vector3()).toArray()}))}}
- dispose(){this.group.removeFromParent();for(const mirror of this.mirrors){mirror.dispose();mirror.geometry.dispose()}this.mirrors=[]}
+ /** Forget the cached material list after a product, finish or scenery change. */
+ invalidate(){this.clipScene=undefined}
+ /**
+  * Keep a face live only where it can be read: caller allows it (near/cockpit views) and it spans
+  * about 40 px of the viewport. Otherwise the supplied glass underneath shows and no pass runs.
+  */
+ update(camera:THREE.PerspectiveCamera,viewportHeight:number,enabled=true){
+  const scale=viewportHeight/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov)/2)),eye=camera.getWorldPosition(this.eye);
+  for(const mirror of this.mirrors){const sphere=mirror.geometry.boundingSphere,distance=mirror.getWorldPosition(this.point).distanceTo(eye),pixels=enabled&&sphere?2*sphere.radius*mirror.matrixWorld.getMaxScaleOnAxis()*scale/Math.max(distance,.01):0;mirror.visible=pixels>=(mirror.visible?34:40)}
+ }
+ inspect(){return{count:this.mirrors.length,resolution:[768,512],updates:[...this.updates],live:this.mirrors.map(m=>m.visible),cachedMaterials:this.clipList.length,mirrors:this.mirrors.map(m=>({name:m.name,position:m.getWorldPosition(new THREE.Vector3()).toArray()}))}}
+ dispose(){this.group.removeFromParent();for(const mirror of this.mirrors){mirror.dispose();mirror.geometry.dispose()}this.mirrors=[];this.clipList=[];this.clipScene=undefined}
 }
