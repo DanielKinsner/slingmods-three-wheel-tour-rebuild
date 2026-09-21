@@ -9,7 +9,7 @@ import {routeCurvature,brakingPoints} from './trackside';
  * what streak under the car and sell speed, so those dominate. Deterministic from the seed; visual only.
  */
 interface Tile {id:string;uvRectBottomLeft:[number,number,number,number];realWorldSizeMetres:[number,number]}
-export interface RoadDecalPlan {halfWidth:number;y:number;seed?:number;lanePaint?:{edge:number;centreDash:[number,number]}|null;gridStation?:number}
+export interface RoadDecalPlan {halfWidth:number;y:number;seed?:number;lanePaint?:{edge:number;centreDash:[number,number]}|null;gridStation?:number;/** Wet road: marks and paint turn glossy with the asphalt around them. */wet?:boolean}
 export interface RoadDecalQuad {tile:string;x:number;z:number;yaw:number;width:number;length:number;alpha:number;layer:number}
 
 /** Where a car on the limit runs: wide on entry, inside at the apex, wide on exit. Signed lateral offset in metres. */
@@ -58,10 +58,10 @@ export async function loadRoadDecals(renderer:THREE.WebGLRenderer,route:CourseRo
   const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(position,3));geometry.setAttribute('normal',new THREE.BufferAttribute(normal,3));geometry.setAttribute('uv',new THREE.BufferAttribute(uv,2));geometry.setAttribute('color',new THREE.BufferAttribute(color,4));geometry.setIndex(new THREE.BufferAttribute(index,1));geometry.computeBoundingSphere();return geometry;
  };
  const shared={transparent:true,depthWrite:false,vertexColors:true,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:0,metalness:0};
- const material=new THREE.MeshStandardMaterial({name:'P11_road_decals',map,normalMap,normalScale:new THREE.Vector2(1,-1),roughnessMap:orm,roughness:1,...shared});
+ const material=new THREE.MeshStandardMaterial({name:'P11_road_decals',map,normalMap,normalScale:new THREE.Vector2(1,-1),roughnessMap:orm,roughness:plan.wet?.42:1,...shared});
  // Laid rubber is matte and nearly flat. With the atlas' glossy roughness it mirrored the sky and read as a PALE strip, so
  // the racing line gets its own material: same colour map, no gloss, a whisper of the normal.
- const rubber=new THREE.MeshStandardMaterial({name:'P11_road_rubber',map,normalMap,normalScale:new THREE.Vector2(.2,-.2),roughness:.96,color:'#8d8d8d',...shared});
+ const rubber=new THREE.MeshStandardMaterial({name:'P11_road_rubber',map,normalMap,normalScale:new THREE.Vector2(.2,-.2),roughness:plan.wet?.5:.96,color:'#8d8d8d',...shared});
  const mesh=new THREE.Group();mesh.name='P11_road_decals';
  for(const[name,list,m,order]of[['rubber',quads.filter(q=>q.layer===0),rubber,1],['marks',quads.filter(q=>q.layer>0),material,2]]as const){const part=new THREE.Mesh(build(list),m);part.name='P11_road_'+name;part.receiveShadow=true;part.renderOrder=order;mesh.add(part)}
  const byTile:Record<string,number>={};for(const q of quads)byTile[q.tile.replace(/-\d+$/,'')]=(byTile[q.tile.replace(/-\d+$/,'')]??0)+1;
