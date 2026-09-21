@@ -72,7 +72,8 @@ test('reduced motion leaves the validated camera exactly as it was and asks for 
  const feel=new SpeedFeel(true),camera=new THREE.PerspectiveCamera(47,16/9,.1,2000),target=new THREE.Vector3(0,.85,-2);camera.position.set(0,2.4,6);camera.lookAt(target);const before=[...camera.position.toArray(),...camera.quaternion.toArray(),camera.fov,...target.toArray()];
  for(let i=0;i<120;i++)feel.apply(camera,target,telemetry(120,{angularVelocity:{x:0,y:1,z:0}}),'near',1/60,1440,i===0);
  assert.deepEqual([...camera.position.toArray(),...camera.quaternion.toArray(),camera.fov,...target.toArray()],before);assert.equal(feel.edgeBlur,0);
- assert.ok(readFileSync('src/express.ts','utf8').includes("speedPost=!speedFeel.reducedMotion&&quality!=='low'?"),'no post pass is even created under reduced motion or low quality');
+ // Since Phase 2 the LOOK (pipeline, bloom) stays on under reduced motion; only motion is removed, which is the zero blur above.
+ assert.ok(readFileSync('src/express.ts','utf8').includes('pipeline.render(scene,camera,{edgeBlur:speedFeel.edgeBlur,'),'edge blur strength comes only from SpeedFeel');
 });
 test('every Phase 1 runtime asset exists and is OPTIONAL: warmed by the showroom for flat routes, required by none',()=>{
  for(const route of['express','harbor']as const){const urls=speedDressingURLs(route);assert.equal(new Set(urls).size,urls.length);for(const url of urls)assert.ok(existsSync('public'+url),url);assert.ok(urls.every(u=>!u.endsWith('.png')),'GPU-compressed KTX2 only; never the 15-25 MB PNG masters');assert.deepEqual(optionalDriveAssetURLs(route),urls);assert.ok(driveAssetURLs(route,freshRecipe()).every(u=>!u.includes('/p11/')&&!u.includes('/basis/')),'set dressing can never block a drive')}
