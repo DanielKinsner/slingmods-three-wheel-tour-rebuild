@@ -1,4 +1,5 @@
 import {hasMaterialBindings,recolorRivalMaterial,VehicleOptics} from './vehicle-materials';
+import {restoreConsoleDetail} from './console-detail';
 import {clone as cloneRig} from 'three/addons/utils/SkeletonUtils.js';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -12,6 +13,7 @@ import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
 export async function loadDrivingHero(loader:GLTFLoader){
  const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync('/assets/drivers/test-driver.glb'),fetch(CURRENT_DRIVER_ATTACHMENT).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
+ restoreConsoleDetail(asset.scene);
  return bindDrivingHero(asset.scene,person.scene,attachment,rig);
 }
 function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttachment,rig:RearRig){

@@ -1,3 +1,11 @@
+# Static console detail (2026-09-21)
+
+Latest owner request: restore visual R/N/D/M center-console buttons only.
+No shifting, controls, handling or save changes. See `handoff/CONSOLE-DETAIL.md`.
+Continue on main and the existing authorized Vercel game; one lead, focused
+visual checks, no new site, vehicle, archive, subagents or spending.
+
+---
 # Live mirrors and responsive steering (2026-09-21)
 
 Latest owner request: live mirror reflections and high-speed steering that does
