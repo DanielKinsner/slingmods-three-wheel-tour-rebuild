@@ -10,7 +10,13 @@ import type {DrivingView} from './driving-camera';
  * timing or record is touched. With reduced motion it does nothing at all and the validated camera is used as-is.
  * Everything is spring-damped; nothing snaps except on an explicit reset.
  */
-export const SPEED_FEEL={topSpeedMph:120,restFov:55,topFov:78,cockpitFov:[66,75],carSize:[.92,.8],trail:.45,brakeTuck:.5,drop:.35,lookToVelocity:.6,yawLead:.22,rollPerG:1.25,maxRoll:2,blurFromMph:70,shakeFromMph:90,shakePixels:[.5,1.5],roughShakePixels:3.2} as const;
+/**
+ * Owner tuning, 2026-09-21: "camera motion is still kinda dramatic, dial back 10%; camera shake more like 15-17%".
+ * MOTION scales everything that moves the camera (FOV widening, trail/tuck, drop, look-ahead, roll, head lean); SHAKE
+ * scales the pixel shake and the cockpit buzz. The first-pass values are kept as the multiplicands so the intent stays legible.
+ */
+const MOTION=.9,SHAKE=.84;
+export const SPEED_FEEL={topSpeedMph:120,restFov:55,topFov:55+23*MOTION,cockpitFov:[66,66+9*MOTION],carSize:[.92,.8],trail:.45*MOTION,brakeTuck:.5*MOTION,drop:.35*MOTION,lookToVelocity:.6*MOTION,yawLead:.22*MOTION,rollPerG:1.25*MOTION,maxRoll:2*MOTION,headLean:[.028*MOTION,.022*MOTION],headBuzz:SHAKE,blurFromMph:70,shakeFromMph:90,shakePixels:[.5*SHAKE,1.5*SHAKE],roughShakePixels:3.2*SHAKE,motionScale:MOTION,shakeScale:SHAKE} as const;
 const MPH=2.23694,damp=(a:number,b:number,rate:number,dt:number)=>a+(b-a)*(1-Math.exp(-rate*dt)),ease=(x:number)=>{const t=THREE.MathUtils.clamp(x,0,1);return t*t*(3-2*t)};
 export function motionReduced(){let reduced=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;try{const stored=localStorage.getItem('slingmods-signature-motion');if(stored==='reduced')reduced=true;else if(stored==='full')reduced=false}catch{/* storage may be unavailable */}return reduced}
 
@@ -37,7 +43,7 @@ export class SpeedFeel {
   this.fov=snap?fov:damp(this.fov,fov,2.6,dt);this.reach=snap?reach:damp(this.reach,reach,3.2,dt);this.drop=snap?drop:damp(this.drop,drop,2.4,dt);this.roll=snap?roll:damp(this.roll,roll,4.5,dt);
   if(cockpit){
    // Head, not camera rig: g pushes it outward and forward under braking, with a faint road buzz that grows with speed.
-   this.lean.set(lateralG*.028,Math.sin(this.time*57)*.0035*s+Math.sin(this.time*23.7)*.002*s,-this.drive*.022*Math.min(1,s*3)).applyQuaternion(this.q);camera.position.add(this.lean);target.add(this.lean);
+   this.lean.set(lateralG*SPEED_FEEL.headLean[0],(Math.sin(this.time*57)*.0035+Math.sin(this.time*23.7)*.002)*s*SPEED_FEEL.headBuzz,-this.drive*SPEED_FEEL.headLean[1]*Math.min(1,s*3)).applyQuaternion(this.q);camera.position.add(this.lean);target.add(this.lean);
   }else{
    // Look where the car is going (velocity), leading slightly into the turn, rather than where the nose points.
    this.velocity.set(t.velocity.x,0,t.velocity.z);const moving=Math.min(1,this.velocity.length()/10);

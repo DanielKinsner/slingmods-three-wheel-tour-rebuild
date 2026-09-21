@@ -12,7 +12,9 @@ import {GRAPHICS_PRESETS,DynamicResolution,type GraphicsQuality} from './graphic
 const FULLSCREEN_VERTEX='varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}';
 export interface FrameLook {/** 0..1 speed edge blur (already 0 under reduced motion). */edgeBlur?:number;focus?:THREE.Vector3;bloom?:{threshold:number;intensity:number};/** Scene-linear colour grade, applied before tone mapping. */grade?:{tint:[number,number,number];saturation:number;contrast:number}}
 /** Daylight: only things brighter than sunlit white glow. After dark the whole scene is dimmer, so lamps need a lower bar. */
-export const DEFAULT_BLOOM={threshold:1.35,intensity:.55},NIGHT_BLOOM={threshold:.8,intensity:.95};
+export const DEFAULT_BLOOM={threshold:1.35,intensity:.55},NIGHT_BLOOM={threshold:.8,intensity:.95},
+/** Showroom: lamps are inspected from a metre away under bright studio light, so they get a halo, not a flare. */
+SHOWROOM_BLOOM={threshold:2.4,intensity:.22};
 export class RenderPipeline {
  quality:GraphicsQuality;readonly resolution=new DynamicResolution();
  private scene=new THREE.Scene();private camera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);private quad:THREE.Mesh;private size=new THREE.Vector2();

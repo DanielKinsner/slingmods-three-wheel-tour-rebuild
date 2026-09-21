@@ -1,11 +1,11 @@
 import {RIDGE_ASSETS} from '../ridge/assets';
 import {speedDressingURLs} from '../presentation/p11-assets';
 import {resolveLook} from '../presentation/time-of-day';
-import {CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,CURRENT_PRODUCTS_URL,VEHICLE_VISUAL} from '../presentation/vehicle-asset';
+import {CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,CURRENT_PRODUCTS_URL,CURRENT_UNDERGLOW,VEHICLE_VISUAL} from '../presentation/vehicle-asset';
 import type {BuildRecipe,DestinationId} from './config';
 export const DRIVE_DESTINATIONS:Record<DestinationId,string>={harbor:'Original Harbor',express:'Harbor Express',ridge:'Smoky Ridge'};
 export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
- const shared=[CURRENT_VEHICLE_URL,'/assets/drivers/test-driver.glb',CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,'/assets/brand/slingmods-sign.glb','/assets/products/tricled-sm133-base.glb','/assets/products/tricled-sm133-base.attachment.json','/assets/products/ddmworks-sm3223-silver.glb',CURRENT_PRODUCTS_URL];
+ const shared=[CURRENT_VEHICLE_URL,'/assets/drivers/test-driver.glb',CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,'/assets/brand/slingmods-sign.glb',CURRENT_UNDERGLOW.glb,CURRENT_UNDERGLOW.attachment,'/assets/products/ddmworks-sm3223-silver.glb',CURRENT_PRODUCTS_URL];
  if(route!=='ridge')shared.push('/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb');
  if(route==='harbor')shared.push('/assets/harbor/route.json','/assets/harbor/harbor.glb');
  else for(const name of ['p06c_asphalt_Diffuse.jpg','p06c_asphalt_nor_gl.jpg','p06c_asphalt_Rough.jpg','leafy_grass_Diffuse.jpg'])shared.push('/assets/showcase-quality/textures/'+name);

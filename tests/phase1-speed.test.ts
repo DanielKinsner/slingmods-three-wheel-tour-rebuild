@@ -49,12 +49,17 @@ test('asphalt tiles at true scale on the express ribbon',()=>{
 test('galvanized steel band is a bright metal and graphite powder-coat is not metal at all',()=>{
  const source=readFileSync('scripts/p11/build-atlases.py','utf8');assert.ok(source.includes("('steel','metal',[.74,.76,.77])"));assert.ok(source.includes("row[:,:,2]=255 if name=='steel' else 0"));
 });
-test('speed camera: 55 to 78 degrees, bounded roll, blur from 70 mph, shake from 90 mph',()=>{
+test('owner tuning is pinned: camera motion at 90% and shake at 84% of the first pass',()=>{
+ assert.equal(SPEED_FEEL.motionScale,.9);assert.equal(SPEED_FEEL.shakeScale,.84);const near=(a:number,b:number)=>assert.ok(Math.abs(a-b)<1e-9,a+' vs '+b);
+ near(SPEED_FEEL.topFov,55+23*.9);near(SPEED_FEEL.maxRoll,1.8);near(SPEED_FEEL.trail,.405);near(SPEED_FEEL.brakeTuck,.45);near(SPEED_FEEL.drop,.315);near(SPEED_FEEL.lookToVelocity,.54);near(SPEED_FEEL.shakePixels[0],.42);near(SPEED_FEEL.shakePixels[1],1.26);near(SPEED_FEEL.roughShakePixels,2.688);
+ assert.equal(SPEED_FEEL.restFov,55,'the resting view is not motion');assert.deepEqual(SPEED_FEEL.carSize,[.92,.8],'nor is how big the car stays');assert.equal(SPEED_FEEL.blurFromMph,70);
+});
+test('speed camera: FOV widens from rest to top, bounded roll, blur from 70 mph, shake from 90 mph',()=>{
  const rest=settle(new SpeedFeel(false),telemetry(0,{throttle:0})),top=settle(new SpeedFeel(false),telemetry(120,{throttle:0}));
  assert.ok(Math.abs(rest.camera.fov-SPEED_FEEL.restFov)<.01);assert.ok(Math.abs(top.camera.fov-SPEED_FEEL.topFov)<.01);
  let last=0;for(const mph of[0,20,40,60,80,100,120]){const fov=settle(new SpeedFeel(false),telemetry(mph,{throttle:0})).camera.fov;assert.ok(fov>=last-1e-6,'FOV never narrows as speed rises');last=fov}
  const throttle=settle(new SpeedFeel(false),telemetry(100)),brake=settle(new SpeedFeel(false),telemetry(100,{throttle:0,brake:1})),reach=(r:ReturnType<typeof settle>)=>r.camera.position.distanceTo(r.target);
- assert.ok(reach(throttle)>reach(brake)+.6,'trails a little under throttle, tucks in under braking');assert.ok(throttle.camera.position.y<rest.camera.position.y-.2,'sits lower at speed');
+ assert.ok(reach(throttle)>reach(brake)+.5,'trails a little under throttle, tucks in under braking');assert.ok(throttle.camera.position.y<rest.camera.position.y-.2,'sits lower at speed');
  // Owner report: at high speed the car shrank to a small fraction of the frame (wider FOV AND a pull-back). On-screen size
  // goes with 1/(distance*tan(fov/2)); measured against the validated camera the test rig starts from (6.2 m, 42 degrees).
  const size=(r:ReturnType<typeof settle>)=>1/(reach(r)*Math.tan(THREE.MathUtils.degToRad(r.camera.fov)/2)),validated=1/(Math.hypot(6+2,2.4-.85)*Math.tan(THREE.MathUtils.degToRad(42)/2));

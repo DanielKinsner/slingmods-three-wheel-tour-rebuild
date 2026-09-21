@@ -1,5 +1,5 @@
 import {RectAreaLightUniformsLib}from'three/addons/lights/RectAreaLightUniformsLib.js';
-import * as THREE from 'three';import type{GLTFLoader}from'three/addons/loaders/GLTFLoader.js';import{COLORS,defaultAppearance,type Appearance}from'../career/catalog';
+import * as THREE from 'three';import type{GLTFLoader}from'three/addons/loaders/GLTFLoader.js';import{COLORS,defaultAppearance,type Appearance}from'../career/catalog';import{CURRENT_UNDERGLOW}from'./vehicle-asset';
 /** Artistic calibration in renderer nits at the existing default .6 UI brightness. Not OEM photometry. */
 export const KIT_DEFAULT_NITS=900;
 /** Additive chassis accessory. It never reads or writes simulation controls or contact data. */
@@ -10,7 +10,7 @@ export class ProductPresenter {
   RectAreaLightUniformsLib.init();const origins=descriptor.lightOrigins??[[-.56,.14,0],[.56,.14,0]];
   for(const origin of origins.slice(0,2)){this.origins.push(new THREE.Vector3().fromArray(origin));const light=new THREE.RectAreaLight(0xffffff,0,.035,1.3);light.castShadow=false;light.name='SM133_reserved_emitter';this.scene.add(light);this.lights.push(light)}
  }
- static async load(loader:GLTFLoader,chassis:THREE.Object3D,scene:THREE.Scene){const [g,descriptor]=await Promise.all([loader.loadAsync('/assets/products/tricled-sm133-base.glb'),fetch('/assets/products/tricled-sm133-base.attachment.json').then(r=>{if(!r.ok)throw Error('Accessory attachment unavailable');return r.json()})]);return new ProductPresenter(g.scene,chassis,scene,descriptor)}
+ static async load(loader:GLTFLoader,chassis:THREE.Object3D,scene:THREE.Scene){const [g,descriptor]=await Promise.all([loader.loadAsync(CURRENT_UNDERGLOW.glb),fetch(CURRENT_UNDERGLOW.attachment).then(r=>{if(!r.ok)throw Error('Accessory attachment unavailable');return r.json()})]);return new ProductPresenter(g.scene,chassis,scene,descriptor)}
  set(equipped:boolean,appearance:Appearance){if(this.disposed)return;this.equipped=equipped;this.appearance={...appearance};if(equipped){if(!this.root.parent)this.chassis.add(this.root)}else this.root.removeFromParent();const lit=equipped&&appearance.enabled;
   for(const m of this.diffusers){m.color.set(lit?COLORS[appearance.color]:'#b5b9b7');m.emissive.set(lit?COLORS[appearance.color]:'#000000');m.emissiveIntensity=lit?appearance.brightness*2:0}
   this.lights.forEach(l=>{l.visible=true;l.color.set(COLORS[appearance.color]);l.intensity=lit?KIT_DEFAULT_NITS*(appearance.brightness/.6):0});this.update();

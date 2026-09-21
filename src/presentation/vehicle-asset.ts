@@ -18,4 +18,6 @@ export const CURRENT_DRIVER_ATTACHMENT=VEHICLE_VISUAL==='2026'?'/assets/model02/
 export const CURRENT_PRODUCTS_URL=VEHICLE_VISUAL==='2026'?'/assets/model02/2026-mounted-products.glb':VEHICLE_VISUAL==='josh'?'/assets/model01/josh-mounted-products.glb':'/assets/p08b/signature-products.glb';
 export const VEHICLE_MODEL_LABEL=CURRENT_VEHICLE_CONTEXT.label;
 
+/** The underglow kit is CONFORMED to one car's underside, so each vehicle needs its own fit (scripts/product_sm133_fit_2026.py). */
+export const CURRENT_UNDERGLOW=VEHICLE_VISUAL==='2026'?{glb:'/assets/model02/tricled-sm133-2026.glb',attachment:'/assets/model02/tricled-sm133-2026.attachment.json'}:{glb:'/assets/products/tricled-sm133-base.glb',attachment:'/assets/products/tricled-sm133-base.attachment.json'};
 export const CURRENT_VEHICLE_URL=VEHICLE_VISUAL==='2026'?MODEL_2026_URL:VEHICLE_VISUAL==='josh'?JOSH_VEHICLE_URL:LEGACY_VEHICLE_URL;
