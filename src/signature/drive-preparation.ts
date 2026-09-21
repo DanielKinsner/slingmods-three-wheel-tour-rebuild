@@ -8,12 +8,23 @@ export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
  if(route!=='ridge')shared.push('/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb');
  if(route==='harbor')shared.push('/assets/harbor/route.json','/assets/harbor/harbor.glb');
  else for(const name of ['p06c_asphalt_Diffuse.jpg','p06c_asphalt_nor_gl.jpg','p06c_asphalt_Rough.jpg','leafy_grass_Diffuse.jpg'])shared.push('/assets/showcase-quality/textures/'+name);
- if(route==='ridge')shared.push(...RIDGE_ASSETS);else shared.push(...speedDressingURLs(route));
+ if(route==='ridge')shared.push(...RIDGE_ASSETS);
  if(VEHICLE_VISUAL==='legacy'&&recipe.finish!=='blue-orange')shared.push(recipe.finish==='white-graphite'?'/assets/p08b/showroom-refinement/finish-white-graphite.png':'/assets/p08b/finish-'+recipe.finish+'.png');
  if(VEHICLE_VISUAL==='2026'&&recipe.finish!=='blue-orange')for(const part of ['front','rear'])shared.push('/assets/model02/decal-'+part+'-'+recipe.finish+'.png');
  return [...new Set(shared)];
 }
-export interface DrivePreparationReport {route:string;started:number;ended:number;ms:number;resources:{url:string;ms:number;bytes:number}[];retries:number;cancelled:boolean}
+/** Set dressing the drive can do without (P11 asphalt, decals, trackside). Warmed when the host has it; never required. */
+export const optionalDriveAssetURLs=(route:DestinationId)=>route==='ridge'?[]:speedDressingURLs(route);
+/**
+ * Best-effort warm-up. A missing file, a network error or a timeout is recorded and swallowed: the scene has its own
+ * fallback (previous road, no props), so nothing here may ever stop the player from driving.
+ */
+export async function warmOptionalAssets(urls:readonly string[],fetchImpl:typeof fetch=fetch,signal?:AbortSignal,parallel=4){
+ const warmed:string[]=[],skipped:string[]=[];let next=0;
+ await Promise.all(Array.from({length:parallel},async()=>{while(next<urls.length&&!signal?.aborted){const url=urls[next++];try{const response=await fetchImpl(url,{signal});if(!response.ok)throw Error(String(response.status));await response.arrayBuffer();warmed.push(url)}catch{skipped.push(url)}}}));
+ return{warmed,skipped};
+}
+export interface DrivePreparationReport {route:string;started:number;ended:number;ms:number;resources:{url:string;ms:number;bytes:number}[];retries:number;cancelled:boolean;optional?:{warmed:number;skipped:string[]}}
 /** Warm HTTP bytes before departure. No speculative renderer, simulation, audio or save mutation. */
 export async function prepareDrive(route:DestinationId,recipe:BuildRecipe,mode:'test'|'race'='test'):Promise<DrivePreparationReport>{
  const started=performance.now(),report:DrivePreparationReport={route,started,ended:0,ms:0,resources:[],retries:0,cancelled:false};
@@ -43,6 +54,8 @@ export async function prepareDrive(route:DestinationId,recipe:BuildRecipe,mode:'
    }catch(error){controller.abort();clearTimeout(timeout);if(cancelled)break;stage.textContent='Download interrupted. Check your connection and try again.';detail.textContent='Your build is unchanged. Completed downloads are ready for your retry.';retry.hidden=false;retry.focus();await new Promise<void>(resolve=>{retryWake=resolve;retry.onclick=()=>{report.retries++;resolve()}});retryWake=undefined}
    finally{clearTimeout(timeout)}
   }
+  // Required files are in. Optional dressing gets one bounded, best-effort pass; whatever is missing is simply skipped.
+  if(!cancelled){stage.textContent='Dressing the route…';const limit=new AbortController(),timer=setTimeout(()=>limit.abort(),30000),stop=()=>limit.abort();controller.signal.addEventListener('abort',stop);cancel.addEventListener('click',stop,{once:true});try{const result=await warmOptionalAssets(optionalDriveAssetURLs(route),fetch,limit.signal);report.optional={warmed:result.warmed.length,skipped:result.skipped}}finally{clearTimeout(timer)}}
  }finally{removeEventListener('pagehide',pageExit);controller.abort();dialog.close();dialog.remove();report.cancelled=cancelled;report.ended=performance.now();report.ms=report.ended-started}
  return report;
 }

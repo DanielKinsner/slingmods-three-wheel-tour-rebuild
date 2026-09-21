@@ -6,7 +6,7 @@ import {metresPerUV} from '../src/presentation/race-asphalt';
 import {SpeedFeel,SPEED_FEEL} from '../src/presentation/speed-feel';
 import {EXPRESS_ROUTE} from '../src/express/route';import {EXPRESS_TRACKSIDE,buildExpressRibbon} from '../src/express/presentation';
 import {projectRoad} from '../src/course/environment';
-import {speedDressingURLs} from '../src/presentation/p11-assets';import {driveAssetURLs} from '../src/signature/drive-preparation';import {freshRecipe} from '../src/signature/config';
+import {speedDressingURLs} from '../src/presentation/p11-assets';import {driveAssetURLs,optionalDriveAssetURLs,warmOptionalAssets} from '../src/signature/drive-preparation';import {freshRecipe} from '../src/signature/config';
 import type {VehicleTelemetry} from '../src/simulation';
 
 const MPH=2.23694,wheels=(surface:string)=>[0,1,2].map(i=>({id:'w'+i,contact:true,surface}))as unknown as VehicleTelemetry['wheels'];
@@ -70,7 +70,19 @@ test('reduced motion leaves the validated camera exactly as it was and asks for 
  assert.deepEqual([...camera.position.toArray(),...camera.quaternion.toArray(),camera.fov,...target.toArray()],before);assert.equal(feel.edgeBlur,0);
  assert.ok(readFileSync('src/express.ts','utf8').includes("speedPost=!speedFeel.reducedMotion&&quality!=='low'?"),'no post pass is even created under reduced motion or low quality');
 });
-test('every Phase 1 runtime asset exists and is warmed by the showroom for flat routes only',()=>{
- for(const route of['express','harbor']as const){const urls=speedDressingURLs(route);assert.equal(new Set(urls).size,urls.length);for(const url of urls)assert.ok(existsSync('public'+url),url);assert.ok(urls.every(u=>!u.endsWith('.png')),'GPU-compressed KTX2 only; never the 15-25 MB PNG masters');for(const url of urls)assert.ok(driveAssetURLs(route,freshRecipe()).includes(url))}
- assert.ok(driveAssetURLs('ridge',freshRecipe()).every(u=>!u.includes('/p11/')));
+test('every Phase 1 runtime asset exists and is OPTIONAL: warmed by the showroom for flat routes, required by none',()=>{
+ for(const route of['express','harbor']as const){const urls=speedDressingURLs(route);assert.equal(new Set(urls).size,urls.length);for(const url of urls)assert.ok(existsSync('public'+url),url);assert.ok(urls.every(u=>!u.endsWith('.png')),'GPU-compressed KTX2 only; never the 15-25 MB PNG masters');assert.deepEqual(optionalDriveAssetURLs(route),urls);assert.ok(driveAssetURLs(route,freshRecipe()).every(u=>!u.includes('/p11/')&&!u.includes('/basis/')),'set dressing can never block a drive')}
+ assert.deepEqual(optionalDriveAssetURLs('ridge'),[]);assert.ok(driveAssetURLs('ridge',freshRecipe()).every(u=>!u.includes('/p11/')));
+});
+// Regression: the hosted build ships ONLY demo-assets.json. Phase 1 added downloads that were not on it, so the hosted
+// showroom answered 404 and blocked Original Harbor and Harbor Express with "Download interrupted".
+test('everything the showroom downloads for any route is on the hosted allowlist',()=>{
+ const allow=new Set((JSON.parse(readFileSync('demo-assets.json','utf8')).assets as string[]).map(a=>'/'+a));
+ for(const route of['harbor','express','ridge']as const)for(const url of[...driveAssetURLs(route,freshRecipe()),...optionalDriveAssetURLs(route)])assert.ok(allow.has(url),`${route}: ${url} is requested but not shipped by the hosted build`);
+});
+test('a missing or failing optional download is skipped and never rejects',async()=>{
+ const calls:string[]=[],fake=(async(url:string)=>{calls.push(url);if(url.includes('missing'))return new Response('',{status:404});if(url.includes('offline'))throw new TypeError('network');return new Response('ok')})as unknown as typeof fetch;
+ const result=await warmOptionalAssets(['/a','/missing','/offline','/b'],fake);assert.deepEqual(result.warmed.sort(),['/a','/b']);assert.deepEqual(result.skipped.sort(),['/missing','/offline']);assert.equal(calls.length,4);
+ const stopped=new AbortController();stopped.abort();assert.deepEqual(await warmOptionalAssets(['/a'],fake,stopped.signal),{warmed:[],skipped:[]});
+ const express=readFileSync('src/express/presentation.ts','utf8');assert.ok(express.includes("P11 trackside unavailable; keeping the plain rails."),'a missing prop file leaves the express scene loadable');
 });
