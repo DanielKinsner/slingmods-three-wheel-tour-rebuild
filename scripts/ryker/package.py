@@ -19,8 +19,10 @@ for path in (repo/'scripts/ryker').iterdir():
 copy(repo/'public/assets/model02/driver-attachment.json','pipeline/public/assets/model02/driver-attachment.json')
 for path in (repo/'assets/ryker/evidence').iterdir():
  if path.is_file():copy(path,'evidence/'+path.name)
-for name in ['static-smoke.json','tests-final.log','demo-build.log','workflow-run.log','format-validation.log','fidelity-workflow.log','fidelity-renders.log']:
+for name in ['static-smoke.json','tests-final.log','demo-build.log','workflow-run.log','format-validation.log','fidelity-workflow.log','fidelity-renders.log','finish-workflow.log']:
  copy(work/name,'evidence/'+name)
+for path in (work/'finish').iterdir():
+ if path.is_file():copy(path,'finish/'+path.name)
 for path in (work/'fidelity').iterdir():
  if path.is_file():copy(path,'fidelity/'+path.name)
 for path in (work/'renders').glob('*.png'):copy(path,'renders/'+path.name)

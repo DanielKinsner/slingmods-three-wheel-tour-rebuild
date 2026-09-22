@@ -9,8 +9,8 @@ def linear(x):return x/12.92 if x<=.04045 else ((x+.055)/1.055)**2.4
 settings={
  'plastic':('Ryker_Plastic',(.13,.145,.15),.48,0,'interior'),
  'rubber':('Ryker_Rubber',(.095,.10,.105),.87,0,'rubber'),
- 'brown_rubber':('Ryker_Seat',(.32,.25,.15),.83,0,'interior'),
- 'orange':('Ryker_Paint',(.36,.48,.42),.3,.08,'paint'),
+ 'brown_rubber':('Ryker_Seat',(24/255,26/255,27/255),.83,0,'interior'),
+ 'orange':('Ryker_Paint',(239/255,46/255,27/255),.3,.08,'paint'),
  '03___glossy_black':('Ryker_SatinBlack',(.075,.085,.09),.34,.25,'metal'),
  '03___glossy_gray':('Ryker_WheelMachining',(.50,.51,.51),.28,.82,'metal'),
  '01___metal':('Ryker_Aluminium',(.62,.65,.66),.3,.85,'metal'),
