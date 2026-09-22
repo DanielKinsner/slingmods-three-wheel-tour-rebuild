@@ -30,14 +30,14 @@ export function solveRear(rig:RearRig,center:THREE.Vector3){
 export class RearPresenter {
  private groups=new Map<keyof RearRig['groups'],{node:THREE.Object3D;rest:THREE.Matrix4}>();
  private drivePulley?:{node:THREE.Object3D;rest:THREE.Matrix4;spinRatio:number};
- private report:any;
+ private report:any;private points=new Map<string,THREE.Object3D>();private last?:{center:THREE.Vector3;spin:number;s:ReturnType<typeof solveRear>};
  constructor(readonly root:THREE.Object3D,readonly rig:RearRig){
   root.updateWorldMatrix(true,true);const inverse=root.matrixWorld.clone().invert();
   for(const [key,name]of Object.entries(rig.groups)){
    const node=root.getObjectByName(name);if(!node)throw Error('Missing rear group '+name);
    this.groups.set(key as keyof RearRig['groups'],{node,rest:inverse.clone().multiply(node.matrixWorld)});
   }
-  for(const name of ['rear_arm_pivot','rear_hub','shock_upper','shock_lower'])if(!root.getObjectByName(name))throw Error('Missing rear attachment '+name);
+  for(const name of ['rear_arm_pivot','rear_hub','shock_upper','shock_lower']){const node=root.getObjectByName(name);if(!node)throw Error('Missing rear attachment '+name);this.points.set(name,node)}
   if(rig.drivePulley){
    const node=root.getObjectByName(rig.drivePulley.node);if(!node)throw Error('Missing drive pulley '+rig.drivePulley.node);
    this.drivePulley={node,rest:inverse.clone().multiply(node.matrixWorld),spinRatio:rig.drivePulley.spinRatio};
@@ -50,8 +50,10 @@ export class RearPresenter {
   // Keep the affine matrix intact: decomposing a rotated axial stretch can introduce shear error.
   node.matrixAutoUpdate=false;node.matrix.copy(local);node.matrixWorldNeedsUpdate=true;
  }
- private setPoint(name:string,point:THREE.Vector3){this.setAssetMatrix(this.root.getObjectByName(name)!,new THREE.Matrix4().makeTranslation(...point.toArray()))}
- update(w:Pick<WheelTelemetry,'localCenter'|'spin'>){
+ private setPoint(name:string,point:THREE.Vector3){this.setAssetMatrix(this.points.get(name)!,new THREE.Matrix4().makeTranslation(...point.toArray()))}
+ /** Poses the rear. With `report` (the default) the result is also measured; the race passes false every frame and the
+  * measurement is then taken only when inspect() asks for it. */
+ update(w:Pick<WheelTelemetry,'localCenter'|'spin'>,report=true){
   const center=new THREE.Vector3(w.localCenter.x,w.localCenter.y,w.localCenter.z),s=solveRear(this.rig,center);
   const transforms={arm:s.arm,belt:s.arm,axle:s.axle,caliper:s.axle,shockBody:s.body,shockPiston:s.piston,shockSpring:s.spring};
   for(const[key,b]of this.groups)this.setAssetMatrix(b.node,transforms[key].clone().multiply(b.rest));
@@ -59,14 +61,19 @@ export class RearPresenter {
   // the rear sprocket. The ratio is visual, derived from the supplied radii.
   if(this.drivePulley){const p=this.drivePulley;this.setAssetMatrix(p.node,p.rest.clone().multiply(new THREE.Matrix4().makeRotationX(-w.spin*p.spinRatio)))}
   this.setPoint('rear_arm_pivot',s.pivot);this.setPoint('rear_hub',center);this.setPoint('shock_upper',s.upper);this.setPoint('shock_lower',s.lower);
+  this.last={center,spin:w.spin,s};this.report=undefined;
+  return report?this.measure():undefined;
+ }
+ private measure(){
+  const {center,spin,s}=this.last!;
   this.root.updateWorldMatrix(true,true);
-  const inverse=this.root.matrixWorld.clone().invert(),point=(name:string)=>this.root.getObjectByName(name)!.getWorldPosition(new THREE.Vector3()).applyMatrix4(inverse);
+  const inverse=this.root.matrixWorld.clone().invert(),at=(node:THREE.Object3D)=>node.getWorldPosition(new THREE.Vector3()).applyMatrix4(inverse),point=(name:string)=>at(this.points.get(name)!);
   const wheel=this.root.getObjectByName('rear_spin')!,visibleCenter=wheel.getWorldPosition(new THREE.Vector3()).applyMatrix4(inverse);
   const groupPoint=(key:keyof RearRig['groups'],rest:V3)=>{const b=this.groups.get(key)!;return vector(rest).applyMatrix4(b.rest.clone().invert()).applyMatrix4(b.node.matrixWorld).applyMatrix4(inverse)};
   const axleCenter=groupPoint('axle',this.rig.wheelCenter),armEnd=groupPoint('arm',this.rig.armHub),armStart=groupPoint('arm',this.rig.armPivot),springUpper=groupPoint('shockSpring',this.rig.shockUpper),springLower=groupPoint('shockSpring',this.rig.shockLower),bodyUpper=groupPoint('shockBody',this.rig.shockUpper),pistonLower=groupPoint('shockPiston',this.rig.shockLower);
-  this.report={wheelCenter:center.toArray(),visibleWheelCenter:visibleCenter.toArray(),wheelCenterError:visibleCenter.distanceTo(center),hub:point('rear_hub').toArray(),armPivot:point('rear_arm_pivot').toArray(),armHub:s.hub.toArray(),shockUpper:point('shock_upper').toArray(),shockLower:point('shock_lower').toArray(),axleCenter:axleCenter.toArray(),axleCenterError:axleCenter.distanceTo(center),armEndpointError:Math.max(armEnd.distanceTo(s.hub),armStart.distanceTo(s.pivot)),shockEndpointError:Math.max(springUpper.distanceTo(s.upper),springLower.distanceTo(s.lower),bodyUpper.distanceTo(s.upper),pistonLower.distanceTo(s.lower)),armLength:s.armLength,armLengthChange:s.armLength-s.restArmLength,armScale:s.armLength/s.restArmLength,shockLength:s.shockLength,wheelSpin:w.spin,groups:Object.fromEntries([...this.groups].map(([k,b])=>[k,b.node.matrix.toArray()]))};
-  if(this.drivePulley)this.report.drivePulley={center:point(this.drivePulley.node.name).toArray(),centerError:point(this.drivePulley.node.name).distanceTo(vector(this.rig.drivePulley!.center)),angle:-w.spin*this.drivePulley.spinRatio};
+  this.report={wheelCenter:center.toArray(),visibleWheelCenter:visibleCenter.toArray(),wheelCenterError:visibleCenter.distanceTo(center),hub:point('rear_hub').toArray(),armPivot:point('rear_arm_pivot').toArray(),armHub:s.hub.toArray(),shockUpper:point('shock_upper').toArray(),shockLower:point('shock_lower').toArray(),axleCenter:axleCenter.toArray(),axleCenterError:axleCenter.distanceTo(center),armEndpointError:Math.max(armEnd.distanceTo(s.hub),armStart.distanceTo(s.pivot)),shockEndpointError:Math.max(springUpper.distanceTo(s.upper),springLower.distanceTo(s.lower),bodyUpper.distanceTo(s.upper),pistonLower.distanceTo(s.lower)),armLength:s.armLength,armLengthChange:s.armLength-s.restArmLength,armScale:s.armLength/s.restArmLength,shockLength:s.shockLength,wheelSpin:spin,groups:Object.fromEntries([...this.groups].map(([k,b])=>[k,b.node.matrix.toArray()]))};
+  if(this.drivePulley)this.report.drivePulley={center:at(this.drivePulley.node).toArray(),centerError:at(this.drivePulley.node).distanceTo(vector(this.rig.drivePulley!.center)),angle:-spin*this.drivePulley.spinRatio};
   return this.report;
  }
- inspect():any{return this.report}
+ inspect():any{return this.report??(this.last&&this.measure())}
 }

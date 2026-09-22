@@ -1,8 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import * as THREE from 'three';
 import {TransparentHalves} from '../src/presentation/transparent-halves';
 import {perfLegacy,setPerfLegacy} from '../src/presentation/perf-switches';
+import {RearPresenter,type RearRig} from '../src/presentation/rear';
 import {visitorSearch} from '../src/demo/profile';
 
 test('perf A/B switches: all on by default, legacy restores all or one at a time, hosted only with test+profile',()=>{
@@ -51,3 +53,13 @@ test('negating the normal matrix reproduces FLIP_SIDED exactly (negation commute
  }
 });
 
+const rig=JSON.parse(fs.readFileSync('public/assets/vehicles/slingshot-p04a1-rear-rig.json','utf8')) as RearRig;
+function rearScene(){const world=new THREE.Group(),root=new THREE.Group();world.add(root);root.position.set(42,2,-19);root.rotation.set(.2,1.7,-.11);for(const name of [...Object.values(rig.groups),'rear_arm_pivot','rear_hub','shock_upper','shock_lower','rear_spin']){const o=new THREE.Group();o.name=name;root.add(o)}root.getObjectByName('rear_spin')!.position.fromArray(rig.wheelCenter);return root}
+test('rear presenter: the race path poses identically and measures only when inspected',()=>{
+ const measured=new RearPresenter(rearScene(),rig),lazy=new RearPresenter(rearScene(),rig);
+ for(const [y,spin] of [[rig.wheelCenter[1]-.08,.4],[rig.wheelCenter[1]+.05,2.2]]){
+  const w={localCenter:{x:0,y,z:rig.wheelCenter[2]},spin},report=measured.update(w);assert.equal(lazy.update(w,false),undefined);
+  for(const name of [...Object.values(rig.groups),'rear_arm_pivot','rear_hub','shock_upper','shock_lower'])assert.deepEqual(lazy.root.getObjectByName(name)!.matrix.elements,measured.root.getObjectByName(name)!.matrix.elements,name);
+  assert.deepEqual(lazy.inspect(),report);
+ }
+});
