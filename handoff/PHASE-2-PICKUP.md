@@ -9,8 +9,8 @@ Written so any agent can be told "pick up at 2D" with no access to earlier chats
 | 2B | Time of day: Golden hour, Dusk, Night, After rain (+rain variants) | done | `PHASE-2B-TIME-OF-DAY.md` |
 | 2C | Wet road, puddles, mirrored underglow | done | `PHASE-2C-WET-ROAD.md` |
 | — | Draw-call cleanup + merged rivals | done (player car untouched, see note) | `PHASE-2-DRAW-CALLS.md` |
-| **2D** | **Harbor water** | **next** | below |
-| 2E | Car touches the world (smoke, spray, sparks, skids, brake glow, exhaust) | todo | P11 `vfx/` |
+| 2D | Harbor water | done | `PHASE-2D-HARBOR-WATER.md` |
+| **2E** | **Car touches the world (smoke, spray, sparks, skids, brake glow, exhaust)** | **next** | P11 `vfx/`; see below |
 | 2F | Contact shadows / AO, shadow tuning for the chase cam | todo | |
 | 2G | Ridge forest | todo | P11 `ridge-trees/`, `ground-cover/` |
 | 2H | Texture pass on flat-coloured surfaces | todo | P11 `material-library.json` |
@@ -18,16 +18,14 @@ Written so any agent can be told "pick up at 2D" with no access to earlier chats
 
 Owner decisions already made (do not re-ask): three.js-native passes, no new dependency; After Rain is visual only (no grip change); Dusk-rain / After-rain are the default looks on Express / Harbor; career events and Ridge keep their validated base look; 2K skies.
 
-## Slice 2D — what "done" means
-Master prompt: replace the harbor water shader with two scrolling normal maps at different scales, Fresnel reflection of the sky/env, depth-based colour (shallow turquoise -> deep blue-green), shoreline foam from depth, sun glitter, gentle vertex swell; boats bob; at night it reflects harbor lights as long vertical streaks.
+## Slice 2E — what "done" means
+Master prompt: tire smoke on slides and launches, dust/leaf kick-up off-line, water spray on wet, brake-disc glow at night under hard braking, exhaust heat shimmer and pops of flame on lift (with the exhaust product fitted), headlight cones with slight volumetric fog, sparks on barrier contact, skid marks that persist for the session.
 
-- Current water: `src/presentation/harbor-water.ts` (`createHarborWater`, patched onto the `Showcase_Moving_Water` material in `showcase.ts`; pinned by `tests/harbor-water.test.ts`). Rendering only, no physics.
-- Assets already authored: `public/assets/p11/harbor-water/` — `swell-normal`, `chop-normal`, `foam`, `caustics`, `depth-color-lut` as KTX2, plus reference `water.frag.glsl` / `water.vert.glsl` / `water.json`. Load with `src/presentation/ktx2.ts` (`loadKTX2`); compressed textures cannot flip Y, so negate `normalScale.y`.
-- There is no depth buffer to sample cheaply: the existing shader uses an authored quay-distance gradient for depth. Keep that approach (or bake a shore-distance map) rather than adding a depth pre-pass.
-- Every look in `src/presentation/time-of-day.ts` must read well: the water takes sun colour, fog and env from the active look. Night streaks: stretch the lamp reflections vertically in the shader; do not add a second planar pass (the wet road already owns one, see 2C).
-- Boats: the `skiff` module is an instanced batch (`showcase.ts`); bob by rewriting instance matrices, not by un-instancing.
-- Budget: harbor High must stay under 10 ms. It is ~840 draw calls / 7–11 ms in a test drive and ~1,380 / ~10–11 ms in a four-car race after the cleanup, so a race has no headroom: measure 2D in race mode (`MODE=race`). Water must add no render pass on Low/Medium.
-- Toggle: effects follow the Graphics preset (`graphics-settings.ts`); honour reduced motion for swell/bob (`motionReduced()` in `speed-feel.ts`).
+- Inputs already exist: `VehicleTelemetry` (per-wheel slip/contact in `src/simulation`), the wet flag on the look (`activeLook.wet`), `VehicleOptics` in `vehicle-materials.ts` for brake/lamp emissives, fitted products via `signature-art.ts` (`stock_exhaust`).
+- P11 `vfx/` holds authored sprites; check `public/assets/p11/vfx/README.md` and add anything new to `demo-assets.json` + `optionalDriveAssetURLs`.
+- Particles: one instanced or points mesh per effect kind, pooled, no per-frame allocation; rivals get the same effects at lower density. Skid marks: a persistent decal mesh with a ring buffer. Everything visual only; nothing touches physics or saves.
+- Budget: a race is ~1,390 calls / ~10-11 ms on High already. Add at most a few draw calls per effect kind, never per car. Measure with `MODE=race scripts/perf/pass-cost.mjs harbor dusk high`.
+- Toggle per preset (`graphics-settings.ts`), reduced motion respected for shimmer/shake-like effects.
 
 ## Rules that have already cost us once
 1. **Hosted build ships an allowlist.** Anything new the game downloads must be added to `demo-assets.json` (CRLF file) and should be optional at load (`optionalDriveAssetURLs` in `src/signature/drive-preparation.ts`). `tests/phase1-speed.test.ts` fails if a download is not allowlisted. Verify on the real package: `npm run deploy:build`, `PORT=8071 node scripts/serve-demo.mjs --publish`, `node scripts/perf/hosted-check.mjs`. Pushing `main` auto-deploys to Vercel.
