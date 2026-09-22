@@ -1,0 +1,224 @@
+{
+  "status": "packaged-functional-and-visual-checks-passed",
+  "base": "ce3e3edf0ca1ab579e1180bcec039725977a8aea",
+  "physicsAndSteering": "Sport v5 unchanged",
+  "tests": {
+    "passed": 367,
+    "failed": 0,
+    "typecheck": "passed"
+  },
+  "package": {
+    "directory": "demo-dist/2026-09-22T07-02-10-829Z-ce3e3edf0ca1-working",
+    "stage": "publish-stage/2026-09-22T07-02-12-555Z-ce3e3edf0ca1-working",
+    "inputCount": 424,
+    "inputHashesMatchWorkingTree": true,
+    "reviewBuildSha256": "84b8db53ed69de5b6a3682f823aaceebbcbfc89f1b9c4ed4bef1271ef8eb6eea"
+  },
+  "shadows": {
+    "pass": true,
+    "rows": [
+      {
+        "route": "harbor",
+        "mode": "test",
+        "speed": 18.61524398616941,
+        "contact": {
+          "enabled": true,
+          "cars": 1,
+          "visiblePatches": 4,
+          "capacity": 4,
+          "drawCalls": 1,
+          "method": "soft contact occlusion on static ground; no screen-space AO or extra render pass"
+        },
+        "shadow": {
+          "maps": 1,
+          "quality": "high",
+          "resolution": 2048,
+          "span": 48,
+          "texelMetres": 0.0234375,
+          "radius": 2.4,
+          "stabilized": true,
+          "focus": [
+            0.008708877630160388,
+            0.03136731140182128,
+            -20.536293195381482
+          ]
+        }
+      },
+      {
+        "mode": "synthetic-airborne-and-rollover",
+        "airborne": {
+          "enabled": true,
+          "cars": 1,
+          "visiblePatches": 0,
+          "capacity": 4,
+          "drawCalls": 0,
+          "method": "soft contact occlusion on static ground; no screen-space AO or extra render pass"
+        },
+        "overturned": {
+          "enabled": true,
+          "cars": 1,
+          "visiblePatches": 0,
+          "capacity": 4,
+          "drawCalls": 0,
+          "method": "soft contact occlusion on static ground; no screen-space AO or extra render pass"
+        },
+        "physicsUnchanged": true
+      },
+      {
+        "route": "express",
+        "mode": "race",
+        "speed": 15.100175332469085,
+        "contact": {
+          "enabled": true,
+          "cars": 4,
+          "visiblePatches": 16,
+          "capacity": 16,
+          "drawCalls": 1,
+          "method": "soft contact occlusion on static ground; no screen-space AO or extra render pass"
+        },
+        "shadow": {
+          "maps": 1,
+          "quality": "high",
+          "resolution": 2048,
+          "span": 48,
+          "texelMetres": 0.0234375,
+          "radius": 2.4,
+          "stabilized": true,
+          "focus": [
+            1.7604397356305017,
+            0.02463973788608267,
+            -6.199275441010054
+          ]
+        }
+      },
+      {
+        "route": "ridge",
+        "mode": "test",
+        "speed": 18.615253707054006,
+        "contact": {
+          "enabled": true,
+          "cars": 1,
+          "visiblePatches": 4,
+          "capacity": 4,
+          "drawCalls": 1,
+          "method": "soft contact occlusion on static ground; no screen-space AO or extra render pass"
+        },
+        "shadow": {
+          "maps": 1,
+          "quality": "high",
+          "resolution": 2048,
+          "span": 48,
+          "texelMetres": 0.0234375,
+          "radius": 2.4,
+          "stabilized": true,
+          "focus": [
+            -0.05021836368846823,
+            0.027605349031570622,
+            -20.528576904756058
+          ]
+        }
+      },
+      {
+        "route": "harbor",
+        "mode": "story",
+        "speed": 18.615242078636726,
+        "contact": {
+          "enabled": true,
+          "cars": 1,
+          "visiblePatches": 4,
+          "capacity": 4,
+          "drawCalls": 1,
+          "method": "soft contact occlusion on static ground; no screen-space AO or extra render pass"
+        },
+        "shadow": {
+          "maps": 1,
+          "quality": "high",
+          "resolution": 2048,
+          "span": 48,
+          "texelMetres": 0.0234375,
+          "radius": 2.4,
+          "stabilized": true,
+          "focus": [
+            0.007815169509165684,
+            0.035893787734196936,
+            -21.537537412357164
+          ]
+        }
+      },
+      {
+        "mode": "contact-off",
+        "contact": {
+          "enabled": false,
+          "cars": 1,
+          "visiblePatches": 0,
+          "capacity": 4,
+          "drawCalls": 0,
+          "method": "soft contact occlusion on static ground; no screen-space AO or extra render pass"
+        }
+      }
+    ],
+    "errors": [],
+    "failed": []
+  },
+  "effectsRegression": {
+    "pass": true,
+    "checks": [
+      {
+        "route": "harbor",
+        "mode": "test"
+      },
+      {
+        "route": "harbor",
+        "mode": "barrier-contact"
+      },
+      {
+        "route": "express",
+        "mode": "race"
+      },
+      {
+        "route": "ridge",
+        "mode": "test"
+      },
+      {
+        "route": "harbor",
+        "mode": "story"
+      },
+      {
+        "route": "harbor",
+        "mode": "low-reduced-missing-assets"
+      },
+      {
+        "route": "harbor",
+        "mode": "published-look-quality-effects-options"
+      }
+    ],
+    "errors": [],
+    "failedRequests": []
+  },
+  "performance": {
+    "viewport": [
+      2560,
+      1440
+    ],
+    "route": "harbor dusk high",
+    "mode": "four-car race",
+    "before": {
+      "averageMs": 11.48,
+      "p99Ms": 34.5
+    },
+    "after": {
+      "averageMs": 11.42,
+      "p99Ms": 34.7
+    },
+    "interpretation": "No measurable average regression in short sequential samples. Existing sustained-performance HOLD remains."
+  },
+  "sourceSha256": {
+    "src/presentation/driving-contact.ts": "d602d12f8a8a140192bbb7bec32789ac67f1b9a0652576ba8f087b4a67a0de69",
+    "src/presentation/chase-shadow.ts": "609969c07d769e25093911a22becbc13cef55b1de1232b521a45b65f7b47483d",
+    "src/presentation/harbor-lighting.ts": "173b3d3fb0bc9fc09e56ffca0a94bf97bb19c3817bdec03463e1102c644bd7b5",
+    "src/presentation/safe-camera.ts": "8b06e836456fe1c8311cafb904d6b91723b939c479160e99525c15329f256f2f",
+    "src/presentation/graphics-control.ts": "cd91236fbaf703d16694a06cf3e10132e46e44c8e123d6698491fbeaaf81de10",
+    "src/express.ts": "bdc051e07df0b1ec27cbf91cd5bd80041828744783b88e1c0f09d603ac4777a1",
+    "src/demo/profile.ts": "e1c382283457b2fa20cde854b76f09d1d289f830fae9b8fa9257dc6728617ada"
+  }
+}

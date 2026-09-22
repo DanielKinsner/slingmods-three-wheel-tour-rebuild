@@ -1,3 +1,10 @@
+# Current work - Phase 2F shadows
+
+- Shared road contact shadows and stable chase shadows implemented; see `handoff/PHASE-2F-SHADOWS.md`.
+- Next: 2G Ridge forest, then 2H surface textures.
+- The phase-wide sustained performance HOLD remains; short samples do not clear it.
+
+---
 # Current work - Phase 2E vehicle effects
 
 - Implemented across story, quick races and test runs; see `handoff/PHASE-2E-VEHICLE-EFFECTS.md`.

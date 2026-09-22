@@ -11,8 +11,8 @@ Written so any agent can be told "pick up at 2D" with no access to earlier chats
 | — | Draw-call cleanup + merged rivals | done (player car untouched, see note) | `PHASE-2-DRAW-CALLS.md` |
 | 2D | Harbor water | done | `PHASE-2D-HARBOR-WATER.md` |
 | 2E | Car touches the world (smoke, spray, sparks, skids, brake glow, exhaust) | done | `PHASE-2E-VEHICLE-EFFECTS.md` |
-| **2F** | **Contact shadows / AO, shadow tuning for the chase cam** | **next** | |
-| 2G | Ridge forest | todo | P11 `ridge-trees/`, `ground-cover/` |
+| 2F | Contact shadows and stable chase sun map | done | `PHASE-2F-SHADOWS.md` |
+| **2G** | **Ridge forest** | **next** | P11 `ridge-trees/`, `ground-cover/` |
 | 2H | Texture pass on flat-coloured surfaces | todo | P11 `material-library.json` |
 | — | Benchmark/test scenes on the same pipeline, avg + 1%-low per preset | todo (Phase 2 done-criterion) | |
 

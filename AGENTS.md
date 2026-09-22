@@ -1,3 +1,13 @@
+# Phase 2F - driving contact and stable chase shadows (2026-09-22)
+
+The owner asked to continue the next roadmap slice. All production road modes
+now share terrain-projected contact shadows and a stabilized chase sun map.
+Preserve Sport v5 physics/input, products, progress and historical records.
+Read `handoff/PHASE-2F-SHADOWS.md` and its validation receipt. Next is 2G.
+Continue one lead on main and the existing hosted game; no subagents, new site,
+vehicle, dependency, archive or spending. Older sections are history.
+
+---
 # Phase 2E - shared vehicle effects (2026-09-21)
 
 The owner asked to take over the next roadmap tasks after driving parity.
