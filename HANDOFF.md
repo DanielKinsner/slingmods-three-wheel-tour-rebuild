@@ -7,8 +7,8 @@ workbench bay is a developer tool (`?workbench=1` or its fixture params). Camera
 presets and snapshots live in `src/presentation/showroom-camera.ts`; the Continue resolver is
 `nextCareerStep()`; temporary careers travel via `src/career/transfer.ts` and the read-only
 `src/career/context.ts`. Preserve Sport v5 physics/input, routes, products, saves, reward
-certification and history. Committed on main; another client auto-pushed it and Vercel deployed
-`5486206` (not run by this session; owner to keep or roll back).
+certification and history. Pushed to main by the owner; Vercel deployed `5486206` and
+it is live and kept.
 Phase 2 performance HOLD unchanged; do not start Phase 3.
 
 ---

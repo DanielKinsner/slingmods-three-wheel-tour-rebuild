@@ -2,9 +2,9 @@
 
 **Bottom line:** all 15 audit findings (UX-01 … UX-15) are fixed and verified in a real browser, plus a UI pass. The career garage now runs on the same showroom as the free configurator, the camera can no longer leave the room, Continue follows the career instead of looping, and every screen shares one header with a persistent Career item and an explicit "Return to career". One narrow limitation remains (browser Back button with storage disabled, below).
 
-**Push/deploy status (corrected):** this session never ran `git push` or a deploy, but another client using this checkout (the Codex app or GitHub Desktop were running; no git hooks exist) auto-pushed each commit to `origin/main` within seconds to minutes (remote-tracking reflog: `5486206` 11:08:55, `c82e549` 11:18:37, `c5ee83d` 11:22:27 -07:00). The existing Vercel Git integration then deployed it: at 11:23 the hosted `/review-build.json` reported commit `5486206` (identical game source to the final). No rollback was attempted; that is the owner's call.
+**Push/deploy status:** the owner pushed the commits manually from this checkout (GitHub Desktop) and the existing Vercel Git integration deployed `5486206`, the finished game source; the hosted `/review-build.json` confirmed it. The owner chose to keep it live.
 
-- Branch `main`, 7 commits on top of the audited `5803a6b`: `8159e8f`, `6a4de54`, `0248efa`, `a61de0c`, `00423ff`, `5486206`, `c82e549` (then the handoff commits). Auto-pushed by another client, see above.
+- Branch `main`, 7 commits on top of the audited `5803a6b`: `8159e8f`, `6a4de54`, `0248efa`, `a61de0c`, `00423ff`, `5486206`, `c82e549` (then the handoff commits). Pushed by the owner; live, see above.
 - Game source is identical at `5486206` and `c82e549`; the packaged build and full-career regression ran on `5486206`.
 - Audit packet copied to `handoff/ux-audit-packet/`; evidence in `handoff/ux-repair-evidence/` (before/after images + result JSON).
 
@@ -47,7 +47,7 @@ Every finding was reproduced on the current checkout before any change (`before-
 - **Harbor/Express chase camera without an obstruction callback:** not changed, not reproduced (out of scope; driving untouched).
 - **Old bay fixed 370-px layout offset:** superseded — the garage measures its panels for framing; 1440/1280/1100/760 px checked.
 - **Performance, memory, audio continuity, loading/cancellation, full progression:** full 10-event career regression passed on the packaged build (below). Performance was *not* measured; the Phase 2 sustained-performance **HOLD still stands**. The garage now draws the same scene as the free showroom.
-- **Deployed vs local:** verification ran on local dev and a local packaged build. The hosted game later received `5486206` via auto-push + Vercel (see top); the hosted build itself was not re-tested beyond reading its build identity.
+- **Deployed vs local:** verification ran on local dev and a local packaged build. The owner pushed and Vercel deployed `5486206` (see top); the hosted build itself was not re-tested beyond reading its build identity.
 
 ## UI pass
 
@@ -111,4 +111,4 @@ npm run demo:build; $env:PORT='5209'; npm run demo:preview   # separate terminal
 $env:BASE_URL='http://127.0.0.1:5209'; $env:EVIDENCE_DIR='.tools/story-parity'; node scripts/verify-story-parity.mjs
 ```
 
-Next: owner hand test of the garage, camera and Continue flow on the hosted game (already live) or locally; decide whether to keep or roll back the live deployment. Phase 3 remains blocked by the Phase 2 performance HOLD.
+Next: owner hand test of the garage, camera and Continue flow on the hosted game (live, kept) or locally. Phase 3 remains blocked by the Phase 2 performance HOLD.
