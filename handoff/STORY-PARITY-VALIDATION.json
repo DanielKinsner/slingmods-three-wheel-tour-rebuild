@@ -1,0 +1,285 @@
+{
+  "status": "local-validation-passed",
+  "base": "582c937a624975fb3447dd07f55deb65cd3a6b96",
+  "handlingProfile": "slingmods-sport-v5",
+  "physicsInputAndAIEquationsChanged": false,
+  "tests": {
+    "total": 351,
+    "passed": 351,
+    "failed": 0,
+    "typecheck": "pass",
+    "command": "npm test",
+    "log": ".tools/story-parity-tests.log",
+    "audioRecheck": "2/2 passed unchanged, followed by complete 351/351 pass",
+    "finalFocusedRecheck": "25/25 passed after final UI corrections"
+  },
+  "fullCareer": {
+    "result": ".tools/story-parity-final/result.json",
+    "method": "Packaged browser. Fresh career, real fixed-step physics and test-only pedal/steering inputs; no position, checkpoint, credit or result injection. Controlled simulation clock, not performance evidence.",
+    "races": [
+      {
+        "event": "01-shakedown",
+        "timeMs": 67291.24727208955,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 800
+      },
+      {
+        "event": "02-maya",
+        "timeMs": 72339.4127039799,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 650
+      },
+      {
+        "event": "03-crew",
+        "timeMs": 145065.7824119566,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 100
+      },
+      {
+        "event": "04-open-it-up",
+        "timeMs": 76989.02305806975,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 800
+      },
+      {
+        "event": "05-jett",
+        "timeMs": 79022.68402235545,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 700
+      },
+      {
+        "event": "06-cup-harbor",
+        "timeMs": 77063.1463213316,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 0
+      },
+      {
+        "event": "07-cup-express",
+        "timeMs": 85881.72271319997,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 900
+      },
+      {
+        "event": "08-ridge-solo",
+        "timeMs": 109087.95093501208,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 400
+      },
+      {
+        "event": "09-ridge-duel",
+        "timeMs": 117080.28325623069,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 600
+      },
+      {
+        "event": "10-ridge-crew",
+        "timeMs": 232856.53279079063,
+        "handlingProfile": "slingmods-sport-v5",
+        "amount": 900
+      }
+    ],
+    "ownedProducts": [
+      "SM-133",
+      "SM-3223",
+      "SM-7720",
+      "SM-26801",
+      "SM-28919"
+    ],
+    "errors": [],
+    "failedAssets": [],
+    "sourceStage": "publish-stage/2026-09-22T00-19-37-974Z-582c937a6249-working"
+  },
+  "finalResumeAndKeyboard": {
+    "result": ".tools/story-parity-resume/result.json",
+    "method": "Packaged browser with an isolated constructed v2 prepared entry; archived results originate in the real complete-career run. Keyboard driving, steering, pause, retry and preview isolation.",
+    "cases": [
+      {
+        "name": "resumed-story",
+        "speed": 9.459106722315397,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "dusk-rain",
+          "base": "night",
+          "requested": "dusk-rain",
+          "wet": true
+        }
+      },
+      {
+        "name": "harbor-test",
+        "speed": 9.459101432489083,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "after-rain",
+          "base": "day",
+          "requested": "after-rain",
+          "wet": true
+        }
+      },
+      {
+        "name": "harbor-race",
+        "speed": 5.921750431374969,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "after-rain",
+          "base": "day",
+          "requested": "after-rain",
+          "wet": true
+        }
+      },
+      {
+        "name": "express-test",
+        "speed": 9.459106722315397,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "dusk-rain",
+          "base": "night",
+          "requested": "dusk-rain",
+          "wet": true
+        }
+      },
+      {
+        "name": "express-race",
+        "speed": 5.457071604547023,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "dusk-rain",
+          "base": "night",
+          "requested": "dusk-rain",
+          "wet": true
+        }
+      },
+      {
+        "name": "ridge-test",
+        "speed": 9.459100821391493,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "day",
+          "base": "day",
+          "requested": "day",
+          "wet": false
+        }
+      },
+      {
+        "name": "ridge-race",
+        "speed": 5.918442227210158,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "day",
+          "base": "day",
+          "requested": "day",
+          "wet": false
+        }
+      },
+      {
+        "name": "chapter-one-harbor-shakedown-standing-lap-v1",
+        "speed": 9.4590966652171,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "night",
+          "base": "night",
+          "requested": "night",
+          "wet": false
+        }
+      },
+      {
+        "name": "chapter-one-harbor-maya-duel-v1",
+        "speed": 9.459097618687831,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "night",
+          "base": "night",
+          "requested": "night",
+          "wet": false
+        }
+      },
+      {
+        "name": "chapter-one-harbor-crew-night-v1",
+        "speed": 5.921750431374969,
+        "profile": {
+          "simulation": "slingmods-sport-v5",
+          "input": "slingmods-sport-v5",
+          "field": "slingmods-sport-v5"
+        },
+        "look": {
+          "id": "night",
+          "base": "night",
+          "requested": "night",
+          "wet": false
+        }
+      }
+    ],
+    "oldProfile": "slingmods-sport-v2",
+    "resumedProfile": "slingmods-sport-v5",
+    "retryProfile": "slingmods-sport-v5",
+    "errors": [],
+    "sourceStage": "publish-stage/2026-09-22T00-37-09-572Z-582c937a6249-working",
+    "fitmentLabels": "Both legacy garage cards display Listed for 2026 R using shared catalog part numbers."
+  },
+  "package": {
+    "inventory": 410,
+    "mismatches": [],
+    "output": "demo-dist/2026-09-22T00-38-47-433Z-582c937a6249-working",
+    "productionBuild": "npm run deploy:build passed",
+    "note": "Latest package differs from final keyboard smoke only in three changed-line newline endings; hosted smoke verifies deployed source."
+  },
+  "sourceSha256": {
+    "src/career-experience/hub.ts": "a02a697864c3fac1fa83e7d6491b6a290aa564562c56665add5b8cac3370597c",
+    "src/career-experience/model.ts": "28045cf8a22b7483744407b1480b49b5e7a1c5a993b7ed06916dc3bc944b0c79",
+    "src/career-experience/race-adapter.ts": "838655cf91f7dd8f39cffb9cc62e8e9804c163bc99e774427fcc7932e30b0d9c",
+    "src/crew-ui.ts": "0f9ec1946107c49c576c08322f89c8f71fd43bb42e4bbbbbe3812d714f46d549",
+    "src/crew.ts": "0cb9d0d9866a4da63ccdc6056afa39dcfb8b063f1d3bf4a45863a8d41a63724b",
+    "src/express.ts": "45ff2d7c3578c1a1d34f9f48abdcbaa679fe22b27c0e7bd7769cf898cf239dc1",
+    "src/harbor.ts": "0cb9d0d9866a4da63ccdc6056afa39dcfb8b063f1d3bf4a45863a8d41a63724b",
+    "src/main.ts": "f9153961f1d62a4043b0bf5903f51ddf3ad49d2651b7f778626f73c6b94b89d6",
+    "src/presentation/time-of-day.ts": "04c93611c9f0fab10158c57ee2c5f79546c0b5b7aa13d40b67705fc2d760ee90",
+    "src/save.ts": "216f758755b962a7449d6fcf9dd73045117a2afc884766c26b00794e2e697b47",
+    "src/signature/config.ts": "a07626aa8f32a9acb3ffa836df8c3bb7aaf5fea60cfb6060ab21a528a9e5f22e",
+    "src/signature/scene.ts": "ed9d2cf08604607fbbdda818ed2a2014255b13cf39102337ea5fa397f0361be0",
+    "src/signature/ui.ts": "2bd761e303362d02475796182a2fdd956fdfe36d75a5f72b8fd5712e63979cde",
+    "src/workbench.ts": "d171c5212a0d71edaca3f4748b9ee1d9784c1401c899bbf02c2f2e1b9e9024cd",
+    "src/career-experience/chapter-one-race.ts": "cd5287712f52818a0712d6963991093be8ce9bf7ea6974ee3d87ee34d213177b",
+    "src/career/build-ui.ts": "b0fd1462707efea46c97de0ebf9f948e2feff201207e121e698594e91d77d834",
+    "src/career/suspension-ui.ts": "ef9c70e9261fabab060a89ec7a166ebbb8f5bf1cffac819afe184e64a5ccadab"
+  },
+  "limits": [
+    "Controlled-clock browser functional evidence, not performance measurements or physical gamepad/listening approval.",
+    "Only completed preexisting improvements through Phase 2D are integrated.",
+    "No owner browser save was accessed."
+  ]
+}

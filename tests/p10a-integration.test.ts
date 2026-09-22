@@ -4,7 +4,7 @@ import {randomUUID} from 'node:crypto';
 import {freshCareer,migrateCareer,transition,MemoryCareerStore,CareerDataError,type Career} from '../src/career/store';
 import {RIDGE_EVENTS,EVENTS,certifyCareerFinish,eventAvailable,ridgeAvailable,competition,type ChapterEvent,type Attempt} from '../src/career-experience/model';
 import {careerRaceHref,routeVersion} from '../src/career-experience/race-adapter';
-import {BuildRepository,freshRecipe,DRIVE_KEY,type DestinationId} from '../src/signature/config';
+import {BuildRepository,freshRecipe,currentDrivingCopy,DRIVE_KEY,type DestinationId} from '../src/signature/config';
 import {PRODUCTS} from '../src/signature/catalog';
 import {visitorSearch} from '../src/demo/profile';
 import {driveAssetURLs} from '../src/signature/drive-preparation';
@@ -45,9 +45,9 @@ test('P10A retries preserve the committed build and abandon/invalid/unfinished/w
 test('P10A corrupt chapter medals are rejected without overwriting raw saves',()=>{
  const s=coastline();for(const patch of [null,{completed:{'find-the-ridge':true,'nico-ridge-duel':false,'summit-invitational':false},won:{'find-the-ridge':false,'nico-ridge-duel':false,'summit-invitational':false}},{completed:{},won:{}}]){const bad={...s,ownBuild:{...s.ownBuild,ridge:patch}},bytes=JSON.stringify(bad);assert.throws(()=>migrateCareer(bad),CareerDataError);assert.equal(JSON.stringify(bad),bytes)}
 });
-test('P10A every destination is free and snapshots retain all five parts, finish, setup and historical profile',()=>{
+test('P10A every destination is free and snapshots retain all five parts, finish, setup and original recipes while driving with current physics',()=>{
  const d=storage(),session=storage(),repo=new BuildRepository(d,session),recipe=freshRecipe();recipe.finish='white-graphite';recipe.handlingProfile='slingmods-sport-v2';recipe.suspension.frontCompression=14;for(const p of PRODUCTS)recipe.products[p.id]=p.option;const career=JSON.stringify(freshCareer());d.data.set('career-sentinel',career);repo.setDraft(recipe);
- for(const route of ['harbor','express','ridge'] as DestinationId[])for(const mode of ['test','race'] as const){repo.beginDrive(recipe,route,mode,'night');const trip=repo.drive();assert.deepEqual(trip.recipe,recipe);assert.deepEqual(repo.draft(),recipe);assert.equal(trip.route,route);assert.equal(trip.lighting,route==='ridge'?'night':undefined);assert.equal(d.data.get('career-sentinel'),career)}
+ for(const route of ['harbor','express','ridge'] as DestinationId[])for(const mode of ['test','race'] as const){repo.beginDrive(recipe,route,mode,'night');const trip=repo.drive();assert.deepEqual(trip.recipe,currentDrivingCopy(recipe));assert.deepEqual(repo.draft(),recipe);assert.equal(trip.route,route);assert.equal(trip.lighting,route==='ridge'?'night':undefined);assert.equal(d.data.get('career-sentinel'),career)}
  const bad=JSON.parse(session.data.get(DRIVE_KEY)!);bad.lighting='storm';session.data.set(DRIVE_KEY,JSON.stringify(bad));const bytes=session.data.get(DRIVE_KEY);assert.throws(()=>repo.drive());assert.equal(session.data.get(DRIVE_KEY),bytes);
 });
 test('P10A staged query retains Ridge career identities and lighting, rejects unknown inputs',()=>{

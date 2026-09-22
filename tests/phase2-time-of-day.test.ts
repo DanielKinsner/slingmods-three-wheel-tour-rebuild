@@ -19,8 +19,9 @@ test('showcase defaults are wet (Dusk after rain on Express, After rain on Harbo
  assert.equal(flat({search:'?look=after-rain',storage:store}).id,'after-rain','a link wins');assert.equal(flat({search:'?look=banana'}).id,'dusk-rain');assert.equal(flat({storage:memory({[LOOK_KEY]:'{broken'})}).id,'dusk-rain');assert.equal(flat({storage:{getItem(){throw Error('blocked')}}}).id,'dusk-rain');
  assert.equal(flat({requested:'night',explicitLighting:true}).id,'night','an explicit lighting=night request still means Night');
 });
-test('career events and the ridge never change look, and lap records keep their two lighting keys',()=>{
- for(const requested of['day','night']as const){assert.equal(resolveLook({route:'express',career:true,requested,explicitLighting:false,search:'?look=dusk',storage:memory()}).id,requested);assert.equal(resolveLook({route:'ridge',career:false,requested,explicitLighting:false,search:'?look=dusk',storage:memory()}).id,requested)}
+test('story lighting requirements and ridge atmospheres persist while ordinary career looks match free driving',()=>{
+ for(const requested of['day','night']as const){assert.equal(resolveLook({route:'express',career:true,requested,explicitLighting:true,search:'?look=dusk',storage:memory()}).id,requested);assert.equal(resolveLook({route:'ridge',career:false,requested,explicitLighting:false,search:'?look=dusk',storage:memory()}).id,requested)}
+ assert.equal(flat({career:true}).id,flat().id);assert.equal(flat({career:true,route:'harbor'}).id,flat({route:'harbor'}).id);
  const route={id:'harbor-express',version:'express-layout-v1'};for(const id of LOOK_ORDER)assert.ok([recordKey(route,'day'),recordKey(route,'night')].includes(recordKey(route,LOOKS[id].base)));
  const drive=readFileSync('src/express.ts','utf8');assert.ok(drive.includes('preset=look.base,'),'every existing system keeps keying on the validated base preset');
 });

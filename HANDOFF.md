@@ -1,3 +1,20 @@
+# Story and driving parity (2026-09-21)
+
+The owner requested uniform use of the best completed driving/build work across
+career/story, quick races and test runs, with no new feature or physics retune.
+All production road entries now use `src/express.ts`, including Chapter 01 via
+`src/career-experience/chapter-one-race.ts`. Sport v5 is used for every new drive,
+retry and resumed entry; historical recipes/results remain archived. Completed
+Cup stages keep their original tune and remaining stages use current physics
+with the Cup's original equipment. Do not restore mode-specific old runtimes or
+optional old driving defaults. The retained pad and showroom also use v5.
+
+The completed Phase 2D water work at `582c937` is included. Existing models,
+products, camera/effects, mirrors and graphics pipeline are shared with story.
+Read `handoff/STORY-PARITY.md` and its validation receipt. One lead; no new
+features, subagents, review ZIP, site or spending. Earlier handoffs are history.
+
+---
 # Static console detail (2026-09-21)
 
 Latest owner request: restore visual R/N/D/M center-console buttons only.

@@ -19,8 +19,8 @@ if (mode === 'calibration') {
 } else if(mode==='signature') await loadScene(()=>import('./signature/scene'));
 else if(mode==='career') await loadScene(()=>import('./career-experience/hub'));
 else if((mode==='express'||mode==='ridge')) await loadScene(()=>import('./express'));
-else if(mode==='crew') await loadScene(()=>import('./crew'));
-else if(mode==='harbor') await loadScene(()=>import('./harbor'));
+else if(mode==='crew') await loadScene(()=>import('./express'));
+else if(mode==='harbor') await loadScene(()=>import('./express'));
 else await loadScene(()=>import('./workbench'));
 loadingExit?.remove();
 if(activeProfile()==='demo'){const link=document.createElement('a');link.className='preview-return';link.textContent='Development Preview · Demo profile';link.href=location.pathname;document.body.append(link)}

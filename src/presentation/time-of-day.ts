@@ -26,10 +26,10 @@ function stored(storage:Pick<Storage,'getItem'>|undefined):Record<string,unknown
 const browser=()=>{try{return typeof localStorage==='undefined'?undefined:localStorage}catch{return undefined}};
 /**
  * `?look=` wins, then an explicit night request (the pre-existing `lighting=night` path), then the remembered choice
- * for that route, then the showcase default. Career events and the ridge always keep their validated base preset.
+ * for that route, then the showcase default. Ridge keeps its authored atmosphere. Explicit story lighting keeps its day/night requirement; all other entries share the same looks.
  */
 export function resolveLook(context:{route:'express'|'harbor'|'ridge';career:boolean;requested:LightPreset;explicitLighting:boolean;search?:string;storage?:Pick<Storage,'getItem'>}):Look{
- if(context.career||context.route==='ridge')return LOOKS[context.requested];
+ if(context.route==='ridge'||context.career&&context.explicitLighting)return LOOKS[context.requested];
  const query=new URLSearchParams(context.search??(typeof location==='undefined'?'':location.search)).get('look');if(valid(query))return LOOKS[query];
  if(context.explicitLighting)return LOOKS[context.requested];
  const remembered=stored(context.storage??browser())[context.route];return LOOKS[valid(remembered)?remembered:DEFAULT_LOOK[context.route]];

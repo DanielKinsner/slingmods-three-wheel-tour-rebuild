@@ -1,3 +1,4 @@
+import {CURRENT_HANDLING_PROFILE} from '../simulation/profile';
 import {VehicleMirrors} from '../presentation/vehicle-mirrors';
 import {VehicleOptics} from '../presentation/vehicle-materials';
 import {CURRENT_VEHICLE_CONTEXT} from '../presentation/vehicle-asset';
@@ -43,7 +44,7 @@ let reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;try{red
 const storage=buildRepository();let recipe:BuildRecipe=freshRecipe(),original=freshRecipe(),history:BuildRecipe[]=[],compare=false,lighting:'studio'|'lights'='studio',driverVisible=false,pending=false,status=storage.temporary?'Temporary build session; browser storage is unavailable.':'',screen:SignatureState['screen']=params.get('screen')==='build'?'build':params.get('screen')==='events'?'events':'entry';
 try{recipe=fragmentRecipe(location.hash)??storage.store.draft();original=structuredClone(recipe)}catch(e){status=(e as Error).message}
 let saved:ReturnType<typeof storage.store.recipes>=[];try{saved=storage.store.recipes()}catch(e){status=(e as Error).message}
-let simulation=await Simulation.create(undefined,recipe.handlingProfile),simulationProfile=recipe.handlingProfile;
+const simulation=await Simulation.create(undefined,CURRENT_HANDLING_PROFILE),simulationProfile=CURRENT_HANDLING_PROFILE;
 simulation.reset({x:0,z:0,y:0,yaw:0});for(let i=0;i<120;i++)simulation.step({throttle:0,brake:1,steer:0,reverse:false});
 let neutral=simulation.telemetry();const display=new PoweredDisplay(hero.asset),optics=new VehicleOptics(hero.asset,true);let ignition=true;hero.pose(neutral,0,false,true);hero.driver.root.visible=false;
 const mirrors=new VehicleMirrors(hero.root,hero.asset);
@@ -59,7 +60,7 @@ function state():SignatureState{return {ignition,initialDestination,destinationL
 function historyFragment(){window.history.replaceState(null,'',location.pathname+location.search+recipeFragment(recipe))}
 function refresh(){ui.update(state())}
 async function apply(){
- const shown=compare?stockRecipe(recipe):recipe;if(simulationProfile!==shown.handlingProfile){const next=await Simulation.create(undefined,shown.handlingProfile);simulation.dispose();simulation=next;simulationProfile=shown.handlingProfile;}accessories.inspectStorage(false);shocks.inspectionView(null);await finishes.set(shown.finish);accessories.set(Object.keys(shown.products));under.set(!!shown.products['SM-133'],shown.lights);shocks.set(!!shown.products['SM-3223']);shocks.update();under.update();hero.driver.root.visible=driverVisible;audio.setExhaustTreatment(!!shown.products['SM-7720']);
+ const shown=compare?stockRecipe(recipe):recipe;accessories.inspectStorage(false);shocks.inspectionView(null);await finishes.set(shown.finish);accessories.set(Object.keys(shown.products));under.set(!!shown.products['SM-133'],shown.lights);shocks.set(!!shown.products['SM-3223']);shocks.update();under.update();hero.driver.root.visible=driverVisible;audio.setExhaustTreatment(!!shown.products['SM-7720']);
  // Recreate only the static diagnostic pose when setup changes; actual drives capture the recipe at entry.
  simulation.reset({x:0,z:0,y:0,yaw:0});simulation.configureSuspension(shown.products['SM-3223']?shown.suspension:null);for(let i=0;i<90;i++)simulation.step({throttle:0,brake:1,steer:0,reverse:false});neutral=simulation.telemetry();hero.pose(neutral,0,false,true);hero.driver.root.visible=driverVisible;contact.ground(hero.root,()=>0);shocks.update();
  const look=STUDIO_LOOKS[lighting];renderer.toneMappingExposure=look.exposure;scene.environmentIntensity=look.environment;hemi.intensity=look.hemisphere;key.intensity=look.key;fill.intensity=look.fill;rim.intensity=look.rim;scene.background=new THREE.Color(look.background);wall.setLook(lighting);mirrors.invalidate();display.snapshot(renderer,scene.environment,JSON.stringify(shown));layoutKey='';refresh();
