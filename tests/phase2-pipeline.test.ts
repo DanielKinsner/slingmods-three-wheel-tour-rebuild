@@ -12,7 +12,7 @@ test('graphics quality: High by default, remembered under its own key, never ins
 });
 test('presets step up monotonically; every preset uses the pipeline and Low keeps dynamic resolution',()=>{
  assert.deepEqual(GRAPHICS_ORDER,['low','medium','high','ultra']);const p=GRAPHICS_ORDER.map(q=>GRAPHICS_PRESETS[q]);
- assert.deepEqual(GRAPHICS_PRESETS.low,{label:'Low',post:true,samples:0,pixelRatioCap:1,bloomLevels:0,dynamicResolution:true,wetReflections:0,lighting:'low'});assert.deepEqual(GRAPHICS_ORDER.map(q=>GRAPHICS_PRESETS[q].wetReflections),[0,0,2,1],'puddles mirror the sky only on Low/Medium; cars and lamps every other frame on High, every frame on Ultra');assert.ok(p.every(x=>x.post),'direct drawing measured slower than the pipeline, so it is only an automatic fallback');
+ assert.deepEqual(GRAPHICS_PRESETS.low,{label:'Low',post:true,samples:0,pixelRatioCap:1,bloomLevels:0,dynamicResolution:true,wetReflections:0,lighting:'low',waterSwell:false});assert.deepEqual(GRAPHICS_ORDER.map(q=>GRAPHICS_PRESETS[q].wetReflections),[0,0,2,1],'puddles mirror the sky only on Low/Medium; cars and lamps every other frame on High, every frame on Ultra');assert.ok(p.every(x=>x.post),'direct drawing measured slower than the pipeline, so it is only an automatic fallback');
  for(let i=1;i<p.length;i++){assert.ok(p[i].samples>=p[i-1].samples&&p[i].pixelRatioCap>=p[i-1].pixelRatioCap&&p[i].bloomLevels>=p[i-1].bloomLevels)}assert.equal(GRAPHICS_PRESETS.ultra.dynamicResolution,false,'Ultra never trades pixels');assert.equal(GRAPHICS_PRESETS.high.dynamicResolution,true);
 });
 test('dynamic resolution: drops under load, floors at 60%, climbs back, and does not bounce under vsync',()=>{

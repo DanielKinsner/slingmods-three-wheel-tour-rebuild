@@ -4,14 +4,14 @@
  */
 export type GraphicsQuality='low'|'medium'|'high'|'ultra';
 export const GRAPHICS_KEY='slingmods-graphics-v1',GRAPHICS_ORDER:readonly GraphicsQuality[]=['low','medium','high','ultra'];
-export interface GraphicsPreset {label:string;/** Render through the post pipeline. Every preset does; `false` exists for the automatic fallback when a GPU cannot. */post:boolean;/** MSAA samples on the scene target. */samples:number;pixelRatioCap:number;/** Bloom mip levels; 0 disables bloom. */bloomLevels:number;dynamicResolution:boolean;/** Wet roads mirror the cars, underglow and lamps (one extra half-res pass). 0 = puddles mirror the sky only; 2 = refresh every other frame (the image is sampled through the matrix it was drawn with, so the world stays put; only the car's own reflection trails it by one frame); 1 = every frame. */wetReflections:0|1|2;/** Existing load-time lighting/shadow budget. */lighting:'low'|'standard'}
+export interface GraphicsPreset {label:string;/** Render through the post pipeline. Every preset does; `false` exists for the automatic fallback when a GPU cannot. */post:boolean;/** MSAA samples on the scene target. */samples:number;pixelRatioCap:number;/** Bloom mip levels; 0 disables bloom. */bloomLevels:number;dynamicResolution:boolean;/** Wet roads mirror the cars, underglow and lamps (one extra half-res pass). 0 = puddles mirror the sky only; 2 = refresh every other frame (the image is sampled through the matrix it was drawn with, so the world stays put; only the car's own reflection trails it by one frame); 1 = every frame. */wetReflections:0|1|2;/** Existing load-time lighting/shadow budget. */lighting:'low'|'standard';/** Harbor water: vertex swell and boat bob (a 2 m grid instead of one quad). */waterSwell:boolean}
 export const GRAPHICS_PRESETS:Record<GraphicsQuality,GraphicsPreset>={
  // Low still uses the pipeline: measured, drawing straight to the screen was SLOWER (the mirror passes then flip every
  // material between two shader variants) and it would lose dynamic resolution, the most useful tool on a weak GPU.
- low:{label:'Low',post:true,samples:0,pixelRatioCap:1,bloomLevels:0,dynamicResolution:true,wetReflections:0,lighting:'low'},
- medium:{label:'Medium',post:true,samples:2,pixelRatioCap:1,bloomLevels:4,dynamicResolution:true,wetReflections:0,lighting:'standard'},
- high:{label:'High',post:true,samples:4,pixelRatioCap:1.5,bloomLevels:5,dynamicResolution:true,wetReflections:2,lighting:'standard'},
- ultra:{label:'Ultra',post:true,samples:4,pixelRatioCap:2,bloomLevels:6,dynamicResolution:false,wetReflections:1,lighting:'standard'}};
+ low:{label:'Low',post:true,samples:0,pixelRatioCap:1,bloomLevels:0,dynamicResolution:true,wetReflections:0,lighting:'low',waterSwell:false},
+ medium:{label:'Medium',post:true,samples:2,pixelRatioCap:1,bloomLevels:4,dynamicResolution:true,wetReflections:0,lighting:'standard',waterSwell:true},
+ high:{label:'High',post:true,samples:4,pixelRatioCap:1.5,bloomLevels:5,dynamicResolution:true,wetReflections:2,lighting:'standard',waterSwell:true},
+ ultra:{label:'Ultra',post:true,samples:4,pixelRatioCap:2,bloomLevels:6,dynamicResolution:false,wetReflections:1,lighting:'standard',waterSwell:true}};
 const valid=(v:unknown):v is GraphicsQuality=>typeof v==='string'&&(GRAPHICS_ORDER as readonly string[]).includes(v);
 /** `?quality=` wins (benchmarks, links); `standard` is the pre-Phase 2 spelling of High. Otherwise the remembered choice, else High. */
 export function loadGraphicsQuality(search=typeof location==='undefined'?'':location.search,storage:Pick<Storage,'getItem'>|undefined=safeStorage()):GraphicsQuality{
