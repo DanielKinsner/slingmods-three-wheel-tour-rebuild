@@ -39,7 +39,9 @@ import {DrivingCamera,nextDrivingView,type DrivingView} from './presentation/dri
 import {GameAudio,renderOfflineGameAudio} from './audio/game-audio';
 import {RearDiagnostic} from './presentation/rear-diagnostic';
 import {RearPresenter,type RearRig} from './presentation/rear';
-import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT} from './presentation/vehicle-asset';
+import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT,VEHICLE_MODEL_LABEL} from './presentation/vehicle-asset';
+import {containCamera,SHOWROOM_SAFE_VOLUME} from './presentation/showroom-camera';
+import {FINISHES} from './signature/config';
 import {DriverPresenter,type DriverAttachment} from './presentation/driver';
 
 const query=new URLSearchParams(location.search),driving=query.get('scene')==='pad',bay=(query.get('scene')??'bay')==='bay';
@@ -77,10 +79,12 @@ let shadowMode=(query.get('shadow')??'repaired') as ShadowMode;
 let shadowCensus=configureShadows(vehicle,pad.scene,shadowMode,bay);
 const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.enabled=!driving;controls.target.set(0,.65,0);
 controls.enablePan=!bay;
+const showroomRoom=bay&&!query.has('neutral');if(bay){controls.minDistance=.3;controls.maxDistance=showroomRoom?10:12;controls.minPolarAngle=.2;controls.maxPolarAngle=Math.PI*.48}
 function render(){
- // Keep inspection views in front of the bay's rear wall (front face z=6.71m).
- // Preserve the viewing ray while dollying in; this also protects the Rear preset and zoom/orbit.
- if(bay&&camera.position.z>6.45){const offset=camera.position.clone().sub(controls.target);camera.position.copy(controls.target).addScaledVector(offset,(6.45-controls.target.z)/offset.z);camera.lookAt(controls.target)}
+ // The shared showroom room uses the measured safe interior (walls, floor, ceiling, near plane) along the viewing ray.
+ // The neutral fixture room keeps its rear-wall guard (front face z=6.71m) plus the orbit distance/angle limits above.
+ if(showroomRoom)containCamera(camera,controls.target,SHOWROOM_SAFE_VOLUME);
+ else if(bay&&camera.position.z>6.45){const offset=camera.position.clone().sub(controls.target);camera.position.copy(controls.target).addScaledVector(offset,(6.45-controls.target.z)/offset.z);camera.lookAt(controls.target)}
  suspension?.update();product?.update();if(current??parkedTelemetry)display?.update((current??parkedTelemetry)!,camera,performance.now());mirrors?.update(camera,innerHeight,bay||cameraMode!=='far');mirrors?.render(renderer,scene,camera);pipeline.render(scene,camera,{bloom:bay?SHOWROOM_BLOOM:DEFAULT_BLOOM});
 }
 
@@ -109,10 +113,11 @@ if(driving){const route=await loader.loadAsync('/assets/practice-p03b1.glb');rou
 const hud=document.createElement('aside');hud.id='telemetry';document.querySelector('#app')!.append(hud);
 const fidelity=vehicleFile==='slingshot-p03a1.glb'||vehicleFile==='slingshot-p03a2.glb'||vehicleFile===CURRENT_VEHICLE,proof=!!proofAsset,candidate=fidelity||proof||vehicleFile==='slingshot-p03a.glb';
 document.querySelector('#stage')!.textContent=(proof?'P03A2 / LOCAL PROOF':bay?(fidelity?(vehicleFile===CURRENT_VEHICLE?'P05 / FIRST NIGHT':'P03A1 / INSPECTION'):'P03A / INSPECTION'):driving?'P03B2 / FIRST DRIVE':'NEUTRAL / INSPECTION')+' · '+__BUILD_REF__;
-document.querySelector('#title')!.textContent=vehicleFile==='scale-blockouts.glb'?'Three distinct proportions':'2024 Slingshot R';
-document.querySelector('#subtitle')!.textContent=driving?'AutoDrive · Handling practice':candidate?'Radar Blue Fade · AutoDrive':'P01 clay baseline';
+// Labels follow the vehicle and finish actually shown; historical fixture files keep their own model year.
+document.querySelector('#title')!.textContent=vehicleFile==='scale-blockouts.glb'?'Three distinct proportions':vehicleFile===CURRENT_VEHICLE?VEHICLE_MODEL_LABEL:'2024 Slingshot R';
+document.querySelector('#subtitle')!.textContent=driving?'AutoDrive · Handling practice':vehicleFile===CURRENT_VEHICLE?(FINISHES.find(f=>f.id===careerRecipe(career.state).finish)?.name??'')+' · AutoDrive':candidate?'Radar Blue Fade · AutoDrive':'P01 clay baseline';
 document.querySelector('#hint')!.textContent=driving?'W/S drive & brake · A/D steer · C camera · B look back · R hold reset · Esc pause':'Drag to orbit · Scroll to inspect';
-if(bay&&!query.has('neutral')){document.querySelector('#stage')!.textContent='HARBOR / YOUR GARAGE';document.querySelector('.eyebrow')!.textContent='YOUR SLINGSHOT';document.querySelector('#hint')!.textContent='Drag to orbit · Scroll to inspect'}
+if(bay&&!query.has('neutral')){document.querySelector('#stage')!.textContent='DEVELOPER TOOL / RETIRED WORKBENCH BAY';document.querySelector('.eyebrow')!.textContent='DEVELOPER TOOL';document.querySelector('#hint')!.textContent='Drag to orbit · Scroll to inspect · Player garage: ?scene=bay'}
 const assetQuery=vehicleFile===CURRENT_VEHICLE?'&asset=p04a1':(fidelity||proof)?'&asset=p03a1':candidate?'&asset=p03a':vehicleFile==='scale-blockouts.glb'?'&asset=fleet':'&asset=p01';
 const nav=document.createElement('nav');nav.innerHTML=`<button id="inspect-action" type="button">Inspect</button><a class="drive-action" href="?scene=pad${assetQuery}">Drive</a><a href="?scene=bay${assetQuery}">Bay</a>`;document.querySelector('#app')!.append(nav);if(activeProfile()==='demo'){nav.querySelector<HTMLAnchorElement>('.drive-action')!.href=sceneHref('crew');nav.querySelector<HTMLAnchorElement>('.drive-action')!.textContent='Race';nav.querySelector<HTMLAnchorElement>('a:last-child')!.href=sceneHref('bay')}
 if(bay){const free=document.createElement('a');free.href='?scene=signature&screen=build';free.textContent='Free configurator';nav.append(free)}
@@ -188,7 +193,7 @@ function fitBuild(){
 }
 if(bay){
  const soloEntry=mountHarborEntry();soloEntry.hidden=true;const button=document.createElement('button');button.id='open-build';button.textContent='Build · Make it yours';button.hidden=true;document.querySelector('#app')!.append(button);
- buildUI=new BuildUI(career,{cue:(id,key)=>gameAudio.cue(id,key),suspension:equipped=>{suspension?.set(equipped);render()},inspectHardware:rear=>{suspension?.inspectionView(rear===null?null:rear?'rear':'front');if(rear===null){fitBuild();return}camera.clearViewOffset();camera.aspect=innerWidth/innerHeight;camera.fov=38;camera.position.set(rear?1.3:-1.5,rear?.9:.8,rear?2.5:-2.7);controls.target.set(rear?.28:-.62,rear?.58:.43,rear?1.08:-1.32);camera.lookAt(controls.target);camera.updateProjectionMatrix();render()},open:opened=>{chapterUI?.setVisible(!opened);soloEntry.hidden=true;controls.enabled=!opened;if(opened){normalCamera={position:camera.position.clone(),target:controls.target.clone(),fov:camera.fov};fitBuild()}else if(normalCamera){camera.clearViewOffset();camera.aspect=innerWidth/innerHeight;camera.fov=normalCamera.fov;camera.position.copy(normalCamera.position);controls.target.copy(normalCamera.target);camera.lookAt(controls.target);camera.updateProjectionMatrix();fitBuild();render()}},previewNight:enabled=>{normalLights.forEach((power,light)=>light.intensity=power*(enabled?.24:1));scene.environmentIntensity=enabled?.24:normalEnvironment;render()},appearance:(equipped,appearance)=>{product?.set(equipped,appearance);render()}});button.onclick=()=>buildUI?.open();
+ buildUI=new BuildUI(career,{cue:(id,key)=>gameAudio.cue(id,key),suspension:equipped=>{suspension?.set(equipped);render()},inspectHardware:rear=>{suspension?.inspectionView(rear===null?null:rear?'rear':'front');if(rear===null){fitBuild();return}camera.clearViewOffset();camera.aspect=innerWidth/innerHeight;camera.fov=38;camera.position.set(rear?1.3:-1.5,rear?.9:.8,rear?2.5:-2.7);controls.target.set(rear?.28:-.62,rear?.58:.43,rear?1.08:-1.32);camera.lookAt(controls.target);camera.updateProjectionMatrix();render()},open:opened=>{chapterUI?.setVisible(!opened);soloEntry.hidden=true;controls.enabled=!opened;if(opened){normalCamera={position:camera.position.clone(),target:controls.target.clone(),fov:camera.fov};fitBuild()}else if(normalCamera){camera.clearViewOffset();camera.aspect=innerWidth/innerHeight;camera.fov=normalCamera.fov;camera.position.copy(normalCamera.position);controls.target.copy(normalCamera.target);camera.lookAt(controls.target);camera.updateProjectionMatrix();controls.update();render()}},previewNight:enabled=>{normalLights.forEach((power,light)=>light.intensity=power*(enabled?.24:1));scene.environmentIntensity=enabled?.24:normalEnvironment;render()},appearance:(equipped,appearance)=>{product?.set(equipped,appearance);render()}});button.onclick=()=>buildUI?.open();
  chapterUI=new ChapterUI(career,{build:()=>buildUI?.open(),shakedown:()=>{chapterUI?.setVisible(false);soloEntry.hidden=false;soloEntry.querySelector<HTMLAnchorElement>('#start-shakedown')?.focus()},race:()=>career.navigate('?scene=crew'),duel:()=>career.navigate('?scene=crew&event=duel')});if(query.get('shop')==='build')buildUI.open();
  const back=document.createElement('button');back.textContent='Back to chapter';back.onclick=()=>{soloEntry.hidden=true;chapterUI?.setVisible(true)};soloEntry.append(back);
  fitBuild();if(query.get('view')==='build')buildUI.open();
