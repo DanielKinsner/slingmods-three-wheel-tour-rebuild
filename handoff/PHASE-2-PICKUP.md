@@ -10,13 +10,13 @@ Written so any agent can be told "pick up at 2D" with no access to earlier chats
 | 2C | Wet road, puddles, mirrored underglow | done | `PHASE-2C-WET-ROAD.md` |
 | — | Draw-call cleanup + merged rivals | done (player car untouched, see note) | `PHASE-2-DRAW-CALLS.md` |
 | 2D | Harbor water | done | `PHASE-2D-HARBOR-WATER.md` |
-| **2E** | **Car touches the world (smoke, spray, sparks, skids, brake glow, exhaust)** | **next** | P11 `vfx/`; see below |
-| 2F | Contact shadows / AO, shadow tuning for the chase cam | todo | |
+| 2E | Car touches the world (smoke, spray, sparks, skids, brake glow, exhaust) | done | `PHASE-2E-VEHICLE-EFFECTS.md` |
+| **2F** | **Contact shadows / AO, shadow tuning for the chase cam** | **next** | |
 | 2G | Ridge forest | todo | P11 `ridge-trees/`, `ground-cover/` |
 | 2H | Texture pass on flat-coloured surfaces | todo | P11 `material-library.json` |
 | — | Benchmark/test scenes on the same pipeline, avg + 1%-low per preset | todo (Phase 2 done-criterion) | |
 
-Owner decisions already made (do not re-ask): three.js-native passes, no new dependency; After Rain is visual only (no grip change); Dusk-rain / After-rain are the default looks on Express / Harbor; career events and Ridge keep their validated base look; 2K skies.
+Owner decisions already made (do not re-ask): three.js-native passes, no new dependency; After Rain is visual only (no grip change); Dusk-rain / After-rain are the default looks on Express / Harbor; Chapter 01 and Ridge retain required base looks; Chapter 02 shares the modern looks after story parity; 2K skies.
 
 ## Slice 2E — what "done" means
 Master prompt: tire smoke on slides and launches, dust/leaf kick-up off-line, water spray on wet, brake-disc glow at night under hard braking, exhaust heat shimmer and pops of flame on lift (with the exhaust product fitted), headlight cones with slight volumetric fog, sparks on barrier contact, skid marks that persist for the session.

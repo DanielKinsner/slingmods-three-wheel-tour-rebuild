@@ -1,5 +1,6 @@
+import {effectAssetURLs} from '../presentation/effect-assets';
 import {RIDGE_ASSETS} from '../ridge/assets';
-import {speedDressingURLs} from '../presentation/p11-assets';
+import {speedDressingURLs,BASIS_TRANSCODER_URLS} from '../presentation/p11-assets';
 import {resolveLook} from '../presentation/time-of-day';
 import {CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,CURRENT_PRODUCTS_URL,CURRENT_UNDERGLOW,VEHICLE_VISUAL} from '../presentation/vehicle-asset';
 import type {BuildRecipe,DestinationId} from './config';
@@ -15,7 +16,7 @@ export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
  return [...new Set(shared)];
 }
 /** Set dressing the drive can do without (P11 asphalt, decals, trackside). Warmed when the host has it; never required. */
-export const optionalDriveAssetURLs=(route:DestinationId)=>{if(route==='ridge')return[];const sky=resolveLook({route,career:false,requested:'day',explicitLighting:false}).sky;return[...speedDressingURLs(route),...(sky?[sky]:[])]};
+export const optionalDriveAssetURLs=(route:DestinationId)=>{if(route==='ridge')return [...effectAssetURLs(),...BASIS_TRANSCODER_URLS];const sky=resolveLook({route,career:false,requested:'day',explicitLighting:false}).sky;return[...effectAssetURLs(),...speedDressingURLs(route),...(sky?[sky]:[])]};
 /**
  * Best-effort warm-up. A missing file, a network error or a timeout is recorded and swallowed: the scene has its own
  * fallback (previous road, no props), so nothing here may ever stop the player from driving.

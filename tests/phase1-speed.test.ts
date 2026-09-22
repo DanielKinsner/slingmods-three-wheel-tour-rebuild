@@ -6,7 +6,8 @@ import {metresPerUV} from '../src/presentation/race-asphalt';
 import {SpeedFeel,SPEED_FEEL} from '../src/presentation/speed-feel';
 import {EXPRESS_ROUTE} from '../src/express/route';import {EXPRESS_TRACKSIDE,buildExpressRibbon} from '../src/express/presentation';
 import {projectRoad} from '../src/course/environment';
-import {speedDressingURLs} from '../src/presentation/p11-assets';import {driveAssetURLs,optionalDriveAssetURLs,warmOptionalAssets} from '../src/signature/drive-preparation';import {freshRecipe} from '../src/signature/config';
+import {effectAssetURLs} from '../src/presentation/effect-assets';
+import {speedDressingURLs,BASIS_TRANSCODER_URLS} from '../src/presentation/p11-assets';import {driveAssetURLs,optionalDriveAssetURLs,warmOptionalAssets} from '../src/signature/drive-preparation';import {freshRecipe} from '../src/signature/config';
 import type {VehicleTelemetry} from '../src/simulation';
 
 const MPH=2.23694,wheels=(surface:string)=>[0,1,2].map(i=>({id:'w'+i,contact:true,surface}))as unknown as VehicleTelemetry['wheels'];
@@ -81,8 +82,8 @@ test('reduced motion leaves the validated camera exactly as it was and asks for 
  assert.ok(readFileSync('src/express.ts','utf8').includes('pipeline.render(scene,camera,{edgeBlur:speedFeel.edgeBlur,'),'edge blur strength comes only from SpeedFeel');
 });
 test('every Phase 1 runtime asset exists and is OPTIONAL: warmed by the showroom for flat routes, required by none',()=>{
- for(const route of['express','harbor']as const){const urls=speedDressingURLs(route);assert.equal(new Set(urls).size,urls.length);for(const url of urls)assert.ok(existsSync('public'+url),url);assert.ok(urls.every(u=>!u.endsWith('.png')),'GPU-compressed KTX2 only; never the 15-25 MB PNG masters');assert.deepEqual(optionalDriveAssetURLs(route).filter(u=>!u.includes('/skies/')),urls);assert.ok(driveAssetURLs(route,freshRecipe()).every(u=>!u.includes('/p11/')&&!u.includes('/basis/')),'set dressing can never block a drive')}
- assert.deepEqual(optionalDriveAssetURLs('ridge'),[]);assert.ok(driveAssetURLs('ridge',freshRecipe()).every(u=>!u.includes('/p11/')));
+ for(const route of['express','harbor']as const){const urls=speedDressingURLs(route);assert.equal(new Set(urls).size,urls.length);for(const url of urls)assert.ok(existsSync('public'+url),url);assert.ok(urls.every(u=>!u.endsWith('.png')),'GPU-compressed KTX2 only; never the 15-25 MB PNG masters');assert.deepEqual(optionalDriveAssetURLs(route).filter(u=>!u.includes('/skies/')),[...effectAssetURLs(),...urls]);assert.ok(driveAssetURLs(route,freshRecipe()).every(u=>!u.includes('/p11/')&&!u.includes('/basis/')),'set dressing can never block a drive')}
+ assert.deepEqual(optionalDriveAssetURLs('ridge'),[...effectAssetURLs(),...BASIS_TRANSCODER_URLS]);assert.ok(driveAssetURLs('ridge',freshRecipe()).every(u=>!u.includes('/p11/')));
 });
 // Regression: the hosted build ships ONLY demo-assets.json. Phase 1 added downloads that were not on it, so the hosted
 // showroom answered 404 and blocked Original Harbor and Harbor Express with "Download interrupted".

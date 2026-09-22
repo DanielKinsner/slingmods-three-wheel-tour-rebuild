@@ -44,3 +44,9 @@ test('browser settings and lap storage is isolated for demo and unchanged for ca
  Object.defineProperty(globalThis,'location',{configurable:true,value:{search:'?play=career'}});assert.equal(loadSave(browserStorage()).settings.mute,false);assert.deepEqual(loadSave(browserStorage()).records,{});
  }finally{if(previousWindow)Object.defineProperty(globalThis,'window',previousWindow);else delete (globalThis as any).window;if(previousLocation)Object.defineProperty(globalThis,'location',previousLocation);else delete (globalThis as any).location}
 });
+
+test('published scene URLs retain modern look, quality and effects choices but reject unknown options',()=>{
+ const q=new URLSearchParams(visitorSearch('?scene=express&look=night&quality=ultra&effects=off'));assert.equal(q.get('look'),'night');assert.equal(q.get('quality'),'ultra');assert.equal(q.get('effects'),'off');
+ for(const quality of ['low','medium','high','ultra'])assert.equal(new URLSearchParams(visitorSearch('?quality='+quality)).get('quality'),quality);
+ assert.equal(visitorSearch('?look=unknown&quality=unknown&effects=unknown'),'');
+});

@@ -28,7 +28,7 @@ test('story lighting requirements and ridge atmospheres persist while ordinary c
 test('look skies are the 2K files, exist, are allowlisted for the hosted build and only warmed optionally',()=>{
  const allow=new Set((JSON.parse(readFileSync('demo-assets.json','utf8')).assets as string[]).map(a=>'/'+a));
  for(const url of lookSkyURLs()){assert.match(url,/-2k\.hdr$/,'never the 60-77 MB 8K masters');assert.ok(existsSync('public'+url),url);assert.ok(allow.has(url),url+' must ship on the hosted build')}
- assert.ok(optionalDriveAssetURLs('express').includes(LOOKS.dusk.sky!));assert.ok(optionalDriveAssetURLs('ridge').length===0);
+ assert.ok(optionalDriveAssetURLs('express').includes(LOOKS.dusk.sky!));assert.ok(optionalDriveAssetURLs('ridge').every(url=>!url.includes('/skies/')));
  assert.ok(readFileSync('src/express.ts','utf8').includes('Look sky unavailable; using the base sky.'),'a missing sky falls back to the base look instead of failing the drive');
 });
 test('wet road is visual only and its reflection pass draws only what belongs in a puddle',()=>{

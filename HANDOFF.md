@@ -1,3 +1,14 @@
+# Phase 2E - shared vehicle effects (2026-09-21)
+
+The owner asked to take over the next roadmap tasks after driving parity.
+Phase 2E is implemented in the shared road runtime: pooled wheel/contact effects,
+session skids, brake glow, headlight fog and fitted-exhaust effects. Preserve the
+Sport v5 physics/input, existing builds, progress and history. Read
+`handoff/PHASE-2E-VEHICLE-EFFECTS.md` and its validation receipt. Next is 2F.
+Continue one lead on main and the existing hosted game; no subagents, new site,
+vehicle, dependency, review archive or spending. Older sections are history.
+
+---
 # Story and driving parity (2026-09-21)
 
 The owner requested uniform use of the best completed driving/build work across

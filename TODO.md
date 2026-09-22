@@ -1,3 +1,10 @@
+# Current work - Phase 2E vehicle effects
+
+- Implemented across story, quick races and test runs; see `handoff/PHASE-2E-VEHICLE-EFFECTS.md`.
+- Next roadmap slice: 2F contact shadows / AO and chase-camera shadows.
+- Keep Sport v5 physics, input, earned equipment, saves and historical records unchanged.
+
+---
 # Current work — mirrors and steering
 
 - Implemented: live reflections on the player's 2026 mirrors in showroom and all
