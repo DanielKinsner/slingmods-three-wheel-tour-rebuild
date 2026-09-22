@@ -1,20 +1,20 @@
 {
-  "tested_runtime_commit": "dc164af97d4da8dad09e6757c3d6f991fd068ea7",
+  "tested_runtime_commit": "f433ef747960ee5214bc30aa1754406ad0d1b8d3",
   "tests": {
-    "passed": 5,
+    "passed": 401,
     "failed": 0,
-    "scope": "Existing Ryker exported asset tests; color-only change, full-suite baseline retained separately"
+    "scope": "Full suite; final accessory geometry followed by 3 focused tests passing."
   },
   "curated_build": "passed",
   "static_browser_smoke": "passed",
   "fidelity_comparison": "passed",
-  "fidelity_scope": "Slingshot/Ryker exterior views, native detail, live steering mirrors, telemetry screen, forward/reverse, ignition off, day/night cockpit",
+  "fidelity_scope": "Unchanged accepted base GLB; prior Slingshot/Ryker comparison retained. New accessory closeups and UI/mobile captures reviewed.",
   "browser_console_errors": 0,
   "missing_runtime_assets": 0,
   "gltf_errors": 0,
   "gltf_warnings": 0,
   "main_checked": "de5e5ac82797ae36788555b287d19b37ff422742",
-  "merge_tree": "fa4e0e3bf06018774576cb256e55c2d95499e17d",
+  "merge_tree": "4bf2fde4fa6425135a64d2211a872464443a7b10",
   "merge_conflicts": false,
   "glb_bytes": 13469980,
   "glb_sha256": "7de9baa01da5271c83e218e1725ec8471d24d2a8a3afeec4671e52c7b27de43f",
@@ -38,5 +38,32 @@
     "commit": "0ccb93d6fb00418ebb076198c844aff936ca4fd6"
   },
   "default_finish": "Adrenaline Red / black",
-  "geometry_buffers_unchanged": true
+  "geometry_buffers_unchanged": true,
+  "ryker_equipment": {
+    "parts": [
+      "TricLED SM-7227",
+      "Elka Stage 3 SM-5475 / SM-8178",
+      "Treal Street TRP-RKR-SES",
+      "Panther Customs SM-8167"
+    ],
+    "browser_pass": true,
+    "actual_departure_equipment_retained": true,
+    "per_vehicle_drafts": true,
+    "stock_comparison": true,
+    "viewport_sizes": [
+      [
+        1440,
+        1000
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "storage_category": false,
+    "body_category": "Body Kit",
+    "reference_based_meshes": true,
+    "steady_rgb_only": true,
+    "career_purchases_added": false
+  }
 }
