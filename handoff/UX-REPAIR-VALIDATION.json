@@ -1,0 +1,209 @@
+{
+ "assignment": "UX, career-mode and showroom repair pass (SlingMods-UX-Audit-Packet, audited commit 5803a6bb366b5c51ff940435233e486cbccc3c80) plus UI pass",
+ "date": "2026-09-22",
+ "branch": "main",
+ "base": "5803a6bb366b5c51ff940435233e486cbccc3c80",
+ "commits": [
+  "8159e8f",
+  "6a4de54",
+  "0248efa",
+  "a61de0c",
+  "00423ff",
+  "5486206",
+  "c82e549"
+ ],
+ "pushed": false,
+ "deployed": false,
+ "sourceIdentity": "src/ identical at 5486206 and c82e549; packaged build and story parity ran on 5486206",
+ "dispositions": {
+  "UX-01": "fixed",
+  "UX-02": "fixed",
+  "UX-03": "fixed",
+  "UX-04": "fixed",
+  "UX-05": "fixed",
+  "UX-06": "fixed",
+  "UX-07": "fixed",
+  "UX-08": "fixed",
+  "UX-09": "fixed",
+  "UX-10": "fixed",
+  "UX-11": "fixed",
+  "UX-12": "fixed",
+  "UX-13": "fixed",
+  "UX-14": "fixed",
+  "UX-15": "fixed"
+ },
+ "limitations": [
+  "UX-01: with browser storage denied, the browser's own Back/Reload still resets a temporary career (in-game navigation carries it; Chromium restores window.name per history entry). Per-entry history state rejected: stale restore could allow a finished race to be replayed for a second reward.",
+  "Physical controllers and real touch devices not used (virtual standard gamepad; Chromium touch emulation).",
+  "Chromium only.",
+  "Performance not measured; Phase 2 sustained-performance HOLD unchanged."
+ ],
+ "tests": {
+  "command": "npm test",
+  "total": 388,
+  "passed": 388,
+  "new": "tests/ux-repair.test.ts (8, negative-controlled)",
+  "changed": "tests/p08b-ui.test.mjs fake scene stores destination"
+ },
+ "build": {
+  "command": "npm run build",
+  "pass": true,
+  "bundleDeltaBytes": 32570,
+  "bundleDeltaPercent": 0.73,
+  "note": "3.2 MB chunk is pre-existing Rapier WebAssembly"
+ },
+ "browser": {
+  "verifyUxRepair": {
+   "script": "scripts/verify-ux-repair.mjs",
+   "server": "vite dev 127.0.0.1:5186",
+   "checks": 31,
+   "pass": true,
+   "errors": [],
+   "limitationsRecorded": [
+    {
+     "id": "UX-01",
+     "label": "storage denied: browser Back (not the in-game return) from the showroom reloads the hub without the temporary career",
+     "observed": {
+      "credits": 0,
+      "navigation": "back_forward"
+     }
+    }
+   ],
+   "inputs": [
+    "mouse drag",
+    "wheel",
+    "keyboard Tab/Enter/Escape",
+    "virtual standard gamepad D-pad/A/B",
+    "touch orbit + pinch (Chromium emulation, 390x844)",
+    "viewports 1920x1080 1440x900 1280x720 1024x768 760x900"
+   ]
+  },
+  "storyParity": {
+   "script": "scripts/verify-story-parity.mjs",
+   "server": "packaged demo build demo-dist/2026-09-22T17-49-52-281Z-5486206c7539 on 127.0.0.1:5209",
+   "pass": true,
+   "races": 10,
+   "finalProducts": [
+    "SM-133",
+    "SM-26801",
+    "SM-28919",
+    "SM-3223",
+    "SM-7720"
+   ],
+   "errors": [],
+   "failedRequests": []
+  },
+  "packagedVisitorSmoke": {
+   "hooks": "none (clicks only)",
+   "pass": true,
+   "evidence": "after-packaged-visitor-smoke.json"
+  },
+  "matchedViews": {
+   "method": "same camera, 1440x900, High quality, 2026 visual, blue/orange build; UI hidden",
+   "before": {
+    "hero": 44.84,
+    "tourwall": 50.25,
+    "rear": 45.4,
+    "unit": "mean abs diff /255",
+    "pixelsOver24Levels": {
+     "hero": 55.9,
+     "tourwall": 60.5,
+     "rear": 70.0
+    }
+   },
+   "after": {
+    "hero": 0.0,
+    "tourwall": 0.0,
+    "rear": 0.0
+   }
+  },
+  "isolation": "Fresh headless Chromium contexts with synthetic careers; real saved career and personal browser profile never opened."
+ },
+ "roomMeasurement": {
+  "source": "public/assets/p08b/showroom-refinement/signature-showroom-refined.glb",
+  "method": "raycast inner faces from 150 interior samples",
+  "sideWalls": 5.91,
+  "backWall": 6.78,
+  "backCabinets": 6.11,
+  "floor": 0,
+  "wallTop": 4.2,
+  "ceiling": null,
+  "softbox": 3.825,
+  "openFront": "floor ends z=-5; hero framing limit z=-5.5",
+  "safeVolume": {
+   "min": [
+    -5.6,
+    0.2,
+    -5.5
+   ],
+   "max": [
+    5.6,
+    3.5,
+    5.8
+   ]
+  }
+ },
+ "beforeReproduction": {
+  "UX-05 continue label (chapter 01 complete, 1500 credits, no suspension)": "Continue · Suspension shop",
+  "UX-05 continue opens workshop?": true,
+  "UX-15 bay title/subtitle": {
+   "title": "2024 Slingshot R",
+   "subtitle": "Radar Blue Fade · AutoDrive",
+   "finish": "black-red",
+   "visual": "2026 default"
+  },
+  "UX-07 hub inspect href": "?scene=signature&screen=build#build=%7B%22version%22%3A1%2C%22vehicleId%22%3A%22slingshot-r-2024%22%2C%22finish%22%3A%22black-red%22%2C%22products%22%3A%7B%22SM-133%22%3A%22base-rgb%22%7D%2C%22lights%22%3A%7B%22color%22%3A%22red%22%2C%22brightness%22%3A0.6%2C%22enabled%22%3Atrue%7D%2C%22suspension%22%3A%7B%22frontCompression%22%3A2%2C%22frontRebound%22%3A6%2C%22rearCompression%22%3A1%2C%22rearRebound%22%3A3%2C%22rideHeightMm%22%3A0%7D%2C%22handlingProfile%22%3A%22slingmods-sport-v5%22%7D",
+  "UX-13 lighting panel ownership text": "✓ Installed in preview",
+  "UX-07 signature header nav + return path": {
+   "nav": [
+    "BUILD",
+    "DESTINATIONS",
+    "SHOP THIS BUILD"
+   ],
+   "returnToCareer": false,
+   "footer": "Preview buildSport v5 · responsive · No career spendSaveUndoCompare stockResetTEST THIS BUILD ↗"
+  },
+  "UX-01 temporary career in hub (start)": {
+   "credits": 1500,
+   "durable": false,
+   "crew": true,
+   "owned": true
+  },
+  "UX-01 temporary career after free showroom round trip": {
+   "credits": 0,
+   "durable": false,
+   "crew": false,
+   "owned": false
+  },
+  "UX-06 showroom preview before Drive at night": {
+   "preview": true
+  },
+  "UX-06 Drive at night href": "/?scene=harbor&preset=night&play=career",
+  "UX-06 driven session": {
+   "url": "?scene=harbor&preset=night&play=career",
+   "eventId": "harbor-shakedown-standing-lap-v1",
+   "careerTouched": true,
+   "preview": false,
+   "products": [],
+   "lights": {
+    "color": "red",
+    "brightness": 0.6,
+    "enabled": true
+   }
+  },
+  "UX-12 ?screen=shop opens": "entry",
+  "UX-11 brand (labelled SlingMods home) from each screen ->": {
+   "entry": "build",
+   "build": "entry",
+   "events": "build",
+   "shop": "build"
+  },
+  "UX-12 URL after Build -> Destinations -> Shop": {
+   "url": "?screen=build",
+   "screen": "shop",
+   "historyLength": 6
+  }
+ },
+ "evidenceDir": "handoff/ux-repair-evidence",
+ "auditPacket": "handoff/ux-audit-packet"
+}

@@ -1,3 +1,13 @@
+# Current work - UX, career and showroom repair
+
+- All 15 audit findings fixed + UI pass; see `handoff/UX-REPAIR.md` (hand-test steps inside).
+- NEXT: owner hand test (garage camera, workshop Done, Continue -> Chapter 02, Return to career,
+  Test button destination). Push/deploy only after approval.
+- Known limit: with browser storage blocked, the browser's own Back/Reload still reset a temporary
+  career (in-game navigation carries it). Physical controllers/touch devices and non-Chromium
+  browsers untested. Performance HOLD unchanged.
+
+---
 # Current work - Phase 2 closing gate
 
 - Benchmark/test pipeline parity and sustained reporting complete.

@@ -1,3 +1,16 @@
+# UX, career and showroom repair (2026-09-22)
+
+Owner-assigned repair of all 15 findings in `handoff/ux-audit-packet/` plus a UI pass. Read
+`handoff/UX-REPAIR.md` and `UX-REPAIR-VALIDATION.json`. The player career garage (`?scene=bay`)
+now runs on the signature showroom in career mode (`src/showroom/garage.ts`); the retired
+workbench bay is a developer tool (`?workbench=1` or its fixture params). Camera containment,
+presets and snapshots live in `src/presentation/showroom-camera.ts`; the Continue resolver is
+`nextCareerStep()`; temporary careers travel via `src/career/transfer.ts` and the read-only
+`src/career/context.ts`. Preserve Sport v5 physics/input, routes, products, saves, reward
+certification and history. Committed on main, NOT pushed or deployed (needs owner approval).
+Phase 2 performance HOLD unchanged; do not start Phase 3.
+
+---
 # Phase 2 closing gate - pipeline parity done, performance HOLD (2026-09-22)
 
 Read `handoff/PHASE-2-CLOSING-GATE.md` and its validation receipt. The bounded

@@ -1,0 +1,678 @@
+{
+ "base": "http://127.0.0.1:5186",
+ "when": "2026-09-22T18:18:15.791Z",
+ "pass": true,
+ "checks": 31,
+ "failed": [],
+ "errors": [],
+ "limitations": [
+  {
+   "id": "UX-01",
+   "label": "storage denied: browser Back (not the in-game return) from the showroom reloads the hub without the temporary career",
+   "observed": {
+    "credits": 0,
+    "navigation": "back_forward"
+   }
+  }
+ ],
+ "results": [
+  {
+   "id": "UX-09",
+   "label": "every preset starts inside the measured room",
+   "pass": true,
+   "facts": {
+    "hero": [
+     -4.4,
+     2.13,
+     -5.5
+    ],
+    "front": [
+     0,
+     2.03,
+     -5.5
+    ],
+    "rear": [
+     3.98,
+     2.86,
+     5.74
+    ],
+    "side": [
+     5.6,
+     2.12,
+     -0.22
+    ],
+    "interior": [
+     -0.72,
+     1.42,
+     0.22
+    ],
+    "tour-wall": [
+     5.4,
+     2.25,
+     -1.4
+    ],
+    "SM-133": [
+     3.1,
+     0.45,
+     -2.2
+    ],
+    "SM-28919": [
+     -1.4,
+     1.8,
+     -0.35
+    ],
+    "SM-3223": [
+     3,
+     1.3,
+     -3.6
+    ],
+    "SM-7720": [
+     3,
+     1.25,
+     5
+    ],
+    "SM-26801": [
+     4,
+     2.5,
+     5
+    ]
+   }
+  },
+  {
+   "id": "UX-09",
+   "label": "storage close-up keeps its authored 2.26 m framing",
+   "pass": true,
+   "facts": {
+    "distance": 2.2565,
+    "limits": {
+     "minDistance": 1.2,
+     "maxDistance": 5.056540344518259
+    }
+   }
+  },
+  {
+   "id": "UX-09",
+   "label": "underglow Inspect mount frames the sill strip, not the full vehicle",
+   "pass": true,
+   "facts": {
+    "underglow": {
+     "view": "SM-133",
+     "manual": false,
+     "position": [
+      3.1,
+      0.44999999999999984,
+      -2.200000000000001
+     ],
+     "target": [
+      0.35,
+      0.2,
+      0.15
+     ],
+     "fov": 38,
+     "offset": null,
+     "limits": {
+      "minDistance": 1,
+      "maxDistance": 6.9222646535569785
+     }
+    },
+    "hero": {
+     "position": [
+      -4.398070740478208,
+      2.1275934156932443,
+      -5.500000000000001
+     ],
+     "target": [
+      1.078336942517133e-7,
+      0.6762300357503166,
+      -0.22231498202571687
+     ]
+    }
+   }
+  },
+  {
+   "id": "UX-04",
+   "label": "mouse orbit + wheel zoom never leaves walls, floor or the 4.2 m open-top set",
+   "pass": true,
+   "facts": {
+    "storage up + zoom out": [
+     -0.96,
+     3.5,
+     0.16
+    ],
+    "hero up + zoom out": [
+     -0.66,
+     3.5,
+     -1.01
+    ],
+    "hero half-orbit + zoom out": [
+     5.02,
+     2.33,
+     5.8
+    ],
+    "rear sideways + zoom out": [
+     -5.6,
+     2.39,
+     0.14
+    ],
+    "side zoom out": [
+     5.6,
+     2.12,
+     -0.22
+    ],
+    "hero down toward floor": [
+     -4.4,
+     1.11,
+     -5.5
+    ],
+    "tour wall orbit + zoom out": [
+     -3.1,
+     3.5,
+     1.38
+    ]
+   }
+  },
+  {
+   "id": "UX-09",
+   "label": "wheel zoom-in stops at each preset minimum, still inside",
+   "pass": true,
+   "facts": {
+    "interior": {
+     "d": 0.45,
+     "min": 0.45
+    },
+    "SM-28919": {
+     "d": 1.2,
+     "min": 1.2
+    },
+    "SM-133": {
+     "d": 1,
+     "min": 1
+    },
+    "hero": {
+     "d": 3,
+     "min": 3
+    }
+   }
+  },
+  {
+   "id": "UX-14",
+   "label": "pressed camera button equals the rendered view after Rear -> Destinations -> Build, and clears on manual orbit",
+   "pass": true,
+   "facts": {
+    "after": {
+     "pressed": [
+      "hero"
+     ],
+     "view": "hero"
+    },
+    "manual": {
+     "pressed": [],
+     "view": "hero",
+     "manual": true
+    }
+   }
+  },
+  {
+   "id": "UX-04",
+   "label": "resize through wide and narrow viewports keeps the camera inside after orbit/zoom",
+   "pass": true,
+   "facts": {
+    "1920x1080": [
+     -0.6,
+     3.5,
+     -1.06
+    ],
+    "1280x720": [
+     -0.66,
+     3.5,
+     -1.01
+    ],
+    "1024x768": [
+     -0.66,
+     3.5,
+     -1.01
+    ],
+    "760x900": [
+     -4.4,
+     2.13,
+     -5.5
+    ],
+    "1440x900": [
+     -0.66,
+     3.5,
+     -1.01
+    ]
+   }
+  },
+  {
+   "id": "UX-11",
+   "label": "Home reaches the opening screen from every screen",
+   "pass": true,
+   "facts": {
+    "entry": {
+     "screen": "entry",
+     "url": ""
+    },
+    "build": {
+     "screen": "entry",
+     "url": ""
+    },
+    "events": {
+     "screen": "entry",
+     "url": ""
+    },
+    "shop": {
+     "screen": "entry",
+     "url": ""
+    }
+   }
+  },
+  {
+   "id": "UX-12",
+   "label": "deep links, reload and Back/Forward agree with the screen; recipe hash kept",
+   "pass": true,
+   "facts": {
+    "direct": "shop",
+    "trail": {
+     "shop": "?screen=shop",
+     "hash": "#build=%7B%22version%22%3A1%2C%22vehicle",
+     "back1": {
+      "screen": "events",
+      "url": "?screen=events"
+     },
+     "back2": {
+      "screen": "build",
+      "url": "?screen=build"
+     },
+     "forward": {
+      "screen": "events",
+      "url": "?screen=events"
+     },
+     "reload": {
+      "screen": "events",
+      "finish": "black-red"
+     },
+     "escapeFromShop": "build",
+     "escapeInspection": {
+      "screen": "build",
+      "view": "hero"
+     }
+    }
+   }
+  },
+  {
+   "id": "UX-11",
+   "label": "Escape/Back retraces one step or leaves the inspection, never toggles",
+   "pass": true,
+   "facts": {
+    "escapeFromShop": "build",
+    "escapeInspection": {
+     "screen": "build",
+     "view": "hero"
+    }
+   }
+  },
+  {
+   "id": "controller",
+   "label": "virtual standard gamepad: D-pad focus, A activates, B goes back",
+   "pass": true,
+   "facts": {
+    "focused": "build",
+    "afterA": "build",
+    "afterB": "entry"
+   }
+  },
+  {
+   "id": "UX-07",
+   "label": "keyboard: Tab reaches the persistent Career item; Enter opens the career (fresh -> Chapter 01 garage)",
+   "pass": true,
+   "facts": {
+    "tabs": 6,
+    "reached": "CAREER",
+    "url": "?scene=bay&play=career"
+   }
+  },
+  {
+   "id": "UX-10",
+   "label": "Ridge + Blue hour -> Build -> Test launches exactly that route and lighting, and the button says so",
+   "pass": true,
+   "facts": {
+    "button": {
+     "text": "TEST THIS BUILD ↗Smoky Ridge · Blue hour",
+     "value": "ridge",
+     "label": "Test this build on Smoky Ridge · Blue hour"
+    },
+    "ridgeURL": "?scene=ridge&route=ridge&mode=test&play=preview&lighting=night",
+    "ridge": {
+     "route": "smoky-ridge",
+     "lighting": "night",
+     "look": {
+      "id": "night",
+      "base": "night",
+      "requested": "night",
+      "wet": false
+     },
+     "free": true,
+     "careerTouched": false
+    }
+   }
+  },
+  {
+   "id": "UX-10",
+   "label": "returning from a Ridge test remembers it; Harbor + Night look launches Harbor at night",
+   "pass": true,
+   "facts": {
+    "back": {
+     "destination": "ridge",
+     "lighting": "night",
+     "button": "TEST THIS BUILD ↗Smoky Ridge · Blue hour"
+    },
+    "harborButton": "TEST THIS BUILD ↗Original Harbor · Night",
+    "harborURL": "?scene=express&route=harbor&mode=test&play=preview&look=night",
+    "harbor": {
+     "route": "biscayne-harbor",
+     "look": "night",
+     "lighting": "night",
+     "subtitle": "Unscored build test / Night"
+    }
+   }
+  },
+  {
+   "id": "UX-15",
+   "label": "garage labels follow the shown 2026 vehicle and its black/red finish (no stale 2024 / Radar Blue text)",
+   "pass": true,
+   "facts": {
+    "identity": "2026 Slingshot R · Gloss black / redYour earned career build · Sport v5 · responsive · Saved on this browser",
+    "legacyTitle": null
+   }
+  },
+  {
+   "id": "UX-02",
+   "label": "career garage runs on the one showroom: Tour Wall, studio look, shared header with Career",
+   "pass": true,
+   "facts": {
+    "mode": "career-garage",
+    "continue": "Continue · Chapter 02",
+    "identity": "2026 Slingshot R · Gloss black / redYour earned career build · Sport v5 · responsive · Saved on this browser",
+    "tourWall": true,
+    "look": "studio",
+    "roomEnv": true,
+    "nav": [
+     "BUILD",
+     "DESTINATIONS",
+     "SHOP THIS BUILD",
+     "CAREER"
+    ],
+    "legacyTitle": null
+   }
+  },
+  {
+   "id": "UX-05",
+   "label": "Chapter 01 complete: Continue leads to Chapter 02 (Open It Up), no shop detour, no purchase",
+   "pass": true,
+   "facts": {
+    "continueLabel": "Continue · Chapter 02",
+    "hub": {
+     "next": "NEXT UP · CHAPTER 02Open It UpOne clean Express lap. Find your braking landmarks.Continue · Open It Up",
+     "credits": 1500,
+     "suspension": false
+    }
+   }
+  },
+  {
+   "id": "UX-13",
+   "label": "career-owned kit is labelled in the free showroom",
+   "pass": true,
+   "facts": {
+    "owned": "Owned in your career",
+    "nav": "← RETURN TO CAREER",
+    "identity": "Your earned career buildEdits here are free previews · your career is unchanged",
+    "ownedIds": null
+   }
+  },
+  {
+   "id": "UX-07",
+   "label": "career-originated preview shows Return to career and identifies the earned build",
+   "pass": true,
+   "facts": {
+    "inspectHref": "?scene=signature&screen=build&from=career#build=%7B%22versio",
+    "nav": "← RETURN TO CAREER",
+    "identity": "Your earned career buildEdits here are free previews · your career is unchanged"
+   }
+  },
+  {
+   "id": "UX-07",
+   "label": "one action returns to the career; preview-only edits never grant parts or spend credits",
+   "pass": true,
+   "facts": {
+    "edited": "Preview buildSport v5 · responsive · No career spend",
+    "returned": {
+     "credits": 1500,
+     "products": {},
+     "url": "?scene=career&play=career"
+    }
+   }
+  },
+  {
+   "id": "UX-07",
+   "label": "Career is one deliberate action from Shop (resolver: Chapter 02 hub)",
+   "pass": true,
+   "facts": {
+    "url": "?scene=career&play=career"
+   }
+  },
+  {
+   "id": "UX-08",
+   "label": "orbit -> workshop -> hardware inspection -> Done restores position, target, FOV and offset",
+   "pass": true,
+   "facts": {
+    "before": {
+     "view": "front",
+     "manual": true,
+     "position": [
+      2.9058014204913425,
+      0.8646015943382572,
+      0.4993739310609657
+     ],
+     "target": [
+      1.078336942517133e-7,
+      0.6762300357503166,
+      -0.22231498202571687
+     ],
+     "fov": 38,
+     "offset": {
+      "x": -191,
+      "y": -4
+     },
+     "limits": {
+      "minDistance": 3,
+      "maxDistance": 5.781468862164435
+     }
+    },
+    "workshop": "workshop",
+    "rear": "SM-3223-rear",
+    "restored": {
+     "view": "front",
+     "manual": true,
+     "position": [
+      2.905603147901834,
+      0.8646015943382572,
+      0.500171785646837
+     ],
+     "target": [
+      1.078336942517133e-7,
+      0.6762300357503166,
+      -0.22231498202571687
+     ],
+     "fov": 38,
+     "offset": {
+      "x": -191,
+      "y": -4
+     },
+     "limits": {
+      "minDistance": 3,
+      "maxDistance": 5.781932165140056
+     }
+    }
+   }
+  },
+  {
+   "id": "UX-03",
+   "label": "career garage orbit/zoom stays inside walls, floor and ceiling",
+   "pass": true,
+   "facts": {
+    "up + zoom out": [
+     1,
+     3.5,
+     0.03
+    ],
+    "sideways + zoom out": [
+     -0.85,
+     3.5,
+     -0.8
+    ],
+    "down toward floor": [
+     -5.6,
+     1.1,
+     -3.99
+    ]
+   }
+  },
+  {
+   "id": "controller",
+   "label": "garage: virtual gamepad D-pad reaches Workshop and A opens it",
+   "pass": true,
+   "facts": {
+    "garageFocus": "chapter-build",
+    "opened": true
+   }
+  },
+  {
+   "id": "UX-06",
+   "label": "Test this preview at night drives the displayed cyan kit, unscored, at night",
+   "pass": true,
+   "facts": {
+    "labels": {
+     "preview": "Test this preview at night ↗",
+     "note": "Free test drive · unscored · nothing is bought or earned",
+     "previewHidden": false,
+     "career": "Night shakedown · earned build →",
+     "careerNote": "Career lap · scored · drives only what you own"
+    },
+    "drive": {
+     "eventId": "harbor-preview-test-v1",
+     "preview": true,
+     "careerTouched": false,
+     "free": true,
+     "kit": "base-rgb",
+     "lights": {
+      "color": "cyan",
+      "brightness": 0.6,
+      "enabled": true
+     },
+     "look": "night",
+     "back": "Back to career garage"
+    }
+   }
+  },
+  {
+   "id": "UX-06",
+   "label": "return lands in the garage workshop; nothing was bought or earned",
+   "pass": true,
+   "facts": {
+    "home": {
+     "credits": 900,
+     "owned": false,
+     "open": true
+    },
+    "careerLabel": "Night shakedown · earned build →"
+   }
+  },
+  {
+   "id": "UX-01",
+   "label": "storage denied: credits, ownership and chapter flags survive hub -> showroom -> test drive -> showroom -> career",
+   "pass": true,
+   "facts": {
+    "a": {
+     "credits": 1500,
+     "durable": false,
+     "crew": true,
+     "owned": true,
+     "revision": 9
+    },
+    "b": {
+     "credits": 1500,
+     "durable": false,
+     "crew": true,
+     "owned": true,
+     "revision": 9
+    },
+    "showroomStatus": "Your temporary career travels with this tab while you preview. Nothing here is spent or earned.",
+    "backInShowroom": {
+     "returning": "?scene=career&play=career",
+     "temporary": true
+    }
+   }
+  },
+  {
+   "id": "UX-01",
+   "label": "storage denied: the pending race entry (identity and Resume) survives hub -> showroom -> career",
+   "pass": true,
+   "facts": {
+    "before": {
+     "active": "55555555-5555-4555-8555-555555555555",
+     "credits": 1500,
+     "resume": true
+    },
+    "after": {
+     "active": "55555555-5555-4555-8555-555555555555",
+     "credits": 1500,
+     "resume": true
+    }
+   }
+  },
+  {
+   "id": "UX-04",
+   "label": "touch orbit + pinch zoom on a phone-sized viewport moves the camera and stays inside the room",
+   "pass": true,
+   "facts": {
+    "start": [
+     -1.4,
+     1.8,
+     -0.35
+    ],
+    "position": [
+     -0.96,
+     3.5,
+     0.16
+    ],
+    "view": "SM-28919",
+    "manual": true
+   }
+  },
+  {
+   "id": "demo",
+   "label": "demo garage -> free showroom -> Return keeps play=demo and never creates the real career database",
+   "pass": true,
+   "facts": {
+    "demo": {
+     "profile": "demo",
+     "owned": true
+    },
+    "url": "?scene=signature&screen=build&from=bay&play=demo",
+    "nav": "← RETURN TO CAREER",
+    "backUrl": "?scene=bay&play=demo",
+    "dbs": []
+   }
+  },
+  {
+   "id": "UX-01",
+   "label": "reading the career from the free showroom is read-only (no database created for a fresh player)",
+   "pass": true,
+   "facts": {
+    "dbs": [],
+    "label": "Start Career"
+   }
+  }
+ ]
+}
