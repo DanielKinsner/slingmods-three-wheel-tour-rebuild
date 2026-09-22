@@ -102,3 +102,21 @@ export function ownBuildTransition(s:Career,c:OwnBuildCommand,at:string):{change
  else{first=!b.completed[a.event];const won=a.event==='hold-your-nerve'&&r.place===1;bonus=won&&!b.won[a.event]?100:0;amount=(first?EVENTS[a.event].first:EVENTS[a.event].repeat)+bonus;b.completed[a.event]=true;b.won[a.event] ||=won}
  s.credits+=amount;return {changed:true,receipt:{id:a.id,kind:'chapter-award',amount,balance:s.credits,first,at,event:a.competitionId,place:r.place,timeMs:r.timeMs,chapterBonus:bonus,handlingProfile:a.handlingProfile as Receipt['handlingProfile'],chapterRecord:structuredClone(r)}};
 }
+/**
+ * The single "what next?" answer for every Continue control (garage, hub, showroom header). It follows the main career
+ * line only: rematches and optional purchases (the Build Matters workshop, product unlocks) stay separate actions.
+ */
+export interface CareerStep {chapter:1|2|3;scene:'bay'|'career';kind:'start'|'shakedown'|'duel'|'crew'|'resume'|'cup'|'event'|'complete';event?:ChapterEvent;label:string;detail:string}
+export function nextCareerStep(s:Career|null):CareerStep{
+ if(!s||!s.chapters.firstCompletion&&s.revision===0)return {chapter:1,scene:'bay',kind:'start',label:'Start Career',detail:'Chapter 01 · Harbor Shakedown'};
+ if(!s.chapters.firstCompletion)return {chapter:1,scene:'bay',kind:'shakedown',label:'Continue · First lap',detail:'Chapter 01 · Harbor Shakedown'};
+ if(!chapterAvailable(s))return s.buildMatters.duelCompleted?{chapter:1,scene:'bay',kind:'crew',label:'Continue · Crew race',detail:'Chapter 01 · First Night'}:{chapter:1,scene:'bay',kind:'duel',label:'Continue · Maya duel',detail:'Chapter 01 · Find your line'};
+ const b=s.ownBuild;
+ if(b.active){const ridge=isRidgeEvent(b.active.event);return {chapter:ridge?3:2,scene:'career',kind:'resume',event:b.active.event,label:'Resume saved entry',detail:`Chapter 0${ridge?3:2} · ${ALL_EVENTS[b.active.event].title}`}}
+ if(b.activeCupId)return {chapter:2,scene:'career',kind:'cup',event:'coastline-cup',label:'Continue · Coastline Cup',detail:'Chapter 02 · Cup event 2 / 2'};
+ for(const event of Object.keys(EVENTS) as CoastlineEvent[])if(!b.completed[event])return {chapter:2,scene:'career',kind:'event',event,label:'Continue · Chapter 02',detail:'Chapter 02 · '+EVENTS[event].title};
+ if(ridgeAvailable(s))for(const event of Object.keys(RIDGE_EVENTS) as RidgeEvent[])if(!b.ridge.completed[event])return {chapter:3,scene:'career',kind:'event',event,label:'Continue · Chapter 03',detail:'Chapter 03 · '+RIDGE_EVENTS[event].title};
+ return {chapter:3,scene:'career',kind:'complete',label:'Career · Rematches',detail:'Ridge Run complete · every event open for a rematch'};
+}
+/** Same-origin destination for a step. The garage keeps the demo profile; later chapters always belong to the real career. */
+export function careerStepHref(step:CareerStep,profile:'career'|'demo'='career'){return step.scene==='bay'?`?scene=bay&play=${profile}`:'?scene=career&play=career'}
