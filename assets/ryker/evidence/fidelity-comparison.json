@@ -8,7 +8,7 @@
   "errors": [],
   "models": {
     "2026": {
-      "build": "0ccb93d6fb00",
+      "build": "dc164af97d4d",
       "mirrors": {
         "cropped": 0,
         "count": 2,
@@ -166,12 +166,12 @@
         "fov": 38,
         "viewOffset": null
       },
-      "loadMs": 9159.39999999851,
+      "loadMs": 7808.5,
       "calls": 1,
       "triangles": 2
     },
     "ryker": {
-      "build": "0ccb93d6fb00",
+      "build": "dc164af97d4d",
       "mirrors": {
         "cropped": 180,
         "count": 2,
@@ -264,21 +264,21 @@
         "fov": 38,
         "viewOffset": null
       },
-      "loadMs": 2451.800000000745,
+      "loadMs": 1972.300000000745,
       "calls": 1,
       "triangles": 2
     }
   },
   "method": "Same renderer, studio, FOV and viewport. Exterior camera distance scales with vehicle length for comparable on-screen detail; assets are not scaled. Closeups target their actual parts.",
   "drive": {
-    "build": "0ccb93d6fb00",
+    "build": "dc164af97d4d",
     "display": {
       "kind": "ryker-sim",
       "power": true,
       "values": {
-        "speed": 21,
+        "speed": 22,
         "units": "mph",
-        "rpm": 3510,
+        "rpm": 3670,
         "gear": "1"
       },
       "pixels": [
@@ -290,15 +290,15 @@
       "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
     },
     "mirrors": {
-      "cropped": 258,
+      "cropped": 260,
       "count": 2,
       "resolution": [
         768,
         512
       ],
       "updates": [
-        129,
-        129
+        130,
+        130
       ],
       "live": [
         true,
@@ -310,102 +310,102 @@
         {
           "name": "mirror_right_live",
           "position": [
-            -0.37943749948505506,
-            1.0605599193696293,
-            -2.3909404292507035
+            -0.37943750610615645,
+            1.0605594752886025,
+            -2.390600706703983
           ]
         },
         {
           "name": "mirror_left_live",
           "position": [
-            0.3902701949849165,
-            1.060559763589756,
-            -2.3909404218852517
+            0.39027018836381483,
+            1.0605593180731208,
+            -2.390600700211951
           ]
         }
       ]
     },
     "camera": {
-      "fov": 66.45804070189047,
+      "fov": 66.45985631325377,
       "position": [
-        -0.0000029978302658271017,
-        1.3725016356555795,
-        -1.9063756111305248
+        -0.000003003391418466456,
+        1.372491326480587,
+        -1.9060359385155998
       ],
       "view": "cockpit"
     },
     "telemetry": {
-      "speed": 10.209811128577133,
-      "rpm": 3749.4479282251536,
+      "speed": 10.209809221273353,
+      "rpm": 3749.447220408848,
       "gear": 1
     },
     "driver": {
       "arms": {
         "left": {
-          "gap": 1.3371197262497734e-7,
-          "rimGap": 1.3371197262497734e-7,
+          "gap": 1.3371225117570977e-7,
+          "rimGap": 1.3371225117570977e-7,
           "regripping": false,
           "release": 0,
           "angle": 0,
           "target": [
-            -0.2690029987793219,
-            0.9936850326776,
-            -2.40935367983461
+            -0.2690030055460483,
+            0.993684588103537,
+            -2.4090139563706296
           ],
           "contact": [
-            -0.26900296408023894,
-            0.993685022773655,
-            -2.4093538085854433
+            -0.2690029708471195,
+            0.9936845781995807,
+            -2.409014085121793
           ],
           "elbow": [
-            -0.3549279548025642,
-            1.0494946462814707,
-            -2.1657635109234836
+            -0.35492747700388527,
+            1.049494362013936,
+            -2.165423653260946
           ]
         },
         "right": {
-          "gap": 7.356321850173351e-8,
-          "rimGap": 7.356321850173351e-8,
+          "gap": 7.356322856715349e-8,
+          "rimGap": 7.356322856715349e-8,
           "regripping": false,
           "release": 0,
           "angle": 0,
           "target": [
-            0.27899700122067816,
-            0.993685031436995,
-            -2.4093536797373756
+            0.27899699445395176,
+            0.9936845858408381,
+            -2.409013956895236
           ],
           "contact": [
-            0.27899699439936176,
-            0.9936850444792233,
-            -2.4093537518131485
+            0.2789969876327976,
+            0.9936845988832375,
+            -2.4090140289710034
           ],
           "elbow": [
-            0.3584078570741037,
-            1.0499559472261282,
-            -2.1636678639579094
+            0.35840736226295056,
+            1.0499556612822518,
+            -2.163328019935834
           ]
         }
       },
       "feet": {
         "left": {
-          "gap": 1.0220874475657589e-7,
+          "gap": 1.0220874509036124e-7,
           "ankle": [
-            -0.29999996149242225,
-            0.2399999118617842,
-            -0.1800000345752637
+            -0.29999996149242203,
+            0.23999991186178393,
+            -0.18000003457526415
           ]
         },
         "right": {
-          "gap": 1.0250838179436699e-7,
+          "gap": 1.0250838240078187e-7,
           "ankle": [
-            0.2999999617676881,
-            0.23999991032215623,
-            -0.18000003168821532
+            0.29999996176768756,
+            0.23999991032215579,
+            -0.18000003168821488
           ]
         }
       },
       "headVisible": false,
-      "bodyPitch": 0.006434180190690686,
+      "bodyPitch": 0.006435696052499567,
       "wheelAngle": 0,
       "eye": [
         0,
@@ -421,7 +421,7 @@
       "values": {
         "speed": 13,
         "units": "mph",
-        "rpm": 2050,
+        "rpm": 2070,
         "gear": "R"
       },
       "pixels": [
@@ -433,21 +433,21 @@
       "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
     },
     "telemetry": {
-      "speed": -5.758889047925638,
+      "speed": -5.748674834401759,
       "gear": -1
     }
   },
   "night": {
     "mirrors": {
-      "cropped": 452,
+      "cropped": 450,
       "count": 2,
       "resolution": [
         768,
         512
       ],
       "updates": [
-        226,
-        226
+        225,
+        225
       ],
       "live": [
         true,
@@ -492,7 +492,7 @@
       "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
     },
     "camera": {
-      "fov": 66.00000000000153,
+      "fov": 66.00000000000149,
       "position": [
         -0.00000300742101008851,
         1.35999965237831,
