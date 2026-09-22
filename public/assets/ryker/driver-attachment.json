@@ -1,0 +1,611 @@
+{
+  "version": 1,
+  "asset": "/assets/drivers/test-driver.glb",
+  "rootNode": "driver_root",
+  "rigNode": "driver_rig",
+  "bodyNode": "driver_body_visual",
+  "headVisualNode": "driver_head_visual",
+  "basis": "runtime +X right +Y up -Z forward, metres",
+  "seatAnchor": [
+    -0.36,
+    0.38,
+    0.32
+  ],
+  "eye": [
+    0,
+    1.415,
+    0.405
+  ],
+  "headCenter": [
+    -0.36,
+    1.132,
+    0.5
+  ],
+  "arms": {
+    "left": {
+      "upperBone": "driver_upper_arm_left",
+      "lowerBone": "driver_forearm_left",
+      "handBone": "driver_hand_left",
+      "shoulder": [
+        -0.555,
+        0.91,
+        0.455
+      ],
+      "elbow": [
+        -0.61,
+        0.67,
+        0.255
+      ],
+      "wrist": [
+        -0.5394743,
+        0.7031885,
+        0.0500607
+      ],
+      "contact": [
+        -0.525,
+        0.71,
+        0.008
+      ],
+      "upperLength": 0.3172144542331966,
+      "lowerLength": 0.2642612354232389,
+      "poleHint": [
+        -0.52,
+        0.98,
+        0.03
+      ],
+      "wheelGripLocal": [
+        -0.274,
+        0.02,
+        0.012
+      ],
+      "contactPivotAtBoneHead": true
+    },
+    "right": {
+      "upperBone": "driver_upper_arm_right",
+      "lowerBone": "driver_forearm_right",
+      "handBone": "driver_hand_right",
+      "shoulder": [
+        -0.165,
+        0.91,
+        0.455
+      ],
+      "elbow": [
+        -0.11,
+        0.67,
+        0.255
+      ],
+      "wrist": [
+        -0.1805257,
+        0.7031885,
+        0.0500607
+      ],
+      "contact": [
+        -0.195,
+        0.71,
+        0.008
+      ],
+      "upperLength": 0.3172144542331966,
+      "lowerLength": 0.2642612213262398,
+      "poleHint": [
+        0.52,
+        0.98,
+        0.03
+      ],
+      "wheelGripLocal": [
+        0.274,
+        0.02,
+        0.012
+      ],
+      "contactPivotAtBoneHead": true
+    }
+  },
+  "feet": {
+    "left": {
+      "bone": "driver_foot_left",
+      "anchor": [
+        -0.49,
+        0.22,
+        -0.49
+      ]
+    },
+    "right": {
+      "bone": "driver_foot_right",
+      "anchor": [
+        -0.28,
+        0.22,
+        -0.49
+      ]
+    }
+  },
+  "boneRest": {
+    "driver_pelvis": {
+      "head": [
+        -0.36,
+        0.435,
+        0.285
+      ],
+      "tail": [
+        -0.36,
+        0.58,
+        0.38
+      ],
+      "parent": null
+    },
+    "driver_spine": {
+      "head": [
+        -0.36,
+        0.58,
+        0.38
+      ],
+      "tail": [
+        -0.36,
+        0.925,
+        0.515
+      ],
+      "parent": "driver_pelvis"
+    },
+    "driver_head": {
+      "head": [
+        -0.36,
+        0.925,
+        0.515
+      ],
+      "tail": [
+        -0.36,
+        1.22,
+        0.5
+      ],
+      "parent": "driver_spine"
+    },
+    "driver_upper_arm_left": {
+      "head": [
+        -0.555,
+        0.91,
+        0.455
+      ],
+      "tail": [
+        -0.61,
+        0.67,
+        0.255
+      ],
+      "parent": "driver_spine"
+    },
+    "driver_forearm_left": {
+      "head": [
+        -0.61,
+        0.67,
+        0.255
+      ],
+      "tail": [
+        -0.525,
+        0.71,
+        0.008
+      ],
+      "parent": "driver_upper_arm_left"
+    },
+    "driver_hand_left": {
+      "head": [
+        -0.525,
+        0.71,
+        0.008
+      ],
+      "tail": [
+        -0.525,
+        0.71,
+        -0.062
+      ],
+      "parent": "driver_forearm_left"
+    },
+    "driver_upper_arm_right": {
+      "head": [
+        -0.165,
+        0.91,
+        0.455
+      ],
+      "tail": [
+        -0.11,
+        0.67,
+        0.255
+      ],
+      "parent": "driver_spine"
+    },
+    "driver_forearm_right": {
+      "head": [
+        -0.11,
+        0.67,
+        0.255
+      ],
+      "tail": [
+        -0.195,
+        0.71,
+        0.008
+      ],
+      "parent": "driver_upper_arm_right"
+    },
+    "driver_hand_right": {
+      "head": [
+        -0.195,
+        0.71,
+        0.008
+      ],
+      "tail": [
+        -0.195,
+        0.71,
+        -0.062
+      ],
+      "parent": "driver_forearm_right"
+    },
+    "driver_thigh_left": {
+      "head": [
+        -0.465,
+        0.445,
+        0.25
+      ],
+      "tail": [
+        -0.465,
+        0.505,
+        -0.13
+      ],
+      "parent": "driver_pelvis"
+    },
+    "driver_shin_left": {
+      "head": [
+        -0.465,
+        0.505,
+        -0.13
+      ],
+      "tail": [
+        -0.49,
+        0.245,
+        -0.425
+      ],
+      "parent": "driver_thigh_left"
+    },
+    "driver_foot_left": {
+      "head": [
+        -0.49,
+        0.245,
+        -0.425
+      ],
+      "tail": [
+        -0.49,
+        0.205,
+        -0.585
+      ],
+      "parent": "driver_shin_left"
+    },
+    "driver_thigh_right": {
+      "head": [
+        -0.255,
+        0.445,
+        0.25
+      ],
+      "tail": [
+        -0.255,
+        0.505,
+        -0.13
+      ],
+      "parent": "driver_pelvis"
+    },
+    "driver_shin_right": {
+      "head": [
+        -0.255,
+        0.505,
+        -0.13
+      ],
+      "tail": [
+        -0.28,
+        0.245,
+        -0.425
+      ],
+      "parent": "driver_thigh_right"
+    },
+    "driver_foot_right": {
+      "head": [
+        -0.28,
+        0.245,
+        -0.425
+      ],
+      "tail": [
+        -0.28,
+        0.205,
+        -0.585
+      ],
+      "parent": "driver_shin_right"
+    }
+  },
+  "fitStatus": "Ryker straddle pose using existing driver mesh and inverse kinematics; game approximation",
+  "limits": [
+    "Adult proportions chosen from actual seat/control scene; no human scan or likeness",
+    "Hand bone heads are wheel-contact pivots inside gloves; use actual displayed wheel matrix",
+    "Retain exported bind quaternions; do not assume bone local identity",
+    "Maximum two fit corrections before reporting residual blockers",
+    "No physical controller or hardware performance claim"
+  ],
+  "exportedBoneLocalTRS": {
+    "driver_head": {
+      "translation": [
+        2.9802322387695312e-08,
+        0.37047263979911804,
+        -1.4901161193847656e-08
+      ],
+      "rotation": [
+        -0.2103135585784912,
+        0,
+        0,
+        0.9776340126991272
+      ]
+    },
+    "driver_hand_left": {
+      "translation": [
+        -1.0477378964424133e-08,
+        0.2642613351345062,
+        -3.259629011154175e-09
+      ],
+      "rotation": [
+        -0.07694954425096512,
+        3.219506794494009e-08,
+        0.16351810097694397,
+        0.9835347533226013
+      ],
+      "scale": [
+        0.9999999403953552,
+        1,
+        1
+      ]
+    },
+    "driver_forearm_left": {
+      "translation": [
+        3.3527612686157227e-08,
+        0.3172144889831543,
+        -1.862645149230957e-08
+      ],
+      "rotation": [
+        0.4815514385700226,
+        0.06112110987305641,
+        -0.2420753687620163,
+        0.8401023745536804
+      ],
+      "scale": [
+        1.0000001192092896,
+        1,
+        0.9999999403953552
+      ]
+    },
+    "driver_upper_arm_left": {
+      "translation": [
+        -0.19499996304512024,
+        0.3346400260925293,
+        -0.050408557057380676
+      ],
+      "rotation": [
+        -0.9819509387016296,
+        0.07930336892604828,
+        0.05412685126066208,
+        0.16295278072357178
+      ],
+      "scale": [
+        0.9999999403953552,
+        1,
+        0.9999997615814209
+      ]
+    },
+    "driver_hand_right": {
+      "translation": [
+        -1.816079020500183e-08,
+        0.2642613649368286,
+        -1.1641532182693481e-09
+      ],
+      "rotation": [
+        -0.0769495964050293,
+        -6.628396675978365e-08,
+        -0.16351798176765442,
+        0.9835347533226013
+      ]
+    },
+    "driver_forearm_right": {
+      "translation": [
+        8.381903171539307e-09,
+        0.31721436977386475,
+        -3.725290298461914e-09
+      ],
+      "rotation": [
+        0.48155149817466736,
+        -0.06112108379602432,
+        0.24207529425621033,
+        0.8401023149490356
+      ]
+    },
+    "driver_upper_arm_right": {
+      "translation": [
+        0.1950000375509262,
+        0.3346400260925293,
+        -0.050408557057380676
+      ],
+      "rotation": [
+        -0.9819509387016296,
+        -0.07930335402488708,
+        -0.054126836359500885,
+        0.16295279562473297
+      ],
+      "scale": [
+        0.9999998807907104,
+        0.9999999403953552,
+        0.9999995231628418
+      ]
+    },
+    "driver_spine": {
+      "translation": [
+        0,
+        0.1733492910861969,
+        1.4901157641133977e-08
+      ],
+      "rotation": [
+        -0.10332288593053818,
+        0,
+        0,
+        0.9946478605270386
+      ]
+    },
+    "driver_foot_left": {
+      "translation": [
+        -4.6566128730773926e-09,
+        0.3940178453922272,
+        -2.60770320892334e-08
+      ],
+      "rotation": [
+        0.23595282435417175,
+        0.004145374987274408,
+        -0.033673305064439774,
+        0.9711720943450928
+      ],
+      "scale": [
+        0.9999999403953552,
+        1,
+        1
+      ]
+    },
+    "driver_shin_left": {
+      "translation": [
+        2.9802322387695312e-08,
+        0.3847076892852783,
+        -7.450580596923828e-09
+      ],
+      "rotation": [
+        -0.42490652203559875,
+        0.002653839997947216,
+        0.03382354974746704,
+        0.9046012163162231
+      ],
+      "scale": [
+        1,
+        1,
+        1.0000001192092896
+      ]
+    },
+    "driver_thigh_left": {
+      "translation": [
+        -0.10499998927116394,
+        -0.01081635057926178,
+        -0.03475639224052429
+      ],
+      "rotation": [
+        -0.8398998975753784,
+        0,
+        0,
+        0.5427412986755371
+      ]
+    },
+    "driver_foot_right": {
+      "translation": [
+        -4.6566128730773926e-09,
+        0.3940178453922272,
+        -3.3993273973464966e-08
+      ],
+      "rotation": [
+        0.23595282435417175,
+        0.004145374987274408,
+        -0.033673305064439774,
+        0.9711720943450928
+      ],
+      "scale": [
+        0.9999999403953552,
+        1,
+        1
+      ]
+    },
+    "driver_shin_right": {
+      "translation": [
+        0,
+        0.3847076892852783,
+        -7.450580596923828e-09
+      ],
+      "rotation": [
+        -0.42490652203559875,
+        0.002653839997947216,
+        0.03382354974746704,
+        0.9046012163162231
+      ],
+      "scale": [
+        1,
+        1,
+        1.0000001192092896
+      ]
+    },
+    "driver_thigh_right": {
+      "translation": [
+        0.10500001907348633,
+        -0.01081635057926178,
+        -0.03475639224052429
+      ],
+      "rotation": [
+        -0.8398998975753784,
+        0,
+        0,
+        0.5427412986755371
+      ]
+    },
+    "driver_pelvis": {
+      "translation": [
+        -0.36000001430511475,
+        0.4350000023841858,
+        0.2849999964237213
+      ],
+      "rotation": [
+        0.2859535813331604,
+        0,
+        0,
+        0.9582434892654419
+      ],
+      "scale": [
+        1,
+        1,
+        1.0000001192092896
+      ]
+    }
+  },
+  "rootOffset": [
+    0.36,
+    0.25,
+    0.06
+  ],
+  "legs": {
+    "left": {
+      "upperBone": "driver_thigh_left",
+      "lowerBone": "driver_shin_left",
+      "footBone": "driver_foot_left",
+      "ankle": [
+        -0.3,
+        0.24,
+        -0.18
+      ],
+      "pole": [
+        -0.37,
+        0.62,
+        -0.07
+      ],
+      "upperLength": 0.38470768219934914,
+      "lowerLength": 0.3940177740878419,
+      "footPitch": 0.05
+    },
+    "right": {
+      "upperBone": "driver_thigh_right",
+      "lowerBone": "driver_shin_right",
+      "footBone": "driver_foot_right",
+      "ankle": [
+        0.3,
+        0.24,
+        -0.18
+      ],
+      "pole": [
+        0.37,
+        0.62,
+        -0.07
+      ],
+      "upperLength": 0.38470768219934914,
+      "lowerLength": 0.3940177740878419,
+      "footPitch": 0.05
+    }
+  },
+  "handlebar": true
+}

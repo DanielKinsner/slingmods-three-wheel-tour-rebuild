@@ -1,5 +1,6 @@
 import {activeProfile,visitorSearch} from './demo/profile';
 import {showModelCandidate} from './presentation/model-candidate';
+import {installVehicleSelection} from './presentation/ryker-selection';
 import {installRecovery,showRecovery} from './demo/recovery';
 installRecovery();
 if(import.meta.env.MODE==='demo'){const safe=visitorSearch(location.search);if(new URLSearchParams(location.search).toString()!==safe)history.replaceState(null,'',location.pathname+(safe?'?'+safe:'')+location.hash)}
@@ -29,5 +30,6 @@ loadingExit?.remove();
 if(activeProfile()==='demo'&&!garage){const link=document.createElement('a');link.className='preview-return';link.textContent='Demo profile · Home';link.href=location.pathname;document.body.append(link)}
 }
 showModelCandidate();
+installVehicleSelection();
 }catch(error){showRecovery(/demo session/i.test(String((error as Error)?.message))?'demo':/webgl|context|graphics/i.test(String((error as Error)?.message))?'graphics':'assets')}
 export {};

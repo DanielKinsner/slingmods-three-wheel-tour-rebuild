@@ -1,5 +1,6 @@
 import {hasMaterialBindings,recolorRivalMaterial,VehicleOptics} from './vehicle-materials';
 import {restoreConsoleDetail} from './console-detail';
+import {isRyker,RykerMotion} from './ryker';
 import {clone as cloneRig} from 'three/addons/utils/SkeletonUtils.js';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -14,7 +15,7 @@ import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
 export async function loadDrivingHero(loader:GLTFLoader){
  const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync('/assets/drivers/test-driver.glb'),fetch(CURRENT_DRIVER_ATTACHMENT).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
- restoreConsoleDetail(asset.scene);
+ if(!isRyker(asset.scene))restoreConsoleDetail(asset.scene);
  return bindDrivingHero(asset.scene,person.scene,attachment,rig);
 }
 function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttachment,rig:RearRig){
@@ -23,11 +24,12 @@ function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttac
  const root=new THREE.Group();root.add(asset.scene);configureShadows(root,new THREE.Group(),'repaired',false);root.add(person.scene);
  const axisX=new THREE.Vector3(1,0,0),axisY=new THREE.Vector3(0,1,0),axisZ=new THREE.Vector3(0,0,1),q=new THREE.Quaternion();
  const bindings=['front_left','front_right','rear'].map(id=>{const steer=asset.scene.getObjectByName(id+'_steer'),spin=asset.scene.getObjectByName(id+'_spin'),node=steer??spin;return{steer,spin,node,basePos:node?.position.clone(),baseSteer:steer?.quaternion.clone(),baseSpin:spin?.quaternion.clone()}});
- const rear=new RearPresenter(asset.scene,rig),frontLinks=new FrontLinks(asset.scene),wheel=asset.scene.getObjectByName('steering_control')!,wheelBase=wheel.quaternion.clone();
+ const ryker=isRyker(car)?new RykerMotion(car):undefined;
+ const rear=ryker??new RearPresenter(asset.scene,rig),frontLinks=new FrontLinks(asset.scene),wheel=asset.scene.getObjectByName('steering_control')!,wheelBase=wheel.quaternion.clone();
  const driver=new DriverPresenter(person.scene,root,wheel,attachment);
  // Rivals are drawn from one merged copy of the car (merge-rigid.ts): same look, about half the draw calls. Every node the
  // rig, steering, front links or mirrors address stays its own rigid body. Semantic (2026) car only; shared by all rivals.
- const rigidNames=new Set<string>([...Object.values(rig.groups),rig.drivePulley?.node??'','steering_control','rear_arm_pivot','rear_hub','shock_upper','shock_lower','Mirrors_1','stock_exhaust']),dynamic=(o:THREE.Object3D)=>rigidNames.has(o.name)||/_(steer|spin)$/.test(o.name)||!!(o.userData.frontLink??o.userData.model01FrontLink);
+ const rigidNames=new Set<string>([...Object.values(rig.groups),rig.drivePulley?.node??'','steering_control','rear_carrier','rear_arm_pivot','rear_hub','shock_upper','shock_lower','Mirrors_1','stock_exhaust']),dynamic=(o:THREE.Object3D)=>rigidNames.has(o.name)||/_(steer|spin)$/.test(o.name)||!!(o.userData.frontLink??o.userData.model01FrontLink);
  let rivalTemplate:THREE.Group|undefined,rivalMerge:MergeReport|undefined;
  return{cloneRival(paint:string,accent:string,preset:'day'|'night'='day'){
  const semantic=hasMaterialBindings(car),decalMaps:THREE.Texture[]=[];
@@ -38,6 +40,7 @@ function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttac
  const result=bindDrivingHero(carClone,bodyClone,attachment,rig),optics=semantic?new VehicleOptics(carClone,preset==='night'):undefined;return {...result,pose(...args:Parameters<typeof result.pose>){result.pose(...args);optics?.update(args[0].brake)},inspectOptics:()=>optics?.inspect()??{roles:[],brakeEmission:[]},resources:{sharedGeometry,sharedMaterials,sharedTextures:sharedTextures.size,merge:rivalMerge},dispose(){optics?.dispose();decalMaps.forEach(t=>t.dispose());result.root.removeFromParent();const skeletons=new Set<THREE.Skeleton>();result.root.traverse(o=>{if(o instanceof THREE.SkinnedMesh)skeletons.add(o.skeleton)});skeletons.forEach(s=>s.dispose());owned.forEach(m=>m.dispose())}};
  },root,asset:asset.scene,driver,rear,attachment,statistics:{car:assetStatistics(asset.scene),driver:assetStatistics(person.scene)},inspectVisual(){root.updateWorldMatrix(true,true);const inverse=root.matrixWorld.clone().invert();return{asset:CURRENT_VEHICLE_URL,driver:driver.inspect(),rear:rear.inspect(),wheels:bindings.map(b=>({center:b.node?.getWorldPosition(new THREE.Vector3()).applyMatrix4(inverse).toArray(),steer:b.steer?.quaternion.toArray(),spin:b.spin?.quaternion.toArray()}))}},pose(t:VehicleTelemetry,dt:number,cockpit:boolean,reset=false){
  root.position.set(t.position.x,t.position.y,t.position.z);root.quaternion.set(t.quaternion.x,t.quaternion.y,t.quaternion.z,t.quaternion.w);
+ if(ryker){ryker.pose(t);driver.update(t,dt,cockpit,reset);return}
  t.wheels.forEach((w,i)=>{const b=bindings[i];if(b.node&&b.basePos){b.node.position.copy(b.basePos);b.node.position.y=w.localCenter.y}if(b.steer&&b.baseSteer)b.steer.quaternion.copy(b.baseSteer).multiply(q.setFromAxisAngle(axisY,w.steer));if(b.spin&&b.baseSpin)b.spin.quaternion.copy(b.baseSpin).multiply(q.setFromAxisAngle(axisX,-w.spin))});
  rear.update(t.wheels[2]);frontLinks.update(t.wheels);
  wheel.quaternion.copy(wheelBase).multiply(q.setFromAxisAngle(axisZ,t.steer*10));driver.update(t,dt,cockpit,reset);

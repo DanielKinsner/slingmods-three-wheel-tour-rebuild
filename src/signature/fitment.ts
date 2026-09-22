@@ -20,6 +20,7 @@ export function retailFitment(id:string,context:VehicleContext=CURRENT_VEHICLE_C
    condition=conditions[id]??row.condition;
   }else if(context.year===2024){state=id==='SM-26801'?'conditional':'supported';label='Listed for 2024 Slingshot R';condition=id==='SM-26801'?'Factory square hoops required.':'Selected catalog option only.'}
  }
+ if(context.visual==='ryker'){state='unsupported';label='Slingshot part — not fitted to this Ryker';condition='This purchased Ryker preview uses its stock parts. Model year is unspecified.'}
  const compatible=state==='supported'||state==='conditional';
  return {state,label,condition,compatible,source:row?.source??p?.shopUrl??'',reviewedAt:seed.reviewedAt,linkLabel:state==='unsupported'?'View reference product (2020–2024) ↗':compatible?'View on SlingMods ↗':'View reference product ↗'};
 }

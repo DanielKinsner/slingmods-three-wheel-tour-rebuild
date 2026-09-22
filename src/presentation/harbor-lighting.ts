@@ -12,7 +12,7 @@ export function harborLighting(scene:THREE.Scene,car:THREE.Object3D,route:Harbor
  const fill=new THREE.HemisphereLight(night?0x9bacbf:0xd8e7f4,night?0x262b32:0x8e8474,night?.38:.30);scene.add(fill);
  const sun=new THREE.DirectionalLight(night?0xa4b9d7:0xffefdc,night?.38:2.05);sun.castShadow=true;sun.shadow.mapSize.set(quality==='low'?512:1024,quality==='low'?512:1024);Object.assign(sun.shadow.camera,{left:-30,right:30,top:30,bottom:-30,near:.1,far:110});sun.shadow.normalBias=.025;scene.add(sun,sun.target);
  const chaseShadow=new ChaseShadow(sun,sunDirection);
- const lens=car.getObjectByName('lights_head__Optical_Lens'),bounds=lens?new THREE.Box3().setFromObject(lens):new THREE.Box3(new THREE.Vector3(-.7,.45,-1.9),new THREE.Vector3(.7,.55,-1.8));const middle=bounds.getCenter(new THREE.Vector3());
+ const lens=car.getObjectByName('lights_head__Optical_Lens')??car.getObjectByName('headlights'),bounds=lens?new THREE.Box3().setFromObject(lens):new THREE.Box3(new THREE.Vector3(-.7,.45,-1.9),new THREE.Vector3(.7,.55,-1.8));const middle=bounds.getCenter(new THREE.Vector3());
  const beams=[bounds.min.x+.025,bounds.max.x-.025].map(x=>{const light=new THREE.SpotLight(0xe9f3ff,night?180:0,85,.34,.7,2);light.position.set(x,middle.y,bounds.min.z-.04);light.target.position.set(x*.7,-1.0,-32);car.add(light,light.target);return light});
  // A time-of-day look re-colours the validated rig; the rig's structure, shadow budget and lamp pooling are unchanged.
  if(look?.sun){sun.color.set(look.sun.color);sun.intensity=look.sun.intensity}if(look?.hemisphere){fill.color.set(look.hemisphere.sky);fill.groundColor.set(look.hemisphere.ground);fill.intensity=look.hemisphere.intensity}if(look?.fog)scene.fog=new THREE.Fog(look.fog.color,look.fog.near,look.fog.far);
