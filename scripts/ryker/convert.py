@@ -1,5 +1,5 @@
 """Purchased source only. Run on source-normalized.blend; no external scripts/textures."""
-import bpy,sys,pathlib,json,math,numpy as np
+import bpy,sys,pathlib,json,math,os,numpy as np
 from mathutils import Vector,Matrix
 sys.path.insert(0,str(pathlib.Path(__file__).parent));from components import components
 from render import studio
@@ -43,7 +43,7 @@ for name,c in centers.items():
  carrier=empty(name+'_steer' if name!='rear' else 'rear_carrier',c,root);carriers[name]=carrier;spins[name]=empty(name+'_spin',parent=carrier)
 handle=empty('steering_control',(.005,.215,.954),root);handle['steerAxis']=[0,.968,-.251];handle['steerRatio']=1.0
 ratios={1:.25,2:.25,3:.25,4:.65,5:.65,6:.65,7:.4,8:.4,9:.4,10:.32,11:.3,12:.18,13:.32,14:.8,15:.65,16:.10,17:.5,18:.24}
-manifest={'source_triangles':2873168,'method':'Per-component collapse with source split normals retained; no global smoothing, no UV baking, no compression. Modifiers remain editable in master.','components':[],'wheels':{},'materials':[],'steering':{'node':'steering_control','axis':[0,.968,-.251],'ratio':1},'unit':'metres','basis':'+X right +Y up -Z forward','spec_url':'https://can-am.brp.com/content/dam/global/en/can-am-on-road/my21/documents/spec-sheets/ONRD-RYK-MY21-SPEC-Ryker-ENNA-LR.pdf'}
+manifest={'source_triangles':2873168,'method':'Per-component collapse followed by nearest-surface transfer of authored split normals; baked editable meshes, no global smoothing, UV baking or compression. Untouched source is retained separately.','components':[],'wheels':{},'materials':[],'steering':{'node':'steering_control','axis':[0,.968,-.251],'ratio':1},'unit':'metres','basis':'+X right +Y up -Z forward','spec_url':'https://can-am.brp.com/content/dam/global/en/can-am-on-road/my21/documents/spec-sheets/ONRD-RYK-MY21-SPEC-Ryker-ENNA-LR.pdf'}
 def make_part(source,name,face_ids,parent,ratio):
  sm=source.data;faces=[sm.polygons[i] for i in face_ids];ids=sorted({v for p in faces for v in p.vertices});remap={v:i for i,v in enumerate(ids)};verts=[tuple(sm.vertices[i].co) for i in ids];mesh=bpy.data.meshes.new(name);mesh.from_pydata(verts,[],[[remap[v] for v in p.vertices]for p in faces]);mesh.update();o=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(o)
  for slot in source.material_slots:mesh.materials.append(materials[slot.name])
@@ -105,4 +105,6 @@ manifest['physics_mismatch']={'retained_wheelbase':2.667,'asset_wheelbase':1.709
 rear={'wheelCenter':manifest['wheels']['rear']['center'],'armPivot':[0,.3,.12],'armHub':manifest['wheels']['rear']['center'],'shockUpper':[0,.54,.13],'shockLower':[0,.34,.4],'groups':{},'storageEnvelopes':[]}
 (runtime/'rear-rig.json').write_text(json.dumps(rear,indent=2))
 print('RYKER_RESULT',total,manifest['bytes'],flush=True)
-studio(out/'renders','game-pbr');studio(out/'renders','game-clay',True)
+from attachments import driver_attachment
+driver_attachment(runtime)
+if os.environ.get('RYKER_SKIP_RENDERS')!='1':studio(out/'renders','game-pbr');studio(out/'renders','game-clay',True)

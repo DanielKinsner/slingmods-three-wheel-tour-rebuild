@@ -1,0 +1,345 @@
+{
+  "source_triangles": 2873168,
+  "method": "Per-component collapse followed by nearest-surface transfer of authored split normals; baked editable meshes, no global smoothing, UV baking or compression. Untouched source is retained separately.",
+  "components": [
+    {
+      "node": "front_left_tire",
+      "source": "Part___1",
+      "parent": "front_left_spin",
+      "source_triangles": 173040,
+      "ratio": 0.25,
+      "triangles": 43260
+    },
+    {
+      "node": "front_right_fender",
+      "source": "Part___10",
+      "parent": "front_right_steer",
+      "source_triangles": 91696,
+      "ratio": 0.32,
+      "triangles": 29341
+    },
+    {
+      "node": "front_left_fender",
+      "source": "Part___10",
+      "parent": "front_left_steer",
+      "source_triangles": 91696,
+      "ratio": 0.32,
+      "triangles": 29342
+    },
+    {
+      "node": "front_suspension",
+      "source": "Part___11",
+      "parent": "body_static",
+      "source_triangles": 96408,
+      "ratio": 0.3,
+      "triangles": 28921
+    },
+    {
+      "node": "grille",
+      "source": "Part___12",
+      "parent": "body_static",
+      "source_triangles": 137816,
+      "ratio": 0.18,
+      "triangles": 24806
+    },
+    {
+      "node": "body_panels",
+      "source": "Part___13",
+      "parent": "body_static",
+      "source_triangles": 298632,
+      "ratio": 0.32,
+      "triangles": 95560
+    },
+    {
+      "node": "headlights",
+      "source": "Part___14",
+      "parent": "body_static",
+      "source_triangles": 14144,
+      "ratio": 0.8,
+      "triangles": 11314
+    },
+    {
+      "node": "handlebar_controls",
+      "source": "Part___15",
+      "parent": "steering_control",
+      "source_triangles": 46808,
+      "ratio": 0.65,
+      "triangles": 30424
+    },
+    {
+      "node": "instrument_fixed",
+      "source": "Part___15",
+      "parent": "body_static",
+      "source_triangles": 10300,
+      "ratio": 0.65,
+      "triangles": 6694
+    },
+    {
+      "node": "mechanical",
+      "source": "Part___16",
+      "parent": "body_static",
+      "source_triangles": 926788,
+      "ratio": 0.1,
+      "triangles": 92677
+    },
+    {
+      "node": "seat_body",
+      "source": "Part___17",
+      "parent": "body_static",
+      "source_triangles": 77088,
+      "ratio": 0.5,
+      "triangles": 38543
+    },
+    {
+      "node": "rear_mechanical",
+      "source": "Part___18",
+      "parent": "body_static",
+      "source_triangles": 318184,
+      "ratio": 0.24,
+      "triangles": 76364
+    },
+    {
+      "node": "front_right_tire",
+      "source": "Part___2",
+      "parent": "front_right_spin",
+      "source_triangles": 173040,
+      "ratio": 0.25,
+      "triangles": 43259
+    },
+    {
+      "node": "rear_tire",
+      "source": "Part___3",
+      "parent": "rear_spin",
+      "source_triangles": 175416,
+      "ratio": 0.25,
+      "triangles": 43854
+    },
+    {
+      "node": "front_left_rim",
+      "source": "Part___4",
+      "parent": "front_left_spin",
+      "source_triangles": 36588,
+      "ratio": 0.65,
+      "triangles": 23782
+    },
+    {
+      "node": "front_right_rim",
+      "source": "Part___5",
+      "parent": "front_right_spin",
+      "source_triangles": 36588,
+      "ratio": 0.65,
+      "triangles": 23782
+    },
+    {
+      "node": "rear_rim",
+      "source": "Part___6",
+      "parent": "rear_spin",
+      "source_triangles": 36588,
+      "ratio": 0.65,
+      "triangles": 23782
+    },
+    {
+      "node": "front_left_rotor_hub",
+      "source": "Part___7",
+      "parent": "front_left_spin",
+      "source_triangles": 24784,
+      "ratio": 0.4,
+      "triangles": 9912
+    },
+    {
+      "node": "front_left_caliper",
+      "source": "Part___7",
+      "parent": "front_left_steer",
+      "source_triangles": 19332,
+      "ratio": 0.4,
+      "triangles": 7731
+    },
+    {
+      "node": "front_right_rotor_hub",
+      "source": "Part___8",
+      "parent": "front_right_spin",
+      "source_triangles": 24784,
+      "ratio": 0.4,
+      "triangles": 9912
+    },
+    {
+      "node": "front_right_caliper",
+      "source": "Part___8",
+      "parent": "front_right_steer",
+      "source_triangles": 19332,
+      "ratio": 0.4,
+      "triangles": 7731
+    },
+    {
+      "node": "rear_rotor_hub",
+      "source": "Part___9",
+      "parent": "rear_spin",
+      "source_triangles": 24784,
+      "ratio": 0.4,
+      "triangles": 9912
+    },
+    {
+      "node": "rear_caliper",
+      "source": "Part___9",
+      "parent": "rear_carrier",
+      "source_triangles": 19332,
+      "ratio": 0.4,
+      "triangles": 7731
+    }
+  ],
+  "wheels": {
+    "front_left": {
+      "center": [
+        -0.5202029943466187,
+        0.28596925735473633,
+        -0.8544999361038208
+      ],
+      "radius": 0.2848,
+      "spin": "front_left_spin",
+      "carrier": "front_left_steer",
+      "spin_axis": [
+        1,
+        0,
+        0
+      ],
+      "fender_behavior": "Steers with knuckle; never wheel spin"
+    },
+    "front_right": {
+      "center": [
+        0.5392817854881287,
+        0.28596925735473633,
+        -0.8544999361038208
+      ],
+      "radius": 0.2848,
+      "spin": "front_right_spin",
+      "carrier": "front_right_steer",
+      "spin_axis": [
+        1,
+        0,
+        0
+      ],
+      "fender_behavior": "Steers with knuckle; never wheel spin"
+    },
+    "rear": {
+      "center": [
+        -0.0013028656831011176,
+        0.2851041257381439,
+        0.8544999957084656
+      ],
+      "radius": 0.2851,
+      "spin": "rear_spin",
+      "carrier": "rear_carrier",
+      "spin_axis": [
+        1,
+        0,
+        0
+      ],
+      "fender_behavior": "Fixed to rear mechanical assembly; cosmetic suspension not animated"
+    }
+  },
+  "materials": [
+    {
+      "name": "Ryker_Plastic",
+      "role": "interior"
+    },
+    {
+      "name": "Ryker_Rubber",
+      "role": "rubber"
+    },
+    {
+      "name": "Ryker_Seat",
+      "role": "interior"
+    },
+    {
+      "name": "Ryker_Paint",
+      "role": "paint"
+    },
+    {
+      "name": "Ryker_SatinBlack",
+      "role": "metal"
+    },
+    {
+      "name": "Ryker_WheelMachining",
+      "role": "metal"
+    },
+    {
+      "name": "Ryker_Aluminium",
+      "role": "metal"
+    },
+    {
+      "name": "Ryker_Chrome",
+      "role": "metal"
+    },
+    {
+      "name": "Ryker_Steel",
+      "role": "metal"
+    },
+    {
+      "name": "Ryker_SteelDark",
+      "role": "metal"
+    },
+    {
+      "name": "Ryker_Engine",
+      "role": "metal"
+    },
+    {
+      "name": "Ryker_Recess",
+      "role": "interior"
+    },
+    {
+      "name": "Ryker_RedTrim",
+      "role": "accent"
+    },
+    {
+      "name": "Ryker_Display",
+      "role": "display"
+    },
+    {
+      "name": "Ryker_Headlamp",
+      "role": "headlamp"
+    },
+    {
+      "name": "Ryker_AmberReflector",
+      "role": "passive-reflector"
+    },
+    {
+      "name": "Ryker_Taillamp",
+      "role": "running-brake"
+    },
+    {
+      "name": "Ryker_Brass",
+      "role": "metal"
+    },
+    {
+      "name": "Ryker_BrassBrake",
+      "role": "metal"
+    }
+  ],
+  "steering": {
+    "node": "steering_control",
+    "axis": [
+      0,
+      0.968,
+      -0.251
+    ],
+    "ratio": 1
+  },
+  "unit": "metres",
+  "basis": "+X right +Y up -Z forward",
+  "spec_url": "https://can-am.brp.com/content/dam/global/en/can-am-on-road/my21/documents/spec-sheets/ONRD-RYK-MY21-SPEC-Ryker-ENNA-LR.pdf",
+  "triangles": 718634,
+  "bytes": 13453744,
+  "dimensions_xyz_runtime": [
+    1.1982491612434387,
+    1.0868427422987068,
+    2.362030029296875
+  ],
+  "physics_mismatch": {
+    "retained_wheelbase": 2.667,
+    "asset_wheelbase": 1.709,
+    "retained_track": 1.755,
+    "asset_track": 1.0594847798347473,
+    "retained_front_radius": 0.32985,
+    "note": "No scaling/distortion or contact relocation. This is a visual-only vehicle selection on existing Sport v5 physics, not certified Ryker handling. Contact positions differ substantially."
+  }
+}

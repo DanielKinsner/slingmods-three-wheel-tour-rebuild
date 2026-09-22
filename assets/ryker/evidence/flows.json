@@ -1,0 +1,645 @@
+{
+  "errors": [],
+  "showroomDeparture": {
+    "url": "http://127.0.0.1:5198/?scene=express&route=express&mode=test&play=preview&look=dusk-rain#build=%7B%22version%22%3A1%2C%22vehicleId%22%3A%22slingshot-r-2024%22%2C%22finish%22%3A%22blue-orange%22%2C%22products%22%3A%7B%7D%2C%22lights%22%3A%7B%22color%22%3A%22red%22%2C%22brightness%22%3A0.6%2C%22enabled%22%3Atrue%7D%2C%22suspension%22%3A%7B%22frontCompression%22%3A2%2C%22frontRebound%22%3A6%2C%22rearCompression%22%3A1%2C%22rearRebound%22%3A3%2C%22rideHeightMm%22%3A0%7D%2C%22handlingProfile%22%3A%22slingmods-sport-v5%22%7D",
+    "asset": "/assets/ryker/ryker-900.glb"
+  },
+  "reverse": {
+    "t": {
+      "time": 5.016666666666654,
+      "position": {
+        "x": -0.3552421335425049,
+        "y": 0.0016184068147325203,
+        "z": 12.809111664232175
+      },
+      "quaternion": {
+        "x": -0.0006087363581173122,
+        "y": -0.013862761668860912,
+        "z": -0.000008439666999038309,
+        "w": 0.9999037384986877
+      },
+      "velocity": {
+        "x": -0.16250792145729065,
+        "y": -0.005248912610113621,
+        "z": 5.859620094299316
+      },
+      "angularVelocity": {
+        "x": 0.004015145357698202,
+        "y": -6.861524126655638e-10,
+        "z": 0.0001114431579480879
+      },
+      "speed": -5.861862383788625,
+      "rpm": 2113.1344780100994,
+      "engineWheelAngularSpeed": -16.950358105869604,
+      "gear": -1,
+      "shifting": false,
+      "shiftRemaining": 0,
+      "steer": 0,
+      "throttle": 1,
+      "brake": 0,
+      "reversePending": false,
+      "wheels": [
+        {
+          "id": "front_left",
+          "contact": true,
+          "load": 2112.930371125896,
+          "travel": 0.000007231637409732539,
+          "slipRatio": 0.0014,
+          "slipAngle": 1.47008381956292e-9,
+          "spin": -20.472843903179985,
+          "steer": 0,
+          "localCenter": {
+            "x": -0.8775,
+            "y": 0.3298572316374097,
+            "z": -1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -17.74867833130975,
+          "longitudinalSpeed": -5.854401547582521,
+          "longitudinalForce": 29.581025195762543,
+          "lateralForce": -0.00002484947800364204,
+          "gripLimit": 2551.363423134519,
+          "driveTorque": 0
+        },
+        {
+          "id": "front_right",
+          "contact": true,
+          "load": 2112.9327098631334,
+          "travel": 0.000007291242054507929,
+          "slipRatio": 0.0014,
+          "slipAngle": 1.47008381956292e-9,
+          "spin": -20.472843909834,
+          "steer": 0,
+          "localCenter": {
+            "x": 0.8775,
+            "y": 0.3298572912420545,
+            "z": -1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -17.74867833130975,
+          "longitudinalSpeed": -5.854401547582521,
+          "longitudinalForce": 29.581057938083866,
+          "lateralForce": -0.00002484950550876021,
+          "gripLimit": 2551.3662471597336,
+          "driveTorque": 0
+        },
+        {
+          "id": "rear",
+          "contact": true,
+          "load": 4126.600474100403,
+          "travel": -0.003422589778900198,
+          "slipRatio": -0.00886338157644276,
+          "slipAngle": 1.47008381956292e-9,
+          "spin": -19.545492223510262,
+          "steer": 0,
+          "localCenter": {
+            "x": 0,
+            "y": 0.3420774102210998,
+            "z": 1.3335
+          },
+          "surface": "asphalt",
+          "angularSpeed": -16.9447222795442,
+          "longitudinalSpeed": -5.854401547582521,
+          "longitudinalForce": -365.7563461548143,
+          "lateralForce": -0.00004853158869420541,
+          "gripLimit": 4982.870072476237,
+          "driveTorque": -146.329184089712
+        }
+      ]
+    },
+    "input": {
+      "control": {
+        "throttle": 1,
+        "brake": 0,
+        "steer": 0,
+        "reverse": true,
+        "tractionControl": true
+      },
+      "direction": "R",
+      "directionHelp": "Stop, release pedals, then press brake for reverse. Forward pedal brakes reverse; release and press again to drive. X/right face selects direction explicitly.",
+      "paused": false,
+      "armed": true,
+      "activeDevice": "keyboard",
+      "status": "Press a controller button to connect",
+      "camera": false,
+      "reset": false,
+      "lookBack": false,
+      "resetProgress": 0,
+      "dt": 0.016600000000000364,
+      "ticks": 301,
+      "current": {
+        "time": 5.016666666666654,
+        "position": {
+          "x": -0.3552421335425049,
+          "y": 0.0016184068147325203,
+          "z": 12.809111664232175
+        },
+        "quaternion": {
+          "x": -0.0006087363581173122,
+          "y": -0.013862761668860912,
+          "z": -0.000008439666999038309,
+          "w": 0.9999037384986877
+        },
+        "velocity": {
+          "x": -0.16250792145729065,
+          "y": -0.005248912610113621,
+          "z": 5.859620094299316
+        },
+        "angularVelocity": {
+          "x": 0.004015145357698202,
+          "y": -6.861524126655638e-10,
+          "z": 0.0001114431579480879
+        },
+        "speed": -5.861862383788625,
+        "rpm": 2113.1344780100994,
+        "engineWheelAngularSpeed": -16.950358105869604,
+        "gear": -1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 1,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2112.930371125896,
+            "travel": 0.000007231637409732539,
+            "slipRatio": 0.0014,
+            "slipAngle": 1.47008381956292e-9,
+            "spin": -20.472843903179985,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.3298572316374097,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -17.74867833130975,
+            "longitudinalSpeed": -5.854401547582521,
+            "longitudinalForce": 29.581025195762543,
+            "lateralForce": -0.00002484947800364204,
+            "gripLimit": 2551.363423134519,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 2112.9327098631334,
+            "travel": 0.000007291242054507929,
+            "slipRatio": 0.0014,
+            "slipAngle": 1.47008381956292e-9,
+            "spin": -20.472843909834,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3298572912420545,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -17.74867833130975,
+            "longitudinalSpeed": -5.854401547582521,
+            "longitudinalForce": 29.581057938083866,
+            "lateralForce": -0.00002484950550876021,
+            "gripLimit": 2551.3662471597336,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4126.600474100403,
+            "travel": -0.003422589778900198,
+            "slipRatio": -0.00886338157644276,
+            "slipAngle": 1.47008381956292e-9,
+            "spin": -19.545492223510262,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.3420774102210998,
+              "z": 1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -16.9447222795442,
+            "longitudinalSpeed": -5.854401547582521,
+            "longitudinalForce": -365.7563461548143,
+            "lateralForce": -0.00004853158869420541,
+            "gripLimit": 4982.870072476237,
+            "driveTorque": -146.329184089712
+          }
+        ]
+      },
+      "previous": {
+        "time": 4.999999999999988,
+        "position": {
+          "x": -0.35253549563825354,
+          "y": 0.0017076445792965078,
+          "z": 12.711517404955954
+        },
+        "quaternion": {
+          "x": -0.0006429561763070524,
+          "y": -0.013862761668860912,
+          "z": -0.000008914551472116727,
+          "w": 0.9999037384986877
+        },
+        "velocity": {
+          "x": -0.16235509514808655,
+          "y": -0.005522829480469227,
+          "z": 5.854109764099121
+        },
+        "angularVelocity": {
+          "x": 0.004241886083036661,
+          "y": -1.2384965275558102e-9,
+          "z": 0.000117640127427876
+        },
+        "speed": -5.856348725577948,
+        "rpm": 2111.0285939037944,
+        "engineWheelAngularSpeed": -16.93346590610533,
+        "gear": -1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 1,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 2114.4558927406506,
+            "travel": 0.000009884044102237421,
+            "slipRatio": 0.0014,
+            "slipAngle": 4.169160109272568e-9,
+            "spin": -20.177032597658155,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.8775,
+              "y": 0.3298598840441022,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -17.73065321758407,
+            "longitudinalSpeed": -5.848455963820105,
+            "longitudinalForce": 29.60238249836911,
+            "lateralForce": -0.00007052404128664509,
+            "gripLimit": 2553.2054904843353,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 2114.4558378858014,
+            "travel": 0.000009884044102237421,
+            "slipRatio": 0.0014,
+            "slipAngle": 4.169160109272568e-9,
+            "spin": -20.17703260431217,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.8775,
+              "y": 0.3298598840441022,
+              "z": -1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -17.73065321758407,
+            "longitudinalSpeed": -5.848455963820105,
+            "longitudinalForce": 29.60238173040122,
+            "lateralForce": -0.0000705240394570559,
+            "gripLimit": 2553.2054242471054,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 4124.088416441872,
+            "travel": -0.0036127882003784695,
+            "slipRatio": -0.00928261922272571,
+            "slipAngle": 4.169160109272568e-9,
+            "spin": -19.263080185517858,
+            "steer": 0,
+            "localCenter": {
+              "x": 0,
+              "y": 0.3418872117996215,
+              "z": 1.3335
+            },
+            "surface": "asphalt",
+            "angularSpeed": -16.92751364347353,
+            "longitudinalSpeed": -5.848455963820105,
+            "longitudinalForce": -382.8234241068372,
+            "lateralForce": -0.00013755187930354022,
+            "gripLimit": 4979.836762853561,
+            "driveTorque": -152.21370869924158
+          }
+        ]
+      },
+      "alpha": 0.9800000000001259
+    },
+    "visual": {
+      "asset": "/assets/ryker/ryker-900.glb",
+      "driver": {
+        "arms": {
+          "left": {
+            "gap": 1.324078358905119e-7,
+            "rimGap": 1.324078358905119e-7,
+            "regripping": false,
+            "release": 0,
+            "angle": 0,
+            "target": [
+              -0.6184239582306121,
+              0.9753720156343807,
+              12.5955936902711
+            ],
+            "contact": [
+              -0.6184239193578105,
+              0.9753720038231108,
+              12.595593564250331
+            ],
+            "elbow": [
+              -0.7132124000537794,
+              1.0342958492066145,
+              12.835128896066498
+            ]
+          },
+          "right": {
+            "gap": 7.371743045607057e-8,
+            "rimGap": 7.371743045607057e-8,
+            "regripping": false,
+            "release": 0,
+            "angle": 0,
+            "target": [
+              -0.07063458337426781,
+              0.9753720155284152,
+              12.610785819631248
+            ],
+            "contact": [
+              -0.07063458834017089,
+              0.9753720268122097,
+              12.610785746951985
+            ],
+            "elbow": [
+              0.004179575392341595,
+              1.034793088596667,
+              12.857171689798601
+            ]
+          }
+        },
+        "feet": {
+          "left": {
+            "gap": 1.0221335655465373e-7,
+            "ankle": [
+              -0.29999996103428167,
+              0.23999991201817034,
+              -0.1800000344737693
+            ]
+          },
+          "right": {
+            "gap": 1.032404097494635e-7,
+            "ankle": [
+              0.2999999614133604,
+              0.2399999096036765,
+              -0.18000003159364295
+            ]
+          }
+        },
+        "headVisible": true,
+        "bodyPitch": -0.0004853935951884067,
+        "wheelAngle": 0,
+        "eye": [
+          0,
+          1.36,
+          0.12
+        ]
+      },
+      "rear": {
+        "kind": "ryker-rigid",
+        "wheelbase": 1.709,
+        "physicsWheelbase": 2.667,
+        "physicsContactMismatch": true,
+        "handlebarAngle": 0,
+        "calipersSpin": false,
+        "fendersSpin": false,
+        "rearSuspension": "mechanical group rigid; rear wheel translates cosmetically"
+      },
+      "wheels": [
+        {
+          "center": [
+            -0.5202029943466188,
+            0.28597648899214595,
+            -0.8544999361038224
+          ],
+          "steer": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "spin": [
+            -0.6523942965994971,
+            0,
+            0,
+            0.757879727769814
+          ]
+        },
+        {
+          "center": [
+            0.5392817854881287,
+            0.2859765485967908,
+            -0.8544999361038224
+          ],
+          "steer": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "spin": [
+            -0.6523942936791767,
+            0,
+            0,
+            0.7578797302836698
+          ]
+        },
+        {
+          "center": [
+            -0.0013028656831010877,
+            0.2816815359592438,
+            0.8544999957084636
+          ],
+          "spin": [
+            -0.6617980105403372,
+            0,
+            0,
+            0.749682194829817
+          ]
+        }
+      ]
+    }
+  },
+  "rivalAssets": {
+    "maya": "/assets/model02/slingshot-2026.glb",
+    "jett": "/assets/model02/slingshot-2026.glb",
+    "nico": "/assets/model02/slingshot-2026.glb"
+  },
+  "garage": {
+    "visual": {
+      "year": 0,
+      "model": "Ryker 900",
+      "visual": "ryker",
+      "rollHoops": "none",
+      "label": "Can-Am Ryker 900",
+      "controls": "Automatic game controls · shared Sport v5 handling"
+    },
+    "state": {
+      "version": 4,
+      "ownBuild": {
+        "version": 1,
+        "finish": "blue-orange",
+        "products": {},
+        "ridge": {
+          "completed": {
+            "find-the-ridge": false,
+            "nico-ridge-duel": false,
+            "summit-invitational": false
+          },
+          "won": {
+            "find-the-ridge": false,
+            "nico-ridge-duel": false,
+            "summit-invitational": false
+          }
+        },
+        "completed": {
+          "open-it-up": false,
+          "hold-your-nerve": false,
+          "coastline-cup": false
+        },
+        "won": {
+          "open-it-up": false,
+          "hold-your-nerve": false,
+          "coastline-cup": false
+        },
+        "active": null,
+        "attempts": {},
+        "cups": {},
+        "activeCupId": null,
+        "records": []
+      },
+      "buildMatters": {
+        "legacyCrewAccess": false,
+        "duelCompleted": false,
+        "duelWon": false
+      },
+      "suspension": {
+        "owned": false,
+        "equipped": false,
+        "setup": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        }
+      },
+      "revision": 1,
+      "credits": 0,
+      "owned": false,
+      "equipped": false,
+      "appearance": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "chapters": {
+        "entry": true,
+        "firstCompletion": false,
+        "firstBuild": false
+      },
+      "crew": {
+        "invitationSeen": false,
+        "completed": false,
+        "bestPlace": null,
+        "cleared": false,
+        "clearAcknowledged": false
+      },
+      "receipts": {}
+    }
+  },
+  "career": {
+    "asset": "/assets/ryker/ryker-900.glb",
+    "event": "harbor-shakedown-standing-lap-v1",
+    "career": true,
+    "profile": "slingmods-sport-v5",
+    "state": {
+      "version": 4,
+      "ownBuild": {
+        "version": 1,
+        "finish": "blue-orange",
+        "products": {},
+        "ridge": {
+          "completed": {
+            "find-the-ridge": false,
+            "nico-ridge-duel": false,
+            "summit-invitational": false
+          },
+          "won": {
+            "find-the-ridge": false,
+            "nico-ridge-duel": false,
+            "summit-invitational": false
+          }
+        },
+        "completed": {
+          "open-it-up": false,
+          "hold-your-nerve": false,
+          "coastline-cup": false
+        },
+        "won": {
+          "open-it-up": false,
+          "hold-your-nerve": false,
+          "coastline-cup": false
+        },
+        "active": null,
+        "attempts": {},
+        "cups": {},
+        "activeCupId": null,
+        "records": []
+      },
+      "buildMatters": {
+        "legacyCrewAccess": false,
+        "duelCompleted": false,
+        "duelWon": false
+      },
+      "suspension": {
+        "owned": false,
+        "equipped": false,
+        "setup": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        }
+      },
+      "revision": 1,
+      "credits": 0,
+      "owned": false,
+      "equipped": false,
+      "appearance": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "chapters": {
+        "entry": true,
+        "firstCompletion": false,
+        "firstBuild": false
+      },
+      "crew": {
+        "invitationSeen": false,
+        "completed": false,
+        "bestPlace": null,
+        "cleared": false,
+        "clearAcknowledged": false
+      },
+      "receipts": {}
+    }
+  },
+  "pass": true
+}

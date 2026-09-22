@@ -1,3 +1,5 @@
+import {isRyker} from './ryker';
+import {visualWheel,rykerWheels} from './ryker-contacts';
 import * as THREE from 'three';
 import {perfLegacy} from './perf-switches';
 import type {VehicleTelemetry} from '../simulation';
@@ -67,14 +69,14 @@ export type ContactReader=(id:string,point:THREE.Vector3)=>boolean;
 export class VehicleEffects {
  readonly group=new THREE.Group();readonly heatHaze=new THREE.Vector4();readonly skids=new SkidBuffer();
  private pools=EFFECT_SPRITES.map((_,i)=>new ParticlePool(i));private textures:THREE.Texture[]=[];private disposed=false;
- private cars:{spec:EffectCar;state:VehicleEffectState;lastTime:number;lastSpeed:number;anchors:THREE.Vector3[];marking:boolean[];budget:Float32Array;contactBudget:number;outlets:THREE.Vector3[]}[];
+ private cars:{spec:EffectCar;ryker:boolean;state:VehicleEffectState;lastTime:number;lastSpeed:number;anchors:THREE.Vector3[];marking:boolean[];budget:Float32Array;contactBudget:number;outlets:THREE.Vector3[]}[];
  private q=new THREE.Quaternion();private steering=new THREE.Quaternion();private p=new THREE.Vector3();private v=new THREE.Vector3();private point=new THREE.Vector3();private matrix=new THREE.Matrix4();private time=0;
  private glow:THREE.InstancedMesh;private cones:THREE.InstancedMesh;private heat:THREE.InstancedBufferAttribute;private loaded=0;private skipped=0;private quality:GraphicsQuality='high';private reduced=false;
  constructor(scene:THREE.Scene,cars:EffectCar[],private readContact:ContactReader=()=>false,readonly enabled=true){
   this.group.name='vehicle-world-effects';scene.add(this.group);for(const pool of this.pools)this.group.add(pool.points);this.group.add(this.skids.mesh);
   // Authored outlet centers: build-p08b-art.py. The mounted product's transform
   // carries the donor-specific offset, so emissions follow the fitted geometry.
-  this.cars=cars.map(spec=>{const product=spec.root.getObjectByName('product_SM-7720');spec.root.updateWorldMatrix(true,true);const outlets=[new THREE.Vector3(-.46,.66,1.42),new THREE.Vector3(.46,.66,1.42)];if(product)for(const p of outlets)spec.root.worldToLocal(product.localToWorld(p));return{spec,state:new VehicleEffectState(),lastTime:-1,lastSpeed:0,anchors:[new THREE.Vector3(),new THREE.Vector3(),new THREE.Vector3()],marking:[false,false,false],budget:new Float32Array(3),contactBudget:0,outlets}});
+  this.cars=cars.map(spec=>{const product=spec.root.getObjectByName('product_SM-7720');spec.root.updateWorldMatrix(true,true);const outlets=[new THREE.Vector3(-.46,.66,1.42),new THREE.Vector3(.46,.66,1.42)];if(product)for(const p of outlets)spec.root.worldToLocal(product.localToWorld(p));return{spec,ryker:isRyker(spec.root),state:new VehicleEffectState(),lastTime:-1,lastSpeed:0,anchors:[new THREE.Vector3(),new THREE.Vector3(),new THREE.Vector3()],marking:[false,false,false],budget:new Float32Array(3),contactBudget:0,outlets}});
   const g=new THREE.RingGeometry(.085,.158,24);this.heat=new THREE.InstancedBufferAttribute(new Float32Array(cars.length*3),1);g.setAttribute('heat',this.heat);
   this.glow=new THREE.InstancedMesh(g,new THREE.ShaderMaterial({vertexShader:'attribute float heat;varying float h;void main(){h=heat;gl_Position=projectionMatrix*modelViewMatrix*instanceMatrix*vec4(position,1.);}',fragmentShader:'varying float h;void main(){if(h<.01)discard;gl_FragColor=vec4(vec3(3.,.18,.015)*h,h*.5);\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}',transparent:true,depthWrite:false,side:THREE.DoubleSide,blending:THREE.AdditiveBlending}),cars.length*3);this.glow.name='pooled-hot-brake-discs';this.glow.frustumCulled=false;this.group.add(this.glow);
   const cone=new THREE.ConeGeometry(1.2,9,16,1,true);cone.translate(0,-4.5,0);cone.rotateX(Math.PI/2);
@@ -89,23 +91,23 @@ export class VehicleEffects {
   for(let ci=0;ci<this.cars.length;ci++){
    const c=this.cars[ci],t=field[c.spec.id];if(!t)continue;const restart=reset||c.lastTime<0||t.time<c.lastTime,dt=restart?0:Math.max(0,Math.min(.1,t.time-c.lastTime));c.lastTime=t.time;advance=Math.max(advance,dt);
    if(restart){c.state.reset(t);c.marking.fill(false);c.budget.fill(0);c.contactBudget=0}
-   c.state.update(t,dt,c.spec.exhaust,reduced);this.q.set(t.quaternion.x,t.quaternion.y,t.quaternion.z,t.quaternion.w);
-   const rival=c.spec.id!=='player',rate=density*(rival?.28:1),speed=Math.abs(t.speed);
+   c.state.update(t,dt,c.spec.exhaust&&!c.ryker,reduced);this.q.set(t.quaternion.x,t.quaternion.y,t.quaternion.z,t.quaternion.w);
+   const ryker=c.ryker,rival=c.spec.id!=='player',rate=density*(rival?.28:1),speed=Math.abs(t.speed);
    for(let wi=0;wi<3;wi++){
     const w=t.wheels[wi];if(!w)continue;
-    this.p.set(w.localCenter.x,w.localCenter.y-(wi===2?.3455:.32985),w.localCenter.z).applyQuaternion(this.q).add(t.position);
+    visualWheel(this.p,wi,w.localCenter,ryker);this.p.y-=ryker?rykerWheels[wi].radius:(wi===2?.3455:.32985);this.p.applyQuaternion(this.q).add(t.position);
     const activity=tireActivity(w,t.speed,wet),kind=w.surface!=='asphalt'?1:wet?3:0;
     if(dt>0&&rate>0&&activity>0){c.budget[wi]+=dt*activity*rate*(kind===3?28:9);if(c.budget[wi]>=1){c.budget[wi]--;this.v.set(t.velocity.x*.08,.35+speed*.025,t.velocity.z*.08);this.point.copy(this.p);this.point.y+=.04;this.pools[kind].emit(this.point,this.v,this.time,kind===3?.8+speed*.03:1.4,kind===3?.8:1.9);if(kind===1&&w.surface==='grass'&&quality!=='low')this.pools[2].emit(this.point,this.v,this.time,.28,1.2)}}else if(!activity)c.budget[wi]=0;
     const skid=density>0&&skidActivity(w,t.speed,wet)>.22;
     if(dt>0&&skid){if(c.marking[wi]){const distance=c.anchors[wi].distanceTo(this.p);if(this.skids.add(c.anchors[wi],this.p,wi===2?.27:.19)||distance>2.5)c.anchors[wi].copy(this.p)}else c.anchors[wi].copy(this.p)}c.marking[wi]=skid&&dt>0;
     const heat=lamps?Math.max(0,c.state.heat-.24)*1.25:0;this.heat.setX(ci*3+wi,heat);glowing||=heat>.01;
-    this.point.set(w.localCenter.x+(wi===0?.09:-.09),w.localCenter.y,w.localCenter.z).applyQuaternion(this.q).add(t.position);this.steering.setFromAxisAngle(UP,w.steer).premultiply(this.q).multiply(RING_Q);this.matrix.compose(this.point,this.steering,ONE);this.glow.setMatrixAt(ci*3+wi,this.matrix);
+    visualWheel(this.point,wi,w.localCenter,ryker);this.point.x+=(wi===0?1:-1)*(ryker?.035:.09);this.point.applyQuaternion(this.q).add(t.position);this.steering.setFromAxisAngle(UP,w.steer).premultiply(this.q).multiply(RING_Q);this.matrix.compose(this.point,this.steering,ONE);this.glow.setMatrixAt(ci*3+wi,this.matrix);
    }
    const impact=!restart&&c.lastSpeed-speed>3;c.lastSpeed=speed;
    if(dt>0&&rate>0&&(speed>3||impact)){c.contactBudget+=dt;if(c.contactBudget>.075||impact){c.contactBudget=0;if(this.readContact(c.spec.id,this.point)){this.v.set(-t.velocity.x*.08,.7,-t.velocity.z*.08);this.pools[4].emit(this.point,this.v,this.time,.6,.45)}}}
    if(c.state.flame&&rate>0)for(const outlet of c.outlets){this.point.copy(outlet).applyQuaternion(this.q).add(t.position);this.v.set(0,.03,.7).applyQuaternion(this.q);this.pools[5].emit(this.point,this.v,this.time,.35,.4)}
-   for(let side=0;side<2;side++){this.point.set(side?.58:-.58,.55,-1.6).applyQuaternion(this.q).add(t.position);this.matrix.compose(this.point,this.q,ONE);this.cones.setMatrixAt(ci*2+side,this.matrix)}
-   if(!rival&&c.spec.exhaust&&!reduced&&preset.exhaustShimmer&&density>0&&t.rpm>2200){this.point.copy(c.outlets[0]);this.point.x=0;this.point.y+=.12;this.point.z+=.35;this.point.applyQuaternion(this.q).add(t.position);this.p.copy(this.point).project(camera);if(this.p.z>0&&this.p.z<1){const size=.7/Math.max(2,camera.position.distanceTo(this.point));this.heatHaze.set(this.p.x*.5+.5,this.p.y*.5+.5,size,Math.min(1,(t.rpm-2200)/4000))}}
+   for(let side=0;side<2;side++){this.point.set((side?1:-1)*(ryker?.10:.58),ryker?.7:.55,ryker?-.65:-1.6).applyQuaternion(this.q).add(t.position);this.matrix.compose(this.point,this.q,ONE);this.cones.setMatrixAt(ci*2+side,this.matrix)}
+   if(!ryker&&!rival&&c.spec.exhaust&&!reduced&&preset.exhaustShimmer&&density>0&&t.rpm>2200){this.point.copy(c.outlets[0]);this.point.x=0;this.point.y+=.12;this.point.z+=.35;this.point.applyQuaternion(this.q).add(t.position);this.p.copy(this.point).project(camera);if(this.p.z>0&&this.p.z<1){const size=.7/Math.max(2,camera.position.distanceTo(this.point));this.heatHaze.set(this.p.x*.5+.5,this.p.y*.5+.5,size,Math.min(1,(t.rpm-2200)/4000))}}
   }
   if(reset)for(const pool of this.pools)pool.clear();this.time+=advance;
   for(const pool of this.pools)pool.update(this.time,advance,pixels,density>0);

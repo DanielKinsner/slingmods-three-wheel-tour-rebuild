@@ -15,6 +15,6 @@ export class RykerMotion {
   });this.handle.quaternion.copy(this.base).multiply(new THREE.Quaternion().setFromAxisAngle(this.axis,t.steer));
   this.report={kind:'ryker-rigid',wheelbase:1.709,physicsWheelbase:layout.wheelbase,physicsContactMismatch:true,handlebarAngle:t.steer,calipersSpin:false,fendersSpin:false,rearSuspension:'mechanical group rigid; rear wheel translates cosmetically'};
  }
- update(_wheel:Pick<WheelTelemetry,'localCenter'|'spin'>){}
+ update(_wheel:Pick<WheelTelemetry,'localCenter'|'spin'>,_legacy=false){}
  inspect():any{return this.report}
 }

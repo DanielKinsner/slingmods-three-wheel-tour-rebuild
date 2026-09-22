@@ -1,4 +1,4 @@
-import bpy, sys, pathlib, json, numpy as np
+import bpy, sys, pathlib, json, os, numpy as np
 from mathutils import Matrix, Vector
 sys.path.insert(0,str(pathlib.Path(__file__).parent));from render import studio
 out=pathlib.Path(sys.argv[sys.argv.index('--')+1])
@@ -18,4 +18,4 @@ for m in bpy.data.materials:
   p.inputs['Base Color'].default_value=m.diffuse_color;p.inputs['Roughness'].default_value=.4;p.inputs['Metallic'].default_value=.7 if any(s in m.name.lower() for s in ('metal','steel','chrome','brass')) else 0
 report={'scale':scale,'source_y_mid':mid,'source_ground':ground,'matrix':[list(row) for row in transform],'wheel_centers_source':{str(k):v.tolist() for k,v in centers.items()},'wheel_centers_blender':{str(k):list(transform@Vector(v)) for k,v in centers.items()}}
 (out/'transform.json').write_text(json.dumps(report,indent=2));bpy.ops.wm.save_as_mainfile(filepath=str(out/'source-normalized.blend'))
-studio(out/'renders','source-pbr');studio(out/'renders','source-clay',True)
+if os.environ.get('RYKER_SKIP_RENDERS')!='1':studio(out/'renders','source-pbr');studio(out/'renders','source-clay',True)

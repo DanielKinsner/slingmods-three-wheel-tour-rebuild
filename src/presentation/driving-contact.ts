@@ -1,3 +1,5 @@
+import {VEHICLE_VISUAL} from './vehicle-asset';
+import {rykerWheels,visualWheel} from './ryker-contacts';
 import * as THREE from 'three';
 import RAPIER from '@dimforge/rapier3d-compat';
 import type {RaceWorld,VehicleTelemetry} from '../simulation';
@@ -48,15 +50,15 @@ export class DrivingContact {
    const upright=t?1-2*(t.quaternion.x*t.quaternion.x+t.quaternion.z*t.quaternion.z):0;
    if(t){this.q.copy(t.quaternion);this.forward.set(0,0,1).applyQuaternion(this.q);this.forward.y=0;this.forward.normalize();this.right.set(this.forward.z,0,-this.forward.x)}
    for(let part=0;part<4;part++){
-    const index=(ci*4+part)*4,w=t?.wheels[part],wheel=layout.wheels[part];let alpha=0;
+    const ryker=VEHICLE_VISUAL==='ryker'&&id==='player',index=(ci*4+part)*4,w=t?.wheels[part],wheel=(ryker?rykerWheels:layout.wheels)[part];let alpha=0;
     if(this.enabled&&t&&upright>.35&&(part===3||w?.contact)){
-     if(w)this.p.copy(w.localCenter);else this.p.set(0,.6,-.1);
+     if(w)visualWheel(this.p,part,w.localCenter,ryker);else this.p.set(0,.6,-.1);
      this.p.applyQuaternion(this.q).add(t.position);this.p.y+=.08;
      if(this.probe(this.p,part===3?1.65:(wheel.radius+.42),this.sample)){
       const gap=part===3?t.position.y-this.sample.height:this.p.y-.08-wheel.radius-this.sample.height;
       alpha=(part===3?.25:.64)*(1-THREE.MathUtils.smoothstep(gap,part===3?.18:.025,part===3?.85:.24));
       alpha*=THREE.MathUtils.smoothstep(upright,.35,.8);
-      const width=part===3?1.45:wheel.width*2.8,depth=part===3?2.65:wheel.radius*2.2,n=this.sample.normal;
+      const width=part===3?(ryker?.85:1.45):wheel.width*2.8,depth=part===3?(ryker?1.7:2.65):wheel.radius*2.2,n=this.sample.normal;
       for(let v=0;v<4;v++){const [sx,sz]=CORNERS[v],dx=this.right.x*sx*width/2+this.forward.x*sz*depth/2,dz=this.right.z*sx*width/2+this.forward.z*sz*depth/2;
        this.positions.setXYZ(index+v,this.p.x+dx,this.sample.height-(n.x*dx+n.z*dz)/n.y+.012,this.p.z+dz)}
      }

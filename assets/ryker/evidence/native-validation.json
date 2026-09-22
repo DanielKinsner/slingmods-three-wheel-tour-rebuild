@@ -1,0 +1,296 @@
+{
+  "native_reimport": true,
+  "blender": "4.5.3 LTS",
+  "checks": {
+    "required_nodes": true,
+    "unique_names": true,
+    "no_staging": true,
+    "no_images": true,
+    "finite_body_panels": true,
+    "finite_body_static": true,
+    "finite_display_mount": true,
+    "finite_front_left_caliper": true,
+    "finite_front_left_fender": true,
+    "finite_front_left_rim": true,
+    "finite_front_left_rotor_hub": true,
+    "finite_front_left_spin": true,
+    "finite_front_left_steer": true,
+    "finite_front_left_tire": true,
+    "finite_front_right_caliper": true,
+    "finite_front_right_fender": true,
+    "finite_front_right_rim": true,
+    "finite_front_right_rotor_hub": true,
+    "finite_front_right_spin": true,
+    "finite_front_right_steer": true,
+    "finite_front_right_tire": true,
+    "finite_front_suspension": true,
+    "finite_grille": true,
+    "finite_handlebar_controls": true,
+    "finite_headlights": true,
+    "finite_instrument_fixed": true,
+    "finite_mechanical": true,
+    "finite_rear_arm_pivot": true,
+    "finite_rear_caliper": true,
+    "finite_rear_carrier": true,
+    "finite_rear_hub": true,
+    "finite_rear_mechanical": true,
+    "finite_rear_rim": true,
+    "finite_rear_rotor_hub": true,
+    "finite_rear_spin": true,
+    "finite_rear_tire": true,
+    "finite_ryker_foundation": true,
+    "finite_seat_body": true,
+    "finite_shock_body_visual": true,
+    "finite_shock_lower": true,
+    "finite_shock_piston_visual": true,
+    "finite_shock_spring_visual": true,
+    "finite_shock_upper": true,
+    "finite_steering_control": true,
+    "finite_suspension_front_left": true,
+    "finite_suspension_front_right": true,
+    "finite_vehicle_root": true,
+    "triangle_count": true,
+    "ground": true,
+    "wheel_centers": true,
+    "calipers_fixed": true,
+    "rotors_spin": true,
+    "instrument_fixed": true,
+    "fenders_steer": true
+  },
+  "pass": true,
+  "triangles": 718634,
+  "wheel_center_errors_metres": {
+    "front_left": 0.0,
+    "front_right": 0.0,
+    "rear": 0.0
+  },
+  "bounds_blender": [
+    [
+      -0.5895817875862122,
+      -1.2241054773330688,
+      -8.616314772780242e-08
+    ],
+    [
+      0.6086673736572266,
+      1.1379245519638062,
+      1.086842656135559
+    ]
+  ],
+  "nodes": [
+    {
+      "name": "body_panels",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "body_static",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "display_mount",
+      "parent": "body_static",
+      "type": "EMPTY"
+    },
+    {
+      "name": "front_left_caliper",
+      "parent": "front_left_steer",
+      "type": "MESH"
+    },
+    {
+      "name": "front_left_fender",
+      "parent": "front_left_steer",
+      "type": "MESH"
+    },
+    {
+      "name": "front_left_rim",
+      "parent": "front_left_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "front_left_rotor_hub",
+      "parent": "front_left_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "front_left_spin",
+      "parent": "front_left_steer",
+      "type": "EMPTY"
+    },
+    {
+      "name": "front_left_steer",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "front_left_tire",
+      "parent": "front_left_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "front_right_caliper",
+      "parent": "front_right_steer",
+      "type": "MESH"
+    },
+    {
+      "name": "front_right_fender",
+      "parent": "front_right_steer",
+      "type": "MESH"
+    },
+    {
+      "name": "front_right_rim",
+      "parent": "front_right_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "front_right_rotor_hub",
+      "parent": "front_right_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "front_right_spin",
+      "parent": "front_right_steer",
+      "type": "EMPTY"
+    },
+    {
+      "name": "front_right_steer",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "front_right_tire",
+      "parent": "front_right_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "front_suspension",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "grille",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "handlebar_controls",
+      "parent": "steering_control",
+      "type": "MESH"
+    },
+    {
+      "name": "headlights",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "instrument_fixed",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "mechanical",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "rear_arm_pivot",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "rear_caliper",
+      "parent": "rear_carrier",
+      "type": "MESH"
+    },
+    {
+      "name": "rear_carrier",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "rear_hub",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "rear_mechanical",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "rear_rim",
+      "parent": "rear_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "rear_rotor_hub",
+      "parent": "rear_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "rear_spin",
+      "parent": "rear_carrier",
+      "type": "EMPTY"
+    },
+    {
+      "name": "rear_tire",
+      "parent": "rear_spin",
+      "type": "MESH"
+    },
+    {
+      "name": "ryker_foundation",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "seat_body",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "shock_body_visual",
+      "parent": "body_static",
+      "type": "EMPTY"
+    },
+    {
+      "name": "shock_lower",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "shock_piston_visual",
+      "parent": "body_static",
+      "type": "EMPTY"
+    },
+    {
+      "name": "shock_spring_visual",
+      "parent": "body_static",
+      "type": "EMPTY"
+    },
+    {
+      "name": "shock_upper",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "steering_control",
+      "parent": "vehicle_root",
+      "type": "EMPTY"
+    },
+    {
+      "name": "suspension_front_left",
+      "parent": "body_static",
+      "type": "EMPTY"
+    },
+    {
+      "name": "suspension_front_right",
+      "parent": "body_static",
+      "type": "EMPTY"
+    },
+    {
+      "name": "vehicle_root",
+      "parent": null,
+      "type": "EMPTY"
+    }
+  ]
+}

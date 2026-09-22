@@ -1,0 +1,98 @@
+{
+  "blender": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour\\work\\blender-runtime\\blender-4.5.3-windows-x64\\blender.exe",
+  "version": "Blender 4.5.3 LTS",
+  "archive": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\canam-ryker-900.zip",
+  "archiveSha256": "D8113C58E9C4913FAD967FA485281AD2D71FB766CE31B4CED87AFAE178DDA412",
+  "sourceSha256": "0980BCAB716C56EEBCB333D2815386815EF3495853DE9F6A66D5CADF9861CBAE",
+  "rarSha256": "9F5B61E7420BE8FAE1B3310230C2BE46BE8F54818065A0928A38F4AF7269B30F",
+  "workspace": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased",
+  "runtime": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-ryker-game-asset\\public\\assets\\ryker",
+  "commands": [
+    {
+      "arguments": [
+        "--background",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\source\\Blender 2.9 .blend",
+        "--python",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-ryker-game-asset\\scripts\\ryker\\inspect_source.py",
+        "--",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work"
+      ],
+      "name": "inspection",
+      "log": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work\\inspection.log",
+      "executable": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour\\work\\blender-runtime\\blender-4.5.3-windows-x64\\blender.exe"
+    },
+    {
+      "arguments": [
+        "--background",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\source\\Blender 2.9 .blend",
+        "--python",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-ryker-game-asset\\scripts\\ryker\\baseline.py",
+        "--",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work"
+      ],
+      "name": "baseline",
+      "log": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work\\baseline.log",
+      "executable": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour\\work\\blender-runtime\\blender-4.5.3-windows-x64\\blender.exe"
+    },
+    {
+      "arguments": [
+        "--background",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work\\source-normalized.blend",
+        "--python",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-ryker-game-asset\\scripts\\ryker\\components.py",
+        "--",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work"
+      ],
+      "name": "components",
+      "log": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work\\components.log",
+      "executable": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour\\work\\blender-runtime\\blender-4.5.3-windows-x64\\blender.exe"
+    },
+    {
+      "arguments": [
+        "--background",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work\\source-normalized.blend",
+        "--python",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-ryker-game-asset\\scripts\\ryker\\convert.py",
+        "--",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-ryker-game-asset\\public\\assets\\ryker"
+      ],
+      "name": "conversion",
+      "log": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work\\conversion.log",
+      "executable": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour\\work\\blender-runtime\\blender-4.5.3-windows-x64\\blender.exe"
+    },
+    {
+      "arguments": [
+        "--background",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-ryker-game-asset\\scripts\\ryker\\validate.py",
+        "--",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-ryker-game-asset\\public\\assets\\ryker",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work"
+      ],
+      "name": "validation",
+      "log": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods game\\ryker-purchased\\work\\validation.log",
+      "executable": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour\\work\\blender-runtime\\blender-4.5.3-windows-x64\\blender.exe"
+    }
+  ]
+}
