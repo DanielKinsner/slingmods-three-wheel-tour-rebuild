@@ -18,6 +18,9 @@ checks['wheel_centers']=max(wheel_errors.values())<1e-5
 checks['calipers_fixed']=all(bpy.data.objects[n+'_caliper'].parent.name==entry['carrier'] for n,entry in manifest['wheels'].items())
 checks['rotors_spin']=all(bpy.data.objects[n+'_rotor_hub'].parent.name==n+'_spin' for n in manifest['wheels'])
 checks['instrument_fixed']=bpy.data.objects['instrument_fixed'].parent.name=='body_static'
+checks['screen_fixed']=bpy.data.objects['instrument_screen'].parent.name=='body_static'
+checks['screen_uv']=bool(bpy.data.objects['instrument_screen'].data.uv_layers)
+checks['mirrors_steer']=bpy.data.objects['Mirrors_1'].parent.name=='steering_control' and bpy.data.objects['Mirrors_1'].get('followSteering') is True
 checks['fenders_steer']=all(bpy.data.objects[n+'_fender'].parent.name==n+'_steer' for n in ['front_left','front_right'])
 report={'native_reimport':True,'blender':bpy.app.version_string,'checks':checks,'pass':all(checks.values()),'triangles':total,'wheel_center_errors_metres':wheel_errors,'bounds_blender':[lo.tolist(),hi.tolist()],'nodes':nodes}
 (out/'native-validation.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2));assert report['pass']

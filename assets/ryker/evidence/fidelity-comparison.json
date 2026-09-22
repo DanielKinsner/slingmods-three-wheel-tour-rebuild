@@ -1,0 +1,502 @@
+{
+  "base": "http://127.0.0.1:5198",
+  "viewport": [
+    1440,
+    1000
+  ],
+  "browser": "153.0.8010.12",
+  "errors": [],
+  "models": {
+    "2026": {
+      "mirrors": {
+        "cropped": 0,
+        "count": 2,
+        "resolution": [
+          768,
+          512
+        ],
+        "updates": [
+          0,
+          0
+        ],
+        "live": [
+          true,
+          true
+        ],
+        "alternate": false,
+        "cachedMaterials": 0,
+        "mirrors": [
+          {
+            "name": "mirror_right_live",
+            "position": [
+              0.8414637232130578,
+              0.9226009862614191,
+              -0.42063652531124673
+            ]
+          },
+          {
+            "name": "mirror_left_live",
+            "position": [
+              -0.8414638355485619,
+              0.9226008616039788,
+              -0.4206366523687962
+            ]
+          }
+        ]
+      },
+      "display": {
+        "cluster": {
+          "bound": true,
+          "power": true,
+          "values": {
+            "speed": 0,
+            "units": "mph",
+            "rpm": 950,
+            "gear": "1"
+          },
+          "needles": [
+            {
+              "kind": "speed",
+              "value": 2.643437069257834e-9,
+              "angle": -6.459135259894601e-11
+            },
+            {
+              "kind": "rpm",
+              "value": 950,
+              "angle": 0.2984513020910303
+            }
+          ],
+          "uploads": 2,
+          "source": "Original needle geometry and face art; native MPH marks and RPM x1000. Unsupported fuel/temperature unavailable."
+        },
+        "power": true,
+        "values": {
+          "speed": 0,
+          "units": "mph",
+          "rpm": 950,
+          "gear": "1"
+        },
+        "pixels": [
+          512,
+          336
+        ],
+        "uploads": 7,
+        "thumbnailCaptures": 5,
+        "thumbnailKey": "{\"version\":1,\"vehicleId\":\"slingshot-r-2024\",\"finish\":\"blue-orange\",\"products\":{},\"lights\":{\"color\":\"red\",\"brightness\":0.6,\"enabled\":true},\"suspension\":{\"frontCompression\":2,\"frontRebound\":6,\"rearCompression\":1,\"rearRebound\":3,\"rideHeightMm\":0},\"handlingProfile\":\"slingmods-sport-v5\"}",
+        "mount": {
+          "width": 0.155,
+          "height": 0.096,
+          "position": [
+            0,
+            0.7850000262260437,
+            -0.37700000405311584
+          ],
+          "pixels": [
+            512,
+            336
+          ]
+        },
+        "method": "Original Driver-home approximation; game-rendered selected-build thumbnail. Speed/RPM/gear use actual telemetry. Unsimulated fields unavailable. At most10Hz changed-value upload, only nearby/front-facing/in-view; no rival displays."
+      },
+      "finish": {
+        "finish": "blue-orange",
+        "accent": "#f07521",
+        "paintedAccents": [
+          {
+            "node": "chassis_bottom_Bottom_TRIs_1",
+            "color": "f07521"
+          },
+          {
+            "node": "FrontFasciaLowerWhisker_FrontFasciaLowerWhisker_0",
+            "color": "f07521"
+          },
+          {
+            "node": "FrontFasciaLowerWhisker_FrontFasciaLowerWhisker_0001",
+            "color": "f07521"
+          },
+          {
+            "node": "FrontFasciaUpperWhisker_FrontFasciaUpperWhisker_0",
+            "color": "f07521"
+          },
+          {
+            "node": "FrontFasciaUpperWhisker_FrontFasciaUpperWhisker_0001",
+            "color": "f07521"
+          },
+          {
+            "node": "Lower_Hoop_1",
+            "color": "f07521"
+          },
+          {
+            "node": "Painted_Outer_Front_Fascia_Kit_Painted_Outer_Front_Fascia_Kit_",
+            "color": "f07521"
+          },
+          {
+            "node": "Painted_Outer_Front_Fascia_Kit_Painted_Outer_Front_Fascia_Kit_0",
+            "color": "f07521"
+          },
+          {
+            "node": "US_Headlight_Surround_R_US_Headlight_Surround_R_0",
+            "color": "f07521"
+          },
+          {
+            "node": "US_Headlight_Surround_R_US_Headlight_Surround_R_0001",
+            "color": "f07521"
+          },
+          {
+            "node": "rear_susp_0",
+            "color": "f07521"
+          }
+        ],
+        "isolatedMaterialSlots": 22,
+        "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+        "textureCount": 6
+      },
+      "camera": {
+        "position": [
+          -0.72,
+          1.42,
+          0.22000000000000003
+        ],
+        "target": [
+          -0.10000000000000002,
+          0.71,
+          -0.33
+        ],
+        "fov": 38,
+        "viewOffset": null
+      },
+      "loadMs": 18703.39999999851,
+      "calls": 1,
+      "triangles": 2
+    },
+    "ryker": {
+      "mirrors": {
+        "cropped": 192,
+        "count": 2,
+        "resolution": [
+          768,
+          512
+        ],
+        "updates": [
+          96,
+          96
+        ],
+        "live": [
+          true,
+          true
+        ],
+        "alternate": false,
+        "cachedMaterials": 53,
+        "mirrors": [
+          {
+            "name": "mirror_right_live",
+            "position": [
+              -0.3794345009656213,
+              1.0411358583321795,
+              -0.1855622189658106
+            ]
+          },
+          {
+            "name": "mirror_left_live",
+            "position": [
+              0.3902731935043506,
+              1.0411357044163876,
+              -0.18556220949529623
+            ]
+          }
+        ]
+      },
+      "display": {
+        "kind": "ryker-sim",
+        "power": true,
+        "values": {
+          "speed": 0,
+          "units": "mph",
+          "rpm": 950,
+          "gear": "1"
+        },
+        "pixels": [
+          512,
+          256
+        ],
+        "uploads": 2,
+        "thumbnailCaptures": 0,
+        "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
+      },
+      "finish": {
+        "finish": "blue-orange",
+        "accent": "#f07521",
+        "paintedAccents": [
+          {
+            "node": "front_left_rim_2",
+            "color": "ad0906"
+          },
+          {
+            "node": "front_right_rim_2",
+            "color": "ad0906"
+          },
+          {
+            "node": "rear_rim_2",
+            "color": "ad0906"
+          },
+          {
+            "node": "handlebar_controls_2",
+            "color": "ad0906"
+          }
+        ],
+        "isolatedMaterialSlots": 5,
+        "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+        "textureCount": 0
+      },
+      "camera": {
+        "position": [
+          -0.6999999999999998,
+          1.65,
+          0.9
+        ],
+        "target": [
+          0,
+          0.96,
+          -0.15
+        ],
+        "fov": 38,
+        "viewOffset": null
+      },
+      "loadMs": 3709.800000000745,
+      "calls": 1,
+      "triangles": 2
+    }
+  },
+  "method": "Same renderer, studio, FOV and viewport. Exterior camera distance scales with vehicle length for comparable on-screen detail; assets are not scaled. Closeups target their actual parts.",
+  "drive": {
+    "display": {
+      "kind": "ryker-sim",
+      "power": true,
+      "values": {
+        "speed": 22,
+        "units": "mph",
+        "rpm": 3550,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        256
+      ],
+      "uploads": 17,
+      "thumbnailCaptures": 0,
+      "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
+    },
+    "mirrors": {
+      "cropped": 256,
+      "count": 2,
+      "resolution": [
+        768,
+        512
+      ],
+      "updates": [
+        128,
+        128
+      ],
+      "live": [
+        true,
+        true
+      ],
+      "alternate": false,
+      "cachedMaterials": 62,
+      "mirrors": [
+        {
+          "name": "mirror_right_live",
+          "position": [
+            -0.3794375061045049,
+            1.0605608106520283,
+            -2.391617724000714
+          ]
+        },
+        {
+          "name": "mirror_left_live",
+          "position": [
+            0.3902701883654664,
+            1.060560653434865,
+            -2.3916177175086846
+          ]
+        }
+      ]
+    },
+    "camera": {
+      "fov": 66.45615571711897,
+      "position": [
+        -0.000003003389086238574,
+        1.3724933359032676,
+        -1.9070529292727758
+      ],
+      "view": "cockpit"
+    },
+    "telemetry": {
+      "speed": 10.209809221273353,
+      "rpm": 3749.447220408848,
+      "gear": 1
+    },
+    "driver": {
+      "arms": {
+        "left": {
+          "gap": 1.3371182663340497e-7,
+          "rimGap": 1.3371182663340497e-7,
+          "regripping": false,
+          "release": 0,
+          "angle": 0,
+          "target": [
+            -0.26900300554454265,
+            0.9936859244315147,
+            -2.410030977171382
+          ],
+          "contact": [
+            -0.26900297084537866,
+            0.9936859145275789,
+            -2.4100311059220427
+          ],
+          "elbow": [
+            -0.3549282156830901,
+            1.049495447050259,
+            -2.166440877052138
+          ]
+        },
+        "right": {
+          "gap": 7.356321339719479e-8,
+          "rimGap": 7.356321339719479e-8,
+          "regripping": false,
+          "release": 0,
+          "angle": 0,
+          "target": [
+            0.2789969944554574,
+            0.9936859221676189,
+            -2.410030977695984
+          ],
+          "contact": [
+            0.2789969876340552,
+            0.9936859352097588,
+            -2.4100310497717596
+          ],
+          "elbow": [
+            0.35840810741899276,
+            1.0499567467847377,
+            -2.164345224138608
+          ]
+        }
+      },
+      "feet": {
+        "left": {
+          "gap": 1.0220874386192423e-7,
+          "ankle": [
+            -0.2999999614924234,
+            0.23999991186178482,
+            -0.18000003457526415
+          ]
+        },
+        "right": {
+          "gap": 1.0250838146088938e-7,
+          "ankle": [
+            0.29999996176768867,
+            0.2399999103221564,
+            -0.18000003168821577
+          ]
+        }
+      },
+      "headVisible": false,
+      "bodyPitch": 0.006433383424679949,
+      "wheelAngle": 0,
+      "eye": [
+        0,
+        1.36,
+        0.3
+      ]
+    }
+  },
+  "reverse": {
+    "display": {
+      "kind": "ryker-sim",
+      "power": true,
+      "values": {
+        "speed": 13,
+        "units": "mph",
+        "rpm": 2070,
+        "gear": "R"
+      },
+      "pixels": [
+        512,
+        256
+      ],
+      "uploads": 48,
+      "thumbnailCaptures": 0,
+      "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
+    },
+    "telemetry": {
+      "speed": -5.764650725491104,
+      "gear": -1
+    }
+  },
+  "night": {
+    "mirrors": {
+      "cropped": 456,
+      "count": 2,
+      "resolution": [
+        768,
+        512
+      ],
+      "updates": [
+        228,
+        228
+      ],
+      "live": [
+        true,
+        true
+      ],
+      "alternate": false,
+      "cachedMaterials": 62,
+      "mirrors": [
+        {
+          "name": "mirror_right_live",
+          "position": [
+            -0.3794375070041513,
+            1.0411354955380743,
+            5.814439189889191
+          ]
+        },
+        {
+          "name": "mirror_left_live",
+          "position": [
+            0.39027018746582126,
+            1.0411353451087602,
+            5.814439199354
+          ]
+        }
+      ]
+    },
+    "display": {
+      "kind": "ryker-sim",
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 950,
+        "gear": "1"
+      },
+      "pixels": [
+        512,
+        256
+      ],
+      "uploads": 2,
+      "thumbnailCaptures": 0,
+      "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
+    },
+    "camera": {
+      "fov": 66.0000000000015,
+      "position": [
+        -0.0000030074792604571997,
+        1.3599996524087776,
+        6.300001425435486
+      ],
+      "view": "cockpit"
+    }
+  },
+  "pass": true
+}

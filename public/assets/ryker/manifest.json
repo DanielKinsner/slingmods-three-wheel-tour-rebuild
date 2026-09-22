@@ -62,17 +62,33 @@
       "node": "handlebar_controls",
       "source": "Part___15",
       "parent": "steering_control",
-      "source_triangles": 46808,
+      "source_triangles": 45976,
       "ratio": 0.65,
-      "triangles": 30424
+      "triangles": 29884
+    },
+    {
+      "node": "Mirrors_1",
+      "source": "Part___15",
+      "parent": "steering_control",
+      "source_triangles": 832,
+      "ratio": 1,
+      "triangles": 832
     },
     {
       "node": "instrument_fixed",
       "source": "Part___15",
       "parent": "body_static",
-      "source_triangles": 10300,
+      "source_triangles": 9364,
       "ratio": 0.65,
-      "triangles": 6694
+      "triangles": 6086
+    },
+    {
+      "node": "instrument_screen",
+      "source": "Part___15",
+      "parent": "body_static",
+      "source_triangles": 936,
+      "ratio": 1,
+      "triangles": 936
     },
     {
       "node": "mechanical",
@@ -267,6 +283,10 @@
       "role": "metal"
     },
     {
+      "name": "Ryker_MirrorGlass",
+      "role": "mirror"
+    },
+    {
       "name": "Ryker_Chrome",
       "role": "metal"
     },
@@ -327,8 +347,15 @@
   "unit": "metres",
   "basis": "+X right +Y up -Z forward",
   "spec_url": "https://can-am.brp.com/content/dam/global/en/can-am-on-road/my21/documents/spec-sheets/ONRD-RYK-MY21-SPEC-Ryker-ENNA-LR.pdf",
-  "triangles": 718634,
-  "bytes": 13453744,
+  "instrument": {
+    "node": "instrument_screen",
+    "uv": "fresh planar projection",
+    "width": 0.1606312096118927,
+    "height": 0.07686038315296173,
+    "fixed": true
+  },
+  "triangles": 719254,
+  "bytes": 13469976,
   "dimensions_xyz_runtime": [
     1.1982491612434387,
     1.0868427422987068,

@@ -2,18 +2,18 @@
   "uri": "ryker-900.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-09-22T21:31:11.460Z",
+  "validatedAt": "2026-09-22T21:52:52.126Z",
   "issues": {
     "numErrors": 0,
     "numWarnings": 0,
-    "numInfos": 10,
+    "numInfos": 11,
     "numHints": 0,
     "messages": [
       {
-        "code": "NODE_EMPTY",
-        "message": "Empty node encountered.",
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
         "severity": 2,
-        "pointer": "/nodes/9"
+        "pointer": "/meshes/5/primitives/0/attributes/TEXCOORD_0"
       },
       {
         "code": "NODE_EMPTY",
@@ -43,13 +43,13 @@
         "code": "NODE_EMPTY",
         "message": "Empty node encountered.",
         "severity": 2,
-        "pointer": "/nodes/29"
+        "pointer": "/nodes/14"
       },
       {
         "code": "NODE_EMPTY",
         "message": "Empty node encountered.",
         "severity": 2,
-        "pointer": "/nodes/36"
+        "pointer": "/nodes/30"
       },
       {
         "code": "NODE_EMPTY",
@@ -68,6 +68,12 @@
         "message": "Empty node encountered.",
         "severity": 2,
         "pointer": "/nodes/39"
+      },
+      {
+        "code": "NODE_EMPTY",
+        "message": "Empty node encountered.",
+        "severity": 2,
+        "pointer": "/nodes/40"
       }
     ],
     "truncated": false
@@ -80,20 +86,20 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 13388328
+        "byteLength": 13403656
       }
     ],
     "animationCount": 0,
-    "materialCount": 19,
+    "materialCount": 20,
     "hasMorphTargets": false,
     "hasSkins": false,
     "hasTextures": false,
     "hasDefaultScene": true,
     "drawCallCount": 88,
-    "totalVertexCount": 378187,
-    "totalTriangleCount": 718634,
-    "maxUVs": 0,
+    "totalVertexCount": 378501,
+    "totalTriangleCount": 719254,
+    "maxUVs": 1,
     "maxInfluences": 0,
-    "maxAttributes": 2
+    "maxAttributes": 3
   }
 }

@@ -14,6 +14,7 @@ settings={
  '03___glossy_black':('Ryker_SatinBlack',(.075,.085,.09),.34,.25,'metal'),
  '03___glossy_gray':('Ryker_WheelMachining',(.50,.51,.51),.28,.82,'metal'),
  '01___metal':('Ryker_Aluminium',(.62,.65,.66),.3,.85,'metal'),
+ 'mirror_glass':('Ryker_MirrorGlass',(.72,.75,.77),.045,1,'mirror'),
  '01___chrome':('Ryker_Chrome',(.72,.74,.75),.18,.92,'metal'),
  'Steel':('Ryker_Steel',(.28,.30,.31),.48,.8,'metal'),
  'Steel2':('Ryker_SteelDark',(.2,.21,.22),.43,.8,'metal'),
@@ -77,12 +78,33 @@ for o in sources:
     wheel='front_left' if (lo[0]+hi[0])<0 else 'front_right';name=wheel+'_fender';parent=carriers[wheel]
    else:
     fixed=k in (2167,12551);name='instrument_fixed' if fixed else 'handlebar_controls';parent=body if fixed else handle
-   groups.setdefault((name,parent.name),[]).extend(faces)
+   # Separate only the supplied optical faces; housings stay in the controls.
+   if n==15:
+    for face_id in faces:
+     slot=o.material_slots[o.data.polygons[face_id].material_index].name
+     optical='Mirrors_1' if slot=='01___chrome' and k in (255,10582) else 'instrument_screen' if slot=='02__blue' else name
+     owner=body if optical=='instrument_screen' else parent
+     groups.setdefault((optical,owner.name),[]).append(face_id)
+   else:groups.setdefault((name,parent.name),[]).extend(faces)
  else:
   if n<=6:wheel={1:'front_left',2:'front_right',3:'rear',4:'front_left',5:'front_right',6:'rear'}[n];name=wheel+('_tire' if n<=3 else '_rim');parent=spins[wheel]
   else:name={11:'front_suspension',12:'grille',13:'body_panels',14:'headlights',16:'mechanical',17:'seat_body',18:'rear_mechanical'}[n];parent=body
   groups[(name,parent.name)]=list(range(len(o.data.polygons)))
- for (name,parent_name),faces in groups.items():make_part(o,name,faces,bpy.data.objects[parent_name],ratios[n])
+ for (name,parent_name),faces in groups.items():
+  part=make_part(o,name,faces,bpy.data.objects[parent_name],1 if name in ['Mirrors_1','instrument_screen'] else ratios[n])
+  if name=='Mirrors_1':
+   part['followSteering']=True;part['mirrorOpticalTilt']=.30;part.data.materials.clear();part.data.materials.append(materials['mirror_glass'])
+   for poly in part.data.polygons:poly.material_index=0
+  if name=='instrument_screen':
+   # A fresh planar map for this flat screen only; never reuse collapsed source UVs.
+   points=[v.co for v in part.data.vertices];up=Vector((0,math.sin(math.radians(15)),math.cos(math.radians(15))))
+   x0=min(v.x for v in points);x1=max(v.x for v in points);y0=min(v.dot(up) for v in points);y1=max(v.dot(up) for v in points)
+   uv=part.data.uv_layers.new(name='InstrumentProjection')
+   for loop in part.data.loops:
+    v=points[loop.vertex_index];uv.data[loop.index].uv=((v.x-x0)/(x1-x0),(v.dot(up)-y0)/(y1-y0))
+   part['instrumentation']='Original SIM display; actual game speed, RPM and gear. Not OEM artwork.'
+   manifest['instrument']={'node':name,'uv':'fresh planar projection','width':x1-x0,'height':y1-y0,'fixed':True}
+
  bpy.data.objects.remove(o,do_unlink=True)
 for name,c in centers.items():
  radius=(.2848 if name!='rear' else .2851);manifest['wheels'][name]={'center':[c.x,c.z,-c.y],'radius':radius,'spin':name+'_spin','carrier':carriers[name].name,'spin_axis':[1,0,0],'fender_behavior':'Steers with knuckle; never wheel spin' if name!='rear' else 'Fixed to rear mechanical assembly; cosmetic suspension not animated'}
@@ -94,7 +116,7 @@ display=empty('display_mount',parent=body);display['width']=.001;display['height
 for m in materials.values():manifest['materials'].append({'name':m.name,'role':m['vehicleRole']})
 bpy.context.scene.unit_settings.system='METRIC';bpy.context.scene.unit_settings.scale_length=1
 bpy.ops.wm.save_as_mainfile(filepath=str(out/'Ryker-Game-Master.blend'))
-bpy.ops.export_scene.gltf(filepath=str(runtime/'ryker-900.glb'),export_format='GLB',export_apply=True,export_extras=True,export_animations=False,export_cameras=False,export_lights=False,export_texcoords=False,export_yup=True)
+bpy.ops.export_scene.gltf(filepath=str(runtime/'ryker-900.glb'),export_format='GLB',export_apply=True,export_extras=True,export_animations=False,export_cameras=False,export_lights=False,export_texcoords=True,export_yup=True)
 dg=bpy.context.evaluated_depsgraph_get();total=0
 for row in manifest['components']:
  e=bpy.data.objects[row['node']].evaluated_get(dg);m=e.to_mesh();m.calc_loop_triangles();row['triangles']=len(m.loop_triangles);total+=row['triangles'];e.to_mesh_clear()

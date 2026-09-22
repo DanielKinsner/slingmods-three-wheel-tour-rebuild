@@ -28,7 +28,9 @@
     "finite_handlebar_controls": true,
     "finite_headlights": true,
     "finite_instrument_fixed": true,
+    "finite_instrument_screen": true,
     "finite_mechanical": true,
+    "finite_Mirrors_1": true,
     "finite_rear_arm_pivot": true,
     "finite_rear_caliper": true,
     "finite_rear_carrier": true,
@@ -55,10 +57,13 @@
     "calipers_fixed": true,
     "rotors_spin": true,
     "instrument_fixed": true,
+    "screen_fixed": true,
+    "screen_uv": true,
+    "mirrors_steer": true,
     "fenders_steer": true
   },
   "pass": true,
-  "triangles": 718634,
+  "triangles": 719254,
   "wheel_center_errors_metres": {
     "front_left": 0.0,
     "front_right": 0.0,
@@ -188,8 +193,18 @@
       "type": "MESH"
     },
     {
+      "name": "instrument_screen",
+      "parent": "body_static",
+      "type": "MESH"
+    },
+    {
       "name": "mechanical",
       "parent": "body_static",
+      "type": "MESH"
+    },
+    {
+      "name": "Mirrors_1",
+      "parent": "steering_control",
       "type": "MESH"
     },
     {

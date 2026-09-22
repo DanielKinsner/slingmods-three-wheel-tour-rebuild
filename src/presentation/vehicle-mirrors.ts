@@ -30,12 +30,14 @@ export class VehicleMirrors {
  // frame; the garbage from that was the 30-80 ms hitching behind the old performance hold.) See invalidate().
  private readonly clip=new THREE.Plane(new THREE.Vector3(0,1,0),1e7);private localClipping?:{renderer:THREE.WebGLRenderer;previous:boolean};
  private clipScene?:THREE.Scene;private clipList:{material:THREE.Material;original:THREE.Plane[]|null;clipped:THREE.Plane[]}[]=[];private clipAge=0;private wasVisible=[false,false];private alternate=false;private frame=0;private explicitFrame=-1;private passes:((renderer:THREE.WebGLRenderer,scene:THREE.Object3D,camera:THREE.Camera,nested:boolean)=>void)[]=[];private faceProjection=new THREE.Matrix4();private cropMatrix=new THREE.Matrix4();private corner=new THREE.Vector4();private cropped=0;private frustum=new THREE.Frustum();private viewProjection=new THREE.Matrix4();private sphere=new THREE.Sphere();private eye=new THREE.Vector3();private point=new THREE.Vector3();
+ private follow?:{glass:THREE.Object3D;root:THREE.Object3D;initialInverse:THREE.Matrix4};private followMatrix=new THREE.Matrix4();
  private release(){for(const entry of this.clipList)if(entry.material.clippingPlanes===entry.clipped)entry.material.clippingPlanes=entry.original;this.clipList=[]}
  private collect(scene:THREE.Scene){const known=new Map(this.clipList.map(e=>[e.material,e])),seen=new Set<THREE.Material>(),next:typeof this.clipList=[];scene.traverse(o=>{if(o instanceof THREE.Mesh)for(const material of Array.isArray(o.material)?o.material:[o.material]){if(seen.has(material))continue;seen.add(material);let entry=known.get(material);if(!entry||material.clippingPlanes!==entry.clipped){const original=entry&&material.clippingPlanes===entry.clipped?entry.original:material.clippingPlanes;entry={material,original,clipped:[...(original??[]),this.clip]};material.clippingPlanes=entry.clipped}known.delete(material);next.push(entry)}});for(const gone of known.values())if(gone.material.clippingPlanes===gone.clipped)gone.material.clippingPlanes=gone.original;this.clipList=next;this.clipScene=scene;this.clipAge=0}
  constructor(root:THREE.Object3D,car:THREE.Object3D){
   this.group.name='live_vehicle_mirrors';
   const glass=car.getObjectByName('Mirrors_1');if(!(glass instanceof THREE.Mesh))return;
-  root.updateWorldMatrix(true,true);const sourceMatrix=root.matrixWorld.clone().invert().multiply(glass.matrixWorld);
+  root.updateWorldMatrix(true,true);const sourceMatrix=root.matrixWorld.clone().invert().multiply(glass.matrixWorld);const opticalTilt=Number.isFinite(glass.userData.mirrorOpticalTilt)?THREE.MathUtils.clamp(glass.userData.mirrorOpticalTilt,0,.5):.10;
+  if(glass.userData.followSteering===true){this.follow={glass,root,initialInverse:sourceMatrix.clone().invert()};this.group.matrixAutoUpdate=false}
   for(const face of mirrorFaces(glass.geometry)){
    const mirror=new Reflector(face.geometry,{textureWidth:768,textureHeight:512,multisample:0,clipBias:.001,color:new THREE.Color().setRGB(.5,.5,.5)});
    mirror.name=face.side<0?'mirror_right_live':'mirror_left_live';
@@ -54,7 +56,7 @@ export class VehicleMirrors {
     normal.set(0,0,1).transformDirection(mirror.matrixWorld);
     // A small optical tilt aims the glass for the seated eye without changing
     // the supplied housing or face vertices. Keep it attached to vehicle roll.
-    normal.addScaledVector(up.set(0,1,0).transformDirection(root.matrixWorld),.10).normalize();
+    normal.addScaledVector(up.set(0,1,0).transformDirection(root.matrixWorld),opticalTilt).normalize();
     position.setFromMatrixPosition(mirror.matrixWorld);view.setFromMatrixPosition(camera.matrixWorld).sub(position);
     if(view.dot(normal)<0||!(camera instanceof THREE.PerspectiveCamera))return;
     reflectedCamera.copy(camera,false);reflectedCamera.position.copy(view.reflect(normal).add(position));camera.getWorldDirection(direction).reflect(normal);
@@ -87,6 +89,7 @@ export class VehicleMirrors {
   */
  update(camera:THREE.PerspectiveCamera,viewportHeight:number,enabled=true,alternate=false){
   this.alternate=alternate;this.frame++;
+  if(this.follow){const {glass,root,initialInverse}=this.follow;glass.updateWorldMatrix(true,false);this.group.matrix.copy(this.followMatrix.copy(root.matrixWorld).invert().multiply(glass.matrixWorld).multiply(initialInverse));this.group.matrixWorldNeedsUpdate=true;this.group.updateWorldMatrix(false,true)}
   const scale=viewportHeight/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov)/2)),eye=camera.getWorldPosition(this.eye);
   for(const mirror of this.mirrors){const sphere=mirror.geometry.boundingSphere,distance=mirror.getWorldPosition(this.point).distanceTo(eye),pixels=enabled&&sphere?2*sphere.radius*mirror.matrixWorld.getMaxScaleOnAxis()*scale/Math.max(distance,.01):0;mirror.visible=pixels>=(mirror.visible?34:40)}
  }
