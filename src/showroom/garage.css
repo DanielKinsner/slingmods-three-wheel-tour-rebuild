@@ -1,0 +1,17 @@
+/* Career garage: the one showroom in career mode. The chapter, workshop and shakedown panels keep their own styles;
+   this sheet only places the shared header, camera rail and build name plate around them. The retired bay loaded a
+   global border-box rule those panels were sized against, so the garage restores it for everything it hosts. */
+body.career-garage *,body.career-garage *::before,body.career-garage *::after{box-sizing:border-box}
+body.career-garage .garage-ui{--garage-panel:382px}
+body.career-garage .garage-view-tools{left:calc((100vw + var(--garage-panel))/2);bottom:24px;gap:12px}
+body.career-garage .garage-view-tools .sig-camera-rail{flex-wrap:nowrap}
+body.career-garage .garage-identity{margin:0;text-align:center;pointer-events:none;text-shadow:0 1px 8px #000c}
+body.career-garage .garage-identity strong{display:block;font:700 24px/1.1 var(--sm-display);letter-spacing:.05em;color:var(--sm-ink);text-transform:uppercase}
+body.career-garage .garage-identity small{display:block;margin-top:4px;font-size:13px;color:#dde2e4}
+body.career-garage #game-graphics{top:76px;right:40px;bottom:auto;left:auto}
+body.career-garage #harbor-entry{top:96px;transform:none;max-height:calc(100dvh - 176px)}
+body.career-garage #rae-card{bottom:120px}
+@media(max-width:1400px){body.career-garage #game-graphics{right:24px}}
+@media(max-height:800px){body.career-garage .garage-ui{--garage-panel:356px}body.career-garage .garage-identity strong{font-size:20px}}
+@media(max-width:760px){body.career-garage .garage-view-tools{left:50%;bottom:12px;max-width:calc(100vw - 24px)}body.career-garage .garage-view-tools .sig-camera-rail{overflow-x:auto;max-width:calc(100vw - 24px)}body.career-garage .garage-identity{display:none}body.career-garage #game-graphics{top:auto;bottom:72px;right:12px}}
+@media(max-width:760px){body.career-garage #chapter-panel,body.career-garage #build-panel,body.career-garage #harbor-entry{top:124px;max-height:calc(100dvh - 196px)}body.career-garage #build-panel{bottom:auto}body.career-garage.build-open .garage-view-tools{display:none}body.career-garage.build-open #build-panel{max-height:calc(100dvh - 140px)}}
