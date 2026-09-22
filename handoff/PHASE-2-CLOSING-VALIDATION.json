@@ -1,0 +1,2570 @@
+{
+  "status": "HOLD",
+  "checkedAt": "2026-09-22T15:27:02.046017+00:00",
+  "base": "93f83cbd073132fa9ed068819a8479be3d144049",
+  "pipelineParity": "passed: same RenderPipeline and GRAPHICS_PRESETS; calibration and retained workbench now warm the actual post path",
+  "physicsSteeringSavesProductsRoutesAssets": "unchanged",
+  "package": {
+    "directory": "demo-dist/2026-09-22T15-02-22-846Z-93f83cbd0731-working",
+    "inputCount": 468,
+    "inputHashesMatchWorkingTree": true,
+    "reviewBuildSha256": "9527482bd598e57b93796833144cd2e46a3af82f1fc85233d499855ea295a1c9"
+  },
+  "validation": {
+    "serialTestsPassed": 380,
+    "typecheck": "passed inside npm run build",
+    "productionBuild": "passed",
+    "package": "passed",
+    "fixtures": {
+      "pass": true,
+      "rows": [
+        {
+          "quality": "low",
+          "state": {
+            "pipeline": {
+              "quality": "low",
+              "post": true,
+              "samples": 0,
+              "bloomLevels": 0,
+              "resolutionScale": 1,
+              "targetFrameMs": 16.7,
+              "size": [
+                1440,
+                900
+              ]
+            },
+            "preparation": {
+              "ms": 419.80000001192093,
+              "stages": [
+                {
+                  "name": "init-textures",
+                  "ms": 0.09999999403953552
+                },
+                {
+                  "name": "compile-async",
+                  "ms": 89.90000000596046
+                },
+                {
+                  "name": "first-all-mesh-render",
+                  "ms": 164
+                },
+                {
+                  "name": "post-path-all-mesh-render",
+                  "ms": 165.70000000298023
+                },
+                {
+                  "name": "loading-gpu-sync",
+                  "ms": 0
+                }
+              ],
+              "textures": 0,
+              "programs": 8,
+              "parallelCompile": true,
+              "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+            },
+            "axes": {
+              "origin": [
+                0,
+                0.05000000074505806,
+                -2
+              ],
+              "x": [
+                1,
+                0.05000000074505806,
+                -2
+              ],
+              "y": [
+                0,
+                0.05000000074505806,
+                -3
+              ],
+              "z": [
+                0,
+                1.0499999523162842,
+                -2
+              ]
+            },
+            "cubeBounds": [
+              1,
+              1,
+              1
+            ],
+            "clearcoat": 1,
+            "rubberRoughness": 0.8700000047683716,
+            "wheelQuaternion": [
+              -0.4816158297507467,
+              0,
+              0,
+              0.8763824465000996
+            ],
+            "animationCount": 1,
+            "renderer": "WebKit WebGL"
+          },
+          "resized": {
+            "quality": "low",
+            "post": true,
+            "samples": 0,
+            "bloomLevels": 0,
+            "resolutionScale": 1,
+            "targetFrameMs": 16.7,
+            "size": [
+              1200,
+              800
+            ]
+          }
+        },
+        {
+          "quality": "medium",
+          "state": {
+            "pipeline": {
+              "quality": "medium",
+              "post": true,
+              "samples": 2,
+              "bloomLevels": 4,
+              "resolutionScale": 1,
+              "targetFrameMs": 16.7,
+              "size": [
+                1440,
+                900
+              ]
+            },
+            "preparation": {
+              "ms": 61.20000000298023,
+              "stages": [
+                {
+                  "name": "init-textures",
+                  "ms": 0
+                },
+                {
+                  "name": "compile-async",
+                  "ms": 13.299999997019768
+                },
+                {
+                  "name": "first-all-mesh-render",
+                  "ms": 19.100000008940697
+                },
+                {
+                  "name": "post-path-all-mesh-render",
+                  "ms": 28.200000002980232
+                },
+                {
+                  "name": "loading-gpu-sync",
+                  "ms": 0.09999999403953552
+                }
+              ],
+              "textures": 0,
+              "programs": 11,
+              "parallelCompile": true,
+              "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+            },
+            "axes": {
+              "origin": [
+                0,
+                0.05000000074505806,
+                -2
+              ],
+              "x": [
+                1,
+                0.05000000074505806,
+                -2
+              ],
+              "y": [
+                0,
+                0.05000000074505806,
+                -3
+              ],
+              "z": [
+                0,
+                1.0499999523162842,
+                -2
+              ]
+            },
+            "cubeBounds": [
+              1,
+              1,
+              1
+            ],
+            "clearcoat": 1,
+            "rubberRoughness": 0.8700000047683716,
+            "wheelQuaternion": [
+              -0.05887047009952022,
+              0,
+              0,
+              0.9982656298552314
+            ],
+            "animationCount": 1,
+            "renderer": "WebKit WebGL"
+          },
+          "resized": {
+            "quality": "medium",
+            "post": true,
+            "samples": 2,
+            "bloomLevels": 4,
+            "resolutionScale": 1,
+            "targetFrameMs": 16.7,
+            "size": [
+              1200,
+              800
+            ]
+          }
+        },
+        {
+          "quality": "high",
+          "state": {
+            "pipeline": {
+              "quality": "high",
+              "post": true,
+              "samples": 4,
+              "bloomLevels": 5,
+              "resolutionScale": 1,
+              "targetFrameMs": 16.7,
+              "size": [
+                2160,
+                1350
+              ]
+            },
+            "preparation": {
+              "ms": 48.5,
+              "stages": [
+                {
+                  "name": "init-textures",
+                  "ms": 0.10000000894069672
+                },
+                {
+                  "name": "compile-async",
+                  "ms": 13.899999991059303
+                },
+                {
+                  "name": "first-all-mesh-render",
+                  "ms": 16.299999997019768
+                },
+                {
+                  "name": "post-path-all-mesh-render",
+                  "ms": 18.100000008940697
+                },
+                {
+                  "name": "loading-gpu-sync",
+                  "ms": 0
+                }
+              ],
+              "textures": 0,
+              "programs": 11,
+              "parallelCompile": true,
+              "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+            },
+            "axes": {
+              "origin": [
+                0,
+                0.05000000074505806,
+                -2
+              ],
+              "x": [
+                1,
+                0.05000000074505806,
+                -2
+              ],
+              "y": [
+                0,
+                0.05000000074505806,
+                -3
+              ],
+              "z": [
+                0,
+                1.0499999523162842,
+                -2
+              ]
+            },
+            "cubeBounds": [
+              1,
+              1,
+              1
+            ],
+            "clearcoat": 1,
+            "rubberRoughness": 0.8700000047683716,
+            "wheelQuaternion": [
+              -0.02465894059372137,
+              0,
+              0,
+              0.9996959220927107
+            ],
+            "animationCount": 1,
+            "renderer": "WebKit WebGL"
+          },
+          "resized": {
+            "quality": "high",
+            "post": true,
+            "samples": 4,
+            "bloomLevels": 5,
+            "resolutionScale": 1,
+            "targetFrameMs": 16.7,
+            "size": [
+              1800,
+              1200
+            ]
+          }
+        },
+        {
+          "quality": "ultra",
+          "state": {
+            "pipeline": {
+              "quality": "ultra",
+              "post": true,
+              "samples": 4,
+              "bloomLevels": 6,
+              "resolutionScale": 1,
+              "targetFrameMs": 16.7,
+              "size": [
+                2880,
+                1800
+              ]
+            },
+            "preparation": {
+              "ms": 50.400000005960464,
+              "stages": [
+                {
+                  "name": "init-textures",
+                  "ms": 0
+                },
+                {
+                  "name": "compile-async",
+                  "ms": 14.5
+                },
+                {
+                  "name": "first-all-mesh-render",
+                  "ms": 16.299999997019768
+                },
+                {
+                  "name": "post-path-all-mesh-render",
+                  "ms": 19.400000005960464
+                },
+                {
+                  "name": "loading-gpu-sync",
+                  "ms": 0
+                }
+              ],
+              "textures": 0,
+              "programs": 11,
+              "parallelCompile": true,
+              "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+            },
+            "axes": {
+              "origin": [
+                0,
+                0.05000000074505806,
+                -2
+              ],
+              "x": [
+                1,
+                0.05000000074505806,
+                -2
+              ],
+              "y": [
+                0,
+                0.05000000074505806,
+                -3
+              ],
+              "z": [
+                0,
+                1.0499999523162842,
+                -2
+              ]
+            },
+            "cubeBounds": [
+              1,
+              1,
+              1
+            ],
+            "clearcoat": 1,
+            "rubberRoughness": 0.8700000047683716,
+            "wheelQuaternion": [
+              -0.05400887030977386,
+              0,
+              0,
+              0.998540455829338
+            ],
+            "animationCount": 1,
+            "renderer": "WebKit WebGL"
+          },
+          "resized": {
+            "quality": "ultra",
+            "post": true,
+            "samples": 4,
+            "bloomLevels": 6,
+            "resolutionScale": 1,
+            "targetFrameMs": 16.7,
+            "size": [
+              2400,
+              1600
+            ]
+          }
+        }
+      ],
+      "errors": []
+    },
+    "browser": {
+      "pass": true,
+      "rows": [
+        {
+          "mode": "signature",
+          "surfaceFinish": {
+            "version": "surface-finish-v1",
+            "enabled": true,
+            "changedMeshes": 16,
+            "materials": [
+              {
+                "source": "rollup_galvanized_gray",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_handle_brushed",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "utility_rubber",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Refined_vented_charcoal",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Refined_vented_gray",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Refined_vented_red",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_cabinet_door",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_charcoal_tile",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_graphite_cabinet",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_grid_black",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_slingmods_red",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_warm_white",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_warm_wood",
+                "kind": "wood",
+                "detailOnly": false,
+                "tileMetres": 1.8,
+                "detailRepeat": 8,
+                "detailStrength": 0.18
+              },
+              {
+                "source": "utility_safety_yellow",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              }
+            ],
+            "loadedSets": [
+              "concrete",
+              "metal",
+              "wood"
+            ],
+            "failedSets": [],
+            "addedDrawCalls": 0
+          }
+        },
+        {
+          "mode": "bay",
+          "surfaceFinish": {
+            "version": "surface-finish-v1",
+            "enabled": true,
+            "changedMeshes": 16,
+            "materials": [
+              {
+                "source": "rollup_galvanized_gray",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_handle_brushed",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "utility_rubber",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Refined_vented_charcoal",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Refined_vented_gray",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Refined_vented_red",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_cabinet_door",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_charcoal_tile",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_graphite_cabinet",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_grid_black",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_slingmods_red",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_warm_white",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "studio_warm_wood",
+                "kind": "wood",
+                "detailOnly": false,
+                "tileMetres": 1.8,
+                "detailRepeat": 8,
+                "detailStrength": 0.18
+              },
+              {
+                "source": "utility_safety_yellow",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              }
+            ],
+            "loadedSets": [
+              "concrete",
+              "metal",
+              "wood"
+            ],
+            "failedSets": [],
+            "addedDrawCalls": 0
+          }
+        },
+        {
+          "route": "harbor",
+          "mode": "test",
+          "surfaceFinish": {
+            "version": "surface-finish-v1",
+            "enabled": true,
+            "changedMeshes": 390,
+            "materials": [
+              {
+                "source": "Quality_Cast_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Quay_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Harbor_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Harbor_Road_Paint",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Mineral_Stucco",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Dock_Timber",
+                "kind": "wood",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.18
+              },
+              {
+                "source": "Quality_Painted_White",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Aluminum",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Powdercoat",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Slingmods_Red",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Maintained_Turf",
+                "kind": "grass",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.12
+              },
+              {
+                "source": "Quality_Planted_Ground",
+                "kind": "grass",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.12
+              },
+              {
+                "source": "Waterfront_Marine_Paint",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              }
+            ],
+            "loadedSets": [
+              "concrete",
+              "metal"
+            ],
+            "failedSets": [],
+            "addedDrawCalls": 0
+          }
+        },
+        {
+          "route": "express",
+          "mode": "race",
+          "surfaceFinish": {
+            "version": "surface-finish-v1",
+            "enabled": true,
+            "changedMeshes": 164,
+            "materials": [
+              {
+                "source": "route surface",
+                "kind": "grass",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.12
+              },
+              {
+                "source": "route surface",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "route surface",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "route surface",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "route surface",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Mineral_Stucco",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Dock_Timber",
+                "kind": "wood",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.18
+              },
+              {
+                "source": "Quality_Painted_White",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Aluminum",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Cast_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Powdercoat",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Slingmods_Red",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Quay_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Waterfront_Marine_Paint",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Planted_Ground",
+                "kind": "grass",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.12
+              }
+            ],
+            "loadedSets": [
+              "grass",
+              "concrete",
+              "metal"
+            ],
+            "failedSets": [],
+            "addedDrawCalls": 0
+          }
+        },
+        {
+          "route": "ridge",
+          "mode": "test",
+          "surfaceFinish": {
+            "version": "surface-finish-v1",
+            "enabled": true,
+            "changedMeshes": 59,
+            "materials": [
+              {
+                "source": "route surface",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "route surface",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "route surface",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Ridge_anthracite_metal",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Ridge_warm_timber",
+                "kind": "wood",
+                "detailOnly": false,
+                "tileMetres": 1.8,
+                "detailRepeat": 8,
+                "detailStrength": 0.18
+              },
+              {
+                "source": "Ridge_layered_stone",
+                "kind": "stone",
+                "detailOnly": false,
+                "tileMetres": 1.8,
+                "detailRepeat": 8,
+                "detailStrength": 0.18
+              },
+              {
+                "source": "route surface",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              }
+            ],
+            "loadedSets": [
+              "concrete",
+              "metal",
+              "wood",
+              "stone"
+            ],
+            "failedSets": [],
+            "addedDrawCalls": 0
+          }
+        },
+        {
+          "route": "harbor",
+          "mode": "story",
+          "surfaceFinish": {
+            "version": "surface-finish-v1",
+            "enabled": true,
+            "changedMeshes": 390,
+            "materials": [
+              {
+                "source": "Quality_Cast_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Quay_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Harbor_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Harbor_Road_Paint",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Mineral_Stucco",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Dock_Timber",
+                "kind": "wood",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.18
+              },
+              {
+                "source": "Quality_Painted_White",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Aluminum",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Powdercoat",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Slingmods_Red",
+                "kind": "concrete",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Maintained_Turf",
+                "kind": "grass",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.12
+              },
+              {
+                "source": "Quality_Planted_Ground",
+                "kind": "grass",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.12
+              },
+              {
+                "source": "Waterfront_Marine_Paint",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              }
+            ],
+            "loadedSets": [
+              "concrete",
+              "metal"
+            ],
+            "failedSets": [],
+            "addedDrawCalls": 0
+          }
+        },
+        {
+          "mode": "surfaces-off",
+          "surfaceFinish": {
+            "version": "surface-finish-v1",
+            "enabled": false,
+            "changedMeshes": 0,
+            "materials": [],
+            "loadedSets": [],
+            "failedSets": [],
+            "addedDrawCalls": 0
+          }
+        },
+        {
+          "mode": "missing-concrete-normal",
+          "surfaceFinish": {
+            "version": "surface-finish-v1",
+            "enabled": true,
+            "changedMeshes": 128,
+            "materials": [
+              {
+                "source": "route surface",
+                "kind": "grass",
+                "detailOnly": false,
+                "tileMetres": 2,
+                "detailRepeat": 8,
+                "detailStrength": 0.12
+              },
+              {
+                "source": "route surface",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Mineral_Stucco",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Dock_Timber",
+                "kind": "wood",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.18
+              },
+              {
+                "source": "Quality_Aluminum",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Cast_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Powdercoat",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Quay_Concrete",
+                "kind": "concrete",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Waterfront_Marine_Paint",
+                "kind": "metal",
+                "detailOnly": false,
+                "tileMetres": 0.5,
+                "detailRepeat": 8,
+                "detailStrength": 0.1
+              },
+              {
+                "source": "Quality_Planted_Ground",
+                "kind": "grass",
+                "detailOnly": true,
+                "tileMetres": null,
+                "detailRepeat": 8,
+                "detailStrength": 0.12
+              }
+            ],
+            "loadedSets": [
+              "grass",
+              "metal"
+            ],
+            "failedSets": [
+              "concrete"
+            ],
+            "addedDrawCalls": 0
+          }
+        }
+      ],
+      "errors": [],
+      "failed": []
+    },
+    "career": {
+      "pass": true,
+      "method": "Fresh isolated career: garage to Shakedown to earned reward to garage. Real fixed-step physics and driver pedal/steering input; no position, checkpoint or result injection.",
+      "rows": [
+        {
+          "label": "chapter-one-shakedown",
+          "recipe": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "blue-orange",
+            "products": {},
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "profile": {
+            "simulation": "slingmods-sport-v5",
+            "input": "slingmods-sport-v5",
+            "field": "slingmods-sport-v5"
+          },
+          "look": {
+            "id": "day",
+            "base": "day",
+            "requested": "day",
+            "wet": false
+          },
+          "route": {
+            "id": "biscayne-harbor",
+            "version": "1",
+            "length": 1230.86710531256
+          },
+          "receipt": {
+            "id": "b3eb85f4-e43f-4df8-9bb5-b0d613b20a6f",
+            "kind": "award",
+            "amount": 800,
+            "balance": 800,
+            "first": true,
+            "at": "2026-09-22T15:05:41.185Z",
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "race": {
+            "event": "harbor-shakedown-standing-lap-v1",
+            "handlingProfileId": "slingmods-sport-v5",
+            "laps": 1,
+            "phase": "finished",
+            "paused": false,
+            "countdown": 0,
+            "elapsedMs": 67291.24727208955,
+            "attemptId": "b3eb85f4-e43f-4df8-9bb5-b0d613b20a6f",
+            "standings": [
+              {
+                "id": "player",
+                "place": 1,
+                "status": "finished",
+                "lap": 1,
+                "nextGate": 16,
+                "progress": 0,
+                "timeMs": 67291.24727208955,
+                "invalidReason": null,
+                "valid": true
+              }
+            ],
+            "playerResult": {
+              "event": "harbor-shakedown-standing-lap-v1",
+              "attemptId": "b3eb85f4-e43f-4df8-9bb5-b0d613b20a6f",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 67291.24727208955,
+              "place": 1,
+              "invalidReason": null
+            },
+            "allFinished": true,
+            "standingLap": {
+              "phase": "finished",
+              "paused": false,
+              "invalidReason": null,
+              "elapsedMs": 67291.24727208955,
+              "countdown": 0,
+              "checkpoint": 15,
+              "total": 15,
+              "result": {
+                "timeMs": 67291.24727208955,
+                "valid": true,
+                "invalidReason": null,
+                "previousBestMs": null,
+                "bestMs": 67291.24727208955,
+                "differenceMs": null,
+                "firstRecord": true,
+                "newBest": true
+              },
+              "attempt": 1
+            }
+          }
+        }
+      ],
+      "garageSurface": {
+        "version": "surface-finish-v1",
+        "enabled": true,
+        "changedMeshes": 16,
+        "materials": [
+          {
+            "source": "rollup_galvanized_gray",
+            "kind": "metal",
+            "detailOnly": false,
+            "tileMetres": 0.5,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "studio_handle_brushed",
+            "kind": "metal",
+            "detailOnly": false,
+            "tileMetres": 0.5,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "utility_rubber",
+            "kind": "concrete",
+            "detailOnly": false,
+            "tileMetres": 2,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Refined_vented_charcoal",
+            "kind": "concrete",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Refined_vented_gray",
+            "kind": "concrete",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Refined_vented_red",
+            "kind": "concrete",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "studio_cabinet_door",
+            "kind": "metal",
+            "detailOnly": false,
+            "tileMetres": 0.5,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "studio_charcoal_tile",
+            "kind": "concrete",
+            "detailOnly": false,
+            "tileMetres": 2,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "studio_graphite_cabinet",
+            "kind": "metal",
+            "detailOnly": false,
+            "tileMetres": 0.5,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "studio_grid_black",
+            "kind": "metal",
+            "detailOnly": false,
+            "tileMetres": 0.5,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "studio_slingmods_red",
+            "kind": "concrete",
+            "detailOnly": false,
+            "tileMetres": 2,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "studio_warm_white",
+            "kind": "concrete",
+            "detailOnly": false,
+            "tileMetres": 2,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "studio_warm_wood",
+            "kind": "wood",
+            "detailOnly": false,
+            "tileMetres": 1.8,
+            "detailRepeat": 8,
+            "detailStrength": 0.18
+          },
+          {
+            "source": "utility_safety_yellow",
+            "kind": "concrete",
+            "detailOnly": false,
+            "tileMetres": 2,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          }
+        ],
+        "loadedSets": [
+          "metal",
+          "concrete",
+          "wood"
+        ],
+        "failedSets": [],
+        "addedDrawCalls": 0
+      },
+      "driveSurface": {
+        "version": "surface-finish-v1",
+        "enabled": true,
+        "changedMeshes": 390,
+        "materials": [
+          {
+            "source": "Quality_Cast_Concrete",
+            "kind": "concrete",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Quality_Quay_Concrete",
+            "kind": "concrete",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Harbor_Concrete",
+            "kind": "concrete",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Harbor_Road_Paint",
+            "kind": "concrete",
+            "detailOnly": false,
+            "tileMetres": 2,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Quality_Mineral_Stucco",
+            "kind": "concrete",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Quality_Dock_Timber",
+            "kind": "wood",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.18
+          },
+          {
+            "source": "Quality_Painted_White",
+            "kind": "concrete",
+            "detailOnly": false,
+            "tileMetres": 2,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Quality_Aluminum",
+            "kind": "metal",
+            "detailOnly": false,
+            "tileMetres": 0.5,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Quality_Powdercoat",
+            "kind": "metal",
+            "detailOnly": false,
+            "tileMetres": 0.5,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Quality_Slingmods_Red",
+            "kind": "concrete",
+            "detailOnly": false,
+            "tileMetres": 2,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          },
+          {
+            "source": "Quality_Maintained_Turf",
+            "kind": "grass",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.12
+          },
+          {
+            "source": "Quality_Planted_Ground",
+            "kind": "grass",
+            "detailOnly": true,
+            "tileMetres": null,
+            "detailRepeat": 8,
+            "detailStrength": 0.12
+          },
+          {
+            "source": "Waterfront_Marine_Paint",
+            "kind": "metal",
+            "detailOnly": false,
+            "tileMetres": 0.5,
+            "detailRepeat": 8,
+            "detailStrength": 0.1
+          }
+        ],
+        "loadedSets": [
+          "concrete",
+          "metal"
+        ],
+        "failedSets": [],
+        "addedDrawCalls": 0
+      },
+      "errors": [],
+      "failed": []
+    },
+    "parallelSuite": "Two final npm test runs passed 379/380: existing live audio capture duration/signal timing assertion failed. Audio test alone passed 2/2 and complete serial suite passed 380/380. No audio code/assertion/threshold changed; concurrency-sensitive failure cause remains unproven."
+  },
+  "machine": {
+    "checkedAt": "2026-09-22T14:51:21.8736693Z",
+    "processor": {
+      "Name": "12th Gen Intel(R) Core(TM) i9-12900K",
+      "NumberOfCores": 16,
+      "NumberOfLogicalProcessors": 24
+    },
+    "os": {
+      "Caption": "Microsoft Windows 11 Pro",
+      "Version": "10.0.26200",
+      "BuildNumber": "26200",
+      "TotalVisibleMemorySize": 133952824
+    },
+    "gpu": [
+      "name, driver_version, temperature.gpu, utilization.gpu [%], memory.used [MiB], power.draw [W]",
+      "NVIDIA GeForce RTX 4080, 616.92, 63, 20 %, 3320 MiB, 82.23 W"
+    ]
+  },
+  "performance": {
+    "gate": "HOLD",
+    "cases": {
+      "low": {
+        "startedAt": "2026-09-22T15:12:31.149Z",
+        "quality": "low",
+        "cadence": "uncapped",
+        "route": "harbor",
+        "look": "dusk-rain",
+        "url": "http://127.0.0.1:5209",
+        "browser": "153.0.8010.12",
+        "args": [
+          "--use-angle=d3d11",
+          "--mute-audio",
+          "--disable-frame-rate-limit",
+          "--disable-gpu-vsync"
+        ],
+        "sourceCommit": "93f83cbd073132fa9ed068819a8479be3d144049",
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "highAverageMs": 10,
+          "highWorstOnePercentMs": 16.6,
+          "toleranceMs": 1e-06
+        },
+        "method": "Isolated Chromium ANGLE D3D11 on owner GPU, native wall-clock RAF (uncapped lane explicitly disables vsync); 2560x1440 DPR1. Two complete races and at least 90 active seconds, bounded at three races. Current Sport v5 pedal/steering driver only; real simulation/rivals/results. Audio graph active, output muted. All raw phases/outliers retained. No screenshots, readback, trace, draw wrappers or recorder in scored frames. CPU submission is not GPU execution time. OS/driver caches not flushed.",
+        "errors": [],
+        "failedRequests": [],
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 6227,
+            "activeSeconds": 77.06889999999989,
+            "averageMs": 12.376569776778528,
+            "averageFps": 80.7978315507294,
+            "worstOnePercentMs": 33.792063492063285,
+            "onePercentLowFps": 29.592747428249513,
+            "p50Ms": 11.60000000000582,
+            "p95Ms": 17.400000000001455,
+            "p99Ms": 32.60000000000582,
+            "maxMs": 36.39999999999418,
+            "over33_4": 37,
+            "over50": 0,
+            "over100": 0,
+            "frameTail": true,
+            "highBudget": null,
+            "resolutionScale": {
+              "minimum": 0.6,
+              "maximum": 1,
+              "average": 0.7331058294524029
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "42bbce8c-b9f5-4376-aebf-e0d34df48520",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77063.41650444643,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77063.41650444643
+              }
+            ],
+            "pipeline": {
+              "quality": "low",
+              "post": true,
+              "samples": 0,
+              "bloomLevels": 0,
+              "resolutionScale": 0.6,
+              "targetFrameMs": 8.95,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 6187,
+            "activeSeconds": 77.08510000000001,
+            "averageMs": 12.459204784224989,
+            "averageFps": 80.26194426679085,
+            "worstOnePercentMs": 33.861290322581254,
+            "onePercentLowFps": 29.53224730875435,
+            "p50Ms": 11.60000000000582,
+            "p95Ms": 17.60000000000582,
+            "p99Ms": 32.40000000000873,
+            "maxMs": 35.89999999999418,
+            "over33_4": 40,
+            "over50": 0,
+            "over100": 0,
+            "frameTail": true,
+            "highBudget": null,
+            "resolutionScale": {
+              "minimum": 0.6,
+              "maximum": 0.75,
+              "average": 0.6194035881687109
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "6c2c1380-bfd4-4041-848c-b28e6082dfe9",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77071.89257829,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77071.89257829
+              }
+            ],
+            "pipeline": {
+              "quality": "low",
+              "post": true,
+              "samples": 0,
+              "bloomLevels": 0,
+              "resolutionScale": 0.6,
+              "targetFrameMs": 9.09,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          }
+        ],
+        "timeOrigin": 1790089951180.7,
+        "sustained": true,
+        "pooled": {
+          "samples": 12414,
+          "activeSeconds": 154.15399999999906,
+          "averageMs": 12.417754148541894,
+          "averageFps": 80.52985975063946,
+          "worstOnePercentMs": 33.827200000000126,
+          "onePercentLowFps": 29.562009270645998,
+          "p50Ms": 11.60000000000582,
+          "p95Ms": 17.5,
+          "p99Ms": 32.5,
+          "maxMs": 36.39999999999418,
+          "over33_4": 77,
+          "over50": 0,
+          "over100": 0
+        },
+        "pass": true
+      },
+      "medium": {
+        "startedAt": "2026-09-22T15:15:33.988Z",
+        "quality": "medium",
+        "cadence": "uncapped",
+        "route": "harbor",
+        "look": "dusk-rain",
+        "url": "http://127.0.0.1:5209",
+        "browser": "153.0.8010.12",
+        "args": [
+          "--use-angle=d3d11",
+          "--mute-audio",
+          "--disable-frame-rate-limit",
+          "--disable-gpu-vsync"
+        ],
+        "sourceCommit": "93f83cbd073132fa9ed068819a8479be3d144049",
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "highAverageMs": 10,
+          "highWorstOnePercentMs": 16.6,
+          "toleranceMs": 1e-06
+        },
+        "method": "Isolated Chromium ANGLE D3D11 on owner GPU, native wall-clock RAF (uncapped lane explicitly disables vsync); 2560x1440 DPR1. Two complete races and at least 90 active seconds, bounded at three races. Current Sport v5 pedal/steering driver only; real simulation/rivals/results. Audio graph active, output muted. All raw phases/outliers retained. No screenshots, readback, trace, draw wrappers or recorder in scored frames. CPU submission is not GPU execution time. OS/driver caches not flushed.",
+        "errors": [],
+        "failedRequests": [],
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 6277,
+            "activeSeconds": 77.08919999999982,
+            "averageMs": 12.281217141946762,
+            "averageFps": 81.42515423691016,
+            "worstOnePercentMs": 33.260317460317424,
+            "onePercentLowFps": 30.065858547294106,
+            "p50Ms": 11.69999999999709,
+            "p95Ms": 16.90000000000873,
+            "p99Ms": 31.5,
+            "maxMs": 35.40000000000873,
+            "over33_4": 30,
+            "over50": 0,
+            "over100": 0,
+            "frameTail": true,
+            "highBudget": null,
+            "resolutionScale": {
+              "minimum": 0.6,
+              "maximum": 1,
+              "average": 0.7116456906165396
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "594b8d08-a627-4b35-95c3-4f86166c090c",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77070.4562992696,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77070.4562992696
+              }
+            ],
+            "pipeline": {
+              "quality": "medium",
+              "post": true,
+              "samples": 2,
+              "bloomLevels": 4,
+              "resolutionScale": 0.6,
+              "targetFrameMs": 9.04,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 6546,
+            "activeSeconds": 77.10239999999999,
+            "averageMs": 11.778551787351054,
+            "averageFps": 84.90008093133288,
+            "worstOnePercentMs": 31.599999999999866,
+            "onePercentLowFps": 31.645569620253298,
+            "p50Ms": 11.5,
+            "p95Ms": 15.10000000000582,
+            "p99Ms": 27.5,
+            "maxMs": 35.39999999999418,
+            "over33_4": 19,
+            "over50": 0,
+            "over100": 0,
+            "frameTail": true,
+            "highBudget": null,
+            "resolutionScale": {
+              "minimum": 0.6,
+              "maximum": 0.7,
+              "average": 0.6124503513595853
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "be20184d-8b70-497a-a5fe-675bac6a5729",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77083.49520114627,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77083.49520114627
+              }
+            ],
+            "pipeline": {
+              "quality": "medium",
+              "post": true,
+              "samples": 2,
+              "bloomLevels": 4,
+              "resolutionScale": 0.6,
+              "targetFrameMs": 8.99,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          }
+        ],
+        "timeOrigin": 1790090134017.5,
+        "sustained": true,
+        "pooled": {
+          "samples": 12823,
+          "activeSeconds": 154.19160000000008,
+          "averageMs": 12.024612025267105,
+          "averageFps": 83.16276632449492,
+          "worstOnePercentMs": 32.76589147286821,
+          "onePercentLowFps": 30.519541970284855,
+          "p50Ms": 11.599999999991269,
+          "p95Ms": 16,
+          "p99Ms": 30.19999999999709,
+          "maxMs": 35.40000000000873,
+          "over33_4": 49,
+          "over50": 0,
+          "over100": 0
+        },
+        "pass": true
+      },
+      "high": {
+        "startedAt": "2026-09-22T15:09:19.097Z",
+        "quality": "high",
+        "cadence": "uncapped",
+        "route": "harbor",
+        "look": "dusk-rain",
+        "url": "http://127.0.0.1:5209",
+        "browser": "153.0.8010.12",
+        "args": [
+          "--use-angle=d3d11",
+          "--mute-audio",
+          "--disable-frame-rate-limit",
+          "--disable-gpu-vsync"
+        ],
+        "sourceCommit": "93f83cbd073132fa9ed068819a8479be3d144049",
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "highAverageMs": 10,
+          "highWorstOnePercentMs": 16.6,
+          "toleranceMs": 1e-06
+        },
+        "method": "Isolated Chromium ANGLE D3D11 on owner GPU, native wall-clock RAF (uncapped lane explicitly disables vsync); 2560x1440 DPR1. Two complete races and at least 90 active seconds, bounded at three races. Current Sport v5 pedal/steering driver only; real simulation/rivals/results. Audio graph active, output muted. All raw phases/outliers retained. No screenshots, readback, trace, draw wrappers or recorder in scored frames. CPU submission is not GPU execution time. OS/driver caches not flushed.",
+        "errors": [],
+        "failedRequests": [],
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 3787,
+            "activeSeconds": 77.17049999999999,
+            "averageMs": 20.377739635595454,
+            "averageFps": 49.073156193104886,
+            "worstOnePercentMs": 45.58684210526362,
+            "onePercentLowFps": 21.936154245800157,
+            "p50Ms": 20.20000000001164,
+            "p95Ms": 35.19999999999709,
+            "p99Ms": 42,
+            "maxMs": 58.10000000000582,
+            "over33_4": 266,
+            "over50": 6,
+            "over100": 0,
+            "frameTail": false,
+            "highBudget": false,
+            "resolutionScale": {
+              "minimum": 0.6,
+              "maximum": 0.65,
+              "average": 0.601016635859478
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "f2d21dc0-e0cf-41cb-b5e2-31ee511d7ad7",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77156.19015862602,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77156.19015862602
+              }
+            ],
+            "pipeline": {
+              "quality": "high",
+              "post": true,
+              "samples": 4,
+              "bloomLevels": 5,
+              "resolutionScale": 0.6,
+              "targetFrameMs": 10.14,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 5355,
+            "activeSeconds": 77.0973,
+            "averageMs": 14.397254901960785,
+            "averageFps": 69.45768528858987,
+            "worstOnePercentMs": 35.75555555555642,
+            "onePercentLowFps": 27.967681789930957,
+            "p50Ms": 14.39999999999418,
+            "p95Ms": 29.39999999999418,
+            "p99Ms": 33.30000000001746,
+            "maxMs": 52.20000000001164,
+            "over33_4": 51,
+            "over50": 2,
+            "over100": 0,
+            "frameTail": false,
+            "highBudget": false,
+            "resolutionScale": {
+              "minimum": 0.6,
+              "maximum": 0.75,
+              "average": 0.6159290382819446
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "85f7e3d9-7a42-4747-a3a5-88794d817754",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77099.08440858676,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77099.08440858676
+              }
+            ],
+            "pipeline": {
+              "quality": "high",
+              "post": true,
+              "samples": 4,
+              "bloomLevels": 5,
+              "resolutionScale": 0.6,
+              "targetFrameMs": 10.95,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          }
+        ],
+        "timeOrigin": 1790089759128.7,
+        "sustained": true,
+        "pooled": {
+          "samples": 9142,
+          "activeSeconds": 154.26779999999965,
+          "averageMs": 16.874622620870667,
+          "averageFps": 59.26058451601709,
+          "worstOnePercentMs": 43.026086956521915,
+          "onePercentLowFps": 23.241713823767082,
+          "p50Ms": 16,
+          "p95Ms": 32,
+          "p99Ms": 39.5,
+          "maxMs": 58.10000000000582,
+          "over33_4": 317,
+          "over50": 8,
+          "over100": 0
+        },
+        "pass": false
+      },
+      "ultra": {
+        "startedAt": "2026-09-22T15:18:38.568Z",
+        "quality": "ultra",
+        "cadence": "uncapped",
+        "route": "harbor",
+        "look": "dusk-rain",
+        "url": "http://127.0.0.1:5209",
+        "browser": "153.0.8010.12",
+        "args": [
+          "--use-angle=d3d11",
+          "--mute-audio",
+          "--disable-frame-rate-limit",
+          "--disable-gpu-vsync"
+        ],
+        "sourceCommit": "93f83cbd073132fa9ed068819a8479be3d144049",
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "highAverageMs": 10,
+          "highWorstOnePercentMs": 16.6,
+          "toleranceMs": 1e-06
+        },
+        "method": "Isolated Chromium ANGLE D3D11 on owner GPU, native wall-clock RAF (uncapped lane explicitly disables vsync); 2560x1440 DPR1. Two complete races and at least 90 active seconds, bounded at three races. Current Sport v5 pedal/steering driver only; real simulation/rivals/results. Audio graph active, output muted. All raw phases/outliers retained. No screenshots, readback, trace, draw wrappers or recorder in scored frames. CPU submission is not GPU execution time. OS/driver caches not flushed.",
+        "errors": [],
+        "failedRequests": [],
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 4560,
+            "activeSeconds": 77.17850000000003,
+            "averageMs": 16.925109649122813,
+            "averageFps": 59.083812201584614,
+            "worstOnePercentMs": 36.98478260869492,
+            "onePercentLowFps": 27.038147299124734,
+            "p50Ms": 16.39999999999418,
+            "p95Ms": 33.69999999999709,
+            "p99Ms": 34.69999999999709,
+            "maxMs": 51.19999999999709,
+            "over33_4": 270,
+            "over50": 4,
+            "over100": 0,
+            "frameTail": false,
+            "highBudget": null,
+            "resolutionScale": {
+              "minimum": 1,
+              "maximum": 1,
+              "average": 1
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "58a9e24d-1e4d-48d6-bb7f-63e2ce4b3cb1",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77180.11817776872,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77180.11817776872
+              }
+            ],
+            "pipeline": {
+              "quality": "ultra",
+              "post": true,
+              "samples": 4,
+              "bloomLevels": 6,
+              "resolutionScale": 1,
+              "targetFrameMs": 15.53,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 3839,
+            "activeSeconds": 77.075,
+            "averageMs": 20.076842927845792,
+            "averageFps": 49.808627959779436,
+            "worstOnePercentMs": 58.202564102564324,
+            "onePercentLowFps": 17.181373628794155,
+            "p50Ms": 17.19999999999709,
+            "p95Ms": 37.29999999998836,
+            "p99Ms": 51.60000000000582,
+            "maxMs": 83.5,
+            "over33_4": 434,
+            "over50": 44,
+            "over100": 0,
+            "frameTail": false,
+            "highBudget": null,
+            "resolutionScale": {
+              "minimum": 1,
+              "maximum": 1,
+              "average": 1
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "33b53864-7ca0-4b6c-936d-a94bcba8c6af",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77055.78181247073,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77055.78181247073
+              }
+            ],
+            "pipeline": {
+              "quality": "ultra",
+              "post": true,
+              "samples": 4,
+              "bloomLevels": 6,
+              "resolutionScale": 1,
+              "targetFrameMs": 10.28,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          }
+        ],
+        "timeOrigin": 1790090318597.1,
+        "sustained": true,
+        "pooled": {
+          "samples": 8399,
+          "activeSeconds": 154.25349999999997,
+          "averageMs": 18.365698297416355,
+          "averageFps": 54.449331781774816,
+          "worstOnePercentMs": 53.098809523809734,
+          "onePercentLowFps": 18.83281393628224,
+          "p50Ms": 16.59999999999127,
+          "p95Ms": 34.30000000001746,
+          "p99Ms": 46.90000000002328,
+          "maxMs": 83.5,
+          "over33_4": 704,
+          "over50": 48,
+          "over100": 0
+        },
+        "pass": false
+      },
+      "native-high": {
+        "startedAt": "2026-09-22T15:21:44.456Z",
+        "quality": "high",
+        "cadence": "native",
+        "route": "harbor",
+        "look": "dusk-rain",
+        "url": "http://127.0.0.1:5209",
+        "browser": "153.0.8010.12",
+        "args": [
+          "--use-angle=d3d11",
+          "--mute-audio"
+        ],
+        "sourceCommit": "93f83cbd073132fa9ed068819a8479be3d144049",
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "highAverageMs": 10,
+          "highWorstOnePercentMs": 16.6,
+          "toleranceMs": 1e-06
+        },
+        "method": "Isolated Chromium ANGLE D3D11 on owner GPU, native wall-clock RAF (uncapped lane explicitly disables vsync); 2560x1440 DPR1. Two complete races and at least 90 active seconds, bounded at three races. Current Sport v5 pedal/steering driver only; real simulation/rivals/results. Audio graph active, output muted. All raw phases/outliers retained. No screenshots, readback, trace, draw wrappers or recorder in scored frames. CPU submission is not GPU execution time. OS/driver caches not flushed.",
+        "errors": [],
+        "failedRequests": [],
+        "attempts": [
+          {
+            "attempt": 1,
+            "samples": 4471,
+            "activeSeconds": 77.09689999999912,
+            "averageMs": 17.243770968463235,
+            "averageFps": 57.991955577981095,
+            "worstOnePercentMs": 34.87555555555761,
+            "onePercentLowFps": 28.67337836115544,
+            "p50Ms": 16.69999999999709,
+            "p95Ms": 16.80000000000291,
+            "p99Ms": 33.39999999999418,
+            "maxMs": 50.10000000000582,
+            "over33_4": 5,
+            "over50": 1,
+            "over100": 0,
+            "frameTail": true,
+            "highBudget": null,
+            "resolutionScale": {
+              "minimum": 0.7,
+              "maximum": 1,
+              "average": 0.8780250503243329
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "98fca564-758e-4cb8-8b52-00adc695a36d",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77091.35501175927,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77091.35501175927
+              }
+            ],
+            "pipeline": {
+              "quality": "high",
+              "post": true,
+              "samples": 4,
+              "bloomLevels": 5,
+              "resolutionScale": 0.75,
+              "targetFrameMs": 16.35,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          },
+          {
+            "attempt": 2,
+            "samples": 4442,
+            "activeSeconds": 77.0969,
+            "averageMs": 17.35634849167042,
+            "averageFps": 57.61580556416665,
+            "worstOnePercentMs": 33.77111111111331,
+            "onePercentLowFps": 29.611107455416903,
+            "p50Ms": 16.699999999982538,
+            "p95Ms": 16.800000000017462,
+            "p99Ms": 33.39999999999418,
+            "maxMs": 50.10000000000582,
+            "over33_4": 1,
+            "over50": 1,
+            "over100": 0,
+            "frameTail": true,
+            "highBudget": null,
+            "resolutionScale": {
+              "minimum": 0.6,
+              "maximum": 0.75,
+              "average": 0.6691355245385152
+            },
+            "result": {
+              "event": "harbor-preview-quick-race-v1",
+              "attemptId": "b345eb2b-3ead-46c1-9a6b-af0f8c60b91c",
+              "participantId": "player",
+              "status": "finished",
+              "valid": true,
+              "laps": 1,
+              "timeMs": 77067.37488895985,
+              "place": 4,
+              "invalidReason": null
+            },
+            "finishers": [
+              {
+                "id": "maya",
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "status": "finished",
+                "timeMs": 77067.37488895985
+              }
+            ],
+            "pipeline": {
+              "quality": "high",
+              "post": true,
+              "samples": 4,
+              "bloomLevels": 5,
+              "resolutionScale": 0.6,
+              "targetFrameMs": 16.35,
+              "size": [
+                2560,
+                1440
+              ]
+            }
+          }
+        ],
+        "timeOrigin": 1790090504487.7,
+        "sustained": true,
+        "pooled": {
+          "samples": 8913,
+          "activeSeconds": 154.19379999999836,
+          "averageMs": 17.299876584763645,
+          "averageFps": 57.80388057107416,
+          "worstOnePercentMs": 34.32333333333546,
+          "onePercentLowFps": 29.13469942701577,
+          "p50Ms": 16.69999999999709,
+          "p95Ms": 16.80000000000291,
+          "p99Ms": 33.39999999999418,
+          "maxMs": 50.10000000000582,
+          "over33_4": 6,
+          "over50": 2,
+          "over100": 0
+        },
+        "pass": true
+      }
+    },
+    "interpretation": "Every complete attempt is scored independently. Pooled values describe the samples; they cannot override a failed attempt. 1440p is the output buffer; dynamic scale is recorded per racing frame. Native here means real RAF with normal browser pacing in an isolated headless Chromium, not foreground physical-display or human driving proof. Unrelated owner apps were not stopped. Timing variability is not attributed to a proven host or software cause."
+  },
+  "rejectedExperiment": {
+    "keptInRuntime": false,
+    "description": "A vehicle transparency cache preserved back/front rendering (eight A/B views differed by at most nine pixels by one channel level), but did not establish a meaningful sustained improvement. Removed before the final package. Candidate measurements and diagnostic sources remain in .tools/phase2-close-package-* and .tools/phase2-close-rejected; they are not final acceptance evidence."
+  },
+  "sourceSha256": {
+    "src/calibration.ts": "5e6bada57f24e4ad54797f310a45958fa2b3292295d32f0b1f00705f8ec2af13",
+    "src/express.ts": "e59d5017fe2e800989a70ea0e7c66b39baccc4ddd332a8e6fb6545a886b97169",
+    "src/presentation/runtime-profile.ts": "9340f2fca955f69060fe2e1f5031369e090709fb1086cb6fe94dbf519b21c66f",
+    "src/workbench.ts": "f719f9c8620cc616ba162417ba865c8180b0f271a63f5ceb7ee24f047432093d"
+  },
+  "toolSha256": {
+    "scripts/perf/diagnose-cost.mjs": "b0c985ece0e2137c35770e050c8758aed267af4f97ed10ddf83bec55bc77cf9c",
+    "scripts/perf/draw-census.mjs": "87e1b2b9e66f43d226fce9ec73bfecfeb9736b3317a3f431001d8f92fce4cbf6",
+    "scripts/perf/frame-statistics.mjs": "2f99ef79ad9827e2b7ac62d9abf166474b3a8f4202beb8f41c90c81b0ec63006",
+    "scripts/perf/hosted-check.mjs": "cd5c106ca6bd95e8cbf80b99ea43ccecb17787c6b2cc0f49a320d9cdac64c580",
+    "scripts/perf/mirror-crop-ab.mjs": "dc44c07cceb254fccfcd648b62e4ff1a8d2191fb2fcd717dfdc5ca26cd67ff74",
+    "scripts/perf/pass-cost.mjs": "d7f5f0bfca9f282bf15183e35a3c17fd565e7319349b4e3bfd47c005f7774675",
+    "scripts/perf/rival-merge-ab.mjs": "9acf352293239e8c4aa080e7d6d8a5a6fc5f027a18d8ba63da9c004b1dfec078",
+    "scripts/perf/sustained.mjs": "7f59df169b1a17cea75da80c05e847379cce4bdf37af287a969257deb23c0d6d",
+    "scripts/perf/verify-fixtures.mjs": "3368284c821c0c23591252e7cce74e97818b5e18469e1e67bdb03b03a9fef09d",
+    "scripts/perf/water-look.mjs": "04f5e65757021cd2c9e0865e36eb2c3bb55e2af564d2fc720115729d65978e77"
+  },
+  "localEvidenceSha256": {
+    ".tools/phase2-close-final-low/run.json": "874d8b34b578be75cf02188d95b771b6f0363feb07c097989d5e72d844d98a85",
+    ".tools/phase2-close-final-low/summary.json": "a3dd1b0ceb395482000e62465dd4ce0989dee3e14df0a8c06e79dde8df182a88",
+    ".tools/phase2-close-final-medium/run.json": "a414977be8e02b8df8ed86c628623e83311051c50056e84905b49034a59d570b",
+    ".tools/phase2-close-final-medium/summary.json": "b25239d30e94bb063d64104dbb0f8133073403b845e04c472c2f29e3f6228b8d",
+    ".tools/phase2-close-final-high/run.json": "4e04f775796f717ae0184b20d60d6bb72f985f399f20d8410a3aba714fd4bd62",
+    ".tools/phase2-close-final-high/summary.json": "3a3d2ccca9066d4ec044836d680f9460dd63d7ffad58fed3b0dfe6e6f8c81f15",
+    ".tools/phase2-close-final-ultra/run.json": "905386a24f631da5123036d7b136bf1067909b7a303e2e84c1cf563f85218520",
+    ".tools/phase2-close-final-ultra/summary.json": "17a3130641768003de9d5c63d8a6af57764b81426dac91d4e5605705b468656c",
+    ".tools/phase2-close-final-native-high/run.json": "f027b09418f7da042518671f438c00c5807073c718895852955a8f341f958f7e",
+    ".tools/phase2-close-final-native-high/summary.json": "37c1d11ec331a658f35c9902f1f13b6476eba1507fb5d6d2e2a4e1c95f01b319",
+    ".tools/phase2-close-baseline-high/run.json": "2de72bc292dfacde223739d1c2f4dae3db8edbb9ca49f347d9113deb9d2aefe0",
+    ".tools/phase2-close-final-tests.log": "43d736563cf62bf4a51259975e7bcc9db22e0c00df17486b5d083ebbed1783f1",
+    ".tools/phase2-close-final-isolated-tests.log": "65cdeeeff54806af3eb2dd6d6e16edb6fc97fa4812b34f734125e702d6c2043a",
+    ".tools/phase2-close-final-serial-tests.log": "c886f6b5d418b7e9a190fe12a8e0824e0df715af78384098ee92e66a8defc882",
+    ".tools/phase2-close-final-build.log": "3f8b795ea59a2e458de174493b040c58fb3f736084650e2fa74cd981414a8e43",
+    ".tools/phase2-close-final-package.log": "2b8015f8404e395352b51df0597d5f1c758d6dba7e1cb6f80eed1c8ac70733d7",
+    ".tools/phase2-close-final-browser/result.json": "a1a9dd65638a173cf190b6433e6ecc299f055e2584adc47fbe728887f4f74327",
+    ".tools/phase2-close-final-career/result.json": "ccfc0d58ba0d05fce6f397dc874d5db2967bf2247dae812c5d7fa10c45375224",
+    ".tools/phase2-close-fixtures/result.json": "517f3c224b112734851389ddb7c827d1c6cb20e358024d1062898730452f63bf"
+  },
+  "evidenceTransfer": "Raw frame arrays, failures, captures and diagnostics are retained locally under ignored .tools; this tracked receipt retains their hashes and summaries. No review archive was created."
+}

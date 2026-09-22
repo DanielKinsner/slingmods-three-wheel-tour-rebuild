@@ -1,3 +1,10 @@
+# Current work - Phase 2 closing gate
+
+- Benchmark/test pipeline parity and sustained reporting complete.
+- Performance remains HOLD; see `handoff/PHASE-2-CLOSING-GATE.md`.
+- Next: bounded performance diagnosis. Phase 3 remains blocked by this gate.
+
+---
 # Current work - Phase 2H surface textures
 
 - Shared scenery and garage texture pass complete; see `handoff/PHASE-2H-SURFACES.md`.

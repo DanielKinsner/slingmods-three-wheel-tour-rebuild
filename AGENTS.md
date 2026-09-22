@@ -1,3 +1,13 @@
+# Phase 2 closing gate - pipeline parity done, performance HOLD (2026-09-22)
+
+Read `handoff/PHASE-2-CLOSING-GATE.md` and its validation receipt. The bounded
+1440p sustained runs retain a performance HOLD. Do not start Phase 3.
+Calibration/test warmup and statistics are repaired; production road rendering,
+Sport v5 physics/input, assets, products, saves and history are unchanged.
+Continue one lead on main and the existing hosted game. No subagents, new site,
+vehicle, dependency, archive or spending. Leave the prior heartbeat unchanged.
+
+---
 # Phase 2H - shared surface textures (2026-09-22)
 
 Remaining flat scenery and garage materials now use the existing texture sets

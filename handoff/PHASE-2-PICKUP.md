@@ -14,7 +14,7 @@ Written so any agent can be told "pick up at 2D" with no access to earlier chats
 | 2F | Contact shadows and stable chase sun map | done | `PHASE-2F-SHADOWS.md` |
 | 2G | Ridge forest | done | `PHASE-2G-FOREST.md` |
 | 2H | Texture pass on flat-coloured surfaces | done | `PHASE-2H-SURFACES.md` |
-| — | Benchmark/test scenes on the same pipeline, avg + 1%-low per preset | **next** (Phase 2 done-criterion) | |
+| — | Benchmark/test scenes on the same pipeline, avg + 1%-low per preset | **HOLD** (parity done; sustained criteria fail) | `PHASE-2-CLOSING-GATE.md` |
 
 Owner decisions already made (do not re-ask): three.js-native passes, no new dependency; After Rain is visual only (no grip change); Dusk-rain / After-rain are the default looks on Express / Harbor; Chapter 01 and Ridge retain required base looks; Chapter 02 shares the modern looks after story parity; 2K skies.
 
@@ -32,6 +32,6 @@ Master prompt: tire smoke on slides and launches, dust/leaf kick-up off-line, wa
 2. **Never silence `git add`; never list deleted paths in it.** Before push: `git show --stat HEAD`. After: `git diff origin/main --stat` must be empty. Pull first (Codex may be working in parallel).
 3. **Line endings are mixed per file** (`git ls-files --eol`). Edit bytes in place; a whole-file diff means you converted one.
 4. **Nested renders and per-pass material changes make three.js re-resolve programs** (GC hitches). Extra passes are top-level steps before `pipeline.render`, in the order: mirrors -> wet road -> frame (`src/express.ts`).
-5. **Measure with `scripts/perf/draw-census.mjs` and `scripts/perf/pass-cost.mjs`** (dev server `tour-dev` on 5186, see `.claude/launch.json`). Benchmarks are one car; races are four. Park any open preview tab on a static URL first: it renders the showroom and skews GPU timings.
+5. **Separate diagnostics from sustained acceptance.** `scripts/perf/draw-census.mjs` and `scripts/perf/pass-cost.mjs` are short diagnostics (dev server `tour-dev` on 5186, see `.claude/launch.json`); the latter defaults to one car unless `MODE=race`. Use `scripts/perf/sustained.mjs` for complete four-car races and retain failed attempts; follow `PHASE-2-CLOSING-GATE.md`. Park any open preview tab on a static URL first: it renders the showroom and skews GPU timings.
 6. Assets are fixed at source (portable Blender in `.tools/blender-4.5.2-windows-x64/`, scripts in `scripts/`), never patched at runtime.
 7. Each slice ends with: typecheck, `npm test`, one `npm run build`, a driving smoke test, a note in `handoff/`, commit, push. The owner is not a coder: report in plain English, bottom line first, with exact hand-test steps; give decisions as lettered options with one "(Recommended)"; an observation from him is a discussion, not a work order.

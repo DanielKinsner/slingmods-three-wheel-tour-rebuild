@@ -32,3 +32,13 @@ test('every view renders through the pipeline, and the pipeline can always fall 
  assert.ok(!/renderer\.render\(scene,camera\)/.test(drive),'no stray direct draw of the game scene in the drive');
  assert.ok(pipeline.includes('if(!target){renderer.setRenderTarget(null);renderer.render(scene,camera);return}')&&pipeline.includes('this.unsupported=true'),'a GPU that cannot provide the HDR target falls back to drawing directly');assert.ok(pipeline.includes('#include <tonemapping_fragment>')&&pipeline.includes('#include <colorspace_fragment>'),'same tone mapping and output colour as the direct path');
 });
+test('calibration and retained test pad use shared presets, post warmup and refreshed pixel ratio',()=>{
+ for(const file of ['src/calibration.ts','src/workbench.ts']){
+  const source=readFileSync(file,'utf8');
+  assert.ok(source.includes('new RenderPipeline(renderer,graphics)'),file);
+  assert.ok(source.includes('loadGraphicsQuality()'),file);
+  assert.ok(source.includes('prepareRenderer(renderer,scene,camera,render)'),file+': warm the same post path as displayed frames');
+  assert.ok(!source.includes('renderer.render(scene,camera)'),file+': no direct-only inspection frames');
+  assert.ok(source.includes('GRAPHICS_PRESETS[pipeline.quality].pixelRatioCap'),file+': resize uses active preset');
+ }
+});
