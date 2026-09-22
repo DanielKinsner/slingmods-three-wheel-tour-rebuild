@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 const base=process.env.RYKER_URL??'http://127.0.0.1:5198',out='C:/Users/SM - Dan/Documents/GitHub/slingmods game/ryker-purchased/work/mods';
 await mkdir(out,{recursive:true});const b=await chromium.launch({headless:true,args:['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist','--mute-audio']}),p=await b.newPage({viewport:{width:1440,height:1000}}),report={base,errors:[],parts:{}};
 p.on('pageerror',e=>report.errors.push(e.message));p.on('console',m=>{if(m.type()==='error')report.errors.push(m.text())});
+await p.addInitScript(()=>{const u=new URL(location.href);if(u.searchParams.get('scene')==='express'){u.searchParams.set('test','1');u.searchParams.set('profile','1');history.replaceState(null,'',u.href)}});
 const ready=()=>p.waitForFunction(()=>window.__SIGNATURE?.ready,null,{timeout:120000});
 async function capture(name,pos,target){const data=await p.evaluate(([pos,target])=>{window.__SIGNATURE.referenceCamera(pos,target);return document.querySelector('canvas').toDataURL()},[pos,target]);await writeFile(`${out}/${name}.png`,Buffer.from(data.split(',')[1],'base64'))}
 try{

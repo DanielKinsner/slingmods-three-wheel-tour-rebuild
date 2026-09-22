@@ -69,3 +69,8 @@ body.signature-showroom{margin:0;overflow:hidden;height:100dvh;background:var(--
 .signature-ui{--sig-top:132px}.sig-header{height:118px}.sig-shop,.sig-events{top:132px}
 @media(max-height:800px){.signature-ui{--sig-top:128px}.sig-header{height:116px}.sig-shop,.sig-events{top:128px}}
 @media(max-width:760px){.vehicle-appearance-picker{top:105px;left:16px;right:16px;gap:5px}.vehicle-appearance-picker>span{display:none}.vehicle-appearance-picker a{flex:1;text-align:center;padding:9px 6px!important}.sig-header{height:146px}.signature-ui{--sig-top:184px}.sig-categories{top:148px}.sig-detail,.sig-restore{top:202px}.sig-detail{max-height:calc(100dvh - 368px)}.sig-entry{top:158px}.sig-shop,.sig-events{top:158px}}
+
+/* Shared career headers reserve the same vehicle row without covering chapter controls. */
+.career-shell .sig-header:has(.vehicle-appearance-picker){min-height:136px;align-items:flex-start}
+body.career-garage .garage-ui #chapter-panel,body.career-garage .garage-ui #build-panel,body.career-garage .garage-ui #harbor-entry{top:132px;max-height:calc(100dvh - 200px)}
+@media(max-width:760px){.career-shell .sig-header:has(.vehicle-appearance-picker){min-height:160px}body.career-garage .garage-ui #chapter-panel,body.career-garage .garage-ui #build-panel,body.career-garage .garage-ui #harbor-entry{top:158px;max-height:calc(100dvh - 220px)}}
