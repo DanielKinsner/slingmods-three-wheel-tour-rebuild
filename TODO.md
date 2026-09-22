@@ -1,3 +1,10 @@
+# Current work - Phase 2H surface textures
+
+- Shared scenery and garage texture pass complete; see `handoff/PHASE-2H-SURFACES.md`.
+- Next: benchmark/test scene pipeline parity and the Phase 2 sustained-performance gate.
+- The sustained performance HOLD remains; Phase 3 follows that gate.
+
+---
 # Current work - Phase 2G Ridge forest
 
 - Shared Ridge forest integrated; see `handoff/PHASE-2G-FOREST.md`.

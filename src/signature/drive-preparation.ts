@@ -1,3 +1,4 @@
+import {surfaceAssetURLs} from '../presentation/surface-assets';
 import {effectAssetURLs} from '../presentation/effect-assets';
 import {RIDGE_ASSETS} from '../ridge/assets';
 import {forestAssetURLs} from '../ridge/forest-assets';
@@ -17,7 +18,7 @@ export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
  return [...new Set(shared)];
 }
 /** Set dressing the drive can do without (P11 asphalt, decals, trackside). Warmed when the host has it; never required. */
-export const optionalDriveAssetURLs=(route:DestinationId)=>{if(route==='ridge')return [...effectAssetURLs(),...forestAssetURLs(),...BASIS_TRANSCODER_URLS];const sky=resolveLook({route,career:false,requested:'day',explicitLighting:false}).sky;return[...effectAssetURLs(),...speedDressingURLs(route),...(sky?[sky]:[])]};
+export const optionalDriveAssetURLs=(route:DestinationId)=>{if(route==='ridge')return [...surfaceAssetURLs(route),...effectAssetURLs(),...forestAssetURLs(),...BASIS_TRANSCODER_URLS];const sky=resolveLook({route,career:false,requested:'day',explicitLighting:false}).sky;return[...surfaceAssetURLs(route),...effectAssetURLs(),...speedDressingURLs(route),...(sky?[sky]:[])]};
 /**
  * Best-effort warm-up. A missing file, a network error or a timeout is recorded and swallowed: the scene has its own
  * fallback (previous road, no props), so nothing here may ever stop the player from driving.
@@ -58,7 +59,7 @@ export async function prepareDrive(route:DestinationId,recipe:BuildRecipe,mode:'
    finally{clearTimeout(timeout)}
   }
   // Required files are in. Optional dressing gets one bounded, best-effort pass; whatever is missing is simply skipped.
-  if(!cancelled){stage.textContent='Dressing the route…';const limit=new AbortController(),timer=setTimeout(()=>limit.abort(),30000),stop=()=>limit.abort();controller.signal.addEventListener('abort',stop);cancel.addEventListener('click',stop,{once:true});try{const result=await warmOptionalAssets(optionalDriveAssetURLs(route),fetch,limit.signal);report.optional={warmed:result.warmed.length,skipped:result.skipped}}finally{clearTimeout(timer)}}
+  if(!cancelled){stage.textContent='Dressing the route…';const limit=new AbortController(),timer=setTimeout(()=>limit.abort(),30000),stop=()=>limit.abort();controller.signal.addEventListener('abort',stop);cancel.addEventListener('click',stop,{once:true});try{const result=await warmOptionalAssets([...new Set(optionalDriveAssetURLs(route))].filter(url=>!completedURLs.has(url)),fetch,limit.signal);report.optional={warmed:result.warmed.length,skipped:result.skipped}}finally{clearTimeout(timer)}}
  }finally{removeEventListener('pagehide',pageExit);controller.abort();dialog.close();dialog.remove();report.cancelled=cancelled;report.ended=performance.now();report.ms=report.ended-started}
  return report;
 }

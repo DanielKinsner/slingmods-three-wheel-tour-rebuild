@@ -1,3 +1,14 @@
+# Phase 2H - shared surface textures (2026-09-22)
+
+Remaining flat scenery and garage materials now use the existing texture sets
+through one shared pass. Preserve Sport v5 physics/input, routes, products,
+progress, vehicle finishes and all historical records.
+Read `handoff/PHASE-2H-SURFACES.md` and its validation receipt. Next is the
+Phase 2 benchmark/pipeline and sustained-performance gate before Phase 3.
+Continue one lead on main and the existing hosted game; no subagents, new site,
+vehicle, dependency, archive or spending. Older sections are history.
+
+---
 # Phase 2G - shared Ridge forest (2026-09-22)
 
 Ridge career events, quick races and test runs share the existing P11 trees,
