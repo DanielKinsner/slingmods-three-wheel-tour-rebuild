@@ -1,0 +1,98 @@
+{
+ "phase": "Phase 2 performance: render CPU fixes",
+ "date": "2026-09-22",
+ "commits": [
+  "d2f57e7",
+  "19473ad",
+  "1f6a596",
+  "602fc6c"
+ ],
+ "machine": "RTX 4080 / i9-12900K / Windows 11 / Chromium ANGLE D3D11, 2560x1440 DPR1 (owner PC; other owner jobs were running, see notes)",
+ "inRaceAB": {
+  "method": ".tools/perf-fix/ab-perf.mjs on the packaged build: one High harbor dusk-rain race, the evidence switch flipped every 3 s (4 cycles), first 15% of each phase dropped",
+  "note": "measured with rival instancing still present; instancing showed no gain and was removed before commit",
+  "legacy": {
+   "cpuMeanMs": 13.57,
+   "intervalMeanMs": 14.1,
+   "intervalP95Ms": 31.5,
+   "framesOver16msPct": 17.9
+  },
+  "allExceptTransparency": {
+   "cpuMeanMs": 13,
+   "intervalMeanMs": 13.54
+  },
+  "allFixes": {
+   "cpuMeanMs": 9.65,
+   "intervalMeanMs": 10.17,
+   "intervalP95Ms": 17.3,
+   "framesOver16msPct": 5.6
+  }
+ },
+ "sustained": {
+  "command": "node scripts/perf/sustained.mjs high uncapped harbor (BASE_URL packaged build on 5209)",
+  "buildRef": "a775951d1d68-working (code identical to the commits above)",
+  "pass": false,
+  "attempts": [
+   {
+    "attempt": 1,
+    "samples": 5668,
+    "activeSeconds": 77.14,
+    "averageMs": 13.61,
+    "worstOnePercentMs": 47.02,
+    "p50Ms": 11.1,
+    "p95Ms": 33,
+    "p99Ms": 41,
+    "maxMs": 67.7,
+    "over33_4": 249,
+    "over50": 14,
+    "over100": 0,
+    "frameTail": false,
+    "highBudget": false,
+    "resolutionScale": {
+     "minimum": 0.6,
+     "maximum": 0.85,
+     "average": 0.636
+    }
+   },
+   {
+    "attempt": 2,
+    "samples": 7908,
+    "activeSeconds": 77.08,
+    "averageMs": 9.75,
+    "worstOnePercentMs": 24.77,
+    "p50Ms": 9.7,
+    "p95Ms": 13.1,
+    "p99Ms": 16.5,
+    "maxMs": 35.3,
+    "over33_4": 4,
+    "over50": 0,
+    "over100": 0,
+    "frameTail": true,
+    "highBudget": false,
+    "resolutionScale": {
+     "minimum": 0.6,
+     "maximum": 0.65,
+     "average": 0.601
+    }
+   }
+  ],
+  "notes": "Attempt 1 ran at ~11 ms for 50 s, then 24-28 ms from 55 s at the same 0.6 resolution scale while attempt 2 drove the same stretch at ~10 ms: outside load, not scenery. Blender (two background instances, ~14 cores), two ffmpeg encodes and a HyperFrames render from other owner jobs were running during this session."
+ },
+ "pixelAB": {
+  "command": "node scripts/perf/render-fixes-ab.mjs",
+  "views": 72,
+  "differingPixelsTotal": 138,
+  "maxDifferingPixelsPerView": 15,
+  "pixelsOver8Levels": 0,
+  "maxLevelDifference": 3,
+  "viewPixels": 1440000,
+  "noiseFloor": "two loads of one build: <=2 px per view at 1 level"
+ },
+ "tests": {
+  "suite": "npm test 393/393 on 602fc6c (388 before + 5 new)",
+  "newFile": "tests/render-cpu-fixes.test.ts 5/5; each fix negative-controlled (breaking it fails its test)",
+  "build": "npm run build exit 0",
+  "typecheck": "clean"
+ },
+ "gate": "HOLD: attempt 2 meets p95/p99/max and the 10 ms average; worst-1% 24.8 ms > 16.6 ms. Both attempts must pass on a quiet PC; Ultra not re-measured."
+}

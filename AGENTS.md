@@ -1,3 +1,13 @@
+# Phase 2 performance: render CPU fixes (2026-09-22)
+
+Read `handoff/PHASE-2-PERF-FIX.md` and `PHASE-2-PERF-FIX-VALIDATION.json`. High harbor dusk-rain
+CPU per frame 13.6 -> 9.7 ms with three exact fixes (transparent halves through one shader program,
+transforms once per frame, rear presenter measured on demand); pixels unchanged (72-view A/B).
+Each fix has an evidence switch (`?perf=legacy-transparency|matrix|rear`, `__EXPRESS.setPerf`).
+Gate still HOLD: a quiet attempt met p95/p99/max and the 10 ms average but not worst-1% (24.8 ms);
+the final High/Ultra run needs a quiet PC. Committed locally; the owner pushes.
+
+---
 # UX, career and showroom repair (2026-09-22)
 
 Owner-assigned repair of all 15 findings in `handoff/ux-audit-packet/` plus a UI pass. Read

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {perfLegacy} from './perf-switches';
 import type {VehicleTelemetry} from '../simulation';
 import {GRAPHICS_PRESETS,type GraphicsQuality} from './graphics-settings';
 import {loadKTX2} from './ktx2';
@@ -48,7 +49,7 @@ export class SkidBuffer {
  readonly mesh:THREE.Mesh;private geometry=new THREE.BufferGeometry();private positions:Float32Array;private cursor=0;count=0;
  constructor(readonly capacity=3072){
   this.positions=new Float32Array(capacity*18);this.geometry.setAttribute('position',new THREE.BufferAttribute(this.positions,3).setUsage(THREE.DynamicDrawUsage));
-  this.mesh=new THREE.Mesh(this.geometry,new THREE.MeshBasicMaterial({color:0x101014,transparent:true,opacity:.26,depthWrite:false,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2}));this.mesh.name='session-skid-marks';this.mesh.frustumCulled=false;this.geometry.setDrawRange(0,0);
+  this.mesh=new THREE.Mesh(this.geometry,new THREE.MeshBasicMaterial({color:0x101014,transparent:true,opacity:.26,depthWrite:false,side:THREE.DoubleSide,forceSinglePass:!perfLegacy('transparency'),polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2}));this.mesh.name='session-skid-marks';this.mesh.frustumCulled=false;this.geometry.setDrawRange(0,0);
  }
  add(a:THREE.Vector3,b:THREE.Vector3,width:number){
   const dx=b.x-a.x,dz=b.z-a.z,d=Math.hypot(dx,dz);if(d<.08||d>2.5)return false;

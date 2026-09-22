@@ -11,6 +11,7 @@ import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTA
 import {assetStatistics} from './statistics';
 import {configureShadows} from './shadows';
 import {mergeRigidParts,type MergeReport} from './merge-rigid';
+import {perfLegacy} from './perf-switches';
 import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
 export async function loadDrivingHero(loader:GLTFLoader){
@@ -42,7 +43,7 @@ function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttac
  root.position.set(t.position.x,t.position.y,t.position.z);root.quaternion.set(t.quaternion.x,t.quaternion.y,t.quaternion.z,t.quaternion.w);
  if(ryker){ryker.pose(t);driver.update(t,dt,cockpit,reset);return}
  t.wheels.forEach((w,i)=>{const b=bindings[i];if(b.node&&b.basePos){b.node.position.copy(b.basePos);b.node.position.y=w.localCenter.y}if(b.steer&&b.baseSteer)b.steer.quaternion.copy(b.baseSteer).multiply(q.setFromAxisAngle(axisY,w.steer));if(b.spin&&b.baseSpin)b.spin.quaternion.copy(b.baseSpin).multiply(q.setFromAxisAngle(axisX,-w.spin))});
- rear.update(t.wheels[2]);frontLinks.update(t.wheels);
+ rear.update(t.wheels[2],perfLegacy('rear'));frontLinks.update(t.wheels);
  wheel.quaternion.copy(wheelBase).multiply(q.setFromAxisAngle(axisZ,t.steer*10));driver.update(t,dt,cockpit,reset);
  }};
 }
