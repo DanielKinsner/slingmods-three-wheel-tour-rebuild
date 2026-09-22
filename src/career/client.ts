@@ -1,17 +1,15 @@
-import {openCareer,freshCareer,migrateCareer,CareerDataError,MemoryCareerStore,type CareerStore,type Career,type Command,type Result} from './store';
-import {activeProfile,profileHref,profileFrom,transferTarget} from '../demo/profile';
+import {openCareer,freshCareer,CareerDataError,MemoryCareerStore,type CareerStore,type Career,type Command,type Result} from './store';
+import {activeProfile,profileHref} from '../demo/profile';
+import {readTransfer,writeTransfer} from './transfer';
 import {freshDemo,openDemo} from '../demo/store';
 export const RAE={duelComplete:'MAYA: Clean and close. Your workshop fund is ready. Try a setup, then bring it to the crew.',duelWin:'MAYA: You found the line. Spend that workshop fund carefully. Jett will test your braking.',entry:"Welcome to the harbor. Give me one clean lap, then we'll make this thing yours.",firstCompletion:"Clean lap. You're in. Your first workshop credits are ready.",firstBuild:"That's your first build. Take it out after dark.",crewPodium:"You earned your place. Welcome to the crew.",crewWin:"First night. First place. That's a proper introduction.",crewFourth:"You finished. Now we know where to find the time. Run it again."};
 /** Per-page connection, latest committed state only. A failed transaction never reports success. */
 export async function careerClient(){
- // One-shot same-origin scene handoff keeps denied-storage play coherent without durable storage.
- // It is tab memory, consumed immediately, never a URL parameter or sent to the product site.
- // Legacy untagged envelopes are career-only; a demo always requires an explicit demo tag.
- const profile=activeProfile();let fallback=profile==='demo'?freshDemo():freshCareer();const prefix='twt-career-transfer:';
- try{if(window.name.startsWith(prefix)){const transfer=JSON.parse(window.name.slice(prefix.length));window.name=typeof transfer.previousName==='string'?transfer.previousName:'';if((transfer.profile===profile||profile==='career'&&transfer.profile===undefined)&&transfer.origin===location.origin&&transfer.target===transferTarget(new URL(location.href),import.meta.env.MODE==='demo')&&[1,2,3,4].includes(transfer.state?.version))fallback=migrateCareer(transfer.state)}}catch{window.name=''}
- let store:CareerStore;try{store=profile==='demo'?openDemo(fallback):await openCareer(fallback)}catch(e){if(!(e instanceof CareerDataError))throw e;store=await recoveryChoice(e)};let state=await store.read(),closed=false,stale=false;const listeners=new Set<()=>void>();
+ // One-shot same-origin scene handoff (./transfer) keeps denied-storage play coherent without durable storage.
+ const profile=activeProfile(),visitor=import.meta.env.MODE==='demo',fallback=readTransfer(profile,visitor)??(profile==='demo'?freshDemo():freshCareer());
+ let store:CareerStore;try{store=profile==='demo'?openDemo(fallback):await openCareer(fallback)}catch(e){if(!(e instanceof CareerDataError))throw e;store=await recoveryChoice(e,fallback)};let state=await store.read(),closed=false,stale=false;const listeners=new Set<()=>void>();
  async function refresh(){stale=true;listeners.forEach(f=>f());try{const next=await store.read();if(next.revision>=state.revision)state=next}finally{stale=false;if(!closed)listeners.forEach(f=>f())}}
- function handoff(url:string){if(store.durable)return;const target=new URL(url,location.href);if(target.origin!==location.origin||profileFrom(target.search)!==profile||!['bay','pad','vehicle','harbor','crew','career','express','ridge'].includes(target.searchParams.get('scene')??'bay'))return;window.name=prefix+JSON.stringify({profile,origin:location.origin,target:transferTarget(target,import.meta.env.MODE==='demo'),previousName:window.name,state})}
+ function handoff(url:string){if(!store.durable)writeTransfer(url,profile,state,visitor)}
  const internalClick=(event:MouseEvent)=>{const a=(event.target as Element)?.closest<HTMLAnchorElement>('a[href]');if(a&&a.target!=='_blank'&&!event.ctrlKey&&!event.metaKey){const target=new URL(a.href);if(profile==='demo'&&target.origin===location.origin&&!target.searchParams.has('play'))a.href=profileHref(a.href,profile);handoff(a.href)}};document.addEventListener('click',internalClick,true);
  const unsub=store.subscribe(()=>{void refresh().catch(()=>{})});const focus=()=>{void refresh().catch(()=>{})};addEventListener('focus',focus);
  return {profile,navigate(url:string){const target=new URL(url,location.href);const href=profile==='demo'&&!target.searchParams.has('play')?profileHref(url,profile):url;handoff(href);location.href=href},get state():Career{return state},get stale(){return stale},get durable(){return store.durable},async execute(c:Command):Promise<Result>{const r=await store.execute(c);if(r.state.revision>=state.revision)state=r.state;listeners.forEach(f=>f());return r},refresh,subscribe(f:()=>void){listeners.add(f);return()=>listeners.delete(f)},close(){closed=true;unsub();document.removeEventListener('click',internalClick,true);removeEventListener('focus',focus);store.close();listeners.clear()}};
@@ -19,11 +17,11 @@ export async function careerClient(){
 export type CareerClient=Awaited<ReturnType<typeof careerClient>>;
 
 /** Recovery is deliberate: preserve the unreadable record, allow export, and explicitly choose temporary play. */
-function recoveryChoice(error:CareerDataError):Promise<CareerStore>{return new Promise(resolve=>{
+function recoveryChoice(error:CareerDataError,carried:Career):Promise<CareerStore>{return new Promise(resolve=>{
  const panel=document.createElement('section');panel.id='career-recovery';panel.setAttribute('role','alertdialog');panel.setAttribute('aria-label','Career recovery');
  Object.assign(panel.style,{position:'fixed',inset:'20% 15%',zIndex:'10000',background:'#17212b',color:'white',padding:'32px',font:'16px/1.6 system-ui',overflow:'auto'});
  const heading=document.createElement('h2'),message=document.createElement('p'),exportButton=document.createElement('button'),temporary=document.createElement('button'),refresh=document.createElement('button');
  heading.textContent='Your saved career is protected';message.textContent=error.message+' Export the record for recovery, refresh to a compatible build, or explicitly play a temporary career. Temporary play does not replace your stored career.';
  exportButton.textContent='Export saved record';exportButton.disabled=error.raw===undefined;exportButton.onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(error.raw,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='slingmods-career-recovery.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
- temporary.textContent='Play temporary career';temporary.onclick=()=>{panel.remove();resolve(new MemoryCareerStore())};refresh.textContent='Refresh current build';refresh.onclick=()=>location.reload();panel.append(heading,message,exportButton,temporary,refresh);document.body.append(panel);temporary.focus();
+ temporary.textContent='Play temporary career';temporary.onclick=()=>{panel.remove();resolve(new MemoryCareerStore(carried))};refresh.textContent='Refresh current build';refresh.onclick=()=>location.reload();panel.append(heading,message,exportButton,temporary,refresh);document.body.append(panel);temporary.focus();
 })}
