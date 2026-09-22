@@ -1,0 +1,70 @@
+{
+  "testedCommit": "74da09652825bd00329e148fb27a44137771ef9c",
+  "mainBase": "de5e5ac82797ae36788555b287d19b37ff422742",
+  "checkedAt": "2026-09-22T23:26:44.096Z",
+  "tests": {
+    "passed": 401,
+    "failed": 0
+  },
+  "typecheck": "PASS",
+  "productionBuild": "PASS: npm run deploy:build; 286 allowlisted files",
+  "productionBrowser": {
+    "base": "http://127.0.0.1:5201",
+    "errors": [],
+    "assetFailures": [],
+    "vehicles": {
+      "2026": {
+        "drive": {
+          "build": "74da09652825",
+          "asset": "/assets/model02/slingshot-2026.glb",
+          "speed": 12.78059228833269,
+          "profile": "slingmods-sport-v5"
+        },
+        "career": {
+          "asset": "/assets/model02/slingshot-2026.glb",
+          "event": "harbor-shakedown-standing-lap-v1",
+          "career": true
+        }
+      },
+      "ryker": {
+        "drive": {
+          "build": "74da09652825",
+          "asset": "/assets/ryker/ryker-900.glb",
+          "speed": 12.673588581772869,
+          "profile": "slingmods-sport-v5"
+        },
+        "career": {
+          "asset": "/assets/ryker/ryker-900.glb",
+          "event": "harbor-shakedown-standing-lap-v1",
+          "career": true
+        }
+      }
+    },
+    "pass": true,
+    "mods": {
+      "pass": true,
+      "errors": [],
+      "selectedInDrive": {
+        "body": true,
+        "shocks": true,
+        "exhaust": true,
+        "underglow": true
+      },
+      "checks": [
+        "all four equipment previews",
+        "stock comparison",
+        "vehicle switching and restored drafts",
+        "four shop listings",
+        "mobile choices visible",
+        "actual showroom departure retains parts"
+      ]
+    }
+  },
+  "limits": [
+    "No simulation physics or input changes.",
+    "Ryker uses shared Sport v5 handling; no authentic Ryker physics claim.",
+    "Existing sustained performance gate remains HOLD.",
+    "Main integration does not claim exhaustive hardware, weather or full race-completion coverage."
+  ],
+  "followingCommit": "Documentation and this evidence only; runtime inputs unchanged."
+}

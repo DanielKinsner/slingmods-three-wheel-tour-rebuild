@@ -1,6 +1,6 @@
 # Purchased Can-Am Ryker 900 game asset
 
-The purchased markos3d model is converted, rigged and integrated as an optional player appearance. The 2026 Slingshot remains the default and the rival fleet remains Slingshots. This is local work on `codex/ryker-game-asset`; nothing was pushed, published or deployed.
+The purchased markos3d model is converted, rigged and integrated as an optional player appearance. The 2026 Slingshot remains the default and the rival fleet remains Slingshots. Developed on the isolated `codex/ryker-game-asset` branch, with the owner authorizing integration into main on September 22, 2026. See `evidence/main-readiness.json` for the pre-merge checks.
 
 ## Play
 
@@ -55,7 +55,7 @@ The rider repair reduced measured grip gaps from about 16 cm to below 0.001 mm i
 
 Initial conversion baseline, before the cockpit fidelity pass: matched 1440×1000 showroom sampling on NVIDIA RTX 4080 / ANGLE D3D11, headless Chromium, 180 RAF intervals per model, same camera and scene: both median 16.7 ms / p95 16.8 ms. Slingshot: 529 submitted draws, 406,877 submitted triangles; Ryker: 216 draws, 1,519,324 submitted triangles per full frame, including shadows/post passes. These are short refresh-limited samples, not sustained 60 FPS proof, a GPU timer benchmark or an improvement claim. The same browser context was used sequentially, so shared cache warmth differs. Loading/resource details are retained in the JSON. Existing project performance HOLD remains unchanged.
 
-No paid textures, generated preview imagery, personal browser data, global tool installs, remote publication or source-archive uploads were used. Full race completion/reward certification, all destination/weather combinations, mobile hardware, and long sustained performance are not claimed by this asset pass.
+No paid textures, generated preview imagery, personal browser data or global tool installs were used. The hosted build contains only allowlisted runtime assets; editable Blender masters and the purchased source archive are excluded. Full race completion/reward certification, all destination/weather combinations, mobile hardware, and long sustained performance are not claimed by this asset pass.
 
 ## Fidelity comparison against the Slingshot
 
@@ -63,10 +63,10 @@ The same 1440×1000 renderer, studio lighting and field of view were used for fr
 
 This pass closes the cockpit presentation gaps: live moving mirrors, accurate SIM instrumentation, readable screen orientation, ignition off, complete cockpit framing, and a matching finish swatch. The screen alone has newly generated planar UVs; the source's collapsed UVs remain unused. Static exported screen art stays blank; the game renders its live values. The mirror/screen optical surfaces retain full geometry, adding only 620 triangles over the first gameplay export. No handling, steering input or collision changes were made.
 
-`evidence/fidelity-comparison.json` and the ZIP's `fidelity/` images record actual Slingshot/Ryker views, driving, reverse and night. Tests exercise the real exported mirrors through both steering directions and verify that the live faces follow their housings while the instrument stays fixed. The full suite has 398 tests. The earlier runtime/performance JSON remains historical baseline evidence; the fidelity report and final static smoke cover the updated presentation. Sustained performance HOLD remains unchanged.
+`evidence/fidelity-comparison.json` and the ZIP's `fidelity/` images record actual Slingshot/Ryker views, driving, reverse and night. Tests exercise the real exported mirrors through both steering directions and verify that the live faces follow their housings while the instrument stays fixed. The fidelity checkpoint had 398 tests; the equipment and switching pass brings the full suite to 401 tests. The earlier runtime/performance JSON remains historical baseline evidence; the fidelity report and final static smoke cover the updated presentation. Sustained performance HOLD remains unchanged.
 
 ## Merge
 
-Claude's main changes through `de5e5ac82797ae36788555b287d19b37ff422742` are included in this branch. The one overlap in `src/demo/profile.ts` was resolved by retaining Claude's full allowlist and adding `ryker`. Its transform/transparent-material/rear-inspection performance changes remain intact. Main's checkout and unrelated files were not edited.
+Claude's main changes through `de5e5ac82797ae36788555b287d19b37ff422742` are included in this branch. The one overlap in `src/demo/profile.ts` was resolved by retaining Claude's full allowlist and adding `ryker`. Its transform/transparent-material/rear-inspection performance changes remain intact. The merge preserves main's unrelated local files.
 
-Merge this branch normally after the active main work is ready; do not replace main files wholesale. The delivery includes a patch against that main commit, plus separate runtime/editable assets, but the local branch is the preferred merge source. Future concurrent edits may require another merge check.
+Integration uses a normal fast-forward from the checked main revision; no main files are replaced wholesale. The delivery includes a patch against that main commit, plus separate runtime/editable assets, but the local branch is the preferred merge source. Future concurrent edits may require another merge check.
