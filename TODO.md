@@ -1,3 +1,11 @@
+# Current work - Phase 2 performance fixes
+
+- Render CPU fixes committed (d2f57e7, 19473ad, 1f6a596, 602fc6c); see `handoff/PHASE-2-PERF-FIX.md`.
+- NEXT: quiet-PC gate run, High then Ultra uncapped harbor (`PHASE-2-CLOSING-GATE.md` commands).
+  If worst-1% is still over 16.6 ms, reduce the wet-reflection frame (vehicle draws every other frame).
+- Performance HOLD stays until both attempts pass; Phase 3 still blocked.
+
+---
 # Current work - UX, career and showroom repair
 
 - All 15 audit findings fixed + UI pass; see `handoff/UX-REPAIR.md` (hand-test steps inside).
