@@ -1,5 +1,5 @@
 {
-  "base": "http://127.0.0.1:5198",
+  "base": "http://127.0.0.1:5197",
   "viewport": [
     1440,
     1000
@@ -8,6 +8,7 @@
   "errors": [],
   "models": {
     "2026": {
+      "build": "0ccb93d6fb00",
       "mirrors": {
         "cropped": 0,
         "count": 2,
@@ -165,21 +166,22 @@
         "fov": 38,
         "viewOffset": null
       },
-      "loadMs": 18703.39999999851,
+      "loadMs": 9159.39999999851,
       "calls": 1,
       "triangles": 2
     },
     "ryker": {
+      "build": "0ccb93d6fb00",
       "mirrors": {
-        "cropped": 192,
+        "cropped": 180,
         "count": 2,
         "resolution": [
           768,
           512
         ],
         "updates": [
-          96,
-          96
+          90,
+          90
         ],
         "live": [
           true,
@@ -262,20 +264,21 @@
         "fov": 38,
         "viewOffset": null
       },
-      "loadMs": 3709.800000000745,
+      "loadMs": 2451.800000000745,
       "calls": 1,
       "triangles": 2
     }
   },
   "method": "Same renderer, studio, FOV and viewport. Exterior camera distance scales with vehicle length for comparable on-screen detail; assets are not scaled. Closeups target their actual parts.",
   "drive": {
+    "build": "0ccb93d6fb00",
     "display": {
       "kind": "ryker-sim",
       "power": true,
       "values": {
-        "speed": 22,
+        "speed": 21,
         "units": "mph",
-        "rpm": 3550,
+        "rpm": 3510,
         "gear": "1"
       },
       "pixels": [
@@ -287,15 +290,15 @@
       "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
     },
     "mirrors": {
-      "cropped": 256,
+      "cropped": 258,
       "count": 2,
       "resolution": [
         768,
         512
       ],
       "updates": [
-        128,
-        128
+        129,
+        129
       ],
       "live": [
         true,
@@ -307,102 +310,102 @@
         {
           "name": "mirror_right_live",
           "position": [
-            -0.3794375061045049,
-            1.0605608106520283,
-            -2.391617724000714
+            -0.37943749948505506,
+            1.0605599193696293,
+            -2.3909404292507035
           ]
         },
         {
           "name": "mirror_left_live",
           "position": [
-            0.3902701883654664,
-            1.060560653434865,
-            -2.3916177175086846
+            0.3902701949849165,
+            1.060559763589756,
+            -2.3909404218852517
           ]
         }
       ]
     },
     "camera": {
-      "fov": 66.45615571711897,
+      "fov": 66.45804070189047,
       "position": [
-        -0.000003003389086238574,
-        1.3724933359032676,
-        -1.9070529292727758
+        -0.0000029978302658271017,
+        1.3725016356555795,
+        -1.9063756111305248
       ],
       "view": "cockpit"
     },
     "telemetry": {
-      "speed": 10.209809221273353,
-      "rpm": 3749.447220408848,
+      "speed": 10.209811128577133,
+      "rpm": 3749.4479282251536,
       "gear": 1
     },
     "driver": {
       "arms": {
         "left": {
-          "gap": 1.3371182663340497e-7,
-          "rimGap": 1.3371182663340497e-7,
+          "gap": 1.3371197262497734e-7,
+          "rimGap": 1.3371197262497734e-7,
           "regripping": false,
           "release": 0,
           "angle": 0,
           "target": [
-            -0.26900300554454265,
-            0.9936859244315147,
-            -2.410030977171382
+            -0.2690029987793219,
+            0.9936850326776,
+            -2.40935367983461
           ],
           "contact": [
-            -0.26900297084537866,
-            0.9936859145275789,
-            -2.4100311059220427
+            -0.26900296408023894,
+            0.993685022773655,
+            -2.4093538085854433
           ],
           "elbow": [
-            -0.3549282156830901,
-            1.049495447050259,
-            -2.166440877052138
+            -0.3549279548025642,
+            1.0494946462814707,
+            -2.1657635109234836
           ]
         },
         "right": {
-          "gap": 7.356321339719479e-8,
-          "rimGap": 7.356321339719479e-8,
+          "gap": 7.356321850173351e-8,
+          "rimGap": 7.356321850173351e-8,
           "regripping": false,
           "release": 0,
           "angle": 0,
           "target": [
-            0.2789969944554574,
-            0.9936859221676189,
-            -2.410030977695984
+            0.27899700122067816,
+            0.993685031436995,
+            -2.4093536797373756
           ],
           "contact": [
-            0.2789969876340552,
-            0.9936859352097588,
-            -2.4100310497717596
+            0.27899699439936176,
+            0.9936850444792233,
+            -2.4093537518131485
           ],
           "elbow": [
-            0.35840810741899276,
-            1.0499567467847377,
-            -2.164345224138608
+            0.3584078570741037,
+            1.0499559472261282,
+            -2.1636678639579094
           ]
         }
       },
       "feet": {
         "left": {
-          "gap": 1.0220874386192423e-7,
+          "gap": 1.0220874475657589e-7,
           "ankle": [
-            -0.2999999614924234,
-            0.23999991186178482,
-            -0.18000003457526415
+            -0.29999996149242225,
+            0.2399999118617842,
+            -0.1800000345752637
           ]
         },
         "right": {
-          "gap": 1.0250838146088938e-7,
+          "gap": 1.0250838179436699e-7,
           "ankle": [
-            0.29999996176768867,
-            0.2399999103221564,
-            -0.18000003168821577
+            0.2999999617676881,
+            0.23999991032215623,
+            -0.18000003168821532
           ]
         }
       },
       "headVisible": false,
-      "bodyPitch": 0.006433383424679949,
+      "bodyPitch": 0.006434180190690686,
       "wheelAngle": 0,
       "eye": [
         0,
@@ -418,33 +421,33 @@
       "values": {
         "speed": 13,
         "units": "mph",
-        "rpm": 2070,
+        "rpm": 2050,
         "gear": "R"
       },
       "pixels": [
         512,
         256
       ],
-      "uploads": 48,
+      "uploads": 47,
       "thumbnailCaptures": 0,
       "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
     },
     "telemetry": {
-      "speed": -5.764650725491104,
+      "speed": -5.758889047925638,
       "gear": -1
     }
   },
   "night": {
     "mirrors": {
-      "cropped": 456,
+      "cropped": 452,
       "count": 2,
       "resolution": [
         768,
         512
       ],
       "updates": [
-        228,
-        228
+        226,
+        226
       ],
       "live": [
         true,
@@ -456,17 +459,17 @@
         {
           "name": "mirror_right_live",
           "position": [
-            -0.3794375070041513,
-            1.0411354955380743,
-            5.814439189889191
+            -0.3794375069559549,
+            1.0411354955688839,
+            5.814439189948211
           ]
         },
         {
           "name": "mirror_left_live",
           "position": [
-            0.39027018746582126,
-            1.0411353451087602,
-            5.814439199354
+            0.3902701875140177,
+            1.0411353451153,
+            5.8144391994130205
           ]
         }
       ]
@@ -489,11 +492,11 @@
       "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
     },
     "camera": {
-      "fov": 66.0000000000015,
+      "fov": 66.00000000000153,
       "position": [
-        -0.0000030074792604571997,
-        1.3599996524087776,
-        6.300001425435486
+        -0.00000300742101008851,
+        1.35999965237831,
+        6.30000142552689
       ],
       "view": "cockpit"
     }

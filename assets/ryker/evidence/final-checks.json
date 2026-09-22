@@ -1,23 +1,34 @@
 {
-  "tested_runtime_commit": "58d2161a8077bbe775096f200b5b5fca428450f1",
+  "tested_runtime_commit": "0ccb93d6fb00418ebb076198c844aff936ca4fd6",
   "tests": {
-    "passed": 396,
+    "passed": 398,
     "failed": 0
   },
   "curated_build": "passed",
   "static_browser_smoke": "passed",
+  "fidelity_comparison": "passed",
+  "fidelity_scope": "Slingshot/Ryker exterior views, native detail, live steering mirrors, telemetry screen, forward/reverse, ignition off, day/night cockpit",
   "browser_console_errors": 0,
   "missing_runtime_assets": 0,
   "gltf_errors": 0,
   "gltf_warnings": 0,
   "main_checked": "de5e5ac82797ae36788555b287d19b37ff422742",
-  "merge_tree": "9fea2b9f160abdd7ea12ed25a4040c11db2bdc32",
+  "merge_tree": "ed15ab1b97982d2623f355f9523b8589b5001c74",
   "merge_conflicts": false,
-  "glb_bytes": 13453744,
-  "glb_sha256": "47c33055e5f6592896bb59bc9d9dcd83693d198c61cfe0ce003e250c10213186",
+  "glb_bytes": 13469976,
+  "glb_sha256": "d06601cff68ea6a9e1e3acec66e65c80ca27bf2d4d38d8f8e0fe1ed25f104e57",
   "source_triangles": 2873168,
-  "gameplay_triangles": 718634,
+  "gameplay_triangles": 719254,
+  "materials": 20,
   "physics_changed": false,
+  "steering_input_changed": false,
   "pushed": false,
-  "deployed": false
+  "deployed": false,
+  "remaining_limits": [
+    "Purchased source width mismatch",
+    "Existing Slingshot collision footprint",
+    "Rear mechanics rigid",
+    "Sustained performance HOLD"
+  ],
+  "preview": "http://127.0.0.1:5197/?visual=ryker"
 }
