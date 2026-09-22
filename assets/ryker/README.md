@@ -4,9 +4,11 @@ The purchased markos3d model is converted, rigged and integrated as an optional 
 
 ## Play
 
-From this checkout run `powershell -ExecutionPolicy Bypass -File scripts/ryker/preview.ps1`, then open <http://127.0.0.1:5198/?visual=ryker>. On the showroom Home screen, the Vehicle selector switches between the Ryker and Slingshot. The selection follows navigation in this tab. Career IDs, ownership, saved builds and handling versions are preserved.
+From this checkout run `powershell -ExecutionPolicy Bypass -File scripts/ryker/preview.ps1`, then open <http://127.0.0.1:5198/?visual=ryker>. The persistent YOUR RIDE header switches between the Ryker and Slingshot on Home, Build, Destinations and Shop. Each keeps a separate preview build. The selection follows navigation in this tab. Career IDs, ownership, saved builds and handling versions are preserved.
 
 The existing free drives, races and career transitions use the selected appearance. Slingshot catalog geometry is suppressed on the Ryker. Adrenaline Red panels and a black seat are its default finish; the paint panels remain adjustable. The purchased instrument housing now carries an original SIM readout using actual game speed, RPM and gear. It goes dark with ignition; no OEM artwork or unsupported sensor readings are claimed.
+
+Ryker-specific TricLED, Elka Stage 3, Treal Street and Panther Customs previews are now available. See [MODS.md](MODS.md) for researched fitment, approximation limits and validation. The Ryker has Body Kit in place of Aero and no Storage category.
 
 ## Files and reproducibility
 

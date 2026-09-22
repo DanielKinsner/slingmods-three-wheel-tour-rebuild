@@ -1,3 +1,4 @@
+import {RYKER_PRESETS} from './ryker-catalog';
 import {loadSurfaceMaterials} from '../presentation/surface-materials';
 import {CURRENT_HANDLING_PROFILE} from '../simulation/profile';
 import {VehicleMirrors} from '../presentation/vehicle-mirrors';
@@ -86,7 +87,7 @@ function state():SignatureState{const s=careerState();return {ignition,initialDe
 function historyFragment(){if(garage)return;window.history.replaceState(window.history.state,'',location.pathname+location.search+recipeFragment(recipe))}
 function refresh(){ui.update(state())}
 async function apply(){
- const shown=compare?stockRecipe(recipe):recipe;accessories.inspectStorage(false);shocks.inspectionView(null);await finishes.set(shown.finish);accessories.set(Object.keys(shown.products));const glow=garageOverride.under??[!!shown.products['SM-133'],shown.lights];under.set(glow[0],glow[1]);shocks.set(garageOverride.shocks??!!shown.products['SM-3223']);shocks.update();under.update();hero.driver.root.visible=driverVisible;audio.setExhaustTreatment(!!shown.products['SM-7720']);
+ const shown=compare?stockRecipe(recipe):recipe;accessories.inspectStorage(false);shocks.inspectionView(null);await finishes.set(shown.finish);accessories.set(Object.keys(shown.products),shown.ryker);const glow=garageOverride.under??[hero.asset.getObjectByName('ryker_foundation')?!!shown.ryker?.underglow:!!shown.products['SM-133'],shown.lights];under.set(glow[0],glow[1]);shocks.set(garageOverride.shocks??!!shown.products['SM-3223']);shocks.update();under.update();hero.driver.root.visible=driverVisible;audio.setExhaustTreatment(!!shown.products['SM-7720']);
  // Recreate only the static diagnostic pose when setup changes; actual drives capture the recipe at entry.
  simulation.reset({x:0,z:0,y:0,yaw:0});simulation.configureSuspension(shown.products['SM-3223']?shown.suspension:null);for(let i=0;i<90;i++)simulation.step({throttle:0,brake:1,steer:0,reverse:false});neutral=simulation.telemetry();hero.pose(neutral,0,false,true);hero.driver.root.visible=driverVisible;contact.ground(hero.root,()=>0);shocks.update();
  const look=STUDIO_LOOKS[lighting];renderer.toneMappingExposure=look.exposure;scene.environmentIntensity=look.environment;hemi.intensity=look.hemisphere;key.intensity=look.key;fill.intensity=look.fill;rim.intensity=look.rim;scene.background=new THREE.Color(look.background);wall.setLook(lighting);mirrors.invalidate();display.snapshot(renderer,scene.environment,JSON.stringify(shown));layoutKey='';refresh();
@@ -136,6 +137,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='view'){audio.cue('ui.nav');view(String(value))}
  else if(name==='use-current-driving'){const next=storage.store.useCurrentDriving(recipe);saved=storage.store.recipes();await change(next);status='Current driving copy ready · historical build kept · no career spend'}
  else if(name==='handling'){if(value==='slingmods-sport-v1'||value==='slingmods-sport-v2'||value==='slingmods-sport-v3'||value==='slingmods-sport-v4')await change({...recipe,handlingProfile:value})}
+ else if(name==='preset'&&hero.asset.getObjectByName('ryker_foundation')){const p=RYKER_PRESETS.find(p=>p.id===value);if(p)await change({...recipe,ryker:{...p.parts},finish:'blue-orange'},true)}
  else if(name==='preset'){const p=PRESETS.find(p=>p.id===value);if(p)await change(p.recipe,true)}
  else if(name==='load-recipe'){const r=saved.find(r=>r.id===value);if(r)await change(r.recipe,true)}
  else if(name==='undo'){const prior=history.at(-1);if(prior){storage.store.setDraft(prior);recipe=history.pop()!;historyFragment();compare=false;await reapply();audio.cue('ui.back')}}

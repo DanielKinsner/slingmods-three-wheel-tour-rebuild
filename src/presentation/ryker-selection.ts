@@ -1,13 +1,7 @@
 import {VEHICLE_VISUAL} from './vehicle-asset';
-/** Tab-local vehicle appearance selection; no career IDs, purchases or saved recipes are rewritten. */
-export function installVehicleSelection(){
- if(!document.body.classList.contains('signature-showroom'))return;
- const host=document.createElement('label');host.className='vehicle-appearance-picker';
- const style=document.createElement('style');style.textContent='.signature-showroom:has(.signature-ui:not([data-screen="entry"])) .vehicle-appearance-picker,body.career-garage .vehicle-appearance-picker{display:none!important}';document.head.append(style);
- host.style.cssText='position:fixed;right:20px;bottom:18px;z-index:55;display:grid;gap:5px;padding:9px 12px;border:1px solid #ffffff30;border-radius:8px;background:#111820ed;color:#f2f4f5;font:12px Arial;max-width:245px';
- const label=document.createElement('span');label.textContent='Vehicle';
- const select=document.createElement('select');select.setAttribute('aria-label','Vehicle appearance');select.style.cssText='background:#263039;color:white;border:1px solid #6b7680;border-radius:4px;padding:7px';
- for(const [value,text] of [['2026','2026 Slingshot R'],['ryker','Can-Am Ryker 900']]){const option=document.createElement('option');option.value=value;option.textContent=text;select.append(option)}select.value=VEHICLE_VISUAL==='ryker'?'ryker':'2026';
- select.onchange=()=>{const url=new URL(location.href);url.searchParams.set('visual',select.value);location.assign(url.href)};
- host.append(label,select);if(VEHICLE_VISUAL==='ryker'){const note=document.createElement('small');note.textContent='Stock Ryker appearance · shared game handling';host.append(note)}document.body.append(host);
+/** Each vehicle retains its own draft; remove only the source vehicle's share fragment. */
+export function vehicleSelection(){
+ const link=(visual:string)=>{const url=new URL(globalThis.location?.href??'http://localhost/');url.searchParams.set('visual',visual);url.hash='';if(url.searchParams.get('scene')==='bay'){url.searchParams.set('scene','signature');url.searchParams.set('screen','build');url.searchParams.delete('play')}return url.pathname+url.search};
+ return `<nav class="vehicle-appearance-picker" aria-label="Choose your vehicle"><span>YOUR RIDE</span>${[['2026','Slingshot R'],['ryker','Can-Am Ryker 900']].map(([id,label])=>`<a href="${link(id).replace(/&/g,'&amp;')}" data-vehicle="${id}" aria-current="${(VEHICLE_VISUAL==='ryker'?'ryker':'2026')===id?'true':'false'}">${label}</a>`).join('')}</nav>`;
 }
+export function installVehicleSelection(){/* Selection is owned by the shared header. */}
