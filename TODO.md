@@ -1,3 +1,10 @@
+# Current work - Phase 2G Ridge forest
+
+- Shared Ridge forest integrated; see `handoff/PHASE-2G-FOREST.md`.
+- Next: 2H surface textures, then the final Phase 2 performance criterion.
+- The sustained performance HOLD remains; short samples do not clear it.
+
+---
 # Current work - Phase 2F shadows
 
 - Shared road contact shadows and stable chase shadows implemented; see `handoff/PHASE-2F-SHADOWS.md`.

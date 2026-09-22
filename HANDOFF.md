@@ -1,3 +1,13 @@
+# Phase 2G - shared Ridge forest (2026-09-22)
+
+Ridge career events, quick races and test runs share the existing P11 trees,
+wind, terrain textures, ground cover and forest atmosphere. Preserve Sport v5
+physics/input, routes/colliders, products, progress and historical records.
+Read `handoff/PHASE-2G-FOREST.md` and its validation receipt. Next is 2H.
+Continue one lead on main and the existing hosted game; no subagents, new site,
+vehicle, dependency, archive or spending. Older sections are history.
+
+---
 # Phase 2F - driving contact and stable chase shadows (2026-09-22)
 
 The owner asked to continue the next roadmap slice. All production road modes
