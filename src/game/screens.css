@@ -214,3 +214,22 @@ html.gx body .sig-product-actions button{min-height:46px;font:800 13px/1 var(--g
 html.gx body .sig-product-actions .sig-primary{white-space:nowrap;padding-inline:14px;font:italic 800 19px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;transform:skewX(var(--gx-rake));border:0}
 html.gx body .sig-product-actions .sig-primary:is(:hover,:focus-visible):not(:disabled){transform:skewX(var(--gx-rake)) translateX(3px)}
 html.gx body .sig-detail .sig-external{font:800 11px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gx-cool)}
+/* Race select: time of day option cycler. */
+html.gx body .gx-cycle>div{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;margin:8px 0 6px;background:#ffffff0a;border:1px solid var(--gx-edge-2)}
+html.gx body .signature-ui .gx-cycle button{min-height:44px;border:0;background:transparent;color:var(--gx-ink);font:800 26px/1 var(--gx-display);transition:background var(--gx-t-fast),color var(--gx-t-fast)}
+html.gx body .signature-ui .gx-cycle button:is(:hover,:focus-visible){background:var(--gx-red);color:#fff;outline:0}
+html.gx body .gx-cycle output{text-align:center;font:italic 800 20px/1 var(--gx-display);font-synthesis:style;letter-spacing:.03em;text-transform:uppercase;color:var(--gx-ink);animation:gx-fade-in var(--gx-t-fast) ease-out}
+html.gx body .gx-cycle-pips{display:flex;justify-content:center;gap:5px;margin:0 0 12px}
+html.gx body .gx-cycle-pips b{width:14px;height:3px;background:#ffffff26;transition:background var(--gx-t-fast)}
+html.gx body .gx-cycle-pips b.is-on{background:var(--gx-hot)}
+/* Race select: illustrated course map, with the real in-game capture pinned in the corner. */
+html.gx body .sig-route-art.has-map>svg{display:none}
+html.gx body .sig-route-art img.gx-course-map{object-position:30% 42%;animation:gx-map-in var(--gx-t-slow) var(--gx-ease) both}
+@keyframes gx-map-in{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:none}}
+html.gx body .gx-course-shot{position:absolute;z-index:2;left:28px;top:50px;width:188px;margin:0;border:3px solid #f6f5ef;background:#f6f5ef;box-shadow:0 12px 30px #000b;rotate:-2.5deg;animation:gx-rise var(--gx-t) .15s var(--gx-ease) both}
+html.gx body .sig-route-art .gx-course-shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+html.gx body .gx-course-shot figcaption{padding:5px 6px 3px;font:800 9px/1 var(--gx-body);letter-spacing:.24em;color:#161200}
+@media (max-width:1450px){html.gx body .gx-course-shot{width:136px;top:46px;left:22px}}
+@media (max-width:1100px){html.gx body .gx-course-shot{display:none}}
+html.gx body .signature-ui .sig-destination-light button[aria-pressed=true]{color:var(--gx-ink);font-weight:800}
+@media (prefers-reduced-motion:reduce){html.gx body .sig-route-art img.gx-course-map,html.gx body .gx-course-shot{animation:none}}

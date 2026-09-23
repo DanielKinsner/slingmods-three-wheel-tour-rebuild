@@ -34,6 +34,21 @@ Runtime copies are the native-size PNGs as JPEG (`ffmpeg -i X.png -q:v 4 X.jpg`)
 photographs, and imply no OEM endorsement. Lookup and wiring: `src/game/loading-art.ts` (drive and showroom veils,
 page-change curtain) and the inline boot script in `index.html`.
 
+## Race-select course maps (`map-src/map-*.png` → `public/assets/game-feel/maps/*.jpg`)
+
+Illustrated aerial maps of Original Harbor, Harbor Express and Smoky Ridge with the route painted in red, for the Race
+screen (owner request 2026-09-23, style after the owner's reference `map-src/style-reference.webp`). Generated with the
+image-generation tool in the owner's Codex CLI (owner-authorized) by `map-src/gen.sh`, one job per line of
+`map-src/jobs.tsv`. Each job attaches the style reference, the course's in-game capture, and a route guide
+(`map-src/outline-*.png`) drawn by `map-src/outline-png.mjs` from the game's own centrelines (`outlines.json`, exported
+through `src/signature/route-data.ts`), so the painted route follows the real layout, orientation and start line. Each
+result was checked by eye against its outline. The PATH `codex` 0.61 could not run the configured model; the jobs ran
+with the CLI bundled in the Codex desktop app (`CODEX=".../OpenAI/Codex/bin/<id>/codex.exe" ./gen.sh ...`).
+
+Runtime copies: `ffmpeg -i map-X.png -q:v 6 X.jpg` (native 1536×1024). The Race screen labels them COURSE MAP ·
+ILLUSTRATED and pins the real in-game capture beside them. They are generated illustrations, not survey maps or
+photographs of real places.
+
 ## UI and HUD cues (`public/assets/audio/game-cues-v1`)
 
 Synthesized from scratch by `scripts/game-feel/synth-cues.py` (numpy/scipy, seeded and deterministic). Rerun the script
