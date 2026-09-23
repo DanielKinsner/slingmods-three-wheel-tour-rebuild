@@ -56,19 +56,19 @@ html.gx body .gx-tile-body{display:grid;gap:4px;flex:1;min-width:0;padding:11px 
 html.gx body .gx-tile small{font:800 13px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
 html.gx body .gx-tile strong{font:italic 800 clamp(26px,2.3vw,36px)/.95 var(--gx-display);font-synthesis:style;text-transform:uppercase;letter-spacing:.01em}
 html.gx body .gx-tile em{font:600 13px/1.3 var(--gx-body);font-style:normal;color:var(--gx-ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-html.gx body .gx-tile-arrow{width:30px;height:44px;flex:none;position:relative;opacity:.45;transition:opacity .2s,transform .28s var(--gx-ease)}
+html.gx body .gx-tile-arrow{width:30px;height:30px;flex:none;position:relative;opacity:.45;transition:opacity .2s,transform .28s var(--gx-ease)}
 html.gx body .gx-tile-arrow::before{content:'';position:absolute;inset:8px 10px 8px 4px;border:solid currentColor;border-width:4px 4px 0 0;transform:rotate(45deg)}
-html.gx body .gx-tile:is(:hover,html.gx body :focus-visible){transform:skewX(var(--gx-rake)) translateX(12px);background:var(--gx-glass-hi);box-shadow:inset 0 0 0 1px var(--gx-edge-2),0 12px 40px #0008;outline:0}
-html.gx body .gx-tile:is(:hover,html.gx body :focus-visible)::before{transform:scaleY(1);background:var(--gx-hot)}
+html.gx body .gx-tile:is(:hover,:focus-visible){transform:skewX(var(--gx-rake)) translateX(12px);background:var(--gx-glass-hi);box-shadow:inset 0 0 0 1px var(--gx-edge-2),0 12px 40px #0008;outline:0}
+html.gx body .gx-tile:is(:hover,:focus-visible)::before{transform:scaleY(1);background:var(--gx-hot)}
 html.gx body .gx-tile:focus-visible{box-shadow:inset 0 0 0 2px var(--gx-hot),0 0 0 1px #0006,0 14px 44px var(--gx-hot-glow)}
-html.gx body .gx-tile:is(:hover,html.gx body :focus-visible) .gx-tile-arrow{opacity:1;transform:skewX(calc(-1*var(--gx-rake))) translateX(4px)}
+html.gx body .gx-tile:is(:hover,:focus-visible) .gx-tile-arrow{opacity:1;transform:skewX(calc(-1*var(--gx-rake))) translateX(4px)}
 html.gx body .gx-tile:active{transform:skewX(var(--gx-rake)) translateX(12px) scale(.985)}
 html.gx body .gx-tile-hero{min-height:104px;background:linear-gradient(100deg,var(--gx-red-2) 0%,var(--gx-red) 55%,#ff6a3d 100%);box-shadow:0 14px 48px var(--gx-red-glow)}
 html.gx body .gx-tile-hero small{color:#ffffffc0}html.gx body .gx-tile-hero em{color:#fff}html.gx body .gx-tile-hero strong{font-size:clamp(34px,3vw,48px)}
 html.gx body .gx-tile-hero::before{background:#fff}
-html.gx body .gx-tile-hero:is(:hover,html.gx body :focus-visible){background:linear-gradient(100deg,#e3281e 0%,#ff4a3a 55%,#ff7a4a 100%)}
+html.gx body .gx-tile-hero:is(:hover,:focus-visible){background:linear-gradient(100deg,#e3281e 0%,#ff4a3a 55%,#ff7a4a 100%)}
 html.gx body .gx-tile-hero .gx-tile-arrow{opacity:.9}
-html.gx body .gx-tile-meter{display:block;height:44px;margin-top:8px;background:#00000038;overflow:hidden}
+html.gx body .gx-tile-meter{display:block;height:5px;margin-top:8px;background:#00000038;overflow:hidden}
 html.gx body .gx-tile-meter i{display:block;height:100%;width:calc(var(--gx-fill,0)*100%);min-width:6px;background:#fff}
 html.gx body .gx-tile-foot{font:800 13px/1 var(--gx-body);letter-spacing:.2em;color:#ffffffd0;margin-top:5px}
 

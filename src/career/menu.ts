@@ -5,6 +5,8 @@ export class BuildMenuInput {
  constructor(private root:HTMLElement,private back:()=>void,private extraScope?:string){}
  reset(){this.armed=false;this.padKey='';this.prior=[false,false,false,false];this.horizontal=[false,false]}
  frame(sample:DeviceSample){
+  // A game-shell modal (Options) owns the controller while open; re-arm only after release, like any new device.
+  if(typeof document!=='undefined'&&document.body?.dataset.gxModal){this.reset();return}
   const pad=sample.pads.find(p=>p?.connected&&p.mapping==='standard');if(!sample.focused||!pad){this.reset();return}const key=`${pad.index}:${pad.id}`;if(key!==this.padKey){this.reset();this.padKey=key}
   const held=(i:number)=>(pad.buttons[i]?.value??0)>.5;const values=[held(0),held(1),held(12)||held(14)||(pad.axes[1]??0)<-.6,held(13)||held(15)||(pad.axes[1]??0)>.6];
   if(!this.armed){if(pad.buttons.every(b=>b.value<.02)&&pad.axes.every(v=>Math.abs(v)<.15))this.armed=true;this.prior=values;return}

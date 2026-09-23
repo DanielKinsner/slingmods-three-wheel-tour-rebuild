@@ -65,6 +65,8 @@ export class RaceFX {
  private hit(){if(reduced())return;this.flash.classList.remove('is-on');void this.flash.offsetWidth;this.flash.classList.add('is-on')}
  /** Results: ordinal slam, staggered standings, and the reward tally panel. Runs after CrewUI renders its menu. */
  private decorateMenu(menu:HTMLElement){
+  // Every race menu (ready / pause / result) offers Options next to its own actions.
+  const actions=menu.querySelector('.menu-actions');if(actions&&!actions.querySelector('[data-gx-options]')){const b=document.createElement('button');b.type='button';b.dataset.gxOptions='';b.textContent='Options';actions.append(b)}
   if(menu.dataset.phase!=='result'||menu.hidden){return}
   const place=Number(menu.dataset.place);const numeral=menu.querySelector<HTMLElement>('.result-numeral');
   if(numeral&&!numeral.dataset.gx&&Number.isFinite(place)&&place>0){numeral.dataset.gx='1';numeral.dataset.medal=place===1?'gold':place===2?'silver':place===3?'bronze':'';numeral.firstChild!.textContent=String(place);const sfx=document.createElement('sup');sfx.textContent=ordinal(place).replace(String(place),'');numeral.insertBefore(sfx,numeral.querySelector('small'))}

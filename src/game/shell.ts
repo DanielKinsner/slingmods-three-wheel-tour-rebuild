@@ -58,7 +58,7 @@ const bumper=[false,false];
  for(const pad of pads){
   if(pad.buttons.some(b=>b.value>.5)||pad.axes.some(v=>Math.abs(v)>.55))setInput('pad');
   const lb=(pad.buttons[4]?.value??0)>.5,rb=(pad.buttons[5]?.value??0)>.5;
-  if(document.hasFocus()&&!document.querySelector('.gx-title:not([hidden])')){if(lb&&!bumper[0])cycleTabs(-1);if(rb&&!bumper[1])cycleTabs(1)}
+  if(document.hasFocus()&&!document.body.dataset.gxModal&&!document.querySelector('.gx-title:not([hidden])')){if(lb&&!bumper[0])cycleTabs(-1);if(rb&&!bumper[1])cycleTabs(1)}
   bumper[0]=lb;bumper[1]=rb;
  }
  requestAnimationFrame(pollPads);

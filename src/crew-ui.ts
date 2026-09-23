@@ -29,6 +29,7 @@ export class CrewUI {
  setProximity(peers:readonly NearbyVehicle[],view:string){const cues=proximityCues(peers,view),key=cues.map(c=>c.side+':'+c.id).sort().join('/');if(key===this.proximityKey)return;this.proximityKey=key;const root=this.root.querySelector<HTMLElement>('#crew-proximity')!;root.hidden=!cues.length;root.innerHTML=cues.map(c=>`<span class="nearby-${c.side} crew-${c.id}"><i aria-hidden="true">${c.side==='left'?'‹':c.side==='right'?'›':'⌄'}</i>${names[c.id]} <small>${c.side==='rear'?'BEHIND':c.side.toUpperCase()}</small></span>`).join('')}
  suspendInput(){this.armed=false;this.padKey='';this.confirm=false;this.back=false}
  menuInput(sample:DeviceSample,s:State){
+  if(typeof document!=='undefined'&&document.body?.dataset.gxModal){this.armed=false;this.confirm=true;this.back=true;return}
   const p=sample.pads.find(x=>x?.connected&&x.mapping==='standard'),key=p?`${p.index}:${p.id}`:'';
   if(!sample.focused||!p||key!==this.padKey)this.armed=false;this.padKey=key;
   if(sample.focused&&p&&p.buttons.every(b=>b.value<.02)&&p.axes.every(a=>Math.abs(a)<.15))this.armed=true;
