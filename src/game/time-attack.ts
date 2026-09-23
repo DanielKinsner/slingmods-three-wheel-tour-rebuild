@@ -60,23 +60,39 @@ function ghostModel(source:THREE.Object3D){
  const mesh=new THREE.Mesh(merged,material);mesh.name='time-attack-ghost';mesh.frustumCulled=true;mesh.renderOrder=5;return {mesh,material}
 }
 
+export type GhostSource='best'|'jett'|'off';
+const GHOST_KEY='slingmods-gx-ghost';
+const GHOST_COLOR:Record<Exclude<GhostSource,'off'>,string>={best:'#46c8ff',jett:'#ff5a4f'};
+const crewGhosts=new Map<string,Promise<{timeMs:number;data:number[]}|null>>();
+/** Jett's recorded lap for a course (scripts/game-feel/record-crew-ghosts.ts), fetched once per page. */
+function crewGhost(route:TrialRoute){let p=crewGhosts.get(route);if(!p){p=fetch(`/assets/game-feel/ghosts/${route}.json`).then(r=>r.ok?r.json():null).then(j=>j&&Array.isArray(j.data)?{timeMs:Number(j.timeMs),data:j.data as number[]}:null).catch(()=>null);crewGhosts.set(route,p)}return p}
 export interface TrialSnapshot {phase:string;paused:boolean;elapsedMs:number;playerResult:{valid:boolean;timeMs:number|null}|null}
 export class TimeAttack {
- private best:TrialBest|null;private recording=new Track();private lastSample=-Infinity;private done=false;private runKey='';private lastElapsed=0;private ghost?:{mesh:THREE.Mesh;material:THREE.ShaderMaterial};private p=new THREE.Vector3();private delta=document.createElement('small');private ghostProg:number[]=[];private ghostTimes:number[]=[];private runProg=0;private lastRaw=NaN;private deltaAt=0;private q=new THREE.Quaternion();private hud=document.createElement('div');private result?:{timeMs:number;medal:Medal|null;improved:boolean;previous:TrialBest|null;daily:boolean};
+ private best:TrialBest|null;private recording=new Track();private lastSample=-Infinity;private done=false;private runKey='';private lastElapsed=0;private ghost?:{mesh:THREE.Mesh;material:THREE.ShaderMaterial};private p=new THREE.Vector3();private delta=document.createElement('small');private ghostProg:number[]=[];private ghostTimes:number[]=[];private runProg=0;private lastRaw=NaN;private deltaAt=0;private q=new THREE.Quaternion();private hud=document.createElement('div');private ghostSrc:GhostSource='best';private ghostData:number[]|null=null;private crewTime=0;private picker=document.createElement('div');private result?:{timeMs:number;medal:Medal|null;improved:boolean;previous:TrialBest|null;daily:boolean};
  constructor(private scene:THREE.Scene,private hero:THREE.Object3D,readonly route:TrialRoute,readonly vehicle:string,hudParent:Element,private course?:CourseRoute){
-  this.best=trialBest(route,vehicle);this.delta.className='gx-delta';hudParent.querySelector('.race-timing')?.append(this.delta);this.indexGhost();
-  if(this.best?.ghost?.length)this.ensureGhost();
+  this.best=trialBest(route,vehicle);this.delta.className='gx-delta';hudParent.querySelector('.race-timing')?.append(this.delta);
+  let stored:string|null=null;try{stored=localStorage.getItem(GHOST_KEY)}catch{}
+  this.picker.className='gx-ghost-pick';this.picker.addEventListener('click',e=>{const b=(e.target as Element).closest<HTMLElement>('[data-ghost]');if(b){gameCue('gx.tab');void this.selectGhost(b.dataset.ghost as GhostSource)}});
+  void this.selectGhost(stored==='off'||stored==='jett'||stored==='best'&&this.best?.ghost?stored as GhostSource:this.best?.ghost?'best':'jett',false);
   this.hud.className='gx-trial';this.hud.setAttribute('aria-label','Time attack targets');hudParent.append(this.hud);this.renderHud(null);
  }
  /** Unwrapped course progress of every ghost sample, made non-decreasing, for time-at-distance lookups. */
- private indexGhost(){this.ghostProg=[];this.ghostTimes=[];const g=this.best?.ghost;if(!g||!this.course)return;let prev=NaN,acc=0,max=-Infinity;for(let i=0;i<g.length;i+=8){const raw=projectRoad(this.course,g[i+1],g[i+3]).progress;acc+=Number.isNaN(prev)?0:this.step(raw-prev);prev=raw;max=Math.max(max,acc);this.ghostProg.push(max);this.ghostTimes.push(g[i])}}
+ /** Switch which lap the ghost replays. Your best needs a saved run; Jett's lap ships with the game. */
+ async selectGhost(src:GhostSource,persist=true){
+  this.ghostSrc=src;if(persist)try{localStorage.setItem(GHOST_KEY,src)}catch{}
+  let data:number[]|null=null;if(src==='best')data=this.best?.ghost??null;else if(src==='jett'){const c=await crewGhost(this.route);if(this.ghostSrc!=='jett')return;data=c?.data??null;this.crewTime=c?.timeMs??0}
+  this.ghostData=data?.length?data:null;this.indexGhost();if(this.ghostData){this.ensureGhost();this.ghost!.material.uniforms.uColor.value.set(GHOST_COLOR[src as 'best'|'jett'])}else if(this.ghost)this.ghost.mesh.visible=false;
+  this.delta.textContent='';this.renderHud(null);this.renderPicker();
+ }
+ private renderPicker(){const opts:[GhostSource,string,boolean][]=[['best','Your best',!!this.best?.ghost],['jett','Jett',true],['off','Off',true]];this.picker.innerHTML=`<span>GHOST</span>${opts.map(([id,label,ok])=>`<button type="button" data-ghost="${id}" aria-pressed="${this.ghostSrc===id}" ${ok?'':'disabled'}>${label}</button>`).join('')}`}
+ private indexGhost(){this.ghostProg=[];this.ghostTimes=[];const g=this.ghostData;if(!g||!this.course)return;let prev=NaN,acc=0,max=-Infinity;for(let i=0;i<g.length;i+=8){const raw=projectRoad(this.course,g[i+1],g[i+3]).progress;acc+=Number.isNaN(prev)?0:this.step(raw-prev);prev=raw;max=Math.max(max,acc);this.ghostProg.push(max);this.ghostTimes.push(g[i])}}
  private step(d:number){const L=this.course!.length;if(d>L/2)d-=L;else if(d<-L/2)d+=L;return d}
  private ghostTimeAt(progress:number){const P=this.ghostProg,T=this.ghostTimes;if(P.length<2||progress<P[0]||progress>P[P.length-1])return null;let lo=0,hi=P.length-1;while(hi-lo>1){const m=(lo+hi)>>1;if(P[m]<=progress)lo=m;else hi=m}const span=P[hi]-P[lo],t=span>1e-6?(progress-P[lo])/span:0;return T[lo]+(T[hi]-T[lo])*t}
  private ensureGhost(){if(this.ghost)return;this.ghost=ghostModel(this.hero);this.ghost.mesh.visible=false;this.scene.add(this.ghost.mesh)}
  private renderHud(currentMs:number|null){
   const t=MEDAL_TARGETS[this.route],best=this.best?.timeMs;
   const next=MEDALS.slice().reverse().find(m=>best===undefined||best>t[m]);const rows=MEDALS.map(m=>`<li data-medal="${m}" ${best!==undefined&&best<=t[m]?'data-earned="true"':''} ${m===next?'data-next="true"':''}><i></i><span>${MEDAL_NAMES[m]}</span><b>${trialTime(t[m])}</b></li>`).join('');
-  this.hud.innerHTML=`<span class="gx-trial-title">TIME ATTACK</span><ol>${rows}</ol><p><span>YOUR BEST</span><b>${best!==undefined?trialTime(best):'—'}</b></p>${this.best?.ghost?'<small><i></i> GHOST: YOUR BEST</small>':''}`;
+  this.hud.innerHTML=`<span class="gx-trial-title">TIME ATTACK</span><ol>${rows}</ol><p><span>YOUR BEST</span><b>${best!==undefined?trialTime(best):'—'}</b></p>${this.ghostData?`<small data-ghost="${this.ghostSrc}"><i></i> GHOST: ${this.ghostSrc==='jett'?`JETT ${trialTime(this.crewTime)}`:'YOUR BEST'}</small>`:''}`;
   void currentMs;
  }
  /** Per rendered frame, after the hero is posed. */
@@ -89,7 +105,7 @@ export class TimeAttack {
   const running=s.phase==='running'&&!s.paused&&!s.playerResult;
   if(running&&this.course){const pos=this.hero.getWorldPosition(this.p),raw=projectRoad(this.course,pos.x,pos.z).progress;this.runProg+=Number.isNaN(this.lastRaw)?0:this.step(raw-this.lastRaw);this.lastRaw=raw;const now=performance.now();if(this.ghostProg.length&&now-this.deltaAt>100){this.deltaAt=now;const g=this.ghostTimeAt(this.runProg);if(g!==null&&s.elapsedMs>1500){const d=(s.elapsedMs-g)/1000;this.delta.textContent=`${d<=0?'−':'+'}${Math.abs(d).toFixed(2)}`;this.delta.dataset.sign=d<=0?'ahead':'behind'}}}
   if(running&&s.elapsedMs-this.lastSample>=SAMPLE_MS){this.lastSample=s.elapsedMs;this.recording.push(s.elapsedMs,this.hero.getWorldPosition(this.p),this.hero.getWorldQuaternion(this.q))}
-  if(this.ghost&&this.best?.ghost){const g=this.ghost,data=this.best.ghost;const show=s.phase==='countdown'||s.phase==='running'&&!s.playerResult||s.phase==='ready';g.mesh.visible=show&&Track.sample(data,s.phase==='running'?s.elapsedMs:0,g.mesh.position,g.mesh.quaternion);
+  if(this.ghost&&this.ghostData){const g=this.ghost,data=this.ghostData;const show=s.phase==='countdown'||s.phase==='running'&&!s.playerResult||s.phase==='ready';g.mesh.visible=show&&Track.sample(data,s.phase==='running'?s.elapsedMs:0,g.mesh.position,g.mesh.quaternion);
    if(g.mesh.visible){const d=g.mesh.position.distanceTo(this.hero.getWorldPosition(this.p)),cam=g.mesh.position.distanceTo(camera.position);g.material.uniforms.uOpacity.value=Math.min(.55,Math.max(.06,(d-1.2)/6))*Math.min(1,cam/3)}}
   if(s.playerResult&&!this.done){this.done=true;this.finish(s)}
  }
@@ -100,7 +116,7 @@ export class TimeAttack {
   const runs=(previous?.runs??0)+1;store[k]=improved?{timeMs:r.timeMs,medal,at:new Date().toISOString(),runs,ghost:this.recording.data}:{...previous!,runs};
   if(!write(store)&&improved){delete store[k].ghost;write(store)}
   const daily=recordDaily(this.route,r.timeMs);if(daily)setTimeout(()=>document.dispatchEvent(new CustomEvent('gx:daily')),2200);
-  this.result={timeMs:r.timeMs,medal,improved,previous,daily};if(improved){this.best=store[k];if(this.best.ghost)this.ensureGhost();this.indexGhost();this.renderHud(null)}
+  this.result={timeMs:r.timeMs,medal,improved,previous,daily};if(improved){this.best=store[k];if(this.ghostSrc==='best'||!this.ghostData)void this.selectGhost('best',false);else{this.renderHud(null);this.renderPicker()}}
   const prevMedal=previous?.medal??null,newMedal=medal&&(!prevMedal||MEDALS.indexOf(medal)<MEDALS.indexOf(prevMedal));
   setTimeout(()=>gameCue(improved?'gx.record':'gx.reward'),900);
   if(improved)setTimeout(()=>document.dispatchEvent(new CustomEvent('gx:radio',{detail:{moment:medal==='gold'||medal==='slingmods'?'trialGold':'trialImproved'}})),1500);
@@ -115,6 +131,6 @@ export class TimeAttack {
   menu.insertBefore(panel,menu.querySelector('.menu-actions'));
  }
  private observer?:MutationObserver;
- observe(){const menu=document.getElementById('race-menu');if(!menu)return;this.observer?.disconnect();this.observer=new MutationObserver(()=>{if(menu.dataset.phase==='result')this.decorate()});this.observer.observe(menu,{childList:true})}
- dispose(){this.observer?.disconnect();if(this.ghost){this.scene.remove(this.ghost.mesh);this.ghost.mesh.geometry.dispose();this.ghost.material.dispose()}this.hud.remove()}
+ observe(){const menu=document.getElementById('race-menu');if(!menu)return;this.observer?.disconnect();const place=()=>{if(menu.dataset.phase==='result')this.decorate();if((menu.dataset.phase==='ready'||menu.dataset.phase==='result')&&!menu.contains(this.picker))menu.insertBefore(this.picker,menu.querySelector('.menu-actions'))};this.observer=new MutationObserver(place);place();this.observer.observe(menu,{childList:true})}
+ dispose(){this.observer?.disconnect();this.picker.remove();if(this.ghost){this.scene.remove(this.ghost.mesh);this.ghost.mesh.geometry.dispose();this.ghost.material.dispose()}this.hud.remove()}
 }

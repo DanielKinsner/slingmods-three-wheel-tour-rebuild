@@ -147,7 +147,7 @@ html.gx body.race-results-open #race-menu h1{margin:2px 0 4px}
 html.gx body.race-results-open .result-standings{margin:10px 0}
 html.gx body.race-results-open .result-standings>div{padding:7px 14px}
 /* Race page chrome: sound chip under the timing plate, prompts centred clear of the graphics control. */
-html.gx body.harbor-race #game-audio{top:132px;right:var(--gx-edge-x);height:40px;background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px)}
+html.gx body.harbor-race #game-audio{top:124px;right:auto;left:var(--gx-edge-x);height:40px;background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px)}
 html.gx body.harbor-race #game-audio :is(button,summary){min-height:38px;font:800 13px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase}
 html.gx body.harbor-race .gx-prompts{left:0;right:0;justify-content:center;background:none}
 html.gx body #game-graphics{background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px);font-family:var(--gx-body)}
@@ -247,3 +247,12 @@ html.gx body .film-launcher .film-library{background:var(--gx-glass-2);border:1p
 html.gx body .race-timing .gx-delta{display:block;margin-top:4px;font:italic 800 24px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;text-align:right}
 html.gx body .race-timing .gx-delta:empty{display:none}
 html.gx body .race-timing .gx-delta[data-sign=ahead]{color:var(--gx-good)}html.gx body .race-timing .gx-delta[data-sign=behind]{color:var(--gx-bad)}
+/* Time Attack ghost picker (ready / result menus) */
+.gx-ghost-pick{display:flex;align-items:center;gap:6px;margin:4px 0 14px}
+.gx-ghost-pick span{font:800 10px/1 var(--gx-body);letter-spacing:.28em;color:var(--gx-mute);margin-right:6px}
+html.gx body .gx-ghost-pick button{min-height:44px;padding:0 16px;border:1px solid var(--gx-edge-2);background:#ffffff08;color:var(--gx-ink-2);font:800 13px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+html.gx body .gx-ghost-pick button[aria-pressed=true]{background:var(--gx-ink);color:#0b0c0e;border-color:var(--gx-ink)}
+html.gx body .gx-ghost-pick button[data-ghost=jett][aria-pressed=true]{background:#ff5a4f;border-color:#ff5a4f;color:#fff}
+html.gx body .gx-ghost-pick button:disabled{opacity:.35;cursor:default}
+.gx-trial small[data-ghost=jett]{color:#ff8a82}.gx-trial small[data-ghost=jett] i{background:#ff5a4f;box-shadow:0 0 8px #ff5a4f}
+html.gx body #harbor-ui:has(#crew-order:not([hidden])) ~ #game-audio,html.gx body.harbor-race:has(#crew-order:not([hidden])) #game-audio{top:auto;bottom:250px}
