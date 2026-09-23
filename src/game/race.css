@@ -244,3 +244,6 @@ html.gx body #harbor-ui[data-gx-solo] #race-menu{padding-top:60px}
 html.gx body .film-launcher{left:auto;right:var(--gx-edge-x);bottom:84px}
 html.gx body .film-launcher summary{background:var(--gx-glass);border:1px solid var(--gx-edge);font:800 13px/1 var(--gx-body);letter-spacing:.12em;text-transform:uppercase;color:var(--gx-ink-2);backdrop-filter:blur(8px)}
 html.gx body .film-launcher .film-library{background:var(--gx-glass-2);border:1px solid var(--gx-edge)}
+html.gx body .race-timing .gx-delta{display:block;margin-top:4px;font:italic 800 24px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;text-align:right}
+html.gx body .race-timing .gx-delta:empty{display:none}
+html.gx body .race-timing .gx-delta[data-sign=ahead]{color:var(--gx-good)}html.gx body .race-timing .gx-delta[data-sign=behind]{color:var(--gx-bad)}

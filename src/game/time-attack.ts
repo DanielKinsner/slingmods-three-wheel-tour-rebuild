@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {recordDaily} from './daily';
 import {mergeGeometries} from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import {gameCue} from './audio-bus';
+import {projectRoad,type CourseRoute} from '../course/environment';
 /**
  * Time Attack: one standing-start lap, instant retries, medal targets and a ghost of your best run.
  *
@@ -61,12 +62,16 @@ function ghostModel(source:THREE.Object3D){
 
 export interface TrialSnapshot {phase:string;paused:boolean;elapsedMs:number;playerResult:{valid:boolean;timeMs:number|null}|null}
 export class TimeAttack {
- private best:TrialBest|null;private recording=new Track();private lastSample=-Infinity;private done=false;private runKey='';private lastElapsed=0;private ghost?:{mesh:THREE.Mesh;material:THREE.ShaderMaterial};private p=new THREE.Vector3();private q=new THREE.Quaternion();private hud=document.createElement('div');private result?:{timeMs:number;medal:Medal|null;improved:boolean;previous:TrialBest|null;daily:boolean};
- constructor(private scene:THREE.Scene,private hero:THREE.Object3D,readonly route:TrialRoute,readonly vehicle:string,hudParent:Element){
-  this.best=trialBest(route,vehicle);
+ private best:TrialBest|null;private recording=new Track();private lastSample=-Infinity;private done=false;private runKey='';private lastElapsed=0;private ghost?:{mesh:THREE.Mesh;material:THREE.ShaderMaterial};private p=new THREE.Vector3();private delta=document.createElement('small');private ghostProg:number[]=[];private ghostTimes:number[]=[];private runProg=0;private lastRaw=NaN;private deltaAt=0;private q=new THREE.Quaternion();private hud=document.createElement('div');private result?:{timeMs:number;medal:Medal|null;improved:boolean;previous:TrialBest|null;daily:boolean};
+ constructor(private scene:THREE.Scene,private hero:THREE.Object3D,readonly route:TrialRoute,readonly vehicle:string,hudParent:Element,private course?:CourseRoute){
+  this.best=trialBest(route,vehicle);this.delta.className='gx-delta';hudParent.querySelector('.race-timing')?.append(this.delta);this.indexGhost();
   if(this.best?.ghost?.length)this.ensureGhost();
   this.hud.className='gx-trial';this.hud.setAttribute('aria-label','Time attack targets');hudParent.append(this.hud);this.renderHud(null);
  }
+ /** Unwrapped course progress of every ghost sample, made non-decreasing, for time-at-distance lookups. */
+ private indexGhost(){this.ghostProg=[];this.ghostTimes=[];const g=this.best?.ghost;if(!g||!this.course)return;let prev=NaN,acc=0,max=-Infinity;for(let i=0;i<g.length;i+=8){const raw=projectRoad(this.course,g[i+1],g[i+3]).progress;acc+=Number.isNaN(prev)?0:this.step(raw-prev);prev=raw;max=Math.max(max,acc);this.ghostProg.push(max);this.ghostTimes.push(g[i])}}
+ private step(d:number){const L=this.course!.length;if(d>L/2)d-=L;else if(d<-L/2)d+=L;return d}
+ private ghostTimeAt(progress:number){const P=this.ghostProg,T=this.ghostTimes;if(P.length<2||progress<P[0]||progress>P[P.length-1])return null;let lo=0,hi=P.length-1;while(hi-lo>1){const m=(lo+hi)>>1;if(P[m]<=progress)lo=m;else hi=m}const span=P[hi]-P[lo],t=span>1e-6?(progress-P[lo])/span:0;return T[lo]+(T[hi]-T[lo])*t}
  private ensureGhost(){if(this.ghost)return;this.ghost=ghostModel(this.hero);this.ghost.mesh.visible=false;this.scene.add(this.ghost.mesh)}
  private renderHud(currentMs:number|null){
   const t=MEDAL_TARGETS[this.route],best=this.best?.timeMs;
@@ -78,10 +83,11 @@ export class TimeAttack {
  frame(s:TrialSnapshot,camera:THREE.Camera){
   // A new run starts at every countdown and whenever the race clock jumps back (hold-R restart, retry).
   const newRun=((s.phase==='countdown'||s.phase==='ready')&&this.runKey!=='armed')||s.elapsedMs+100<this.lastElapsed;
-  if(newRun){this.runKey='armed';this.recording=new Track();this.lastSample=-Infinity;this.done=false;this.result=undefined;if(this.ghost)this.ghost.mesh.visible=false}
+  if(newRun){this.runKey='armed';this.recording=new Track();this.lastSample=-Infinity;this.done=false;this.result=undefined;if(this.ghost)this.ghost.mesh.visible=false;this.runProg=0;this.lastRaw=NaN;this.delta.textContent='';this.delta.dataset.sign=''}
   if(s.phase==='running'){this.runKey=''}
   this.lastElapsed=s.elapsedMs;
   const running=s.phase==='running'&&!s.paused&&!s.playerResult;
+  if(running&&this.course){const pos=this.hero.getWorldPosition(this.p),raw=projectRoad(this.course,pos.x,pos.z).progress;this.runProg+=Number.isNaN(this.lastRaw)?0:this.step(raw-this.lastRaw);this.lastRaw=raw;const now=performance.now();if(this.ghostProg.length&&now-this.deltaAt>100){this.deltaAt=now;const g=this.ghostTimeAt(this.runProg);if(g!==null&&s.elapsedMs>1500){const d=(s.elapsedMs-g)/1000;this.delta.textContent=`${d<=0?'−':'+'}${Math.abs(d).toFixed(2)}`;this.delta.dataset.sign=d<=0?'ahead':'behind'}}}
   if(running&&s.elapsedMs-this.lastSample>=SAMPLE_MS){this.lastSample=s.elapsedMs;this.recording.push(s.elapsedMs,this.hero.getWorldPosition(this.p),this.hero.getWorldQuaternion(this.q))}
   if(this.ghost&&this.best?.ghost){const g=this.ghost,data=this.best.ghost;const show=s.phase==='countdown'||s.phase==='running'&&!s.playerResult||s.phase==='ready';g.mesh.visible=show&&Track.sample(data,s.phase==='running'?s.elapsedMs:0,g.mesh.position,g.mesh.quaternion);
    if(g.mesh.visible){const d=g.mesh.position.distanceTo(this.hero.getWorldPosition(this.p)),cam=g.mesh.position.distanceTo(camera.position);g.material.uniforms.uOpacity.value=Math.min(.55,Math.max(.06,(d-1.2)/6))*Math.min(1,cam/3)}}
@@ -94,7 +100,7 @@ export class TimeAttack {
   const runs=(previous?.runs??0)+1;store[k]=improved?{timeMs:r.timeMs,medal,at:new Date().toISOString(),runs,ghost:this.recording.data}:{...previous!,runs};
   if(!write(store)&&improved){delete store[k].ghost;write(store)}
   const daily=recordDaily(this.route,r.timeMs);if(daily)setTimeout(()=>document.dispatchEvent(new CustomEvent('gx:daily')),2200);
-  this.result={timeMs:r.timeMs,medal,improved,previous,daily};if(improved){this.best=store[k];if(this.best.ghost)this.ensureGhost();this.renderHud(null)}
+  this.result={timeMs:r.timeMs,medal,improved,previous,daily};if(improved){this.best=store[k];if(this.best.ghost)this.ensureGhost();this.indexGhost();this.renderHud(null)}
   const prevMedal=previous?.medal??null,newMedal=medal&&(!prevMedal||MEDALS.indexOf(medal)<MEDALS.indexOf(prevMedal));
   setTimeout(()=>gameCue(improved?'gx.record':'gx.reward'),900);
   if(improved)setTimeout(()=>document.dispatchEvent(new CustomEvent('gx:radio',{detail:{moment:medal==='gold'||medal==='slingmods'?'trialGold':'trialImproved'}})),1500);

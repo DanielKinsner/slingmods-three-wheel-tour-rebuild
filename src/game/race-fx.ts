@@ -41,6 +41,8 @@ export class RaceFX {
   document.addEventListener('gx:radio',this.onRadio);
   const menu=document.getElementById('race-menu');if(menu){this.menuObserver=new MutationObserver(()=>this.decorateMenu(menu));this.menuObserver.observe(menu,{childList:true})}
  }
+ /** Another layer (photo mode) replaced the prompt bar; force the next frame to restore the menu prompts. */
+ refreshPrompts(){this.prompts=''}
  private onRadio=(e:Event)=>{const d=(e as CustomEvent<{moment:RadioMoment;who?:CrewId}>).detail;this.radio(d.moment,d.who,true)};
  /** Crew radio: a portrait call-out that never stacks (one at a time, a short gap between them). */
  radio(moment:RadioMoment,who?:CrewId,force=false){const now=performance.now();if(!force&&now-this.radioAt<4200)return;const line=radioLine(moment,who);if(!line)return;this.radioAt=now;const m=line.member;this.radioNode.style.setProperty('--gx-crew',m.color);this.radioNode.innerHTML=`<img src="${m.portrait}" alt=""><div><b>${m.name}</b><span>${line.text}</span></div><i aria-hidden="true"></i>`;this.radioNode.classList.remove('is-on');void this.radioNode.offsetWidth;this.radioNode.classList.add('is-on');gameCue('gx.tab');clearTimeout(this.radioTimer);this.radioTimer=window.setTimeout(()=>this.radioNode.classList.remove('is-on'),3600)}
