@@ -1,3 +1,12 @@
+# Biker rider + realistic vehicle surfaces - current (2026-09-23)
+
+The owner's purchased rigged biker now rides every vehicle (2026 Slingshot, Ryker, Spyder, rivals), fitted per
+vehicle by `scripts/build-biker-rider.py`; the purchased source stays out of this public repo. Every vehicle also
+gets physically based surfaces (`src/presentation/vehicle-surfaces.ts`). Read `handoff/BIKER-RIDER-AND-SURFACES.md`.
+Codex's SPYDER01 work is committed. Physics, routes, rewards and saves unchanged. Performance remains HOLD and the
+new surfaces are not yet in a measurement. Earlier headers below are history.
+
+---
 # GX game-feel overhaul — current (2026-09-23)
 
 The owner handed the project over to make it truly feel like a video game (slicker, more fun UI, generated assets
