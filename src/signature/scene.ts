@@ -2,7 +2,7 @@ import {vehicleDefinition} from '../simulation/vehicle-definition';
 import {setCareerSource} from '../game/options';
 import {announceAchievements} from '../game/toast';
 import {shouldShowTitle,showTitle} from '../game/title';
-import {markEntering} from '../game/shell';
+import {markEntering,stamp} from '../game/shell';
 import {tourProgress} from '../game/progress';
 import {RYKER_PRESETS} from './ryker-catalog';
 import {loadSurfaceMaterials} from '../presentation/surface-materials';
@@ -113,7 +113,7 @@ function recenterOffset(){if(!['hero','front','rear','side','workshop'].includes
 function refitLayout(){if(departure||!ui||!ui.root.dataset.screen)return;const next=JSON.stringify([screen,ui.safeRegion(),innerWidth,innerHeight]);if(next!==layoutKey){layoutKey=next;if(viewManual){recenterOffset();render()}else view(currentView,false)}}
 function resize(){camera.aspect=innerWidth/innerHeight;camera.clearViewOffset();camera.updateProjectionMatrix();renderer.setPixelRatio(Math.min(devicePixelRatio,GRAPHICS_PRESETS[graphics].pixelRatioCap));renderer.setSize(innerWidth,innerHeight);pipeline.resize();if(!departure)queueMicrotask(refitLayout)}
 
-async function change(next:BuildRecipe,preset=false){if(pending||garage)return;try{const verified=validateRecipe(next),cue=buildCue(recipe,verified,preset);if(!cue)return;storage.store.setDraft(verified);history.push(structuredClone(recipe));history=history.slice(-24);recipe=verified;historyFragment();compare=false;status='Preview updated · career credits unchanged';pending=true;refresh();await apply();audio.cue(cue);pending=false;refresh()}catch(e){pending=false;status=(e as Error).message;refresh()}}
+async function change(next:BuildRecipe,preset=false){if(pending||garage)return;try{const verified=validateRecipe(next),cue=buildCue(recipe,verified,preset);if(!cue)return;storage.store.setDraft(verified);history.push(structuredClone(recipe));history=history.slice(-24);recipe=verified;historyFragment();compare=false;status='Preview updated · career credits unchanged';pending=true;refresh();await apply();audio.cue(cue);if(cue.startsWith('part.')&&cue!=='part.remove')stamp('INSTALLED','Preview build · no career spend');else if(cue==='part.remove')stamp('REMOVED','','red');else if(cue==='finish.apply')stamp('NEW FINISH','','good');else if(cue==='build.preset')stamp('PRESET LOADED','','good');pending=false;refresh()}catch(e){pending=false;status=(e as Error).message;refresh()}}
 async function save(name:string){if(pending||garage)return;pending=true;refresh();try{await Promise.resolve();storage.store.save(name,recipe);audio.cue('build.save');saved=storage.store.recipes();original=structuredClone(recipe);status=storage.temporary?'Build kept for this temporary session. Browser storage is unavailable.':'Build saved on this browser.'}catch(e){status='Save failed: '+(e as Error).message}finally{pending=false;refresh()}}
 async function reapply(){pending=true;refresh();try{await apply()}finally{pending=false;refresh()}}
 function restoreDeparture(error:unknown){departureTelemetry=undefined;

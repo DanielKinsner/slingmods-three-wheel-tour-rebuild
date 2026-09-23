@@ -116,3 +116,11 @@ new MutationObserver(()=>{for(const veil of document.querySelectorAll<HTMLElemen
 // ---- Reveal helper: marks freshly shown screens so CSS can stagger them in once, never on every re-render -----------
 export function markEntering(node:HTMLElement,ms=900){if(reduced())return;node.dataset.gxEntering='1';clearTimeout(Number(node.dataset.gxEnterTimer));node.dataset.gxEnterTimer=String(setTimeout(()=>{delete node.dataset.gxEntering},ms))}
 root.classList.add('gx');
+
+// ---- Stamp: a short centre-screen confirmation for a committed garage change (part installed, finish applied) ----------
+let stampTimer=0;
+export function stamp(title:string,detail='',tone:'hot'|'good'|'red'='hot'){
+ if(reduced())return;let node=document.getElementById('gx-stamp');if(!node){node=document.createElement('div');node.id='gx-stamp';node.setAttribute('aria-hidden','true');document.body.append(node)}
+ node.dataset.tone=tone;node.innerHTML=`<b>${title}</b>${detail?`<span>${detail}</span>`:''}`;node.classList.remove('is-on');void node.offsetWidth;node.classList.add('is-on');
+ clearTimeout(stampTimer);stampTimer=window.setTimeout(()=>node!.classList.remove('is-on'),1400);
+}

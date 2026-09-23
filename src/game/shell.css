@@ -119,3 +119,12 @@ html.gx #career-recovery button{min-height:46px;margin:6px 8px 0 0;padding:0 18p
 html.gx #career-recovery button:nth-of-type(2){background:var(--gx-red);border-color:var(--gx-red)}
 html.gx body.career-experience .career-shell .career-dialog button+button{min-height:56px;padding:0 22px;border:1px solid var(--gx-edge-2);background:transparent;font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase}
 [data-medal=slingmods]{--gx-medal:#ff3b2f}[data-medal=gold]{--gx-medal:#ffd23c}[data-medal=silver]{--gx-medal:#dfe6ee}[data-medal=bronze]{--gx-medal:#e39a5c}[data-medal=none]{--gx-medal:#666}
+
+/* ---------- Stamp ---------- */
+#gx-stamp{position:fixed;left:50%;top:30%;z-index:70;display:grid;justify-items:center;gap:6px;pointer-events:none;opacity:0;transform:translate(-50%,-50%)}
+#gx-stamp b{padding:8px 26px 10px;font:italic 800 clamp(40px,4.4vw,72px)/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;color:#161200;background:var(--gx-hot);transform:skewX(var(--gx-rake));box-shadow:0 18px 60px #000a}
+#gx-stamp[data-tone=good] b{background:var(--gx-good);color:#04220f}
+#gx-stamp[data-tone=red] b{background:var(--gx-red);color:#fff}
+#gx-stamp span{font:800 12px/1 var(--gx-body);letter-spacing:.24em;text-transform:uppercase;color:var(--gx-ink);background:#07080ac0;padding:6px 12px}
+#gx-stamp.is-on{animation:gx-stamp 1.4s var(--gx-ease) both}
+@keyframes gx-stamp{0%{opacity:0;transform:translate(-50%,-50%) scale(1.6)}12%{opacity:1;transform:translate(-50%,-50%) scale(.96)}20%{transform:translate(-50%,-50%) scale(1)}78%{opacity:1}100%{opacity:0;transform:translate(-50%,-56%)}}
