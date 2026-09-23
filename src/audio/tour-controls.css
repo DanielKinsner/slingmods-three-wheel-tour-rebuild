@@ -1,0 +1,8 @@
+/* Audio-owned expansion; leave the other worktree's general UI styling alone. */
+#game-audio details.audio-settings[open]::before { height:306px; }
+#game-audio details.audio-settings label:nth-of-type(2) { top:calc(100% + 54px); }
+#game-audio details.audio-settings label:nth-of-type(3) { top:calc(100% + 104px); }
+#game-audio details.audio-settings label:nth-of-type(4) { top:calc(100% + 154px); }
+#game-audio details.audio-settings label:nth-of-type(5) { top:calc(100% + 204px); }
+#game-audio details.audio-settings #music-off { position:absolute;right:12px;top:calc(100% + 254px);min-height:40px; }
+#game-audio details.audio-settings:not([open]) #music-off { display:none; }

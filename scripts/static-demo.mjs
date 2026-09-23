@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-export const mimeTypes={'.woff2':'font/woff2','.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.jpg':'image/jpeg','.hdr':'application/octet-stream','.wasm':'application/wasm','.wav':'audio/wav','.txt':'text/plain; charset=utf-8'};
+export const mimeTypes={'.woff2':'font/woff2','.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.jpg':'image/jpeg','.hdr':'application/octet-stream','.wasm':'application/wasm','.wav':'audio/wav','.ogg':'audio/ogg','.mp3':'audio/mpeg','.txt':'text/plain; charset=utf-8'};
 export const cacheFor=name=>/\/assets\/[^/]+-[A-Za-z0-9_-]{8,}\.(js|css)$/.test(name)?'public, max-age=31536000, immutable':'no-cache';
 export function createStaticServer(root,{noindex=false}={}){
  root=path.resolve(root);
