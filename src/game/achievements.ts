@@ -1,6 +1,7 @@
 import type {Career} from '../career/store';
 import {skillRecord} from './skills';
 import {isAttract} from './attract-flag';
+import {challengeSummary} from './challenges';
 import {seriesWins} from './series';
 import {dailyState} from './daily';
 import {tourProgress} from './progress';
@@ -40,6 +41,8 @@ export const ACHIEVEMENTS:Achievement[]=[
  {id:'slingmods-certified',title:'SlingMods Certified',detail:'Beat a SlingMods medal time.',icon:'◆',done:()=>ROUTES.some(r=>bestMedal(r)==='slingmods')},
  {id:'series-champion',title:'Series Champion',detail:'Win a Tour Series.',icon:'🏆',done:()=>seriesWins()>=1},
  {id:'daily-driver',title:'Daily Driver',detail:'Complete a Daily Run.',icon:'📅',done:()=>dailyState().best>=1},
+ {id:'challenger',title:'Challenger',detail:'Earn a medal in any Challenge.',icon:'◎',done:()=>challengeSummary().medalled>=1},
+ {id:'top-of-the-class',title:'Top of the Class',detail:'Earn Gold or better in all nine Challenges.',icon:'🎓',done:()=>challengeSummary().gold>=challengeSummary().total,progress:()=>[challengeSummary().gold,challengeSummary().total]},
  {id:'on-a-roll',title:'On a Roll',detail:'Reach a 3-day Daily Run streak.',icon:'🔥',done:()=>dailyState().best>=3,progress:()=>[Math.min(3,dailyState().best),3]},
  {id:'showboat',title:'Showboat',detail:'Bank a 5,000-point skill chain.',icon:'✺',done:()=>skillRecord().best>=5000,progress:()=>[Math.min(5000,skillRecord().best),5000]},
  {id:'two-ways',title:'Three Wheels, Two Ways',detail:'Drive both the Slingshot and the Ryker.',icon:'⇄',done:c=>c.stats.ryker>0&&c.stats.slingshot>0},

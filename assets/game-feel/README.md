@@ -18,16 +18,21 @@ They are illustrations of fictional characters, not photographs or likenesses of
 
 ## Loading-screen key art (`loading-src/*.png` → `public/assets/game-feel/loading/*.jpg`)
 
-One illustration per course and light (Harbor day/night, Express day/dusk-rain/night-rain, Ridge golden hour/blue
-hour) plus the garage for each ride. Generated with the image-generation tool in the owner's Codex CLI
-(owner-authorized) by `loading-src/gen.sh`, one job per line of `loading-src/jobs.tsv` (name, reference, scene). Course
-jobs attached the game's own capture of that course (`public/assets/p10b/previews/<ref>`) so the art reads as the same
-place; the garages had no reference. Shared direction: cinematic racing-game key art, a Slingshot-style roadster in the
-default radar-blue/orange finish, left third kept dark for the loading text, no text or logos.
+One image per course and light (Harbor day/night, Express day/dusk-rain/night-rain, Ridge golden hour/blue hour) plus
+the garage for each ride. Generated with the image-generation tool in the owner's Codex CLI (owner-authorized) by
+`loading-src/gen.sh`, one job per line of `loading-src/jobs.tsv` (name, course capture, scene).
 
-Runtime copies are the native-size PNGs as JPEG (`ffmpeg -i X.png -q:v 4 X.jpg`, about 200-270 KB each). They are
-original illustrations, not photographs; the vehicles are stylised and imply no OEM endorsement. Lookup and wiring:
-`src/game/loading-art.ts` (drive and showroom veils, page-change curtain) and the inline boot script in `index.html`.
+Accuracy (owner requirement, v2, 2026-09-23): the first pass let the model invent the vehicles and the owner rejected
+it, so every job now attaches real photographs of the actual machines from the SlingMods shop
+(`director-kit/director-addenda/review-20/references/03-wall-and-set/`: `S05-set-three-quarter.jpg` and
+`S01-set-red-slingshot.jpg` for the Slingshot, `S02-set-ryker.jpg` for the Ryker) and asks for a faithful photographic
+match: production body panels, lights, fenders, wheels and proportions, nothing added. Course jobs also attach the
+game's own capture of that course (`public/assets/p10b/previews/`). Each result was checked by eye against the photos
+before use; the rejected v1 images remain only in Git history.
+
+Runtime copies are the native-size PNGs as JPEG (`ffmpeg -i X.png -q:v 4 X.jpg`). They are generated images, not
+photographs, and imply no OEM endorsement. Lookup and wiring: `src/game/loading-art.ts` (drive and showroom veils,
+page-change curtain) and the inline boot script in `index.html`.
 
 ## UI and HUD cues (`public/assets/audio/game-cues-v1`)
 

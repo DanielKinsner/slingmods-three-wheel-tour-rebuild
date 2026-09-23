@@ -160,3 +160,22 @@ html.gx body .sig-detail .sig-fitment span{display:block;margin-top:4px;font:800
 html.gx body .sig-destination-actions .gx-series-button{--gx-medal:var(--gx-hot)}
 html.gx body .sig-destination-actions .gx-series-button i{background:none;box-shadow:none;font-size:17px;font-style:normal;margin-top:-11px}
 html.gx body .sig-destination-actions .gx-series-restart{min-height:44px;margin-top:4px;border:0;background:none;color:var(--gx-mute);font:800 12px/1 var(--gx-body);letter-spacing:.12em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+
+/* Challenges list on the Race screen (src/signature/ui.ts challenges()). */
+html.gx body .sig-destination-actions .gx-chal-list{margin-top:8px;border:1px solid var(--gx-edge-2);background:linear-gradient(90deg,#ffffff10,#ffffff04)}
+html.gx body .sig-destination-actions .gx-chal-list summary{position:relative;list-style:none;cursor:pointer;min-height:56px;padding:8px 36px 8px 44px;display:grid;align-content:center;gap:3px}
+html.gx body .sig-destination-actions .gx-chal-list summary::-webkit-details-marker{display:none}
+html.gx body .sig-destination-actions .gx-chal-list summary::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);font:800 22px/1 var(--gx-display);color:var(--gx-ink-2);transition:transform .2s}
+html.gx body .sig-destination-actions .gx-chal-list[open] summary::after{transform:translateY(-50%) rotate(90deg)}
+html.gx body .sig-destination-actions .gx-chal-list summary i{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-style:normal;font-size:19px;color:var(--gx-hot)}
+html.gx body .sig-destination-actions .gx-chal-list summary span{font:italic 800 22px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em}
+html.gx body .sig-destination-actions .gx-chal-list summary small{font:800 13px/1.1 var(--gx-body);letter-spacing:.06em;color:var(--gx-ink-2)}
+html.gx body .sig-destination-actions .gx-chal-list summary:hover{background:#ffffff0c}
+html.gx body .sig-destination-actions .gx-chal-list>div{display:grid;gap:1px;padding:0 6px 6px}
+html.gx body .sig-destination-actions .gx-chal-list button[data-action=challenge]{position:relative;width:100%;min-height:50px;margin:0;padding:7px 12px 7px 40px;display:grid;justify-items:start;gap:3px;text-align:left;border:0;background:#07080a80;color:var(--gx-ink)}
+html.gx body .sig-destination-actions .gx-chal-list button[data-action=challenge]:hover,html.gx body .sig-destination-actions .gx-chal-list button[data-action=challenge]:focus-visible{background:#ffffff14;box-shadow:inset 3px 0 0 var(--gx-hot)}
+html.gx body .sig-destination-actions .gx-chal-list button span{font:800 15px/1.1 var(--gx-body);letter-spacing:.02em}
+html.gx body .sig-destination-actions .gx-chal-list button em{display:block;font:800 10px/1 var(--gx-body);font-style:normal;letter-spacing:.24em;color:var(--gx-mute);margin-bottom:3px}
+html.gx body .sig-destination-actions .gx-chal-list button small{font:700 12px/1 var(--gx-body);color:var(--gx-ink-2)}
+html.gx body .sig-destination-actions .gx-chal-list button i{position:absolute;left:13px;top:50%;width:15px;height:15px;margin-top:-7px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--gx-medal,#666) 45%,#0008);box-shadow:0 0 10px var(--gx-medal,transparent)}
+html.gx body .sig-destination-actions .gx-chal-list button[data-medal=none] i{background:#ffffff18;box-shadow:inset 0 0 0 2px #ffffff40}

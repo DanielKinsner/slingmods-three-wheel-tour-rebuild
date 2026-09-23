@@ -75,3 +75,24 @@ test('Attract mode: flag, reel URLs survive the hosted visitor filter, and demo 
  for(let reel=0;reel<6;reel++){const q=new URLSearchParams(visitorSearch(`?scene=express&route=ridge&mode=race&attract=1&reel=${reel}&lighting=night`));assert.equal(q.get('attract'),'1');assert.equal(q.get('reel'),String(reel));assert.equal(q.get('mode'),'race')}
  assert.equal(new URLSearchParams(visitorSearch('?attract=2&reel=9')).toString(),'','unknown values are dropped');
 });
+test('Challenges: judge starts on movement, handles lap wrap, finishes, overshoots and leaves the road',async()=>{
+ const {CHALLENGES,ChallengeJudge,challengeMedal,stationPose,BOX_HALF}=await import('../src/game/challenges');const {sampleRoad}=await import('../src/course/environment');const {EXPRESS_ROUTE}=await import('../src/express/route');const {visitorSearch}=await import('../src/demo/profile');
+ const fs=await import('node:fs');const HARBOR=JSON.parse(fs.readFileSync('public/assets/harbor/route.json','utf8'));
+ const at=(route:any,station:number,time:number,speed:number,offset=0)=>{const p=sampleRoad(route,station);return {time,speed,position:{x:p.x-p.dz*offset,y:0,z:p.z+p.dx*offset}} as any};
+ // Drive a challenge along the centreline at a constant speed from its start station.
+ const drive=(c:any,route:any,speed:number,until:number,offset=()=>0)=>{const j=new ChallengeJudge(route,c);let s=j.update(at(route,c.start,0,0));for(let t=.05;t<until&&(s.phase==='ready'||s.phase==='running');t+=.05)s=j.update(at(route,c.start+speed*t,t,speed,offset()));return s};
+ const sprint=CHALLENGES.find(c=>c.id==='express-sprint')!,trap=CHALLENGES.find(c=>c.id==='harbor-trap')!,brake=CHALLENGES.find(c=>c.id==='harbor-brake')!;
+ const run=drive(sprint,EXPRESS_ROUTE,30,60);assert.equal(run.phase,'done');assert.ok(Math.abs(run.value!-20000)<200,'600 m at 30 m/s is about 20 s: '+run.value);assert.equal(run.medal,'slingmods');
+ const wrap=drive({...trap,start:1180,end:1231+60},HARBOR,25,60);assert.equal(wrap.phase,'done','crosses the lap line');assert.ok(Math.abs(wrap.value!-25)<.01);
+ assert.equal(drive(brake,HARBOR,20,60).reason,'Overshot the box');
+ assert.equal(drive(sprint,EXPRESS_ROUTE,30,60,()=>EXPRESS_ROUTE.width/2+EXPRESS_ROUTE.runoff+5).reason,'Off course');
+ const idle=new ChallengeJudge(HARBOR,brake);assert.equal(idle.update(at(HARBOR,0,5,0)).phase,'ready','the clock waits for the first movement');
+ // Brake: stop 0.5 m past the line (decelerate into it).
+ const j=new ChallengeJudge(HARBOR,brake);j.update(at(HARBOR,0,0,0));let s=j.update(at(HARBOR,1,.1,10));for(let x=1,t=.1;x<150.5;){x=Math.min(150.5,x+2);t+=.1;s=j.update(at(HARBOR,x,t,x>=150.5?0:10))}
+ assert.equal(s.phase,'done');assert.ok(Math.abs(s.value!-.5)<.05);assert.equal(s.medal,'gold');assert.ok(BOX_HALF>=s.value!);
+ assert.equal(challengeMedal(trap,trap.targets.bronze-.01),null);assert.equal(challengeMedal(sprint,sprint.targets.gold),'gold');
+ for(const c of CHALLENGES){const pose=stationPose(c.route==='express'?EXPRESS_ROUTE:c.route==='harbor'?HARBOR:(await import('../src/ridge/route')).RIDGE_ROUTE,c.start);assert.ok(Number.isFinite(pose.x+pose.y+pose.z+pose.yaw),c.id);
+  assert.ok(c.kind==='trap'?c.targets.slingmods>c.targets.gold&&c.targets.gold>c.targets.silver&&c.targets.silver>c.targets.bronze:c.targets.slingmods<c.targets.gold&&c.targets.gold<c.targets.silver&&c.targets.silver<=c.targets.bronze,c.id+' ladder order');
+  assert.equal(new URLSearchParams(visitorSearch(`?scene=express&mode=test&challenge=${c.id}`)).get('challenge'),c.id)}
+ assert.equal(new URLSearchParams(visitorSearch('?challenge=../x')).get('challenge'),null);
+});

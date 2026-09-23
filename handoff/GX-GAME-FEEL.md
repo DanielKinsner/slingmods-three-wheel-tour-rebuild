@@ -102,6 +102,15 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
   `?touch=1` forces it (mouse accepted), `?touch=0` disables it. Gauges move to bottom centre, phone-height HUD is
   compacted, coach hints show touch glyphs, portrait shows a turn-sideways hint. Verified with real multi-touch in a
   headless touch context (simultaneous gas + steer) at 1600x900 and 844x390.
+- Challenges (`src/game/challenges.ts` judge + table, `challenge-run.ts` HUD/markers/result): nine medal tests, three
+  per course (Sprint, Speed Trap just after a corner, Brake Test into a marked box). Race screen > course card >
+  CHALLENGES. They run as a test drive with the car placed at the challenge line (`?mode=test&challenge=<id>`); the judge
+  only reads telemetry. Targets are measured with `scripts/game-feel/challenge-targets.ts` (crew AI, Jett at 1.1-1.3x
+  pace, AI steering at full throttle; best clean run = SlingMods) and `challenge-brake-limits.ts`. Results in
+  `slingmods-gx-challenges-v1`; Tour Log records table; achievements Challenger and Top of the Class.
+- Loading art v2: the owner found the first pass's vehicles inaccurate. All nine images were regenerated with real
+  photographs of the actual Slingshot and Ryker attached as references and checked against them (see
+  `assets/game-feel/README.md`).
 
 ## Developer notes
 - `?title=1` forces the title screen (skipped automatically under WebDriver).
@@ -117,10 +126,10 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 `slingmods-gx-difficulty`, `slingmods-gx-achievements-v1`, `slingmods-gx-stats-v1`, `slingmods-gx-daily-v1`, `slingmods-gx-units`,
 `slingmods-gx-seen-unlocks`, `slingmods-gx-series`, `slingmods-gx-series-wins`, `slingmods-gx-ghost`,
 `slingmods-gx-rumble`, `slingmods-gx-coach`, `slingmods-gx-skills-v1`, `slingmods-gx-skills-on`, `slingmods-gx-milestones-v1`,
-`slingmods-gx-texture-detail`; session only: `slingmods-gx-attract-i` (demo reel cursor).
+`slingmods-gx-texture-detail`, `slingmods-gx-challenges-v1`; session only: `slingmods-gx-attract-i` (demo reel cursor).
 
 ## Verification
-- `npm test` (443 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
+- `npm test` (444 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
   `npm run deploy:build`.
 - Visual checks by headless Chromium (`--use-angle=d3d11`) at 1280x720, 1600x900 and 1920x1080 of title, menu, all
   showroom screens, career hub (fresh and seeded), garage, workshop, race ready/countdown/running/pause/results, Time

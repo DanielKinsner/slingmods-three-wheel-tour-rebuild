@@ -3,6 +3,7 @@ import {artUrl} from '../game/loading-art';
 import {setCareerSource} from '../game/options';
 import {announceAchievements} from '../game/toast';
 import {shouldShowTitle,showTitle} from '../game/title';
+import {challengeById} from '../game/challenges';
 import {markEntering,stamp} from '../game/shell';
 import {tourProgress} from '../game/progress';
 import {RYKER_PRESETS} from './ryker-catalog';
@@ -154,11 +155,13 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='copy'){await navigator.clipboard.writeText(buildSummary(recipe));status='Build summary copied.'}
  // Back: leave an inspection first, then retrace in-app history, then go up one level. Never toggles.
  else if(name==='back'){audio.cue('ui.back');if(screen==='build'&&currentView!=='hero'&&(currentView.startsWith('SM-')||currentView==='tour-wall'||currentView==='interior'))view('hero');else if(navDepth>0)window.history.back();else if(screen!=='entry')goScreen(screen==='shop'?'build':'entry','replace')}
- else if(name==='test-drive'||name==='race'||name==='time-attack'){
+ else if(name==='test-drive'||name==='race'||name==='time-attack'||name==='challenge'){
+  // A challenge is a test drive on its own course, started at the challenge line.
+  const chal=name==='challenge'?challengeById(String(value)):undefined;if(name==='challenge'){if(!chal)return;value=chal.route;name='test-drive'}
   const seriesRun=typeof value==='string'&&value.startsWith('series:');if(seriesRun)value=(value as string).slice(7);
   if(value==='duel'||value==='crew'){careerView?careerView.navigate('?scene=career&play=career'):location.assign('?scene=career&play=career');return}
   const route=value==='ridge'?'ridge':value==='harbor'?'harbor':'express',snapshot=validateRecipe(recipe),look=route==='ridge'?'':destinationLooks[route];if(look)rememberLook(route as 'express'|'harbor',look);
-  const target=`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='test-drive'?'test':'race'}${name==='time-attack'?'&trial=1':''}${seriesRun?'&series=1':''}&play=preview${route==='ridge'?'&lighting='+destinationLighting:'&look='+look}${fromCareer?'&from='+fromCareer:''}${recipeFragment(snapshot)}`;
+  const target=`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='test-drive'?'test':'race'}${name==='time-attack'?'&trial=1':''}${chal?'&challenge='+chal.id:''}${seriesRun?'&series=1':''}&play=preview${route==='ridge'?'&lighting='+destinationLighting:'&look='+look}${fromCareer?'&from='+fromCareer:''}${recipeFragment(snapshot)}`;
   pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot,name==='test-drive'?'test':'race');pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
   storage.store.beginDrive(snapshot,route,name==='test-drive'?'test':'race',destinationLighting);
   // A temporary career rides along in this tab (never into the drive's rewards) so it survives the round trip.
