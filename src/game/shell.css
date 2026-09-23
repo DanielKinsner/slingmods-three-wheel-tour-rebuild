@@ -92,3 +92,29 @@ html.gx body :is(button,a,summary,select,input):focus-visible{outline:3px solid 
 @keyframes gx-slide-r{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
 @keyframes gx-pop{0%{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.08)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){html.gx *{animation-duration:0s!important;transition-duration:0s!important}}
+
+/* ---------- Crew portraits ---------- */
+.gx-portrait{position:relative;margin:0;width:120px;flex:none;display:grid;gap:6px;justify-items:start}
+.gx-portrait img,.gx-portrait>span{width:120px;height:140px;object-fit:cover;object-position:50% 20%;display:block;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);box-shadow:inset 0 -3px 0 var(--gx-crew,#ff3b2f);background:linear-gradient(160deg,#20242c,#0d0f13)}
+.gx-portrait::after{content:'';position:absolute;left:4px;right:4px;top:136px;height:4px;background:var(--gx-crew,#ff3b2f);transform:skewX(-8deg)}
+.gx-portrait figcaption{display:grid;gap:2px}
+.gx-portrait figcaption b{font:italic 800 18px/1 var(--gx-display);font-synthesis:style;letter-spacing:.06em;color:var(--gx-crew,var(--gx-ink))}
+.gx-portrait figcaption small{font:700 10px/1.2 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gx-mute)}
+.gx-portrait.is-small{width:86px}.gx-portrait.is-small img,.gx-portrait.is-small>span{width:86px;height:100px}.gx-portrait.is-small::after{top:96px}
+.gx-portrait.is-you{--gx-crew:var(--gx-hot)}
+.gx-portrait.is-you>span{display:grid;place-items:center;font:italic 800 26px/1 var(--gx-display);font-synthesis:style;color:var(--gx-hot);background:repeating-linear-gradient(-60deg,#ffd23c14 0 10px,transparent 10px 20px),#14171d}
+.gx-lineup{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 14px}
+.gx-lineup.is-grid .gx-portrait{animation:gx-rise .5s var(--gx-ease) both}
+.gx-lineup.is-grid .gx-portrait:nth-child(2){animation-delay:.08s}.gx-lineup.is-grid .gx-portrait:nth-child(3){animation-delay:.16s}.gx-lineup.is-grid .gx-portrait:nth-child(4){animation-delay:.24s}
+.gx-dialog-line{display:flex;gap:18px;align-items:flex-start;margin:14px 0}
+.gx-dialog-line p{margin:0;font:600 17px/1.55 var(--gx-body);color:var(--gx-ink)}
+#crew-invitation .gx-portrait{float:left;margin:4px 16px 8px 0}
+#crew-invitation .gx-lineup{clear:both;padding-top:6px}
+
+/* Career data recovery panel (career/client.ts sets inline layout; GX supplies the look). */
+html.gx #career-recovery{inset:auto!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%);width:min(680px,calc(100vw - 32px));background:var(--gx-glass-2)!important;border:1px solid var(--gx-edge);border-top:4px solid var(--gx-hot);backdrop-filter:blur(16px);box-shadow:0 0 0 100vmax #07080ad0,0 40px 120px #000;font-family:var(--gx-body)!important}
+html.gx #career-recovery h2{margin:0 0 10px;font:italic 800 40px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx #career-recovery p{color:var(--gx-ink-2)}
+html.gx #career-recovery button{min-height:46px;margin:6px 8px 0 0;padding:0 18px;border:1px solid var(--gx-edge-2);background:#ffffff08;color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+html.gx #career-recovery button:nth-of-type(2){background:var(--gx-red);border-color:var(--gx-red)}
+html.gx body.career-experience .career-shell .career-dialog button+button{min-height:56px;padding:0 22px;border:1px solid var(--gx-edge-2);background:transparent;font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase}

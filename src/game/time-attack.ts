@@ -93,6 +93,7 @@ export class TimeAttack {
   this.result={timeMs:r.timeMs,medal,improved,previous};if(improved){this.best=store[k];if(this.best.ghost)this.ensureGhost();this.renderHud(null)}
   const prevMedal=previous?.medal??null,newMedal=medal&&(!prevMedal||MEDALS.indexOf(medal)<MEDALS.indexOf(prevMedal));
   setTimeout(()=>gameCue(improved?'gx.record':'gx.reward'),900);
+  if(improved)setTimeout(()=>document.dispatchEvent(new CustomEvent('gx:radio',{detail:{moment:medal==='gold'||medal==='slingmods'?'trialGold':'trialImproved'}})),1500);
   document.getElementById('race-menu')&&this.decorate(!!newMedal);
  }
  /** Results panel: medal won, delta to your previous best, and next target. */

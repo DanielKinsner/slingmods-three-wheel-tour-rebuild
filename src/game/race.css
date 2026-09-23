@@ -184,3 +184,15 @@ html.gx body.race-results-open .gx-trial,html.gx body.race-menu-open .gx-trial{o
 .gx-trial-lines .is-record b{color:var(--gx-hot)}.gx-trial-lines .is-record span{color:var(--gx-good)}
 html.gx body #harbor-ui:has(.gx-trial) #race-menu :is(.result-numeral,.result-standings){display:none}
 html.gx body #race-menu h1{overflow-wrap:anywhere}html.gx body #harbor-ui:has(.gx-trial) #race-menu[data-phase=ready] h1{font-size:clamp(40px,4vw,62px)}
+
+/* ---------- Crew radio ---------- */
+.gx-radio{position:absolute;left:var(--gx-edge-x);top:132px;display:flex;align-items:center;gap:12px;max-width:min(440px,60vw);padding:8px 16px 8px 8px;background:var(--gx-glass-2);backdrop-filter:blur(10px);box-shadow:inset 3px 0 0 var(--gx-crew,#ff3b2f),0 12px 40px #0009;opacity:0;transform:translateX(-24px);transition:opacity .25s,transform .35s var(--gx-ease);pointer-events:none}
+.gx-radio.is-on{opacity:1;transform:none}
+.gx-radio img{width:58px;height:58px;object-fit:cover;object-position:50% 22%;flex:none;border-radius:50%;box-shadow:0 0 0 2px var(--gx-crew,#ff3b2f),0 0 18px color-mix(in srgb,var(--gx-crew,#ff3b2f) 55%,transparent)}
+.gx-radio div{display:grid;gap:3px}
+.gx-radio b{font:italic 800 16px/1 var(--gx-display);font-synthesis:style;letter-spacing:.08em;color:var(--gx-crew,#ff3b2f)}
+.gx-radio span{font:600 14px/1.35 var(--gx-body);color:var(--gx-ink)}
+.gx-radio i{position:absolute;right:10px;top:8px;width:18px;height:10px;background:repeating-linear-gradient(90deg,var(--gx-crew,#ff3b2f) 0 2px,transparent 2px 4px);opacity:.8;animation:gx-radio-eq .5s steps(3) infinite}
+@keyframes gx-radio-eq{0%{clip-path:inset(40% 0 0 0)}33%{clip-path:inset(0 0 0 0)}66%{clip-path:inset(60% 0 0 0)}}
+html.gx body.race-menu-open .gx-radio{opacity:0}
+html.gx body #harbor-ui:has(#crew-order:not([hidden])) .gx-radio{top:282px}

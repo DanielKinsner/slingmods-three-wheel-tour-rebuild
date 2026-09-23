@@ -1,5 +1,6 @@
 import './chapter.css';
 import '../game/garage.css';
+import {CREW,portraitMarkup} from '../game/crew';
 import type {CareerClient} from './client';
 import {BuildMenuInput} from './menu';
 import type {DeviceSample} from '../driving/input';
@@ -32,7 +33,7 @@ export class ChapterUI {
   for(const child of this.root.children)if(child instanceof HTMLElement&&child.id!=='crew-invitation')child.inert=this.invitation;
   this.root.setAttribute('aria-busy',String(this.pending));for(const button of this.root.querySelectorAll<HTMLButtonElement>('button'))button.disabled=this.pending||this.client.stale;
   this.root.querySelector<HTMLButtonElement>('#chapter-duel')!.disabled ||=!s.chapters.firstCompletion;this.root.querySelector<HTMLButtonElement>('#chapter-crew')!.disabled ||=!this.crewAvailable();
-  this.root.querySelector<HTMLElement>('#crew-invitation')!.hidden=!this.invitation;this.root.querySelector('#crew-lines')!.textContent='RAE: Maya knows your line now. Jett brings the pace; Nico keeps it tidy. Two laps, top three. Bring the build you trust.';
+  this.root.querySelector<HTMLElement>('#crew-invitation')!.hidden=!this.invitation;const lines=this.root.querySelector<HTMLElement>('#crew-lines')!;if(!lines.dataset.gx){lines.dataset.gx='1';lines.textContent='Maya knows your line now. Jett brings the pace; Nico keeps it tidy. Two laps, top three. Bring the build you trust.';lines.insertAdjacentHTML('beforebegin',portraitMarkup(CREW.rae));lines.insertAdjacentHTML('afterend',`<div class="gx-lineup">${(['maya','jett','nico'] as const).map(id=>portraitMarkup(CREW[id],'gx-portrait is-small')).join('')}</div>`)}
  }
  setVisible(value:boolean){this.root.hidden=!value;if(value)this.menu.reset()}
  frame(sample:DeviceSample){if(!this.root.hidden&&!this.pending)(this.invitation?this.inviteMenu:this.menu).frame(sample)}
