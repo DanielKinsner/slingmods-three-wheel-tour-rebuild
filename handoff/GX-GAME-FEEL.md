@@ -68,6 +68,24 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
   Hard rivals > Quick Race > drive > pause > photo mode > back > continue.
 - End-to-end new-player run verified: Start Career > garage > shakedown briefing > lap > +800 CR, +950 Rep, level-up.
 
+**Second batch (owner: "keep going, the big-picture stuff")**
+- Instant replay (`src/game/replay.ts`): every run is recorded in memory; Watch replay on results; broadcast camera
+  director (trackside TV posts, chase, helicopter, low tracking), scrub bar, skip, 0.5x/0.25x slow motion.
+- Tour Series (`series.ts`, `series-run.ts`): three-race points championship Harbor > Express > Ridge from the Race
+  screen; standings between races, champion screen, Series Champion achievement. Local only, never touches career.
+- Crew ghosts: Jett's recorded laps (`public/assets/game-feel/ghosts`, `scripts/game-feel/record-crew-ghosts.ts`) as a
+  Time Attack ghost option; new players race Jett by default.
+- Story scenes (`scenes.ts`): multi-beat crew conversations before every career event and the Chapter 01 crew race.
+- Career milestones (`milestones.ts`): Chapter 02/03 unlock cards and the Tour Complete finale with credits
+  (dev preview: `?milestone=chapter-02|chapter-03|tour-complete`).
+- Driving coach (`coach.ts`, `corner-profile.ts`): BRAKE cue before corners, first-drive hints; calibrated to AI speeds.
+- Skill chains (`skills.ts`): drift / air / speed / near-miss points with multiplier; off in Time Attack.
+- Share cards (`share.ts`), controller rumble (`rumble.ts`), Tour Log shows Jett's times.
+- Texture detail (`texture-detail.ts`, `scripts/game-feel/ktx2-half.py`): Balanced tier uses half-resolution KTX2
+  variants (top mip dropped, lower mips bit-identical); Ridge race textures 108 MB -> 34 MB. Auto on Low/Medium.
+- Hosting: `vercel.json` now caches hashed bundles immutably and game assets for an hour (HTML stays no-cache).
+- Three independent code reviews in total; every real finding was fixed.
+
 ## Developer notes
 - `?title=1` forces the title screen (skipped automatically under WebDriver).
 - `?autopilot=1` (only where evidence hooks are enabled, i.e. dev or `test=1&profile=1`) lets the production rival AI
@@ -80,10 +98,12 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 ## Local storage keys added (all cosmetic / convenience, never part of the career save)
 `slingmods-gx-title-seen` (session), `slingmods-gx-splits-v1`, `slingmods-gx-time-attack-v1`,
 `slingmods-gx-difficulty`, `slingmods-gx-achievements-v1`, `slingmods-gx-stats-v1`, `slingmods-gx-daily-v1`, `slingmods-gx-units`,
-`slingmods-gx-seen-unlocks`.
+`slingmods-gx-seen-unlocks`, `slingmods-gx-series`, `slingmods-gx-series-wins`, `slingmods-gx-ghost`,
+`slingmods-gx-rumble`, `slingmods-gx-coach`, `slingmods-gx-skills-v1`, `slingmods-gx-skills-on`, `slingmods-gx-milestones-v1`,
+`slingmods-gx-texture-detail`.
 
 ## Verification
-- `npm test` (438 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
+- `npm test` (441 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
   `npm run deploy:build`.
 - Visual checks by headless Chromium (`--use-angle=d3d11`) at 1280x720, 1600x900 and 1920x1080 of title, menu, all
   showroom screens, career hub (fresh and seeded), garage, workshop, race ready/countdown/running/pause/results, Time
