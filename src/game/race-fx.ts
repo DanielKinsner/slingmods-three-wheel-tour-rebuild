@@ -49,14 +49,15 @@ export class RaceFX {
  private banner(html:string,cls='',ms=1600){this.show(this.callout,cls,html,ms,'calloutTimer')}
  /** Floating rival nameplates: livery colour, name and gap. Projected each frame; hidden off-screen, far away or in films. */
  tags(camera:THREE.Camera,field:Record<string,{position:{x:number;y:number;z:number}}>,hidden:boolean){
-  const me=field.player;if(!me)return;
+  const me=field.player;if(!me)return;const placed:{el:HTMLElement;x:number;y:number;d:number;text:string}[]=[];
   for(const id of this.field){const t=field[id];let el=this.tagNodes.get(id);if(!el){el=document.createElement('div');el.className='gx-tag';const m=CREW[id];el.style.setProperty('--gx-crew',m.color);el.innerHTML=`<b>${m.name}</b><span></span>`;this.root.append(el);this.tagNodes.set(id,el)}
    if(!t||hidden||this.finished){el.style.opacity='0';continue}
    const d=Math.hypot(t.position.x-me.position.x,t.position.z-me.position.z);this.v.set(t.position.x,t.position.y+1.55,t.position.z).project(camera);
-   const on=this.v.z<1&&this.v.z>-1&&Math.abs(this.v.x)<1.1&&Math.abs(this.v.y)<1.1&&d>2.5&&d<140;
-   if(!on){el.style.opacity='0';continue}
-   const x=(this.v.x+1)/2*innerWidth,y=(1-this.v.y)/2*innerHeight;el.style.transform=`translate(${x.toFixed(1)}px,${y.toFixed(1)}px) translate(-50%,-100%)`;el.style.opacity=String(Math.min(1,Math.max(.25,1.2-d/120)));
-   const gapText=d<10?'':`${Math.round(d)} m`;const span=el.lastElementChild as HTMLElement;if(span.textContent!==gapText)span.textContent=gapText}
+   if(!(this.v.z<1&&this.v.z>-1&&Math.abs(this.v.x)<1.1&&Math.abs(this.v.y)<1.1&&d>2.5&&d<140)){el.style.opacity='0';continue}
+   placed.push({el,x:(this.v.x+1)/2*innerWidth,y:(1-this.v.y)/2*innerHeight,d,text:d<10?'':`${Math.round(d)} m`})}
+  // Nearest first keeps its spot; farther plates that would overlap stack upward.
+  placed.sort((a,b)=>a.d-b.d);for(let i=0;i<placed.length;i++)for(let j=0;j<i;j++){const a=placed[i],b=placed[j];if(Math.abs(a.x-b.x)<96&&Math.abs(a.y-b.y)<24)a.y=b.y-24}
+  for(const p of placed){p.el.style.transform=`translate(${p.x.toFixed(1)}px,${p.y.toFixed(1)}px) translate(-50%,-100%)`;p.el.style.opacity=String(Math.min(1,Math.max(.25,1.2-p.d/120)));const span=p.el.lastElementChild as HTMLElement;if(span.textContent!==p.text)span.textContent=p.text}
  }
  /** Wrong-way and off-track warnings from the player's heading against the course centreline (10 Hz, presentation only). */
  road(t:{position:{x:number;z:number};velocity:{x:number;z:number}},running:boolean){
