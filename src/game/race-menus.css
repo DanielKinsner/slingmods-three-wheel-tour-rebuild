@@ -34,7 +34,7 @@ html.gx body #race-menu[data-phase=pause]>p{font-size:15px;margin:0 0 20px}
 .gx-pause-status>div:last-child{border-right:0;margin-right:0}
 .gx-pause-status dt{font:800 9px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute);margin-bottom:6px}
 .gx-pause-status dd{margin:0;font:italic 800 34px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-ink)}
-.gx-pause-status dd small{display:inline;margin:0;font:inherit;font-size:.6em;color:var(--gx-ink-2)}
+html.gx body #race-menu .gx-pause-status dd small{display:inline;margin:0;font:inherit;font-size:.6em;color:var(--gx-ink-2)}
 .gx-pause-status>div:first-child dd{color:var(--gx-hot)}
 html.gx body #race-menu .menu-actions[data-gx-layout=list]{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:4px;max-width:380px}
 html.gx body #race-menu .menu-actions[data-gx-layout=list] :is(button,a){justify-content:flex-start;min-height:50px;padding:0 20px;border:0;border-left:3px solid transparent;background:#ffffff08;font:italic 800 23px/1 var(--gx-display);font-synthesis:style;letter-spacing:.05em;transform:none;box-shadow:none;transition:background var(--gx-t-fast),padding var(--gx-t-fast) var(--gx-ease),border-color var(--gx-t-fast)}
@@ -59,7 +59,7 @@ html.gx body #race-menu .menu-actions[data-gx-layout=row]>.primary{flex:1 1 auto
 html.gx body #race-menu .menu-actions[data-gx-layout=row]>[data-gx-replay]{flex:0 0 auto}
 .gx-actions-sub{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px}
 .gx-actions-sub:empty{display:none}
-html.gx body #race-menu .gx-actions-sub>:is(button,a){flex:1 1 auto;justify-content:center;min-height:44px;padding:0 12px;background:#ffffff06;border-color:var(--gx-edge);font-size:13px;letter-spacing:.1em;color:var(--gx-ink-2);white-space:nowrap;transition:background var(--gx-t-fast),color var(--gx-t-fast),border-color var(--gx-t-fast)}
+html.gx body #race-menu .gx-actions-sub>:is(button,a){flex:1 1 auto;justify-content:center;min-height:44px;padding:0 10px;background:#ffffff06;border-color:var(--gx-edge);font-size:13px;letter-spacing:.07em;color:var(--gx-ink-2);white-space:nowrap;transition:background var(--gx-t-fast),color var(--gx-t-fast),border-color var(--gx-t-fast)}
 html.gx body #race-menu .gx-actions-sub>:is(button,a):is(:hover,:focus-visible){background:#ffffff16;border-color:var(--gx-edge-2);color:var(--gx-ink)}
 
 /* ---------- Results: run accolades ---------- */
@@ -93,3 +93,39 @@ html.gx body .film-detail{font:800 12px/1.6 var(--gx-body);letter-spacing:.24em;
 html.gx body .film-shot{font:800 9px/1 var(--gx-body);letter-spacing:.24em}
 html.gx body .film-timeline i{background:var(--gx-red)}
 html.gx body .film-skip{font:800 11px/1 var(--gx-body);letter-spacing:.2em;text-transform:uppercase;border-bottom:2px solid var(--gx-red)}
+
+/* ---------- Short screens (landscape phones) ---------- */
+@media (max-height:500px){
+ /* Pause: heading, status and a two-column action grid all fit without scrolling. */
+ html.gx body.race-menu-open:not(.race-results-open) #race-menu[data-phase=pause]{width:min(760px,94vw);padding:14px 20px 14px var(--gx-edge-x);justify-content:flex-start}
+ html.gx body #race-menu[data-phase=pause] h1{font-size:46px;margin:4px 0 6px}
+ html.gx body #race-menu[data-phase=pause]>p,html.gx body #race-menu[data-phase=pause] .race-help{display:none}
+ .gx-pause-status{flex-wrap:nowrap;margin:0 0 10px}.gx-pause-status>div{padding:6px 16px 6px 0;margin-right:16px}.gx-pause-status dd{font-size:22px}.gx-pause-status dt{margin-bottom:4px}
+ html.gx body #race-menu .menu-actions[data-gx-layout=list]{display:grid;grid-template-columns:1fr 1fr;max-width:none;gap:4px}
+ html.gx body #race-menu .menu-actions[data-gx-layout=list] .primary{grid-column:1/-1;min-height:46px;margin-bottom:2px;font-size:24px}
+ html.gx body #race-menu .menu-actions[data-gx-layout=list] :is(button,a){min-height:44px;font-size:18px}
+ /* Ready: the lineup shrinks so the start button stays on screen; time/graphics/film chips step aside for the card. */
+ html.gx body #race-menu[data-phase=ready] h1{font-size:34px;margin:4px 0 6px}
+ html.gx body #race-menu[data-phase=ready] .gx-lineup figcaption small,html.gx body #race-menu[data-phase=ready] .race-help{display:none}
+ html.gx body.race-menu-open:not(.race-results-open) #race-menu[data-phase=ready]{padding:12px 20px 14px;max-height:calc(100dvh - 56px);top:calc(50% - 14px)}
+ html.gx body #race-menu[data-phase=ready] .gx-lineup{margin:4px 0 6px;gap:8px}
+ html.gx body #race-menu[data-phase=ready] .gx-portrait.is-small{width:58px}
+ html.gx body #race-menu[data-phase=ready] .gx-portrait.is-small img,html.gx body #race-menu[data-phase=ready] .gx-portrait.is-small>span{width:58px;height:62px;font-size:18px}
+ html.gx body #race-menu[data-phase=ready] .gx-portrait.is-small::after{top:58px}
+ html.gx body #race-menu[data-phase=ready]>p{margin:4px 0 8px;font-size:13px}
+ html.gx body #race-menu[data-phase=ready] .menu-actions .primary{min-height:46px;font-size:22px}
+ html.gx body.race-menu-open:not(.race-results-open) :is(#game-graphics,.film-launcher){display:none}
+ html.gx body.gx-paused #game-audio{display:none}
+}
+/* Short desktop windows (720p): tighter results so the whole column, actions included, fits without scrolling. */
+@media (max-height:800px) and (min-height:501px){
+ html.gx body.race-results-open #race-menu{padding-block:18px}
+ html.gx body.race-results-open #race-menu>.result-numeral{font-size:92px}
+ html.gx body.race-results-open #race-menu h1{font-size:36px;margin:0 0 4px}
+ html.gx body.race-results-open .result-time{font-size:42px;margin-bottom:2px}
+ html.gx body.race-results-open #race-menu>p{margin-block:4px}
+ html.gx body.race-results-open .result-standings{margin:8px 0}
+ html.gx body.race-results-open .result-standings>div{padding-block:5px}
+ html.gx body.race-results-open .result-standings b{font-size:19px}
+ .gx-accolades{margin:2px 0}.gx-accolades li{padding-block:6px 7px}
+}
