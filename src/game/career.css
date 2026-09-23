@@ -1,0 +1,123 @@
+/* GX career hub (Chapters 02-03): art-backed event ladder, progress, wallet, workshop. */
+html.gx body.career-experience{background:transparent;color:var(--gx-ink)}
+html.gx body.career-experience::before{content:'';position:fixed;inset:0;z-index:-1;background:linear-gradient(90deg,#07080af7 0%,#07080ae0 40%,#07080a99 100%),linear-gradient(0deg,#07080a 0%,#07080a00 60%),url('/assets/p10b/previews/express-day.jpg') center/cover no-repeat}
+html.gx body.career-experience[data-gx-chapter="3"]::before{background:linear-gradient(90deg,#07080af7 0%,#07080ae0 40%,#07080a99 100%),linear-gradient(0deg,#07080a 0%,#07080a00 60%),url('/assets/p10b/previews/ridge-night.jpg') center/cover no-repeat}
+html.gx body.career-experience .career-shell{max-width:1680px;padding:0 var(--gx-edge-x) 70px}
+html.gx body.career-experience .career-shell .sig-header{position:sticky;top:0;z-index:20;height:78px;min-height:0;margin:0 calc(-1*var(--gx-edge-x));padding:0 var(--gx-edge-x);background:linear-gradient(180deg,#07080a 0%,#07080ae6 70%,#07080a00 100%);display:flex;align-items:center}
+html.gx body.career-experience .career-shell .sig-header .sig-brand{width:auto;display:flex}
+html.gx body.career-experience .career-shell .sig-header .sig-brand img{width:136px}
+html.gx body.career-experience .career-shell .sig-navigation button{border:0;padding:0 20px;font:italic 800 19px/44px var(--gx-display);letter-spacing:.06em;color:#ffffffa8}
+html.gx body.career-experience .career-shell .sig-navigation button[aria-current=page]{color:#fff}
+html.gx body.career-experience .career-shell .vehicle-appearance-picker{position:static;margin:14px 0 0}
+html.gx body.career-experience .career-shell .sig-header:has(.vehicle-appearance-picker){min-height:0}
+html.gx body.career-experience .career-shell .sig-header .vehicle-appearance-picker{position:static;margin:0 0 0 22px}
+html.gx body.career-experience .career-shell .sig-header .vehicle-appearance-picker>span{display:none}
+
+/* Chapter select */
+html.gx body.career-experience .career-chapters{margin:26px 0 0;gap:6px}
+html.gx body.career-experience .career-chapters a{min-height:46px;padding:0 20px;border:0;border-radius:0;background:var(--gx-glass);color:var(--gx-ink-2);font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;transform:skewX(var(--gx-rake));box-shadow:inset 0 0 0 1px var(--gx-edge)}
+html.gx body.career-experience .career-chapters a>*{transform:skewX(calc(-1*var(--gx-rake)))}
+html.gx body.career-experience .career-chapters a span{font:italic 800 22px/1 var(--gx-display);font-synthesis:style;color:var(--gx-ink)}
+html.gx body.career-experience .career-chapters a[aria-current=page]{background:var(--gx-red);color:#fff;box-shadow:0 8px 26px var(--gx-red-glow)}
+html.gx body.career-experience .career-chapters a:hover{text-decoration:none;background:var(--gx-glass-hi)}
+html.gx body.career-experience .career-chapters a[aria-current=page]:hover{background:#ff5448}
+
+/* Hero: title, progress, wallet */
+html.gx body.career-experience .career-intro{padding:34px 0 22px;align-items:flex-end}
+html.gx body.career-experience .career-kicker{font:800 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body.career-experience .career-intro h1{font:italic 800 clamp(64px,7vw,124px)/.86 var(--gx-display);font-synthesis:style;text-transform:uppercase;margin:12px 0 14px;text-shadow:0 8px 40px #000}
+html.gx body.career-experience .career-intro p{color:var(--gx-ink-2);font-size:15px;max-width:620px}
+.gx-career-progress{display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-top:18px}
+.gx-career-progress>div{display:grid;gap:6px}
+.gx-career-progress b{font:italic 800 44px/1 var(--gx-display);font-synthesis:style;color:var(--gx-ink)}
+.gx-career-progress b i{font-size:.55em;color:var(--gx-mute)}
+.gx-career-progress>div span{font:800 10px/1 var(--gx-body);letter-spacing:.28em;color:var(--gx-mute)}
+.gx-career-meter{flex:1 1 220px;max-width:360px;height:8px;margin-bottom:6px;background:#ffffff18;overflow:hidden;transform:skewX(-20deg)}
+.gx-career-meter i{display:block;height:100%;width:calc(var(--gx-fill,0)*100%);min-width:8px;background:linear-gradient(90deg,var(--gx-red),var(--gx-hot))}
+html.gx body.career-experience .career-wallet{padding:18px 24px;background:var(--gx-glass);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-hot);backdrop-filter:blur(12px);min-width:260px}
+html.gx body.career-experience .career-wallet strong{font:italic 800 64px/1 var(--gx-display);font-synthesis:style;color:var(--gx-hot)}
+html.gx body.career-experience .career-wallet strong i{font-size:.4em;margin-left:6px;color:var(--gx-ink-2)}
+html.gx body.career-experience .career-wallet span{font:800 10px/1 var(--gx-body);letter-spacing:.24em;color:var(--gx-mute)}
+html.gx body.career-experience .career-wallet small{color:var(--gx-mute);font-size:12px}
+
+/* Next up */
+html.gx body.career-experience .career-next{position:relative;padding:22px 26px;margin:8px 0 14px;border:0;border-radius:0;background:linear-gradient(100deg,var(--gx-red-2) 0%,var(--gx-red) 60%,#ff6a3d 100%);box-shadow:0 18px 60px var(--gx-red-glow);clip-path:polygon(0 0,100% 0,calc(100% - 22px) 100%,0 100%)}
+html.gx body.career-experience .career-next .career-kicker{color:#ffffffc8}
+html.gx body.career-experience .career-next strong{font:italic 800 clamp(34px,3vw,52px)/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body.career-experience .career-next p{color:#fff}
+html.gx body.career-experience .career-shell .career-next button{background:#fff;color:#0b0c0e;border:0;min-height:56px;padding:0 30px;margin-right:18px;font:italic 800 24px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;text-transform:uppercase;transform:skewX(var(--gx-rake));box-shadow:0 8px 24px #0005}
+html.gx body.career-experience .career-shell .career-next button:hover:not(:disabled){background:var(--gx-hot);color:#161200}
+html.gx body.career-experience .career-next.is-complete{background:linear-gradient(100deg,#0e6b35,#1c9b52 70%,#39e27d)}
+
+/* Callouts */
+html.gx body.career-experience :is(.career-callout,.career-resume){padding:22px 26px;background:var(--gx-glass-2);border:1px solid var(--gx-edge);border-left:4px solid var(--gx-hot);border-radius:0;backdrop-filter:blur(12px)}
+html.gx body.career-experience :is(.career-callout,.career-resume) strong{font:italic 800 28px/1.1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body.career-experience .career-callout a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:var(--gx-red);color:#fff;font:italic 800 20px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase;letter-spacing:.04em;transform:skewX(var(--gx-rake))}
+html.gx body.career-experience .career-callout a:hover{text-decoration:none;background:#ff5448}
+
+/* Section titles */
+html.gx body.career-experience .career-section-title{margin:40px 0 16px;border-bottom:0;padding-bottom:0}
+html.gx body.career-experience .career-section-title h2{font:italic 800 38px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body.career-experience .career-section-title h2::before{content:'';display:inline-block;width:6px;height:.8em;margin-right:12px;background:var(--gx-red);transform:skewX(var(--gx-rake))}
+html.gx body.career-experience .career-section-title span{font:800 11px/1 var(--gx-body);letter-spacing:.2em;color:var(--gx-mute)}
+
+/* Event cards */
+html.gx body.career-experience .career-events{gap:14px}
+html.gx body.career-experience .career-events article{position:relative;border:0;border-radius:0;background:var(--gx-glass-2);overflow:hidden;box-shadow:inset 0 0 0 1px var(--gx-edge);transition:transform .3s var(--gx-ease),box-shadow .2s;animation:gx-rise .6s calc(var(--gx-i,0)*.08s) var(--gx-ease) both}
+html.gx body.career-experience .career-events article:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--gx-edge-2),0 20px 50px #000a}
+html.gx body.career-experience .career-event-route{height:150px;border:0;background:#111 center/cover no-repeat}
+html.gx body.career-experience article[data-route=express] .career-event-route{background-image:linear-gradient(0deg,#0d0f13 0%,#0d0f1300 60%),url('/assets/p10b/previews/express-day.jpg')}
+html.gx body.career-experience article[data-route=harbor] .career-event-route{background-image:linear-gradient(0deg,#0d0f13 0%,#0d0f1300 60%),url('/assets/p10b/previews/harbor-day.jpg')}
+html.gx body.career-experience article[data-route=ridge] .career-event-route{background-image:linear-gradient(0deg,#0d0f13 0%,#0d0f1300 60%),url('/assets/p10b/previews/ridge-day.jpg')}
+html.gx body.career-experience article[data-route=ridge][data-look=night] .career-event-route{background-image:linear-gradient(0deg,#0d0f13 0%,#0d0f1300 60%),url('/assets/p10b/previews/ridge-night.jpg')}
+html.gx body.career-experience .career-event-route svg{position:absolute;right:10px;top:10px;height:70px;width:110px;padding:0;filter:drop-shadow(0 2px 6px #000)}
+html.gx body.career-experience .career-event-route path{stroke:#fff;stroke-width:6}
+html.gx body.career-experience .career-event-route>span{left:18px;bottom:12px;font:800 11px/1 var(--gx-body);letter-spacing:.2em;color:var(--gx-ink);text-shadow:0 1px 6px #000}
+html.gx body.career-experience .career-event-body{padding:16px 20px 20px}
+html.gx body.career-experience .career-events h3{font:italic 800 32px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase;margin:8px 0 10px}
+html.gx body.career-experience .career-events p{color:var(--gx-ink-2);font-size:14px}
+html.gx body.career-experience .career-events .career-reward{color:var(--gx-ink-2);font-size:13px}
+html.gx body.career-experience .career-events .career-reward b{display:inline-block;padding:4px 10px;margin-right:6px;background:var(--gx-hot);color:#161200;font:italic 800 18px/1 var(--gx-display);font-synthesis:style;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%)}
+html.gx body.career-experience .career-events small{color:var(--gx-mute);margin:8px 0 16px}
+html.gx body.career-experience .career-shell .career-events button{min-height:48px;border:1px solid var(--gx-edge-2);border-radius:0;background:transparent;font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase}
+html.gx body.career-experience .career-events [data-event-state=next]{border:0;box-shadow:inset 0 0 0 2px var(--gx-red),0 18px 50px #ff3b2f33}
+html.gx body.career-experience .career-events [data-event-state=next] .career-kicker{color:var(--gx-red)}
+html.gx body.career-experience .career-events [data-event-state=next]::after{content:'NEXT';position:absolute;top:12px;left:0;padding:5px 12px 5px 14px;background:var(--gx-red);color:#fff;font:italic 800 16px/1 var(--gx-display);letter-spacing:.1em;clip-path:polygon(0 0,100% 0,calc(100% - 7px) 100%,0 100%)}
+html.gx body.career-experience .career-shell .career-events [data-event-state=next] button{background:var(--gx-red);border-color:var(--gx-red);color:#fff;font:italic 800 22px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;transform:skewX(var(--gx-rake));padding:0 24px}
+html.gx body.career-experience .career-events [data-event-state=completed] .career-kicker{color:var(--gx-good)}
+html.gx body.career-experience .career-events [data-event-state=completed]::after{content:'✓';position:absolute;top:10px;left:12px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--gx-good);color:#04220f;font:900 18px/1 var(--gx-body);box-shadow:0 4px 16px #0008}
+html.gx body.career-experience .career-events [data-event-state=locked] .career-event-route{filter:grayscale(1) brightness(.45)}
+html.gx body.career-experience .career-events [data-event-state=locked]::after{content:'🔒 LOCKED';position:absolute;top:58px;left:50%;transform:translateX(-50%);padding:6px 14px;background:#07080ad0;font:800 12px/1 var(--gx-body);letter-spacing:.2em;color:var(--gx-ink-2)}
+html.gx body.career-experience .career-events [data-event-state=locked] h3{color:var(--gx-ink-2)}
+
+/* Cup + workshop */
+html.gx body.career-experience .career-cup{background:var(--gx-glass-2);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-hot);border-radius:0;backdrop-filter:blur(12px)}
+html.gx body.career-experience .career-cup h2{font:italic 800 38px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body.career-experience .career-cup li{border-bottom-color:var(--gx-edge);font:700 15px/1 var(--gx-body)}
+html.gx body.career-experience .career-cup li strong{font:italic 800 22px/1 var(--gx-display);font-synthesis:style}
+html.gx body.career-experience .career-cup li:first-child{background:#ffd23c1f;box-shadow:inset 3px 0 0 var(--gx-hot);padding-inline:12px}
+html.gx body.career-experience .career-finish select{background:#ffffff0d;color:var(--gx-ink);border:1px solid var(--gx-edge-2);border-radius:0;font:700 14px var(--gx-body)}
+html.gx body.career-experience .career-finish a{color:var(--gx-cool);font-weight:700}
+html.gx body.career-experience .career-products{gap:12px}
+html.gx body.career-experience .career-products article{background:var(--gx-glass-2);border:0;box-shadow:inset 0 0 0 1px var(--gx-edge);backdrop-filter:blur(10px)}
+html.gx body.career-experience .career-products img{background:radial-gradient(circle,#2b3038,#14161b);border-radius:0;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+html.gx body.career-experience .career-products h3{font:italic 800 28px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body.career-experience .career-products .career-product-state{color:var(--gx-good)}
+html.gx body.career-experience .career-price{color:var(--gx-hot);font-weight:800}
+html.gx body.career-experience .career-shell .career-product-actions button{background:var(--gx-red);border:0;border-radius:0;font:800 13px/1 var(--gx-body);letter-spacing:.12em;text-transform:uppercase}
+html.gx body.career-experience .career-shell .career-products [data-equipped=true] button{background:transparent;border:1px solid var(--gx-edge-2)}
+html.gx body.career-experience .career-product-actions a{color:var(--gx-cool);font-weight:700}
+html.gx body.career-experience .career-external{color:var(--gx-mute)}
+html.gx body.career-experience .career-shell button{border-radius:0;font-family:var(--gx-body)}
+html.gx body.career-experience .career-records{border-top-color:var(--gx-edge);color:var(--gx-mute)}
+html.gx body.career-experience #career-message{background:var(--gx-glass-2);border-left:4px solid var(--gx-hot);backdrop-filter:blur(10px)}
+
+/* Crew invitation dialog */
+html.gx body.career-experience .career-dialog-backdrop{background:#07080ad9;backdrop-filter:blur(6px)}
+html.gx body.career-experience .career-dialog{background:var(--gx-glass-2);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-red);border-radius:0;max-width:600px;animation:gx-pop .45s var(--gx-ease) both}
+html.gx body.career-experience .career-dialog h2{font:italic 800 52px/.95 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body.career-experience .career-dialog p:first-of-type{font:600 17px/1.5 var(--gx-body);color:var(--gx-ink);border-left:3px solid var(--gx-hot);padding-left:14px}
+html.gx body.career-experience .career-shell .career-dialog button:first-of-type{background:var(--gx-red);border:0;color:#fff;min-height:56px;padding:0 28px;font:italic 800 24px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase;transform:skewX(var(--gx-rake))}
+
+@media (max-width:1100px){html.gx body.career-experience .career-events{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){html.gx body.career-experience .career-events{grid-template-columns:1fr}html.gx body.career-experience .career-intro{flex-direction:column;align-items:flex-start}html.gx body.career-experience .career-chapters{margin-top:70px}}
