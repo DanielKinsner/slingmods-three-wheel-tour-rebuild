@@ -1,0 +1,1701 @@
+01-shakedown passed 67291ms
+02-maya passed 72339ms
+03-crew passed 145066ms
+04-open-it-up passed 76989ms
+05-jett passed 79023ms
+06-cup-harbor passed 77063ms
+07-cup-express passed 85882ms
+08-ridge-solo passed 109088ms
+09-ridge-duel passed 117080ms
+10-ridge-crew passed 232857ms
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    appearance: {
+      brightness: 0.6,
+      color: 'red',
+      enabled: true
+...
+      chapterOne: {
++       activeId: '890b71cd-9d6e-40bd-8a3f-92eea2ada288',
+-       activeId: null,
+        entries: {
+          '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac': {
+            event: 'crew',
+            id: '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac',
+            preset: 'night',
+...
+          },
++         '890b71cd-9d6e-40bd-8a3f-92eea2ada288': {
++           event: 'crew',
++           id: '890b71cd-9d6e-40bd-8a3f-92eea2ada288',
++           preset: 'night',
++           recipe: {
++             finish: 'white-graphite',
++             handlingProfile: 'slingmods-sport-v5',
++             lights: {
++               brightness: 0.6,
++               color: 'red',
++               enabled: true
++             },
++             products: {
++               'SM-133': 'base-rgb',
++               'SM-26801': 'black-aluminum',
++               'SM-28919': 'lower-pair',
++               'SM-3223': 'silver',
++               'SM-7720': 'brushed-silver'
++             },
++             suspension: {
++               frontCompression: 2,
++               frontRebound: 6,
++               rearCompression: 1,
++               rearRebound: 3,
++               rideHeightMm: 0
++             },
++             vehicleId: 'slingshot-r-2024',
++             version: 1
++           },
++           status: 'prepared'
++         },
++         'ac86d3e7-6481-4dc6-bed8-340a94bcf64f': {
++           event: 'duel',
++           id: 'ac86d3e7-6481-4dc6-bed8-340a94bcf64f',
++           preset: 'night',
++           recipe: {
++             finish: 'white-graphite',
++             handlingProfile: 'slingmods-sport-v5',
++             lights: {
++               brightness: 0.6,
++               color: 'red',
++               enabled: true
++             },
++             products: {
++               'SM-133': 'base-rgb',
++               'SM-26801': 'black-aluminum',
++               'SM-28919': 'lower-pair',
++               'SM-3223': 'silver',
++               'SM-7720': 'brushed-silver'
++             },
++             suspension: {
++               frontCompression: 2,
++               frontRebound: 6,
++               rearCompression: 1,
++               rearRebound: 3,
++               rideHeightMm: 0
++             },
++             vehicleId: 'slingshot-r-2024',
++             version: 1
++           },
++           status: 'abandoned'
++         },
++         'cdda3dfa-8fed-439f-8998-5ac54ce671d7': {
++           event: 'shakedown',
++           id: 'cdda3dfa-8fed-439f-8998-5ac54ce671d7',
++           preset: 'day',
++           recipe: {
++             finish: 'white-graphite',
++             handlingProfile: 'slingmods-sport-v5',
++             lights: {
++               brightness: 0.6,
++               color: 'red',
++               enabled: true
++             },
++             products: {
++               'SM-133': 'base-rgb',
++               'SM-26801': 'black-aluminum',
++               'SM-28919': 'lower-pair',
++               'SM-3223': 'silver',
++               'SM-7720': 'brushed-silver'
++             },
++             suspension: {
++               frontCompression: 2,
++               frontRebound: 6,
++               rearCompression: 1,
++               rearRebound: 3,
++               rideHeightMm: 0
++             },
++             vehicleId: 'slingshot-r-2024',
++             version: 1
++           },
++           status: 'abandoned'
++         },
+          'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd': {
+            event: 'shakedown',
+            id: 'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd',
+            preset: 'day',
+            recipe: {
+...
+    },
++   revision: 31,
+-   revision: 28,
+    suspension: {
+      equipped: true,
+      owned: true,
+      setup: {
+        frontCompression: 2,
+
+    at file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/verify-story-parity.mjs:56:64 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: {
+    version: 4,
+    ownBuild: {
+      version: 1,
+      finish: 'white-graphite',
+      products: {
+        'SM-7720': { owned: true, equipped: true },
+        'SM-26801': { owned: true, equipped: true },
+        'SM-28919': { owned: true, equipped: true }
+      },
+      ridge: {
+        completed: {
+          'find-the-ridge': true,
+          'nico-ridge-duel': true,
+          'summit-invitational': true
+        },
+        won: {
+          'find-the-ridge': true,
+          'nico-ridge-duel': false,
+          'summit-invitational': false
+        }
+      },
+      completed: {
+        'open-it-up': true,
+        'hold-your-nerve': true,
+        'coastline-cup': true
+      },
+      won: {
+        'open-it-up': false,
+        'hold-your-nerve': false,
+        'coastline-cup': false
+      },
+      active: null,
+      attempts: {
+        '8f3a52b0-b190-4c8d-8b4c-b1085b442048': {
+          version: 1,
+          id: '8f3a52b0-b190-4c8d-8b4c-b1085b442048',
+          event: 'open-it-up',
+          competitionId: 'p09a-open-it-up-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        },
+        'e87d8be1-b7a8-484a-af1a-3efc0f58d40d': {
+          version: 1,
+          id: 'e87d8be1-b7a8-484a-af1a-3efc0f58d40d',
+          event: 'hold-your-nerve',
+          competitionId: 'p09a-hold-your-nerve-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'jett', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        },
+        'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2': {
+          version: 1,
+          id: 'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2',
+          event: 'coastline-cup',
+          competitionId: 'p09a-coastline-cup-harbor-v1',
+          route: 'harbor',
+          routeVersion: '1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'maya', 'jett', 'nico', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: '77e79db7-8621-4cc8-b02b-a1a170ee5842',
+          stage: 0,
+          status: 'completed'
+        },
+        'f7000723-ffef-4359-92b1-6815cba1a5ae': {
+          version: 1,
+          id: 'f7000723-ffef-4359-92b1-6815cba1a5ae',
+          event: 'coastline-cup',
+          competitionId: 'p09a-coastline-cup-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'maya', 'jett', 'nico', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: '77e79db7-8621-4cc8-b02b-a1a170ee5842',
+          stage: 1,
+          status: 'completed'
+        },
+        '554c720a-7a9e-4fc8-b326-f342269aa39e': {
+          version: 1,
+          id: '554c720a-7a9e-4fc8-b326-f342269aa39e',
+          event: 'find-the-ridge',
+          competitionId: 'p10a-find-the-ridge-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        },
+        '902ed0ad-6e88-4c15-b24e-fdca5f343cef': {
+          version: 1,
+          id: '902ed0ad-6e88-4c15-b24e-fdca5f343cef',
+          event: 'nico-ridge-duel',
+          competitionId: 'p10a-nico-ridge-duel-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'nico', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        },
+        '377067ee-95c6-4514-9e5f-cd562e70baad': {
+          version: 1,
+          id: '377067ee-95c6-4514-9e5f-cd562e70baad',
+          event: 'summit-invitational',
+          competitionId: 'p10a-summit-invitational-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 2,
+          participants: [ 'maya', 'jett', 'nico', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        }
+      },
+      cups: {
+        '77e79db7-8621-4cc8-b02b-a1a170ee5842': {
+          id: '77e79db7-8621-4cc8-b02b-a1a170ee5842',
+          status: 'completed',
+          stages: [ [Object], [Object] ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          handlingProfile: 'slingmods-sport-v5'
+        }
+      },
+      activeCupId: null,
+      records: [
+        {
+          attemptId: '8f3a52b0-b190-4c8d-8b4c-b1085b442048',
+          competitionId: 'p09a-open-it-up-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 76989.02305806975,
+          place: 1,
+          standings: [ [Object] ]
+        },
+        {
+          attemptId: 'e87d8be1-b7a8-484a-af1a-3efc0f58d40d',
+          competitionId: 'p09a-hold-your-nerve-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 79022.68402235545,
+          place: 2,
+          standings: [ [Object], [Object] ]
+        },
+        {
+          attemptId: 'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2',
+          competitionId: 'p09a-coastline-cup-harbor-v1',
+          route: 'harbor',
+          routeVersion: '1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 77063.1463213316,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        },
+        {
+          attemptId: 'f7000723-ffef-4359-92b1-6815cba1a5ae',
+          competitionId: 'p09a-coastline-cup-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 85881.72271319997,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        },
+        {
+          attemptId: '554c720a-7a9e-4fc8-b326-f342269aa39e',
+          competitionId: 'p10a-find-the-ridge-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 109087.95093501208,
+          place: 1,
+          standings: [ [Object] ]
+        },
+        {
+          attemptId: '902ed0ad-6e88-4c15-b24e-fdca5f343cef',
+          competitionId: 'p10a-nico-ridge-duel-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 117080.28325623069,
+          place: 2,
+          standings: [ [Object], [Object] ]
+        },
+        {
+          attemptId: '377067ee-95c6-4514-9e5f-cd562e70baad',
+          competitionId: 'p10a-summit-invitational-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 2,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 232856.53279079063,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        }
+      ],
+      chapterOne: {
+        activeId: '890b71cd-9d6e-40bd-8a3f-92eea2ada288',
+        entries: {
+          'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd': {
+            id: 'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd',
+            event: 'shakedown',
+            preset: 'day',
+            recipe: [Object],
+            status: 'completed'
+          },
+          '838227e3-717d-4642-8759-131fa4dd8e60': {
+            id: '838227e3-717d-4642-8759-131fa4dd8e60',
+            event: 'duel',
+            preset: 'night',
+            recipe: [Object],
+            status: 'completed'
+          },
+          '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac': {
+            id: '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac',
+            event: 'crew',
+            preset: 'night',
+            recipe: [Object],
+            status: 'completed'
+          },
+          'cdda3dfa-8fed-439f-8998-5ac54ce671d7': {
+            id: 'cdda3dfa-8fed-439f-8998-5ac54ce671d7',
+            event: 'shakedown',
+            preset: 'day',
+            recipe: [Object],
+            status: 'abandoned'
+          },
+          'ac86d3e7-6481-4dc6-bed8-340a94bcf64f': {
+            id: 'ac86d3e7-6481-4dc6-bed8-340a94bcf64f',
+            event: 'duel',
+            preset: 'night',
+            recipe: [Object],
+            status: 'abandoned'
+          },
+          '890b71cd-9d6e-40bd-8a3f-92eea2ada288': {
+            id: '890b71cd-9d6e-40bd-8a3f-92eea2ada288',
+            event: 'crew',
+            preset: 'night',
+            recipe: [Object],
+            status: 'prepared'
+          }
+        }
+      }
+    },
+    buildMatters: { legacyCrewAccess: false, duelCompleted: true, duelWon: false },
+    suspension: {
+      owned: true,
+      equipped: true,
+      setup: {
+        frontCompression: 2,
+        frontRebound: 6,
+        rearCompression: 1,
+        rearRebound: 3,
+        rideHeightMm: 0
+      }
+    },
+    revision: 31,
+    credits: 2450,
+    owned: true,
+    equipped: true,
+    appearance: { color: 'red', brightness: 0.6, enabled: true },
+    chapters: { entry: true, firstCompletion: true, firstBuild: true },
+    crew: {
+      invitationSeen: true,
+      completed: true,
+      bestPlace: 4,
+      cleared: false,
+      clearAcknowledged: false
+    },
+    receipts: {
+      'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd': {
+        id: 'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd',
+        kind: 'award',
+        amount: 800,
+        balance: 800,
+        first: true,
+        at: '2026-09-23T03:30:47.118Z',
+        handlingProfile: 'slingmods-sport-v5',
+        buildSnapshot: {
+          version: 1,
+          vehicleId: 'slingshot-r-2024',
+          finish: 'blue-orange',
+          products: {},
+          lights: { color: 'red', brightness: 0.6, enabled: true },
+          suspension: {
+            frontCompression: 2,
+            frontRebound: 6,
+            rearCompression: 1,
+            rearRebound: 3,
+            rideHeightMm: 0
+          },
+          handlingProfile: 'slingmods-sport-v5'
+        }
+      },
+      '838227e3-717d-4642-8759-131fa4dd8e60': {
+        id: '838227e3-717d-4642-8759-131fa4dd8e60',
+        kind: 'duel-award',
+        amount: 650,
+        balance: 1450,
+        first: true,
+        at: '2026-09-23T03:31:12.432Z',
+        event: 'harbor-maya-duel-v1',
+        place: 2,
+        timeMs: 72339.4127039799,
+        chapterBonus: 500,
+        handlingProfile: 'slingmods-sport-v5',
+        buildSnapshot: {
+          version: 1,
+          vehicleId: 'slingshot-r-2024',
+          finish: 'blue-orange',
+          products: {},
+          lights: { color: 'red', brightness: 0.6, enabled: true },
+          suspension: {
+            frontCompression: 2,
+            frontRebound: 6,
+            rearCompression: 1,
+            rearRebound: 3,
+            rideHeightMm: 0
+          },
+          handlingProfile: 'slingmods-sport-v5'
+        }
+      },
+      '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac': {
+        id: '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac',
+        kind: 'crew-award',
+        amount: 100,
+        balance: 1550,
+        first: false,
+        at: '2026-09-23T03:31:38.817Z',
+        event: 'harbor-crew-night-v1',
+        place: 4,
+        timeMs: 145065.7824119566,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        buildSnapshot: {
+          version: 1,
+          vehicleId: 'slingshot-r-2024',
+          finish: 'blue-orange',
+          products: {},
+          lights: { color: 'red', brightness: 0.6, enabled: true },
+          suspension: {
+            frontCompression: 2,
+            frontRebound: 6,
+            rearCompression: 1,
+            rearRebound: 3,
+            rideHeightMm: 0
+          },
+          handlingProfile: 'slingmods-sport-v5'
+        }
+      },
+      'e8f0019b-ae9c-43f8-bf82-5d0cd2c5eb32': {
+        id: 'e8f0019b-ae9c-43f8-bf82-5d0cd2c5eb32',
+        kind: 'purchase',
+        amount: -600,
+        balance: 950,
+        first: true,
+        at: '2026-09-23T03:31:41.878Z'
+      },
+      '8f3a52b0-b190-4c8d-8b4c-b1085b442048': {
+        id: '8f3a52b0-b190-4c8d-8b4c-b1085b442048',
+        kind: 'chapter-award',
+        amount: 800,
+        balance: 1750,
+        first: true,
+        at: '2026-09-23T03:31:53.468Z',
+        event: 'p09a-open-it-up-express-v1',
+        place: 1,
+        timeMs: 76989.02305806975,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: '8f3a52b0-b190-4c8d-8b4c-b1085b442048',
+          competitionId: 'p09a-open-it-up-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 76989.02305806975,
+          place: 1,
+          standings: [ [Object] ]
+        }
+      },
+      '53fbfb2b-0cb4-49a7-b480-f27bb578d032': {
+        id: '53fbfb2b-0cb4-49a7-b480-f27bb578d032',
+        kind: 'suspension-purchase',
+        amount: -1000,
+        balance: 750,
+        first: true,
+        at: '2026-09-23T03:31:53.977Z'
+      },
+      '9660468b-2c2c-4fa4-a9c4-7c8d79228d6e': {
+        id: '9660468b-2c2c-4fa4-a9c4-7c8d79228d6e',
+        kind: 'chapter-purchase',
+        amount: -700,
+        balance: 50,
+        first: true,
+        at: '2026-09-23T03:31:54.043Z',
+        productId: 'SM-7720'
+      },
+      'e87d8be1-b7a8-484a-af1a-3efc0f58d40d': {
+        id: 'e87d8be1-b7a8-484a-af1a-3efc0f58d40d',
+        kind: 'chapter-award',
+        amount: 700,
+        balance: 750,
+        first: true,
+        at: '2026-09-23T03:32:03.499Z',
+        event: 'p09a-hold-your-nerve-express-v1',
+        place: 2,
+        timeMs: 79022.68402235545,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: 'e87d8be1-b7a8-484a-af1a-3efc0f58d40d',
+          competitionId: 'p09a-hold-your-nerve-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 79022.68402235545,
+          place: 2,
+          standings: [ [Object], [Object] ]
+        }
+      },
+      'c7e6d6f2-a01a-4790-8347-a051c5933372': {
+        id: 'c7e6d6f2-a01a-4790-8347-a051c5933372',
+        kind: 'chapter-purchase',
+        amount: -650,
+        balance: 100,
+        first: true,
+        at: '2026-09-23T03:32:04.060Z',
+        productId: 'SM-26801'
+      },
+      'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2': {
+        id: 'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2',
+        kind: 'chapter-award',
+        amount: 0,
+        balance: 100,
+        first: false,
+        at: '2026-09-23T03:32:20.543Z',
+        event: 'p09a-coastline-cup-harbor-v1',
+        place: 4,
+        timeMs: 77063.1463213316,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: 'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2',
+          competitionId: 'p09a-coastline-cup-harbor-v1',
+          route: 'harbor',
+          routeVersion: '1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 77063.1463213316,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        }
+      },
+      'f7000723-ffef-4359-92b1-6815cba1a5ae': {
+        id: 'f7000723-ffef-4359-92b1-6815cba1a5ae',
+        kind: 'chapter-award',
+        amount: 900,
+        balance: 1000,
+        first: true,
+        at: '2026-09-23T03:32:34.192Z',
+        event: 'p09a-coastline-cup-express-v1',
+        place: 4,
+        timeMs: 85881.72271319997,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: 'f7000723-ffef-4359-92b1-6815cba1a5ae',
+          competitionId: 'p09a-coastline-cup-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 85881.72271319997,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        }
+      },
+      'b9c35466-1e19-472b-a783-78becce23fcb': {
+        id: 'b9c35466-1e19-472b-a783-78becce23fcb',
+        kind: 'chapter-purchase',
+        amount: -450,
+        balance: 550,
+        first: true,
+        at: '2026-09-23T03:32:34.740Z',
+        productId: 'SM-28919'
+      },
+      '554c720a-7a9e-4fc8-b326-f342269aa39e': {
+        id: '554c720a-7a9e-4fc8-b326-f342269aa39e',
+        kind: 'chapter-award',
+        amount: 400,
+        balance: 950,
+        first: true,
+        at: '2026-09-23T03:32:51.265Z',
+        event: 'p10a-find-the-ridge-ridge-v1',
+        place: 1,
+        timeMs: 109087.95093501208,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: '554c720a-7a9e-4fc8-b326-f342269aa39e',
+          competitionId: 'p10a-find-the-ridge-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 109087.95093501208,
+          place: 1,
+          standings: [ [Object] ]
+        }
+      },
+      '902ed0ad-6e88-4c15-b24e-fdca5f343cef': {
+        id: '902ed0ad-6e88-4c15-b24e-fdca5f343cef',
+        kind: 'chapter-award',
+        amount: 600,
+        balance: 1550,
+        first: true,
+        at: '2026-09-23T03:33:05.505Z',
+        event: 'p10a-nico-ridge-duel-ridge-v1',
+        place: 2,
+        timeMs: 117080.28325623069,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: '902ed0ad-6e88-4c15-b24e-fdca5f343cef',
+          competitionId: 'p10a-nico-ridge-duel-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 117080.28325623069,
+          place: 2,
+          standings: [ [Object], [Object] ]
+        }
+      },
+      '377067ee-95c6-4514-9e5f-cd562e70baad': {
+        id: '377067ee-95c6-4514-9e5f-cd562e70baad',
+        kind: 'chapter-award',
+        amount: 900,
+        balance: 2450,
+        first: true,
+        at: '2026-09-23T03:33:40.722Z',
+        event: 'p10a-summit-invitational-ridge-v1',
+        place: 4,
+        timeMs: 232856.53279079063,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: '377067ee-95c6-4514-9e5f-cd562e70baad',
+          competitionId: 'p10a-summit-invitational-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 2,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 232856.53279079063,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        }
+      }
+    }
+  },
+  expected: {
+    version: 4,
+    ownBuild: {
+      version: 1,
+      finish: 'white-graphite',
+      products: {
+        'SM-7720': { owned: true, equipped: true },
+        'SM-26801': { owned: true, equipped: true },
+        'SM-28919': { owned: true, equipped: true }
+      },
+      ridge: {
+        completed: {
+          'find-the-ridge': true,
+          'nico-ridge-duel': true,
+          'summit-invitational': true
+        },
+        won: {
+          'find-the-ridge': true,
+          'nico-ridge-duel': false,
+          'summit-invitational': false
+        }
+      },
+      completed: {
+        'open-it-up': true,
+        'hold-your-nerve': true,
+        'coastline-cup': true
+      },
+      won: {
+        'open-it-up': false,
+        'hold-your-nerve': false,
+        'coastline-cup': false
+      },
+      active: null,
+      attempts: {
+        '8f3a52b0-b190-4c8d-8b4c-b1085b442048': {
+          version: 1,
+          id: '8f3a52b0-b190-4c8d-8b4c-b1085b442048',
+          event: 'open-it-up',
+          competitionId: 'p09a-open-it-up-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        },
+        'e87d8be1-b7a8-484a-af1a-3efc0f58d40d': {
+          version: 1,
+          id: 'e87d8be1-b7a8-484a-af1a-3efc0f58d40d',
+          event: 'hold-your-nerve',
+          competitionId: 'p09a-hold-your-nerve-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'jett', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        },
+        'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2': {
+          version: 1,
+          id: 'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2',
+          event: 'coastline-cup',
+          competitionId: 'p09a-coastline-cup-harbor-v1',
+          route: 'harbor',
+          routeVersion: '1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'maya', 'jett', 'nico', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: '77e79db7-8621-4cc8-b02b-a1a170ee5842',
+          stage: 0,
+          status: 'completed'
+        },
+        'f7000723-ffef-4359-92b1-6815cba1a5ae': {
+          version: 1,
+          id: 'f7000723-ffef-4359-92b1-6815cba1a5ae',
+          event: 'coastline-cup',
+          competitionId: 'p09a-coastline-cup-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'maya', 'jett', 'nico', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: '77e79db7-8621-4cc8-b02b-a1a170ee5842',
+          stage: 1,
+          status: 'completed'
+        },
+        '554c720a-7a9e-4fc8-b326-f342269aa39e': {
+          version: 1,
+          id: '554c720a-7a9e-4fc8-b326-f342269aa39e',
+          event: 'find-the-ridge',
+          competitionId: 'p10a-find-the-ridge-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        },
+        '902ed0ad-6e88-4c15-b24e-fdca5f343cef': {
+          version: 1,
+          id: '902ed0ad-6e88-4c15-b24e-fdca5f343cef',
+          event: 'nico-ridge-duel',
+          competitionId: 'p10a-nico-ridge-duel-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          participants: [ 'nico', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        },
+        '377067ee-95c6-4514-9e5f-cd562e70baad': {
+          version: 1,
+          id: '377067ee-95c6-4514-9e5f-cd562e70baad',
+          event: 'summit-invitational',
+          competitionId: 'p10a-summit-invitational-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 2,
+          participants: [ 'maya', 'jett', 'nico', 'player' ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          cupId: null,
+          stage: 0,
+          status: 'completed'
+        }
+      },
+      cups: {
+        '77e79db7-8621-4cc8-b02b-a1a170ee5842': {
+          id: '77e79db7-8621-4cc8-b02b-a1a170ee5842',
+          status: 'completed',
+          stages: [ [Object], [Object] ],
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          handlingProfile: 'slingmods-sport-v5'
+        }
+      },
+      activeCupId: null,
+      records: [
+        {
+          attemptId: '8f3a52b0-b190-4c8d-8b4c-b1085b442048',
+          competitionId: 'p09a-open-it-up-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 76989.02305806975,
+          place: 1,
+          standings: [ [Object] ]
+        },
+        {
+          attemptId: 'e87d8be1-b7a8-484a-af1a-3efc0f58d40d',
+          competitionId: 'p09a-hold-your-nerve-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 79022.68402235545,
+          place: 2,
+          standings: [ [Object], [Object] ]
+        },
+        {
+          attemptId: 'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2',
+          competitionId: 'p09a-coastline-cup-harbor-v1',
+          route: 'harbor',
+          routeVersion: '1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 77063.1463213316,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        },
+        {
+          attemptId: 'f7000723-ffef-4359-92b1-6815cba1a5ae',
+          competitionId: 'p09a-coastline-cup-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 85881.72271319997,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        },
+        {
+          attemptId: '554c720a-7a9e-4fc8-b326-f342269aa39e',
+          competitionId: 'p10a-find-the-ridge-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 109087.95093501208,
+          place: 1,
+          standings: [ [Object] ]
+        },
+        {
+          attemptId: '902ed0ad-6e88-4c15-b24e-fdca5f343cef',
+          competitionId: 'p10a-nico-ridge-duel-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 117080.28325623069,
+          place: 2,
+          standings: [ [Object], [Object] ]
+        },
+        {
+          attemptId: '377067ee-95c6-4514-9e5f-cd562e70baad',
+          competitionId: 'p10a-summit-invitational-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 2,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 232856.53279079063,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        }
+      ],
+      chapterOne: {
+        activeId: null,
+        entries: {
+          'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd': {
+            id: 'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd',
+            event: 'shakedown',
+            preset: 'day',
+            recipe: [Object],
+            status: 'completed'
+          },
+          '838227e3-717d-4642-8759-131fa4dd8e60': {
+            id: '838227e3-717d-4642-8759-131fa4dd8e60',
+            event: 'duel',
+            preset: 'night',
+            recipe: [Object],
+            status: 'completed'
+          },
+          '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac': {
+            id: '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac',
+            event: 'crew',
+            preset: 'night',
+            recipe: [Object],
+            status: 'completed'
+          }
+        }
+      }
+    },
+    buildMatters: { legacyCrewAccess: false, duelCompleted: true, duelWon: false },
+    suspension: {
+      owned: true,
+      equipped: true,
+      setup: {
+        frontCompression: 2,
+        frontRebound: 6,
+        rearCompression: 1,
+        rearRebound: 3,
+        rideHeightMm: 0
+      }
+    },
+    revision: 28,
+    credits: 2450,
+    owned: true,
+    equipped: true,
+    appearance: { color: 'red', brightness: 0.6, enabled: true },
+    chapters: { entry: true, firstCompletion: true, firstBuild: true },
+    crew: {
+      invitationSeen: true,
+      completed: true,
+      bestPlace: 4,
+      cleared: false,
+      clearAcknowledged: false
+    },
+    receipts: {
+      'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd': {
+        id: 'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd',
+        kind: 'award',
+        amount: 800,
+        balance: 800,
+        first: true,
+        at: '2026-09-23T03:30:47.118Z',
+        handlingProfile: 'slingmods-sport-v5',
+        buildSnapshot: {
+          version: 1,
+          vehicleId: 'slingshot-r-2024',
+          finish: 'blue-orange',
+          products: {},
+          lights: { color: 'red', brightness: 0.6, enabled: true },
+          suspension: {
+            frontCompression: 2,
+            frontRebound: 6,
+            rearCompression: 1,
+            rearRebound: 3,
+            rideHeightMm: 0
+          },
+          handlingProfile: 'slingmods-sport-v5'
+        }
+      },
+      '838227e3-717d-4642-8759-131fa4dd8e60': {
+        id: '838227e3-717d-4642-8759-131fa4dd8e60',
+        kind: 'duel-award',
+        amount: 650,
+        balance: 1450,
+        first: true,
+        at: '2026-09-23T03:31:12.432Z',
+        event: 'harbor-maya-duel-v1',
+        place: 2,
+        timeMs: 72339.4127039799,
+        chapterBonus: 500,
+        handlingProfile: 'slingmods-sport-v5',
+        buildSnapshot: {
+          version: 1,
+          vehicleId: 'slingshot-r-2024',
+          finish: 'blue-orange',
+          products: {},
+          lights: { color: 'red', brightness: 0.6, enabled: true },
+          suspension: {
+            frontCompression: 2,
+            frontRebound: 6,
+            rearCompression: 1,
+            rearRebound: 3,
+            rideHeightMm: 0
+          },
+          handlingProfile: 'slingmods-sport-v5'
+        }
+      },
+      '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac': {
+        id: '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac',
+        kind: 'crew-award',
+        amount: 100,
+        balance: 1550,
+        first: false,
+        at: '2026-09-23T03:31:38.817Z',
+        event: 'harbor-crew-night-v1',
+        place: 4,
+        timeMs: 145065.7824119566,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        buildSnapshot: {
+          version: 1,
+          vehicleId: 'slingshot-r-2024',
+          finish: 'blue-orange',
+          products: {},
+          lights: { color: 'red', brightness: 0.6, enabled: true },
+          suspension: {
+            frontCompression: 2,
+            frontRebound: 6,
+            rearCompression: 1,
+            rearRebound: 3,
+            rideHeightMm: 0
+          },
+          handlingProfile: 'slingmods-sport-v5'
+        }
+      },
+      'e8f0019b-ae9c-43f8-bf82-5d0cd2c5eb32': {
+        id: 'e8f0019b-ae9c-43f8-bf82-5d0cd2c5eb32',
+        kind: 'purchase',
+        amount: -600,
+        balance: 950,
+        first: true,
+        at: '2026-09-23T03:31:41.878Z'
+      },
+      '8f3a52b0-b190-4c8d-8b4c-b1085b442048': {
+        id: '8f3a52b0-b190-4c8d-8b4c-b1085b442048',
+        kind: 'chapter-award',
+        amount: 800,
+        balance: 1750,
+        first: true,
+        at: '2026-09-23T03:31:53.468Z',
+        event: 'p09a-open-it-up-express-v1',
+        place: 1,
+        timeMs: 76989.02305806975,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: '8f3a52b0-b190-4c8d-8b4c-b1085b442048',
+          competitionId: 'p09a-open-it-up-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 76989.02305806975,
+          place: 1,
+          standings: [ [Object] ]
+        }
+      },
+      '53fbfb2b-0cb4-49a7-b480-f27bb578d032': {
+        id: '53fbfb2b-0cb4-49a7-b480-f27bb578d032',
+        kind: 'suspension-purchase',
+        amount: -1000,
+        balance: 750,
+        first: true,
+        at: '2026-09-23T03:31:53.977Z'
+      },
+      '9660468b-2c2c-4fa4-a9c4-7c8d79228d6e': {
+        id: '9660468b-2c2c-4fa4-a9c4-7c8d79228d6e',
+        kind: 'chapter-purchase',
+        amount: -700,
+        balance: 50,
+        first: true,
+        at: '2026-09-23T03:31:54.043Z',
+        productId: 'SM-7720'
+      },
+      'e87d8be1-b7a8-484a-af1a-3efc0f58d40d': {
+        id: 'e87d8be1-b7a8-484a-af1a-3efc0f58d40d',
+        kind: 'chapter-award',
+        amount: 700,
+        balance: 750,
+        first: true,
+        at: '2026-09-23T03:32:03.499Z',
+        event: 'p09a-hold-your-nerve-express-v1',
+        place: 2,
+        timeMs: 79022.68402235545,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: 'e87d8be1-b7a8-484a-af1a-3efc0f58d40d',
+          competitionId: 'p09a-hold-your-nerve-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 79022.68402235545,
+          place: 2,
+          standings: [ [Object], [Object] ]
+        }
+      },
+      'c7e6d6f2-a01a-4790-8347-a051c5933372': {
+        id: 'c7e6d6f2-a01a-4790-8347-a051c5933372',
+        kind: 'chapter-purchase',
+        amount: -650,
+        balance: 100,
+        first: true,
+        at: '2026-09-23T03:32:04.060Z',
+        productId: 'SM-26801'
+      },
+      'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2': {
+        id: 'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2',
+        kind: 'chapter-award',
+        amount: 0,
+        balance: 100,
+        first: false,
+        at: '2026-09-23T03:32:20.543Z',
+        event: 'p09a-coastline-cup-harbor-v1',
+        place: 4,
+        timeMs: 77063.1463213316,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: 'a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2',
+          competitionId: 'p09a-coastline-cup-harbor-v1',
+          route: 'harbor',
+          routeVersion: '1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 77063.1463213316,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        }
+      },
+      'f7000723-ffef-4359-92b1-6815cba1a5ae': {
+        id: 'f7000723-ffef-4359-92b1-6815cba1a5ae',
+        kind: 'chapter-award',
+        amount: 900,
+        balance: 1000,
+        first: true,
+        at: '2026-09-23T03:32:34.192Z',
+        event: 'p09a-coastline-cup-express-v1',
+        place: 4,
+        timeMs: 85881.72271319997,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: 'f7000723-ffef-4359-92b1-6815cba1a5ae',
+          competitionId: 'p09a-coastline-cup-express-v1',
+          route: 'express',
+          routeVersion: 'express-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'blue-orange',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 85881.72271319997,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        }
+      },
+      'b9c35466-1e19-472b-a783-78becce23fcb': {
+        id: 'b9c35466-1e19-472b-a783-78becce23fcb',
+        kind: 'chapter-purchase',
+        amount: -450,
+        balance: 550,
+        first: true,
+        at: '2026-09-23T03:32:34.740Z',
+        productId: 'SM-28919'
+      },
+      '554c720a-7a9e-4fc8-b326-f342269aa39e': {
+        id: '554c720a-7a9e-4fc8-b326-f342269aa39e',
+        kind: 'chapter-award',
+        amount: 400,
+        balance: 950,
+        first: true,
+        at: '2026-09-23T03:32:51.265Z',
+        event: 'p10a-find-the-ridge-ridge-v1',
+        place: 1,
+        timeMs: 109087.95093501208,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: '554c720a-7a9e-4fc8-b326-f342269aa39e',
+          competitionId: 'p10a-find-the-ridge-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 109087.95093501208,
+          place: 1,
+          standings: [ [Object] ]
+        }
+      },
+      '902ed0ad-6e88-4c15-b24e-fdca5f343cef': {
+        id: '902ed0ad-6e88-4c15-b24e-fdca5f343cef',
+        kind: 'chapter-award',
+        amount: 600,
+        balance: 1550,
+        first: true,
+        at: '2026-09-23T03:33:05.505Z',
+        event: 'p10a-nico-ridge-duel-ridge-v1',
+        place: 2,
+        timeMs: 117080.28325623069,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: '902ed0ad-6e88-4c15-b24e-fdca5f343cef',
+          competitionId: 'p10a-nico-ridge-duel-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 1,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 117080.28325623069,
+          place: 2,
+          standings: [ [Object], [Object] ]
+        }
+      },
+      '377067ee-95c6-4514-9e5f-cd562e70baad': {
+        id: '377067ee-95c6-4514-9e5f-cd562e70baad',
+        kind: 'chapter-award',
+        amount: 900,
+        balance: 2450,
+        first: true,
+        at: '2026-09-23T03:33:40.722Z',
+        event: 'p10a-summit-invitational-ridge-v1',
+        place: 4,
+        timeMs: 232856.53279079063,
+        chapterBonus: 0,
+        handlingProfile: 'slingmods-sport-v5',
+        chapterRecord: {
+          attemptId: '377067ee-95c6-4514-9e5f-cd562e70baad',
+          competitionId: 'p10a-summit-invitational-ridge-v1',
+          route: 'ridge',
+          routeVersion: 'ridge-layout-v1',
+          handlingProfile: 'slingmods-sport-v5',
+          laps: 2,
+          recipe: {
+            version: 1,
+            vehicleId: 'slingshot-r-2024',
+            finish: 'white-graphite',
+            products: [Object],
+            lights: [Object],
+            suspension: [Object],
+            handlingProfile: 'slingmods-sport-v5'
+          },
+          timeMs: 232856.53279079063,
+          place: 4,
+          standings: [ [Object], [Object], [Object], [Object] ]
+        }
+      }
+    }
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.15.0

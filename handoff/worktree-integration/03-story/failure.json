@@ -1,0 +1,3528 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    appearance: {\n      brightness: 0.6,\n      color: 'red',\n      enabled: true\n...\n      chapterOne: {\n+       activeId: '890b71cd-9d6e-40bd-8a3f-92eea2ada288',\n-       activeId: null,\n        entries: {\n          '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac': {\n            event: 'crew',\n            id: '15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac',\n            preset: 'night',\n...\n          },\n+         '890b71cd-9d6e-40bd-8a3f-92eea2ada288': {\n+           event: 'crew',\n+           id: '890b71cd-9d6e-40bd-8a3f-92eea2ada288',\n+           preset: 'night',\n+           recipe: {\n+             finish: 'white-graphite',\n+             handlingProfile: 'slingmods-sport-v5',\n+             lights: {\n+               brightness: 0.6,\n+               color: 'red',\n+               enabled: true\n+             },\n+             products: {\n+               'SM-133': 'base-rgb',\n+               'SM-26801': 'black-aluminum',\n+               'SM-28919': 'lower-pair',\n+               'SM-3223': 'silver',\n+               'SM-7720': 'brushed-silver'\n+             },\n+             suspension: {\n+               frontCompression: 2,\n+               frontRebound: 6,\n+               rearCompression: 1,\n+               rearRebound: 3,\n+               rideHeightMm: 0\n+             },\n+             vehicleId: 'slingshot-r-2024',\n+             version: 1\n+           },\n+           status: 'prepared'\n+         },\n+         'ac86d3e7-6481-4dc6-bed8-340a94bcf64f': {\n+           event: 'duel',\n+           id: 'ac86d3e7-6481-4dc6-bed8-340a94bcf64f',\n+           preset: 'night',\n+           recipe: {\n+             finish: 'white-graphite',\n+             handlingProfile: 'slingmods-sport-v5',\n+             lights: {\n+               brightness: 0.6,\n+               color: 'red',\n+               enabled: true\n+             },\n+             products: {\n+               'SM-133': 'base-rgb',\n+               'SM-26801': 'black-aluminum',\n+               'SM-28919': 'lower-pair',\n+               'SM-3223': 'silver',\n+               'SM-7720': 'brushed-silver'\n+             },\n+             suspension: {\n+               frontCompression: 2,\n+               frontRebound: 6,\n+               rearCompression: 1,\n+               rearRebound: 3,\n+               rideHeightMm: 0\n+             },\n+             vehicleId: 'slingshot-r-2024',\n+             version: 1\n+           },\n+           status: 'abandoned'\n+         },\n+         'cdda3dfa-8fed-439f-8998-5ac54ce671d7': {\n+           event: 'shakedown',\n+           id: 'cdda3dfa-8fed-439f-8998-5ac54ce671d7',\n+           preset: 'day',\n+           recipe: {\n+             finish: 'white-graphite',\n+             handlingProfile: 'slingmods-sport-v5',\n+             lights: {\n+               brightness: 0.6,\n+               color: 'red',\n+               enabled: true\n+             },\n+             products: {\n+               'SM-133': 'base-rgb',\n+               'SM-26801': 'black-aluminum',\n+               'SM-28919': 'lower-pair',\n+               'SM-3223': 'silver',\n+               'SM-7720': 'brushed-silver'\n+             },\n+             suspension: {\n+               frontCompression: 2,\n+               frontRebound: 6,\n+               rearCompression: 1,\n+               rearRebound: 3,\n+               rideHeightMm: 0\n+             },\n+             vehicleId: 'slingshot-r-2024',\n+             version: 1\n+           },\n+           status: 'abandoned'\n+         },\n          'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd': {\n            event: 'shakedown',\n            id: 'fed155d2-ca93-41fc-9bce-1dd4d56fd9dd',\n            preset: 'day',\n            recipe: {\n...\n    },\n+   revision: 31,\n-   revision: 28,\n    suspension: {\n      equipped: true,\n      owned: true,\n      setup: {\n        frontCompression: 2,\n\n    at file:///C:/Users/Daniel%20Kinsner/OneDrive/Documents/GitHub/slingmods-three-wheel-tour-rebuild/scripts/verify-story-parity.mjs:56:64",
+  "rows": [
+    {
+      "label": "01-shakedown",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "day",
+        "base": "day",
+        "requested": "day",
+        "wet": false
+      },
+      "route": {
+        "id": "biscayne-harbor",
+        "version": "1",
+        "length": 1230.86710531256
+      },
+      "receipt": {
+        "id": "fed155d2-ca93-41fc-9bce-1dd4d56fd9dd",
+        "kind": "award",
+        "amount": 800,
+        "balance": 800,
+        "first": true,
+        "at": "2026-09-23T03:30:47.118Z",
+        "handlingProfile": "slingmods-sport-v5",
+        "buildSnapshot": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "blue-orange",
+          "products": {},
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 2,
+            "frontRebound": 6,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v5"
+        }
+      },
+      "race": {
+        "event": "harbor-shakedown-standing-lap-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 67291.24727208955,
+        "attemptId": "fed155d2-ca93-41fc-9bce-1dd4d56fd9dd",
+        "standings": [
+          {
+            "id": "player",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 16,
+            "progress": 0,
+            "timeMs": 67291.24727208955,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "harbor-shakedown-standing-lap-v1",
+          "attemptId": "fed155d2-ca93-41fc-9bce-1dd4d56fd9dd",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 67291.24727208955,
+          "place": 1,
+          "invalidReason": null
+        },
+        "allFinished": true,
+        "standingLap": {
+          "phase": "finished",
+          "paused": false,
+          "invalidReason": null,
+          "elapsedMs": 67291.24727208955,
+          "countdown": 0,
+          "checkpoint": 15,
+          "total": 15,
+          "result": {
+            "timeMs": 67291.24727208955,
+            "valid": true,
+            "invalidReason": null,
+            "previousBestMs": null,
+            "bestMs": 67291.24727208955,
+            "differenceMs": null,
+            "firstRecord": true,
+            "newBest": true
+          },
+          "attempt": 1
+        }
+      }
+    },
+    {
+      "label": "02-maya",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "night",
+        "base": "night",
+        "requested": "night",
+        "wet": false
+      },
+      "route": {
+        "id": "biscayne-harbor",
+        "version": "1",
+        "length": 1230.86710531256
+      },
+      "receipt": {
+        "id": "838227e3-717d-4642-8759-131fa4dd8e60",
+        "kind": "duel-award",
+        "amount": 650,
+        "balance": 1450,
+        "first": true,
+        "at": "2026-09-23T03:31:12.432Z",
+        "event": "harbor-maya-duel-v1",
+        "place": 2,
+        "timeMs": 72339.4127039799,
+        "chapterBonus": 500,
+        "handlingProfile": "slingmods-sport-v5",
+        "buildSnapshot": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "blue-orange",
+          "products": {},
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 2,
+            "frontRebound": 6,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v5"
+        }
+      },
+      "race": {
+        "event": "harbor-maya-duel-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 72999.99999999836,
+        "attemptId": "838227e3-717d-4642-8759-131fa4dd8e60",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 1230.86710531256,
+            "timeMs": 70593.63290894721,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 1230.86710531256,
+            "timeMs": 72339.4127039799,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "harbor-maya-duel-v1",
+          "attemptId": "838227e3-717d-4642-8759-131fa4dd8e60",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 72339.4127039799,
+          "place": 2,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "03-crew",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "night",
+        "base": "night",
+        "requested": "night",
+        "wet": false
+      },
+      "route": {
+        "id": "biscayne-harbor",
+        "version": "1",
+        "length": 1230.86710531256
+      },
+      "receipt": {
+        "id": "15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac",
+        "kind": "crew-award",
+        "amount": 100,
+        "balance": 1550,
+        "first": false,
+        "at": "2026-09-23T03:31:38.817Z",
+        "event": "harbor-crew-night-v1",
+        "place": 4,
+        "timeMs": 145065.7824119566,
+        "chapterBonus": 0,
+        "handlingProfile": "slingmods-sport-v5",
+        "buildSnapshot": {
+          "version": 1,
+          "vehicleId": "slingshot-r-2024",
+          "finish": "blue-orange",
+          "products": {},
+          "lights": {
+            "color": "red",
+            "brightness": 0.6,
+            "enabled": true
+          },
+          "suspension": {
+            "frontCompression": 2,
+            "frontRebound": 6,
+            "rearCompression": 1,
+            "rearRebound": 3,
+            "rideHeightMm": 0
+          },
+          "handlingProfile": "slingmods-sport-v5"
+        }
+      },
+      "race": {
+        "event": "harbor-crew-night-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 2,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 146000.00000000658,
+        "attemptId": "15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 138409.74931338153,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 140260.66904077507,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 3,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 143433.60689214588,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 4,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 2461.73421062512,
+            "timeMs": 145065.7824119566,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "harbor-crew-night-v1",
+          "attemptId": "15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 145065.7824119566,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "04-open-it-up",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {
+          "SM-133": "base-rgb"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "dusk-rain",
+        "base": "night",
+        "requested": "dusk-rain",
+        "wet": true
+      },
+      "route": {
+        "id": "harbor-express",
+        "version": "express-layout-v1",
+        "length": 2317.160796673365
+      },
+      "receipt": {
+        "id": "8f3a52b0-b190-4c8d-8b4c-b1085b442048",
+        "kind": "chapter-award",
+        "amount": 800,
+        "balance": 1750,
+        "first": true,
+        "at": "2026-09-23T03:31:53.468Z",
+        "event": "p09a-open-it-up-express-v1",
+        "place": 1,
+        "timeMs": 76989.02305806975,
+        "chapterBonus": 0,
+        "handlingProfile": "slingmods-sport-v5",
+        "chapterRecord": {
+          "attemptId": "8f3a52b0-b190-4c8d-8b4c-b1085b442048",
+          "competitionId": "p09a-open-it-up-express-v1",
+          "route": "express",
+          "routeVersion": "express-layout-v1",
+          "handlingProfile": "slingmods-sport-v5",
+          "laps": 1,
+          "recipe": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "blue-orange",
+            "products": {
+              "SM-133": "base-rgb"
+            },
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "timeMs": 76989.02305806975,
+          "place": 1,
+          "standings": [
+            {
+              "id": "player",
+              "place": 1,
+              "status": "finished",
+              "timeMs": 76989.02305806975
+            }
+          ]
+        }
+      },
+      "race": {
+        "event": "p09a-open-it-up-express-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 77999.99999999981,
+        "attemptId": "8f3a52b0-b190-4c8d-8b4c-b1085b442048",
+        "standings": [
+          {
+            "id": "player",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 76989.02305806975,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "p09a-open-it-up-express-v1",
+          "attemptId": "8f3a52b0-b190-4c8d-8b4c-b1085b442048",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 76989.02305806975,
+          "place": 1,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "05-jett",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "dusk-rain",
+        "base": "night",
+        "requested": "dusk-rain",
+        "wet": true
+      },
+      "route": {
+        "id": "harbor-express",
+        "version": "express-layout-v1",
+        "length": 2317.160796673365
+      },
+      "receipt": {
+        "id": "e87d8be1-b7a8-484a-af1a-3efc0f58d40d",
+        "kind": "chapter-award",
+        "amount": 700,
+        "balance": 750,
+        "first": true,
+        "at": "2026-09-23T03:32:03.499Z",
+        "event": "p09a-hold-your-nerve-express-v1",
+        "place": 2,
+        "timeMs": 79022.68402235545,
+        "chapterBonus": 0,
+        "handlingProfile": "slingmods-sport-v5",
+        "chapterRecord": {
+          "attemptId": "e87d8be1-b7a8-484a-af1a-3efc0f58d40d",
+          "competitionId": "p09a-hold-your-nerve-express-v1",
+          "route": "express",
+          "routeVersion": "express-layout-v1",
+          "handlingProfile": "slingmods-sport-v5",
+          "laps": 1,
+          "recipe": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "blue-orange",
+            "products": {
+              "SM-133": "base-rgb",
+              "SM-3223": "silver",
+              "SM-7720": "brushed-silver"
+            },
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "timeMs": 79022.68402235545,
+          "place": 2,
+          "standings": [
+            {
+              "id": "jett",
+              "place": 1,
+              "status": "finished",
+              "timeMs": 77371.40718742134
+            },
+            {
+              "id": "player",
+              "place": 2,
+              "status": "finished",
+              "timeMs": 79022.68402235545
+            }
+          ]
+        }
+      },
+      "race": {
+        "event": "p09a-hold-your-nerve-express-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 80000.0000000004,
+        "attemptId": "e87d8be1-b7a8-484a-af1a-3efc0f58d40d",
+        "standings": [
+          {
+            "id": "jett",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 77371.40718742134,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 79022.68402235545,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "p09a-hold-your-nerve-express-v1",
+          "attemptId": "e87d8be1-b7a8-484a-af1a-3efc0f58d40d",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 79022.68402235545,
+          "place": 2,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "06-cup-harbor",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "after-rain",
+        "base": "day",
+        "requested": "after-rain",
+        "wet": true
+      },
+      "route": {
+        "id": "biscayne-harbor",
+        "version": "1",
+        "length": 1230.86710531256
+      },
+      "receipt": {
+        "id": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+        "kind": "chapter-award",
+        "amount": 0,
+        "balance": 100,
+        "first": false,
+        "at": "2026-09-23T03:32:20.543Z",
+        "event": "p09a-coastline-cup-harbor-v1",
+        "place": 4,
+        "timeMs": 77063.1463213316,
+        "chapterBonus": 0,
+        "handlingProfile": "slingmods-sport-v5",
+        "chapterRecord": {
+          "attemptId": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+          "competitionId": "p09a-coastline-cup-harbor-v1",
+          "route": "harbor",
+          "routeVersion": "1",
+          "handlingProfile": "slingmods-sport-v5",
+          "laps": 1,
+          "recipe": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "blue-orange",
+            "products": {
+              "SM-133": "base-rgb",
+              "SM-3223": "silver",
+              "SM-7720": "brushed-silver",
+              "SM-26801": "black-aluminum"
+            },
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "timeMs": 77063.1463213316,
+          "place": 4,
+          "standings": [
+            {
+              "id": "maya",
+              "place": 1,
+              "status": "finished",
+              "timeMs": 70593.63290894721
+            },
+            {
+              "id": "jett",
+              "place": 2,
+              "status": "finished",
+              "timeMs": 72474.26939910986
+            },
+            {
+              "id": "nico",
+              "place": 3,
+              "status": "finished",
+              "timeMs": 75547.84660452539
+            },
+            {
+              "id": "player",
+              "place": 4,
+              "status": "finished",
+              "timeMs": 77063.1463213316
+            }
+          ]
+        }
+      },
+      "race": {
+        "event": "p09a-coastline-cup-harbor-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 77999.99999999981,
+        "attemptId": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 1230.86710531256,
+            "timeMs": 70593.63290894721,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 1230.86710531256,
+            "timeMs": 72474.26939910986,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 3,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 1230.86710531256,
+            "timeMs": 75547.84660452539,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 4,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 1230.86710531256,
+            "timeMs": 77063.1463213316,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "p09a-coastline-cup-harbor-v1",
+          "attemptId": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 77063.1463213316,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "07-cup-express",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "blue-orange",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "dusk-rain",
+        "base": "night",
+        "requested": "dusk-rain",
+        "wet": true
+      },
+      "route": {
+        "id": "harbor-express",
+        "version": "express-layout-v1",
+        "length": 2317.160796673365
+      },
+      "receipt": {
+        "id": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+        "kind": "chapter-award",
+        "amount": 900,
+        "balance": 1000,
+        "first": true,
+        "at": "2026-09-23T03:32:34.192Z",
+        "event": "p09a-coastline-cup-express-v1",
+        "place": 4,
+        "timeMs": 85881.72271319997,
+        "chapterBonus": 0,
+        "handlingProfile": "slingmods-sport-v5",
+        "chapterRecord": {
+          "attemptId": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+          "competitionId": "p09a-coastline-cup-express-v1",
+          "route": "express",
+          "routeVersion": "express-layout-v1",
+          "handlingProfile": "slingmods-sport-v5",
+          "laps": 1,
+          "recipe": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "blue-orange",
+            "products": {
+              "SM-133": "base-rgb",
+              "SM-3223": "silver",
+              "SM-7720": "brushed-silver",
+              "SM-26801": "black-aluminum"
+            },
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "timeMs": 85881.72271319997,
+          "place": 4,
+          "standings": [
+            {
+              "id": "maya",
+              "place": 1,
+              "status": "finished",
+              "timeMs": 79190.23879082942
+            },
+            {
+              "id": "jett",
+              "place": 2,
+              "status": "finished",
+              "timeMs": 80613.397182462
+            },
+            {
+              "id": "nico",
+              "place": 3,
+              "status": "finished",
+              "timeMs": 84449.71657079538
+            },
+            {
+              "id": "player",
+              "place": 4,
+              "status": "finished",
+              "timeMs": 85881.72271319997
+            }
+          ]
+        }
+      },
+      "race": {
+        "event": "p09a-coastline-cup-express-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 86000.00000000214,
+        "attemptId": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 79190.23879082942,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 80613.397182462,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 3,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 84449.71657079538,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 4,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 2317.160796673365,
+            "timeMs": 85881.72271319997,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "p09a-coastline-cup-express-v1",
+          "attemptId": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 85881.72271319997,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "08-ridge-solo",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "day",
+        "base": "day",
+        "requested": "day",
+        "wet": false
+      },
+      "route": {
+        "id": "smoky-ridge",
+        "version": "ridge-layout-v1",
+        "length": 3200
+      },
+      "receipt": {
+        "id": "554c720a-7a9e-4fc8-b326-f342269aa39e",
+        "kind": "chapter-award",
+        "amount": 400,
+        "balance": 950,
+        "first": true,
+        "at": "2026-09-23T03:32:51.265Z",
+        "event": "p10a-find-the-ridge-ridge-v1",
+        "place": 1,
+        "timeMs": 109087.95093501208,
+        "chapterBonus": 0,
+        "handlingProfile": "slingmods-sport-v5",
+        "chapterRecord": {
+          "attemptId": "554c720a-7a9e-4fc8-b326-f342269aa39e",
+          "competitionId": "p10a-find-the-ridge-ridge-v1",
+          "route": "ridge",
+          "routeVersion": "ridge-layout-v1",
+          "handlingProfile": "slingmods-sport-v5",
+          "laps": 1,
+          "recipe": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "white-graphite",
+            "products": {
+              "SM-133": "base-rgb",
+              "SM-3223": "silver",
+              "SM-7720": "brushed-silver",
+              "SM-26801": "black-aluminum",
+              "SM-28919": "lower-pair"
+            },
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "timeMs": 109087.95093501208,
+          "place": 1,
+          "standings": [
+            {
+              "id": "player",
+              "place": 1,
+              "status": "finished",
+              "timeMs": 109087.95093501208
+            }
+          ]
+        }
+      },
+      "race": {
+        "event": "p10a-find-the-ridge-ridge-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 110000.00000000912,
+        "attemptId": "554c720a-7a9e-4fc8-b326-f342269aa39e",
+        "standings": [
+          {
+            "id": "player",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 3200,
+            "timeMs": 109087.95093501208,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "p10a-find-the-ridge-ridge-v1",
+          "attemptId": "554c720a-7a9e-4fc8-b326-f342269aa39e",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 109087.95093501208,
+          "place": 1,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "09-ridge-duel",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "day",
+        "base": "day",
+        "requested": "day",
+        "wet": false
+      },
+      "route": {
+        "id": "smoky-ridge",
+        "version": "ridge-layout-v1",
+        "length": 3200
+      },
+      "receipt": {
+        "id": "902ed0ad-6e88-4c15-b24e-fdca5f343cef",
+        "kind": "chapter-award",
+        "amount": 600,
+        "balance": 1550,
+        "first": true,
+        "at": "2026-09-23T03:33:05.505Z",
+        "event": "p10a-nico-ridge-duel-ridge-v1",
+        "place": 2,
+        "timeMs": 117080.28325623069,
+        "chapterBonus": 0,
+        "handlingProfile": "slingmods-sport-v5",
+        "chapterRecord": {
+          "attemptId": "902ed0ad-6e88-4c15-b24e-fdca5f343cef",
+          "competitionId": "p10a-nico-ridge-duel-ridge-v1",
+          "route": "ridge",
+          "routeVersion": "ridge-layout-v1",
+          "handlingProfile": "slingmods-sport-v5",
+          "laps": 1,
+          "recipe": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "white-graphite",
+            "products": {
+              "SM-133": "base-rgb",
+              "SM-3223": "silver",
+              "SM-7720": "brushed-silver",
+              "SM-26801": "black-aluminum",
+              "SM-28919": "lower-pair"
+            },
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "timeMs": 117080.28325623069,
+          "place": 2,
+          "standings": [
+            {
+              "id": "nico",
+              "place": 1,
+              "status": "finished",
+              "timeMs": 115803.58585961121
+            },
+            {
+              "id": "player",
+              "place": 2,
+              "status": "finished",
+              "timeMs": 117080.28325623069
+            }
+          ]
+        }
+      },
+      "race": {
+        "event": "p10a-nico-ridge-duel-ridge-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 1,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 118000.00000001145,
+        "attemptId": "902ed0ad-6e88-4c15-b24e-fdca5f343cef",
+        "standings": [
+          {
+            "id": "nico",
+            "place": 1,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 3200,
+            "timeMs": 115803.58585961121,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 2,
+            "status": "finished",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 3200,
+            "timeMs": 117080.28325623069,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "p10a-nico-ridge-duel-ridge-v1",
+          "attemptId": "902ed0ad-6e88-4c15-b24e-fdca5f343cef",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 117080.28325623069,
+          "place": 2,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "10-ridge-crew",
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "night",
+        "base": "night",
+        "requested": "night",
+        "wet": false
+      },
+      "route": {
+        "id": "smoky-ridge",
+        "version": "ridge-layout-v1",
+        "length": 3200
+      },
+      "receipt": {
+        "id": "377067ee-95c6-4514-9e5f-cd562e70baad",
+        "kind": "chapter-award",
+        "amount": 900,
+        "balance": 2450,
+        "first": true,
+        "at": "2026-09-23T03:33:40.722Z",
+        "event": "p10a-summit-invitational-ridge-v1",
+        "place": 4,
+        "timeMs": 232856.53279079063,
+        "chapterBonus": 0,
+        "handlingProfile": "slingmods-sport-v5",
+        "chapterRecord": {
+          "attemptId": "377067ee-95c6-4514-9e5f-cd562e70baad",
+          "competitionId": "p10a-summit-invitational-ridge-v1",
+          "route": "ridge",
+          "routeVersion": "ridge-layout-v1",
+          "handlingProfile": "slingmods-sport-v5",
+          "laps": 2,
+          "recipe": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "white-graphite",
+            "products": {
+              "SM-133": "base-rgb",
+              "SM-3223": "silver",
+              "SM-7720": "brushed-silver",
+              "SM-26801": "black-aluminum",
+              "SM-28919": "lower-pair"
+            },
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          },
+          "timeMs": 232856.53279079063,
+          "place": 4,
+          "standings": [
+            {
+              "id": "maya",
+              "place": 1,
+              "status": "finished",
+              "timeMs": 225423.5441738994
+            },
+            {
+              "id": "jett",
+              "place": 2,
+              "status": "finished",
+              "timeMs": 226852.1197710445
+            },
+            {
+              "id": "nico",
+              "place": 3,
+              "status": "finished",
+              "timeMs": 231608.6079531675
+            },
+            {
+              "id": "player",
+              "place": 4,
+              "status": "finished",
+              "timeMs": 232856.53279079063
+            }
+          ]
+        }
+      },
+      "race": {
+        "event": "p10a-summit-invitational-ridge-v1",
+        "handlingProfileId": "slingmods-sport-v5",
+        "laps": 2,
+        "phase": "finished",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 232999.99999995594,
+        "attemptId": "377067ee-95c6-4514-9e5f-cd562e70baad",
+        "standings": [
+          {
+            "id": "maya",
+            "place": 1,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 6400,
+            "timeMs": 225423.5441738994,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "jett",
+            "place": 2,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 6400,
+            "timeMs": 226852.1197710445,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "nico",
+            "place": 3,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 6400,
+            "timeMs": 231608.6079531675,
+            "invalidReason": null,
+            "valid": true
+          },
+          {
+            "id": "player",
+            "place": 4,
+            "status": "finished",
+            "lap": 2,
+            "nextGate": 1,
+            "progress": 6400,
+            "timeMs": 232856.53279079063,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": {
+          "event": "p10a-summit-invitational-ridge-v1",
+          "attemptId": "377067ee-95c6-4514-9e5f-cd562e70baad",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 2,
+          "timeMs": 232856.53279079063,
+          "place": 4,
+          "invalidReason": null
+        },
+        "allFinished": true
+      }
+    },
+    {
+      "label": "revisit-harbor-shakedown-standing-lap-v1",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "day",
+        "base": "day",
+        "requested": "day",
+        "wet": false
+      }
+    },
+    {
+      "label": "revisit-harbor-maya-duel-v1",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "night",
+        "base": "night",
+        "requested": "night",
+        "wet": false
+      }
+    },
+    {
+      "label": "revisit-harbor-crew-night-v1",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "night",
+        "base": "night",
+        "requested": "night",
+        "wet": false
+      }
+    },
+    {
+      "label": "harbor-test",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "after-rain",
+        "base": "day",
+        "requested": "after-rain",
+        "wet": true
+      }
+    },
+    {
+      "label": "harbor-race",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "after-rain",
+        "base": "day",
+        "requested": "after-rain",
+        "wet": true
+      }
+    },
+    {
+      "label": "express-test",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "dusk-rain",
+        "base": "night",
+        "requested": "dusk-rain",
+        "wet": true
+      }
+    },
+    {
+      "label": "express-race",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "dusk-rain",
+        "base": "night",
+        "requested": "dusk-rain",
+        "wet": true
+      }
+    },
+    {
+      "label": "ridge-test",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "day",
+        "base": "day",
+        "requested": "day",
+        "wet": false
+      }
+    },
+    {
+      "label": "ridge-race",
+      "profile": {
+        "simulation": "slingmods-sport-v5",
+        "input": "slingmods-sport-v5",
+        "field": "slingmods-sport-v5"
+      },
+      "recipe": {
+        "version": 1,
+        "vehicleId": "slingshot-r-2024",
+        "finish": "white-graphite",
+        "products": {
+          "SM-133": "base-rgb",
+          "SM-3223": "silver",
+          "SM-7720": "brushed-silver",
+          "SM-26801": "black-aluminum",
+          "SM-28919": "lower-pair"
+        },
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "slingmods-sport-v5"
+      },
+      "look": {
+        "id": "day",
+        "base": "day",
+        "requested": "day",
+        "wet": false
+      }
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "state": {
+    "state": {
+      "version": 4,
+      "ownBuild": {
+        "version": 1,
+        "finish": "white-graphite",
+        "products": {
+          "SM-7720": {
+            "owned": true,
+            "equipped": true
+          },
+          "SM-26801": {
+            "owned": true,
+            "equipped": true
+          },
+          "SM-28919": {
+            "owned": true,
+            "equipped": true
+          }
+        },
+        "ridge": {
+          "completed": {
+            "find-the-ridge": true,
+            "nico-ridge-duel": true,
+            "summit-invitational": true
+          },
+          "won": {
+            "find-the-ridge": true,
+            "nico-ridge-duel": false,
+            "summit-invitational": false
+          }
+        },
+        "completed": {
+          "open-it-up": true,
+          "hold-your-nerve": true,
+          "coastline-cup": true
+        },
+        "won": {
+          "open-it-up": false,
+          "hold-your-nerve": false,
+          "coastline-cup": false
+        },
+        "active": null,
+        "attempts": {
+          "8f3a52b0-b190-4c8d-8b4c-b1085b442048": {
+            "version": 1,
+            "id": "8f3a52b0-b190-4c8d-8b4c-b1085b442048",
+            "event": "open-it-up",
+            "competitionId": "p09a-open-it-up-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "participants": [
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "cupId": null,
+            "stage": 0,
+            "status": "completed"
+          },
+          "e87d8be1-b7a8-484a-af1a-3efc0f58d40d": {
+            "version": 1,
+            "id": "e87d8be1-b7a8-484a-af1a-3efc0f58d40d",
+            "event": "hold-your-nerve",
+            "competitionId": "p09a-hold-your-nerve-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "participants": [
+              "jett",
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "cupId": null,
+            "stage": 0,
+            "status": "completed"
+          },
+          "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2": {
+            "version": 1,
+            "id": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+            "event": "coastline-cup",
+            "competitionId": "p09a-coastline-cup-harbor-v1",
+            "route": "harbor",
+            "routeVersion": "1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "participants": [
+              "maya",
+              "jett",
+              "nico",
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "cupId": "77e79db7-8621-4cc8-b02b-a1a170ee5842",
+            "stage": 0,
+            "status": "completed"
+          },
+          "f7000723-ffef-4359-92b1-6815cba1a5ae": {
+            "version": 1,
+            "id": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+            "event": "coastline-cup",
+            "competitionId": "p09a-coastline-cup-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "participants": [
+              "maya",
+              "jett",
+              "nico",
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "cupId": "77e79db7-8621-4cc8-b02b-a1a170ee5842",
+            "stage": 1,
+            "status": "completed"
+          },
+          "554c720a-7a9e-4fc8-b326-f342269aa39e": {
+            "version": 1,
+            "id": "554c720a-7a9e-4fc8-b326-f342269aa39e",
+            "event": "find-the-ridge",
+            "competitionId": "p10a-find-the-ridge-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "participants": [
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "cupId": null,
+            "stage": 0,
+            "status": "completed"
+          },
+          "902ed0ad-6e88-4c15-b24e-fdca5f343cef": {
+            "version": 1,
+            "id": "902ed0ad-6e88-4c15-b24e-fdca5f343cef",
+            "event": "nico-ridge-duel",
+            "competitionId": "p10a-nico-ridge-duel-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "participants": [
+              "nico",
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "cupId": null,
+            "stage": 0,
+            "status": "completed"
+          },
+          "377067ee-95c6-4514-9e5f-cd562e70baad": {
+            "version": 1,
+            "id": "377067ee-95c6-4514-9e5f-cd562e70baad",
+            "event": "summit-invitational",
+            "competitionId": "p10a-summit-invitational-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 2,
+            "participants": [
+              "maya",
+              "jett",
+              "nico",
+              "player"
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "cupId": null,
+            "stage": 0,
+            "status": "completed"
+          }
+        },
+        "cups": {
+          "77e79db7-8621-4cc8-b02b-a1a170ee5842": {
+            "id": "77e79db7-8621-4cc8-b02b-a1a170ee5842",
+            "status": "completed",
+            "stages": [
+              {
+                "attemptId": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+                "competitionId": "p09a-coastline-cup-harbor-v1",
+                "route": "harbor",
+                "routeVersion": "1",
+                "handlingProfile": "slingmods-sport-v5",
+                "laps": 1,
+                "recipe": {
+                  "version": 1,
+                  "vehicleId": "slingshot-r-2024",
+                  "finish": "blue-orange",
+                  "products": {
+                    "SM-133": "base-rgb",
+                    "SM-3223": "silver",
+                    "SM-7720": "brushed-silver",
+                    "SM-26801": "black-aluminum"
+                  },
+                  "lights": {
+                    "color": "red",
+                    "brightness": 0.6,
+                    "enabled": true
+                  },
+                  "suspension": {
+                    "frontCompression": 2,
+                    "frontRebound": 6,
+                    "rearCompression": 1,
+                    "rearRebound": 3,
+                    "rideHeightMm": 0
+                  },
+                  "handlingProfile": "slingmods-sport-v5"
+                },
+                "timeMs": 77063.1463213316,
+                "place": 4,
+                "standings": [
+                  {
+                    "id": "maya",
+                    "place": 1,
+                    "status": "finished",
+                    "timeMs": 70593.63290894721
+                  },
+                  {
+                    "id": "jett",
+                    "place": 2,
+                    "status": "finished",
+                    "timeMs": 72474.26939910986
+                  },
+                  {
+                    "id": "nico",
+                    "place": 3,
+                    "status": "finished",
+                    "timeMs": 75547.84660452539
+                  },
+                  {
+                    "id": "player",
+                    "place": 4,
+                    "status": "finished",
+                    "timeMs": 77063.1463213316
+                  }
+                ]
+              },
+              {
+                "attemptId": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+                "competitionId": "p09a-coastline-cup-express-v1",
+                "route": "express",
+                "routeVersion": "express-layout-v1",
+                "handlingProfile": "slingmods-sport-v5",
+                "laps": 1,
+                "recipe": {
+                  "version": 1,
+                  "vehicleId": "slingshot-r-2024",
+                  "finish": "blue-orange",
+                  "products": {
+                    "SM-133": "base-rgb",
+                    "SM-3223": "silver",
+                    "SM-7720": "brushed-silver",
+                    "SM-26801": "black-aluminum"
+                  },
+                  "lights": {
+                    "color": "red",
+                    "brightness": 0.6,
+                    "enabled": true
+                  },
+                  "suspension": {
+                    "frontCompression": 2,
+                    "frontRebound": 6,
+                    "rearCompression": 1,
+                    "rearRebound": 3,
+                    "rideHeightMm": 0
+                  },
+                  "handlingProfile": "slingmods-sport-v5"
+                },
+                "timeMs": 85881.72271319997,
+                "place": 4,
+                "standings": [
+                  {
+                    "id": "maya",
+                    "place": 1,
+                    "status": "finished",
+                    "timeMs": 79190.23879082942
+                  },
+                  {
+                    "id": "jett",
+                    "place": 2,
+                    "status": "finished",
+                    "timeMs": 80613.397182462
+                  },
+                  {
+                    "id": "nico",
+                    "place": 3,
+                    "status": "finished",
+                    "timeMs": 84449.71657079538
+                  },
+                  {
+                    "id": "player",
+                    "place": 4,
+                    "status": "finished",
+                    "timeMs": 85881.72271319997
+                  }
+                ]
+              }
+            ],
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          }
+        },
+        "activeCupId": null,
+        "records": [
+          {
+            "attemptId": "8f3a52b0-b190-4c8d-8b4c-b1085b442048",
+            "competitionId": "p09a-open-it-up-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 76989.02305806975,
+            "place": 1,
+            "standings": [
+              {
+                "id": "player",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 76989.02305806975
+              }
+            ]
+          },
+          {
+            "attemptId": "e87d8be1-b7a8-484a-af1a-3efc0f58d40d",
+            "competitionId": "p09a-hold-your-nerve-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 79022.68402235545,
+            "place": 2,
+            "standings": [
+              {
+                "id": "jett",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 77371.40718742134
+              },
+              {
+                "id": "player",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 79022.68402235545
+              }
+            ]
+          },
+          {
+            "attemptId": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+            "competitionId": "p09a-coastline-cup-harbor-v1",
+            "route": "harbor",
+            "routeVersion": "1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 77063.1463213316,
+            "place": 4,
+            "standings": [
+              {
+                "id": "maya",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "place": 3,
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "place": 4,
+                "status": "finished",
+                "timeMs": 77063.1463213316
+              }
+            ]
+          },
+          {
+            "attemptId": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+            "competitionId": "p09a-coastline-cup-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 85881.72271319997,
+            "place": 4,
+            "standings": [
+              {
+                "id": "maya",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 79190.23879082942
+              },
+              {
+                "id": "jett",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 80613.397182462
+              },
+              {
+                "id": "nico",
+                "place": 3,
+                "status": "finished",
+                "timeMs": 84449.71657079538
+              },
+              {
+                "id": "player",
+                "place": 4,
+                "status": "finished",
+                "timeMs": 85881.72271319997
+              }
+            ]
+          },
+          {
+            "attemptId": "554c720a-7a9e-4fc8-b326-f342269aa39e",
+            "competitionId": "p10a-find-the-ridge-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 109087.95093501208,
+            "place": 1,
+            "standings": [
+              {
+                "id": "player",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 109087.95093501208
+              }
+            ]
+          },
+          {
+            "attemptId": "902ed0ad-6e88-4c15-b24e-fdca5f343cef",
+            "competitionId": "p10a-nico-ridge-duel-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 117080.28325623069,
+            "place": 2,
+            "standings": [
+              {
+                "id": "nico",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 115803.58585961121
+              },
+              {
+                "id": "player",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 117080.28325623069
+              }
+            ]
+          },
+          {
+            "attemptId": "377067ee-95c6-4514-9e5f-cd562e70baad",
+            "competitionId": "p10a-summit-invitational-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 2,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 232856.53279079063,
+            "place": 4,
+            "standings": [
+              {
+                "id": "maya",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 225423.5441738994
+              },
+              {
+                "id": "jett",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 226852.1197710445
+              },
+              {
+                "id": "nico",
+                "place": 3,
+                "status": "finished",
+                "timeMs": 231608.6079531675
+              },
+              {
+                "id": "player",
+                "place": 4,
+                "status": "finished",
+                "timeMs": 232856.53279079063
+              }
+            ]
+          }
+        ],
+        "chapterOne": {
+          "activeId": "890b71cd-9d6e-40bd-8a3f-92eea2ada288",
+          "entries": {
+            "fed155d2-ca93-41fc-9bce-1dd4d56fd9dd": {
+              "id": "fed155d2-ca93-41fc-9bce-1dd4d56fd9dd",
+              "event": "shakedown",
+              "preset": "day",
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {},
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 2,
+                  "frontRebound": 6,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v5"
+              },
+              "status": "completed"
+            },
+            "838227e3-717d-4642-8759-131fa4dd8e60": {
+              "id": "838227e3-717d-4642-8759-131fa4dd8e60",
+              "event": "duel",
+              "preset": "night",
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {},
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 2,
+                  "frontRebound": 6,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v5"
+              },
+              "status": "completed"
+            },
+            "15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac": {
+              "id": "15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac",
+              "event": "crew",
+              "preset": "night",
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "blue-orange",
+                "products": {},
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 2,
+                  "frontRebound": 6,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v5"
+              },
+              "status": "completed"
+            },
+            "cdda3dfa-8fed-439f-8998-5ac54ce671d7": {
+              "id": "cdda3dfa-8fed-439f-8998-5ac54ce671d7",
+              "event": "shakedown",
+              "preset": "day",
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "white-graphite",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum",
+                  "SM-28919": "lower-pair"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 2,
+                  "frontRebound": 6,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v5"
+              },
+              "status": "abandoned"
+            },
+            "ac86d3e7-6481-4dc6-bed8-340a94bcf64f": {
+              "id": "ac86d3e7-6481-4dc6-bed8-340a94bcf64f",
+              "event": "duel",
+              "preset": "night",
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "white-graphite",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum",
+                  "SM-28919": "lower-pair"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 2,
+                  "frontRebound": 6,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v5"
+              },
+              "status": "abandoned"
+            },
+            "890b71cd-9d6e-40bd-8a3f-92eea2ada288": {
+              "id": "890b71cd-9d6e-40bd-8a3f-92eea2ada288",
+              "event": "crew",
+              "preset": "night",
+              "recipe": {
+                "version": 1,
+                "vehicleId": "slingshot-r-2024",
+                "finish": "white-graphite",
+                "products": {
+                  "SM-133": "base-rgb",
+                  "SM-3223": "silver",
+                  "SM-7720": "brushed-silver",
+                  "SM-26801": "black-aluminum",
+                  "SM-28919": "lower-pair"
+                },
+                "lights": {
+                  "color": "red",
+                  "brightness": 0.6,
+                  "enabled": true
+                },
+                "suspension": {
+                  "frontCompression": 2,
+                  "frontRebound": 6,
+                  "rearCompression": 1,
+                  "rearRebound": 3,
+                  "rideHeightMm": 0
+                },
+                "handlingProfile": "slingmods-sport-v5"
+              },
+              "status": "prepared"
+            }
+          }
+        }
+      },
+      "buildMatters": {
+        "legacyCrewAccess": false,
+        "duelCompleted": true,
+        "duelWon": false
+      },
+      "suspension": {
+        "owned": true,
+        "equipped": true,
+        "setup": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        }
+      },
+      "revision": 31,
+      "credits": 2450,
+      "owned": true,
+      "equipped": true,
+      "appearance": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "chapters": {
+        "entry": true,
+        "firstCompletion": true,
+        "firstBuild": true
+      },
+      "crew": {
+        "invitationSeen": true,
+        "completed": true,
+        "bestPlace": 4,
+        "cleared": false,
+        "clearAcknowledged": false
+      },
+      "receipts": {
+        "fed155d2-ca93-41fc-9bce-1dd4d56fd9dd": {
+          "id": "fed155d2-ca93-41fc-9bce-1dd4d56fd9dd",
+          "kind": "award",
+          "amount": 800,
+          "balance": 800,
+          "first": true,
+          "at": "2026-09-23T03:30:47.118Z",
+          "handlingProfile": "slingmods-sport-v5",
+          "buildSnapshot": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "blue-orange",
+            "products": {},
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          }
+        },
+        "838227e3-717d-4642-8759-131fa4dd8e60": {
+          "id": "838227e3-717d-4642-8759-131fa4dd8e60",
+          "kind": "duel-award",
+          "amount": 650,
+          "balance": 1450,
+          "first": true,
+          "at": "2026-09-23T03:31:12.432Z",
+          "event": "harbor-maya-duel-v1",
+          "place": 2,
+          "timeMs": 72339.4127039799,
+          "chapterBonus": 500,
+          "handlingProfile": "slingmods-sport-v5",
+          "buildSnapshot": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "blue-orange",
+            "products": {},
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          }
+        },
+        "15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac": {
+          "id": "15bf9ba1-dcfb-4cc9-9a02-3f1501d7f9ac",
+          "kind": "crew-award",
+          "amount": 100,
+          "balance": 1550,
+          "first": false,
+          "at": "2026-09-23T03:31:38.817Z",
+          "event": "harbor-crew-night-v1",
+          "place": 4,
+          "timeMs": 145065.7824119566,
+          "chapterBonus": 0,
+          "handlingProfile": "slingmods-sport-v5",
+          "buildSnapshot": {
+            "version": 1,
+            "vehicleId": "slingshot-r-2024",
+            "finish": "blue-orange",
+            "products": {},
+            "lights": {
+              "color": "red",
+              "brightness": 0.6,
+              "enabled": true
+            },
+            "suspension": {
+              "frontCompression": 2,
+              "frontRebound": 6,
+              "rearCompression": 1,
+              "rearRebound": 3,
+              "rideHeightMm": 0
+            },
+            "handlingProfile": "slingmods-sport-v5"
+          }
+        },
+        "e8f0019b-ae9c-43f8-bf82-5d0cd2c5eb32": {
+          "id": "e8f0019b-ae9c-43f8-bf82-5d0cd2c5eb32",
+          "kind": "purchase",
+          "amount": -600,
+          "balance": 950,
+          "first": true,
+          "at": "2026-09-23T03:31:41.878Z"
+        },
+        "8f3a52b0-b190-4c8d-8b4c-b1085b442048": {
+          "id": "8f3a52b0-b190-4c8d-8b4c-b1085b442048",
+          "kind": "chapter-award",
+          "amount": 800,
+          "balance": 1750,
+          "first": true,
+          "at": "2026-09-23T03:31:53.468Z",
+          "event": "p09a-open-it-up-express-v1",
+          "place": 1,
+          "timeMs": 76989.02305806975,
+          "chapterBonus": 0,
+          "handlingProfile": "slingmods-sport-v5",
+          "chapterRecord": {
+            "attemptId": "8f3a52b0-b190-4c8d-8b4c-b1085b442048",
+            "competitionId": "p09a-open-it-up-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 76989.02305806975,
+            "place": 1,
+            "standings": [
+              {
+                "id": "player",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 76989.02305806975
+              }
+            ]
+          }
+        },
+        "53fbfb2b-0cb4-49a7-b480-f27bb578d032": {
+          "id": "53fbfb2b-0cb4-49a7-b480-f27bb578d032",
+          "kind": "suspension-purchase",
+          "amount": -1000,
+          "balance": 750,
+          "first": true,
+          "at": "2026-09-23T03:31:53.977Z"
+        },
+        "9660468b-2c2c-4fa4-a9c4-7c8d79228d6e": {
+          "id": "9660468b-2c2c-4fa4-a9c4-7c8d79228d6e",
+          "kind": "chapter-purchase",
+          "amount": -700,
+          "balance": 50,
+          "first": true,
+          "at": "2026-09-23T03:31:54.043Z",
+          "productId": "SM-7720"
+        },
+        "e87d8be1-b7a8-484a-af1a-3efc0f58d40d": {
+          "id": "e87d8be1-b7a8-484a-af1a-3efc0f58d40d",
+          "kind": "chapter-award",
+          "amount": 700,
+          "balance": 750,
+          "first": true,
+          "at": "2026-09-23T03:32:03.499Z",
+          "event": "p09a-hold-your-nerve-express-v1",
+          "place": 2,
+          "timeMs": 79022.68402235545,
+          "chapterBonus": 0,
+          "handlingProfile": "slingmods-sport-v5",
+          "chapterRecord": {
+            "attemptId": "e87d8be1-b7a8-484a-af1a-3efc0f58d40d",
+            "competitionId": "p09a-hold-your-nerve-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 79022.68402235545,
+            "place": 2,
+            "standings": [
+              {
+                "id": "jett",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 77371.40718742134
+              },
+              {
+                "id": "player",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 79022.68402235545
+              }
+            ]
+          }
+        },
+        "c7e6d6f2-a01a-4790-8347-a051c5933372": {
+          "id": "c7e6d6f2-a01a-4790-8347-a051c5933372",
+          "kind": "chapter-purchase",
+          "amount": -650,
+          "balance": 100,
+          "first": true,
+          "at": "2026-09-23T03:32:04.060Z",
+          "productId": "SM-26801"
+        },
+        "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2": {
+          "id": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+          "kind": "chapter-award",
+          "amount": 0,
+          "balance": 100,
+          "first": false,
+          "at": "2026-09-23T03:32:20.543Z",
+          "event": "p09a-coastline-cup-harbor-v1",
+          "place": 4,
+          "timeMs": 77063.1463213316,
+          "chapterBonus": 0,
+          "handlingProfile": "slingmods-sport-v5",
+          "chapterRecord": {
+            "attemptId": "a6e88bd0-7e5e-4e75-8af4-1ee90ce9deb2",
+            "competitionId": "p09a-coastline-cup-harbor-v1",
+            "route": "harbor",
+            "routeVersion": "1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 77063.1463213316,
+            "place": 4,
+            "standings": [
+              {
+                "id": "maya",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 70593.63290894721
+              },
+              {
+                "id": "jett",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 72474.26939910986
+              },
+              {
+                "id": "nico",
+                "place": 3,
+                "status": "finished",
+                "timeMs": 75547.84660452539
+              },
+              {
+                "id": "player",
+                "place": 4,
+                "status": "finished",
+                "timeMs": 77063.1463213316
+              }
+            ]
+          }
+        },
+        "f7000723-ffef-4359-92b1-6815cba1a5ae": {
+          "id": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+          "kind": "chapter-award",
+          "amount": 900,
+          "balance": 1000,
+          "first": true,
+          "at": "2026-09-23T03:32:34.192Z",
+          "event": "p09a-coastline-cup-express-v1",
+          "place": 4,
+          "timeMs": 85881.72271319997,
+          "chapterBonus": 0,
+          "handlingProfile": "slingmods-sport-v5",
+          "chapterRecord": {
+            "attemptId": "f7000723-ffef-4359-92b1-6815cba1a5ae",
+            "competitionId": "p09a-coastline-cup-express-v1",
+            "route": "express",
+            "routeVersion": "express-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "blue-orange",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 85881.72271319997,
+            "place": 4,
+            "standings": [
+              {
+                "id": "maya",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 79190.23879082942
+              },
+              {
+                "id": "jett",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 80613.397182462
+              },
+              {
+                "id": "nico",
+                "place": 3,
+                "status": "finished",
+                "timeMs": 84449.71657079538
+              },
+              {
+                "id": "player",
+                "place": 4,
+                "status": "finished",
+                "timeMs": 85881.72271319997
+              }
+            ]
+          }
+        },
+        "b9c35466-1e19-472b-a783-78becce23fcb": {
+          "id": "b9c35466-1e19-472b-a783-78becce23fcb",
+          "kind": "chapter-purchase",
+          "amount": -450,
+          "balance": 550,
+          "first": true,
+          "at": "2026-09-23T03:32:34.740Z",
+          "productId": "SM-28919"
+        },
+        "554c720a-7a9e-4fc8-b326-f342269aa39e": {
+          "id": "554c720a-7a9e-4fc8-b326-f342269aa39e",
+          "kind": "chapter-award",
+          "amount": 400,
+          "balance": 950,
+          "first": true,
+          "at": "2026-09-23T03:32:51.265Z",
+          "event": "p10a-find-the-ridge-ridge-v1",
+          "place": 1,
+          "timeMs": 109087.95093501208,
+          "chapterBonus": 0,
+          "handlingProfile": "slingmods-sport-v5",
+          "chapterRecord": {
+            "attemptId": "554c720a-7a9e-4fc8-b326-f342269aa39e",
+            "competitionId": "p10a-find-the-ridge-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 109087.95093501208,
+            "place": 1,
+            "standings": [
+              {
+                "id": "player",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 109087.95093501208
+              }
+            ]
+          }
+        },
+        "902ed0ad-6e88-4c15-b24e-fdca5f343cef": {
+          "id": "902ed0ad-6e88-4c15-b24e-fdca5f343cef",
+          "kind": "chapter-award",
+          "amount": 600,
+          "balance": 1550,
+          "first": true,
+          "at": "2026-09-23T03:33:05.505Z",
+          "event": "p10a-nico-ridge-duel-ridge-v1",
+          "place": 2,
+          "timeMs": 117080.28325623069,
+          "chapterBonus": 0,
+          "handlingProfile": "slingmods-sport-v5",
+          "chapterRecord": {
+            "attemptId": "902ed0ad-6e88-4c15-b24e-fdca5f343cef",
+            "competitionId": "p10a-nico-ridge-duel-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 1,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 117080.28325623069,
+            "place": 2,
+            "standings": [
+              {
+                "id": "nico",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 115803.58585961121
+              },
+              {
+                "id": "player",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 117080.28325623069
+              }
+            ]
+          }
+        },
+        "377067ee-95c6-4514-9e5f-cd562e70baad": {
+          "id": "377067ee-95c6-4514-9e5f-cd562e70baad",
+          "kind": "chapter-award",
+          "amount": 900,
+          "balance": 2450,
+          "first": true,
+          "at": "2026-09-23T03:33:40.722Z",
+          "event": "p10a-summit-invitational-ridge-v1",
+          "place": 4,
+          "timeMs": 232856.53279079063,
+          "chapterBonus": 0,
+          "handlingProfile": "slingmods-sport-v5",
+          "chapterRecord": {
+            "attemptId": "377067ee-95c6-4514-9e5f-cd562e70baad",
+            "competitionId": "p10a-summit-invitational-ridge-v1",
+            "route": "ridge",
+            "routeVersion": "ridge-layout-v1",
+            "handlingProfile": "slingmods-sport-v5",
+            "laps": 2,
+            "recipe": {
+              "version": 1,
+              "vehicleId": "slingshot-r-2024",
+              "finish": "white-graphite",
+              "products": {
+                "SM-133": "base-rgb",
+                "SM-3223": "silver",
+                "SM-7720": "brushed-silver",
+                "SM-26801": "black-aluminum",
+                "SM-28919": "lower-pair"
+              },
+              "lights": {
+                "color": "red",
+                "brightness": 0.6,
+                "enabled": true
+              },
+              "suspension": {
+                "frontCompression": 2,
+                "frontRebound": 6,
+                "rearCompression": 1,
+                "rearRebound": 3,
+                "rideHeightMm": 0
+              },
+              "handlingProfile": "slingmods-sport-v5"
+            },
+            "timeMs": 232856.53279079063,
+            "place": 4,
+            "standings": [
+              {
+                "id": "maya",
+                "place": 1,
+                "status": "finished",
+                "timeMs": 225423.5441738994
+              },
+              {
+                "id": "jett",
+                "place": 2,
+                "status": "finished",
+                "timeMs": 226852.1197710445
+              },
+              {
+                "id": "nico",
+                "place": 3,
+                "status": "finished",
+                "timeMs": 231608.6079531675
+              },
+              {
+                "id": "player",
+                "place": 4,
+                "status": "finished",
+                "timeMs": 232856.53279079063
+              }
+            ]
+          }
+        }
+      }
+    },
+    "durable": true,
+    "pending": false,
+    "notice": "",
+    "dialog": null,
+    "recipe": {
+      "version": 1,
+      "vehicleId": "slingshot-r-2024",
+      "finish": "white-graphite",
+      "products": {
+        "SM-133": "base-rgb",
+        "SM-3223": "silver",
+        "SM-7720": "brushed-silver",
+        "SM-26801": "black-aluminum",
+        "SM-28919": "lower-pair"
+      },
+      "lights": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "suspension": {
+        "frontCompression": 2,
+        "frontRebound": 6,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      },
+      "handlingProfile": "slingmods-sport-v5"
+    }
+  }
+}

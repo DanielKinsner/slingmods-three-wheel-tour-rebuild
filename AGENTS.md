@@ -1,3 +1,17 @@
+# Four completed worktrees integrated on main (2026-09-22)
+
+The owner authorized merging the rider, premium racing UI, race cinematics and audio
+worktrees and repairing their combined behavior. Read `handoff/WORKTREE-INTEGRATION.md`
+and `handoff/WORKTREE-INTEGRATION-VALIDATION.json` for recovery points and verification.
+The original worktrees and `codex/integration-baseline-20260922` remain recoverable.
+Preserve the complete Ryker, Slingshot tuning/history, routes, reward certification,
+career saves and Phase 2 render fixes. Both soundtrack systems share Music off;
+scene music yields during cinematic scoring on the captured master graph.
+Performance remains HOLD; no Phase 3. One lead, no subagents, spending, push or
+deployment. The owner handles publication. Preserve untracked `P06C-HOME-KICKOFF.md`.
+Earlier headers below record completed work.
+
+---
 # Ryker 900 complete vehicle — local implementation (2026-09-22)
 
 The owner authorized Ryker-owned physics and the shared interfaces needed for a fully playable

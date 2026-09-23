@@ -1,0 +1,38 @@
+✔ Music off persists through compatible save migration without changing historical records (0.975ms)
+✔ Surface feedback requires ground contact; wet/night ambience follows the scene (53.0169ms)
+✔ Motion foley rejects normal braking, reset discontinuities and repeated impacts (0.7358ms)
+✖ Motion foley cooldowns restart with a new attempt clock (1.4768ms)
+✔ Race cue edges distinguish checkpoints and failed finishes without replaying on pause (0.2774ms)
+✔ Ryker workshop uses the corresponding component foley and one cue for a preset (0.1771ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 286.2171
+
+✖ failing tests:
+
+test at tests\tour-audio.test.ts:32:1
+✖ Motion foley cooldowns restart with a new attempt clock (1.4768ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'impact',
+  -   'suspension'
+  - ]
+  
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\tour-audio.test.ts:40:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'impact', 'suspension' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
