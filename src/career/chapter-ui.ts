@@ -1,4 +1,5 @@
 import './chapter.css';
+import {SCENES,ScenePlayer} from '../game/scenes';
 import '../game/garage.css';
 import {CREW,portraitMarkup} from '../game/crew';
 import type {CareerClient} from './client';
@@ -7,7 +8,7 @@ import type {DeviceSample} from '../driving/input';
 import {nextCareerStep,careerStepHref,chapterAvailable} from '../career-experience/model';
 export interface ChapterHooks {build():void;shakedown():void;race():void;duel():void}
 export class ChapterUI {
- readonly root=document.createElement('section');readonly menu:BuildMenuInput;private unsubscribe:()=>void;private pending=false;private invitation=false;private inviteMenu:BuildMenuInput;
+ readonly root=document.createElement('section');readonly menu:BuildMenuInput;private unsubscribe:()=>void;private pending=false;private invitation=false;private scene?:ScenePlayer;private inviteMenu:BuildMenuInput;
  constructor(private client:CareerClient,private hooks:ChapterHooks){
   this.root.id='chapter-panel';this.root.setAttribute('aria-label','Build Matters chapter');
   this.root.innerHTML='<span class="chapter-eyebrow">SLINGMODS / CHAPTER 01</span><h1>Build Matters</h1><p id="chapter-status"></p><ol id="chapter-roadmap"></ol><div class="chapter-actions"><button id="continue-chapter" class="chapter-primary">Continue chapter</button><button id="chapter-time-trial">Time trial</button><button id="chapter-duel">Maya duel</button><button id="chapter-crew">Crew race</button><button id="chapter-build">Workshop</button></div><small id="chapter-wallet"></small><p id="chapter-feedback" role="status"></p><aside id="crew-invitation" role="dialog" aria-modal="true" aria-label="Crew invitation" hidden><strong>RAE / THE CREW</strong><p id="crew-lines"></p><button id="accept-crew">Skip dialogue · Race</button><button id="dismiss-crew">Later</button></aside>';
@@ -33,7 +34,8 @@ export class ChapterUI {
   for(const child of this.root.children)if(child instanceof HTMLElement&&child.id!=='crew-invitation')child.inert=this.invitation;
   this.root.setAttribute('aria-busy',String(this.pending));for(const button of this.root.querySelectorAll<HTMLButtonElement>('button'))button.disabled=this.pending||this.client.stale;
   this.root.querySelector<HTMLButtonElement>('#chapter-duel')!.disabled ||=!s.chapters.firstCompletion;this.root.querySelector<HTMLButtonElement>('#chapter-crew')!.disabled ||=!this.crewAvailable();
-  this.root.querySelector<HTMLElement>('#crew-invitation')!.hidden=!this.invitation;const lines=this.root.querySelector<HTMLElement>('#crew-lines')!;if(!lines.dataset.gx){lines.dataset.gx='1';lines.textContent='Maya knows your line now. Jett brings the pace; Nico keeps it tidy. Two laps, top three. Bring the build you trust.';lines.insertAdjacentHTML('beforebegin',portraitMarkup(CREW.rae));lines.insertAdjacentHTML('afterend',`<div class="gx-lineup">${(['maya','jett','nico'] as const).map(id=>portraitMarkup(CREW[id],'gx-portrait is-small')).join('')}</div>`)}
+  this.root.querySelector<HTMLElement>('#crew-invitation')!.hidden=!this.invitation;const lines=this.root.querySelector<HTMLElement>('#crew-lines')!;if(!lines.dataset.gx){lines.dataset.gx='1';lines.textContent='Maya knows your line now. Jett brings the pace; Nico keeps it tidy. Two laps, top three. Bring the build you trust.';lines.hidden=true;const host=document.createElement('div');host.className='gx-scene-host';lines.after(host)}
+  const host=this.root.querySelector<HTMLElement>('#crew-invitation .gx-scene-host');if(this.invitation&&host&&!this.scene){this.scene=new ScenePlayer(host,SCENES.crew,()=>{const b=this.root.querySelector<HTMLElement>('#accept-crew');if(b){b.textContent='Race';b.focus({preventScroll:true})}})}if(!this.invitation&&this.scene){this.scene.dispose();this.scene=undefined;const b=this.root.querySelector('#accept-crew');if(b)b.textContent='Skip dialogue · Race'}
  }
  setVisible(value:boolean){this.root.hidden=!value;if(value)this.menu.reset()}
  frame(sample:DeviceSample){if(!this.root.hidden&&!this.pending)(this.invitation?this.inviteMenu:this.menu).frame(sample)}
