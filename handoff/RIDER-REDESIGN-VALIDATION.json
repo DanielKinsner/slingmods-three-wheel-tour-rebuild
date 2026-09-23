@@ -1,0 +1,134 @@
+{
+  "assignment": "Isolated Tour Rider v1 redesign",
+  "branch": "codex/rider-redesign",
+  "base": "7b041acea01be9f13ba0da6007158ebbd7191525",
+  "pushed": false,
+  "deployed": false,
+  "asset": {
+    "version": 1,
+    "source": "assets/blender/drivers/tour-rider.blend",
+    "asset": "/assets/drivers/tour-rider/tour-rider.glb",
+    "triangles": 42491,
+    "primitives": 4,
+    "materials": 3,
+    "textures": {
+      "uniqueImages": 3,
+      "size": 1024,
+      "rgba8WithMipsMiB": 16.0
+    },
+    "bytes": 4057916,
+    "sha256": "772e804b33dc7ba53a6ad818cd1df3196d15ca195741c43b1227ffb53e451662",
+    "animation": "Runtime additive semantic-bone motion; applied before original control/foot IK. No baked clip dependency.",
+    "provenance": "Original repository-owned seated skeleton and garment base; original Blender-authored tailoring, protective gear, helmet and deterministic PBR atlas. No downloads or likeness.",
+    "baseSourceSha256": "59b92afcd742abe9f9c87bc40bfeaeaff8743e592ea8fe85461ff4290df8c723"
+  },
+  "tests": {
+    "command": "npm test",
+    "pass": 419,
+    "fail": 0,
+    "focusedCommand": "npx tsx --test tests/rider-motion.test.ts tests/driver.test.ts",
+    "focusedPass": 10
+  },
+  "build": {
+    "command": "npm run demo:build",
+    "pass": true,
+    "ref": "28a8b8b89c13-working",
+    "created": "2026-09-23T02:56:54.194Z",
+    "riderInputSHA256": "772e804b33dc7ba53a6ad818cd1df3196d15ca195741c43b1227ffb53e451662",
+    "output": "demo-dist/2026-09-23T02-56-52-355Z-28a8b8b89c13-working",
+    "allInventoriedInputsStillMatch": true,
+    "modifiedRuntimeInputs": {
+      "demo-assets.json": "503786ac7f255097b5186cb79db3451cfa7abe560e6695c51e75bf8f533315df",
+      "src/presentation/driver.ts": "6462e24bba1e8132ab57e1f8124d42cf4e9fef789d6d6377330cb9a505a5f3f6",
+      "src/presentation/hero.ts": "f1a8ee13e53dc524a7b8ba72430b4961920bf6ddcdd2d7170982dbdf625f6174",
+      "src/presentation/rider-asset.ts": "bcd671e88247e7bcad15de8dca7848cda07bbc452a8802cd060ef77a3dbf6482",
+      "src/presentation/rider-motion.ts": "972974952b049cbb6af7055787b0116af717999df2cb338279404ec9eeaa75e2",
+      "src/signature/drive-preparation.ts": "ff7e3b66e40307a0ce50c71ccec95de6a4c3ecbe71a4d46c9839cb72ac09d105",
+      "src/signature/scene.ts": "d8a10cf13792249e8b22194392f6aed01793af2f0912de49cb8e3a967a04de15",
+      "src/workbench.ts": "399830a8b68433586a9636da79440714641cecbcdc93b98cf445e0c5d6753ae6"
+    },
+    "inventoriedInputCount": 509
+  },
+  "browser": {
+    "pass": true,
+    "source": "rider-redesign-evidence/integrated/browser-validation.json",
+    "contacts": [
+      {
+        "asset": "legacy",
+        "vehicle": "none",
+        "maxHandGapM": 1.914011789797294e-07,
+        "maxFootGapM": 1.2972235565208807e-07,
+        "maxSupportingHandGapM": 1.0177231039771505e-07
+      },
+      {
+        "asset": "legacy",
+        "vehicle": "slingshot",
+        "maxHandGapM": 1.914011784825273e-07,
+        "maxFootGapM": 1.2972235565208807e-07,
+        "maxSupportingHandGapM": 1.0177230590564052e-07
+      },
+      {
+        "asset": "legacy",
+        "vehicle": "ryker",
+        "maxHandGapM": 1.4911517022871036e-07,
+        "maxFootGapM": 1.0284662898278652e-07,
+        "maxSupportingHandGapM": 1.2732288741977724e-07
+      },
+      {
+        "asset": "tour",
+        "vehicle": "none",
+        "maxHandGapM": 1.898716629743424e-07,
+        "maxFootGapM": 1.2972235565208807e-07,
+        "maxSupportingHandGapM": 1.042449568403795e-07
+      },
+      {
+        "asset": "tour",
+        "vehicle": "slingshot",
+        "maxHandGapM": 1.9026766899709776e-07,
+        "maxFootGapM": 1.2972235565208807e-07,
+        "maxSupportingHandGapM": 1.0424493001019455e-07
+      },
+      {
+        "asset": "tour",
+        "vehicle": "ryker",
+        "maxHandGapM": 1.5132072862676237e-07,
+        "maxFootGapM": 1.0284662898278652e-07,
+        "maxSupportingHandGapM": 1.2711299921102127e-07
+      }
+    ],
+    "absoluteHandAndFootLimitM": 0.001,
+    "fullSteerRadians": [
+      -0.62,
+      0.62
+    ],
+    "rykerAbsoluteSteeringFit": "PASS with main 35cadcf steering lean/twist retained; supersedes original base reach limitation."
+  },
+  "packagedSmoke": {
+    "pass": true,
+    "source": "rider-redesign-evidence/integrated/game-smoke.json",
+    "testedOutput": "demo-dist/2026-09-23T02-56-52-355Z-28a8b8b89c13-working",
+    "speeds": [
+      {
+        "vehicleAsset": "/assets/model02/slingshot-2026.glb",
+        "metresPerSecond": 18.61525615210304
+      },
+      {
+        "vehicleAsset": "/assets/ryker/complete/ryker-900-complete.glb",
+        "metresPerSecond": 19.466157914876334
+      }
+    ],
+    "showroomAcknowledgementAndBreathing": true,
+    "reducedMotion": true
+  },
+  "performanceGate": "HOLD unchanged; not measured",
+  "protectedPaths": "Compared against integrated main 35cadcf: zero rider changes to simulation, input, audio, attachment JSON, Ryker/Slingshot vehicle assets, products, routes, career, rewards, historical rider and old handoffs.",
+  "mergedIntoMain": false,
+  "mainMergedIntoFeature": "35cadcfb3c2a35a530f751686e449b22bdfa0116",
+  "originalRiderCommit": "28a8b8b89c13a40bd1e87611d122c0d994ba4561",
+  "resolvedOverlaps": [
+    "src/presentation/driver.ts",
+    "src/presentation/hero.ts",
+    "src/signature/drive-preparation.ts",
+    "src/signature/scene.ts"
+  ]
+}

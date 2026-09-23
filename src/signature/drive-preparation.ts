@@ -1,3 +1,4 @@
+import {riderAssetURL} from '../presentation/rider-asset';
 import {surfaceAssetURLs} from '../presentation/surface-assets';
 import {effectAssetURLs} from '../presentation/effect-assets';
 import {RIDGE_ASSETS} from '../ridge/assets';
@@ -8,7 +9,7 @@ import {CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,CURRENT_P
 import type {BuildRecipe,DestinationId} from './config';
 export const DRIVE_DESTINATIONS:Record<DestinationId,string>={harbor:'Original Harbor',express:'Harbor Express',ridge:'Smoky Ridge'};
 export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
- const shared=recipe.vehicleId==='can-am-ryker-900'?['/assets/ryker/complete/ryker-900-complete.glb','/assets/ryker/complete/ryker-underglow.glb','/assets/drivers/test-driver.glb','/assets/ryker/driver-attachment.json','/assets/ryker/rear-rig.json','/assets/brand/slingmods-sign.glb']:[CURRENT_VEHICLE_URL,'/assets/drivers/test-driver.glb',CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,'/assets/brand/slingmods-sign.glb',CURRENT_UNDERGLOW.glb,CURRENT_UNDERGLOW.attachment,'/assets/products/ddmworks-sm3223-silver.glb',CURRENT_PRODUCTS_URL];
+ const shared=recipe.vehicleId==='can-am-ryker-900'?['/assets/ryker/complete/ryker-900-complete.glb','/assets/ryker/complete/ryker-underglow.glb',riderAssetURL(),'/assets/ryker/driver-attachment.json','/assets/ryker/rear-rig.json','/assets/brand/slingmods-sign.glb']:[CURRENT_VEHICLE_URL,riderAssetURL(),CURRENT_DRIVER_ATTACHMENT,CURRENT_REAR_RIG,'/assets/brand/slingmods-sign.glb',CURRENT_UNDERGLOW.glb,CURRENT_UNDERGLOW.attachment,'/assets/products/ddmworks-sm3223-silver.glb',CURRENT_PRODUCTS_URL];
  if(route!=='ridge')shared.push('/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb');
  if(route==='harbor')shared.push('/assets/harbor/route.json','/assets/harbor/harbor.glb');
  else for(const name of ['p06c_asphalt_Diffuse.jpg','p06c_asphalt_nor_gl.jpg','p06c_asphalt_Rough.jpg','leafy_grass_Diffuse.jpg'])shared.push('/assets/showcase-quality/textures/'+name);
