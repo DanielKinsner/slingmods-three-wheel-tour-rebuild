@@ -32,7 +32,7 @@ export function tourEntry({model, ryker, careerLabel, careerDetail, progress, re
     <header class="gx-menu-title"><span class="gx-kicker">SLINGMODS PRESENTS</span><h1 class="gx-display">THREE-WHEEL<br><em>TOUR</em></h1></header>
     <nav class="gx-menu-stack" aria-label="Game modes">
       ${tile('career', escape(careerTitle), escape(careerSub), 'CAREER', career, 'gx-tile-hero')}
-      ${tile('quick-race', 'Quick race', 'Three destinations · race the crew or free drive', 'ARCADE')}
+      ${tile('quick-race', 'Quick race', 'Race the crew · Time Attack medals · free drive', 'ARCADE')}
       ${tile('build', 'Garage', 'Make it yours · paint, parts and setup', 'MAKE IT YOURS')}
       ${tile('shop', 'Shop this build', 'Every part you fit, on SlingMods.com', 'REAL PARTS')}
     </nav>

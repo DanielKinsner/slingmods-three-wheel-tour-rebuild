@@ -151,15 +151,15 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='copy'){await navigator.clipboard.writeText(buildSummary(recipe));status='Build summary copied.'}
  // Back: leave an inspection first, then retrace in-app history, then go up one level. Never toggles.
  else if(name==='back'){audio.cue('ui.back');if(screen==='build'&&currentView!=='hero'&&(currentView.startsWith('SM-')||currentView==='tour-wall'||currentView==='interior'))view('hero');else if(navDepth>0)window.history.back();else if(screen!=='entry')goScreen(screen==='shop'?'build':'entry','replace')}
- else if(name==='test-drive'||name==='race'){
+ else if(name==='test-drive'||name==='race'||name==='time-attack'){
   if(value==='duel'||value==='crew'){careerView?careerView.navigate('?scene=career&play=career'):location.assign('?scene=career&play=career');return}
   const route=value==='ridge'?'ridge':value==='harbor'?'harbor':'express',snapshot=validateRecipe(recipe),look=route==='ridge'?'':destinationLooks[route];if(look)rememberLook(route as 'express'|'harbor',look);
-  const target=`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='race'?'race':'test'}&play=preview${route==='ridge'?'&lighting='+destinationLighting:'&look='+look}${fromCareer?'&from='+fromCareer:''}${recipeFragment(snapshot)}`;
-  pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot,name==='race'?'race':'test');pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
-  storage.store.beginDrive(snapshot,route,name==='race'?'race':'test',destinationLighting);
+  const target=`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='test-drive'?'test':'race'}${name==='time-attack'?'&trial=1':''}&play=preview${route==='ridge'?'&lighting='+destinationLighting:'&look='+look}${fromCareer?'&from='+fromCareer:''}${recipeFragment(snapshot)}`;
+  pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot,name==='test-drive'?'test':'race');pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
+  storage.store.beginDrive(snapshot,route,name==='test-drive'?'test':'race',destinationLighting);
   // A temporary career rides along in this tab (never into the drive's rewards) so it survives the round trip.
   const destinationHref=careerView?careerView.relay(target):target;
-  if(name==='race'||reducedMotion){location.assign(destinationHref);return}
+  if(name!=='test-drive'||reducedMotion){location.assign(destinationHref);return}
   compare=false;await reapply();pending=true;refresh();accessories.inspectStorage(false);shocks.inspectionView(null);
   contact.mesh.visible=false;ui.root.hidden=true;ui.root.inert=true;controls.enabled=false;keyboard.clear();camera.clearViewOffset();camera.updateProjectionMatrix();
   const audioPanel=document.getElementById('game-audio');if(audioPanel){audioPanel.inert=true;audioPanel.hidden=true}hero.driver.root.visible=true;

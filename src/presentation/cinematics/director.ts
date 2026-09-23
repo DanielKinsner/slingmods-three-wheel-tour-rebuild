@@ -9,6 +9,8 @@ interface RaceState {phase:string;paused:boolean;playerResult?:{valid:boolean;at
 interface Options {
   parent:Element; camera:THREE.PerspectiveCamera; hero:THREE.Object3D;
   vehicle:'slingshot'|'ryker'; destination:string; context:string;
+  /** false: the victory film never starts by itself (Time Attack keeps retries instant); the launcher still offers it. */
+  autoplay?:boolean;
   ground:(x:number,z:number)=>number;
   obstruction:(target:THREE.Vector3,desired:THREE.Vector3)=>number|undefined;
   score:(film:Film|null,elapsed?:number)=>void;
@@ -96,7 +98,7 @@ export class RaceFilmDirector {
     this.parked.mesh.visible=this.active&&state.phase==='ready';if(this.parked.mesh.visible)this.parked.ground(this.options.hero,this.options.ground);
     const canWatch=(state.phase==='ready'||!!state.playerResult)&&!state.paused;
     this.launcher.hidden=!canWatch||this.active;
-    if(this.gate.accept(state.playerResult,state.paused)&&!this.disabled&&!motionReduced()){
+    if(this.gate.accept(state.playerResult,state.paused)&&!this.disabled&&this.options.autoplay!==false&&!motionReduced()){
       this.result=state.playerResult;if(!this.active)this.play('victory');
     }
     if(!this.film)return;

@@ -32,5 +32,5 @@ if(activeProfile()==='demo'&&!garage){const link=document.createElement('a');lin
 }
 showModelCandidate();
 installVehicleSelection();
-}catch(error){showRecovery(/demo session/i.test(String((error as Error)?.message))?'demo':/webgl|context|graphics/i.test(String((error as Error)?.message))?'graphics':'assets')}
+}catch(error){console.error(error);showRecovery(/demo session/i.test(String((error as Error)?.message))?'demo':/webgl|context|graphics/i.test(String((error as Error)?.message))?'graphics':'assets')}
 export {};

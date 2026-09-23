@@ -72,13 +72,13 @@ html.gx body #harbor-ui:has(.gx-lights.is-on) #race-banner{opacity:0}
 @keyframes gx-slam{0%{opacity:0;transform:translateX(-50%) scale(2.4)}10%{opacity:1;transform:translateX(-50%) scale(.94)}16%{transform:translateX(-50%) scale(1)}82%{opacity:1}100%{opacity:0;transform:translateX(-50%) scale(1.04)}}
 
 /* ---------- Splits ---------- */
-.gx-split{position:absolute;right:var(--gx-edge-x);top:120px;display:grid;justify-items:end;gap:2px;padding:8px 16px;background:var(--gx-glass);backdrop-filter:blur(8px);opacity:0;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.gx-split{position:absolute;left:50%;margin-left:-80px;width:160px;justify-items:center;top:86px;display:grid;justify-items:end;gap:2px;padding:8px 16px;background:var(--gx-glass);backdrop-filter:blur(8px);opacity:0;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
 .gx-split.is-on{animation:gx-split 1.8s var(--gx-ease) both}
 .gx-split small{font:800 9px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
 .gx-split b{font:italic 800 34px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums}
 .gx-split.is-ahead b{color:var(--gx-good)}.gx-split.is-behind b{color:var(--gx-bad)}
-.gx-split.is-ahead{box-shadow:inset -4px 0 0 var(--gx-good)}.gx-split.is-behind{box-shadow:inset -4px 0 0 var(--gx-bad)}
-@keyframes gx-split{0%{opacity:0;transform:translateX(30px)}12%{opacity:1;transform:none}85%{opacity:1}100%{opacity:0}}
+.gx-split.is-ahead{box-shadow:inset 0 -3px 0 var(--gx-good)}.gx-split.is-behind{box-shadow:inset 0 -3px 0 var(--gx-bad)}
+@keyframes gx-split{0%{opacity:0;transform:translateY(-12px)}12%{opacity:1;transform:none}85%{opacity:1}100%{opacity:0}}
 
 /* ---------- Finish flash ---------- */
 .gx-flash{position:absolute;inset:0;background:#fff;opacity:0}
@@ -153,3 +153,33 @@ html.gx body.harbor-race #game-audio :is(button,summary){min-height:38px;font:80
 html.gx body.harbor-race .gx-prompts{justify-content:center;background:none}
 html.gx body #game-graphics{background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px);font-family:var(--gx-body)}
 html.gx body #game-graphics select{background:#ffffff0d;color:var(--gx-ink);border:1px solid var(--gx-edge-2);font:700 13px var(--gx-body)}
+
+/* ---------- Time Attack: medal ladder HUD + results medal ---------- */
+html.gx body #harbor-ui:has(.gx-trial) :is(#crew-order,.race-position){display:none}
+.gx-trial{position:fixed;right:var(--gx-edge-x);top:186px;z-index:5;width:220px;padding:12px 14px;background:var(--gx-glass);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--gx-edge);font-family:var(--gx-body);pointer-events:none}
+.gx-trial-title{display:block;font:800 9px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-red);margin-bottom:8px}
+.gx-trial ol{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.gx-trial li{display:grid;grid-template-columns:14px 1fr auto;align-items:center;gap:8px;padding:4px 6px;font:700 12px/1 var(--gx-body);color:var(--gx-ink-2)}
+.gx-trial li b{font:italic 800 17px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-ink)}
+.gx-trial li i,.gx-medal i{width:12px;height:12px;border-radius:50%;background:var(--gx-medal,#888);box-shadow:0 0 8px var(--gx-medal,#888)}
+.gx-trial li[data-earned=true]{opacity:.55}.gx-trial li[data-earned=true] b{text-decoration:line-through;text-decoration-thickness:2px}
+.gx-trial li[data-next=true]{background:#ffffff12;box-shadow:inset 3px 0 0 var(--gx-medal)}
+[data-medal=slingmods]{--gx-medal:#ff3b2f}[data-medal=gold]{--gx-medal:#ffd23c}[data-medal=silver]{--gx-medal:#dfe6ee}[data-medal=bronze]{--gx-medal:#e39a5c}[data-medal=none]{--gx-medal:#666}
+.gx-trial p{display:flex;justify-content:space-between;align-items:baseline;margin:10px 0 0;padding-top:8px;border-top:1px solid var(--gx-edge)}
+.gx-trial p span{font:800 9px/1 var(--gx-body);letter-spacing:.24em;color:var(--gx-mute)}
+.gx-trial p b{font:italic 800 20px/1 var(--gx-display);font-synthesis:style;color:var(--gx-hot)}
+.gx-trial small{display:flex;align-items:center;gap:6px;margin-top:8px;font:800 9px/1 var(--gx-body);letter-spacing:.2em;color:var(--gx-cool)}
+.gx-trial small i{width:10px;height:10px;border-radius:2px;background:var(--gx-cool);box-shadow:0 0 8px var(--gx-cool)}
+html.gx body.race-results-open .gx-trial,html.gx body.race-menu-open .gx-trial{opacity:0}
+.gx-trial-result{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin:6px 0 16px;padding:14px 18px;background:#ffffff0a;border-left:4px solid var(--gx-medal);animation:gx-rise .5s .3s var(--gx-ease) both}
+.gx-medal{display:grid;justify-items:center;gap:6px;min-width:96px}
+.gx-medal i{width:64px;height:64px;background:radial-gradient(circle at 35% 30%,#fff 0%,var(--gx-medal) 38%,color-mix(in srgb,var(--gx-medal) 55%,#000) 100%);box-shadow:0 0 30px var(--gx-medal),inset 0 -4px 10px #0006;animation:gx-pop .7s .5s var(--gx-ease) both}
+.gx-medal[data-medal=none] i{background:#ffffff14;box-shadow:inset 0 0 0 2px #ffffff30;animation:none}
+.gx-medal b{font:italic 800 22px/1 var(--gx-display);font-synthesis:style;color:var(--gx-medal)}
+.gx-medal span{font:800 9px/1 var(--gx-body);letter-spacing:.24em;color:var(--gx-ink);background:var(--gx-red);padding:4px 8px}
+.gx-trial-lines{display:grid;gap:8px}
+.gx-trial-lines p{margin:0;display:grid;gap:3px}
+.gx-trial-lines b{font:italic 800 20px/1 var(--gx-display);font-synthesis:style;letter-spacing:.03em}
+.gx-trial-lines span{font:700 13px/1.2 var(--gx-body);color:var(--gx-ink-2)}
+.gx-trial-lines .is-record b{color:var(--gx-hot)}.gx-trial-lines .is-record span{color:var(--gx-good)}
+html.gx body #harbor-ui:has(.gx-trial) #race-menu :is(.result-numeral,.result-standings){display:none}
