@@ -1,3 +1,5 @@
+> Current playable-vehicle work supersedes the visual-only limitations below. See [PHYSICS.md](PHYSICS.md), [PRODUCT-REFERENCES.md](PRODUCT-REFERENCES.md) and the root handoff for the complete vehicle and acceptance evidence. Original conversion records below are preserved as history.
+
 # Purchased Can-Am Ryker 900 game asset
 
 The purchased markos3d model is converted, rigged and integrated as an optional player appearance. The 2026 Slingshot remains the default and the rival fleet remains Slingshots. Developed on the isolated `codex/ryker-game-asset` branch, with the owner authorizing integration into main on September 22, 2026. See `evidence/main-readiness.json` for the pre-merge checks.

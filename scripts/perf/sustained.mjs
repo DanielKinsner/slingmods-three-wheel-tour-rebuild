@@ -24,11 +24,11 @@ try {
  assert.equal(report.initial.pipeline.quality,quality);assert.equal(report.initial.pipeline.post,true);assert.equal(report.initial.handlingProfile,'slingmods-sport-v5');assert.equal(report.initial.free,false);
  await p.addScriptTag({content:source});
  if(!report.initial.audio.enabled)await p.locator('#enable-sound').click();await p.waitForFunction(()=>window.__EXPRESS.inspect().audio.enabled);
- await p.evaluate(()=>{window.__drive=true;window.__finished=0;let attempt='',driver,prior='ready',lastTick=-1;
+ await p.evaluate(()=>{window.__drive=true;window.__finished=0;let attempt='',driver,completedId='',lastTick=-1;
   function frame(){if(!window.__drive)return;const h=window.__EXPRESS,s=h.lightweight();
    if(attempt!==s.attemptId){attempt=s.attemptId;driver=new window.ParityDriver.EvidenceDriver(h.route);lastTick=-1;}
    if(s.ticks!==lastTick||s.race.phase!=='running'){h.setDeviceSample(s.race.phase==='running'?driver.sample(s.telemetry,s.field):window.ParityDriver.toDevice());lastTick=s.ticks;}
-   if(s.race.allFinished&&prior!=='finished'){window.__finished++;prior='finished';}else if(!s.race.allFinished)prior=s.race.phase;
+   if(s.race.allFinished&&completedId!==s.attemptId){window.__finished++;completedId=s.attemptId;}
    requestAnimationFrame(frame);
   }requestAnimationFrame(frame);
  });

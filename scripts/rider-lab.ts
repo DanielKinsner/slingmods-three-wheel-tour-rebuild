@@ -44,7 +44,7 @@ async function load() {
  const variant=select('asset').value, car=select('vehicle').value;
  assetURL=variant==='legacy'?LEGACY_RIDER_URL:TOUR_RIDER_URL;
  const attachment=car==='ryker'?'/assets/ryker/driver-attachment.json':'/assets/model02/driver-attachment.json';
- const [person, cfg, model] = await Promise.all([loader.loadAsync(assetURL), fetch(attachment).then(r=>r.json()), loader.loadAsync(car==='ryker'?'/assets/ryker/ryker-900.glb':'/assets/model02/slingshot-2026.glb')]);
+ const [person, cfg, model] = await Promise.all([loader.loadAsync(assetURL), fetch(attachment).then(r=>r.json()), loader.loadAsync(car==='ryker'?'/assets/ryker/complete/ryker-900-complete.glb':'/assets/model02/slingshot-2026.glb')]);
  if(serial!==loadSerial){disposeTree(person.scene);if(model)disposeTree(model.scene);return}
  scene.remove(vehicle);disposeTree(vehicle);vehicle=new THREE.Group();scene.add(vehicle);config=cfg;
  if(config.rootOffset)person.scene.position.fromArray(config.rootOffset);vehicle.add(person.scene);
@@ -59,7 +59,7 @@ async function load() {
  time=0;ready=true;cameraView();frame(0,true); updateStatus();
 }
 function telemetry(): VehicleTelemetry {
- const steer=pose==='left'?.4:pose==='right'?-.4:0;
+ const steer=pose==='left'?.4:pose==='right'?-.4:pose==='left-lock'?.62:pose==='right-lock'?-.62:0;
  return {speed:pose==='idle'?0:pose==='brake'?8:22,steer,throttle:pose==='idle'||pose==='brake'?0:.35,brake:pose==='brake'?1:0} as VehicleTelemetry;
 }
 function frame(dt:number,reset=false,raster=true){

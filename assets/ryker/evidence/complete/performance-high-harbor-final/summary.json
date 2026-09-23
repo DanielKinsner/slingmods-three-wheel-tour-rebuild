@@ -1,0 +1,183 @@
+{
+  "startedAt": "2026-09-23T02:35:15.445Z",
+  "quality": "high",
+  "cadence": "native",
+  "route": "harbor",
+  "look": "dusk-rain",
+  "url": "http://127.0.0.1:5199",
+  "browser": "153.0.8010.12",
+  "args": [
+    "--use-angle=d3d11",
+    "--mute-audio"
+  ],
+  "vehicle": "can-am-ryker-900",
+  "gatePolicy": "Measurement of this addition only; existing Phase 2 HOLD remains unless the complete High/Ultra closing gate separately passes.",
+  "sourceCommit": "7b041acea01be9f13ba0da6007158ebbd7191525",
+  "thresholds": {
+    "p95Ms": 20,
+    "p99Ms": 33.4,
+    "maxMs": 100,
+    "highAverageMs": 10,
+    "highWorstOnePercentMs": 16.6,
+    "toleranceMs": 0.000001
+  },
+  "method": "Isolated Chromium ANGLE D3D11 on owner GPU, native wall-clock RAF (uncapped lane explicitly disables vsync); 2560x1440 DPR1. Two complete races and at least 90 active seconds, bounded at three races. Vehicle-aware evidence driver through ordinary pedal/steering controls; real simulation/rivals/results. Audio graph active, output muted. All raw phases/outliers retained. No screenshots, readback, trace, draw wrappers or recorder in scored frames. CPU submission is not GPU execution time. OS/driver caches not flushed.",
+  "errors": [],
+  "failedRequests": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "samples": 4731,
+      "activeSeconds": 78.89690000000131,
+      "averageMs": 16.676580004227713,
+      "averageFps": 59.964333199402276,
+      "worstOnePercentMs": 17.83333333333606,
+      "onePercentLowFps": 56.07476635513161,
+      "p50Ms": 16.69999999999709,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 33.400000000001455,
+      "over33_4": 0,
+      "over50": 0,
+      "over100": 0,
+      "frameTail": true,
+      "highBudget": null,
+      "resolutionScale": {
+        "minimum": 0.95,
+        "maximum": 1,
+        "average": 0.9996829422954978
+      },
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "f091d795-8eaf-4590-81f0-367be930c096",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 78884.10012766103,
+        "place": 3,
+        "invalidReason": null
+      },
+      "finishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70593.63290894721
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72474.26939910986
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 78884.10012766103
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 82345.97968088742
+        }
+      ],
+      "pipeline": {
+        "quality": "high",
+        "post": true,
+        "samples": 4,
+        "bloomLevels": 5,
+        "resolutionScale": 1,
+        "targetFrameMs": 16.57,
+        "size": [
+          2560,
+          1440
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "samples": 4732,
+      "activeSeconds": 78.8968,
+      "averageMs": 16.673034657650042,
+      "averageFps": 59.977083988197236,
+      "worstOnePercentMs": 17.489583333349703,
+      "onePercentLowFps": 57.176891006498,
+      "p50Ms": 16.699999999982538,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.800000000017462,
+      "maxMs": 33.39999999999418,
+      "over33_4": 0,
+      "over50": 0,
+      "over100": 0,
+      "frameTail": true,
+      "highBudget": null,
+      "resolutionScale": {
+        "minimum": 1,
+        "maximum": 1,
+        "average": 1
+      },
+      "result": {
+        "event": "harbor-preview-quick-race-v1",
+        "attemptId": "e744d4b1-a3a4-41b9-9366-358ff0389a95",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 78884.11568852724,
+        "place": 3,
+        "invalidReason": null
+      },
+      "finishers": [
+        {
+          "id": "maya",
+          "status": "finished",
+          "timeMs": 70593.63290894721
+        },
+        {
+          "id": "jett",
+          "status": "finished",
+          "timeMs": 72474.26939910986
+        },
+        {
+          "id": "player",
+          "status": "finished",
+          "timeMs": 78884.11568852724
+        },
+        {
+          "id": "nico",
+          "status": "finished",
+          "timeMs": 82346.03121793231
+        }
+      ],
+      "pipeline": {
+        "quality": "high",
+        "post": true,
+        "samples": 4,
+        "bloomLevels": 5,
+        "resolutionScale": 1,
+        "targetFrameMs": 16.54,
+        "size": [
+          2560,
+          1440
+        ]
+      }
+    }
+  ],
+  "timeOrigin": 1790130915481.6,
+  "sustained": true,
+  "pooled": {
+    "samples": 9463,
+    "activeSeconds": 157.7936999999993,
+    "averageMs": 16.674807143611886,
+    "averageFps": 59.97070858976019,
+    "worstOnePercentMs": 17.670526315805066,
+    "onePercentLowFps": 56.59141001960813,
+    "p50Ms": 16.69999999999709,
+    "p95Ms": 16.70000000001164,
+    "p99Ms": 16.80000000000291,
+    "maxMs": 33.400000000001455,
+    "over33_4": 0,
+    "over50": 0,
+    "over100": 0
+  },
+  "pass": true
+}

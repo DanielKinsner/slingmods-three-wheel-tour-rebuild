@@ -6,7 +6,7 @@ import {careerRecipe} from '../career-experience/model';
 import {productById} from '../signature/catalog';
 import {recipeFragment,validateRecipe} from '../signature/config';
 import './build.css';import {PRODUCT,COLORS,defaultAppearance,type Appearance,type KitColor}from'./catalog';import{RAE,type CareerClient}from'./client';import{BuildMenuInput}from'./menu';import type{DeviceSample}from'../driving/input';
-export interface BuildHooks {cue?(id:CueId,key?:string):void;suspension?(equipped:boolean):void;inspectHardware?(rear:boolean|null):void;open(value:boolean):void;previewNight(value:boolean):void;appearance(equipped:boolean,appearance:Appearance):void}
+export interface BuildHooks {inspectPart?:(part:string)=>void;cue?(id:CueId,key?:string):void;suspension?(equipped:boolean):void;inspectHardware?(rear:boolean|null):void;open(value:boolean):void;previewNight(value:boolean):void;appearance(equipped:boolean,appearance:Appearance):void}
 export class BuildUI {
  private suspensionUI:SuspensionUI;
  readonly root=document.createElement('section');readonly menu:BuildMenuInput;private opened=false;private preview=false;private compare=false;private pending=false;private night=false;private temporary=defaultAppearance();private unsubscribe:()=>void;private story=document.createElement('aside');private status='';

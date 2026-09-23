@@ -1,7 +1,8 @@
 /** Versioned game tuning; values are author estimates, never OEM/product specifications. */
-export type HandlingProfileId='legacy-p08a'|'slingmods-sport-v1'|'slingmods-sport-v2'|'slingmods-sport-v3'|'slingmods-sport-v4'|'slingmods-sport-v5';
+export type HandlingProfileId='legacy-p08a'|'slingmods-sport-v1'|'slingmods-sport-v2'|'slingmods-sport-v3'|'slingmods-sport-v4'|'slingmods-sport-v5'|'ryker-road-v1';
 export const CURRENT_HANDLING_PROFILE='slingmods-sport-v5' as const;
 export const HANDLING_PROFILES={
+ 'ryker-road-v1':{id:'ryker-road-v1',name:'Ryker 900 Road v1',torqueScale:1,shiftSeconds:0,steerLock:.62,steerFalloff:.018,lateralSteerLimit:7.8,steerRate:3.1,asphaltGripScale:1.08,tireStiffness:9,brakeScale:1,brakeSteerRelief:0,damperFront:1650,damperRear:2900},
  'legacy-p08a':{id:'legacy-p08a',name:'Legacy P08A',torqueScale:1,shiftSeconds:.24,steerLock:.53,steerFalloff:.037,lateralSteerLimit:5.4,steerRate:1.7,asphaltGripScale:1,tireStiffness:7,brakeScale:1,brakeSteerRelief:0,damperFront:3800,damperRear:6500},
  'slingmods-sport-v1':{id:'slingmods-sport-v1',name:'SlingMods Sport',torqueScale:1.30,shiftSeconds:.18,steerLock:.60,steerFalloff:.021,lateralSteerLimit:8.2,steerRate:2.7,asphaltGripScale:1.15,tireStiffness:8,brakeScale:.7,brakeSteerRelief:.35,damperFront:3800,damperRear:6500},
  // V2 retains v1 power/steering/grip; brake demand=1g, load allocation in Simulation,
@@ -18,7 +19,7 @@ export function steeringLimit(speed:number,id:HandlingProfileId='legacy-p08a',wh
  // V3 permits finite tire-slip steering reserve instead of treating a no-slip
  // bicycle angle as the tire's maximum command. This is an input envelope, not
  // added grip: existing three-tire combined-force saturation remains unchanged.
- const reserve=id==='slingmods-sport-v5'?.035*speed*speed/(speed*speed+225):(id==='slingmods-sport-v3'||id==='slingmods-sport-v4')?.025*speed*speed/(speed*speed+100)/(1+speed*speed/500):0;
+ const reserve=id==='ryker-road-v1'?.045*speed*speed/(speed*speed+144):id==='slingmods-sport-v5'?.035*speed*speed/(speed*speed+225):(id==='slingmods-sport-v3'||id==='slingmods-sport-v4')?.025*speed*speed/(speed*speed+100)/(1+speed*speed/500):0;
  return Math.min(p.steerLock/(1+Math.abs(speed)*p.steerFalloff),geometric+reserve)}
 export function steeringRequest(demand:number,speed:number,id:HandlingProfileId='legacy-p08a',brake=0,wheelbase=2.667){const p=handlingProfile(id),d=Math.max(-1,Math.min(1,Number.isFinite(demand)?demand:0));return d*steeringLimit(speed,id,wheelbase)*(id==='legacy-p08a'?1:1-p.brakeSteerRelief*Math.max(0,Math.min(1,brake)))}
 /** Inverse request mapping shared by physical rival/recovery controllers. */

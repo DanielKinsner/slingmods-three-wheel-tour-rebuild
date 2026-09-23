@@ -31,18 +31,11 @@ def cylinder(name,a,b,r,parent,material,vertices=48):
  a,b=v(a),v(b);bpy.ops.mesh.primitive_cylinder_add(vertices=vertices,radius=r,depth=(b-a).length,location=(a+b)/2);o=bpy.context.object;o.rotation_euler=(b-a).to_track_quat('Z','Y').to_euler();finish(o,name,parent,material)
  for p in o.data.polygons:p.use_smooth=len(p.vertices)==4
  bevel=o.modifiers.new('Machined edge','BEVEL');bevel.width=.001;bevel.segments=2;return o
-def stock_partition(source,groups):
- sm=source.data;labels,islands=components(sm);bins={}
- for k,faces in islands.items():
-  coords=[source.matrix_world@sm.vertices[i].co for i in {i for f in faces for i in sm.polygons[f].vertices}];co=[(p.x,p.z,-p.y) for p in coords];lo=[min(p[a] for p in co) for a in range(3)];hi=[max(p[a] for p in co) for a in range(3)];key=groups(k,lo,hi);bins.setdefault(key,[]).extend(faces)
- for key,faceids in bins.items():
-  parent=group(key);faces=[sm.polygons[i] for i in faceids];ids=sorted({i for p in faces for i in p.vertices});remap={old:new for new,old in enumerate(ids)};data=bpy.data.meshes.new(key);data.from_pydata([source.matrix_world@sm.vertices[i].co for i in ids],[],[[remap[i] for i in p.vertices] for p in faces]);data.update()
-  for m in sm.materials:data.materials.append(m)
-  for p,orig in zip(data.polygons,faces):p.material_index=orig.material_index;p.use_smooth=orig.use_smooth
-  data.normals_split_custom_set([tuple(sm.corner_normals[j].vector) for p in faces for j in p.loop_indices]);o=bpy.data.objects.new(key+'_mesh',data);bpy.context.scene.collection.objects.link(o);o.parent=parent;made.append(o)
-stock_partition(bpy.data.objects['body_panels'],lambda k,lo,hi:'stock_ryker_body' if hi[2]<-.57 and hi[1]<.62 else 'retained_body_panels')
-stock_partition(bpy.data.objects['front_suspension'],lambda k,lo,hi:'stock_ryker_shocks' if k in [8320,11084,3492,861] else 'retained_front_links')
-stock_partition(bpy.data.objects['rear_mechanical'],lambda k,lo,hi:'stock_ryker_shocks_rear' if k in [37908,23951] else 'stock_ryker_exhaust' if k==11062 else 'retained_rear_mechanical')
+import importlib.util
+spec=importlib.util.spec_from_file_location('partition_stock',pathlib.Path(__file__).with_name('partition-stock.py'));partition_module=importlib.util.module_from_spec(spec);spec.loader.exec_module(partition_module)
+partition_report=[]
+for name in ['body_panels','front_suspension','rear_mechanical']:partition_report+=partition_module.partition(bpy.data.objects[name],group,made)
+(pathlib.Path('assets/ryker/evidence/complete')/'partition-reconstruction.json').write_text(json.dumps(partition_report,indent=2))
 # Panther fascia: formed side cheeks, raised central hood, deep rectangular opening and slatted grille.
 body=group('ryker_mod_body');body['reference']='Panther Customs SM-8167; inferred game surfaces, not OEM CAD'
 for side in [-1,1]:
@@ -118,6 +111,7 @@ for j in range(3):
  z=.453+j*.012;tube('Treal_colored_weld',[(.143+.037*math.cos(i*math.tau/64),.247+.037*math.sin(i*math.tau/64),z) for i in range(65)],.0016,exhaust,weld if j!=1 else blue)
 tube('Treal_upper_bracket',[(.095,.31,.25),(.095,.34,.25),(.185,.34,.25),(.185,.31,.25)],.004,exhaust,steel)
 for x in [.11,.175]:cylinder('Treal_mount_fastener',(x,.337,.25),(x,.35,.25),.007,exhaust,alloy,6)
+exec(compile(pathlib.Path(__file__).with_name('refine-products.py').read_text(), 'refine-products.py','exec'))
 # Separate kit asset so ProductPresenter can share its established lighting controls.
 glow=group('ryker_mod_underglow');diffuser=mat('Ryker_TricLED_diffuser',(.7,.7,.7),.5);housing=mat('Ryker_TricLED_smoked_tube',(.012,.013,.015),.6)
 paths=[]
@@ -130,16 +124,30 @@ for side in [-1,1]:
  paths.append(lamp)
  paths.append([(side*.21,.20,-.962),(side*.23,.38,-.962)])
 for i,points in enumerate(paths):
- tube('TricLED_smoked_mount_'+str(i),points,.005,glow,housing);tube('TricLED_RGB_strip_'+str(i),[(x,y,z-.002) for x,y,z in points],.0027,glow,diffuser)
+ mount=group('TricLED_mount_'+str(i));mount.parent=glow
+ if i in [0,3]:mount['rykerMotion']={'kind':'arm','channel':0 if i==0 else 1,'pivot':[-.177 if i==0 else .193,.31,-.855]}
+ if i in [2,5]:mount['stockGrilleLight']=True
+ tube('TricLED_smoked_mount_'+str(i),points,.005,mount,housing);tube('TricLED_RGB_strip_'+str(i),[(x,y,z-.002) for x,y,z in points],.0027,mount,diffuser)
 # Export only authored objects. The source .blend and runtime vehicle remain untouched.
 for o in list(bpy.data.objects):
  if o not in made:bpy.data.objects.remove(o,do_unlink=True)
-# One rigid mesh per accessory (material slots retained) limits additional draw calls.
-for parent in [body,shocks,exhaust,glow]:
+# Merge only identical rigid motion groups. Source partitions keep their semantic parents.
+for parent in [body,exhaust,*shocks.children,*glow.children]:
+ children=[o for o in parent.children if o.type in ['MESH','CURVE']]
+ if not children:continue
  bpy.ops.object.select_all(action='DESELECT')
- children=list(parent.children_recursive)
  for o in children:o.select_set(True)
  bpy.context.view_layer.objects.active=children[0];bpy.ops.object.convert(target='MESH');bpy.ops.object.join();bpy.context.object.name=parent.name+'_geometry'
+# Static islands and islands with the same motion transform can share a draw.
+for parent in list(root.children):
+ if not (parent.name.startswith('stock_') or parent.name.startswith('retained_')):continue
+ bins={}
+ for o in list(parent.children):
+  meta=o.get('rykerMotion');key=json.dumps(meta.to_dict() if meta else {},sort_keys=True);bins.setdefault(key,[]).append(o)
+ for index,(key,children) in enumerate(bins.items()):
+  bpy.ops.object.select_all(action='DESELECT')
+  for o in children:o.select_set(True)
+  bpy.context.view_layer.objects.active=children[0];bpy.ops.object.join();bpy.context.object.name=parent.name+'_motion_'+str(index)
 bpy.ops.object.select_all(action='DESELECT');glow.select_set(True)
 for o in glow.children_recursive:o.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(out/'ryker-underglow.glb'),export_format='GLB',use_selection=True,export_apply=True,export_extras=True,export_yup=True)

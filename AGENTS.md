@@ -1,3 +1,19 @@
+# Ryker 900 complete vehicle — local implementation (2026-09-22)
+
+The owner authorized Ryker-owned physics and the shared interfaces needed for a fully playable
+second vehicle, superseding the prior visual-only restriction. Read `handoff/RYKER-COMPLETE.md`,
+`handoff/RYKER-VALIDATION.json`, `assets/ryker/PHYSICS.md` and `assets/ryker/PRODUCT-REFERENCES.md`.
+Implementation commit: `7b5018570ed0bb40f83e25e9c6bba96b435aca9e`.
+The purchased originals remain untouched. The complete assembled vehicle, independent CVT,
+articulated stock/Elka parts, four upgrades, original engine synthesis, earned career workshop,
+immutable run identities and Blender showroom route relief are implemented locally.
+
+Preserve Slingshot tuning/history, routes, reward certification, UI repairs and Phase 2 render fixes.
+Performance remains HOLD; this work does not start Phase 3. One lead; no subagents, spending,
+source publication, push or deployment. The owner handles any later publication. Preserve the
+untracked owner `P06C-HOME-KICKOFF.md`. Earlier headers below are history.
+
+---
 # Phase 2 performance: render CPU fixes (2026-09-22)
 
 Read `handoff/PHASE-2-PERF-FIX.md` and `PHASE-2-PERF-FIX-VALIDATION.json`. High harbor dusk-rain

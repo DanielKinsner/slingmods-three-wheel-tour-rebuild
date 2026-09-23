@@ -13,6 +13,7 @@ export const SHOWROOM_SAFE_VOLUME:Readonly<THREE.Box3>=Object.freeze(new THREE.B
 /** Orbit limits for every named view. Close inspections may come nearer than the full-vehicle orbit, never farther than the room. */
 export interface ShowroomPreset {position?:readonly [number,number,number];target?:readonly [number,number,number];direction?:readonly [number,number,number];minDistance:number;maxDistance:number}
 export const SHOWROOM_PRESETS:Record<string,ShowroomPreset>={
+ 'route-relief':{position:[2.8,2.3,-2.7],target:[5.6,2.3,-2.7],minDistance:.6,maxDistance:10},
  'ryker-body':{position:[1.65,1.05,-2.4],target:[0,.42,-.78],minDistance:.6,maxDistance:10},
  'ryker-shocks':{position:[-1.15,.72,-1.8],target:[-.25,.31,-.85],minDistance:.5,maxDistance:10},
  'ryker-exhaust':{position:[1.25,.55,1.7],target:[.16,.25,.34],minDistance:.5,maxDistance:10},

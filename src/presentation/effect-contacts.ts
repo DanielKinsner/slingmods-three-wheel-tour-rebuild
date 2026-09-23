@@ -1,9 +1,9 @@
-import {SPEC,type RaceWorld} from '../simulation';
+import type {RaceWorld} from '../simulation';
 import type {Vector3} from 'three';
 /** Read Rapier's existing solved contacts; never enable events or change collision response. */
 export function effectContacts(race:RaceWorld){
  const bodies=new Map<string,number>();
- for(const [id,car]of race.participants){const t=car.telemetry(),q=t.quaternion,h=SPEC.comHeight;
+ for(const [id,car]of race.participants){const t=car.telemetry(),q=t.quaternion,h=car.definition.comHeight;
   // Telemetry is the ground-relative presentation origin; Rapier stores the
   // center of mass. Include its rotated offset on the banked Ridge route.
   const x=t.position.x+2*h*(q.x*q.y-q.w*q.z),y=t.position.y+h*(1-2*(q.x*q.x+q.z*q.z)),z=t.position.z+2*h*(q.y*q.z+q.w*q.x);

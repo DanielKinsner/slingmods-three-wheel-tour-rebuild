@@ -1,0 +1,367 @@
+{
+  "assignment": "Ryker 900 complete second vehicle",
+  "date": "2026-09-22",
+  "status": "Scoped implementation and acceptance PASS; existing performance gate HOLD",
+  "baseline": "7b041acea01be9f13ba0da6007158ebbd7191525",
+  "implementationCommit": "7b5018570ed0bb40f83e25e9c6bba96b435aca9e",
+  "authority": "One lead; local commits only. No publication, push, deployment, spending, dependency addition or source replacement.",
+  "preservedOwnerFile": "P06C-HOME-KICKOFF.md (untracked, untouched)",
+  "acceptance": {
+    "sourceReconstruction": {
+      "views": 8,
+      "positionErrorMetres": 0.0,
+      "normalError": 0.0007070385093779545,
+      "degenerateNormalCorners": 0,
+      "maximumMeanAbsolute8bit": 0.00046141975308641974,
+      "maximumFractionPixelsAbove3": 1.4814814814814815e-05,
+      "evidence": "assets/ryker/evidence/complete/reconstruction/"
+    },
+    "paintFlow": {
+      "status": "PASS",
+      "recipeAndActualMaterialColors": true,
+      "evidence": "assets/ryker/evidence/complete/preview-complete/report.json",
+      "committedConfirmation": "assets/ryker/evidence/complete/committed-preview/report.json"
+    },
+    "contactHardware": {
+      "status": "PASS",
+      "maximumWheelCenterErrorMetres": 8.968100940422724e-16,
+      "reverseSpeed": -5.409893937512942,
+      "liveMirrors": 2,
+      "routes": [
+        "harbor",
+        "express",
+        "ridge"
+      ],
+      "evidence": "assets/ryker/evidence/complete/hardware-final/report.json"
+    },
+    "motionProducts": {
+      "status": "PASS",
+      "independentMovingGroups": 27,
+      "independentElkaChannels": 9,
+      "fullSteerRadians": [
+        -0.62,
+        0.62
+      ],
+      "gripFootToleranceMetres": 0.02,
+      "lightingComboAndEmitters": "assets/ryker/evidence/complete/lighting-final/report.json",
+      "evidence": "assets/ryker/evidence/complete/mounted-final/report.json",
+      "committedConfirmation": "assets/ryker/evidence/complete/committed-products/report.json"
+    },
+    "career": {
+      "status": "PASS",
+      "actualInputDrivenLap": {
+        "event": "harbor-shakedown-standing-lap-v1",
+        "attemptId": "ecfa41ef-26ae-40c2-a049-ad7dcf77c146",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 76407.89208074444,
+        "place": 1,
+        "invalidReason": null
+      },
+      "creditsAwarded": 800,
+      "purchasedWithEarnedCredits": "Panther body kit",
+      "returnRecipe": {
+        "version": 2,
+        "vehicleId": "can-am-ryker-900",
+        "finish": "white-graphite",
+        "products": {},
+        "lights": {
+          "color": "red",
+          "brightness": 0.6,
+          "enabled": true
+        },
+        "suspension": {
+          "frontCompression": 2,
+          "frontRebound": 6,
+          "rearCompression": 1,
+          "rearRebound": 3,
+          "rideHeightMm": 0
+        },
+        "handlingProfile": "ryker-road-v1",
+        "definitionId": "ryker-900-v1",
+        "ryker": {
+          "body": true
+        }
+      },
+      "reloadEntryUnchanged": true,
+      "evidence": "assets/ryker/evidence/complete/career-complete/report.json"
+    },
+    "slingshotAndDynamics": {
+      "status": "PASS",
+      "exactAuditComparisonTicks": {
+        "slingmods-sport-v1": 1200,
+        "slingmods-sport-v4": 1200,
+        "slingmods-sport-v5": 1200
+      },
+      "curbMetres": 0.08,
+      "rampMetres": 0.12,
+      "corridorClearanceMetres": 1.35,
+      "evidence": "assets/ryker/evidence/complete/dynamics/report.json",
+      "packagedDrivingConfirmation": "assets/ryker/evidence/complete/slingshot-packaged/report.json"
+    },
+    "tests": {
+      "initialFullSuite": {
+        "total": 407,
+        "pass": 399,
+        "fail": 8
+      },
+      "repairedTargeted": {
+        "pass": 20,
+        "fail": 0
+      },
+      "finalVehicleIntegration": {
+        "pass": 15,
+        "fail": 0
+      },
+      "sharedDriverAudioContactRecovery": {
+        "pass": 28,
+        "fail": 0
+      },
+      "departureAndLightLifecycle": {
+        "pass": 7,
+        "fail": 0
+      },
+      "movingEmitterAndPantherRegression": {
+        "pass": 1,
+        "fail": 0
+      },
+      "note": "Separate recorded runs; do not describe as one later monolithic full-suite pass.",
+      "logs": "assets/ryker/evidence/complete/checks/"
+    },
+    "build": {
+      "status": "PASS",
+      "typecheck": true,
+      "packagedBrowserFlows": true,
+      "commit": "7b5018570ed0bb40f83e25e9c6bba96b435aca9e",
+      "buildRef": "7b5018570ed0-working",
+      "output": "demo-dist/2026-09-23T02-42-20-942Z-7b5018570ed0-working",
+      "files": 290,
+      "bytes": 407029454,
+      "runtimePathsMatchImplementationCommit": true,
+      "workingLabelReason": "Tracked root handoff/AGENTS and Git attributes were being updated; no runtime path differed from implementation commit.",
+      "manifest": "assets/ryker/evidence/complete/checks/OUTPUT-MANIFEST.json",
+      "inputManifest": "assets/ryker/evidence/complete/checks/review-build.json"
+    }
+  },
+  "performance": {
+    "status": "Bounded native frame-tail PASS; Phase 2 closing gate remains HOLD",
+    "hardware": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "resolution": [
+      2560,
+      1440
+    ],
+    "quality": "high",
+    "route": "harbor",
+    "look": "dusk-rain",
+    "audio": "Active runtime graph, speaker output muted",
+    "races": [
+      {
+        "attempt": 1,
+        "samples": 4731,
+        "activeSeconds": 78.89690000000131,
+        "averageMs": 16.676580004227713,
+        "averageFps": 59.964333199402276,
+        "worstOnePercentMs": 17.83333333333606,
+        "onePercentLowFps": 56.07476635513161,
+        "p50Ms": 16.69999999999709,
+        "p95Ms": 16.70000000001164,
+        "p99Ms": 16.80000000000291,
+        "maxMs": 33.400000000001455,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "frameTail": true,
+        "highBudget": null,
+        "resolutionScale": {
+          "minimum": 0.95,
+          "maximum": 1,
+          "average": 0.9996829422954978
+        },
+        "result": {
+          "event": "harbor-preview-quick-race-v1",
+          "attemptId": "f091d795-8eaf-4590-81f0-367be930c096",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 78884.10012766103,
+          "place": 3,
+          "invalidReason": null
+        },
+        "finishers": [
+          {
+            "id": "maya",
+            "status": "finished",
+            "timeMs": 70593.63290894721
+          },
+          {
+            "id": "jett",
+            "status": "finished",
+            "timeMs": 72474.26939910986
+          },
+          {
+            "id": "player",
+            "status": "finished",
+            "timeMs": 78884.10012766103
+          },
+          {
+            "id": "nico",
+            "status": "finished",
+            "timeMs": 82345.97968088742
+          }
+        ],
+        "pipeline": {
+          "quality": "high",
+          "post": true,
+          "samples": 4,
+          "bloomLevels": 5,
+          "resolutionScale": 1,
+          "targetFrameMs": 16.57,
+          "size": [
+            2560,
+            1440
+          ]
+        }
+      },
+      {
+        "attempt": 2,
+        "samples": 4732,
+        "activeSeconds": 78.8968,
+        "averageMs": 16.673034657650042,
+        "averageFps": 59.977083988197236,
+        "worstOnePercentMs": 17.489583333349703,
+        "onePercentLowFps": 57.176891006498,
+        "p50Ms": 16.699999999982538,
+        "p95Ms": 16.79999999998836,
+        "p99Ms": 16.800000000017462,
+        "maxMs": 33.39999999999418,
+        "over33_4": 0,
+        "over50": 0,
+        "over100": 0,
+        "frameTail": true,
+        "highBudget": null,
+        "resolutionScale": {
+          "minimum": 1,
+          "maximum": 1,
+          "average": 1
+        },
+        "result": {
+          "event": "harbor-preview-quick-race-v1",
+          "attemptId": "e744d4b1-a3a4-41b9-9366-358ff0389a95",
+          "participantId": "player",
+          "status": "finished",
+          "valid": true,
+          "laps": 1,
+          "timeMs": 78884.11568852724,
+          "place": 3,
+          "invalidReason": null
+        },
+        "finishers": [
+          {
+            "id": "maya",
+            "status": "finished",
+            "timeMs": 70593.63290894721
+          },
+          {
+            "id": "jett",
+            "status": "finished",
+            "timeMs": 72474.26939910986
+          },
+          {
+            "id": "player",
+            "status": "finished",
+            "timeMs": 78884.11568852724
+          },
+          {
+            "id": "nico",
+            "status": "finished",
+            "timeMs": 82346.03121793231
+          }
+        ],
+        "pipeline": {
+          "quality": "high",
+          "post": true,
+          "samples": 4,
+          "bloomLevels": 5,
+          "resolutionScale": 1,
+          "targetFrameMs": 16.54,
+          "size": [
+            2560,
+            1440
+          ]
+        }
+      }
+    ],
+    "pooled": {
+      "samples": 9463,
+      "activeSeconds": 157.7936999999993,
+      "averageMs": 16.674807143611886,
+      "averageFps": 59.97070858976019,
+      "worstOnePercentMs": 17.670526315805066,
+      "onePercentLowFps": 56.59141001960813,
+      "p50Ms": 16.69999999999709,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "maxMs": 33.400000000001455,
+      "over33_4": 0,
+      "over50": 0,
+      "over100": 0
+    },
+    "cpuFrameAverageMs": 7.806192542009295,
+    "renderSubmissionAverageMs": 6.102663003326306,
+    "finalResidentResources": [
+      {
+        "geometries": 490,
+        "textures": 122
+      },
+      {
+        "geometries": 490,
+        "textures": 122
+      }
+    ],
+    "loadMs": 19774.5,
+    "errors": [],
+    "failedRequests": [],
+    "evidence": "assets/ryker/evidence/complete/performance-high-harbor-final/run.json",
+    "limit": "Not GPU execution time, not a High/Ultra closing-gate release. Final subsequent equipped-light presentation fix verified separately; stock measured path unchanged."
+  },
+  "limits": [
+    "Source year unknown; modeled width narrower than MY21/MY25 overall reference. Chosen mesh preserved; physics aligned; OEM dimensions unclaimed.",
+    "CG/inertia/tires/springs/damping/CVT ratios and response are labeled game estimates.",
+    "Panther plus lighting retail fitment unverified: stock-grille lights omitted with Panther.",
+    "Steady RGB only; no chaser controller, unsupported rebound adjuster, Treal power gain/flames/authentic recording.",
+    "Human fun/listening and physical controller breadth remain owner judgments.",
+    "Structural GLB buffer/position checks and actual renders performed; no new Khronos validator run claimed."
+  ],
+  "assets": [
+    {
+      "path": "public/assets/ryker/complete/ryker-900-complete.glb",
+      "bytes": 16705900,
+      "sha256": "6a1248000047db58c02c8b598955a31110fe0243309829a1c76569f22f50ba2b"
+    },
+    {
+      "path": "public/assets/ryker/complete/ryker-accessories.glb",
+      "bytes": 6951672,
+      "sha256": "58d1e007eb1887409d7cd69e8fb3547f5b79bb90e42e97620ee6a2285298fc03"
+    },
+    {
+      "path": "public/assets/ryker/complete/ryker-underglow.glb",
+      "bytes": 20820,
+      "sha256": "8f3fd28629e47534ac65a310cf62d870bed620bcd509032a92b234c74dd0f7f0"
+    },
+    {
+      "path": "public/assets/ryker/complete/showroom-route-relief.glb",
+      "bytes": 4567516,
+      "sha256": "9907839cf301dd1618aa185f588b091d11cf7c38b4ab9ba4fc26cd8f2ba00985"
+    }
+  ],
+  "nextAction": "Owner plays the completed local candidate. Retain Phase 2 HOLD; no push or deployment authorized.",
+  "localServer": {
+    "url": "http://127.0.0.1:5199/",
+    "pid": 23704,
+    "scope": "loopback static preview only"
+  },
+  "remainingScopedBlockers": []
+}

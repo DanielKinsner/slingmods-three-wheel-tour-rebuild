@@ -5,7 +5,7 @@ const base=process.env.BASE_URL??'http://127.0.0.1:5223';
 const out=process.env.EVIDENCE_DIR??'handoff/rider-redesign-evidence';
 await mkdir(out,{recursive:true});
 const browser=await chromium.launch({headless:true,args:['--use-angle=d3d11','--mute-audio']});
-const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],rows=[],baseline=new Map();
+const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],rows=[];
 page.on('pageerror',e=>errors.push(e.message));
 page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
 const shot=name=>page.screenshot({path:out+'/'+name+'.png'});
@@ -20,12 +20,10 @@ try {
     await page.evaluate(()=>window.__RIDER_LAB.camera([-.93,1.24,-.80],[-.36,1.10,.31]));await shot('helmet-detail');
     await page.evaluate(()=>window.__RIDER_LAB.camera([-1.6,1.5,2],[-.36,.85,.25]));await shot('rider-rear');
    }
-   for(const pose of ['idle','left','right','drive','brake','idle']){
+   for(const pose of ['idle','left','right','left-lock','right-lock','drive','brake','idle']){
     const s=await page.evaluate(pose=>{const lab=window.__RIDER_LAB;lab.setPose(pose);return lab.sweep(pose==='idle'?10:3)},pose);
-    if(asset==='legacy')baseline.set(car+'-'+pose,s.maxHand);
-    // The starting commit has an existing handlebar reach deficit at full lock. Keep its
-    // measured baseline visible; the other agent owns the newer Ryker attachment/lean repair.
-    const limit=car==='ryker'?Math.max(.001,(baseline.get(car+'-'+pose)??0)+.001):.001;
+    // Absolute contact tolerance, including full lock with main's current Ryker torso repair.
+    const limit=.001;
     assert.ok(s.maxHand<limit,car+' '+pose+' hand '+s.maxHand);assert.ok(s.maxFoot<.001,car+' '+pose+' foot '+s.maxFoot);
     assert.ok(s.maxSupportingGap<.001,car+' '+pose+' supporting hand');
     rows.push({asset,car,pose,handLimit:limit,...s});
