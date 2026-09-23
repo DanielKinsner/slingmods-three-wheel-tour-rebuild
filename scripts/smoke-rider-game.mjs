@@ -11,6 +11,7 @@ try{
   await page.goto(base+'/?scene=express&mode=test&route=express&test=1&profile=1&clock=controlled&visual='+visual);
   await page.waitForFunction(()=>window.__EXPRESS?.ready,null,{timeout:120000});
   await page.locator('#start-crew').click();
+  if(await page.locator('.film-skip').isVisible())await page.locator('.film-skip').click();
   const s=await page.evaluate(()=>{
    const h=window.__EXPRESS;let now=0;h.setDeviceSample({keys:[],pads:[],focused:true});
    for(let i=0;i<240;i++)h.normalFrame(now+=1000/60,false);

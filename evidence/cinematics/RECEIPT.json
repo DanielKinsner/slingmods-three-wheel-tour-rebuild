@@ -1,0 +1,79 @@
+{
+  "assignment": "Race cinematics isolated local candidate",
+  "date": "2026-09-22",
+  "branch": "codex/race-cinematics",
+  "base": "7b5018570ed0bb40f83e25e9c6bba96b435aca9e",
+  "status": "Local implementation and scoped validation PASS; Phase 2 performance HOLD unchanged",
+  "preview": "http://127.0.0.1:5237/?scene=express&route=express&mode=race&look=golden-hour&play=preview",
+  "noMainEdits": true,
+  "noRemoteWrites": true,
+  "build": {
+    "command": "npm run build",
+    "status": "PASS",
+    "log": "production-build.log",
+    "warning": "Existing large Rapier chunk"
+  },
+  "tests": {
+    "passed": 51,
+    "failed": 0,
+    "command": "npx tsx --test tests/race-cinematics.test.ts tests/harbor-race.test.ts tests/render-cpu-fixes.test.ts tests/phase1-speed.test.ts tests/crew-menu.test.ts tests/demo-profile.test.ts tests/audio.test.ts tests/p09b-audio.test.ts tests/vehicle-mirrors.test.ts",
+    "log": "unit-tests.log"
+  },
+  "browser": {
+    "matrix": "verified/report.json",
+    "finalAutomaticHandoffs": "handoffs/report.json",
+    "routes": [
+      "express",
+      "ridge",
+      "harbor"
+    ],
+    "vehicles": [
+      "Slingshot 2026 presentation",
+      "Ryker 900"
+    ],
+    "nativeArrivalMs": 9546,
+    "earnedLap": {
+      "valid": true,
+      "timeMs": 79010.52850126865,
+      "place": 3
+    },
+    "method": "Real WebGL with isolated controller-input lap. Preview camera samples are fixtures; no finish or credits injected."
+  },
+  "audio": {
+    "file": "handoffs/original-score.webm",
+    "sampleRate": 48000,
+    "channels": 2,
+    "method": "Live post-limiter game graph; no microphone, no sync markers invoked",
+    "analyzedCapture": "verified/original-score.webm",
+    "peakDbFS": -16.2,
+    "meanDbFS": -34.8,
+    "log": "audio-levels.log"
+  },
+  "limits": [
+    "No quiet-PC sustained performance certification; existing HOLD remains.",
+    "No physical gamepad/mobile-device or human listening approval.",
+    "No integration of other agents uncommitted rider/UI redesigns.",
+    "Extra cinematic HDR/depth target is cached after first playback until resize, quality change or disposal."
+  ],
+  "developmentRepairs": [
+    "Corrected reversed/logarithmic depth decoding after initial soft-focus frames.",
+    "Kept controller identity while neutralizing input so finished race does not pause the film.",
+    "Portrait camera travels along the road instead of pulling sideways behind a fence.",
+    "Waited for asynchronous viewport resize in the capture harness before comparing reduced-motion frames.",
+    "Avoided redundant result-camera bounds computation outside the film exit frame."
+  ],
+  "localExploration": "first/, revised/, validation/, final/ retained locally and ignored; verified/ and handoffs/ are final proof.",
+  "sourceHashes": {
+    "src/express.ts": "2235df40b3bf0103dbb1c82021caddca6de6c4f690e20f09b83e99a5dbca1d35",
+    "src/audio/game-audio.ts": "805a49952eed4421f15b74b6e471322ff4ea89fadc05ed09d3c4c895d5617e89",
+    "src/audio/race-film-score.ts": "ec2e3d9ec2edd1608cac3d29490aadf510482432c8a15bb74562000a7dfd848f",
+    "src/presentation/render-pipeline.ts": "07cfa16c82137aa3e046b1c2f625b23db33cd3fd6c0cda548f50704d1e3f5f87",
+    "src/demo/profile.ts": "a642d3e9f6352b2a50a0f2ee2b56bd4b6d6666e733ec4bc4342744876111b2f6",
+    "tests/race-cinematics.test.ts": "0ec68188e68118ae45952de079f4caf20cb188b2ad4df0a55375b01418c476f4",
+    "src/presentation/cinematics/director.ts": "67b9df45c5f4017654fbdf76e727067dfd838679413d30d3001fde735b76093b",
+    "src/presentation/cinematics/film.css": "3aca6a39f3eedd59554b67db153ee0cc4075a9b1c4acfd0ea64ddb968c773c8a",
+    "src/presentation/cinematics/lens.ts": "196eadfcfdd5c56bd6105ca91d1ca1c1a2fd65bf2a6d8a634f82ad5af53cd28e",
+    "src/presentation/cinematics/tracks.ts": "987a60f6488ae7e59fc45934928463c322c78b570965489de5bd43bb9126b602"
+  },
+  "hashMethod": "SHA-256 of the staged Git blobs, before checkout line-ending conversion"
+}

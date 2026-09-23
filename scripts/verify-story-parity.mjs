@@ -16,7 +16,7 @@ async function driveReady(){await ready('__EXPRESS');const s=await inspect();ass
 async function goto(query,key='__EXPRESS'){await page.goto(base+'/'+query);await ready(key);return key==='__EXPRESS'?driveReady():page.evaluate(k=>window[k].inspect(),key)}
 async function run(label){
  await page.addScriptTag({content:source});await page.evaluate(()=>{window.__driver=new window.ParityDriver.EvidenceDriver(window.__EXPRESS.route);window.__clock=0;window.__EXPRESS.setDeviceSample(window.ParityDriver.toDevice())});
- await page.locator('#start-crew').click();await page.waitForFunction(()=>window.__EXPRESS.inspect().race.phase!=='ready');
+ await page.locator('#start-crew').click();if(await page.locator('.film-skip').isVisible())await page.locator('.film-skip').click();await page.waitForFunction(()=>window.__EXPRESS.inspect().race.phase!=='ready');
  let result;
  for(let batch=0;batch<600;batch++){
   result=await page.evaluate(()=>{const h=window.__EXPRESS;for(let i=0;i<60;i++){const s=h.lightweight();h.setDeviceSample(s.race.phase==='running'?window.__driver.sample(s.telemetry,s.field):window.ParityDriver.toDevice());h.normalFrame(window.__clock+=1000/60,i===59)}const s=h.lightweight();return {race:s.race,ticks:s.ticks}});
@@ -26,6 +26,7 @@ async function run(label){
  }
  await page.waitForFunction(()=>{const s=window.__EXPRESS.inspect();return !s.rewardPending&&s.career.state.receipts[s.attemptId]},null,{timeout:20000});
  await page.evaluate(()=>window.__EXPRESS.normalFrame(window.__clock+=1000/60,true));
+ if(await page.locator('.film-skip').isVisible())await page.locator('.film-skip').click();
  const s=await inspect();assert.equal(s.race.playerResult.valid,true);assert.equal(s.career.state.receipts[s.attemptId].handlingProfile,'slingmods-sport-v5');
  rows.push({label,recipe:s.recipe,profile:s.profileContract,look:s.look,route:s.route,receipt:s.career.state.receipts[s.attemptId],race:s.race});
  await page.screenshot({path:out+'/'+label+'.png'});await fs.writeFile(out+'/progress.json',JSON.stringify(rows,null,2));console.log(label+' passed '+s.race.playerResult.timeMs.toFixed(0)+'ms');return s;

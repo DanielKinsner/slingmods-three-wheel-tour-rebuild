@@ -19,7 +19,7 @@ try{
  const url=new URL(p.url());url.searchParams.set('test','1');url.searchParams.set('profile','1');url.searchParams.set('clock','controlled');url.searchParams.set('captureBuffer','1');await p.goto(url.href);await ready();report.entry=await p.evaluate(()=>window.__EXPRESS.inspect());assert.equal(report.entry.recipe.vehicleId,'can-am-ryker-900');assert.equal(report.entry.recipe.finish,'white-graphite');
  await p.reload();await ready();report.resumed=await p.evaluate(()=>window.__EXPRESS.inspect());assert.deepEqual(report.resumed.recipe,report.entry.recipe);assert.equal(report.resumed.career.attempt.id,report.entry.career.attempt.id);
  await p.addScriptTag({content:source});await p.evaluate(()=>{window.driver=new window.CrewEvidence.EvidenceDriver(window.__EXPRESS.route,11);window.last=0;window.rows=[];window.frameNow=0});
- await p.locator('#start-crew').click();await p.waitForTimeout(100);let result;
+ await p.locator('#start-crew').click();if(await p.locator('.film-skip').isVisible())await p.locator('.film-skip').click();await p.waitForTimeout(100);let result;
  for(let block=0;block<36;block++){
   result=await p.evaluate(()=>{const h=window.__EXPRESS;let s;for(let i=0;i<600;i++){const b=h.lightweight(),dt=Math.max(0,b.telemetry.time-window.last);window.last=b.telemetry.time;h.setDeviceSample(b.race.phase==='running'?window.driver.sample(b.telemetry,b.field,dt):window.CrewEvidence.toDevice());s=h.normalFrame(window.frameNow,i===599);window.frameNow+=1000/60;if(i%30===0)window.rows.push({telemetry:s.telemetry,race:s.race,recipe:s.recipe});if(s.race.playerResult)break}return s});
   console.log(JSON.stringify({block,speed:result.telemetry.speed,phase:result.race.phase,gate:result.race.standingLap?.checkpoint,position:result.telemetry.position,result:result.race.playerResult,reward:result.rewardText}));
@@ -29,6 +29,7 @@ try{
  report.result=result;await capture('finish');await writeFile(out+'/telemetry.json',JSON.stringify(await p.evaluate(()=>window.rows)));
  assert.ok(result.race.playerResult?.valid,'actual valid lap required');
  await p.waitForFunction(()=>!window.__EXPRESS.inspect().rewardPending);await p.evaluate(()=>window.__EXPRESS.normalFrame(window.frameNow));report.reward=await p.evaluate(()=>window.__EXPRESS.inspect());assert.equal(report.reward.career.state.credits,800);assert.ok(report.reward.career.state.receipts[report.reward.attemptId].buildSnapshot);await capture('reward');
+ if(await p.locator('.film-skip').isVisible())await p.locator('.film-skip').click();
  await p.locator('[data-action=bay]').click();await p.waitForURL('**/?scene=bay**');const back=new URL(p.url());back.searchParams.set('test','1');await p.goto(back.href);await ready();await p.locator('#chapter-build').click();await p.locator('#build-panel [data-action=buy][data-value=body]').click();await p.waitForTimeout(600);report.purchased=await p.evaluate(()=>window.__SIGNATURE.inspect());await capture('earned-panther');
  await p.reload();await ready();report.returned=await p.evaluate(()=>window.__SIGNATURE.inspect());assert.deepEqual(errors,[]);report.status='PASS';
 }catch(e){report.status='FAIL';report.failure=e.stack;await capture('failure').catch(()=>{});throw e}finally{await writeFile(out+'/report.json',JSON.stringify(report,null,2));await browser.close()}
