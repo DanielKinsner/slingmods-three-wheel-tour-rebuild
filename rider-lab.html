@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tour Rider · design study</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e5e5dd;color:#222b28;font:14px system-ui,sans-serif}canvas{display:block;width:100vw;height:100vh}
+header{position:absolute;left:32px;top:26px;pointer-events:none}h1{font-size:32px;font-weight:500;letter-spacing:-1px;margin:8px 0}header small{letter-spacing:3px;font-size:11px}header p{max-width:390px;line-height:1.5;color:#52605a}
+nav{position:absolute;bottom:24px;left:24px;right:24px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}button,select{background:#f7f7ef;border:1px solid #bdc5b9;padding:10px 15px;border-radius:3px;color:#25352e;font:inherit;cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #64745b}button[aria-pressed=true]{background:#354b3e;color:#fafaf0}#status{position:absolute;right:28px;top:30px;font-size:12px;color:#52605a;text-align:right;white-space:pre-line}
+@media(max-width:700px){header{left:18px;top:16px}header p{max-width:220px;font-size:12px}h1{font-size:25px}#status{top:160px;right:18px}nav{left:12px;right:12px;bottom:12px;gap:4px}button,select{padding:8px;font-size:12px}}
+</style>
+<header><small>SLINGMODS / RIDER STUDY 01</small><h1>Ready for the long way.</h1><p>Sage textile. Porcelain shell. Quiet, attentive motion.<br>Drag to orbit · scroll to inspect.</p></header>
+<div id="status" role="status">Loading rider…</div>
+<nav aria-label="Rider preview controls">
+<select id="asset" aria-label="Rider version"><option value="tour">Tour rider</option><option value="legacy">Original rider</option></select>
+<select id="vehicle" aria-label="Vehicle"><option value="none">Rider only</option><option value="slingshot">Slingshot 2026</option><option value="ryker">Ryker</option></select>
+<button data-pose="idle" aria-pressed="true">Idle</button><button data-pose="drive">Cruise</button><button data-pose="left">Left turn</button><button data-pose="right">Right turn</button><button data-pose="brake">Brake</button>
+<button id="nod">Acknowledge</button><button id="glance">Look around</button><button id="pause">Pause</button><button id="close">Detail view</button>
+</nav><script type="module" src="/scripts/rider-lab.ts"></script></html>

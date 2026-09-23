@@ -1,0 +1,117 @@
+{
+  "assignment": "Isolated Tour Rider v1 redesign",
+  "branch": "codex/rider-redesign",
+  "base": "7b041acea01be9f13ba0da6007158ebbd7191525",
+  "merged": false,
+  "pushed": false,
+  "deployed": false,
+  "asset": {
+    "version": 1,
+    "source": "assets/blender/drivers/tour-rider.blend",
+    "asset": "/assets/drivers/tour-rider/tour-rider.glb",
+    "triangles": 42491,
+    "primitives": 4,
+    "materials": 3,
+    "textures": {
+      "uniqueImages": 3,
+      "size": 1024,
+      "rgba8WithMipsMiB": 16.0
+    },
+    "bytes": 4057916,
+    "sha256": "772e804b33dc7ba53a6ad818cd1df3196d15ca195741c43b1227ffb53e451662",
+    "animation": "Runtime additive semantic-bone motion; applied before original control/foot IK. No baked clip dependency.",
+    "provenance": "Original repository-owned seated skeleton and garment base; original Blender-authored tailoring, protective gear, helmet and deterministic PBR atlas. No downloads or likeness.",
+    "baseSourceSha256": "59b92afcd742abe9f9c87bc40bfeaeaff8743e592ea8fe85461ff4290df8c723"
+  },
+  "tests": {
+    "command": "npm test",
+    "pass": 408,
+    "fail": 0,
+    "focusedCommand": "npx tsx --test tests/rider-motion.test.ts tests/driver.test.ts",
+    "focusedPass": 10
+  },
+  "build": {
+    "command": "npm run demo:build",
+    "pass": true,
+    "ref": "7b041acea01b-working",
+    "created": "2026-09-23T02:53:42.004Z",
+    "riderInputSHA256": "772e804b33dc7ba53a6ad818cd1df3196d15ca195741c43b1227ffb53e451662",
+    "output": "demo-dist/2026-09-23T02-53-39-759Z-7b041acea01b-working",
+    "allInventoriedInputsStillMatch": true,
+    "modifiedRuntimeInputs": {
+      "demo-assets.json": "0411fb27e9e7ba962051cfb39b9d7573455a70429783433c3f06ef1650638533",
+      "src/presentation/driver.ts": "af01e1d53f7429f3a75638e78c77746dffb894775fffcd33f7414bd4fe6cc360",
+      "src/presentation/hero.ts": "be294b6b77ed9b6b0cfe83a0d8e96294735fdceec62b84fdae9143d86f0e5edf",
+      "src/presentation/rider-asset.ts": "bcd671e88247e7bcad15de8dca7848cda07bbc452a8802cd060ef77a3dbf6482",
+      "src/presentation/rider-motion.ts": "972974952b049cbb6af7055787b0116af717999df2cb338279404ec9eeaa75e2",
+      "src/signature/drive-preparation.ts": "4d95c55651efa50fb297ce0732b54d666de00b2abeb6783b668dcc058086266d",
+      "src/signature/scene.ts": "fab936a0921f5e9279cc096f2b4cac6ae47d9f01be4ead4eeb1eda1f60fcea0b",
+      "src/workbench.ts": "399830a8b68433586a9636da79440714641cecbcdc93b98cf445e0c5d6753ae6"
+    },
+    "inventoriedInputCount": 496
+  },
+  "browser": {
+    "pass": true,
+    "source": "rider-redesign-evidence/browser-validation.json",
+    "contacts": [
+      {
+        "asset": "legacy",
+        "vehicle": "none",
+        "maxHandGapM": 1.914011784096319e-07,
+        "maxFootGapM": 1.2972235565208807e-07,
+        "maxSupportingHandGapM": 1.0177231039771505e-07
+      },
+      {
+        "asset": "legacy",
+        "vehicle": "slingshot",
+        "maxHandGapM": 1.91401178298993e-07,
+        "maxFootGapM": 1.2972235565208807e-07,
+        "maxSupportingHandGapM": 1.0177230590564052e-07
+      },
+      {
+        "asset": "legacy",
+        "vehicle": "ryker",
+        "maxHandGapM": 0.04745118321200977,
+        "maxFootGapM": 1.0284662898278652e-07,
+        "maxSupportingHandGapM": 1.0087566028076747e-07
+      },
+      {
+        "asset": "tour",
+        "vehicle": "none",
+        "maxHandGapM": 1.898716629743424e-07,
+        "maxFootGapM": 1.2972235565208807e-07,
+        "maxSupportingHandGapM": 1.04244956883772e-07
+      },
+      {
+        "asset": "tour",
+        "vehicle": "slingshot",
+        "maxHandGapM": 1.9026766899709776e-07,
+        "maxFootGapM": 1.2972235565208807e-07,
+        "maxSupportingHandGapM": 1.0424493009116735e-07
+      },
+      {
+        "asset": "tour",
+        "vehicle": "ryker",
+        "maxHandGapM": 0.046097195515438845,
+        "maxFootGapM": 1.0284662898278652e-07,
+        "maxSupportingHandGapM": 1.0286277518886986e-07
+      }
+    ],
+    "rykerAbsoluteSteeringFit": "KNOWN BASE LIMITATION; candidate does not regress legacy; integrate newer main fit work"
+  },
+  "packagedSmoke": {
+    "pass": true,
+    "source": "rider-redesign-evidence/game-smoke.json",
+    "vehicles": [
+      "2026",
+      "ryker"
+    ],
+    "showroomAcknowledgementAndBreathing": true,
+    "reducedMotion": true,
+    "testedOutput": "demo-dist/2026-09-23T02-48-10-359Z-7b041acea01b-working",
+    "finalPackagedGameFilesIdentical": true,
+    "identityExclusion": "review-build.json only: build timestamp and test-file whitespace hash changed; every served game asset and HTML/JS/CSS file is byte-identical."
+  },
+  "performanceGate": "HOLD unchanged; not measured",
+  "protectedPaths": "No changes to simulation, input, attachment JSON, vehicle assets, products, routes, saves, historical rider or existing handoffs."
+}
