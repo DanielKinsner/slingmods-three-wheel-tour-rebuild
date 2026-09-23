@@ -2,7 +2,7 @@
  * Headless AI benchmark for Time Attack medal targets: the production rivals drive each route alone, in the real Rapier
  * world with the production crew-race rules, for one standing-start lap. Prints per-lap times so medal targets are grounded in how
  * the game's own drivers actually lap each course rather than invented numbers.
- *   npx tsx scripts/game-feel/ai-lap-times.ts
+ *   npx tsx scripts/game-feel/ai-lap-times.ts          (PACE=1.08 to test a rival pace scale; OUT=file.json to save)
  */
 import fs from 'node:fs';
 import {RaceWorld,FIXED_DT,type VehicleTelemetry} from '../../src/simulation';
@@ -21,7 +21,7 @@ for(const [name,route] of routes){
   const ids=[id],grid=createCrewGrid(route,ids),world=await RaceWorld.create(createCourseEnvironment(route),CURRENT_HANDLING_PROFILE);
   world.addVehicle(id,grid[id],SLINGSHOT_DEFINITION,CURRENT_HANDLING_PROFILE);world.initialize();
   const race=new CrewRace(route,ids,id,false,{eventId:'benchmark',handlingProfileId:CURRENT_HANDLING_PROFILE,timeTrial:true});
-  const rival=new RivalController(route,id,11,CURRENT_HANDLING_PROFILE);
+  const rival=new RivalController(route,id,11,CURRENT_HANDLING_PROFILE,Number(process.env.PACE??1));
   race.restart(crypto.randomUUID());
   let field:Record<string,VehicleTelemetry>=world.telemetry(),laps:number[]=[],lastLap=1,lapStart=0;
   for(let tick=0;tick<60*60*8;tick++){
@@ -34,4 +34,4 @@ for(const [name,route] of routes){
   console.log(name,id,JSON.stringify((out[name] as Record<string,unknown>)[id]));
  }
 }
-fs.writeFileSync(process.env.OUT??'ai-lap-times.json',JSON.stringify(out,null,2));
+if(process.env.OUT)fs.writeFileSync(process.env.OUT,JSON.stringify(out,null,2));
