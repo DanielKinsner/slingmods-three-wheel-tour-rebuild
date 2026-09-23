@@ -57,7 +57,7 @@ export class ChallengeRun {
  }
  private finish(s:JudgeState){
   const c=this.challenge,u=speedUnits();let html='';
-  if(s.phase==='done'&&s.value!==null){const rec=recordChallenge(c,s.value,this.vehicle),best=challengeBest(c.id),m:Medal|null=s.medal;gameCue(rec.best&&rec.previous?'gx.record':m?'gx.slam':'gx.lap');
+  if(s.phase==='done'&&s.value!==null){const rec=recordChallenge(c,s.value,this.vehicle),best=challengeBest(c.id,this.vehicle),m:Medal|null=s.medal;gameCue(rec.best&&rec.previous?'gx.record':m?'gx.slam':'gx.lap');
    html=`<span class="gx-chal-kicker">${KIND_LABEL[c.kind]} · ${esc(c.title)}</span><div class="gx-chal-medal" data-medal="${m??'none'}"><i></i><b>${m?MEDAL_NAMES[m].toUpperCase():'NO MEDAL'}</b></div><strong>${formatValue(c,s.value,u)}</strong><p>${rec.best?(rec.previous?'NEW PERSONAL BEST':'FIRST RESULT RECORDED'):`Best ${best?formatValue(c,best.value,u):'—'}`}${!m?` · Bronze needs ${formatValue(c,c.targets.bronze,u)}`:m!=='slingmods'?` · Next: ${MEDAL_NAMES[MEDALS[MEDALS.indexOf(m)-1]]} ${formatValue(c,c.targets[MEDALS[MEDALS.indexOf(m)-1]],u)}`:''}</p>`}
   else{gameCue('gx.back');html=`<span class="gx-chal-kicker">${KIND_LABEL[c.kind]} · ${esc(c.title)}</span><div class="gx-chal-medal" data-medal="fail"><i></i><b>FAILED</b></div><strong>${esc(s.reason)}</strong><p>Retry from the start line.</p>`}
   this.result.innerHTML=`${html}<div class="gx-chal-actions"><button data-chal="retry" class="is-primary">Retry</button><button data-chal="next">Next challenge</button><button data-chal="menu">All challenges</button></div>`;

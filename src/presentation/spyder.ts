@@ -1,0 +1,16 @@
+import * as THREE from 'three';
+import type {VehicleTelemetry,WheelTelemetry} from '../simulation';
+import {SPYDER_DEFINITION} from '../simulation/vehicle-definition';
+import {linkTransform} from './rear';
+export const isSpyder=(car:THREE.Object3D)=>!!car.getObjectByName('spyder_foundation');
+export class SpyderMotion {
+ private carriers:{node:THREE.Object3D;spin:THREE.Object3D;rest:THREE.Vector3}[];private bar:THREE.Object3D;private barRest:THREE.Quaternion;private report:any={};private seen=new WeakSet<THREE.Object3D>();private links:{node:THREE.Object3D;rest:THREE.Matrix4;inverse:THREE.Matrix4;meta:any}[]=[];private revision=-1;
+ constructor(private car:THREE.Object3D){this.carriers=['front_left','front_right','rear'].map(n=>{const node=car.getObjectByName(n==='rear'?'rear_carrier':n+'_steer')!;return {node,spin:car.getObjectByName(n+'_spin')!,rest:node.position.clone()}});this.bar=car.getObjectByName('steering_control')!;this.barRest=this.bar.quaternion.clone()}
+ pose(t:VehicleTelemetry){this.bind();this.carriers.forEach((b,i)=>{b.node.position.copy(b.rest);b.node.position.y=t.wheels[i].localCenter.y;b.node.rotation.y=i<2?t.wheels[i].steer:0;b.spin.rotation.x=-t.wheels[i].spin});this.bar.quaternion.copy(this.barRest).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0),t.steer));const strokes:any[]=[];
+  for(const b of this.links){const m=b.meta,dy=t.wheels[m.channel].localCenter.y-SPYDER_DEFINITION.layout.wheels[m.channel].center[1],a=new THREE.Vector3().fromArray(m.upper),z=new THREE.Vector3().fromArray(m.lower),end=z.clone();end.y+=dy*(m.travelRatio??(m.channel===2?.48:.72));const matrix=linkTransform(a,z,a,end,m.part==='spring',m.part==='shaft');b.node.matrix.copy(b.inverse).multiply(matrix).multiply(b.rest);b.node.matrixWorldNeedsUpdate=true;strokes.push({node:b.node.name,channel:m.channel,stroke:z.distanceTo(a)-end.distanceTo(a)})}
+  const swing=this.car.getObjectByName('rear_swingarm');if(swing){const pivot=new THREE.Vector3(0,.38,.06),hub=new THREE.Vector3(0,.32355,.8545),to=hub.clone();to.y+=t.wheels[2].localCenter.y-.32355;swing.matrixAutoUpdate=false;swing.matrix.copy(linkTransform(pivot,hub,pivot,to,false));swing.matrixWorldNeedsUpdate=true}
+  this.report={kind:'spyder-six-speed-belt',calipersSpin:false,fendersSpin:false,barAngle:t.steer,shocks:strokes,wheelCenters:this.carriers.map(b=>b.node.position.toArray())}}
+ private bind(){const revision=this.car.userData.spyderRevision??0;if(revision===this.revision)return;this.revision=revision;this.car.updateWorldMatrix(true,true);const inv=this.car.matrixWorld.clone().invert();this.car.traverse(node=>{let meta=node.userData.spyderMotion;if(!meta&&/^stock_(front_left|front_right|rear)_(spring|shock)$/.test(node.name)){const channel=node.name.includes('left')?0:node.name.includes('right')?1:2,sign=channel===0?-1:1;meta={kind:'shock',channel,part:node.name.endsWith('spring')?'spring':'body',upper:channel===2?[0,.59,.46]:[sign*.22,.54,-.855],lower:channel===2?[0,.37,.47]:[sign*.53,.23,-.855]}}if(!meta||this.seen.has(node))return;this.seen.add(node);this.links.push({node,meta,rest:inv.clone().multiply(node.matrixWorld),inverse:inv.clone().multiply(node.parent!.matrixWorld).invert()});node.matrixAutoUpdate=false})}
+ update(_wheel:Pick<WheelTelemetry,'localCenter'|'spin'>,_legacy=false){}
+ inspect(){return this.report}
+}

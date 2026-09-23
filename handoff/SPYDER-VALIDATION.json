@@ -1,0 +1,2334 @@
+{
+  "schemaVersion": 1,
+  "task": "SPYDER01",
+  "timestamp": "2026-09-23T19:23:23.970759+00:00",
+  "baseline": "4e33aae2bda2fdf3ce95a75f638d8c9642c5dde9",
+  "workingTree": true,
+  "authorization": "Private local implementation only; no purchase/push/deployment/publication",
+  "performanceGate": "HOLD",
+  "runtime": {
+    "driver-attachment.json": {
+      "bytes": 3322,
+      "sha256": "f0dbe99dc1a0ebb3941059afc189bf10bc79533b961ff8c267de5141171411ff"
+    },
+    "manifest.json": {
+      "bytes": 2194,
+      "sha256": "de21a46794a8f3e0aa66ff9ec7f851d28382c061ef5fadd6f67ce60158cc6801"
+    },
+    "product-mounts.json": {
+      "bytes": 26750,
+      "sha256": "56f8c7e1bc80f46c3b1fc63092a6853ae0698e35a6bbbdaabfb0a343b33f8bf5"
+    },
+    "rear-rig.json": {
+      "bytes": 52,
+      "sha256": "bb1b2dc1460e80901230d21f4a09a2a688d073dc4886423c8cf125ed3d3d1ca7"
+    },
+    "spyder-f3.glb": {
+      "bytes": 31128760,
+      "sha256": "f7ce1f426dcdd3581632a7f3cfe53fd00d8e057b11242691348d3cdea6f7ba9b"
+    },
+    "spyder-products.glb": {
+      "bytes": 731340,
+      "sha256": "635a9e473209b6e3141b146c88761282c2635ddf49fe81ea3dfeaee8b5486be2"
+    },
+    "spyder-rider.glb": {
+      "bytes": 4194300,
+      "sha256": "d616966f819941308efe1b47284dd22b9f008770259449a06cd05d289837f25e"
+    }
+  },
+  "checks": [
+    {
+      "id": "S01",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/source-hashes-final.log",
+        "assets/spyder/evidence/source-preflight.json"
+      ],
+      "observed": {
+        "sourceHashesMatched": 14,
+        "kitHashesMatched": 53,
+        "servedPrivateFiles": 0,
+        "packagingEnforcesExclusion": true
+      },
+      "limitations": []
+    },
+    {
+      "id": "S02",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/source-import.json",
+        "assets/spyder/evidence/source-import.log",
+        "assets/spyder/evidence/components.json"
+      ],
+      "observed": {
+        "nativeBlender": "4.5.2 LTS",
+        "autoexecDisabled": true,
+        "sourceObjects": 36,
+        "sourceTriangleEquivalents": 4923405,
+        "removed": "Only two-triangle Plane02 floor",
+        "processing": "Uniform metric calibration, semantic island partition, selective decimation; staged tire material dependency fix; UV artwork retained"
+      },
+      "limitations": [
+        "Legacy reflection/alpha interpretation was repaired for PBR."
+      ]
+    },
+    {
+      "id": "S03",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/matched"
+      ],
+      "observed": {
+        "views": [
+          "hero",
+          "left",
+          "right",
+          "rear",
+          "cockpit",
+          "seat",
+          "wheel"
+        ],
+        "modes": [
+          "clay",
+          "pbr"
+        ],
+        "sourceFinalImages": 28,
+        "actualBlenderGeometry": true,
+        "visualInspection": "All matched views inspected; final cockpit and assembled in-game views also inspected."
+      },
+      "limitations": []
+    },
+    {
+      "id": "S04",
+      "status": "PASS",
+      "evidence": [
+        "public/assets/spyder/manifest.json",
+        "assets/spyder/PHYSICS.md",
+        "assets/spyder/evidence/reimport.json"
+      ],
+      "observed": {
+        "units": "metres",
+        "frame": "Y up, -Z forward",
+        "uniformScale": 0.008541972297919004,
+        "wheelbase": 1.709,
+        "frontTrack": 1.371638,
+        "tireRadius": 0.323549837
+      },
+      "limitations": [
+        "Custom donor dimensions differ from nominal OEM tires; visual year unverified."
+      ]
+    },
+    {
+      "id": "S05",
+      "status": "PASS",
+      "evidence": [
+        "tests/spyder-rig.test.ts",
+        "public/assets/spyder/rear-rig.json",
+        "assets/spyder/evidence/rig-tests.log",
+        "assets/spyder/evidence/assembled-final/report.json"
+      ],
+      "observed": {
+        "steeringExtremes": [
+          -0.6,
+          0.6
+        ],
+        "spins": "Forward and reverse",
+        "travel": "Independent left/right/front/rear",
+        "rig": "Calipers, fenders and stationary light rings steer but do not spin; rims and rotors spin; bars follow steering; stock returns on removal"
+      },
+      "limitations": [
+        "Suspension linkage presentation is approximate, not CAD kinematics."
+      ]
+    },
+    {
+      "id": "S06",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/basic-glb.json",
+        "assets/spyder/evidence/gltf-validator.json",
+        "assets/spyder/evidence/reimport.json"
+      ],
+      "observed": {
+        "validatorErrors": {
+          "spyder-f3": 0,
+          "spyder-products": 0,
+          "spyder-rider": 0
+        },
+        "validatorWarnings": {
+          "spyder-f3": 0,
+          "spyder-products": 0,
+          "spyder-rider": 124
+        },
+        "cleanNativeReimport": "PASS",
+        "vehicleTriangles": 957915,
+        "productTriangles": 31892,
+        "riderTriangles": 44595
+      },
+      "limitations": [
+        "124 rider tangent/non-root skin warnings retained; actual runtime pose and render tested."
+      ]
+    },
+    {
+      "id": "R01",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/packaged-controls/report.json"
+      ],
+      "observed": {
+        "normalGXSelectionAndRoadFlow": "All three vehicles",
+        "Spyder": "Throttle, braking, complete stop, safe reverse, recovery and garage return PASS"
+      },
+      "limitations": []
+    },
+    {
+      "id": "R02",
+      "status": "PASS",
+      "evidence": [
+        "src/simulation/spyder-se6.ts",
+        "tests/spyder-physics.test.ts",
+        "assets/spyder/evidence/full-tests-final.log",
+        "assets/spyder/evidence/cockpit/report.json"
+      ],
+      "observed": {
+        "powertrain": "Independent six-speed + reverse",
+        "redlineRPM": 8100,
+        "reverse": "Speed/brake interlock",
+        "display": "Actual telemetry gear/RPM/speed; two live dials"
+      },
+      "limitations": [
+        "Automatic shifting is a game assist; gear ratios are explicit estimates."
+      ]
+    },
+    {
+      "id": "R03",
+      "status": "PASS",
+      "evidence": [
+        "tests/spyder-physics.test.ts",
+        "tests/spyder-suspension.test.ts",
+        "assets/spyder/evidence/full-tests-final.log",
+        "assets/spyder/evidence/packaged-controls/report.json"
+      ],
+      "observed": {
+        "fixtures": [
+          "spawn",
+          "slalom",
+          "trail brake",
+          "stop",
+          "2.4 m corridor",
+          "7 cm one-wheel bump",
+          "12 cm ramp",
+          "barrier/reverse recovery"
+        ],
+        "forces": "Finite nonnegative loaded contact channels; upright checks and actual fixture engagement asserted"
+      },
+      "limitations": [
+        "Keyboard/controller-input automation and physics fixtures, not human handling evaluation."
+      ]
+    },
+    {
+      "id": "R04",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/assembled-final/report.json",
+        "assets/spyder/evidence/cockpit/report.json",
+        "assets/spyder/evidence/departure/report.json",
+        "assets/spyder/evidence/rider-background-check.png"
+      ],
+      "observed": {
+        "hands": "Sub-millimetre tall-grip contact at both extremes and travel",
+        "feet": "Anchored",
+        "gloves": "Visually intact",
+        "cockpit": "Head and fittings hidden; actual mirrors, LCD and speed/RPM needles",
+        "departure": "Ordinary animated bay exit reaches existing road"
+      },
+      "limitations": [
+        "Two background wall rings were checked with rider hidden; no floating helmet geometry defect."
+      ]
+    },
+    {
+      "id": "P01",
+      "status": "PASS",
+      "evidence": [
+        "src/signature/spyder-catalog.ts",
+        "tests/spyder-physics.test.ts",
+        "assets/spyder/PRODUCT-REFERENCES.md",
+        "assets/spyder/evidence/full-tests-final.log"
+      ],
+      "observed": {
+        "responseOnly": true,
+        "modes": [
+          "Eco",
+          "City",
+          "Sport",
+          "Sport+"
+        ],
+        "endpointsInvariant": true,
+        "noPeakPowerBonus": true
+      },
+      "limitations": []
+    },
+    {
+      "id": "P02",
+      "status": "PASS",
+      "evidence": [
+        "tests/spyder-suspension.test.ts",
+        "public/assets/spyder/product-mounts.json",
+        "assets/spyder/evidence/assembled-final/front-shock.png",
+        "assets/spyder/evidence/full-tests-final.log"
+      ],
+      "observed": {
+        "frontStage4": "Manual preload/rebound/low-speed compression; black/red geometry",
+        "rearIsolation": "PASS"
+      },
+      "limitations": []
+    },
+    {
+      "id": "P03",
+      "status": "PASS",
+      "evidence": [
+        "tests/spyder-suspension.test.ts",
+        "public/assets/spyder/product-mounts.json",
+        "assets/spyder/evidence/assembled-final/rear-shock.png",
+        "assets/spyder/evidence/full-tests-final.log"
+      ],
+      "observed": {
+        "rearStage4": "Independent manual preload/rebound/low-speed compression",
+        "frontIsolation": "PASS",
+        "hydraulicOrHighSpeedControls": false
+      },
+      "limitations": []
+    },
+    {
+      "id": "P04",
+      "status": "PASS",
+      "evidence": [
+        "src/simulation/index.ts",
+        "tests/spyder-suspension.test.ts",
+        "assets/spyder/PRODUCT-REFERENCES.md",
+        "assets/spyder/evidence/full-tests-final.log"
+      ],
+      "observed": {
+        "assembly": "ULTRA bar and required compatible links form one dependency bundle",
+        "effect": "Conservative bounded front support redistribution, total unchanged, rear unchanged, no tire-grip bonus"
+      },
+      "limitations": [
+        "Visible bars/links approximate the purchased assembly; not a CAD linkage solver."
+      ]
+    },
+    {
+      "id": "P05",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/PRODUCT-REFERENCES.md",
+        "public/assets/spyder/product-mounts.json",
+        "assets/spyder/evidence/surface-mounts.json",
+        "assets/spyder/evidence/assembled-final/lights.png",
+        "assets/spyder/evidence/full-tests-final.log"
+      ],
+      "observed": {
+        "mountedStrips": 8,
+        "locations": [
+          "inner grilles",
+          "above headlamp pods",
+          "side tubes",
+          "lower arms"
+        ],
+        "patterns": [
+          "steady",
+          "pulse"
+        ],
+        "physicsEffect": 0
+      },
+      "limitations": [
+        "Custom fit uses measured donor surfaces; documented year/trim conditions do not certify real installation."
+      ]
+    },
+    {
+      "id": "P06",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/ring-clearance.json",
+        "assets/spyder/evidence/assembled-final/ring.png",
+        "assets/spyder/evidence/rig-tests.log",
+        "assets/spyder/evidence/full-tests-final.log"
+      ],
+      "observed": {
+        "option": "Standalone front wheel-light kit",
+        "stationary": true,
+        "supportsSteeringTravel": true,
+        "physicsEffect": 0,
+        "sampledClearanceMetresApproximately": 0.0301
+      },
+      "limitations": [
+        "Sampled rigid mesh clearance, not physical fit or deformation certification."
+      ]
+    },
+    {
+      "id": "P07",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/assembled-final/report.json",
+        "assets/spyder/evidence/packaged-roads-final/report.json",
+        "assets/spyder/PRODUCT-REFERENCES.md"
+      ],
+      "observed": {
+        "eachProduct": "Install/remove/reinstall and stock restoration",
+        "savedCombinedRecipe": "Reload identical",
+        "combinedBuildRoads": 3,
+        "actualCatalogURLs": 6
+      },
+      "limitations": []
+    },
+    {
+      "id": "G01",
+      "status": "PASS",
+      "evidence": [
+        "tests/spyder-state.test.ts",
+        "assets/spyder/evidence/full-tests-final.log",
+        "assets/spyder/evidence/packaged-controls/report.json"
+      ],
+      "observed": {
+        "namespaces": "Independent three-vehicle draft/build and ownership",
+        "invalidCrossVehicleProduct": "Rejected",
+        "oldSaves": "Preserved by additive migration tests; owner profiles never touched"
+      },
+      "limitations": []
+    },
+    {
+      "id": "G02",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/packaged-roads-final/report.json"
+      ],
+      "observed": {
+        "runs": 6,
+        "routes": [
+          "Harbor",
+          "Harbor Express",
+          "Ridge"
+        ],
+        "builds": [
+          "stock",
+          "all six upgrades"
+        ],
+        "validFullLaps": 6,
+        "sameRendererAndAsset": true
+      },
+      "limitations": []
+    },
+    {
+      "id": "G03",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/career-final/report.json"
+      ],
+      "observed": {
+        "event": "harbor-shakedown-standing-lap-v1",
+        "validLapMs": 78312.79374498046,
+        "legitimateReward": 800,
+        "pedalCommanderCost": 550,
+        "remainingCredits": 250,
+        "onceOnlyAndReload": "PASS",
+        "injectedCreditsOrFinish": false
+      },
+      "limitations": []
+    },
+    {
+      "id": "G04",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/packaged-controls/report.json",
+        "assets/spyder/evidence/performance-final/report.json",
+        "assets/spyder/evidence/audio/report.json",
+        "tests/spyder-state.test.ts"
+      ],
+      "observed": {
+        "challenge": "Genuine Harbor Sprint completion recorded in Tour Log",
+        "timeAttack": "Dense native-rate Spyder ghost persisted/reloaded",
+        "identity": "Vehicle, definition, tune, assist and functional build settings separated",
+        "difficultyOptions": "Hard applied",
+        "achievementCompatibility": "Additive Spyder records preserve established progress"
+      },
+      "limitations": [
+        "Conservative driver did not earn Harbor Sprint bronze; shared Tour targets retained, every top medal/chapter/build/device not exhaustively completed."
+      ]
+    },
+    {
+      "id": "G05",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/mixed/report.json",
+        "assets/spyder/evidence/mixed/three-vehicles.png",
+        "assets/spyder/evidence/packaged-controls/report.json"
+      ],
+      "observed": {
+        "mixedWorld": "Three definitions and separate actual vehicle/rider rigs",
+        "cycles": 3,
+        "resident": {
+          "geometries": 499,
+          "textures": 45
+        },
+        "disposedEachCycle": {
+          "geometries": 1,
+          "textures": 1
+        },
+        "controls": "Different simultaneous inputs and independent motion"
+      },
+      "limitations": []
+    },
+    {
+      "id": "G06",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/full-tests-final.log",
+        "assets/spyder/evidence/packaged-controls/report.json",
+        "assets/spyder/evidence/performance-final/report.json"
+      ],
+      "observed": {
+        "testsPassed": 457,
+        "existingVehicles": "Ordinary road drive/brake/reverse/garage-return smokes and full native Harbor laps",
+        "RykerProducts": "Existing assembly/mod/career/lighting tests preserved",
+        "SlingshotRykerPhysicsInputChanges": "None intended; independent Spyder branch"
+      },
+      "limitations": []
+    },
+    {
+      "id": "A01",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/audio/report.json",
+        "assets/spyder/evidence/audio/spyder-live.webm",
+        "assets/spyder/evidence/audio/astats.log",
+        "assets/spyder/evidence/departure/report.json"
+      ],
+      "observed": {
+        "engine": "Original inline-three synthesis",
+        "follows": [
+          "RPM",
+          "load",
+          "shift",
+          "reverse"
+        ],
+        "options": [
+          "mute",
+          "unmute",
+          "music level",
+          "difficulty"
+        ],
+        "peakDBFS": -8.20124,
+        "rmsDBFS": -17.926332,
+        "nan": 0,
+        "inf": 0,
+        "captureSecondsApproximately": 19.74
+      },
+      "limitations": [
+        "No authentic engine recording or human listening approval claimed."
+      ]
+    },
+    {
+      "id": "B01",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/delivery-smoke/report.json",
+        "assets/spyder/evidence/delivery-smoke/package-server.json",
+        "assets/spyder/evidence/build-equivalence.json",
+        "assets/spyder/evidence/full-tests-final.log",
+        "assets/spyder/evidence/typecheck.log",
+        "assets/spyder/evidence/build-final.log",
+        "assets/spyder/evidence/packaged-controls/report.json",
+        "assets/spyder/evidence/packaged-roads-final/report.json",
+        "assets/spyder/evidence/performance-final/report.json"
+      ],
+      "observed": {
+        "tests": "457/457",
+        "typecheck": "PASS",
+        "productionBuild": "PASS",
+        "packagedConsoleAndMissingAssets": "No new errors",
+        "finalBuild": {
+          "output": "demo-dist/2026-09-23T19-18-57-544Z-4e33aae2bda2-working",
+          "commit": "4e33aae2bda2fdf3ce95a75f638d8c9642c5dde9",
+          "buildRef": "4e33aae2bda2-working",
+          "manifest": "OUTPUT-MANIFEST.json"
+        }
+      },
+      "limitations": [
+        "Existing bundle-size advisory remains."
+      ]
+    },
+    {
+      "id": "B02",
+      "status": "PASS",
+      "evidence": [
+        "assets/spyder/evidence/performance-final/report.json",
+        "assets/spyder/evidence/performance-final/slingshot-raw.json",
+        "assets/spyder/evidence/performance-final/ryker-raw.json",
+        "assets/spyder/evidence/performance-final/spyder-raw.json"
+      ],
+      "observed": {
+        "device": "RTX 4080 / Intel i9-12900K",
+        "viewport": [
+          2560,
+          1440
+        ],
+        "quality": "High",
+        "scene": "Dusk-rain Harbor native RAF Time Attack, sequential real full laps",
+        "runs": [
+          {
+            "vehicle": "slingshot",
+            "frames": {
+              "samples": 4591,
+              "activeSeconds": 76.53030000000051,
+              "averageMs": 16.669636244826947,
+              "averageFps": 59.98931142305687,
+              "worstOnePercentMs": 17.158695652176743,
+              "onePercentLowFps": 58.27948815405095,
+              "p50Ms": 16.69999999999709,
+              "p95Ms": 16.70000000001164,
+              "p99Ms": 16.80000000000291,
+              "maxMs": 33.29999999999927,
+              "over33_4": 0,
+              "over50": 0,
+              "over100": 0
+            },
+            "tail": {
+              "frameTail": true,
+              "highBudget": null
+            },
+            "drawCensus": {
+              "passes": [
+                {
+                  "target": "pipeline-scene",
+                  "camera": "PerspectiveCamera",
+                  "calls": 727,
+                  "triangles": 693257
+                },
+                {
+                  "target": "pipeline-bloom-0",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                },
+                {
+                  "target": "pipeline-bloom-1",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                },
+                {
+                  "target": "pipeline-bloom-2",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                },
+                {
+                  "target": "pipeline-bloom-3",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                }
+              ],
+              "branches": [
+                {
+                  "branch": "Group / Scene",
+                  "meshes": 239,
+                  "inView": 239,
+                  "draws": 239,
+                  "casters": 163,
+                  "uniquePairs": 233,
+                  "uniqueMaterials": 157,
+                  "triangles": 204059
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1",
+                  "meshes": 92,
+                  "inView": 43,
+                  "draws": 43,
+                  "casters": 0,
+                  "uniquePairs": 43,
+                  "uniqueMaterials": 9,
+                  "triangles": 16214
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / warehouse",
+                  "meshes": 35,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 35,
+                  "uniquePairs": 7,
+                  "uniqueMaterials": 7,
+                  "triangles": 6364
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore1",
+                  "meshes": 45,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 288
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore2",
+                  "meshes": 45,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 864
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / plantgroup",
+                  "meshes": 21,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 72576
+                },
+                {
+                  "branch": "P11_harbor_speed_dressing / P11_trackside",
+                  "meshes": 15,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 5,
+                  "uniquePairs": 15,
+                  "uniqueMaterials": 2,
+                  "triangles": 64686
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod2",
+                  "meshes": 50,
+                  "inView": 14,
+                  "draws": 14,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 7304
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod2",
+                  "meshes": 50,
+                  "inView": 14,
+                  "draws": 14,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 6400
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod2",
+                  "meshes": 46,
+                  "inView": 14,
+                  "draws": 14,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 8256
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / planter",
+                  "meshes": 12,
+                  "inView": 12,
+                  "draws": 12,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 8400
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall1",
+                  "meshes": 44,
+                  "inView": 11,
+                  "draws": 11,
+                  "casters": 44,
+                  "uniquePairs": 11,
+                  "uniqueMaterials": 11,
+                  "triangles": 6526
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall2",
+                  "meshes": 33,
+                  "inView": 11,
+                  "draws": 11,
+                  "casters": 33,
+                  "uniquePairs": 11,
+                  "uniqueMaterials": 11,
+                  "triangles": 14322
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore0",
+                  "meshes": 40,
+                  "inView": 10,
+                  "draws": 10,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 468
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall0",
+                  "meshes": 44,
+                  "inView": 10,
+                  "draws": 10,
+                  "casters": 44,
+                  "uniquePairs": 10,
+                  "uniqueMaterials": 10,
+                  "triangles": 5062
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / drain",
+                  "meshes": 12,
+                  "inView": 6,
+                  "draws": 6,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1920
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / barrierseam",
+                  "meshes": 9,
+                  "inView": 5,
+                  "draws": 5,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 6624
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / gantry",
+                  "meshes": 4,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 4,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 120
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / service",
+                  "meshes": 10,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 888
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / skiff",
+                  "meshes": 20,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 1288
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / quay",
+                  "meshes": 9,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 3376
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / plantingbed",
+                  "meshes": 16,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 5184
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / serviceyard",
+                  "meshes": 4,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 1397
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / paddock",
+                  "meshes": 6,
+                  "inView": 3,
+                  "draws": 3,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 296
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / fence",
+                  "meshes": 5,
+                  "inView": 3,
+                  "draws": 3,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 5016
+                },
+                {
+                  "branch": "Group / live_vehicle_mirrors",
+                  "meshes": 2,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 54
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod0",
+                  "meshes": 4,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 4,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1664
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod0",
+                  "meshes": 4,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 4,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1728
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / lift",
+                  "meshes": 4,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 140
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / patch",
+                  "meshes": 5,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 12
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod1",
+                  "meshes": 6,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1040
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / boatcradle",
+                  "meshes": 6,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 320
+                },
+                {
+                  "branch": "P11_harbor_speed_dressing / P11_road_decals",
+                  "meshes": 2,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1022
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / water",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 31826
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / landscape",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 8708
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shoreland",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 600
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / servicepaths",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 156
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / pavingnetwork",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 580
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / farland",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 7920
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontYards",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 3144
+                },
+                {
+                  "branch": "shared-driving-contact / Scene",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 8
+                },
+                {
+                  "branch": "vehicle-world-effects / pooled-water-rooster-tail",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 53
+                },
+                {
+                  "branch": "vehicle-world-effects / session-skid-marks",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 6144
+                },
+                {
+                  "branch": "vehicle-world-effects / pooled-headlight-fog",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 32
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / terminal",
+                  "meshes": 9,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 9,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod0",
+                  "meshes": 4,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 4,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / dock",
+                  "meshes": 4,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / pavilion",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 6,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod1",
+                  "meshes": 2,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / board100",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / board50",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod1",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                }
+              ]
+            }
+          },
+          {
+            "vehicle": "ryker",
+            "frames": {
+              "samples": 4587,
+              "activeSeconds": 76.44690000000024,
+              "averageMs": 16.66599084368874,
+              "averageFps": 60.00243306137967,
+              "worstOnePercentMs": 16.80000000000291,
+              "onePercentLowFps": 59.523809523799216,
+              "p50Ms": 16.69999999999709,
+              "p95Ms": 16.79999999998836,
+              "p99Ms": 16.80000000000291,
+              "maxMs": 16.80000000000291,
+              "over33_4": 0,
+              "over50": 0,
+              "over100": 0
+            },
+            "tail": {
+              "frameTail": true,
+              "highBudget": null
+            },
+            "drawCensus": {
+              "passes": [
+                {
+                  "target": "pipeline-scene",
+                  "camera": "PerspectiveCamera",
+                  "calls": 454,
+                  "triangles": 1745471
+                },
+                {
+                  "target": "pipeline-bloom-0",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                },
+                {
+                  "target": "pipeline-bloom-1",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                },
+                {
+                  "target": "pipeline-bloom-2",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                },
+                {
+                  "target": "pipeline-bloom-3",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                }
+              ],
+              "branches": [
+                {
+                  "branch": "Group / Scene",
+                  "meshes": 114,
+                  "inView": 114,
+                  "draws": 114,
+                  "casters": 78,
+                  "uniquePairs": 114,
+                  "uniqueMaterials": 34,
+                  "triangles": 763769
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1",
+                  "meshes": 92,
+                  "inView": 42,
+                  "draws": 42,
+                  "casters": 0,
+                  "uniquePairs": 42,
+                  "uniqueMaterials": 9,
+                  "triangles": 16178
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore1",
+                  "meshes": 45,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 288
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore2",
+                  "meshes": 45,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 864
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / plantgroup",
+                  "meshes": 21,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 72576
+                },
+                {
+                  "branch": "P11_harbor_speed_dressing / P11_trackside",
+                  "meshes": 15,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 5,
+                  "uniquePairs": 15,
+                  "uniqueMaterials": 2,
+                  "triangles": 64686
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod2",
+                  "meshes": 50,
+                  "inView": 12,
+                  "draws": 12,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 5760
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall1",
+                  "meshes": 44,
+                  "inView": 11,
+                  "draws": 11,
+                  "casters": 44,
+                  "uniquePairs": 11,
+                  "uniqueMaterials": 11,
+                  "triangles": 6526
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall2",
+                  "meshes": 33,
+                  "inView": 11,
+                  "draws": 11,
+                  "casters": 33,
+                  "uniquePairs": 11,
+                  "uniqueMaterials": 11,
+                  "triangles": 14322
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod2",
+                  "meshes": 50,
+                  "inView": 10,
+                  "draws": 10,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 5312
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod2",
+                  "meshes": 48,
+                  "inView": 10,
+                  "draws": 10,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 5504
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / planter",
+                  "meshes": 12,
+                  "inView": 9,
+                  "draws": 9,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 5880
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / warehouse",
+                  "meshes": 35,
+                  "inView": 7,
+                  "draws": 7,
+                  "casters": 35,
+                  "uniquePairs": 7,
+                  "uniqueMaterials": 7,
+                  "triangles": 3128
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / drain",
+                  "meshes": 12,
+                  "inView": 6,
+                  "draws": 6,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1920
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / barrierseam",
+                  "meshes": 9,
+                  "inView": 5,
+                  "draws": 5,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 6624
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore0",
+                  "meshes": 40,
+                  "inView": 5,
+                  "draws": 5,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 312
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / gantry",
+                  "meshes": 4,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 4,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 120
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / service",
+                  "meshes": 10,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 888
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / skiff",
+                  "meshes": 20,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 1288
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / quay",
+                  "meshes": 9,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 3376
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / serviceyard",
+                  "meshes": 4,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 1397
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / paddock",
+                  "meshes": 6,
+                  "inView": 3,
+                  "draws": 3,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 296
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / fence",
+                  "meshes": 5,
+                  "inView": 3,
+                  "draws": 3,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 5016
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod1",
+                  "meshes": 6,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1040
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod0",
+                  "meshes": 4,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 4,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1664
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod0",
+                  "meshes": 4,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 4,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1728
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / lift",
+                  "meshes": 4,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 140
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / patch",
+                  "meshes": 5,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 12
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / plantingbed",
+                  "meshes": 16,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 4608
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / boatcradle",
+                  "meshes": 6,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 320
+                },
+                {
+                  "branch": "P11_harbor_speed_dressing / P11_road_decals",
+                  "meshes": 2,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1022
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / water",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 31826
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / landscape",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 8708
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shoreland",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 600
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / servicepaths",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 156
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / pavingnetwork",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 580
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / farland",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 7920
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontYards",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 3144
+                },
+                {
+                  "branch": "shared-driving-contact / Scene",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 8
+                },
+                {
+                  "branch": "vehicle-world-effects / pooled-water-rooster-tail",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 53
+                },
+                {
+                  "branch": "vehicle-world-effects / session-skid-marks",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 6144
+                },
+                {
+                  "branch": "vehicle-world-effects / pooled-headlight-fog",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 32
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / terminal",
+                  "meshes": 9,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 9,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod0",
+                  "meshes": 2,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 2,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / dock",
+                  "meshes": 4,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / pavilion",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 6,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod1",
+                  "meshes": 2,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / board100",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / board50",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod1",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall0",
+                  "meshes": 44,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 44,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                }
+              ]
+            }
+          },
+          {
+            "vehicle": "spyder",
+            "frames": {
+              "samples": 4703,
+              "activeSeconds": 78.3802000000007,
+              "averageMs": 16.66600042526062,
+              "averageFps": 60.002398564943164,
+              "worstOnePercentMs": 16.80000000000291,
+              "onePercentLowFps": 59.523809523799216,
+              "p50Ms": 16.69999999999709,
+              "p95Ms": 16.70000000001164,
+              "p99Ms": 16.80000000000291,
+              "maxMs": 16.80000000000291,
+              "over33_4": 0,
+              "over50": 0,
+              "over100": 0
+            },
+            "tail": {
+              "frameTail": true,
+              "highBudget": null
+            },
+            "drawCensus": {
+              "passes": [
+                {
+                  "target": "wet-road-reflection",
+                  "camera": "PerspectiveCamera",
+                  "calls": 140,
+                  "triangles": 1070550
+                },
+                {
+                  "target": "pipeline-scene",
+                  "camera": "PerspectiveCamera",
+                  "calls": 476,
+                  "triangles": 2288605
+                },
+                {
+                  "target": "pipeline-bloom-0",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                },
+                {
+                  "target": "pipeline-bloom-1",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                },
+                {
+                  "target": "pipeline-bloom-2",
+                  "camera": "OrthographicCamera",
+                  "calls": 1,
+                  "triangles": 2
+                }
+              ],
+              "branches": [
+                {
+                  "branch": "Group / Scene",
+                  "meshes": 130,
+                  "inView": 130,
+                  "draws": 130,
+                  "casters": 62,
+                  "uniquePairs": 130,
+                  "uniqueMaterials": 42,
+                  "triangles": 1002430
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1",
+                  "meshes": 92,
+                  "inView": 44,
+                  "draws": 44,
+                  "casters": 0,
+                  "uniquePairs": 43,
+                  "uniqueMaterials": 9,
+                  "triangles": 16216
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore1",
+                  "meshes": 45,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 288
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore2",
+                  "meshes": 45,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 864
+                },
+                {
+                  "branch": "P11_harbor_speed_dressing / P11_trackside",
+                  "meshes": 15,
+                  "inView": 15,
+                  "draws": 15,
+                  "casters": 5,
+                  "uniquePairs": 15,
+                  "uniqueMaterials": 2,
+                  "triangles": 65510
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod2",
+                  "meshes": 50,
+                  "inView": 14,
+                  "draws": 14,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 6400
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / plantgroup",
+                  "meshes": 21,
+                  "inView": 14,
+                  "draws": 14,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 66816
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / planter",
+                  "meshes": 12,
+                  "inView": 12,
+                  "draws": 12,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 8400
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod2",
+                  "meshes": 50,
+                  "inView": 12,
+                  "draws": 12,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 6640
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall1",
+                  "meshes": 44,
+                  "inView": 11,
+                  "draws": 11,
+                  "casters": 44,
+                  "uniquePairs": 11,
+                  "uniqueMaterials": 11,
+                  "triangles": 6526
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall2",
+                  "meshes": 33,
+                  "inView": 11,
+                  "draws": 11,
+                  "casters": 33,
+                  "uniquePairs": 11,
+                  "uniqueMaterials": 11,
+                  "triangles": 14322
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod2",
+                  "meshes": 46,
+                  "inView": 10,
+                  "draws": 10,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 5504
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / warehouse",
+                  "meshes": 35,
+                  "inView": 8,
+                  "draws": 8,
+                  "casters": 35,
+                  "uniquePairs": 7,
+                  "uniqueMaterials": 7,
+                  "triangles": 3236
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / drain",
+                  "meshes": 12,
+                  "inView": 6,
+                  "draws": 6,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1920
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / barrierseam",
+                  "meshes": 9,
+                  "inView": 5,
+                  "draws": 5,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 6624
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shore0",
+                  "meshes": 40,
+                  "inView": 5,
+                  "draws": 5,
+                  "casters": 0,
+                  "uniquePairs": 5,
+                  "uniqueMaterials": 5,
+                  "triangles": 312
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / gantry",
+                  "meshes": 4,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 4,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 120
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / service",
+                  "meshes": 10,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 888
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod0",
+                  "meshes": 4,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 4,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 4992
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / skiff",
+                  "meshes": 20,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 1288
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / quay",
+                  "meshes": 9,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 3376
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / plantingbed",
+                  "meshes": 16,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 5184
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / serviceyard",
+                  "meshes": 4,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 0,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 1397
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontHall0",
+                  "meshes": 44,
+                  "inView": 4,
+                  "draws": 4,
+                  "casters": 44,
+                  "uniquePairs": 4,
+                  "uniqueMaterials": 4,
+                  "triangles": 1394
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / paddock",
+                  "meshes": 6,
+                  "inView": 3,
+                  "draws": 3,
+                  "casters": 0,
+                  "uniquePairs": 3,
+                  "uniqueMaterials": 3,
+                  "triangles": 296
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / fence",
+                  "meshes": 5,
+                  "inView": 3,
+                  "draws": 3,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 5016
+                },
+                {
+                  "branch": "Group / live_vehicle_mirrors",
+                  "meshes": 2,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 368
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod0",
+                  "meshes": 4,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 4,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1728
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / lift",
+                  "meshes": 4,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 140
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / patch",
+                  "meshes": 5,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 12
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod1",
+                  "meshes": 6,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1040
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / boatcradle",
+                  "meshes": 6,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 320
+                },
+                {
+                  "branch": "P11_harbor_speed_dressing / P11_road_decals",
+                  "meshes": 2,
+                  "inView": 2,
+                  "draws": 2,
+                  "casters": 0,
+                  "uniquePairs": 2,
+                  "uniqueMaterials": 2,
+                  "triangles": 1022
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / terminal",
+                  "meshes": 9,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 9,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 156
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / water",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 31826
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / landscape",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 8708
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / shoreland",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 600
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / servicepaths",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 156
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / pavingnetwork",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 580
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / farland",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 7920
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / waterfrontYards",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 3144
+                },
+                {
+                  "branch": "shared-driving-contact / Scene",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 8
+                },
+                {
+                  "branch": "vehicle-world-effects / session-skid-marks",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 6144
+                },
+                {
+                  "branch": "vehicle-world-effects / pooled-headlight-fog",
+                  "meshes": 1,
+                  "inView": 1,
+                  "draws": 1,
+                  "casters": 0,
+                  "uniquePairs": 1,
+                  "uniqueMaterials": 1,
+                  "triangles": 32
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm2 lod0",
+                  "meshes": 4,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 4,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / dock",
+                  "meshes": 4,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / pavilion",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 6,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm0 lod1",
+                  "meshes": 2,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / board100",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / board50",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                },
+                {
+                  "branch": "Harbor_P06C-built-waterfront-1 / palm1 lod1",
+                  "meshes": 6,
+                  "inView": 0,
+                  "draws": 0,
+                  "casters": 0,
+                  "uniquePairs": 0,
+                  "uniqueMaterials": 0,
+                  "triangles": 0
+                }
+              ]
+            }
+          }
+        ],
+        "existingPerformanceGate": "HOLD"
+      },
+      "limitations": [
+        "Bounded addition audit, not full two-race High/Ultra release matrix or lower-end hardware approval."
+      ]
+    },
+    {
+      "id": "D01",
+      "status": "PASS",
+      "evidence": [
+        "scripts/spyder/stage-handoff.py",
+        "handoff/SPYDER01-COMPLETE.md",
+        "assets/spyder/ASSET-PROVENANCE.md",
+        "assets/spyder/PHYSICS.md",
+        "assets/spyder/PRODUCT-REFERENCES.md"
+      ],
+      "observed": {
+        "delivery": "Private complete local ZIP with standalone game, source overlay/diff, four packed masters, source kit/receipt, original rider master, evidence and SHA256 inventory",
+        "integrity": "Stage script verifies ZIP CRC and every member hash before success",
+        "noUnusedLODClaim": true
+      },
+      "limitations": [
+        "ZIP excludes Git history, installed tools, owner saves and unrelated work. D01 requires successful accompanying package-integrity receipt."
+      ]
+    }
+  ],
+  "commands": [
+    "npm test",
+    "npx tsc --noEmit",
+    "npm run demo:build",
+    "node scripts/spyder/validate-assets.mjs",
+    "Blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python scripts/spyder/reimport.py",
+    "BASE_URL=http://127.0.0.1:5214 node scripts/spyder/visual.mjs",
+    "node scripts/spyder/acceptance.mjs",
+    "node scripts/spyder/roads.mjs",
+    "node scripts/spyder/career.mjs",
+    "node scripts/spyder/cockpit.mjs",
+    "node scripts/spyder/audio.mjs",
+    "node scripts/spyder/mixed.mjs",
+    "node scripts/spyder/departure.mjs",
+    "node scripts/spyder/performance.mjs",
+    "python -X utf8 scripts/spyder/stage-handoff.py"
+  ]
+}

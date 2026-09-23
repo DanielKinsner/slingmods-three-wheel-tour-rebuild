@@ -8,7 +8,7 @@ export class ChaseCamera {
  constructor(readonly camera:THREE.PerspectiveCamera,readonly profileId:HandlingProfileId='legacy-p08a'){}
  update(position:THREE.Vector3,quaternion:THREE.Quaternion,speed:number,dt:number,far:boolean,lookBack:boolean,snap=false,obstruction?:(target:THREE.Vector3,desired:THREE.Vector3)=>number|undefined){
   dt=Math.min(.1,Math.max(0,Number.isFinite(dt)?dt:0));snap=snap||!this.initialized;this.initialized=true;
-  const tuning=this.profileId==='legacy-p08a'?CHASE_TUNING:{...CHASE_TUNING,positionRate:16,headingRate:12,nearDistance:6,farDistance:8.4,nearHeight:2.4,farHeight:3.5};
+  const tuning=this.profileId==='spyder-f3-v1'?{...CHASE_TUNING,positionRate:16,headingRate:12,nearDistance:4.8,farDistance:6.8,nearHeight:1.95,farHeight:2.85}:this.profileId==='legacy-p08a'?CHASE_TUNING:{...CHASE_TUNING,positionRate:16,headingRate:12,nearDistance:6,farDistance:8.4,nearHeight:2.4,farHeight:3.5};
   const yaw=new THREE.Euler().setFromQuaternion(quaternion,'YXZ').y;
   if(snap){this.anchor.copy(position);this.heading=yaw;this.orbit=lookBack?Math.PI:0;this.distance=far?tuning.farDistance:tuning.nearDistance;this.height=far?tuning.farHeight:tuning.nearHeight}
   else{this.anchor.lerp(position,1-Math.exp(-tuning.positionRate*dt));this.heading=damp(this.heading,shortest(this.heading,yaw),tuning.headingRate,dt);this.orbit+=THREE.MathUtils.clamp(damp(this.orbit,lookBack?Math.PI:0,tuning.viewRate,dt)-this.orbit,-tuning.viewAngularSpeed*dt,tuning.viewAngularSpeed*dt);this.distance=damp(this.distance,far?tuning.farDistance:tuning.nearDistance,tuning.distanceRate,dt);this.height=damp(this.height,far?tuning.farHeight:tuning.nearHeight,tuning.distanceRate,dt)}

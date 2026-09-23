@@ -8,7 +8,7 @@ import './film.css';
 interface RaceState {phase:string;paused:boolean;playerResult?:{valid:boolean;attemptId:string;place:number|null;timeMs:number|null}|null}
 interface Options {
   parent:Element; camera:THREE.PerspectiveCamera; hero:THREE.Object3D;
-  vehicle:'slingshot'|'ryker'; destination:string; context:string;
+  vehicle:'slingshot'|'ryker'|'spyder'; destination:string; context:string;
   /** false: the victory film never starts by itself (Time Attack keeps retries instant); the launcher still offers it. */
   autoplay?:boolean;
   ground:(x:number,z:number)=>number;
@@ -79,7 +79,7 @@ export class RaceFilmDirector {
     this.eyebrow.textContent=preview?'DIRECTOR’S CUT / CINEMATIC PREVIEW':film==='victory'?'THE FINISH / '+this.options.destination.toUpperCase():'SLINGMODS / '+this.options.destination.toUpperCase();
     this.title.textContent=film==='arrival'?'Find your\nfreedom.':film==='grid'?'Make it\nyour race.':preview||this.result?.place===1?'You own\nthis moment.':'Leave it all\non the road.';
     const time=this.result?.timeMs;
-    this.detail.textContent=film==='victory'&&!preview?`${this.result?.place===1?'VICTORY':`P${this.result?.place??'—'} / FINISH`}  /  ${time==null?'':(time/1000).toFixed(3)+' SEC'}`:film==='arrival'?this.options.destination.toUpperCase()+' / '+this.options.context.toUpperCase():this.options.vehicle==='ryker'?'CAN-AM RYKER 900 / THREE WHEELS. ONE LINE.':'POLARIS SLINGSHOT / THREE WHEELS. ONE LINE.';
+    this.detail.textContent=film==='victory'&&!preview?`${this.result?.place===1?'VICTORY':`P${this.result?.place??'—'} / FINISH`}  /  ${time==null?'':(time/1000).toFixed(3)+' SEC'}`:film==='arrival'?this.options.destination.toUpperCase()+' / '+this.options.context.toUpperCase():this.options.vehicle==='spyder'?'CAN-AM SPYDER F3 CUSTOM / FIND YOUR LINE.':this.options.vehicle==='ryker'?'CAN-AM RYKER 900 / THREE WHEELS. ONE LINE.':'POLARIS SLINGSHOT / THREE WHEELS. ONE LINE.';
     this.options.score(film,0);
   }
   private end(complete:boolean){
@@ -113,7 +113,7 @@ export class RaceFilmDirector {
     const duration=this.reduced?1.2:filmDuration(this.film);
     if(this.elapsed>=duration){this.end(true);return}
     const sample=sampleFilm(this.film,this.reduced?filmDuration(this.film)-1:this.elapsed),{shot}=sample;
-    const o=this.options,camera=o.camera,scale=o.vehicle==='ryker'?.7:1;
+    const o=this.options,camera=o.camera,scale=o.vehicle==='spyder'?.8:o.vehicle==='ryker'?.7:1;
     // Stabilize roll/pitch: the film tracks the real position/yaw, not suspension vibration.
     this.euler.setFromQuaternion(o.hero.quaternion,'YXZ');this.orientation.setFromAxisAngle(THREE.Object3D.DEFAULT_UP,this.euler.y);
     this.position.fromArray(sample.position).multiplyScalar(scale);

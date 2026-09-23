@@ -1,0 +1,135 @@
+{
+  "kind": "tool-preflight-not-game-validation",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sourceFilesVerified": 14,
+  "blender": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\blender-4.5.2-windows-x64\\blender.exe",
+  "discoveryAttempts": [
+    {
+      "command": [
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\blender-4.5.2-windows-x64\\blender.exe",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Blender 4.5.2 LTS\n\tbuild date: 2025-08-20\n\tbuild time: 02:20:52\n\tbuild commit date: 2025-08-19\n\tbuild commit time: 15:00\n\tbuild hash: ab25eae04993\n\tbuild branch: blender-v4.5-release\n\tbuild platform: Windows\n\tbuild type: Release\n\tbuild c flags: /W3 /w34062 /w34100 /w34115 /w34189 /w35038 /wd4018 /wd4146 /wd4065 /wd4127 /wd4181 /wd4200 /wd4244 /wd4267 /wd4305 /wd4800 /wd4828 /wd4996 /wd4661 /wd4848 /we4013 /we4133 /we4431 /we4033 /DWIN32 /D_WINDOWS /W3 /nologo /J /Gd /MP /bigobj /Zc:inline  \n\tbuild c++ flags: /W3 /w34062 /w34100 /w34115 /w34189 /w35038 /wd4018 /wd4146 /wd4065 /wd4127 /wd4181 /wd4200 /wd4244 /wd4267 /wd4305 /wd4800 /wd4828 /wd4996 /wd4661 /wd4848 /we4013 /we4133 /we4431 /we4033 /DWIN32 /D_WINDOWS /W3  /EHsc /nologo /J /Gd /MP /EHsc /bigobj /permissive- /Zc:__cplusplus /Zc:inline  \n\tbuild link flags: /MACHINE:X64  /SUBSYSTEM:CONSOLE /STACK:2097152 /ignore:4049 /ignore:4217 /ignore:4221\n\tbuild system: CMake\n",
+      "stderr": ""
+    }
+  ],
+  "nativeAudit": {
+    "status": "PASS",
+    "exitCode": 0,
+    "report": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\spyder-kit\\Spyder_Road_Codex_Kit\\work\\preflight-20260923T172838949156Z\\native-import.json",
+    "log": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\spyder-kit\\Spyder_Road_Codex_Kit\\work\\preflight-20260923T172838949156Z\\native-import.log",
+    "command": [
+      "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\blender-4.5.2-windows-x64\\blender.exe",
+      "--background",
+      "--factory-startup",
+      "--disable-autoexec",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\spyder-kit\\Spyder_Road_Codex_Kit\\tools\\blender_import_audit.py",
+      "--",
+      "--source",
+      "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\spyder-kit\\Spyder_Road_Codex_Kit\\work\\import-source\\Spyder.obj",
+      "--out",
+      "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\spyder-kit\\Spyder_Road_Codex_Kit\\work\\preflight-20260923T172838949156Z\\native-import.json",
+      "--save-blend",
+      "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild\\.tools\\spyder-kit\\Spyder_Road_Codex_Kit\\work\\preflight-20260923T172838949156Z\\Spyder-Imported-Baseline.blend"
+    ]
+  },
+  "node": {
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "v24.15.0\n",
+    "stderr": ""
+  },
+  "repository": {
+    "path": "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+    "exists": true,
+    "head": {
+      "command": [
+        "C:\\Program Files\\Git\\cmd\\git.EXE",
+        "-C",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "4e33aae2bda2fdf3ce95a75f638d8c9642c5dde9\n",
+      "stderr": ""
+    },
+    "branch": {
+      "command": [
+        "C:\\Program Files\\Git\\cmd\\git.EXE",
+        "-C",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+        "branch",
+        "--show-current"
+      ],
+      "returncode": 0,
+      "stdout": "main\n",
+      "stderr": ""
+    },
+    "status": {
+      "command": [
+        "C:\\Program Files\\Git\\cmd\\git.EXE",
+        "-C",
+        "C:\\Users\\SM - Dan\\Documents\\GitHub\\slingmods-three-wheel-tour-rebuild",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "?? SlingMods-2026-Finish-Kit/\n?? SlingMods-Astra-Director-Review-17/\n?? SlingMods-UX-Audit-Packet/\n",
+      "stderr": ""
+    },
+    "package": {
+      "name": "slingmods-three-wheel-tour-rebuild",
+      "version": "1.0.0",
+      "description": "",
+      "scripts": {
+        "deploy:build": "node scripts/build-vercel.mjs",
+        "dev": "vite",
+        "build": "tsc --noEmit && vite build",
+        "test": "tsx --test tests/*.test.ts tests/*.test.mjs",
+        "test:browser": "node scripts/capture-calibration.mjs",
+        "gate:g0": "python director-kit/tools/check_gate.py --gate G0",
+        "preview:accepted": "npm run gate:g1 && npm run gate:g2 && vite preview --port 5187",
+        "gate:g1": "python director-kit/tools/check_gate.py --gate G1",
+        "gate:g2": "python director-kit/tools/check_gate.py --gate G2",
+        "capture:vehicle": "node scripts/capture-vehicle.mjs",
+        "capture:driving": "node scripts/capture-driving.mjs",
+        "record:driving": "node scripts/record-driving.mjs",
+        "record:stress": "node scripts/record-stress.mjs",
+        "test:presenter": "node scripts/test-presenter.mjs",
+        "preview": "vite preview --port 5187 --host 127.0.0.1",
+        "capture:p03a": "node scripts/capture-p03a-review.mjs",
+        "demo:build": "node scripts/build-demo.mjs",
+        "demo:preview": "node scripts/serve-demo.mjs",
+        "demo:stage": "node scripts/stage-publish.mjs",
+        "demo:stage:preview": "node scripts/serve-demo.mjs --publish"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "UNLICENSED",
+      "type": "module",
+      "dependencies": {
+        "@dimforge/rapier3d-compat": "0.20.0",
+        "three": "0.186.0"
+      },
+      "devDependencies": {
+        "@playwright/test": "1.63.0",
+        "@types/node": "22.20.2",
+        "@types/three": "0.185.4",
+        "tsx": "4.23.13",
+        "typescript": "7.0.2",
+        "vite": "8.3.0"
+      },
+      "private": true
+    }
+  },
+  "sourceHashAfterMatches": true
+}

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 export type VehicleMaterialRole='paint'|'accent'|'decal'|'headlamp'|'running-brake'|'brake'|'clear-cover'|'passive-reflector'|'interior'|'rubber'|'metal';
 export const materialRole=(m:THREE.Material)=>m.userData.vehicleRole as VehicleMaterialRole|undefined;
-export const hasMaterialBindings=(car:THREE.Object3D)=>car.getObjectByName('vehicle_root')?.userData.materialBindingsVersion===1;
+export const hasMaterialBindings=(car:THREE.Object3D)=>car.getObjectByName('vehicle_root')?.userData.materialBindingsVersion===1||!!car.getObjectByName('spyder_foundation');
 /** Source decal accent pixels only; white legends and original alpha stay intact. */
 /** Preserve repeated native UVs and sampling without sharing mutable image data. */
 export function decalTexture(source:THREE.Texture,canvas:HTMLCanvasElement){const map:THREE.Texture=new THREE.CanvasTexture(canvas),pixels=map.source;map.copy(source);map.source=pixels;map.needsUpdate=true;return map}

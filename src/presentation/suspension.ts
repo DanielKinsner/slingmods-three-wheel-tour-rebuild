@@ -8,15 +8,15 @@ export class SuspensionPresenter {
  private shocks:{lower:THREE.Group;upper:THREE.Group;spring:THREE.Group}[]=[];
  private masks=new Map<THREE.Object3D,boolean>();private inspection:'front'|'rear'|null=null;
  private source:THREE.Group;private endpoints:number[][][]=[];
- static async load(loader:GLTFLoader,car:THREE.Object3D){if(isRyker(car))return new SuspensionPresenter(car,new THREE.Group());const gltf=await loader.loadAsync('/assets/products/ddmworks-sm3223-silver.glb');return new SuspensionPresenter(car,gltf.scene)}
+ static async load(loader:GLTFLoader,car:THREE.Object3D){if(isRyker(car)||!!car.getObjectByName('spyder_foundation'))return new SuspensionPresenter(car,new THREE.Group());const gltf=await loader.loadAsync('/assets/products/ddmworks-sm3223-silver.glb');return new SuspensionPresenter(car,gltf.scene)}
  constructor(private car:THREE.Object3D,source:THREE.Group){
-  this.source=source;this.root.name='ddmworks_sm3223_installed';car.add(this.root);if(isRyker(car)){this.root.visible=false;return}
+  this.source=source;this.root.name='ddmworks_sm3223_installed';car.add(this.root);if(isRyker(car)||!!car.getObjectByName('spyder_foundation')){this.root.visible=false;return}
   for(const name of ['suspension_front_left','suspension_front_right','shock_body_visual','shock_piston_visual','shock_spring_visual']){const o=car.getObjectByName(name);if(!o)throw Error('Missing stock suspension slot '+name);this.originals.push(o)}
   for(const side of ['left','right']){const c=source.getObjectByName('carrier_front_'+side);if(!c)throw Error('Missing suspension carrier');const carrier=c.clone(true);carrier.visible=!car.getObjectByName('josh_donor_foundation')&&!car.getObjectByName('model02_2026_foundation');this.root.add(carrier)}
   for(let i=0;i<3;i++){const parts={} as typeof this.shocks[number];for(const key of ['lower','upper','spring']as const){const group=new THREE.Group();const child=source.getObjectByName('ddm_'+key)!.clone(true);if(key==='spring')child.position.y-=.0855;group.add(child);this.root.add(group);parts[key]=group}this.shocks.push(parts)}
   this.root.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true}});this.set(false);this.update();
  }
- set(value:boolean){value=value&&!isRyker(this.car);this.enabled=value;this.root.visible=value;for(const o of this.originals)o.visible=!value;this.update()}
+ set(value:boolean){value=value&&!isRyker(this.car)&&!this.car.getObjectByName('spyder_foundation');this.enabled=value;this.root.visible=value;for(const o of this.originals)o.visible=!value;this.update()}
  inspectionView(side:'front'|'rear'|null){
   for(const [o,visible]of this.masks)o.visible=visible;this.masks.clear();this.inspection=side;if(!side)return;
   const index=side==='front'?0:2,allowed:THREE.Object3D[]=[...Object.values(this.shocks[index]),...this.originals.filter(o=>side==='front'?o.name==='suspension_front_left':o.name.startsWith('shock_'))];

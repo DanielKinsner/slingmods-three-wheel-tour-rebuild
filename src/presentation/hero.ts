@@ -1,6 +1,7 @@
-import {riderAssetURL} from './rider-asset';
+import {riderAssetURL,TOUR_RIDER_URL} from './rider-asset';
 import {hasMaterialBindings,recolorRivalMaterial,VehicleOptics} from './vehicle-materials';
 import {restoreConsoleDetail} from './console-detail';
+import {isSpyder,SpyderMotion} from './spyder';
 import {isRyker,RykerMotion} from './ryker';
 import {clone as cloneRig} from 'three/addons/utils/SkeletonUtils.js';
 import * as THREE from 'three';
@@ -17,26 +18,26 @@ import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
 export async function loadDrivingHero(loader:GLTFLoader,options:{rivals?:boolean}={}){
  const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync(riderAssetURL()),fetch(CURRENT_DRIVER_ATTACHMENT).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
- if(!isRyker(asset.scene))restoreConsoleDetail(asset.scene);
+ if(!isRyker(asset.scene)&&!isSpyder(asset.scene))restoreConsoleDetail(asset.scene);
  asset.scene.userData.assetURL=CURRENT_VEHICLE_URL;
  const hero=bindDrivingHero(asset.scene,person.scene,attachment,rig);
- if(!isRyker(asset.scene)||!options.rivals)return hero;
- // Selecting a Ryker changes the player only; the established rival fleet remains Slingshots.
- const [fleet,fleetAttachment,fleetRig]=await Promise.all([loader.loadAsync('/assets/model02/slingshot-2026.glb'),fetch('/assets/model02/driver-attachment.json').then(r=>r.json() as Promise<DriverAttachment>),fetch('/assets/model02/rear-rig.json').then(r=>r.json() as Promise<RearRig>)]);
- fleet.scene.userData.assetURL='/assets/model02/slingshot-2026.glb';restoreConsoleDetail(fleet.scene);const rivals=bindDrivingHero(fleet.scene,cloneRig(person.scene) as THREE.Group,fleetAttachment,fleetRig);return {...hero,cloneRival:rivals.cloneRival};
+ if((!isRyker(asset.scene)&&!isSpyder(asset.scene))||!options.rivals)return hero;
+ // The established Slingshot fleet keeps its own rider weights and attachment.
+ const [fleet,fleetAttachment,fleetRig,fleetPerson]=await Promise.all([loader.loadAsync('/assets/model02/slingshot-2026.glb'),fetch('/assets/model02/driver-attachment.json').then(r=>r.json() as Promise<DriverAttachment>),fetch('/assets/model02/rear-rig.json').then(r=>r.json() as Promise<RearRig>),isSpyder(asset.scene)?loader.loadAsync(TOUR_RIDER_URL):Promise.resolve(person)]);
+ fleet.scene.userData.assetURL='/assets/model02/slingshot-2026.glb';restoreConsoleDetail(fleet.scene);const rivals=bindDrivingHero(fleet.scene,cloneRig(fleetPerson.scene) as THREE.Group,fleetAttachment,fleetRig);return {...hero,cloneRival:rivals.cloneRival};
 }
-function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttachment,rig:RearRig){
+export function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttachment,rig:RearRig){
  if(attachment.rootOffset)body.position.fromArray(attachment.rootOffset);
  const asset={scene:car},person={scene:body};
  const root=new THREE.Group();root.add(asset.scene);configureShadows(root,new THREE.Group(),'repaired',false);root.add(person.scene);
  const axisX=new THREE.Vector3(1,0,0),axisY=new THREE.Vector3(0,1,0),axisZ=new THREE.Vector3(0,0,1),q=new THREE.Quaternion();
  const bindings=['front_left','front_right','rear'].map(id=>{const steer=asset.scene.getObjectByName(id+'_steer'),spin=asset.scene.getObjectByName(id+'_spin'),node=steer??spin;return{steer,spin,node,basePos:node?.position.clone(),baseSteer:steer?.quaternion.clone(),baseSpin:spin?.quaternion.clone()}});
- const ryker=isRyker(car)?new RykerMotion(car):undefined;
+ const ryker=isSpyder(car)?new SpyderMotion(car):isRyker(car)?new RykerMotion(car):undefined;
  const rear=ryker??new RearPresenter(asset.scene,rig),frontLinks=new FrontLinks(asset.scene),wheel=asset.scene.getObjectByName('steering_control')!,wheelBase=wheel.quaternion.clone();
  const driver=new DriverPresenter(person.scene,root,wheel,attachment);
  // Rivals are drawn from one merged copy of the car (merge-rigid.ts): same look, about half the draw calls. Every node the
  // rig, steering, front links or mirrors address stays its own rigid body. Semantic (2026) car only; shared by all rivals.
- const rigidNames=new Set<string>([...Object.values(rig.groups),rig.drivePulley?.node??'','steering_control','rear_carrier','rear_arm_pivot','rear_hub','shock_upper','shock_lower','Mirrors_1','stock_exhaust']),dynamic=(o:THREE.Object3D)=>rigidNames.has(o.name)||/_(steer|spin)$/.test(o.name)||!!(o.userData.frontLink??o.userData.model01FrontLink);
+ const rigidNames=new Set<string>([...Object.values(rig.groups),rig.drivePulley?.node??'','steering_control','rear_carrier','rear_swingarm','rear_arm_pivot','rear_hub','shock_upper','shock_lower','Mirrors_1','stock_exhaust']),dynamic=(o:THREE.Object3D)=>rigidNames.has(o.name)||/_(steer|spin)$/.test(o.name)||/^stock_(front_left|front_right|rear)_(spring|shock)$/.test(o.name)||!!(o.userData.frontLink??o.userData.model01FrontLink??o.userData.spyderMotion);
  let rivalTemplate:THREE.Group|undefined,rivalMerge:MergeReport|undefined;
  return{cloneRival(paint:string,accent:string,preset:'day'|'night'='day'){
  const semantic=hasMaterialBindings(car),decalMaps:THREE.Texture[]=[];

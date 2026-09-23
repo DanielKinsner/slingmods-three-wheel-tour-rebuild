@@ -1,3 +1,4 @@
+import spyderLayout from '../../public/assets/spyder/manifest.json';
 import {VEHICLE_VISUAL} from './vehicle-asset';
 import {rykerWheels} from './ryker-contacts';
 import * as THREE from 'three';
@@ -13,8 +14,8 @@ export function vehicleContact(){
  }
  const texture=new THREE.DataTexture(data,size,size);texture.needsUpdate=true;texture.magFilter=THREE.LinearFilter;texture.minFilter=THREE.LinearFilter;
  const positions:number[]=[],uv:number[]=[],indices:number[]=[];
- const footprints=(VEHICLE_VISUAL==='ryker'?rykerWheels:layout.wheels).map(w=>[w.center[0],w.center[2],w.width*3.6,w.radius*2.3]);
- footprints.push(VEHICLE_VISUAL==='ryker'?[0,-.1,.8,1.7]:[0,-.1,1.3,2.7]);
+ const footprints=(VEHICLE_VISUAL==='spyder'?spyderLayout.wheels:VEHICLE_VISUAL==='ryker'?rykerWheels:layout.wheels).map(w=>[w.center[0],w.center[2],w.width*3.6,w.radius*2.3]);
+ footprints.push(VEHICLE_VISUAL==='spyder'?[0,-.1,1,2]:VEHICLE_VISUAL==='ryker'?[0,-.1,.8,1.7]:[0,-.1,1.3,2.7]);
  for(const[x,z,w,d]of footprints){const i=positions.length/3;positions.push(x-w/2,.025,z-d/2,x-w/2,.025,z+d/2,x+w/2,.025,z+d/2,x+w/2,.025,z-d/2);uv.push(0,0,0,1,1,1,1,0);indices.push(i,i+1,i+2,i,i+2,i+3)}
  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometry.setIndex(indices);
  const material=new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,toneMapped:false,polygonOffset:true,polygonOffsetFactor:-1});

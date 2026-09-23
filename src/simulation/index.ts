@@ -3,6 +3,8 @@ export {HANDLING_PROFILES,CURRENT_HANDLING_PROFILE,handlingProfile,steeringLimit
 import {suspensionParameters,type SuspensionSetup} from '../career/suspension';
 import RAPIER from '@dimforge/rapier3d-compat';
 import {SLINGSHOT_DEFINITION,type VehicleDefinition} from './vehicle-definition';
+import {freshSpyderBuild,validSpyderBuild,spyderThrottle,type SpyderBuild} from '../signature/spyder-catalog';
+import {SpyderSE6} from './spyder-se6';
 import {RykerCVT} from './ryker-cvt';
 import {PAD_ENVIRONMENT,type EnvironmentDefinition} from '../course/environment';
 import {AutoDrive,DRIVETRAIN,wheelAngularSpeed} from './drivetrain';
@@ -12,7 +14,7 @@ export type Quat=Vec3&{w:number};
 /** Positive steer is LEFT; body forward is -Z. Controls are sanitized each tick. */
 export interface VehicleControl { throttle:number; brake:number; steer:number; reverse:boolean; tractionControl?:boolean }
 export interface WheelTelemetry {id:string;contact:boolean;load:number;travel:number;slipRatio:number;slipAngle:number;spin:number;steer:number;localCenter:Vec3;surface:string;angularSpeed:number;longitudinalSpeed:number;longitudinalForce:number;lateralForce:number;gripLimit:number;driveTorque:number}
-export interface VehicleTelemetry {vehicleId?:string;definitionId?:string;powertrain?:'five-speed'|'cvt';cvtRatio?:number;time:number;position:Vec3;quaternion:Quat;velocity:Vec3;angularVelocity:Vec3;speed:number;rpm:number;engineWheelAngularSpeed:number;gear:number;shifting:boolean;shiftRemaining:number;steer:number;throttle:number;brake:number;reversePending:boolean;wheels:WheelTelemetry[]}
+export interface VehicleTelemetry {vehicleId?:string;definitionId?:string;powertrain?:'five-speed'|'cvt'|'six-speed';cvtRatio?:number;time:number;position:Vec3;quaternion:Quat;velocity:Vec3;angularVelocity:Vec3;speed:number;rpm:number;engineWheelAngularSpeed:number;gear:number;shifting:boolean;shiftRemaining:number;steer:number;throttle:number;brake:number;reversePending:boolean;wheels:WheelTelemetry[]}
 export const FIXED_DT=1/60;
 export const SPEC={mass:850,comHeight:0.46,frontSpring:28000,rearSpring:48000,damperFront:3800,damperRear:6500,restLength:0.24,travel:0.15,...DRIVETRAIN,provenance:'Provisional simulation estimates, including loaded mass, CG, spring rates, damping, torque curve, gearing and tire coefficients. Dimensional contact geometry comes solely from shared P01 layout.'} as const;
 const v=(x=0,y=0,z=0):Vec3=>({x,y,z});
@@ -40,19 +42,21 @@ export class Simulation {
     return {time:this.time,wheels:this.forceDiagnostics.map(w=>({...w})),contacts};
   }
   private suspension:ReturnType<typeof suspensionParameters>|null=null;
-  configureSuspension(setup:SuspensionSetup|null){if(this.time!==0)throw Error('Configure suspension before driving');if(this.definition.powertrain==='cvt'&&setup)throw Error('Slingshot suspension cannot be fitted to Ryker');this.suspension=setup?Object.freeze(suspensionParameters(setup)):null}
-  suspensionConfig(){return this.definition.powertrain==='cvt'?{vehicle:'can-am-ryker-900',elka:this.elka,calibration:'game-estimated'}:this.suspension?{...this.suspension}:null}
+  configureSuspension(setup:SuspensionSetup|null){if(this.time!==0)throw Error('Configure suspension before driving');if(this.definition.powertrain!=='five-speed'&&setup)throw Error('Slingshot suspension cannot be fitted to Ryker');this.suspension=setup?Object.freeze(suspensionParameters(setup)):null}
+  suspensionConfig(){return this.definition.powertrain==='six-speed'?{vehicle:this.definition.id,build:structuredClone(this.spyder),calibration:'game-estimated'}:this.definition.powertrain==='cvt'?{vehicle:'can-am-ryker-900',elka:this.elka,calibration:'game-estimated'}:this.suspension?{...this.suspension}:null}
+  private spyder:SpyderBuild=freshSpyderBuild();
+  configureSpyder(build:SpyderBuild){if(this.time!==0||this.definition.powertrain!=='six-speed'||!validSpyderBuild(build))throw Error('Valid Spyder configuration required before driving');this.spyder=structuredClone(build)}
   private elka=false;
   configureRykerSuspension(elka:boolean){if(this.time!==0||this.definition.powertrain!=='cvt')throw Error('Ryker suspension must be configured before driving');this.elka=elka}
   private world:RAPIER.World;
   private owner?:RaceWorld;
   private body:RAPIER.RigidBody;
-  private time=0;private steering=0;private drivetrain:AutoDrive|RykerCVT;
+  private time=0;private steering=0;private drivetrain:AutoDrive|RykerCVT|SpyderSE6;
   private spin=[0,0,0];private overspeed=[0,0,0];private wheels:WheelTelemetry[]=[];
   private throttle=0;private brake=0;private disposed=false;
   static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT,profileId:HandlingProfileId='legacy-p08a',definition:VehicleDefinition=SLINGSHOT_DEFINITION):Promise<Simulation>{initialized??=RAPIER.init();await initialized;const owner=new RaceWorld(environment,profileId);const car=owner.addVehicle('player',{},definition,profileId);owner.initialize();car.owner=owner;return car}
   constructor(readonly environment:EnvironmentDefinition, world:RAPIER.World,readonly profileId:HandlingProfileId='legacy-p08a',readonly definition:VehicleDefinition=SLINGSHOT_DEFINITION){
-    handlingProfile(profileId);this.drivetrain=definition.powertrain==='cvt'?new RykerCVT():new AutoDrive(profileId);
+    handlingProfile(profileId);this.drivetrain=definition.powertrain==='six-speed'?new SpyderSE6():definition.powertrain==='cvt'?new RykerCVT():new AutoDrive(profileId);
     this.world=world;
     // Collider carries zero mass; explicit loaded mass/inertia makes the convention unambiguous.
     this.body=this.world.createRigidBody(RAPIER.RigidBodyDesc.dynamic().setTranslation(0,this.definition.comHeight+0.04,35).setCanSleep(false).setCcdEnabled(true).setAngularDamping(0.12).setAdditionalMassProperties(this.definition.mass,v(),v(...this.definition.inertia),{x:0,y:0,z:0,w:1}));
@@ -67,7 +71,7 @@ export class Simulation {
       // floor group is excluded. The chassis still catches a bottom-out/overturn.
       // Matched high-speed tests isolated asymmetric guard/floor response despite
       // zero reported solver impulses; cylinder-to-hull and CCD-off did not fix it.
-      if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4'||profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1'))guard.setCollisionGroups(0x0002fffe);
+      if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4'||profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1'||this.profileId==='spyder-f3-v1'))guard.setCollisionGroups(0x0002fffe);
       this.world.createCollider(guard.setTranslation(w.center[0],w.center[1]-this.definition.comHeight,w.center[2]).setDensity(0).setFriction(0).setFrictionCombineRule(RAPIER.CoefficientCombineRule.Min),this.body);
     }
     this.reset();
@@ -90,12 +94,13 @@ export class Simulation {
     const q=this.body.rotation(),p=this.body.translation(),up=rotate(v(0,1,0),q),forward=rotate(v(0,0,-1),q),velocity=this.body.linvel(),speed=dot(velocity,forward);
     const maxSteer=steeringLimit(speed,this.profileId,this.definition.layout.wheelbase)*(this.profileId==='legacy-p08a'?1:1-handlingProfile(this.profileId).brakeSteerRelief*this.brake);
     const target=clamp(finite(control.steer),-1,1)*maxSteer;
-    const response=(this.profileId==='slingmods-sport-v3'||this.profileId==='slingmods-sport-v4'||this.profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1')?1-Math.exp(-dt/.10):1;
+    const response=(this.profileId==='slingmods-sport-v3'||this.profileId==='slingmods-sport-v4'||this.profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1'||this.profileId==='spyder-f3-v1')?1-Math.exp(-dt/.10):1;
     this.steering+=clamp((target-this.steering)*response,-handlingProfile(this.profileId).steerRate*dt,handlingProfile(this.profileId).steerRate*dt);
+    if(this.definition.powertrain==='six-speed')this.throttle=spyderThrottle(this.throttle,this.spyder);
     const driveState=this.drivetrain.step(speed,this.overspeed[2],this.definition.layout.wheels[2].radius,this.throttle,this.brake,Boolean(control.reverse),dt);
     this.throttle=driveState.throttle;this.brake=driveState.brake;const engineForce=driveState.force;
     this.body.resetForces(true);this.body.resetTorques(true);
-    const forgiving=(this.profileId==='slingmods-sport-v4'||this.profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1');
+    const forgiving=(this.profileId==='slingmods-sport-v4'||this.profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1'||this.profileId==='spyder-f3-v1');
     const newWheels:WheelTelemetry[]=[];if(this.diagnosticEnabled)this.forceDiagnostics=[];
     const samples=this.definition.layout.wheels.map((wheel,i)=>{
       const rear=i===2,k=rear?this.definition.rearSpring:this.definition.frontSpring,weight=this.definition.mass*9.81*(rear?0.5:0.25),preload=weight/k,restLength=rear?(this.definition.rearRestLength??this.definition.restLength):this.definition.restLength;
@@ -121,7 +126,7 @@ export class Simulation {
       // Optional product seam: directional linear damping and spring-perch preload only.
       // Positive point velocity = extension/rebound. Stock keeps the exact equation above.
       if(contact&&this.suspension){const p=this.suspension,vertical=dot(pointVel,up),d=rear?(vertical>0?p.rearRebound:p.rearCompression):(vertical>0?p.frontRebound:p.frontCompression);load=clamp(k*(restLength-length+p.rideHeight)-d*vertical,0,weight*4.5)}
-      if(this.definition.powertrain==='cvt'){if(contact&&this.elka){const vertical=dot(pointVel,up);load=clamp(k*(restLength-length)-(rear?2900:1650)*(vertical<0?1.18:1)*vertical,0,weight*4.5)}if(contact&&length<.04)load+=Math.min(weight*2,(.04-length)*60000)}else if(contact&&length<0.055)load+=Math.min(weight*2,(0.055-length)*130000);
+      if(this.definition.powertrain==='six-speed'){if(contact&&this.spyder.parts[rear?'rear':'front']){const setup=rear?this.spyder.rear:this.spyder.front,vertical=dot(pointVel,up),d=(rear?3500:2050)*(.8+.4*(vertical>0?setup.rebound:setup.compression));load=clamp(k*(restLength-length+setup.preload*.012)-d*vertical,0,weight*4.5)}if(contact&&length<.035)load+=Math.min(weight*2,(.035-length)*80000)}else if(this.definition.powertrain==='cvt'){if(contact&&this.elka){const vertical=dot(pointVel,up);load=clamp(k*(restLength-length)-(rear?2900:1650)*(vertical<0?1.18:1)*vertical,0,weight*4.5)}if(contact&&length<.04)load+=Math.min(weight*2,(.04-length)*60000)}else if(contact&&length<0.055)load+=Math.min(weight*2,(0.055-length)*130000);
       // Game-only curb compliance: cap a single suspension channel's kick,
       // including the bump stop. Rigid chassis/guard collisions remain physical.
       if(forgiving)load=Math.min(load,weight*3);
@@ -129,7 +134,7 @@ export class Simulation {
     });
     // Bounded anti-roll transfers support between the two fronts; total support stays unchanged.
     if(samples[0].contact&&samples[1].contact){
-      const transfer=clamp((samples[1].length-samples[0].length)*(this.definition.powertrain==='cvt'?2600:5500),-samples[0].load,samples[1].load);
+      const transfer=clamp((samples[1].length-samples[0].length)*(this.definition.powertrain==='six-speed'?(this.spyder.parts.sway?5000:3600):this.definition.powertrain==='cvt'?2600:5500),-samples[0].load,samples[1].load);
       samples[0].load+=transfer;samples[1].load-=transfer;
     }
     const supportedLoad=samples.reduce((sum,s)=>sum+s.load,0);
@@ -163,7 +168,7 @@ export class Simulation {
         // V2 brake-by-load allocator sends the same total pedal demand to supported
         // tires in proportion to instantaneous non-tensile normal load. Friction
         // ellipse and near-zero stop limiter remain authoritative; no extra grip.
-        const braking=Math.min(stopLimit,this.brake*this.definition.mass*9.81*((this.profileId==='slingmods-sport-v2'||this.profileId==='slingmods-sport-v3'||this.profileId==='slingmods-sport-v4'||this.profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1')?load*(forgiving?(rear?.8:1.2):1)/Math.max(1,brakeLoad):(rear?0.3:0.35))*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?(this.definition.powertrain==='cvt'?45:110):0));
+        const braking=Math.min(stopLimit,this.brake*this.definition.mass*9.81*((this.profileId==='slingmods-sport-v2'||this.profileId==='slingmods-sport-v3'||this.profileId==='slingmods-sport-v4'||this.profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1'||this.profileId==='spyder-f3-v1')?load*(forgiving?(rear?.8:1.2):1)/Math.max(1,brakeLoad):(rear?0.3:0.35))*handlingProfile(this.profileId).brakeScale+surf.rolling*load+(rear&&this.throttle<0.01?(this.definition.powertrain==='cvt'?45:110):0));
         const request=drive-Math.sign(long)*braking;
         fy=-load*handlingProfile(this.profileId).tireStiffness*slipAngle;
         fy=clamp(fy,-Math.abs(lateral)*this.definition.mass*share/dt,Math.abs(lateral)*this.definition.mass*share/dt);
@@ -175,7 +180,7 @@ export class Simulation {
           this.body.addForceAtPoint(scale(tireFwd,fx),point,true);
           // 18 cm virtual lateral roll centre reduces tripping leverage only.
           // Longitudinal forces retain actual contact points and braking pitch.
-          this.body.addForceAtPoint(scale(tireRight,fy),add(point,scale(up,this.definition.powertrain==='cvt'?.25:.18)),true);
+          this.body.addForceAtPoint(scale(tireRight,fy),add(point,scale(up,this.definition.powertrain==='six-speed'?.23:this.definition.powertrain==='cvt'?.25:.18)),true);
         }else this.body.addForceAtPoint(add(scale(tireFwd,fx),scale(tireRight,fy)),point,true);
         const excess=drive-fx-Math.sign(long)*braking;
         this.overspeed[i]=rear?clamp((this.overspeed[i]+excess*wheel.radius/2.8*dt)*Math.exp(-dt*5),-190,190):0;
@@ -195,17 +200,17 @@ export class Simulation {
       const yawTorque=Math.abs(speed)>5?clamp(-3500*slipExcess-450*(dot(omega,up)-yawTarget),-650,650):0;
       const rollTorque=clamp(-700*dot(omega,forward),-650,650);
       const fade=clamp((up.y-.65)/.25,0,1);
-      this.body.addTorque(scale(add(scale(up,yawTorque),scale(forward,rollTorque)),fade*(this.definition.powertrain==='cvt'?.40:1)),true);
+      this.body.addTorque(scale(add(scale(up,yawTorque),scale(forward,rollTorque)),fade*(this.definition.powertrain==='six-speed'?.55:this.definition.powertrain==='cvt'?.40:1)),true);
     }
     this.wheels=newWheels;
     // Aerodynamic drag is a COM force. Load transfer is solely rigid-body response at tire contacts.
-    const vmag=Math.hypot(velocity.x,velocity.y,velocity.z);this.body.addForce(scale(velocity,-(this.definition.powertrain==='cvt'?.30:.43)*vmag),true);
+    const vmag=Math.hypot(velocity.x,velocity.y,velocity.z);this.body.addForce(scale(velocity,-(this.definition.powertrain==='six-speed'?.36:this.definition.powertrain==='cvt'?.30:.43)*vmag),true);
   }
   publishTick(dt:number){this.time+=dt;
   }
   telemetry():VehicleTelemetry {
     const q=this.body.rotation(),p=this.body.translation(),velocity=this.body.linvel();
-    return {...(this.drivetrain instanceof RykerCVT?{vehicleId:this.definition.id,definitionId:this.definition.revision,powertrain:this.definition.powertrain,cvtRatio:this.drivetrain.ratio}:{}),time:this.time,position:add(p,rotate(v(0,-this.definition.comHeight,0),q)),quaternion:{...q},velocity:{...velocity},angularVelocity:{...this.body.angvel()},speed:dot(velocity,rotate(v(0,0,-1),q)),rpm:this.drivetrain.rpm,engineWheelAngularSpeed:this.drivetrain.inputWheelAngularSpeed,gear:this.drivetrain.gear,shifting:this.drivetrain.shiftRemaining>0,shiftRemaining:this.drivetrain.shiftRemaining,steer:this.steering,throttle:this.throttle,brake:this.brake,reversePending:this.drivetrain.reversePending,wheels:this.wheels.map(w=>({...w,localCenter:{...w.localCenter}}))};
+    return {...(this.drivetrain instanceof SpyderSE6?{vehicleId:this.definition.id,definitionId:this.definition.revision,powertrain:this.definition.powertrain}:{}),...(this.drivetrain instanceof RykerCVT?{vehicleId:this.definition.id,definitionId:this.definition.revision,powertrain:this.definition.powertrain,cvtRatio:this.drivetrain.ratio}:{}),time:this.time,position:add(p,rotate(v(0,-this.definition.comHeight,0),q)),quaternion:{...q},velocity:{...velocity},angularVelocity:{...this.body.angvel()},speed:dot(velocity,rotate(v(0,0,-1),q)),rpm:this.drivetrain.rpm,engineWheelAngularSpeed:this.drivetrain.inputWheelAngularSpeed,gear:this.drivetrain.gear,shifting:this.drivetrain.shiftRemaining>0,shiftRemaining:this.drivetrain.shiftRemaining,steer:this.steering,throttle:this.throttle,brake:this.brake,reversePending:this.drivetrain.reversePending,wheels:this.wheels.map(w=>({...w,localCenter:{...w.localCenter}}))};
   }
   dispose():void{if(!this.disposed){if(this.owner)this.owner.dispose();else this.world.removeRigidBody(this.body);this.disposed=true}}
   markDisposed(){this.disposed=true}
@@ -230,14 +235,14 @@ export class RaceWorld {
       for(const mesh of environment.supportMeshes){
         if(!mesh.vertices.length||mesh.vertices.length%3||!mesh.indices.length||mesh.indices.length%3||mesh.vertices.some(v=>!Number.isFinite(v))||mesh.indices.some(i=>!Number.isInteger(i)||i<0||i>=mesh.vertices.length/3))throw Error('Invalid elevated support mesh');
         const shape=RAPIER.ColliderDesc.trimesh(new Float32Array(mesh.vertices),new Uint32Array(mesh.indices)).setFriction(.45);
-        if(profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4'||profileId==='slingmods-sport-v5'||profileId==='ryker-road-v1')shape.setCollisionGroups(0x0001ffff);
+        if(profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4'||profileId==='slingmods-sport-v5'||profileId==='ryker-road-v1'||profileId==='spyder-f3-v1')shape.setCollisionGroups(0x0001ffff);
         this.world.createCollider(shape);
       }
     }else{
     const [gx,gy,gz]=environment.ground.center,[gw,gh,gl]=environment.ground.size;
     const groundVertices=new Float32Array([-gw/2,0,-gl/2,-gw/2,0,gl/2,gw/2,0,gl/2,gw/2,0,-gl/2]);
     const groundShape=RAPIER.ColliderDesc.trimesh(groundVertices,new Uint32Array([0,1,2,0,2,3])).setTranslation(gx,gy+gh/2,gz).setFriction(0.45);
-    if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4'||profileId==='slingmods-sport-v5'||profileId==='ryker-road-v1'))groundShape.setCollisionGroups(0x0001ffff);
+    if((profileId==='slingmods-sport-v2'||profileId==='slingmods-sport-v3'||profileId==='slingmods-sport-v4'||profileId==='slingmods-sport-v5'||profileId==='ryker-road-v1'||profileId==='spyder-f3-v1'))groundShape.setCollisionGroups(0x0001ffff);
     this.world.createCollider(groundShape);
     }
     for(const box of environment.obstacles)this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation(box.pitch?{x:Math.cos((box.yaw??0)/2)*Math.sin(box.pitch/2),y:Math.sin((box.yaw??0)/2)*Math.cos(box.pitch/2),z:-Math.sin((box.yaw??0)/2)*Math.sin(box.pitch/2),w:Math.cos((box.yaw??0)/2)*Math.cos(box.pitch/2)}:{x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));

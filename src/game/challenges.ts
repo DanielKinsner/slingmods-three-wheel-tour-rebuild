@@ -89,11 +89,13 @@ const KEY='slingmods-gx-challenges-v1';
 export interface ChallengeBest {value:number;medal:Medal|null;vehicle:string;at:string;runs:number}
 type Store=Record<string,ChallengeBest>;
 function read():Store{try{const v=JSON.parse(localStorage.getItem(KEY)??'{}');return v&&typeof v==='object'?v:{}}catch{return {}}}
-export function challengeBest(id:string):ChallengeBest|null{const b=read()[id];return b&&Number.isFinite(b.value)?b:null}
+export const challengeKey=(id:string,identity?:string)=>identity?.startsWith('can-am-spyder-f3')?id+':'+identity:id;
+export function challengeRecords(id:string){return Object.entries(read()).filter(([k,v])=>(k===id||k.startsWith(id+':'))&&Number.isFinite(v.value)).map(([key,best])=>({key,best}))}
+export function challengeBest(id:string,identity?:string):ChallengeBest|null{const b=read()[challengeKey(id,identity)];return b&&Number.isFinite(b.value)?b:null}
 /** Record a finished run; returns whether it improved the best. */
 export function recordChallenge(c:Challenge,value:number,vehicle:string):{best:boolean;previous:ChallengeBest|null}{
- if(isAttract())return {best:false,previous:null};const all=read(),prev=all[c.id]??null,improved=!prev||(betterIsLower(c.kind)?value<prev.value:value>prev.value);
- all[c.id]=improved?{value,medal:challengeMedal(c,value),vehicle,at:new Date().toISOString(),runs:(prev?.runs??0)+1}:{...prev!,runs:prev!.runs+1};
+ if(isAttract())return {best:false,previous:null};const all=read(),key=challengeKey(c.id,vehicle),prev=all[key]??null,improved=!prev||(betterIsLower(c.kind)?value<prev.value:value>prev.value);
+ all[key]=improved?{value,medal:challengeMedal(c,value),vehicle,at:new Date().toISOString(),runs:(prev?.runs??0)+1}:{...prev!,runs:prev!.runs+1};
  try{localStorage.setItem(KEY,JSON.stringify(all))}catch{/* private mode */}return {best:improved,previous:prev};
 }
-export function challengeSummary(){const medals=CHALLENGES.map(c=>challengeBest(c.id)?.medal??null);return {total:CHALLENGES.length,medalled:medals.filter(Boolean).length,gold:medals.filter(m=>m==='gold'||m==='slingmods').length,slingmods:medals.filter(m=>m==='slingmods').length}}
+export function challengeSummary(){const medals=CHALLENGES.map(c=>challengeRecords(c.id).map(x=>x.best.medal).filter(Boolean).sort((a,b)=>MEDALS.indexOf(a!)-MEDALS.indexOf(b!))[0]??null);return {total:CHALLENGES.length,medalled:medals.filter(Boolean).length,gold:medals.filter(m=>m==='gold'||m==='slingmods').length,slingmods:medals.filter(m=>m==='slingmods').length}}

@@ -5,6 +5,7 @@ import '../game/menu.css';
 export interface TourEntry {
   model: string;
   ryker: boolean;
+  spyder?: boolean;
   careerLabel: string;
   careerDetail: string;
   progress?: TourProgress;
@@ -14,6 +15,7 @@ const escape = (value: string) => value.replace(/[&<>"']/g, c => ({'&':'&amp;','
 
 /** Game ratings shown on the ride card (1-10). Presentation only; the simulation owns the real numbers. */
 const RIDES = {
+  spyder:{index:'03',name:'CAN-AM SPYDER F3 CUSTOM',engine:'1330 ACE inline-three · 115 hp reference',drive:'6-speed · belt drive · Auto shift assist',stats:[['Power',6],['Grip',6],['Braking',7],['Agility',7]]},
   slingshot: {index: '01', name: 'POLARIS SLINGSHOT R', engine: '2.0L ProStar I4 · 203 hp', drive: '5-speed · rear-wheel drive', stats: [['Power', 8], ['Grip', 7], ['Braking', 7], ['Agility', 6]]},
   ryker: {index: '02', name: 'CAN-AM RYKER 900', engine: '900 ACE triple · 82 hp', drive: 'CVT · shaft drive', stats: [['Power', 5], ['Grip', 6], ['Braking', 6], ['Agility', 9]]},
 } as const;
@@ -22,8 +24,8 @@ function tile(action: string, title: string, sub: string, kicker: string, extra 
   return `<button data-action="${action}" class="gx-tile ${cls}" data-gx-sfx="select"><span class="gx-tile-body"><small>${kicker}</small><strong>${title}</strong><em>${sub}</em>${extra}</span><b class="gx-tile-arrow" aria-hidden="true"></b></button>`;
 }
 
-export function tourEntry({model, ryker, careerLabel, careerDetail, progress, returning}: TourEntry): string {
-  const ride = ryker ? RIDES.ryker : RIDES.slingshot;
+export function tourEntry({model, ryker, spyder, careerLabel, careerDetail, progress, returning}: TourEntry): string {
+  const ride = spyder ? RIDES.spyder : ryker ? RIDES.ryker : RIDES.slingshot;
   const p = progress;
   const career = p
     ? `<span class="gx-tile-meter" aria-label="${p.completed} of ${p.total} career events complete"><i style="--gx-fill:${(p.completed / Math.max(1, p.total)).toFixed(3)}"></i></span><span class="gx-tile-foot">CHAPTER 0${p.chapter} · ${p.completed}/${p.total} EVENTS</span>`
@@ -41,7 +43,7 @@ export function tourEntry({model, ryker, careerLabel, careerDetail, progress, re
   </main>
   ${dailyCardMarkup()}
   <aside class="tour-machine gx-ride" aria-label="Current vehicle">
-    <span class="gx-kicker">YOUR RIDE <b>${ride.index}</b>/02</span>
+    <span class="gx-kicker">YOUR RIDE <b>${ride.index}</b>/03</span>
     <strong class="gx-display">${ride.name}</strong>
     <span class="gx-ride-model">${escape(model)} · ${ride.engine}</span>
     <dl class="gx-ride-stats">${ride.stats.map(([label, value]) => `<div><dt>${label}</dt><dd aria-label="${value} of 10">${Array.from({length: 10}, (_, k) => `<i${k < (value as number) ? ' class="on"' : ''}></i>`).join('')}</dd></div>`).join('')}</dl>

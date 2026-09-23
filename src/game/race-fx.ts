@@ -200,6 +200,6 @@ export class RaceFX {
  }
  private async share(menu:HTMLElement){const i=this.shareInfo;if(!i)return;const medal=menu.querySelector<HTMLElement>('.gx-medal')?.dataset.medal,course=(document.querySelector('.race-course-title')?.textContent??'').replace(/^.*·\s*/,'').trim()||'Three-Wheel Tour',label=menu.querySelector('.race-label')?.textContent??'';
   const kicker=this.trial?`Time Attack · ${medal&&medal!=='none'?medal.toUpperCase()+' medal':'Personal run'}`:i.field>1&&i.place?`${ordinal(i.place)} place · ${/CHAPTER/.test(label)?label.replace(/\s*\/\s*/,' · '):'Quick race'}`:label||'Clean lap';
-  await shareCard({headline:fmt(i.timeMs),kicker,course,detail:[`Top speed ${Math.round(this.topSpeed)} ${speedLabel().toLowerCase()}`,this.vehicle==='can-am-ryker-900'?'Can-Am Ryker 900':'Polaris Slingshot R'],accent:medal==='gold'?'#ffd23c':medal==='slingmods'?'#ff3b2f':undefined})}
+  await shareCard({headline:fmt(i.timeMs),kicker,course,detail:[`Top speed ${Math.round(this.topSpeed)} ${speedLabel().toLowerCase()}`,this.vehicle==='can-am-spyder-f3'?'Can-Am Spyder F3':this.vehicle==='can-am-ryker-900'?'Can-Am Ryker 900':'Polaris Slingshot R'],accent:medal==='gold'?'#ffd23c':medal==='slingmods'?'#ff3b2f':undefined})}
  dispose(){this.menuObserver?.disconnect();document.removeEventListener('gx:radio',this.onRadio);document.removeEventListener('gx:skill-bank',this.onSkill);document.body.classList.remove('gx-paused','gx-results-hold');clearTimeout(this.holdTimer);this.root.remove()}
 }

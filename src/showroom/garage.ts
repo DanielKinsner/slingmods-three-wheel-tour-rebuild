@@ -1,3 +1,4 @@
+import {SpyderWorkshop} from './spyder-workshop';
 import {RykerWorkshop} from './ryker-workshop';
 import {showMilestones} from '../game/milestones';
 import {setCareerSource} from '../game/options';
@@ -34,11 +35,11 @@ const esc=(v:unknown)=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
  * vehicle presentation and camera controller as the free showroom. Mode changes labels, permissions and transactions only.
  */
 export class GarageUI {
- readonly root=document.createElement('section');readonly chapter:ChapterUI;readonly build:BuildUI|RykerWorkshop;private entry:HTMLElement;private state!:SignatureState;private key='';private workshopCamera:unknown;
+ readonly root=document.createElement('section');readonly chapter:ChapterUI;readonly build:BuildUI|RykerWorkshop|SpyderWorkshop;private entry:HTMLElement;private state!:SignatureState;private key='';private workshopCamera:unknown;
  constructor(private app:HTMLElement,private career:CareerClient,private stage:GarageStage){
   this.root.className='signature-ui garage-ui';this.root.id='garage-ui';this.root.setAttribute('aria-label','Career garage');this.root.dataset.screen='garage';app.append(this.root);
   this.entry=mountHarborEntry();this.entry.hidden=true;
-  const Workshop=career.state.ownBuild.vehicle==='can-am-ryker-900'?RykerWorkshop:BuildUI;this.build=new Workshop(career,{inspectPart:part=>stage.view('ryker-'+part),cue:(id,key)=>stage.cue(id,key),suspension:equipped=>stage.suspension(equipped),
+  const Workshop=career.state.ownBuild.vehicle==='can-am-spyder-f3'?SpyderWorkshop:career.state.ownBuild.vehicle==='can-am-ryker-900'?RykerWorkshop:BuildUI;this.build=new Workshop(career,{inspectPart:part=>stage.view((career.state.ownBuild.vehicle==='can-am-spyder-f3'?'spyder-':'ryker-')+part),cue:(id,key)=>stage.cue(id,key),suspension:equipped=>stage.suspension(equipped),
    inspectHardware:rear=>stage.view(rear===null?'workshop':rear?'SM-3223-rear':'SM-3223-front'),
    // Restore the exact prior view once the workshop layout is gone; fitting belongs to opening only.
    open:opened=>{this.chapter?.setVisible(!opened);this.entry.hidden=true;if(opened){this.workshopCamera=stage.saveCamera();stage.view('workshop')}else if(this.workshopCamera!==undefined){const saved=this.workshopCamera;this.workshopCamera=undefined;stage.restoreCamera(saved)}stage.layout()},

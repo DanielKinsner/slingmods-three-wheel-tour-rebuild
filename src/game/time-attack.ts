@@ -33,6 +33,7 @@ type Store=Record<string,TrialBest>;
 const read=():Store=>{try{const v=JSON.parse(localStorage.getItem(KEY)??'{}');return v&&typeof v==='object'?v:{}}catch{return {}}};
 const write=(s:Store)=>{try{localStorage.setItem(KEY,JSON.stringify(s));return true}catch{return false}};
 export const trialKey=(route:TrialRoute,vehicle:string)=>`${route}:${vehicle}`;
+export function trialRecords(route:TrialRoute){return Object.entries(read()).filter(([k,b])=>k.startsWith(route+':')&&Number.isFinite(b.timeMs)).map(([k,best])=>({vehicle:k.slice(route.length+1),best}))}
 export function trialBest(route:TrialRoute,vehicle:string):TrialBest|null{return read()[trialKey(route,vehicle)]??null}
 
 const STRIDE=8,SAMPLE_MS=50;
@@ -81,12 +82,12 @@ export class TimeAttack {
  /** Unwrapped course progress of every ghost sample, made non-decreasing, for time-at-distance lookups. */
  /** Switch which lap the ghost replays. Your best needs a saved run; Jett's lap ships with the game. */
  async selectGhost(src:GhostSource,persist=true){
-  this.ghostSrc=src;if(persist)try{localStorage.setItem(GHOST_KEY,src)}catch{}
+  if(this.vehicle.startsWith('can-am-spyder-f3')&&src==='jett')src='off';this.ghostSrc=src;if(persist)try{localStorage.setItem(GHOST_KEY,src)}catch{}
   let data:number[]|null=null;if(src==='best')data=this.best?.ghost??null;else if(src==='jett'){const c=await crewGhost(this.route);if(this.ghostSrc!=='jett')return;data=c?.data??null;this.crewTime=c?.timeMs??0}
   this.ghostData=data?.length?data:null;this.indexGhost();if(this.ghostData){this.ensureGhost();this.ghost!.material.uniforms.uColor.value.set(GHOST_COLOR[src as 'best'|'jett'])}else if(this.ghost)this.ghost.mesh.visible=false;
   this.delta.textContent='';this.renderHud(null);this.renderPicker();
  }
- private renderPicker(){const opts:[GhostSource,string,boolean][]=[['best','Your best',!!this.best?.ghost],['jett','Jett',true],['off','Off',true]];this.picker.innerHTML=`<span>GHOST</span>${opts.map(([id,label,ok])=>`<button type="button" data-ghost="${id}" aria-pressed="${this.ghostSrc===id}" ${ok?'':'disabled'}>${label}</button>`).join('')}`}
+ private renderPicker(){const opts:[GhostSource,string,boolean][]=[['best','Your best',!!this.best?.ghost],['jett','Jett (Slingshot reference)',!this.vehicle.startsWith('can-am-spyder-f3')],['off','Off',true]];this.picker.innerHTML=`<span>GHOST</span>${opts.map(([id,label,ok])=>`<button type="button" data-ghost="${id}" aria-pressed="${this.ghostSrc===id}" ${ok?'':'disabled'}>${label}</button>`).join('')}`}
  private indexGhost(){this.ghostProg=[];this.ghostTimes=[];const g=this.ghostData;if(!g||!this.course)return;let prev=NaN,acc=0,max=-Infinity;for(let i=0;i<g.length;i+=8){const raw=projectRoad(this.course,g[i+1],g[i+3]).progress;acc+=Number.isNaN(prev)?0:this.step(raw-prev);prev=raw;max=Math.max(max,acc);this.ghostProg.push(max);this.ghostTimes.push(g[i])}}
  private step(d:number){const L=this.course!.length;if(d>L/2)d-=L;else if(d<-L/2)d+=L;return d}
  private ghostTimeAt(progress:number){const P=this.ghostProg,T=this.ghostTimes;if(P.length<2||progress<P[0]||progress>P[P.length-1])return null;let lo=0,hi=P.length-1;while(hi-lo>1){const m=(lo+hi)>>1;if(P[m]<=progress)lo=m;else hi=m}const span=P[hi]-P[lo],t=span>1e-6?(progress-P[lo])/span:0;return T[lo]+(T[hi]-T[lo])*t}
@@ -94,7 +95,7 @@ export class TimeAttack {
  private renderHud(currentMs:number|null){
   const t=MEDAL_TARGETS[this.route],best=this.best?.timeMs;
   const next=MEDALS.slice().reverse().find(m=>best===undefined||best>t[m]);const rows=MEDALS.map(m=>`<li data-medal="${m}" ${best!==undefined&&best<=t[m]?'data-earned="true"':''} ${m===next?'data-next="true"':''}><i></i><span>${MEDAL_NAMES[m]}</span><b>${trialTime(t[m])}</b></li>`).join('');
-  this.hud.innerHTML=`<span class="gx-trial-title">TIME ATTACK</span><ol>${rows}</ol><p><span>YOUR BEST</span><b>${best!==undefined?trialTime(best):'—'}</b></p>${this.ghostData?`<small data-ghost="${this.ghostSrc}"><i></i> GHOST: ${this.ghostSrc==='jett'?`JETT ${trialTime(this.crewTime)}`:'YOUR BEST'}</small>`:''}`;
+  this.hud.innerHTML=`<span class="gx-trial-title">TIME ATTACK</span>${this.vehicle.startsWith('can-am-spyder-f3')?'<small>Tour targets · this Spyder build only</small>':''}<ol>${rows}</ol><p><span>YOUR BEST</span><b>${best!==undefined?trialTime(best):'—'}</b></p>${this.ghostData?`<small data-ghost="${this.ghostSrc}"><i></i> GHOST: ${this.ghostSrc==='jett'?`JETT ${trialTime(this.crewTime)}`:'YOUR BEST'}</small>`:''}`;
   void currentMs;
  }
  /** Per rendered frame, after the hero is posed. */

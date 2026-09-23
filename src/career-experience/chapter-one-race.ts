@@ -41,13 +41,13 @@ export async function chapterOneRace(client:CareerClient,params:URLSearchParams)
  if(!entry||entry.status!=='prepared'||entry.event!==event){const result=await client.execute({type:'chapter-one-begin',id:crypto.randomUUID(),event,preset:requested});const saved=result.state.ownBuild.chapterOne!;entry=saved.entries[saved.activeId!]}
  const recipe=structuredClone(entry.recipe),preset=entry.preset;
  let attempt={id:entry.id,recipe,handlingProfile:recipe.handlingProfile},bestPersisted=true;
- const updateURL=()=>{if(typeof location==='undefined')return;const url=new URL(location.href);url.searchParams.set('entry',attempt.id);url.searchParams.set('visual',recipe.vehicleId==='can-am-ryker-900'?'ryker':'2026');history.replaceState(null,'',url.pathname+url.search+url.hash)};updateURL();
+ const updateURL=()=>{if(typeof location==='undefined')return;const url=new URL(location.href);url.searchParams.set('entry',attempt.id);url.searchParams.set('visual',recipe.vehicleId==='can-am-spyder-f3'?'spyder':recipe.vehicleId==='can-am-ryker-900'?'ryker':'2026');history.replaceState(null,'',url.pathname+url.search+url.hash)};updateURL();
  return {kind:'chapter-one' as const,get bestPersisted(){return bestPersisted},client,get attempt(){return structuredClone(attempt)},get recipe(){return structuredClone(recipe)},route:'harbor' as const,
   eventId:solo?SHAKEDOWN_EVENT:duel?DUEL_EVENT:CREW_EVENT_ID,participants:solo?['player']:duel?['maya','player']:['maya','jett','nico','player'],
   preset:preset as 'day'|'night',fixedLighting:true,laps:(solo||duel?1:2) as 1|2,
   title:solo?'Harbor Shakedown':duel?'Maya’s Duel':'Harbor Crew',
   subtitle:solo?'One clean harbor lap. Find your braking points and bring it home.':duel?'MAYA: One clean lap together. Finishing earns your crew invitation.':'Two laps with the crew. Bring your earned build.',
-  returnTo:`?scene=bay&play=${client.profile}&visual=${recipe.vehicleId==='can-am-ryker-900'?'ryker':'2026'}`,
+  returnTo:`?scene=bay&play=${client.profile}&visual=${recipe.vehicleId==='can-am-spyder-f3'?'spyder':recipe.vehicleId==='can-am-ryker-900'?'ryker':'2026'}`,
   async restart(){const id=crypto.randomUUID();await client.execute({type:'chapter-one-begin',id,event,preset,retryOf:attempt.id});attempt={...attempt,id};updateURL();return structuredClone(attempt)},
   async commit(race:CrewRace){
    const s=race.snapshot(),r=s.playerResult;

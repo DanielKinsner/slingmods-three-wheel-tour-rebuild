@@ -1,0 +1,8 @@
+import type {SpyderPart,SpyderBuild,SpyderMode,SpyderShock} from './spyder-catalog';
+export function changeSpyder(build:SpyderBuild,action:string,value:string){const r=structuredClone(build);if(action==='spyder-mode')r.mode=value as SpyderMode;else if(action==='spyder-pattern')r.pattern=value as SpyderBuild['pattern'];else if(action==='spyder-setup'){const [side,key,delta]=value.split('|');const k=key as keyof SpyderShock,s=r[side as 'front'|'rear'];s[k]=Math.max(0,Math.min(1,Math.round((s[k]+Number(delta))*10)/10))}return r}
+export function spyderControls(id:SpyderPart,r:SpyderBuild){const button=(title:string,action:string,value:string,on=false)=>`<button data-action="${action}" data-value="${value}" aria-pressed="${on}">${title}</button>`;
+ if(id==='throttle')return `<div class="sig-options">${(['Eco','City','Sport','Sport+'] as const).map(m=>button(m,'spyder-mode',m,m===r.mode)).join('')}</div><p>Response only · unchanged full-throttle power</p>`;
+ if(id==='front'||id==='rear')return `<p>Game setup · normalized adjustments</p>${(['preload','rebound','compression'] as const).map(k=>`<div class="sig-options"><span>${k==='compression'?'Low-speed compression':k} · ${Math.round(r[id][k]*100)}%</span>${button('−','spyder-setup',`${id}|${k}|-0.1`)}${button('+','spyder-setup',`${id}|${k}|0.1`)}</div>`).join('')}`;
+ if(id==='underglow'||id==='wheels')return `<div class="sig-options">${(['steady','pulse'] as const).map(p=>button(p==='steady'?'Steady':'Gentle pulse','spyder-pattern',p,p===r.pattern)).join('')}</div><p>Game-supported pattern subset</p>`;
+ return '<p>Required SM-18298 link pair included. One purchase, one anti-roll effect.</p>';
+}

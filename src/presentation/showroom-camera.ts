@@ -14,6 +14,12 @@ export const SHOWROOM_SAFE_VOLUME:Readonly<THREE.Box3>=Object.freeze(new THREE.B
 export interface ShowroomPreset {position?:readonly [number,number,number];target?:readonly [number,number,number];direction?:readonly [number,number,number];minDistance:number;maxDistance:number}
 export const SHOWROOM_PRESETS:Record<string,ShowroomPreset>={
  'route-relief':{position:[2.8,2.3,-2.7],target:[5.6,2.3,-2.7],minDistance:.6,maxDistance:10},
+ 'spyder-throttle':{position:[-1.1,1.6,.6],target:[-.22,1,-.27],minDistance:.3,maxDistance:10},
+ 'spyder-front':{position:[-1.3,.8,-1.8],target:[-.4,.4,-.855],minDistance:.35,maxDistance:10},
+ 'spyder-rear':{position:[.85,.7,1.4],target:[0,.5,.6],minDistance:.35,maxDistance:10},
+ 'spyder-sway':{position:[.8,.32,-1.8],target:[0,.23,-.75],minDistance:.35,maxDistance:10},
+ 'spyder-underglow':{position:[-1.8,.55,-2],target:[0,.33,-.1],minDistance:.5,maxDistance:10},
+ 'spyder-wheels':{position:[-1.7,.6,-1.8],target:[-.69,.32,-.855],minDistance:.4,maxDistance:10},
  'ryker-body':{position:[1.65,1.05,-2.4],target:[0,.42,-.78],minDistance:.6,maxDistance:10},
  'ryker-shocks':{position:[-1.15,.72,-1.8],target:[-.25,.31,-.85],minDistance:.5,maxDistance:10},
  'ryker-exhaust':{position:[1.25,.55,1.7],target:[.16,.25,.34],minDistance:.5,maxDistance:10},

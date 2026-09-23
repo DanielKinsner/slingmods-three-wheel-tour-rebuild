@@ -1,7 +1,7 @@
 import {DRIVETRAIN} from '../simulation/drivetrain';
 import {displaySpeed,speedLabel} from '../game/units';
 import type {VehicleTelemetry} from '../simulation';
-export const tachRatio=(rpm:number)=>Math.min(1,Math.max(0,rpm/DRIVETRAIN.redline));
+export const tachRatio=(rpm:number,redline:number=DRIVETRAIN.redline)=>Math.min(1,Math.max(0,rpm/redline));
 export const displayedGear=(gear:number,powertrain?:string)=>gear<0?'R':gear===0?'N':powertrain==='cvt'?'D':String(gear);
 const point=(degrees:number,radius:number)=>[160+Math.cos(degrees*Math.PI/180)*radius,170+Math.sin(degrees*Math.PI/180)*radius];
 export function tachMarkup(){
@@ -11,9 +11,9 @@ export function tachMarkup(){
 }
 /** Stable SVG nodes and changed-only updates; rendering never changes the drivetrain. */
 export class RaceInstruments {
- private segments:SVGPathElement[];private lit=-1;private values=new Map<string,string>();
+ private segments:SVGPathElement[];private lit=-1;private redline=0;private values=new Map<string,string>();
  constructor(private root:HTMLElement){this.segments=[...root.querySelectorAll<SVGPathElement>('[data-tach-segment]')]}
  private text(id:string,value:string){if(this.values.get(id)===value)return;this.values.set(id,value);const e=this.root.querySelector(id);if(e)e.textContent=value}
- update(t:VehicleTelemetry){this.text('#race-speed',String(displaySpeed(t.speed)));this.text('#race-gear',displayedGear(t.gear,t.powertrain));this.text('#race-rpm',String(Math.round(t.rpm)));const count=Math.round(tachRatio(t.rpm)*this.segments.length);if(count!==this.lit){this.lit=count;for(let i=0;i<this.segments.length;i++){this.segments[i].classList.toggle('lit',i<count);this.segments[i].classList.toggle('limit',i>=Math.floor(this.segments.length*.88))}}this.root.querySelector('.race-gauges')?.classList.toggle('is-reverse',t.gear<0)}
+ update(t:VehicleTelemetry){const redline=t.powertrain==='six-speed'?8100:DRIVETRAIN.redline;if(this.redline!==redline){this.redline=redline;this.text('.race-engine-readout span',` RPM / ${redline} LIMIT`);this.root.querySelectorAll<SVGTextElement>('.race-tach text').forEach((label,i)=>{const at=point(200+140*(i*2000)/redline,173);label.setAttribute('x',String(at[0]));label.setAttribute('y',String(at[1]))})}this.text('#race-speed',String(displaySpeed(t.speed)));this.text('#race-gear',displayedGear(t.gear,t.powertrain));this.text('#race-rpm',String(Math.round(t.rpm)));const count=Math.round(tachRatio(t.rpm,redline)*this.segments.length);if(count!==this.lit){this.lit=count;for(let i=0;i<this.segments.length;i++){this.segments[i].classList.toggle('lit',i<count);this.segments[i].classList.toggle('limit',i>=Math.floor(this.segments.length*.88))}}this.root.querySelector('.race-gauges')?.classList.toggle('is-reverse',t.gear<0)}
 }
 export function raceHeader(title:string,trial=false){return `<div class="race-top"><div class="race-identity"><img src="/assets/brand/slingmods-logo-main.png" alt="SlingMods"><div class="race-position"><span>${trial?'CHECKPOINTS':'POSITION'}</span><strong id="race-position">1</strong><i>/</i><b id="race-field">1</b></div><div class="race-laps"><span>${trial?'EVENT':'LAP'}</span><strong id="race-lap">1</strong><i>/</i><b id="race-laps">1</b></div><span id="race-progress" class="race-progress-detail"></span></div><span class="race-label race-course-title">${title}</span><div class="race-timing"><span>${trial?'LAP TIME':'RACE TIME'}</span><strong id="race-time">0:00.000</strong><small id="race-best" hidden></small></div><button id="race-pause" aria-label="Pause">Ⅱ</button></div>`}
