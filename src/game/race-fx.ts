@@ -1,4 +1,5 @@
 import './race.css';
+import {shareCard} from './share';
 import {pulse} from './rumble';
 import {displaySpeed,speedLabel} from './units';
 import {projectRoad,type CourseRoute} from '../course/environment';
@@ -29,7 +30,7 @@ function writeSplits(event:string,splits:number[]){try{const all=JSON.parse(loca
 export class RaceFX {
  readonly root=document.createElement('div');
  private lights=document.createElement('div');private callout=document.createElement('div');private split=document.createElement('div');private flash=document.createElement('div');
- private radioNode=document.createElement('div');private radioAt=-Infinity;private radioTimer=0;private order:string[]=[];private trial:boolean;private route?:CourseRoute;private warn=document.createElement('div');private wrongFor=0;private offFor=0;private roadAt=0;private warnState='';private tagNodes=new Map<string,HTMLElement>();private v=new THREE.Vector3();private topSpeed=0;private vehicle:string;private field:CrewId[]=[];
+ private radioNode=document.createElement('div');private radioAt=-Infinity;private radioTimer=0;private order:string[]=[];private trial:boolean;private shareInfo?:{timeMs:number;place:number|null;field:number};private route?:CourseRoute;private warn=document.createElement('div');private wrongFor=0;private offFor=0;private roadAt=0;private warnState='';private tagNodes=new Map<string,HTMLElement>();private v=new THREE.Vector3();private topSpeed=0;private vehicle:string;private field:CrewId[]=[];
  private phase='';private count=-1;private place=0;private lap=1;private gate=-1;private gates:number[]=[];private lapStart=0;private finished=false;private runKey='';private best:number[]|null=null;private freeDrive:boolean;
  private reward?:RaceReward;private tallied='';private menuObserver?:MutationObserver;private calloutTimer=0;private splitTimer=0;private prompts='';
  constructor(parent:Element,options:{freeDrive?:boolean;trial?:boolean;vehicle?:string;route?:CourseRoute}={}){
@@ -92,7 +93,7 @@ export class RaceFX {
    if(me.lap!==this.lap&&me.lap>this.lap){const lapMs=s.elapsedMs-this.lapStart;this.lapStart=s.elapsedMs;this.lap=me.lap;const final=me.lap===s.laps&&s.laps>1;this.banner(`<small>LAP ${me.lap-1} · ${fmt(lapMs)}</small><b>${final?'FINAL LAP':'LAP '+me.lap+' / '+s.laps}</b>`,final?'is-final':'is-lap',1900);gameCue('gx.lap');if(final)this.radio('finalLap',undefined,true)}
   }
   // Finish slam.
-  if(s.playerResult&&!this.finished){this.finished=true;const r=s.playerResult;setTimeout(()=>announceAchievements(null),3200);
+  if(s.playerResult&&!this.finished){this.finished=true;const r=s.playerResult;if(r.valid)this.shareInfo={timeMs:r.timeMs??s.elapsedMs,place:r.place,field:s.standings.length};setTimeout(()=>announceAchievements(null),3200);
    if(r.valid){const fieldRace=s.standings.length>1;this.banner(`<b>${fieldRace&&r.place?ordinal(r.place):'FINISH'}</b><span>${fieldRace?'FINISH':fmt(r.timeMs??s.elapsedMs)}</span>`,'is-finish '+(r.place===1&&fieldRace?'is-gold':''),2600);this.hit();gameCue('gx.slam');pulse(.8,1,380);if(fieldRace)setTimeout(()=>this.radio(r.place===1?'youWon':'theyWon',undefined,true),1200);
     const splits=[...this.gates,r.timeMs??s.elapsedMs],bestTotal=this.best?.at(-1);if(!this.freeDrive&&(bestTotal===undefined||(r.timeMs??Infinity)<bestTotal))writeSplits(s.event,splits)}
    else{this.banner('<b>DNF</b><span>RUN NOT COUNTED</span>','is-down',2200)}}
@@ -100,7 +101,7 @@ export class RaceFX {
   (this.root.parentElement as HTMLElement|null)?.toggleAttribute('data-gx-solo',s.standings.length===1);
   const menuOpen=s.phase==='ready'||s.phase==='finished'||s.paused,primary=document.getElementById('start-crew')?.textContent?.trim(),label=primary||(s.paused?'Resume':s.playerResult?'Race again':'Start');const prompts=menuOpen?label:'none';if(prompts!==this.prompts){this.prompts=prompts;setPrompts(menuOpen?[{key:'confirm',label}]:null)}
  }
- private resetRun(key:string,event:string){this.runKey=key;this.topSpeed=0;this.finished=false;this.place=0;this.lap=1;this.gate=-1;this.gates=[];this.lapStart=0;this.count=-1;this.best=readSplits(event);this.tallied=''}
+ private resetRun(key:string,event:string){this.runKey=key;this.shareInfo=undefined;this.topSpeed=0;this.finished=false;this.place=0;this.lap=1;this.gate=-1;this.gates=[];this.lapStart=0;this.count=-1;this.best=readSplits(event);this.tallied=''}
  private pulse(node:HTMLElement){node.classList.remove('is-pulse');void node.offsetWidth;node.classList.add('is-pulse')}
  private hit(){if(reduced())return;this.flash.classList.remove('is-on');void this.flash.offsetWidth;this.flash.classList.add('is-on')}
  /** Results: ordinal slam, staggered standings, and the reward tally panel. Runs after CrewUI renders its menu. */
@@ -109,6 +110,7 @@ export class RaceFX {
   const actions=menu.querySelector('.menu-actions');if(actions&&!actions.querySelector('[data-gx-options]')){if(menu.dataset.phase==='pause'){const r=document.createElement('button');r.type='button';r.dataset.action='retry';r.textContent='Restart';actions.querySelector('#start-crew')?.after(r);const p=document.createElement('button');p.type='button';p.dataset.gxPhoto='';p.textContent='Photo mode';actions.append(p)}const b=document.createElement('button');b.type='button';b.dataset.gxOptions='';b.textContent='Options';actions.append(b)}
   // Crew races open on a rival lineup: who you are about to race.
   if(menu.dataset.phase==='ready'&&this.field.length&&!menu.querySelector('.gx-lineup')){const h=menu.querySelector('h1');h?.insertAdjacentHTML('afterend',`<div class="gx-lineup is-grid">${this.field.map(id=>portraitMarkup(CREW[id],'gx-portrait is-small')).join('')}<figure class="gx-portrait is-small is-you"><span>YOU</span><figcaption><b>YOU</b><small>Your build</small></figcaption></figure></div>`)}
+  if(menu.dataset.phase==='result'&&actions&&!actions.querySelector('[data-gx-share]')&&this.shareInfo){const b=document.createElement('button');b.type='button';b.dataset.gxShare='';b.textContent='Share';b.addEventListener('click',()=>void this.share(menu));actions.append(b)}
   if(menu.dataset.phase==='result'&&actions&&!actions.querySelector('[data-gx-replay]')){const r=document.createElement('button');r.type='button';r.dataset.gxReplay='';r.textContent='Watch replay';actions.querySelector('#start-crew')?.after(r)}
   if(menu.dataset.phase!=='result'||menu.hidden){return}
   const place=Number(menu.dataset.place);const numeral=menu.querySelector<HTMLElement>('.result-numeral');
@@ -127,5 +129,8 @@ export class RaceFX {
   const step=(now:number)=>{if(!panel.isConnected)return;const t=Math.max(0,Math.min(1,(now-start)/duration)),e=1-Math.pow(1-t,3);for(const c of counters)c.textContent='+'+Math.round(Number(c.dataset.count)*e).toLocaleString('en-US');if(t>0&&t<1&&now-lastTick>55){lastTick=now;gameCue('gx.tick')}if(t<1)requestAnimationFrame(step);else{panel.classList.add('is-done');gameCue(gain.levelUp?'gx.levelup':'gx.reward')}};
   panel.classList.add('is-counting');requestAnimationFrame(step);
  }
+ private async share(menu:HTMLElement){const i=this.shareInfo;if(!i)return;const medal=menu.querySelector<HTMLElement>('.gx-medal')?.dataset.medal,course=(document.querySelector('.race-course-title')?.textContent??'').replace(/^.*·\s*/,'').trim()||'Three-Wheel Tour',label=menu.querySelector('.race-label')?.textContent??'';
+  const kicker=this.trial?`Time Attack · ${medal&&medal!=='none'?medal.toUpperCase()+' medal':'Personal run'}`:i.field>1&&i.place?`${ordinal(i.place)} place · ${/CHAPTER/.test(label)?label.replace(/\s*\/\s*/,' · '):'Quick race'}`:label||'Clean lap';
+  await shareCard({headline:fmt(i.timeMs),kicker,course,detail:[`Top speed ${Math.round(this.topSpeed)} ${speedLabel().toLowerCase()}`,this.vehicle==='can-am-ryker-900'?'Can-Am Ryker 900':'Polaris Slingshot R'],accent:medal==='gold'?'#ffd23c':medal==='slingmods'?'#ff3b2f':undefined})}
  dispose(){this.menuObserver?.disconnect();document.removeEventListener('gx:radio',this.onRadio);this.root.remove()}
 }
