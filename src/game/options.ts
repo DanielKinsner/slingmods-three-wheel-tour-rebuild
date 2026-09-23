@@ -1,4 +1,5 @@
 import './options.css';
+import {showFinale} from './milestones';
 import {coachMode,setCoachMode,type CoachMode} from './coach';
 import {rumbleEnabled,setRumbleEnabled,pulse} from './rumble';
 import {speedUnits,setSpeedUnits,speedLabel,type SpeedUnits} from './units';
@@ -54,7 +55,7 @@ function achievementRows(){const list=achievementState(careerSource()),done=list
 function recordRows(){const names:Record<string,string>={harbor:'Original Harbor',express:'Harbor Express',ridge:'Smoky Ridge'},ride:Record<string,string>={'slingshot-r-2024':'Slingshot R','can-am-ryker-900':'Ryker 900'};
  return `<table class="gx-opt-controls gx-log-records"><thead><tr><th>Course</th><th>Ride</th><th>Best</th><th>Medal</th><th>Runs</th></tr></thead><tbody>${recordsTable().map(({route,rows})=>rows.map((r,i)=>`<tr>${i===0?`<td rowspan="2"><b>${names[route]}</b><small>Gold ${trialTime(MEDAL_TARGETS[route].gold)} · Jett ${trialTime(CREW_GHOST_TIMES[route])}</small></td>`:''}<td>${ride[r.vehicle]}</td><td>${r.best?trialTime(r.best.timeMs):'—'}</td><td>${r.best?.medal?`<span class="gx-medal-chip" data-medal="${r.best.medal}">${MEDAL_NAMES[r.best.medal]}</span>`:'—'}</td><td>${r.best?.runs??0}</td></tr>`).join('')).join('')}</tbody></table><p class="gx-opt-note">Time Attack lives on the Race screen. Beat a medal time, then beat your own ghost.</p>`}
 function statRows(){const c=careerSource(),p=tourProgress(c),s=driveStats();const tile=(v:string,l:string)=>`<div class="gx-stat"><b>${v}</b><span>${l}</span></div>`;
- return `<div class="gx-stats">${tile('LV '+p.level,p.title)}${tile(p.rep.toLocaleString('en-US'),'Tour Rep')}${tile(c?p.credits.toLocaleString('en-US')+' CR':'—','Credits')}${tile(p.completed+'/'+p.total,'Career events')}${tile(String(s.drives),'Drives started')}${tile(String(s.races),'Races')}${tile(String(s.trials),'Time Attacks')}${tile(String(s.tests),'Test drives')}</div>${c?'':'<p class="gx-opt-note">Open the career from the main menu to include its progress here.</p>'}`}
+ return `<div class="gx-stats">${tile('LV '+p.level,p.title)}${tile(p.rep.toLocaleString('en-US'),'Tour Rep')}${tile(c?p.credits.toLocaleString('en-US')+' CR':'—','Credits')}${tile(p.completed+'/'+p.total,'Career events')}${tile(String(s.drives),'Drives started')}${tile(String(s.races),'Races')}${tile(String(s.trials),'Time Attacks')}${tile(String(s.tests),'Test drives')}</div>${c?'':'<p class="gx-opt-note">Open the career from the main menu to include its progress here.</p>'}${c?.ownBuild.ridge.completed['summit-invitational']?'<button class="gx-opt-cta" data-opt="finale">Watch the Tour finale</button>':''}`}
 function render(){
  if(!open)return;const body=open.querySelector<HTMLElement>('.gx-opt-body')!;
  open.querySelectorAll<HTMLElement>('[data-gx-tab]').forEach(b=>{const on=b.dataset.tab===tab;b.setAttribute('aria-selected',String(on))});
@@ -78,6 +79,7 @@ function onClick(e:Event){const t=(e.target as Element).closest<HTMLElement>('[d
  if(o==='unlock'){document.querySelector<HTMLButtonElement>('#enable-sound')?.click();setTimeout(render,900)}
  if(o==='mute'){document.querySelector<HTMLButtonElement>('#mute-sound')?.click();render();focusOpt('mute')}
  if(o==='quality'){const q=t.dataset.value as GraphicsQuality,live=document.querySelector<HTMLSelectElement>('#game-graphics select[aria-label="Graphics quality"]');if(live){live.value=q;live.dispatchEvent(new Event('change',{bubbles:true}))}else saveGraphicsQuality(q);gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=quality][data-value=${q}]`)?.focus()}
+ if(o==='finale'){const c=careerSource();closeOptions();setTimeout(()=>showFinale(c),300);return}
  if(o==='units'){setSpeedUnits(t.dataset.value as SpeedUnits);const label=document.querySelector('.race-speed-readout span');if(label)label.textContent=speedLabel();gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=units][data-value=${t.dataset.value}]`)?.focus()}
  if(o==='difficulty'){setDifficulty(t.dataset.value as Difficulty);gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=difficulty][data-value=${t.dataset.value}]`)?.focus()}
  if(o==='coach'){setCoachMode(t.dataset.value as CoachMode);gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=coach][data-value=${t.dataset.value}]`)?.focus()}
