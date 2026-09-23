@@ -1,5 +1,6 @@
 import type {Career} from '../career/store';
 import {skillRecord} from './skills';
+import {isAttract} from './attract-flag';
 import {seriesWins} from './series';
 import {dailyState} from './daily';
 import {tourProgress} from './progress';
@@ -11,7 +12,7 @@ import {MEDALS,MEDAL_NAMES,trialBest,trialTime,type Medal,type TrialRoute} from 
 const SEEN='slingmods-gx-achievements-v1',STATS='slingmods-gx-stats-v1';
 export interface DriveStats {drives:number;races:number;trials:number;tests:number;ryker:number;slingshot:number}
 const readJSON=<T>(k:string,fallback:T):T=>{try{const v=JSON.parse(localStorage.getItem(k)??'null');return v&&typeof v==='object'?{...fallback,...v}:fallback}catch{return fallback}};
-const writeJSON=(k:string,v:unknown)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{/* private mode */}};
+const writeJSON=(k:string,v:unknown)=>{if(isAttract())return;/* demo races never count */try{localStorage.setItem(k,JSON.stringify(v))}catch{/* private mode */}};
 export const driveStats=()=>readJSON<DriveStats>(STATS,{drives:0,races:0,trials:0,tests:0,ryker:0,slingshot:0});
 /** Counted once per started run (countdown to green), never for paused or aborted menus. */
 export function countDrive(kind:'race'|'trial'|'test',vehicle:string){const s=driveStats();s.drives++;s[kind==='race'?'races':kind==='trial'?'trials':'tests']++;if(vehicle==='can-am-ryker-900')s.ryker++;else s.slingshot++;writeJSON(STATS,s)}
@@ -47,6 +48,6 @@ export const ACHIEVEMENTS:Achievement[]=[
 const seen=()=>new Set(readJSON<{ids:string[]}>(SEEN,{ids:[]}).ids);
 export function achievementState(career:Career|null){const c={career,stats:driveStats()},s=seen();return ACHIEVEMENTS.map(a=>({a,done:a.done(c),seen:s.has(a.id),progress:a.progress?.(c)}))}
 /** Newly satisfied achievements since last check; marks them seen. `career` null skips nothing but can't unlock career goals. */
-export function claimAchievements(career:Career|null){const s=seen(),fresh=achievementState(career).filter(x=>x.done&&!s.has(x.a.id)).map(x=>x.a);if(fresh.length){for(const a of fresh)s.add(a.id);writeJSON(SEEN,{ids:[...s]})}return fresh}
+export function claimAchievements(career:Career|null){if(isAttract())return [];const s=seen(),fresh=achievementState(career).filter(x=>x.done&&!s.has(x.a.id)).map(x=>x.a);if(fresh.length){for(const a of fresh)s.add(a.id);writeJSON(SEEN,{ids:[...s]})}return fresh}
 export function recordsTable(){return ROUTES.map(route=>({route,rows:VEHICLES.map(v=>({vehicle:v,best:trialBest(route,v)}))}))}
 export {MEDAL_NAMES,trialTime};

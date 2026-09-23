@@ -1,8 +1,10 @@
 import {gameCue,unlockGameAudio} from './audio-bus';
 import {setPrompts,inputKind,currentPrompts} from './shell';
+import {ATTRACT_IDLE_MS,nextAttractUrl} from './attract';
 /**
  * Attract/title screen over the live showroom: shown once per browser tab session on the opening screen.
  * The "press any key" gesture doubles as the sound unlock, so players never meet a separate "Enable sound" step.
+ * Left idle, it rolls into attract mode (a demo race, src/game/attract.ts) and comes back here afterwards.
  */
 const SEEN='slingmods-gx-title-seen';
 declare const __BUILD_REF__:string;
@@ -15,12 +17,17 @@ export function showTitle(options:{onStart?:()=>void;onIdle?:(active:boolean)=>v
  const label=node.querySelector<HTMLElement>('[data-gx-start-label]')!;const relabel=()=>{label.textContent=inputKind()==='pad'?'PRESS A TO START':matchMedia('(pointer:coarse)').matches?'TAP TO START':'PRESS ANY KEY'};relabel();
  const priorPrompts=currentPrompts();setPrompts([{key:'any',label:'Start'}]);
  let started=false,raf=0;
- const start=()=>{if(started)return;started=true;cancelAnimationFrame(raf);removeEventListener('keydown',onKey,true);node.removeEventListener('pointerdown',start);try{sessionStorage.setItem(SEEN,'1')}catch{}
+ const start=()=>{if(started)return;started=true;cancelAnimationFrame(raf);clearTimeout(idle);removeEventListener('pointermove',nudge);removeEventListener('keydown',onKey,true);node.removeEventListener('pointerdown',start);try{sessionStorage.setItem(SEEN,'1')}catch{}
   const t0=performance.now();void unlockGameAudio().then(()=>{if(performance.now()-t0<2500)gameCue('gx.start')});
   node.classList.add('is-leaving');document.body.classList.remove('gx-title-open');options.onIdle?.(false);setPrompts(priorPrompts);options.onStart?.();if(inputKind()!=='mouse')setTimeout(()=>document.querySelector<HTMLElement>('.gx-tile-hero')?.focus({preventScroll:true}),450);setTimeout(()=>node.remove(),900)};
  const onKey=(e:KeyboardEvent)=>{if(['Shift','Control','Alt','Meta','Tab'].includes(e.key))return;e.preventDefault();e.stopPropagation();start()};
  addEventListener('keydown',onKey,true);node.addEventListener('pointerdown',start);
  const armed=[false];(function poll(){const pads=Array.from(navigator.getGamepads?.()??[]).filter(Boolean) as Gamepad[];const any=pads.some(p=>p.buttons.some(b=>b.value>.5));if(!any)armed[0]=true;else if(armed[0]){start();return}relabel();raf=requestAnimationFrame(poll)})();
  node.querySelector<HTMLButtonElement>('.gx-title-start')!.focus({preventScroll:true});
+ // Attract timer: mouse movement postpones it; reduced-motion players are never sent into camera cuts. `?idle=<s>` shortens it for checks.
+ const idleMs=(Number(new URLSearchParams(location.search).get('idle'))||0)*1000||ATTRACT_IDLE_MS;let idle=0;
+ const demo=()=>{if(started||document.hidden){nudge();return}started=true;cancelAnimationFrame(raf);removeEventListener('keydown',onKey,true);removeEventListener('pointermove',nudge);location.assign(nextAttractUrl())};
+ const nudge=()=>{clearTimeout(idle);idle=window.setTimeout(demo,idleMs)};
+ if(!matchMedia('(prefers-reduced-motion: reduce)').matches){nudge();addEventListener('pointermove',nudge,{passive:true})}
  return {dismiss:start};
 }

@@ -327,3 +327,19 @@ html.gx body.race-menu-open .gx-coach,html.gx body.gx-replay .gx-coach{display:n
 .gx-skill[data-state=bank] b{color:var(--gx-good)}.gx-skill[data-state=bank] small{color:var(--gx-good)}
 .gx-skill[data-state=lost] b{color:var(--gx-bad);font-size:34px}.gx-skill[data-state=lost] small{color:var(--gx-bad)}
 html.gx body.race-menu-open .gx-skill,html.gx body.gx-replay .gx-skill{display:none}
+
+/* Attract mode (src/game/attract.ts): demo race behind a "press any key" card, broadcast-style. */
+html.gx body .gx-attract{position:fixed;inset:0;z-index:9000;pointer-events:none;color:var(--gx-ink,#f6f5ef);background:radial-gradient(120% 90% at 50% 45%,#0000 55%,#000a 100%),linear-gradient(0deg,#000c 0%,#0000 32%)}
+html.gx body .gx-attract-bug{position:absolute;top:clamp(16px,3vh,32px);left:clamp(16px,3vw,40px);display:flex;align-items:center;gap:10px;font:800 13px/1 var(--gx-body,system-ui);letter-spacing:.3em;padding:9px 14px;background:#07080a;border-left:3px solid var(--gx-red,#e0261d)}
+html.gx body .gx-attract-bug i{width:9px;height:9px;border-radius:50%;background:var(--gx-red,#e0261d);animation:gx-attract-blink 1.2s steps(2) infinite}
+html.gx body .gx-attract-bug span{font-weight:600;letter-spacing:.14em;color:#ffffffb0;padding-left:10px;border-left:1px solid #ffffff30}
+html.gx body .gx-attract-core{position:absolute;left:0;right:0;bottom:clamp(40px,9vh,96px);display:grid;justify-items:center;gap:8px;text-align:center}
+html.gx body .gx-attract-core img{width:clamp(110px,11vw,170px);height:auto;filter:drop-shadow(0 4px 18px #000)}
+html.gx body .gx-attract-core strong{font:italic 800 clamp(34px,4.6vw,72px)/.9 var(--gx-display,"Barlow Condensed",sans-serif);letter-spacing:.01em;text-shadow:0 6px 40px #000}
+html.gx body .gx-attract-core strong em{color:var(--gx-red,#e0261d)}
+html.gx body .gx-attract-start{pointer-events:auto;border:0;background:none;color:inherit;padding:10px 24px;font:800 14px/1 var(--gx-body,system-ui);letter-spacing:.42em;cursor:pointer;animation:gx-attract-breathe 1.6s ease-in-out infinite;text-shadow:0 2px 12px #000}
+@keyframes gx-attract-blink{50%{opacity:.15}}
+@keyframes gx-attract-breathe{50%{opacity:.35}}
+/* The demo is watched, not driven: hide the driver's HUD, coaching and menus; keep the broadcast call-outs. */
+html.gx body.gx-attract .gx-coach,html.gx body.gx-attract .gx-skill,html.gx body.gx-attract #game-audio,html.gx body.gx-attract .film-brand,html.gx body.gx-attract .film-skip,html.gx body.gx-attract .film-footer,html.gx body.gx-attract .film-launcher,html.gx body.gx-attract .race-top,html.gx body.gx-attract #crew-order,html.gx body.gx-attract .race-gauges,html.gx body.gx-attract .race-route-aid,html.gx body.gx-attract #race-menu,html.gx body.gx-attract .gx-prompts,html.gx body.gx-attract .gx-radio{display:none!important}
+@media (prefers-reduced-motion:reduce){html.gx body .gx-attract-start,html.gx body .gx-attract-bug i{animation:none}}

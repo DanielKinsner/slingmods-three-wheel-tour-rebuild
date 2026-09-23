@@ -21,16 +21,16 @@ export async function prepareRenderer(renderer:THREE.WebGLRenderer,scene:THREE.S
  }finally{for(const[o,value]of culling)o.frustumCulled=value;for(const[o,value]of lodVisibility)o.visible=value}
  return{ms:performance.now()-start,stages,textures:textures.size,programs:renderer.info.programs?.length??0,parallelCompile:renderer.extensions.has('KHR_parallel_shader_compile'),method:'Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped.'};
 }
-export function preparationVeil(parent:Element,context:{showroom?:boolean;destination?:string}={}){
+export function preparationVeil(parent:Element,context:{showroom?:boolean;destination?:string;art?:string;vehicle?:string}={}){
  const node=document.createElement('section');node.setAttribute('aria-label',context.showroom?'Opening the showroom':'Preparing your drive');node.className='drive-preparation';
  // Keep the recovery-layer contract explicit even in standalone embedded clients.
- node.style.zIndex='9999';
+ node.style.zIndex='9999';if(context.art){node.dataset.art='';node.style.setProperty('--gx-art',`url('${context.art}')`)}
  const panel=document.createElement('div');panel.className='drive-loading-panel';
  const brand=document.createElement('img');brand.src='/assets/brand/slingmods-logo-main.png';brand.alt='SlingMods';brand.className='drive-loading-brand';
  const eyebrow=document.createElement('p');eyebrow.className='drive-loading-eyebrow';eyebrow.textContent=context.showroom?'Your signature build':context.destination??'Your next drive';
  const stage=document.createElement('h1');stage.dataset.loadingStage='';stage.textContent=context.showroom?'Opening the showroom':'Getting your drive ready';stage.setAttribute('role','status');
  const steps=document.createElement('ol');steps.className='drive-loading-steps';steps.setAttribute('aria-label','Loading stages');steps.innerHTML='<li data-loading-step="build" aria-current="step">Load your build</li><li data-loading-step="scene">Prepare the scene</li>';
- const progress=document.createElement('p');progress.className='drive-loading-detail';progress.textContent=context.showroom?'Choose your finish. Try the accessories. Take your build out for a drive.':'Your Slingshot and scenery are loading. You can start when the road is ready.';
+ const progress=document.createElement('p');progress.className='drive-loading-detail';progress.textContent=context.showroom?'Choose your finish. Try the accessories. Take your build out for a drive.':`Your ${context.vehicle??'Slingshot'} and scenery are loading. You can start when the road is ready.`;
  const cancel=document.createElement('a');const career=new URLSearchParams(location.search).get('play')==='career';cancel.textContent=career?'Back to career':context.showroom?'Reload showroom':'Back to showroom';cancel.href=career?'?scene=career&play=career':'?scene=signature&screen=build'+location.hash;cancel.className='drive-loading-button';cancel.dataset.loadingCancel='';
  panel.append(brand,eyebrow,stage,steps,progress,cancel);node.append(panel);parent.append(node);
  const previous=THREE.DefaultLoadingManager.onProgress;

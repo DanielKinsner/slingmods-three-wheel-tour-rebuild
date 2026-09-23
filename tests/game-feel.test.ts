@@ -62,3 +62,16 @@ test('Crew ghost files are valid one-lap recordings matching the published times
  const fs=await import('node:fs');const {CREW_GHOST_TIMES}=await import('../src/game/time-attack');
  for(const r of ['harbor','express','ridge'] as const){const g=JSON.parse(fs.readFileSync(`public/assets/game-feel/ghosts/${r}.json`,'utf8'));assert.equal(g.timeMs,CREW_GHOST_TIMES[r]);assert.equal(g.data.length%8,0);assert.equal(g.data.at(-8),Math.round(g.timeMs));for(let i=8;i<g.data.length;i+=8)assert.ok(g.data[i]>=g.data[i-8],'monotonic clock')}
 });
+test('Loading key art: every course, light and ride maps to a shipped, allowlisted image',async()=>{
+ const fs=await import('node:fs');const {artForSearch,courseArt,artUrl}=await import('../src/game/loading-art');
+ const hosted=new Set(JSON.parse(fs.readFileSync('demo-assets.json','utf8')).assets);
+ const cases:[string,string][]=[['?scene=express&route=harbor&look=night','harbor-night'],['?scene=express&route=harbor','harbor-day'],['?scene=express&route=express&look=dusk-rain','express-dusk'],['?scene=express&look=night-rain','express-night'],['?scene=ridge&lighting=night','ridge-night'],['?scene=express&route=ridge','ridge-day'],['?scene=crew','harbor-day'],['?visual=ryker','garage-ryker'],['','garage']];
+ for(const[q,id]of cases)assert.equal(artForSearch(q),id,q);
+ for(const id of [courseArt('express','golden-hour'),'harbor-night','express-day','express-dusk','express-night','ridge-day','ridge-night','garage','garage-ryker'] as const){const url=artUrl(id);assert.ok(fs.existsSync('public'+url),url);assert.ok(hosted.has(url.slice(1)),url+' allowlisted')}
+});
+test('Attract mode: flag, reel URLs survive the hosted visitor filter, and demo runs never write records',async()=>{
+ const {isAttract}=await import('../src/game/attract-flag');const {visitorSearch}=await import('../src/demo/profile');
+ assert.equal(isAttract('?scene=express&attract=1'),true);assert.equal(isAttract('?scene=express'),false);assert.equal(isAttract(''),false);
+ for(let reel=0;reel<6;reel++){const q=new URLSearchParams(visitorSearch(`?scene=express&route=ridge&mode=race&attract=1&reel=${reel}&lighting=night`));assert.equal(q.get('attract'),'1');assert.equal(q.get('reel'),String(reel));assert.equal(q.get('mode'),'race')}
+ assert.equal(new URLSearchParams(visitorSearch('?attract=2&reel=9')).toString(),'','unknown values are dropped');
+});

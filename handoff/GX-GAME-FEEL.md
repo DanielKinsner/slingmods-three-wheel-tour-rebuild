@@ -86,6 +86,17 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 - Hosting: `vercel.json` now caches hashed bundles immutably and game assets for an hour (HTML stays no-cache).
 - Three independent code reviews in total; every real finding was fixed.
 
+**Third batch**
+- Loading-screen key art (`src/game/loading-art.ts`, `public/assets/game-feel/loading`): nine original illustrations
+  generated with Codex (one per course and light, plus the Slingshot and Ryker garages; provenance in
+  `assets/game-feel/README.md`). Used by the drive and showroom loading veils, the page-change curtain (art for the
+  destination) and the inline boot screen in `index.html` (same lookup, before any module loads).
+- Attract mode (`src/game/attract.ts`): leave the title screen idle for 40 s and a demo Quick Race loads, with the
+  production rival AI driving your ride, filmed live by the replay broadcast director, behind a PRESS ANY KEY card. It
+  rotates through six course/light reels, returns to the title after the finish, and any key/click/pad button goes to
+  the main menu. Demo runs never write stats, splits, skills or achievements (`attract-flag.ts` guard); reduced-motion
+  players are never sent into it. Check quickly with `?title=1&idle=4`.
+
 ## Developer notes
 - `?title=1` forces the title screen (skipped automatically under WebDriver).
 - `?autopilot=1` (only where evidence hooks are enabled, i.e. dev or `test=1&profile=1`) lets the production rival AI
@@ -100,10 +111,10 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 `slingmods-gx-difficulty`, `slingmods-gx-achievements-v1`, `slingmods-gx-stats-v1`, `slingmods-gx-daily-v1`, `slingmods-gx-units`,
 `slingmods-gx-seen-unlocks`, `slingmods-gx-series`, `slingmods-gx-series-wins`, `slingmods-gx-ghost`,
 `slingmods-gx-rumble`, `slingmods-gx-coach`, `slingmods-gx-skills-v1`, `slingmods-gx-skills-on`, `slingmods-gx-milestones-v1`,
-`slingmods-gx-texture-detail`.
+`slingmods-gx-texture-detail`; session only: `slingmods-gx-attract-i` (demo reel cursor).
 
 ## Verification
-- `npm test` (441 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
+- `npm test` (443 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
   `npm run deploy:build`.
 - Visual checks by headless Chromium (`--use-angle=d3d11`) at 1280x720, 1600x900 and 1920x1080 of title, menu, all
   showroom screens, career hub (fresh and seeded), garage, workshop, race ready/countdown/running/pause/results, Time

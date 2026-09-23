@@ -1,4 +1,5 @@
 import {vehicleDefinition} from '../simulation/vehicle-definition';
+import {artUrl} from '../game/loading-art';
 import {setCareerSource} from '../game/options';
 import {announceAchievements} from '../game/toast';
 import {shouldShowTitle,showTitle} from '../game/title';
@@ -49,7 +50,7 @@ const params=new URLSearchParams(location.search),started=performance.now(),app=
 // with career permissions and transactions instead of free preview editing.
 const garage=sceneOf(new URL(location.href))==='bay',garageKit=garage?import('../showroom/garage'):undefined;
 document.body.className='signature-showroom'+(garage?' career-garage':'');app.innerHTML='<div id="viewport"></div>';
-const veil=preparationVeil(app,{showroom:true}),renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:params.has('captureBuffer')});
+const veil=preparationVeil(app,{showroom:true,art:artUrl(CURRENT_VEHICLE_CONTEXT.visual==='ryker'?'garage-ryker':'garage')}),renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:params.has('captureBuffer')});
 const graphics=loadGraphicsQuality();renderer.setPixelRatio(Math.min(devicePixelRatio,GRAPHICS_PRESETS[graphics].pixelRatioCap));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
 app.querySelector('#viewport')!.append(renderer.domElement);
 const scene=new THREE.Scene();scene.background=new THREE.Color('#777d80');

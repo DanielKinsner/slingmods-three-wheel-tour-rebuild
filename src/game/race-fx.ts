@@ -6,6 +6,7 @@ import {projectRoad,type CourseRoute} from '../course/environment';
 import * as THREE from 'three';
 import {countDrive} from './achievements';
 import {announceAchievements} from './toast';
+import {isAttract} from './attract-flag';
 import {gameCue} from './audio-bus';
 import {setPrompts} from './shell';
 import {tourProgress,repGain,rankTitle,repForLevel} from './progress';
@@ -25,7 +26,7 @@ const fmt=(ms:number)=>{const s=Math.abs(ms)/1000,m=Math.floor(s/60);return `${m
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 const SPLITS='slingmods-gx-splits-v1';
 function readSplits(event:string):number[]|null{try{const all=JSON.parse(localStorage.getItem(SPLITS)??'{}');return Array.isArray(all[event])?all[event]:null}catch{return null}}
-function writeSplits(event:string,splits:number[]){try{const all=JSON.parse(localStorage.getItem(SPLITS)??'{}');all[event]=splits;localStorage.setItem(SPLITS,JSON.stringify(all))}catch{/* cosmetic only */}}
+function writeSplits(event:string,splits:number[]){if(isAttract())return;try{const all=JSON.parse(localStorage.getItem(SPLITS)??'{}');all[event]=splits;localStorage.setItem(SPLITS,JSON.stringify(all))}catch{/* cosmetic only */}}
 
 export class RaceFX {
  readonly root=document.createElement('div');

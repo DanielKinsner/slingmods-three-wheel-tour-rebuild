@@ -37,8 +37,9 @@ type CamMode='director'|'tv'|'chase'|'heli'|'low';
 const MODES:CamMode[]=['director','tv','chase','heli','low'];
 const MODE_LABEL:Record<CamMode,string>={director:'Director',tv:'Trackside',chase:'Chase',heli:'Helicopter',low:'Low tracking'};
 
-/** Broadcast camera: trackside posts along the course, plus chase / helicopter / low tracking shots. */
-class ReplayCamera {
+/** Broadcast camera: trackside posts along the course, plus chase / helicopter / low tracking shots. Also films attract
+ * mode live (it only needs the car's telemetry). */
+export class ReplayCamera {
  mode:CamMode='director';private posts:{station:number;pos:THREE.Vector3}[]=[];private post=-1;private shot:Exclude<CamMode,'director'>='tv';private shotUntil=0;private pos=new THREE.Vector3();private look=new THREE.Vector3();private fov=40;private snap=true;private orbit=0;
  private f=new THREE.Vector3();private r=new THREE.Vector3();private q=new THREE.Quaternion();private car=new THREE.Vector3();
  constructor(private route:CourseRoute,private ground:(x:number,z:number)=>number,private blocked?:(from:THREE.Vector3,to:THREE.Vector3)=>boolean){

@@ -1,4 +1,5 @@
 import './shell.css';
+import {artUrl,artForSearch} from './loading-art';
 import {gameCue} from './audio-bus';
 /**
  * The game shell: the layer that makes every page read as one console-style game rather than a set of web pages.
@@ -70,14 +71,14 @@ let leaving=false;
 function curtain(){let node=document.getElementById('gx-curtain');if(!node){node=document.createElement('div');node.id='gx-curtain';node.innerHTML=bootMarkup();document.body.append(node)}return node}
 /** Shared by the curtain and index.html's inline boot screen so the page change reads as one continuous wipe. */
 export function bootMarkup(){return `<i class="gx-wipe gx-wipe-a"></i><i class="gx-wipe gx-wipe-b"></i><div class="gx-boot-core"><img src="/assets/brand/slingmods-logo-main.png" alt=""><strong>THREE-WHEEL TOUR</strong><span class="gx-boot-bar"><i></i></span><small>LOADING</small></div>`}
-export function wipeOut(){if(reduced())return Promise.resolve();const node=curtain();node.classList.remove('is-open');void node.offsetWidth;node.classList.add('is-closing');gameCue('gx.whoosh');return new Promise<void>(resolve=>setTimeout(resolve,420))}
+export function wipeOut(target?:string){if(reduced())return Promise.resolve();const node=curtain();node.style.setProperty('--gx-art',`url('${artUrl(artForSearch(target??location.search))}')`);node.classList.remove('is-open');void node.offsetWidth;node.classList.add('is-closing');gameCue('gx.whoosh');return new Promise<void>(resolve=>setTimeout(resolve,420))}
 type NavigateEventLike=Event&{cancelable:boolean;hashChange:boolean;downloadRequest:string|null;navigationType:string;destination:{url:string;sameDocument:boolean}};
 const nav=(globalThis as unknown as {navigation?:EventTarget}).navigation;
 nav?.addEventListener('navigate',event=>{const e=event as NavigateEventLike;
  if(leaving||!e.cancelable||e.hashChange||e.downloadRequest||e.destination.sameDocument||e.navigationType==='reload'||e.navigationType==='traverse')return;
  const url=new URL(e.destination.url);if(url.origin!==location.origin||reduced()||document.documentElement.dataset.gxNoCurtain==='1')return;
  e.preventDefault();leaving=true;const replace=e.navigationType==='replace';
- void wipeOut().then(()=>{if(replace)location.replace(url.href);else location.assign(url.href);
+ void wipeOut(url.search).then(()=>{if(replace)location.replace(url.href);else location.assign(url.href);
   // If the document never unloads (attachment response, blocked or cancelled navigation), give the page back.
   setTimeout(()=>{if(document.visibilityState!=='hidden'){leaving=false;document.getElementById('gx-curtain')?.remove()}},4500)});
 });
