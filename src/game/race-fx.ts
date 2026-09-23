@@ -5,7 +5,7 @@ import {pulse} from './rumble';
 import {displaySpeed,speedLabel} from './units';
 import {projectRoad,type CourseRoute} from '../course/environment';
 import * as THREE from 'three';
-import {countDrive} from './achievements';
+import {countDrive,countMoment} from './achievements';
 import {announceAchievements} from './toast';
 import {isAttract} from './attract-flag';
 import {gameCue} from './audio-bus';
@@ -66,7 +66,7 @@ export class RaceFX {
   }
   this.lastSpeed=Math.abs(t.speed);this.lastSpeedAt=now;
  }
- private judgeLaunch(ms:number){this.launchJudged=true;if(ms>450||ms<-350)return;this.launch={kind:ms<=200?'perfect':'great',ms};
+ private judgeLaunch(ms:number){this.launchJudged=true;if(ms>450||ms<-350)return;this.launch={kind:ms<=200?'perfect':'great',ms};if(this.launch.kind==='perfect')countMoment('perfectStarts');
   const kind=this.launch.kind,text=ms<=0?'ON THE GREEN':`REACTION ${(ms/1000).toFixed(2)} S`;
   // The start lights stay up for 1.1 s after GO; the call-out waits for them so the two never overlap.
   setTimeout(()=>{if(this.finished)return;this.banner(`<b>${kind==='perfect'?'PERFECT START':'GREAT START'}</b><span>${text}</span>`,kind==='perfect'?'is-launch is-gold':'is-launch',1500);gameCue(kind==='perfect'?'gx.record':'gx.pos-up');if(kind==='perfect')pulse(.4,.7,160)},Math.max(0,1150-(performance.now()-this.goAt)))}
@@ -121,7 +121,7 @@ export class RaceFX {
   }
   // Finish slam.
   if(s.playerResult&&!this.finished){this.finished=true;const r=s.playerResult;this.holdResults(reduced()||isAttract()?0:1400);if(r.valid)this.shareInfo={timeMs:r.timeMs??s.elapsedMs,place:r.place,field:s.standings.length};setTimeout(()=>announceAchievements(null),3200);
-   if(r.valid){const fieldRace=s.standings.length>1;this.banner(`<b>${fieldRace&&r.place?ordinal(r.place):'FINISH'}</b><span>${fieldRace?'FINISH':fmt(r.timeMs??s.elapsedMs)}</span>`,'is-finish '+(r.place===1&&fieldRace?'is-gold':''),2600);this.hit();gameCue('gx.slam');pulse(.8,1,380);if(fieldRace)setTimeout(()=>this.radio(r.place===1?'youWon':'theyWon',undefined,true),1200);
+   if(r.valid){const fieldRace=s.standings.length>1;if(fieldRace&&r.place===1&&!this.freeDrive&&!this.contact&&!this.offTrack)countMoment('cleanWins');this.banner(`<b>${fieldRace&&r.place?ordinal(r.place):'FINISH'}</b><span>${fieldRace?'FINISH':fmt(r.timeMs??s.elapsedMs)}</span>`,'is-finish '+(r.place===1&&fieldRace?'is-gold':''),2600);this.hit();gameCue('gx.slam');pulse(.8,1,380);if(fieldRace)setTimeout(()=>this.radio(r.place===1?'youWon':'theyWon',undefined,true),1200);
     const splits=[...this.gates,r.timeMs??s.elapsedMs],bestTotal=this.best?.at(-1);if(!this.freeDrive&&(bestTotal===undefined||(r.timeMs??Infinity)<bestTotal)){writeSplits(s.event,splits);if(bestTotal!==undefined&&r.timeMs!==null)this.pbBy=bestTotal-r.timeMs}}
    else{this.banner('<b>DNF</b><span>RUN NOT COUNTED</span>','is-down',2200)}}
   this.phase=s.phase;this.lastSnap=s;

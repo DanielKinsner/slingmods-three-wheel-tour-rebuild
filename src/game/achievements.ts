@@ -11,10 +11,12 @@ import {MEDALS,MEDAL_NAMES,trialBest,trialTime,type Medal,type TrialRoute} from 
  * stats counter. Unlocks are remembered in their own key so the toast plays once; nothing here can change a save.
  */
 const SEEN='slingmods-gx-achievements-v1',STATS='slingmods-gx-stats-v1';
-export interface DriveStats {drives:number;races:number;trials:number;tests:number;ryker:number;slingshot:number}
+export interface DriveStats {drives:number;races:number;trials:number;tests:number;ryker:number;slingshot:number;perfectStarts:number;cleanWins:number}
 const readJSON=<T>(k:string,fallback:T):T=>{try{const v=JSON.parse(localStorage.getItem(k)??'null');return v&&typeof v==='object'?{...fallback,...v}:fallback}catch{return fallback}};
 const writeJSON=(k:string,v:unknown)=>{if(isAttract())return;/* demo races never count */try{localStorage.setItem(k,JSON.stringify(v))}catch{/* private mode */}};
-export const driveStats=()=>readJSON<DriveStats>(STATS,{drives:0,races:0,trials:0,tests:0,ryker:0,slingshot:0});
+export const driveStats=()=>readJSON<DriveStats>(STATS,{drives:0,races:0,trials:0,tests:0,ryker:0,slingshot:0,perfectStarts:0,cleanWins:0});
+/** Race moments RaceFX celebrates (a Perfect Start, a win without contact), counted for the Tour Log and achievements. */
+export function countMoment(kind:'perfectStarts'|'cleanWins'){const s=driveStats();s[kind]++;writeJSON(STATS,s)}
 /** Counted once per started run (countdown to green), never for paused or aborted menus. */
 export function countDrive(kind:'race'|'trial'|'test',vehicle:string){const s=driveStats();s.drives++;s[kind==='race'?'races':kind==='trial'?'trials':'tests']++;if(vehicle==='can-am-ryker-900')s.ryker++;else s.slingshot++;writeJSON(STATS,s)}
 
@@ -45,6 +47,8 @@ export const ACHIEVEMENTS:Achievement[]=[
  {id:'top-of-the-class',title:'Top of the Class',detail:'Earn Gold or better in all nine Challenges.',icon:'🎓',done:()=>challengeSummary().gold>=challengeSummary().total,progress:()=>[challengeSummary().gold,challengeSummary().total]},
  {id:'on-a-roll',title:'On a Roll',detail:'Reach a 3-day Daily Run streak.',icon:'🔥',done:()=>dailyState().best>=3,progress:()=>[Math.min(3,dailyState().best),3]},
  {id:'showboat',title:'Showboat',detail:'Bank a 5,000-point skill chain.',icon:'✺',done:()=>skillRecord().best>=5000,progress:()=>[Math.min(5000,skillRecord().best),5000]},
+ {id:'lights-out',title:'Lights Out',detail:'Launch a Perfect Start: throttle down as the lights go green.',icon:'◉',done:c=>c.stats.perfectStarts>=1},
+ {id:'spotless',title:'Spotless',detail:'Win a race without touching a wall or a rival.',icon:'✧',done:c=>c.stats.cleanWins>=1},
  {id:'two-ways',title:'Three Wheels, Two Ways',detail:'Drive both the Slingshot and the Ryker.',icon:'⇄',done:c=>c.stats.ryker>0&&c.stats.slingshot>0},
  {id:'road-trip',title:'Road Trip',detail:'Start 25 drives.',icon:'∞',done:c=>c.stats.drives>=25,progress:c=>[Math.min(25,c.stats.drives),25]},
 ];
