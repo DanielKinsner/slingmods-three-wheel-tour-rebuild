@@ -255,7 +255,7 @@ html.gx body .gx-ghost-pick button[aria-pressed=true]{background:var(--gx-ink);c
 html.gx body .gx-ghost-pick button[data-ghost=jett][aria-pressed=true]{background:#ff5a4f;border-color:#ff5a4f;color:#fff}
 html.gx body .gx-ghost-pick button:disabled{opacity:.35;cursor:default}
 .gx-trial small[data-ghost=jett]{color:#ff8a82}.gx-trial small[data-ghost=jett] i{background:#ff5a4f;box-shadow:0 0 8px #ff5a4f}
-html.gx body #harbor-ui:has(#crew-order:not([hidden])) ~ #game-audio,html.gx body.harbor-race:has(#crew-order:not([hidden])) #game-audio{top:auto;bottom:250px}
+html.gx body.harbor-race:has(#crew-order:not([hidden])) #game-audio{top:176px;left:auto;right:var(--gx-edge-x)}
 
 /* ---------- Instant replay ---------- */
 html.gx body.gx-replay :is(#harbor-ui,.gx-race,#game-audio,#game-graphics,.film-launcher,.gx-trial,#crew-proximity){visibility:hidden!important}
@@ -274,3 +274,27 @@ html.gx body.gx-replay :is(#harbor-ui,.gx-race,#game-audio,#game-graphics,.film-
 html.gx body .gx-replay-buttons button{min-height:46px;padding:0 16px;border:1px solid var(--gx-edge-2);background:var(--gx-glass-2);color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px)}
 html.gx body .gx-replay-buttons button.is-primary{min-width:130px;background:var(--gx-red);border-color:var(--gx-red)}
 html.gx body.gx-replay .gx-prompts{z-index:9400;bottom:calc(7vh - 38px)}
+
+/* ---------- Tour Series ---------- */
+.gx-series{margin:4px 0 14px;padding:14px 16px;background:#ffffff0a;border-left:4px solid var(--gx-hot);animation:gx-rise .5s .2s var(--gx-ease) both}
+.gx-series header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.gx-series header span{font:800 10px/1 var(--gx-body);letter-spacing:.26em;color:var(--gx-mute)}
+.gx-series header b{font:italic 800 24px/1 var(--gx-display);font-synthesis:style;color:var(--gx-hot)}
+.gx-series[data-final=true] header b{font-size:34px}
+.gx-series-route{display:flex;gap:4px;margin:0 0 10px!important}
+.gx-series-route i{flex:1;padding:6px 8px;font:800 11px/1.2 var(--gx-body);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:#ffffff0c;color:var(--gx-mute)}
+.gx-series-route i[data-state=done]{color:var(--gx-good)}.gx-series-route i[data-state=now]{background:var(--gx-red);color:#fff}
+.gx-series-note{font-size:13px!important;color:var(--gx-ink-2)!important;margin:4px 0 0!important}
+.gx-series-table{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.gx-series-table li{display:grid;grid-template-columns:28px 1fr 48px 52px;align-items:center;gap:8px;padding:6px 10px;background:#ffffff08;box-shadow:inset 3px 0 0 var(--gx-crew);font:700 14px/1 var(--gx-body)}
+.gx-series-table li[data-you=true]{background:#ffd23c26}
+.gx-series-table b,.gx-series-table strong{font:italic 800 20px/1 var(--gx-display);font-synthesis:style}
+.gx-series-table strong{text-align:right;color:var(--gx-ink)}
+.gx-series-table em{font:800 13px/1 var(--gx-body);font-style:normal;color:var(--gx-good);text-align:right}
+.gx-series-trophy{font-size:64px;text-align:center;line-height:1;margin:4px 0 10px;animation:gx-pop .8s .3s var(--gx-ease) both;filter:drop-shadow(0 0 30px #ffd23c88)}
+.gx-series-actions{display:flex;gap:8px;margin-top:12px}
+html.gx body .gx-series-actions button{min-height:52px;padding:0 20px;border:1px solid var(--gx-edge-2);background:transparent;color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+html.gx body .gx-series-actions button.is-primary{border:0;background:var(--gx-red);color:#fff;font:italic 800 22px/1 var(--gx-display);font-synthesis:style;letter-spacing:.03em;transform:skewX(var(--gx-rake));box-shadow:0 8px 26px var(--gx-red-glow)}
+html.gx body #race-menu:has(.gx-series[data-final]) .result-standings,html.gx body #race-menu:has(.gx-series) .gx-run-stats{display:none}
+.gx-series[data-final=true] header{flex-direction:column;align-items:flex-start;gap:6px}
+html.gx body .gx-series header{position:static;inset:auto;padding:0;border:0;background:none;z-index:auto;pointer-events:auto}

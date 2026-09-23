@@ -1,4 +1,5 @@
 import type {Career} from '../career/store';
+import {seriesWins} from './series';
 import {dailyState} from './daily';
 import {tourProgress} from './progress';
 import {MEDALS,MEDAL_NAMES,trialBest,trialTime,type Medal,type TrialRoute} from './time-attack';
@@ -35,6 +36,7 @@ export const ACHIEVEMENTS:Achievement[]=[
  {id:'gold-standard',title:'Gold Standard',detail:'Earn a Gold medal in Time Attack.',icon:'🥇',done:()=>ROUTES.some(r=>atLeast(bestMedal(r),'gold'))},
  {id:'golden-coast',title:'Golden Coast',detail:'Gold or better on all three courses.',icon:'✦',done:()=>ROUTES.every(r=>atLeast(bestMedal(r),'gold')),progress:()=>[ROUTES.filter(r=>atLeast(bestMedal(r),'gold')).length,3]},
  {id:'slingmods-certified',title:'SlingMods Certified',detail:'Beat a SlingMods medal time.',icon:'◆',done:()=>ROUTES.some(r=>bestMedal(r)==='slingmods')},
+ {id:'series-champion',title:'Series Champion',detail:'Win a Tour Series.',icon:'🏆',done:()=>seriesWins()>=1},
  {id:'daily-driver',title:'Daily Driver',detail:'Complete a Daily Run.',icon:'📅',done:()=>dailyState().best>=1},
  {id:'on-a-roll',title:'On a Roll',detail:'Reach a 3-day Daily Run streak.',icon:'🔥',done:()=>dailyState().best>=3,progress:()=>[Math.min(3,dailyState().best),3]},
  {id:'two-ways',title:'Three Wheels, Two Ways',detail:'Drive both the Slingshot and the Ryker.',icon:'⇄',done:c=>c.stats.ryker>0&&c.stats.slingshot>0},

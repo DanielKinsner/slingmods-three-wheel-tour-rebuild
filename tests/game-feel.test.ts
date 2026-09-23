@@ -42,3 +42,14 @@ test('Daily Run is deterministic per day and streaks count consecutive days only
  const week=new Set(Array.from({length:6},(_,i)=>dailyRun(new Date(2026,8,20+i)).route));assert.equal(week.size,3,'all courses rotate within a week');
  assert.equal(liveStreak({lastDone:'2026-09-22',streak:4,best:4},'2026-09-23'),4);assert.equal(liveStreak({lastDone:'2026-09-20',streak:4,best:4},'2026-09-23'),0);
 });
+test('Tour Series awards 10/7/5/3, replaces a retried race, and ranks by total then best result',async()=>{
+ const store=new Map<string,string>();(globalThis as any).localStorage={getItem:(k:string)=>store.get(k)??null,setItem:(k:string,v:string)=>{store.set(k,v)},removeItem:(k:string)=>{store.delete(k)}};
+ try{const m=await import('../src/game/series');m.startSeries('normal');
+  const st=(order:string[],dnf:string[]=[])=>order.map((id,i)=>({id,place:i+1,status:dnf.includes(id)?'dnf':'finished'}));
+  m.recordSeriesRace(st(['maya','player','jett','nico']),'a1');assert.equal(m.seriesTotals(m.seriesState()!)[0].id,'maya');
+  m.recordSeriesRace(st(['player','maya','jett','nico']),'a2');assert.deepEqual(m.seriesState()!.results[0],{player:10,maya:7,jett:5,nico:3},'retry replaces');
+  m.recordSeriesRace(st(['nico','maya','jett','player'],['player']),'a2');assert.equal(m.seriesState()!.results[0]!.player,10,'same attempt is idempotent');
+  m.advanceSeries();m.recordSeriesRace(st(['maya','player','jett','nico']),'b1');m.advanceSeries();m.recordSeriesRace(st(['player','jett','maya','nico']),'c1');
+  const t=m.seriesTotals(m.seriesState()!);assert.equal(t[0].id,'player');assert.equal(t[0].points,27);assert.equal(m.seriesComplete(m.seriesState()!),true);assert.equal(m.seriesWins(),1);
+ }finally{delete (globalThis as any).localStorage}
+});
