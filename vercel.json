@@ -51,6 +51,24 @@
           "value": "audio/wav"
         }
       ]
+    },
+    {
+      "source": "/assets/(.*)\\.(glb|ktx2|jpg|png|ogg|wav|mp3|woff2|ttf|json)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/:name([^/]+-[A-Za-z0-9_-]{8,}\\.(?:js|css|wasm))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "installCommand": "npm ci"
