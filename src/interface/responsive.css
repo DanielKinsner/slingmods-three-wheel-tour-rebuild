@@ -1,0 +1,174 @@
+/* Deliberate compositions for laptops, narrow windows and touch screens. */
+@media (max-width: 1400px) {
+  .tour-ui body .sig-header .sig-navigation { gap: 18px; left: 51%; }
+  .tour-ui body .sig-header .sig-navigation button { font-size: 13px; letter-spacing: .06em; }
+  .tour-ui body .tour-entry { max-width: 32vw; }
+  .tour-ui body .tour-entry h1 { font-size: clamp(68px,6.4vw,90px); }
+  .tour-ui body .sig-events { gap: 28px; }
+  .tour-ui body .sig-detail { padding: 20px; }
+  .tour-ui body .sig-destination-info { gap: 20px; grid-template-columns: minmax(0,1fr) 242px; }
+  .tour-ui body .sig-destination-actions { padding: 18px; }
+  .tour-ui body .sig-destination-list strong { font-size: 23px; }
+}
+@media (max-height: 850px) and (min-width: 761px) {
+  .tour-ui body .signature-ui { --sig-top: 136px; --sig-bottom: 78px; }
+  .tour-ui body .tour-entry { top: 162px; }
+  .tour-ui body .tour-entry h1 { font-size: clamp(64px, 5.8vw, 86px); margin: 22px 0 18px; }
+  .tour-ui body .tour-entry > .tour-entry-copy { font-size: 11px; line-height: 1.7; }
+  .tour-ui body .tour-entry-actions { margin-top: 18px; max-width: 306px; }
+  .tour-ui body .tour-entry-actions .tour-start { min-height: 60px; font-size: 23px; }
+  .tour-ui body .tour-entry-actions .sig-career-entry { padding: 11px 3px; }
+  .tour-ui body .tour-entry-actions .sig-career-entry > span { font-size: 11px; }
+  .tour-ui body .tour-entry-actions .sig-career-entry small { font-size: 9px; }
+  .tour-ui body .tour-entry-footer { height: 60px; }
+  .tour-ui body .tour-machine { bottom: 104px; }
+  .tour-ui body .sig-categories { top: calc(var(--sig-top) + 6px); }
+  .tour-ui body .sig-categories button { min-height: 49px; font-size: 22px; }
+  .tour-ui body .sig-categories::before { padding-bottom: 18px; }
+  .tour-ui body .sig-detail { padding: 18px; }
+  .tour-ui body .sig-detail h2 { margin-top: 18px; font-size: 35px; }
+  .tour-ui body .sig-detail-heading { padding-bottom: 4px; }
+  .tour-ui body .sig-finishes { margin-top: 18px; }
+  .tour-ui body .sig-finishes button { min-height: 62px; padding: 10px 0; }
+  .tour-ui body .sig-finishes i { height: 32px; }
+  .tour-ui body .sig-detail details { margin-top: 14px; }
+  .tour-ui body .sig-events { top: 136px; bottom: 24px; }
+  .tour-ui body .sig-events h1 { font-size: 62px; margin: 18px 0 25px; }
+  .tour-ui body .sig-destination-list button { min-height: 91px; }
+  .tour-ui body .sig-route-art { min-height: 230px; }
+  .tour-ui body .sig-destination-info { padding-top: 20px; }
+  .tour-ui body .sig-destination-info h2 { font-size: 43px; margin: 12px 0; }
+  .tour-ui body .sig-destination-info p { font-size: 11px; padding-top: 14px; }
+  .tour-ui body .sig-destination-actions { padding: 15px; gap: 7px; }
+  .tour-ui body .sig-destination-actions .sig-primary { min-height: 44px; font-size: 21px; }
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .tour-ui body .signature-ui { --sig-rail: 154px; --sig-inspector: 280px; }
+  .tour-ui body .sig-header .sig-brand { width: 148px; }
+  .tour-ui body .sig-header .sig-brand img { width: 144px; }
+  .tour-ui body .sig-header .sig-navigation { gap: 9px; left: 52%; }
+  .tour-ui body .sig-header .sig-navigation button { font-size: 11px; }
+  .tour-ui body .sig-categories button { padding: 12px 8px; font-size: 22px; }
+  .tour-ui body .sig-categories button span { margin-right: 12px; }
+  .tour-ui body .sig-events { grid-template-columns: 218px minmax(0,1fr); gap: 20px; }
+  .tour-ui body .sig-destination-info { grid-template-columns: 1fr; }
+  .tour-ui body .sig-destination-actions { grid-template-columns: 1fr 1fr; }
+  .tour-ui body .sig-destination-actions > label, .tour-ui body .sig-destination-actions > .sig-eyebrow,
+  .tour-ui body .sig-destination-light, .tour-ui body .sig-destination-actions > small { grid-column: 1 / -1; }
+  .tour-ui body .sig-events h1 { font-size: 56px; }
+  .tour-ui body .sig-destination-list button { grid-template-columns: 44px 1fr 10px; gap: 10px; }
+  .tour-ui body .sig-destination-list svg { width: 44px; }
+  .tour-ui body .tour-entry h1 { font-size: 65px; }
+  .tour-ui body .tour-machine > strong { font-size: 28px; }
+  .tour-ui body .sig-view-tools button { font-size: 13px; padding: 8px; }
+  .tour-ui body .race-top { grid-template-columns: 200px 1fr 175px 44px; gap: 15px; }
+}
+@media (max-width: 760px) {
+  .tour-ui body { --tour-edge: 20px; }
+  .tour-ui body .signature-ui { --sig-top: 168px; --sig-bottom: 126px; --sig-inspector: calc(100vw - 40px); }
+  .tour-ui body .sig-header { height: 154px; }
+  .tour-ui body .sig-header .sig-brand { margin-top: 14px; width: 142px; }
+  .tour-ui body .sig-header .sig-brand img { width: 138px; }
+  .tour-ui body .sig-game { font-size: 7px; }
+  .tour-ui body .sig-header::after { top: 103px; }
+  .tour-ui body .sig-header .sig-navigation,
+  .tour-ui body .career-shell .sig-header .sig-navigation {
+    top: 61px; left: var(--tour-edge); right: var(--tour-edge); height: 43px; transform: none;
+    gap: 8px; justify-content: space-between;
+  }
+  .tour-ui body .sig-header .sig-navigation button,
+  .tour-ui body .career-shell .sig-header .sig-navigation button { font-size: 8px; padding: 0 1px; letter-spacing: .06em; min-height: 43px; }
+  .tour-ui body .vehicle-appearance-picker { top: 111px; left: var(--tour-edge); right: var(--tour-edge); gap: 20px; }
+  .tour-ui body .vehicle-appearance-picker a { flex: none; font-size: 9px; }
+  .tour-ui body .vehicle-appearance-picker > span { display: none; }
+  .tour-ui body #game-audio { top: 12px; right: 14px; }
+  .tour-ui body #game-audio button, .tour-ui body #game-audio summary { font-size: 9px; padding: 8px; }
+  .tour-ui body .signature-ui[data-screen=entry]::before { background: linear-gradient(90deg,#151714f0,#15171499 65%,#15171450),linear-gradient(0deg,#151714ee,transparent 65%); }
+  .tour-ui body .tour-entry { top: 172px; left: var(--tour-edge); width: min(350px,calc(100vw - 40px)); max-width: none; max-height: calc(100dvh - 245px); overflow: auto; pointer-events: auto; padding-right: 8px; scrollbar-width: thin; }
+  .tour-ui body .tour-entry h1 { font-size: clamp(65px,15vw,88px); margin: 22px 0 20px; }
+  .tour-ui body .tour-edition { font-size: 8px; gap: 10px; }
+  .tour-ui body .tour-entry > .tour-entry-copy { font-size: 11px; }
+  .tour-ui body .tour-entry-actions { max-width: 300px; margin-top: 22px; }
+  .tour-ui body .tour-entry-actions .tour-start { min-height: 64px; font-size: 24px; }
+  .tour-ui body .tour-entry-actions .sig-career-entry { padding: 13px 3px; }
+  .tour-ui body .tour-entry-actions .sig-career-entry > span { font-size: 12px; }
+  .tour-ui body .tour-entry-actions .sig-career-entry small { font-size: 9px; }
+  .tour-ui body .tour-machine { display: none; }
+  .tour-ui body .tour-entry-footer { height: 58px; }
+  .tour-ui body .tour-entry-footer > span:first-child { font-size: 8px; }
+  .tour-ui body .tour-entry-footer > span:nth-child(2) { display: none; }
+  .tour-ui body .tour-entry-footer button { font-size: 15px; gap: 4px 12px; }
+  .tour-ui body .tour-entry-footer button span { font-size: 7px; }
+  .tour-ui body .sig-categories { top: 157px; left: 20px; right: 20px; width: auto; gap: 0; background: #1c201af5; }
+  .tour-ui body .sig-categories::before { display: none; }
+  .tour-ui body .sig-categories button { font-size: 18px; padding: 10px 14px; min-height: 46px; }
+  .tour-ui body .sig-detail { top: 218px; right: 20px; padding: 20px; max-height: calc(100dvh - 416px); }
+  .tour-ui body .sig-detail h2 { font-size: 35px; }
+  .tour-ui body .sig-finishes button { min-height: 65px; }
+  .tour-ui body .sig-finishes i { height: 34px; }
+  .tour-ui body .sig-bottom { padding: 8px 20px; gap: 4px; }
+  .tour-ui body .sig-history { width: 100%; justify-content: space-between; }
+  .tour-ui body .sig-history button { padding: 6px 8px; min-height: 38px; font-size: 10px; }
+  .tour-ui body .sig-bottom .sig-test { width: 100%; }
+  .tour-ui body .sig-bottom .sig-test-drive { min-height: 55px; }
+  .tour-ui body .sig-bottom .sig-test-drive span { font-size: 20px; }
+  .tour-ui body .sig-view-tools { left: 50%; bottom: calc(var(--sig-bottom) + 12px); }
+  .tour-ui body .sig-view-tools button { font-size: 10px; padding: 8px 11px; }
+  .tour-ui body .sig-restore { top: 218px; }
+  .tour-ui body .sig-events { inset: 162px 20px 20px; display: block; padding: 0; }
+  .tour-ui body .sig-events h1 { font-size: 62px; margin: 20px 0 24px; }
+  .tour-ui body .sig-destination-list button { min-height: 93px; }
+  .tour-ui body .sig-destination-footer { margin-top: 10px; justify-content: space-between; }
+  .tour-ui body .sig-selected-destination { margin-top: 28px; }
+  .tour-ui body .sig-route-art { height: 250px; min-height: 250px; }
+  .tour-ui body .sig-preview-label { left: 18px; bottom: 18px; font-size: 7px; max-width: 150px; }
+  .tour-ui body .sig-route-art > svg { width: 120px; height: 70px; right: 18px; bottom: 18px; }
+  .tour-ui body .sig-destination-info { display: block; }
+  .tour-ui body .sig-destination-info h2 { font-size: 47px; }
+  .tour-ui body .sig-destination-actions { margin-top: 24px; display: grid; grid-template-columns: 1fr; }
+  .tour-ui body .sig-shop { inset: 162px 20px 20px; width: auto; max-height: none; padding: 24px; }
+  .tour-ui body .sig-shop h1 { font-size: 47px; }
+  .tour-ui body .sig-shop-list article { grid-template-columns: 52px minmax(0,1fr); gap: 10px 14px; }
+  .tour-ui body .sig-shop-list img { width: 52px; height: 58px; }
+  .tour-ui body .sig-shop-list h3 { font-size: 22px; }
+  .tour-ui body .career-shell .sig-header, .tour-ui body .career-shell .sig-header:has(.vehicle-appearance-picker) { height: 157px; min-height: 157px; }
+  .tour-ui body .career-shell .sig-header .sig-navigation { left: 0; right: 0; }
+  .tour-ui body .career-shell .vehicle-appearance-picker { left: 0; }
+  .tour-ui body .career-chapters a { font-size: 9px; padding: 12px 9px; gap: 10px; }
+  .tour-ui body .career-intro h1 { font-size: 63px; }
+  .tour-ui body .career-wallet { padding: 20px 0 0; border-left: 0; border-top: 1px solid var(--sm-line); }
+  .tour-ui body .career-wallet strong { font-size: 46px; }
+  .tour-ui body .career-next { padding: 22px; gap: 20px; }
+  .tour-ui body .career-next strong { font-size: 35px; }
+  .tour-ui body .career-events { gap: 20px; }
+  .tour-ui body .career-event-route { height: 160px; }
+  .tour-ui body.career-garage #chapter-panel { left: 20px; width: calc(100vw - 40px); }
+  .tour-ui body.career-garage #chapter-panel h1 { font-size: 42px; }
+  .tour-ui body .race-top { inset: 18px 20px auto; grid-template-columns: 135px minmax(0,1fr) 40px; gap: 12px; }
+  .tour-ui body .race-identity { gap: 8px 12px; }
+  .tour-ui body .race-identity > img { width: 121px; }
+  .tour-ui body .race-position strong, .tour-ui body .race-laps strong { font-size: 43px; }
+  .tour-ui body .race-position b, .tour-ui body .race-laps b { font-size: 21px; }
+  .tour-ui body .race-position i, .tour-ui body .race-laps i { font-size: 20px; }
+  .tour-ui body .race-timing strong { font-size: 29px; }
+  .tour-ui body .race-position > span, .tour-ui body .race-laps > span, .tour-ui body .race-timing > span { font-size: 8px; }
+  .tour-ui body .race-gauges { width: 214px; right: 8px; bottom: 14px; height: 160px; }
+  .tour-ui body .race-tach { height: 118px; }
+  .tour-ui body .race-speed-readout { top: 62px; left: 24px; gap: 7px; }
+  .tour-ui body .race-speed-readout strong { font-size: 64px; }
+  .tour-ui body .race-speed-readout span { font-size: 8px; }
+  .tour-ui body .race-transmission { top: 65px; right: 5px; }
+  .tour-ui body .race-transmission b { font-size: 30px; padding: 4px 8px; }
+  .tour-ui body .race-engine-readout { top: 135px; left: 24px; font-size: 7px; }
+  .tour-ui body .race-route-aid { width: 122px; left: 12px; bottom: 22px; }
+  .tour-ui body .race-route-aid span { font-size: 7px; }
+  .tour-ui body.harbor-race #game-audio { top: 66px; right: 20px; }
+  .tour-ui body.race-results-open #race-menu { left: 24px; right: 24px; width: auto; padding: 12px 0; }
+  .tour-ui body.race-results-open #race-menu > .result-numeral { font-size: 72px; }
+}
+@media (max-height: 620px) and (min-width: 761px) {
+  .tour-ui body .tour-entry { top: 145px; max-height: calc(100dvh - 215px); overflow-y: auto; pointer-events: auto; scrollbar-width: thin; }
+  .tour-ui body .tour-entry h1 { font-size: 60px; }
+  .tour-ui body .tour-machine { bottom: 92px; }
+  .tour-ui body .sig-categories { bottom: 160px; overflow: auto; }
+}

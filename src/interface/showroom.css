@@ -1,0 +1,208 @@
+/* Shared header — one continuous navigation bar, a quiet vehicle selector below. */
+.tour-ui body .signature-ui {
+  --sig-edge: var(--tour-edge);
+  --sig-top: 144px;
+  --sig-bottom: 90px;
+  --sig-rail: clamp(168px, 15vw, 240px);
+  --sig-inspector: clamp(292px, 24vw, 390px);
+}
+.tour-ui body .sig-header {
+  height: 122px;
+  padding: 0 var(--tour-edge);
+  align-items: flex-start;
+  background: linear-gradient(#171916f5, #171916e0 64%, #17191600);
+}
+.tour-ui body .sig-header::after {
+  content: ''; position: absolute; left: var(--tour-edge); right: var(--tour-edge);
+  top: 76px; height: 1px; background: var(--sm-line);
+}
+.tour-ui body .sig-header .sig-brand {
+  width: 174px; margin-top: 19px; gap: 3px; padding: 0; border: 0;
+}
+.tour-ui body .sig-header .sig-brand img { width: 170px; }
+.tour-ui body .sig-game { font-size: 8px; letter-spacing: .24em; color: var(--sm-muted); }
+.tour-ui body .sig-header .sig-navigation {
+  top: 0; bottom: auto; left: 50%; transform: translateX(-50%); height: 77px;
+  gap: 26px; align-items: stretch;
+}
+.tour-ui body .sig-header .sig-navigation button {
+  font: 700 13px var(--sm-font); letter-spacing: .1em; padding: 0 6px;
+  border: 0; border-bottom: 2px solid transparent; border-radius: 0; color: var(--sm-muted);
+}
+.tour-ui body .sig-header .sig-navigation button:hover { color: var(--sm-ink); background: transparent; }
+.tour-ui body .sig-header .sig-navigation button[aria-current=page] { border-color: var(--sm-red); color: var(--sm-ink); }
+.tour-ui body .sig-header .sig-navigation .is-return { margin: 0; background: transparent; color: var(--sm-ink); }
+.tour-ui body .vehicle-appearance-picker { top: 87px; left: var(--tour-edge); gap: 18px; }
+.tour-ui body .vehicle-appearance-picker > span { color: var(--sm-muted); font-size: 9px; letter-spacing: .16em; }
+.tour-ui body .vehicle-appearance-picker a {
+  min-height: 36px; display: inline-flex; align-items: center; font-size: 10px;
+  padding: 6px 0 !important; border: 0; border-radius: 0; background: transparent;
+  box-shadow: none; color: var(--sm-muted); gap: 8px;
+}
+.tour-ui body .vehicle-appearance-picker a::before { content: ''; width: 4px; height: 4px; background: #7e827a; }
+.tour-ui body .vehicle-appearance-picker a[aria-current=true] { color: var(--sm-ink); }
+.tour-ui body .vehicle-appearance-picker a[aria-current=true]::before { background: var(--sm-red); }
+
+/* The opening screen is a live vehicle editorial, not a static splash image. */
+.tour-ui body .signature-ui[data-screen=entry]::before {
+  background: linear-gradient(90deg, #151714fc 0%, #151714ed 20%, #15171466 42%, #15171400 64%),
+    linear-gradient(0deg, #151714ef 0%, transparent 25%);
+}
+.tour-ui body .tour-entry {
+  top: 20%; left: var(--tour-edge); width: 440px; max-width: 31vw;
+  padding: 0; background: none; border-radius: 0;
+}
+.tour-ui body .tour-edition { display: flex; align-items: center; gap: 13px; font-size: 9px; letter-spacing: .18em; font-weight: 700; }
+.tour-ui body .tour-edition > span:last-child { color: #a6a99e; }
+.tour-ui body .tour-mark { display: flex; gap: 3px; transform: skew(-20deg); }
+.tour-ui body .tour-mark i { display: block; width: 4px; height: 15px; background: var(--sm-red); }
+.tour-ui body .tour-entry h1 {
+  font-size: clamp(70px, 6.1vw, 122px); font-weight: 800; line-height: .84;
+  letter-spacing: -.015em; margin: 30px 0 24px; color: var(--sm-ink);
+}
+.tour-ui body .tour-entry h1 em { font-style: normal; color: var(--sm-red); white-space: nowrap; }
+.tour-ui body .tour-entry > .tour-entry-copy { color: #bfc0b5; font-size: 13px; line-height: 1.8; margin: 0; }
+.tour-ui body .tour-entry-actions { display: grid; grid-template-columns: 1fr; gap: 0; margin: 28px 0 0; padding: 0; border: 0; max-width: 350px; }
+.tour-ui body .tour-entry-actions .tour-start {
+  display: flex; justify-content: space-between; align-items: center; min-height: 72px;
+  padding: 13px 20px; margin: 0 0 8px; font: 700 27px/1.05 var(--sm-display); letter-spacing: .02em;
+  border: 0; text-align: left;
+}
+.tour-ui body .tour-start span { display: grid; gap: 6px; }
+.tour-ui body .tour-start small { font: 600 8px var(--sm-font); letter-spacing: .22em; color: #fff1e5; }
+.tour-ui body .tour-start b { font: 400 31px var(--sm-font); }
+.tour-ui body .tour-entry-actions .sig-career-entry {
+  position: relative; display: grid; grid-template-columns: 1fr 20px; gap: 4px;
+  padding: 14px 4px; border: 0; border-bottom: 1px solid var(--sm-line); text-align: left;
+}
+.tour-ui body .tour-entry-actions .sig-career-entry > span { font-size: 13px; color: var(--sm-ink); font-weight: 600; }
+.tour-ui body .tour-entry-actions .sig-career-entry small { font-size: 10px; grid-column: 1; }
+.tour-ui body .tour-entry-actions .sig-career-entry b { grid-column: 2; grid-row: 1 / 3; align-self: center; font-size: 18px; font-weight: 400; }
+.tour-ui body .tour-machine { position: absolute; right: var(--tour-edge); bottom: 132px; text-align: right; display: grid; gap: 6px; }
+.tour-ui body .tour-machine-index { font: 700 32px var(--sm-display); }
+.tour-ui body .tour-machine-index i { font: 600 9px var(--sm-font); letter-spacing: .18em; color: var(--sm-muted); font-style: normal; }
+.tour-ui body .tour-machine > strong { font: 700 clamp(26px, 2.5vw, 42px)/1 var(--sm-display); letter-spacing: .02em; }
+.tour-ui body .tour-machine > span:not(:first-child) { font-size: 11px; color: var(--sm-muted); }
+.tour-ui body .tour-machine > small { margin-top: 12px; font-size: 8px; letter-spacing: .18em; }
+.tour-ui body .tour-machine > small i { display: inline-block; height: 5px; width: 5px; border-radius: 50%; background: #b6c6a5; margin-right: 8px; vertical-align: 1px; }
+.tour-ui body .tour-entry-footer {
+  position: absolute; bottom: 0; left: var(--tour-edge); right: var(--tour-edge); height: 82px;
+  border-top: 1px solid var(--sm-line); display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.tour-ui body .tour-entry-footer > span:first-child { font-size: 9px; letter-spacing: .18em; color: var(--sm-muted); }
+.tour-ui body .tour-entry-footer > span:first-child b { color: var(--sm-ink); }
+.tour-ui body .tour-entry-footer > span:nth-child(2) { font-size: 8px; letter-spacing: .15em; color: var(--sm-muted); }
+.tour-ui body .tour-entry-footer i { color: var(--sm-red); margin: 0 12px; }
+.tour-ui body .tour-entry-footer button { display: grid; grid-template-columns: 1fr 24px; text-align: left; gap: 5px 20px; padding: 8px 0; border: 0; font: 700 18px var(--sm-display); letter-spacing: .07em; }
+.tour-ui body .tour-entry-footer button span { font: 600 8px var(--sm-font); letter-spacing: .18em; color: var(--sm-muted); }
+.tour-ui body .tour-entry-footer button b { grid-column: 2; grid-row: 1 / 3; align-self: center; font: 400 24px var(--sm-font); }
+.tour-ui body .signature-ui[data-screen=entry] .sig-status { bottom: 87px; left: var(--tour-edge); font-size: 10px; }
+
+/* Atelier: a spare indexed rail, tangible material samples, a warm specification sheet. */
+.tour-ui body .signature-ui[data-screen=build]::before { content: ''; position: absolute; inset: 122px 0 90px; background: linear-gradient(90deg,#171916ad,transparent 28%,transparent 68%,#17191655); pointer-events: none; }
+.tour-ui body .sig-categories { background: none; top: calc(var(--sig-top) + 26px); }
+.tour-ui body .sig-categories::before { content: 'MAKE IT YOURS'; display: block; font-size: 9px; letter-spacing: .2em; color: var(--sm-muted); padding: 0 0 22px 16px; }
+.tour-ui body .sig-categories button { min-height: 59px; font: 700 25px var(--sm-display); text-transform: uppercase; text-shadow: none; padding: 11px 16px; border: 0; border-bottom: 1px solid var(--sm-line); }
+.tour-ui body .sig-categories button span { font: 600 9px var(--sm-font); margin-right: 20px; color: var(--sm-muted); }
+.tour-ui body .sig-categories button b { font-size: 18px; }
+.tour-ui body .sig-categories button[aria-pressed=true] { background: var(--tour-paper); color: var(--tour-ink); }
+.tour-ui body .sig-categories button[aria-pressed=true] span { color: #6d6e63; }
+.tour-ui body .sig-categories button[aria-pressed=true] b { color: var(--sm-red); }
+.tour-ui body .sig-detail {
+  padding: 24px; border: 0; border-radius: 0; box-shadow: none; background: var(--tour-paper);
+  color: var(--tour-ink); scrollbar-color: #93948a #e4e2d8;
+  --sm-ink: #242620; --sm-muted: #66695f; --sm-line: #292d2426; --sm-focus: #a62823;
+}
+.tour-ui body .sig-detail .sig-eyebrow { color: #686b60; }
+.tour-ui body .sig-detail h2 { font-size: clamp(35px, 2.8vw, 46px); letter-spacing: -.02em; margin: 26px 0 12px; }
+.tour-ui body .sig-detail p { font-size: 12px; line-height: 1.8; color: #62665b; }
+.tour-ui body .sig-detail-heading { padding-bottom: 12px; }
+.tour-ui body .sig-detail-heading button { font-size: 13px; min-height: 44px; color: #65685d; }
+.tour-ui body .sig-detail button:not(.sig-primary) { color: var(--tour-ink); border-color: #292d2433; }
+.tour-ui body .sig-detail button:hover:not(:disabled) { background: #dcded2; }
+.tour-ui body .sig-detail .sig-primary { color: #fff4ea; }
+.tour-ui body .sig-detail .sig-primary:hover:not(:disabled) { background: var(--sm-red-hover); }
+.tour-ui body .sig-detail a { color: #363c31; }
+.tour-ui body .sig-detail summary { font-size: 11px; color: #555b50; }
+.tour-ui body .sig-detail details p { font-size: 11px; }
+.tour-ui body .sig-fitment span { color: #4d6953; font-size: 11px; }
+.tour-ui body .sig-finishes { gap: 3px; margin-top: 26px; }
+.tour-ui body .sig-finishes button { grid-template-columns: 54px 1fr 16px; gap: 14px; padding: 12px 0; min-height: 76px; font-size: 11px; font-weight: 600; }
+.tour-ui body .sig-finishes i { width: 50px; height: 40px; border-radius: 2px; border: 1px solid #24282038; transform: skew(-10deg); box-shadow: inset 0 5px 7px #ffffff2b, inset 0 -4px 6px #0002; }
+.tour-ui body .sig-finishes button[aria-pressed=true] { background: transparent; color: var(--tour-ink); }
+.tour-ui body .sig-finishes button[aria-pressed=true] i { outline: 1px solid #696d5f; outline-offset: 4px; }
+.tour-ui body .sig-finishes b { color: #ad312b; }
+.tour-ui body .sig-options button { font-size: 13px; }
+.tour-ui body .sig-options button[aria-pressed=true] { background: #d5d7ca; border-color: #757a68; }
+.tour-ui body .sig-product-actions button, .tour-ui body .sig-detail .sig-external { font-size: 13px; }
+.tour-ui body .sig-detail .sig-owned { background: #d7e0cf; color: #395239; }
+.tour-ui body .sig-save input { border-radius: 0; background: #f6f4eb; color: var(--tour-ink); border-color: #7d8271; }
+.tour-ui body .sig-presets button, .tour-ui body .sig-recipes button { font-size: 13px; }
+.tour-ui body .sig-stepper { font-size: 11px; grid-template-columns: 1fr 32px 46px 32px; }
+.tour-ui body .sig-stepper output { font-size: 12px; }
+.tour-ui body .sig-setup-title { flex-wrap: wrap; }
+.tour-ui body .sig-view-tools > div { background: #171916de; border: 0; border-radius: 0; padding: 0 8px; }
+.tour-ui body .sig-view-tools button { font-size: 13px; padding: 8px 14px; }
+.tour-ui body .sig-view-tools button[aria-pressed=true] { border-color: var(--sm-ink); background: none; }
+.tour-ui body .sig-bottom { padding: 12px var(--tour-edge); background: #171916; }
+.tour-ui body .sig-bottom strong { font-size: 12px; }
+.tour-ui body .sig-bottom small { font-size: 10px; margin-top: 4px; }
+.tour-ui body .sig-history button { font-size: 13px; padding: 8px 14px; }
+.tour-ui body .sig-bottom .sig-test-drive { min-height: 58px; padding: 10px 24px; }
+.tour-ui body .sig-bottom .sig-test-drive span { font-size: 23px; }
+.tour-ui body .sig-bottom .sig-test-drive small { font-size: 9px; }
+.tour-ui body .sig-test [data-action=quick-race] { font-size: 13px; margin-right: 10px; }
+.tour-ui body .sig-status { font-size: 11px; background: #171916ed; border-left-color: var(--sm-red); }
+
+/* The tour: full-bleed authored route imagery, the real route outline and a departure ticket. */
+.tour-ui body .signature-ui[data-screen=events]::before { content: ''; position: absolute; inset: 120px 0 0; background: var(--sm-bg); }
+.tour-ui body .sig-events { inset: 144px var(--tour-edge) 32px; padding: 0; grid-template-columns: minmax(250px, 24%) minmax(0, 1fr); gap: 40px; background: none; border: 0; border-radius: 0; }
+.tour-ui body .sig-events h1 { font-size: clamp(56px, 5.2vw, 96px); line-height: .9; letter-spacing: -.02em; margin: 24px 0 36px; }
+.tour-ui body .sig-destination-list { counter-reset: routes; }
+.tour-ui body .sig-destination-list button { position: relative; counter-increment: routes; min-height: 116px; grid-template-columns: 54px 1fr 14px; padding: 20px 10px; gap: 14px; border-left: 0; }
+.tour-ui body .sig-destination-list button[aria-pressed=true] { background: var(--tour-paper); color: var(--tour-ink); }
+.tour-ui body .sig-destination-list button::before { content: '0' counter(routes); position: absolute; top: 8px; left: 10px; font-size: 8px; letter-spacing: .1em; color: #8b9184; }
+.tour-ui body .sig-destination-list strong { font-size: 26px; line-height: 1.1; }
+.tour-ui body .sig-destination-list small { font-size: 10px; }
+.tour-ui body .sig-destination-list svg { width: 54px; height: 54px; }
+.tour-ui body .sig-destination-list [aria-pressed=true] small { color: #6a6f60; }
+.tour-ui body .sig-destination-list [aria-pressed=true] path { stroke: #343d31; }
+.tour-ui body .sig-destination-list [aria-pressed=true] b { color: var(--sm-red); }
+.tour-ui body .sig-destination-footer button { font-size: 13px; padding: 10px 0; }
+.tour-ui body .sig-route-art { border-radius: 0; min-height: 280px; max-height: none; background: #303b30; }
+.tour-ui body .sig-route-art::after { inset: 0; background: linear-gradient(0deg,#141b17bf,transparent 52%); }
+.tour-ui body .sig-route-art > svg { z-index: 2; inset: auto 28px 32px auto; height: 95px; width: 165px; filter: drop-shadow(0 2px 5px #0006); }
+.tour-ui body .sig-route-art > svg path { stroke-width: 2.5; }
+.tour-ui body .sig-preview-label { left: 28px; bottom: 32px; font-size: 8px; }
+.tour-ui body .sig-destination-info { grid-template-columns: minmax(0,1fr) minmax(240px, 33%); gap: 32px; padding-top: 26px; }
+.tour-ui body .sig-destination-info h2 { font-size: clamp(38px, 4vw, 70px); line-height: .95; margin: 16px 0; }
+.tour-ui body .sig-route-facts { font-size: 18px; color: #d0d1c5; }
+.tour-ui body .sig-destination-info p { font-size: 12px; line-height: 1.8; }
+.tour-ui body .sig-destination-actions { background: var(--tour-paper); color: var(--tour-ink); padding: 22px; gap: 10px; }
+.tour-ui body .sig-destination-actions .sig-eyebrow { color: #626858; }
+.tour-ui body .sig-destination-actions select { background: transparent; color: var(--tour-ink); border: 0; border-bottom: 1px solid #727968; border-radius: 0; padding: 6px 0; font-size: 12px; }
+.tour-ui body .sig-destination-actions > button { color: var(--tour-ink); border-color: #30382740; font-size: 13px; }
+.tour-ui body .sig-destination-actions .sig-primary { font-size: 24px; color: #fff4ea; border-color: var(--sm-red); }
+.tour-ui body .sig-destination-actions small { color: #626858; font-size: 9px; line-height: 1.8; }
+.tour-ui body .sig-destination-light { gap: 0; }
+.tour-ui body .sig-destination-light button { border: 0; border-bottom: 2px solid #9da290; color: #626858; font-size: 13px; }
+.tour-ui body .sig-destination-light button[aria-pressed=true] { border-color: var(--sm-red); color: var(--tour-ink); background: #d9dccf; }
+
+/* Shopping stays a product manifest: no new commerce flow, no invented compatibility. */
+.tour-ui body .sig-shop { top: var(--sig-top); padding: 32px; background: #1d201bf5; border: 0; border-radius: 0; box-shadow: none; }
+.tour-ui body .sig-shop h1 { font-size: clamp(48px,4.7vw,80px); line-height: .93; margin: 24px 0; }
+.tour-ui body .sig-shop .sig-shop-lead { font-size: 12px; line-height: 1.8; }
+.tour-ui body .sig-shop-heading { margin-top: 28px; font-size: 25px; }
+.tour-ui body .sig-shop-heading small { font-size: 9px; }
+.tour-ui body .sig-shop-list img { border-radius: 0; background: #d7d9cb; }
+.tour-ui body .sig-shop-list .sig-shop-meta { font-size: 9px; letter-spacing: .06em; }
+.tour-ui body .sig-shop-list h3 { font-size: 25px; }
+.tour-ui body .sig-shop-list p { font-size: 11px; }
+.tour-ui body .sig-shop-list article { grid-template-columns: 64px minmax(0,1fr); padding: 20px 0; gap: 12px 20px; }
+.tour-ui body .sig-shop-list article:not(:has(img)) { grid-template-columns: 1fr; }
+.tour-ui body .sig-shop-list a { grid-column: 2; justify-self: start; border: 0; border-bottom: 1px solid #b9bab16b; padding: 6px 0; min-height: 36px; border-radius: 0; font-size: 10px; white-space: normal; }
+.tour-ui body .sig-shop-list article:not(:has(img)) a { grid-column: 1; }
+.tour-ui body .sig-shop-empty { border-radius: 0; background: transparent; padding: 24px 0; border: 0; border-block: 1px solid var(--sm-line); }
+.tour-ui body .sig-shop-empty p { font-size: 12px; }
+.tour-ui body .sig-shop-actions button { font-size: 13px; }
+.tour-ui body .sig-confirm { border-radius: 0; background: var(--sm-panel); }

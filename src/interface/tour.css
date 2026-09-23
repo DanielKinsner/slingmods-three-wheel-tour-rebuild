@@ -1,0 +1,100 @@
+@import './showroom.css';
+@import './career.css';
+@import './race.css';
+@import './responsive.css';
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/assets/fonts/Manrope-Variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+/* TOUR / 001 — warm paper, painted metal, precise typography. */
+.tour-ui body {
+  --sm-red: #e13b32;
+  --sm-red-hover: #f34b40;
+  --sm-bg: #161715;
+  --sm-panel: #20211e;
+  --sm-panel-raised: #30312c;
+  --sm-ink: #f1efe7;
+  --sm-muted: #b9bab1;
+  --sm-line: #e9e7d926;
+  --sm-focus: #f4d69a;
+  --sm-font: 'Manrope', sans-serif;
+  --sm-radius: 0px;
+  --tour-paper: #eceae0;
+  --tour-ink: #20221f;
+  --tour-edge: clamp(24px, 3.2vw, 64px);
+  --tour-ease: cubic-bezier(.16, 1, .3, 1);
+  font-family: var(--sm-font);
+}
+
+.tour-ui body :is(button, a, summary, select, input):focus-visible {
+  outline: 3px solid var(--sm-focus);
+  outline-offset: 5px;
+}
+.tour-ui body :is(button, input, select) { font-family: var(--sm-font); }
+.tour-ui body :is(.signature-ui, .career-shell) button {
+  border-radius: 0;
+  transition: color 160ms, background 160ms, border-color 160ms;
+}
+.tour-ui body :is(.sig-eyebrow, .career-kicker, .chapter-eyebrow) {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+.tour-ui body :is(.sig-primary, .primary, .chapter-primary) {
+  background: var(--sm-red);
+  border-color: var(--sm-red);
+  color: var(--sm-ink);
+}
+.tour-ui body #game-audio {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  top: 20px;
+  right: var(--tour-edge);
+  bottom: auto;
+  left: auto;
+}
+.tour-ui body #game-audio button, .tour-ui body #game-audio summary {
+  font-size: 11px;
+  border-radius: 0;
+  letter-spacing: .03em;
+}
+.tour-ui body #game-audio .audio-settings[open]::before { background: var(--sm-panel); border-radius: 0; }
+.tour-ui body #game-graphics { border-radius: 0; background: #191b18f2; }
+.tour-ui body #game-graphics select { border-radius: 0; }
+.tour-ui body :is(.drive-preparation, .sig-drive-loading) {
+  background: var(--sm-bg);
+  border-radius: 0;
+  font-family: var(--sm-font);
+}
+.tour-ui body .drive-loading-panel { border-top: 1px solid var(--sm-line); padding-top: 32px; }
+.tour-ui body :is(.drive-preparation, .sig-drive-loading) h1,
+.tour-ui body :is(.drive-preparation, .sig-drive-loading) h2 { font-size: clamp(40px, 5vw, 72px); }
+.tour-ui body .drive-loading-track { height: 2px; }
+.tour-ui body .drive-loading-button { border-radius: 0; }
+
+@keyframes tour-reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tour-ui body .tour-entry > *, .tour-ui body .tour-machine,
+  .tour-ui body .sig-destination-rail, .tour-ui body .sig-shop > h1 {
+    animation: tour-reveal 650ms var(--tour-ease) both;
+  }
+  .tour-ui body .tour-entry > h1 { animation-delay: 60ms; }
+  .tour-ui body .tour-entry > p { animation-delay: 120ms; }
+  .tour-ui body .tour-entry > .sig-entry-actions { animation-delay: 180ms; }
+  .tour-ui body .tour-machine { animation-delay: 240ms; }
+}
+.tour-ui body .signature-ui[data-reduced-motion=true] * { animation: none; transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .tour-ui body *, .tour-ui body *::before, .tour-ui body *::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+}

@@ -1,3 +1,4 @@
+import './interface/install';
 import {activeProfile,visitorSearch} from './demo/profile';
 import {showModelCandidate} from './presentation/model-candidate';
 import {installVehicleSelection} from './presentation/ryker-selection';

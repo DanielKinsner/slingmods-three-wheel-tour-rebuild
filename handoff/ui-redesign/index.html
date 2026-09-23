@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TOUR / 001 — UI review</title>
+<style>
+@font-face{font-family:Manrope;src:url('/assets/fonts/Manrope-Variable.ttf')}@font-face{font-family:Barlow;src:url('/assets/fonts/BarlowCondensed-ExtraBold.woff2');font-weight:800}
+*{box-sizing:border-box}body{margin:0;background:#171a16;color:#f1efe7;font-family:Manrope,sans-serif}header{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 3vw;padding:24px 0;border-bottom:1px solid #e9e7d930}h1{font:800 36px/.95 Barlow,sans-serif;margin:6px 0}header small{font-size:10px;letter-spacing:.16em;color:#b9bab1}a{color:inherit;text-decoration:none}header a{padding:14px 20px;background:#e13b32;font-size:12px}nav{display:flex;gap:4px;overflow:auto;padding:20px 3vw}button{font:600 12px Manrope,sans-serif;background:transparent;color:#b9bab1;border:0;border-bottom:2px solid transparent;padding:12px 15px;white-space:nowrap;cursor:pointer}button[aria-selected=true]{border-color:#e13b32;color:#f1efe7}button:hover{background:#292e24}button:focus-visible,a:focus-visible{outline:3px solid #f4d69a;outline-offset:3px}figure{margin:0 3vw}#image{display:block;max-width:100%;max-height:calc(100vh - 245px);width:auto;height:auto;margin:auto}figcaption{display:flex;justify-content:space-between;gap:20px;padding:18px 0;color:#b9bab1;font-size:11px;line-height:1.8}figcaption strong{color:#f1efe7}footer{padding:0 3vw 24px;font-size:11px;color:#b9bab1}footer a{text-decoration:underline}@media(max-width:600px){header{padding:16px 0}h1{font-size:28px}header a{padding:12px}figcaption{display:block}#image{max-height:none}nav{padding-block:12px}}
+</style></head><body>
+<header><div><small>SLINGMODS / DESIGN CANDIDATE</small><h1>TOUR / 001</h1></div><a href="http://127.0.0.1:5219/?play=demo" target="_blank" rel="noopener">Play this branch ↗</a></header>
+<nav role="tablist" aria-label="Game screens">
+<button role="tab" aria-selected="true" data-image="entry-desktop" data-label="The opening / a live vehicle editorial">Opening</button>
+<button role="tab" aria-selected="false" data-image="build-desktop" data-label="The atelier / finishes and configuration">Build</button>
+<button role="tab" aria-selected="false" data-image="destinations-desktop" data-label="The tour / actual in-game route photography">Destinations</button>
+<button role="tab" aria-selected="false" data-image="shop-desktop" data-label="The manifest / real parts and preserved fitment">Shop</button>
+<button role="tab" aria-selected="false" data-image="garage-desktop" data-label="Chapter 01 / the earned garage">Garage</button>
+<button role="tab" aria-selected="false" data-image="career-desktop" data-label="The driver's journal / career progression">Career</button>
+<button role="tab" aria-selected="false" data-image="race-hud" data-label="On the road / live speed, timing and position">Race HUD</button>
+<button role="tab" aria-selected="false" data-image="race-results" data-label="The finish / a valid race and its real result">Results</button>
+<button role="tab" aria-selected="false" data-image="ryker-build" data-label="Existing Ryker / compatible presentation">Ryker</button>
+<button role="tab" aria-selected="false" data-image="entry-phone" data-label="Opening / 390 × 844 phone viewport">Phone</button>
+<button role="tab" aria-selected="false" data-image="build-phone" data-label="Build / all controls retained on narrow screens">Phone build</button>
+</nav>
+<figure role="tabpanel" id="screen"><img id="image" src="entry-desktop.jpg" alt="The opening / a live vehicle editorial"><figcaption><strong id="caption">The opening / a live vehicle editorial</strong><span>Actual packaged game captures · Separate UI branch · Main untouched</span></figcaption></figure>
+<footer>401 tests passed. Packaged interaction checks passed. <a href="../UI-REDESIGN.md">Integration handoff</a> · <a href="validation.json">Browser verification receipt</a></footer>
+<script>
+const tabs=[...document.querySelectorAll('[role=tab]')];
+function select(tab){for(const t of tabs){const on=t===tab;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1}const img=document.querySelector('#image');img.src=tab.dataset.image+'.jpg';img.alt=tab.dataset.label;document.querySelector('#caption').textContent=tab.dataset.label}
+for(const tab of tabs){tab.addEventListener('click',()=>select(tab));tab.addEventListener('keydown',e=>{const moves={ArrowRight:1,ArrowLeft:-1};if(e.key in moves){e.preventDefault();const next=tabs[(tabs.indexOf(tab)+moves[e.key]+tabs.length)%tabs.length];select(next);next.focus()}})}select(tabs[0]);
+</script></body></html>
