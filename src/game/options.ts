@@ -1,4 +1,5 @@
 import './options.css';
+import {textureDetail,setTextureDetail,useHalfTextures,type TextureDetail} from './texture-detail';
 import {skillsEnabled,setSkillsEnabled,skillRecord} from './skills';
 import {showFinale} from './milestones';
 import {coachMode,setCoachMode,type CoachMode} from './coach';
@@ -41,7 +42,7 @@ function audioRows(){
 }
 function videoRows(){
  const live=document.querySelector<HTMLSelectElement>('#game-graphics select[aria-label="Graphics quality"]'),q=(live?.value as GraphicsQuality)??loadGraphicsQuality();
- return `<div class="gx-opt-group"><div class="gx-opt-row"><span>Quality</span><div class="gx-opt-seg" role="radiogroup" aria-label="Graphics quality">${GRAPHICS_ORDER.map(id=>`<button role="radio" data-opt="quality" data-value="${id}" aria-checked="${id===q}">${GRAPHICS_PRESETS[id].label}</button>`).join('')}</div></div><p class="gx-opt-note">${live?'Applies now. Nearby lighting updates on your next drive.':'Saved for this browser. Applies when the next scene loads.'}</p><p class="gx-opt-note">Low and Medium use dynamic resolution to hold frame rate on weaker GPUs.</p></div>`;
+ return `<div class="gx-opt-group"><div class="gx-opt-row"><span>Quality</span><div class="gx-opt-seg" role="radiogroup" aria-label="Graphics quality">${GRAPHICS_ORDER.map(id=>`<button role="radio" data-opt="quality" data-value="${id}" aria-checked="${id===q}">${GRAPHICS_PRESETS[id].label}</button>`).join('')}</div></div><p class="gx-opt-note">${live?'Applies now. Nearby lighting updates on your next drive.':'Saved for this browser. Applies when the next scene loads.'}</p><div class="gx-opt-row"><span>Texture detail</span><div class="gx-opt-seg" role="radiogroup" aria-label="Texture detail">${(['auto','full','balanced'] as TextureDetail[]).map(x=>`<button role="radio" data-opt="textures" data-value="${x}" aria-checked="${x===textureDetail()}">${x==='auto'?`Auto (${useHalfTextures()?'Balanced':'Full'})`:x==='full'?'Full 4K':'Balanced 2K'}</button>`).join('')}</div><small>Balanced downloads about a quarter of the texture data; applies to the next scene</small></div><p class="gx-opt-note">Low and Medium use dynamic resolution to hold frame rate on weaker GPUs.</p></div>`;
 }
 function gameplayRows(){
  const reduced=get(MOTION_KEY)==='reduced',films=get(FILMS_KEY)!=='off';
@@ -81,6 +82,7 @@ function onClick(e:Event){const t=(e.target as Element).closest<HTMLElement>('[d
  if(o==='mute'){document.querySelector<HTMLButtonElement>('#mute-sound')?.click();render();focusOpt('mute')}
  if(o==='quality'){const q=t.dataset.value as GraphicsQuality,live=document.querySelector<HTMLSelectElement>('#game-graphics select[aria-label="Graphics quality"]');if(live){live.value=q;live.dispatchEvent(new Event('change',{bubbles:true}))}else saveGraphicsQuality(q);gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=quality][data-value=${q}]`)?.focus()}
  if(o==='finale'){const c=careerSource();closeOptions();setTimeout(()=>showFinale(c),300);return}
+ if(o==='textures'){setTextureDetail(t.dataset.value as TextureDetail);gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=textures][data-value=${t.dataset.value}]`)?.focus()}
  if(o==='units'){setSpeedUnits(t.dataset.value as SpeedUnits);const label=document.querySelector('.race-speed-readout span');if(label)label.textContent=speedLabel();gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=units][data-value=${t.dataset.value}]`)?.focus()}
  if(o==='difficulty'){setDifficulty(t.dataset.value as Difficulty);gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=difficulty][data-value=${t.dataset.value}]`)?.focus()}
  if(o==='skills'){setSkillsEnabled(!skillsEnabled());render();focusOpt('skills')}

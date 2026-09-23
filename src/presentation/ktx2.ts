@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {ktx2Url} from '../game/texture-detail';
 import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
 /** One Basis transcoder per renderer. GPU-compressed 4K maps cost about a quarter of the video memory of decoded PNGs. */
 const loaders=new WeakMap<THREE.WebGLRenderer,KTX2Loader>();
@@ -9,5 +10,5 @@ export function disposeKTX2(renderer:THREE.WebGLRenderer){loaders.get(renderer)?
  * Meshes without tangents therefore need normalScale.y negated, exactly as GLTFLoader does.
  */
 export async function loadKTX2(renderer:THREE.WebGLRenderer,url:string,{srgb=false,repeat=true,anisotropy=8}:{srgb?:boolean;repeat?:boolean;anisotropy?:number}={}){
- const texture=await ktx2Loader(renderer).loadAsync(url);texture.colorSpace=srgb?THREE.SRGBColorSpace:THREE.NoColorSpace;if(repeat)texture.wrapS=texture.wrapT=THREE.RepeatWrapping;texture.anisotropy=Math.min(anisotropy,renderer.capabilities.getMaxAnisotropy());return texture;
+ const texture=await ktx2Loader(renderer).loadAsync(ktx2Url(url));texture.colorSpace=srgb?THREE.SRGBColorSpace:THREE.NoColorSpace;if(repeat)texture.wrapS=texture.wrapT=THREE.RepeatWrapping;texture.anisotropy=Math.min(anisotropy,renderer.capabilities.getMaxAnisotropy());return texture;
 }
