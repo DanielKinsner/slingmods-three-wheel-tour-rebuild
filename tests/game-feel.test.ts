@@ -53,3 +53,8 @@ test('Tour Series awards 10/7/5/3, replaces a retried race, and ranks by total t
   const t=m.seriesTotals(m.seriesState()!);assert.equal(t[0].id,'player');assert.equal(t[0].points,27);assert.equal(m.seriesComplete(m.seriesState()!),true);assert.equal(m.seriesWins(),1);
  }finally{delete (globalThis as any).localStorage}
 });
+test('Corner profile slows for tight corners and stays fast on straights',async()=>{
+ const {cornerProfile}=await import('../src/game/corner-profile');
+ const square={centerline:[[0,0],[0,-200],[200,-200],[200,0]] as [number,number][]};const p=cornerProfile(square as never);
+ assert.equal(p.length,800);const atCorner=p.limit[Math.round(200/5)],midStraight=p.limit[Math.round(100/5)];assert.ok(atCorner<25,`corner ${atCorner}`);assert.ok(midStraight>100,`straight ${midStraight}`);
+});

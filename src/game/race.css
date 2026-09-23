@@ -255,7 +255,7 @@ html.gx body .gx-ghost-pick button[aria-pressed=true]{background:var(--gx-ink);c
 html.gx body .gx-ghost-pick button[data-ghost=jett][aria-pressed=true]{background:#ff5a4f;border-color:#ff5a4f;color:#fff}
 html.gx body .gx-ghost-pick button:disabled{opacity:.35;cursor:default}
 .gx-trial small[data-ghost=jett]{color:#ff8a82}.gx-trial small[data-ghost=jett] i{background:#ff5a4f;box-shadow:0 0 8px #ff5a4f}
-html.gx body.harbor-race:has(#crew-order:not([hidden])) #game-audio{top:176px;left:auto;right:var(--gx-edge-x)}
+html.gx body.harbor-race:has(#harbor-ui[data-gx-mode=race]) #game-audio{top:176px;left:auto;right:var(--gx-edge-x)}
 
 /* ---------- Instant replay ---------- */
 html.gx body.gx-replay :is(#harbor-ui,.gx-race,#game-audio,#game-graphics,.film-launcher,.gx-trial,#crew-proximity){visibility:hidden!important}
@@ -298,3 +298,17 @@ html.gx body .gx-series-actions button.is-primary{border:0;background:var(--gx-r
 html.gx body #race-menu:has(.gx-series[data-final]) .result-standings,html.gx body #race-menu:has(.gx-series) .gx-run-stats{display:none}
 .gx-series[data-final=true] header{flex-direction:column;align-items:flex-start;gap:6px}
 html.gx body .gx-series header{position:static;inset:auto;padding:0;border:0;background:none;z-index:auto;pointer-events:auto}
+
+/* ---------- Driving coach ---------- */
+.gx-coach{position:fixed;inset:0;pointer-events:none;z-index:6}
+.gx-coach-brake{position:absolute;left:50%;top:21%;transform:translateX(-50%);display:none;flex-direction:column;align-items:center;gap:4px}
+.gx-coach-brake[data-state=brake],.gx-coach-brake[data-state=braking]{display:flex}
+.gx-coach-brake b{padding:6px 22px 8px;font:italic 800 42px/1 var(--gx-display);font-synthesis:style;letter-spacing:.08em;color:#fff;background:var(--gx-red);transform:skewX(var(--gx-rake));box-shadow:0 0 30px var(--gx-red-glow)}
+.gx-coach-brake[data-state=brake] b{animation:gx-blink .45s steps(2) infinite}
+.gx-coach-brake[data-state=braking] b{background:var(--gx-good);color:#04220f;box-shadow:0 0 24px #39e27d66}
+.gx-coach-brake[data-state=braking] b::after{content:'ING'}
+.gx-coach-brake span{font:800 12px/1 var(--gx-body);letter-spacing:.24em;padding:4px 10px;background:#07080ab8}
+.gx-coach-hint{position:absolute;left:50%;bottom:23%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--gx-glass-2);border:1px solid var(--gx-edge);backdrop-filter:blur(8px);font:800 14px/1 var(--gx-body);letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:opacity .3s}
+.gx-coach-hint.is-on{opacity:1;animation:gx-rise .4s var(--gx-ease) both}
+.gx-coach-hint span{margin-left:4px}
+html.gx body.race-menu-open .gx-coach,html.gx body.gx-replay .gx-coach{display:none}
