@@ -1,0 +1,155 @@
+/* GX race: broadcast-style HUD, start lights, callouts, splits, finish slam and results tally. */
+
+/* ---------- HUD plates ---------- */
+html.gx body .race-top{inset:22px var(--gx-edge-x) auto;grid-template-columns:auto 1fr auto 44px;gap:18px;align-items:start}
+html.gx body .race-identity{display:flex;align-items:flex-start;gap:8px}
+html.gx body .race-identity>img{width:112px;margin:10px 10px 0 0;filter:drop-shadow(0 2px 8px #000c)}
+html.gx body :is(.race-position,.race-laps){position:relative;display:flex;align-items:baseline;gap:2px;padding:6px 18px 8px 16px;background:var(--gx-glass);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--gx-edge);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+html.gx body :is(.race-position,.race-laps)>span{position:absolute;top:7px;left:18px;font:800 9px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body :is(.race-position,.race-laps) strong{font:italic 800 62px/1 var(--gx-display);font-synthesis:style;margin-top:12px;color:var(--gx-ink);text-shadow:0 2px 12px #000a}
+html.gx body .race-position strong{color:var(--gx-hot)}
+html.gx body :is(.race-position,.race-laps) :is(i,b){font:italic 800 26px/1 var(--gx-display);font-synthesis:style;color:var(--gx-ink-2)}
+html.gx body .race-progress-detail{align-self:center;font:800 10px/1.3 var(--gx-body);letter-spacing:.2em;color:var(--gx-hot);max-width:160px}
+html.gx body .race-course-title{justify-self:center;margin-top:14px;padding:7px 16px;background:var(--gx-glass);backdrop-filter:blur(8px);font:italic 800 16px/1 var(--gx-display);font-synthesis:style;letter-spacing:.12em;color:var(--gx-ink);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+html.gx body .race-course-title::before{background:var(--gx-red)}
+html.gx body .race-timing{padding:8px 18px 10px;background:var(--gx-glass);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--gx-edge);text-align:right;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+html.gx body .race-timing span{font:800 9px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body .race-timing strong{display:block;font:italic 800 42px/1.05 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-ink)}
+html.gx body .race-timing small{font:700 11px/1 var(--gx-body);color:var(--gx-ink-2)}
+html.gx body .race-top #race-pause{width:44px;height:44px;border:1px solid var(--gx-edge-2);background:var(--gx-glass);color:var(--gx-ink);font-size:14px;backdrop-filter:blur(8px)}
+
+/* ---------- Gauges ---------- */
+html.gx body .race-gauges{right:var(--gx-edge-x);bottom:22px;background:radial-gradient(ellipse at 52% 72%,#07080acc 0%,#07080a66 50%,transparent 72%)}
+html.gx body .race-tach path{stroke:#ffffff26;stroke-width:5}
+html.gx body .race-tach path.lit{stroke:var(--gx-ink)}
+html.gx body .race-tach path.limit{stroke:#ff3b2f40}
+html.gx body .race-tach path.limit.lit{stroke:var(--gx-red);filter:drop-shadow(0 0 4px var(--gx-red))}
+html.gx body .race-tach text{fill:var(--gx-mute);font:800 11px var(--gx-body)}
+html.gx body .race-speed-readout strong{font:italic 800 96px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-ink);text-shadow:0 4px 24px #000c}
+html.gx body .race-speed-readout span{font:800 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body .race-transmission b{display:grid;place-items:center;min-width:46px;height:52px;padding:0 8px;border:0;background:var(--gx-hot);color:#161200;font:italic 800 40px/1 var(--gx-display);font-synthesis:style;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+html.gx body .race-gauges.is-reverse .race-transmission b{background:var(--gx-red);color:#fff}
+html.gx body .race-transmission span{font:800 9px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body .race-engine-readout{font:700 10px/1 var(--gx-body);letter-spacing:.14em;color:var(--gx-mute)}
+html.gx body .race-gauges:has(.race-tach path.limit.lit) .race-speed-readout strong{color:#ffd8d4}
+
+/* ---------- Standings + map ---------- */
+html.gx body #crew-order{background:var(--gx-glass);backdrop-filter:blur(8px);border:0;box-shadow:inset 0 0 0 1px var(--gx-edge);border-radius:0}
+html.gx body #crew-order summary{font:800 11px/1 var(--gx-body);letter-spacing:.2em;min-height:36px}
+html.gx body #crew-order .crew-rows>div{font:700 13px/1 var(--gx-body)}
+html.gx body #crew-order .crew-rows>div b i{display:inline-grid;place-items:center;width:22px;height:20px;margin-right:6px;background:#ffffff1a;font:italic 800 15px/1 var(--gx-display);font-synthesis:style}
+html.gx body #crew-order .crew-rows .crew-player{background:#ffd23c26;box-shadow:inset 3px 0 0 var(--gx-hot)}
+html.gx body #crew-order .crew-rows .crew-player b i{background:var(--gx-hot);color:#161200}
+html.gx body .race-route-aid{left:var(--gx-edge-x);bottom:26px;background:radial-gradient(circle,#07080aa6 0%,#07080a40 60%,transparent 75%);border-radius:50%}
+html.gx body .race-route-aid span{font:800 9px/1.3 var(--gx-body);letter-spacing:.2em}
+html.gx body #crew-proximity span{background:var(--gx-glass);border-radius:0;font:800 12px/1 var(--gx-body);letter-spacing:.1em;backdrop-filter:blur(6px)}
+
+/* ---------- Start lights ---------- */
+.gx-race{position:fixed;inset:0;pointer-events:none;z-index:6}
+.gx-lights{position:absolute;left:50%;top:15%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,64px);gap:18px;justify-items:center;padding:16px 24px 12px;background:#07080ad0;border:1px solid var(--gx-edge);box-shadow:0 20px 60px #000a;opacity:0;transition:opacity .25s}
+.gx-lights.is-on{opacity:1}
+.gx-lights i{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#3a1412,#1a0806);box-shadow:inset 0 2px 8px #000}
+.gx-lights[data-lit="1"] i:nth-child(-n+1),.gx-lights[data-lit="2"] i:nth-child(-n+2),.gx-lights[data-lit="3"] i{background:radial-gradient(circle at 40% 35%,#ffb4ad,#ff3b2f 45%,#a3130c);box-shadow:0 0 28px #ff3b2fcc,0 0 70px #ff3b2f66}
+.gx-lights.is-go i{background:radial-gradient(circle at 40% 35%,#c8ffd9,#39e27d 45%,#0e7a3a);box-shadow:0 0 28px #39e27dcc,0 0 80px #39e27d77}
+.gx-lights b{grid-column:1/-1;font:italic 800 84px/1 var(--gx-display);font-synthesis:style;color:var(--gx-ink);text-shadow:0 6px 30px #000;margin-top:4px}
+.gx-lights.is-go b{color:var(--gx-good)}
+.is-pulse{animation:gx-count-pop .5s var(--gx-ease) both}
+@keyframes gx-count-pop{0%{transform:scale(1.9);opacity:0}45%{opacity:1}100%{transform:scale(1)}}
+html.gx body #harbor-ui:has(.gx-lights.is-on) #race-banner{opacity:0}
+
+/* ---------- Callouts (position, lap, finish) ---------- */
+.gx-callout{position:absolute;left:50%;top:26%;transform:translateX(-50%);display:grid;justify-items:center;gap:6px;text-align:center;opacity:0}
+.gx-callout.is-on{animation:gx-callout 1.4s var(--gx-ease) both}
+.gx-callout b{font:italic 800 clamp(64px,7vw,120px)/.9 var(--gx-display);font-synthesis:style;color:var(--gx-ink);text-shadow:0 6px 36px #000,0 0 2px #000;letter-spacing:.01em}
+.gx-callout span,.gx-callout small{font:800 14px/1 var(--gx-body);letter-spacing:.34em;color:var(--gx-ink);text-shadow:0 2px 12px #000;padding:6px 14px;background:#07080ab0}
+.gx-callout.is-up b{color:var(--gx-good)}.gx-callout.is-down b{color:var(--gx-bad)}
+.gx-callout.is-final b{color:var(--gx-hot)}
+.gx-callout.is-finish{top:22%}
+.gx-callout.is-finish b{font-size:clamp(96px,11vw,190px);color:var(--gx-ink)}
+.gx-callout.is-finish.is-gold b{background:linear-gradient(180deg,#fff6c9 0%,#ffd23c 45%,#d58b00 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 30px #000)}
+.gx-callout.is-finish.is-on{animation:gx-slam 2.6s var(--gx-ease) both}
+@keyframes gx-callout{0%{opacity:0;transform:translateX(-50%) scale(1.4)}12%{opacity:1;transform:translateX(-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-12px)}}
+@keyframes gx-slam{0%{opacity:0;transform:translateX(-50%) scale(2.4)}10%{opacity:1;transform:translateX(-50%) scale(.94)}16%{transform:translateX(-50%) scale(1)}82%{opacity:1}100%{opacity:0;transform:translateX(-50%) scale(1.04)}}
+
+/* ---------- Splits ---------- */
+.gx-split{position:absolute;right:var(--gx-edge-x);top:120px;display:grid;justify-items:end;gap:2px;padding:8px 16px;background:var(--gx-glass);backdrop-filter:blur(8px);opacity:0;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.gx-split.is-on{animation:gx-split 1.8s var(--gx-ease) both}
+.gx-split small{font:800 9px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+.gx-split b{font:italic 800 34px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums}
+.gx-split.is-ahead b{color:var(--gx-good)}.gx-split.is-behind b{color:var(--gx-bad)}
+.gx-split.is-ahead{box-shadow:inset -4px 0 0 var(--gx-good)}.gx-split.is-behind{box-shadow:inset -4px 0 0 var(--gx-bad)}
+@keyframes gx-split{0%{opacity:0;transform:translateX(30px)}12%{opacity:1;transform:none}85%{opacity:1}100%{opacity:0}}
+
+/* ---------- Finish flash ---------- */
+.gx-flash{position:absolute;inset:0;background:#fff;opacity:0}
+.gx-flash.is-on{animation:gx-flash .5s ease-out both}
+@keyframes gx-flash{0%{opacity:.55}100%{opacity:0}}
+
+/* ---------- Race menu: ready / pause ---------- */
+html.gx body #race-menu{background:var(--gx-glass-2);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-red);backdrop-filter:blur(16px);box-shadow:0 40px 120px #000c;padding:30px 32px}
+html.gx body #race-menu .race-label{font:800 10px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body #race-menu h1{font:italic 800 clamp(46px,5vw,80px)/.9 var(--gx-display);font-synthesis:style;text-transform:uppercase;margin:12px 0 10px}
+html.gx body #race-menu p{font:500 14px/1.6 var(--gx-body);color:var(--gx-ink-2)}
+html.gx body #race-menu summary{font:700 13px/1 var(--gx-body);color:var(--gx-mute)}
+html.gx body #race-menu .menu-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+html.gx body #race-menu .menu-actions :is(button,a){min-height:46px;padding:0 16px;display:inline-flex;align-items:center;border:1px solid var(--gx-edge-2);background:#ffffff08;color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:0}
+html.gx body #race-menu .menu-actions :is(button,a):hover{background:#ffffff1c}
+html.gx body #race-menu .menu-actions .primary{min-height:58px;padding:0 30px;border:0;background:var(--gx-red);color:#fff;font:italic 800 28px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;transform:skewX(var(--gx-rake));box-shadow:0 10px 34px var(--gx-red-glow)}
+html.gx body #race-menu .menu-actions .primary:hover{background:#ff5448}
+html.gx body #race-menu[data-phase=pause] h1{color:var(--gx-hot)}
+html.gx body #race-menu:not([hidden]){animation:gx-menu-in .45s var(--gx-ease) both}
+@keyframes gx-menu-in{from{opacity:0;transform:translate(-50%,-46%) scale(.97)}}
+html.gx body.race-results-open #race-menu:not([hidden]){animation:gx-slide .6s var(--gx-ease) both}
+
+/* ---------- Results ---------- */
+html.gx body.race-results-open #race-menu{background:linear-gradient(90deg,#07080af0 0%,#07080ad8 70%,#07080a00 100%);border:0;box-shadow:none;backdrop-filter:none;padding:28px 60px 28px var(--gx-edge-x);left:0;top:0;bottom:0;max-height:none;width:min(640px,48vw);transform:none;display:flex;flex-direction:column;justify-content:safe center;overflow:auto}
+html.gx body.race-results-open #race-menu>.result-numeral{display:flex;align-items:flex-start;gap:4px;font:italic 800 124px/.85 var(--gx-display);font-synthesis:style;color:var(--gx-ink);margin:0 0 2px;animation:gx-pop .7s .1s var(--gx-ease) both}
+html.gx body.race-results-open .result-numeral sup{font-size:.36em;line-height:1;margin-top:.08em}
+html.gx body.race-results-open .result-numeral small{align-self:flex-end;margin:0 0 12px 12px;font:800 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body.race-results-open #race-menu>.result-numeral[data-medal=gold]{color:#ffd23c;text-shadow:0 0 50px #ffd23c55}
+html.gx body.race-results-open #race-menu>.result-numeral[data-medal=silver]{color:#dfe6ee;text-shadow:0 0 40px #dfe6ee44}
+html.gx body.race-results-open #race-menu>.result-numeral[data-medal=bronze]{color:#e39a5c;text-shadow:0 0 40px #e39a5c44}
+html.gx body.race-results-open #race-menu h1{font-size:clamp(34px,3.2vw,52px);margin:4px 0 8px}
+html.gx body.race-results-open .result-time{display:block;font:italic 800 54px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-ink);margin:0 0 6px}
+html.gx body.race-results-open .result-standings{display:grid;gap:4px;margin:14px 0}
+html.gx body.race-results-open .result-standings>div{display:grid;grid-template-columns:36px 1fr auto;align-items:center;padding:8px 14px;background:#ffffff0c;font:700 14px/1 var(--gx-body);animation:gx-slide .5s var(--gx-ease) both}
+html.gx body.race-results-open .result-standings>div:nth-child(2){animation-delay:.08s}html.gx body.race-results-open .result-standings>div:nth-child(3){animation-delay:.16s}html.gx body.race-results-open .result-standings>div:nth-child(4){animation-delay:.24s}
+html.gx body.race-results-open .result-standings b{font:italic 800 22px/1 var(--gx-display);font-synthesis:style}
+html.gx body.race-results-open .result-standings strong{font:italic 800 20px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums}
+html.gx body.race-results-open .result-standings .crew-player{background:var(--gx-hot);color:#161200;box-shadow:none;padding-inline:14px}
+
+/* ---------- Reward tally ---------- */
+.gx-reward{display:grid;align-content:start;gap:10px;margin:8px 0 18px;min-height:0;padding:16px 18px;background:#ffffff0a;border-left:4px solid var(--gx-hot);animation:gx-rise .5s .35s var(--gx-ease) both}
+.gx-reward-row{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:2px 16px}
+.gx-reward-row span{font:800 10px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+.gx-reward-row b{grid-row:span 2;font:italic 800 44px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-hot)}
+.gx-reward-row small{font:700 12px/1 var(--gx-body);color:var(--gx-ink-2)}
+.gx-rep-bar{height:8px;background:#ffffff18;overflow:hidden}
+.gx-rep-bar i{display:block;height:100%;width:calc(var(--gx-from)*100%);background:linear-gradient(90deg,var(--gx-hot),#fff3b0);box-shadow:0 0 12px var(--gx-hot-glow)}
+.gx-reward.is-counting .gx-rep-bar i,.gx-reward.is-done .gx-rep-bar i{width:calc(var(--gx-to)*100%);transition:width 1.3s .45s cubic-bezier(.3,.7,.2,1)}
+.gx-levelup{display:flex;align-items:baseline;gap:14px;padding:10px 14px;background:linear-gradient(90deg,var(--gx-hot),#ffe98a);color:#161200;opacity:0;transform:scale(.9)}
+.gx-levelup{display:none}.gx-reward.is-done .gx-levelup{display:flex;opacity:1;transform:none;animation:gx-pop .6s var(--gx-ease) both}
+.gx-levelup b{font:italic 800 34px/1 var(--gx-display);font-synthesis:style}
+.gx-levelup span{font:800 12px/1 var(--gx-body);letter-spacing:.2em}
+
+@media (max-width:760px){
+ html.gx body.race-results-open #race-menu{width:100%;padding:20px 16px}
+ html.gx body.race-results-open #race-menu>.result-numeral{font-size:96px}
+ .gx-lights{grid-template-columns:repeat(3,44px);gap:10px}.gx-lights i{width:40px;height:40px}.gx-lights b{font-size:60px}
+}
+html.gx body.race-results-open #race-menu>*{flex-shrink:0}
+html.gx body.race-results-open .result-numeral sup{margin-left:.1em}
+html.gx body.race-results-open #race-menu>.result-numeral[data-gx] small{display:none}
+.gx-reward{grid-template-columns:1fr 1fr;column-gap:26px;padding:14px 18px}
+.gx-reward .gx-rep-bar,.gx-reward .gx-levelup{grid-column:1/-1}
+.gx-reward-row{grid-template-columns:1fr;gap:6px}
+.gx-reward-row b{grid-row:auto;font-size:42px;order:-1}
+html.gx body.race-results-open #race-menu h1{margin:2px 0 4px}
+html.gx body.race-results-open .result-standings{margin:10px 0}
+html.gx body.race-results-open .result-standings>div{padding:7px 14px}
+/* Race page chrome: sound chip under the timing plate, prompts centred clear of the graphics control. */
+html.gx body.harbor-race #game-audio{top:132px;right:var(--gx-edge-x);height:40px;background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px)}
+html.gx body.harbor-race #game-audio :is(button,summary){min-height:38px;font:800 13px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase}
+html.gx body.harbor-race .gx-prompts{justify-content:center;background:none}
+html.gx body #game-graphics{background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px);font-family:var(--gx-body)}
+html.gx body #game-graphics select{background:#ffffff0d;color:var(--gx-ink);border:1px solid var(--gx-edge-2);font:700 13px var(--gx-body)}
