@@ -1,0 +1,184 @@
+{
+  "repository": "DanielKinsner/slingmods-three-wheel-tour-rebuild",
+  "reviewed_commit": "7b041acea01be9f13ba0da6007158ebbd7191525",
+  "baseline_commit": "de5e5ac82797ae36788555b287d19b37ff422742",
+  "review_date": "2026-09-22",
+  "repo_modified_by_review": false,
+  "current_build_executed_by_review": false,
+  "current_asset_rendered_by_review": false,
+  "tests_rerun_by_review": false,
+  "findings": [
+    {
+      "id": "RYK-01",
+      "priority": "P0",
+      "status": "source-confirmed",
+      "title": "Ryker visual geometry uses Slingshot physics footprint, mass and drivetrain",
+      "sources": [
+        "R1",
+        "R5",
+        "R8",
+        "R14",
+        "R15"
+      ]
+    },
+    {
+      "id": "RYK-02",
+      "priority": "P1",
+      "status": "code-traced; runtime symptom not reproduced by this review",
+      "title": "Road finish binding precedes loading of replacement visible panels",
+      "sources": [
+        "R4",
+        "R7",
+        "R8",
+        "R9"
+      ]
+    },
+    {
+      "id": "RYK-03",
+      "priority": "P1",
+      "status": "source-confirmed weakness; current mask correctness unverified",
+      "title": "Brittle stock component masks and insufficient identity validation",
+      "sources": [
+        "R3",
+        "R4",
+        "R13"
+      ]
+    },
+    {
+      "id": "RYK-04",
+      "priority": "P1",
+      "status": "source-confirmed construction and motion limitation",
+      "title": "All three accessory shocks merged rigidly; incomplete suspension kinematics",
+      "sources": [
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6"
+      ]
+    },
+    {
+      "id": "RYK-05",
+      "priority": "P1",
+      "status": "source-confirmed schema limitation",
+      "title": "Ryker recipe retains Slingshot vehicle identity and profile",
+      "sources": [
+        "R10",
+        "R11",
+        "R12"
+      ]
+    },
+    {
+      "id": "RYK-06",
+      "priority": "P1",
+      "status": "source-confirmed current scope and routing",
+      "title": "Preview/career ownership and equipment behavior are not vehicle-aware end-to-end",
+      "sources": [
+        "R2",
+        "R8",
+        "R9",
+        "R10",
+        "R11",
+        "R12"
+      ]
+    },
+    {
+      "id": "RYK-07",
+      "priority": "P2",
+      "status": "documented limitations and reported measurements",
+      "title": "Unresolved source width and non-sustained performance evidence",
+      "sources": [
+        "R1",
+        "R2",
+        "R6"
+      ]
+    }
+  ],
+  "sources": {
+    "R1": {
+      "label": "Ryker conversion scope, geometry, source limitations, and reported validation",
+      "path": "assets/ryker/README.md",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/assets/ryker/README.md"
+    },
+    "R2": {
+      "label": "Equipment implementation and fitment notes",
+      "path": "assets/ryker/MODS.md",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/assets/ryker/MODS.md"
+    },
+    "R3": {
+      "label": "Procedural accessory construction, stock partition masks, final joins",
+      "path": "scripts/ryker/build-mods.py",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/scripts/ryker/build-mods.py"
+    },
+    "R4": {
+      "label": "Runtime stock replacement and accessory visibility",
+      "path": "src/presentation/ryker-products.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/presentation/ryker-products.ts"
+    },
+    "R5": {
+      "label": "Ryker wheel/handlebar motion and explicit contact mismatch",
+      "path": "src/presentation/ryker.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/presentation/ryker.ts"
+    },
+    "R6": {
+      "label": "Hero composition, rival loading, and Ryker early-return motion path",
+      "path": "src/presentation/hero.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/presentation/hero.ts"
+    },
+    "R7": {
+      "label": "One-time finish binding and independently loaded accessories",
+      "path": "src/presentation/signature-art.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/presentation/signature-art.ts"
+    },
+    "R8": {
+      "label": "Road assembly order, simulation creation, and equipment consumers",
+      "path": "src/express.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/express.ts"
+    },
+    "R9": {
+      "label": "Showroom assembly order and career/free-preview composition",
+      "path": "src/signature/scene.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/signature/scene.ts"
+    },
+    "R10": {
+      "label": "Build recipes, vehicle identity, storage namespaces, and snapshots",
+      "path": "src/signature/config.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/signature/config.ts"
+    },
+    "R11": {
+      "label": "Vehicle selector and career-bay to preview routing",
+      "path": "src/presentation/ryker-selection.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/presentation/ryker-selection.ts"
+    },
+    "R12": {
+      "label": "Current four-family Ryker catalog",
+      "path": "src/signature/ryker-catalog.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/signature/ryker-catalog.ts"
+    },
+    "R13": {
+      "label": "Equipment tests and aggregate triangle-conservation assertion",
+      "path": "tests/ryker-mods.test.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/tests/ryker-mods.test.ts"
+    },
+    "R14": {
+      "label": "Single Slingshot contact layout and global simulation specification",
+      "path": "src/simulation/index.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/simulation/index.ts"
+    },
+    "R15": {
+      "label": "Five-speed estimated powertrain retained from baseline",
+      "path": "src/simulation/drivetrain.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/simulation/drivetrain.ts"
+    },
+    "R16": {
+      "label": "Pre-integration test/build/browser receipt; reported, not independently rerun",
+      "path": "assets/ryker/evidence/main-readiness.json",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/assets/ryker/evidence/main-readiness.json"
+    },
+    "R17": {
+      "label": "Versioned Slingshot tuning",
+      "path": "src/simulation/profile.ts",
+      "url": "https://github.com/DanielKinsner/slingmods-three-wheel-tour-rebuild/blob/7b041acea01be9f13ba0da6007158ebbd7191525/src/simulation/profile.ts"
+    }
+  }
+}

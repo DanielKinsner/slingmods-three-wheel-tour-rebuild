@@ -1,0 +1,70 @@
+/goal Make the purchased Ryker 900 a complete, coherent second vehicle in the existing SlingMods: Three-Wheel Tour rebuild, and repair the current part-quality pipeline. Do not restart the game.
+
+READ FIRST
+Read RYKER_REVIEW.md in this packet. Its audit baseline is 7b041acea01be9f13ba0da6007158ebbd7191525 in DanielKinsner/slingmods-three-wheel-tour-rebuild. Discover the current checkout, branch, HEAD, dirty state, tool locations and new commits before editing. Read the current root instructions and Ryker files; reconcile newer implementation rather than replacing it wholesale. This packet is an audit and proposed implementation assignment, not a tested patch or completed asset delivery.
+
+OWNER OUTCOME
+The owner wants a Ryker that looks convincing with its chosen SlingMods products, has its own responsive and enjoyable handling, and survives the whole garage/build/drive/race/retry/return/save workflow. The owner should not need to operate Blender, make routine engineering choices or repeat an existing instruction.
+
+SCOPE AUTHORITY FOR THIS ASSIGNMENT
+Implement Ryker-owned physics and the minimum shared interfaces needed for multiple vehicle definitions. This supersedes the earlier Ryker visual-only/no-physics boundary for this assignment only. Preserve the Slingshot's existing tuning, historical profiles, saved state, routes, reward rules, UI repairs and render-CPU fixes. Do not reinterpret this as permission for an unrelated graphics Phase 3, new engine, new site, new vehicle purchase or broad rewrite. Preserve the existing sustained-performance HOLD unless its actual gate is passed and recorded.
+
+WORKING RULES
+Use one implementation lead and the existing headless/local toolchain. Discover paths; do not hard-code a past Windows location. Preserve uncommitted owner work. Never use a destructive reset/clean, rewrite history, change repository visibility, upload purchased source, spend money or create/deploy a new site. Respect the current owner push/deploy policy; absent explicit authorization, keep implementation/commits local for review. Do not kill the owner's apps to make a performance benchmark pass.
+
+Do substantive implementation and repair inside this run, using meaningful internal milestones. Do not stop after a plan, an import, a new vehicle button or a passing GLB validator. Do not create a film or a succession of large ZIPs. Keep evidence compact and actually inspect it.
+
+START WITH THE SPECIFIC FINDINGS
+1. Current simulation still globally imports slingshot-contact-layout.json, uses an estimated 850 kg mass and five-speed drivetrain. RykerMotion relocates visual presentation while the old contacts remain. Replace this with a per-instance physical definition; do not merely retune the old steering scalar.
+2. Road code constructs/applies SignatureFinishPresenter before SignatureProducts.load adds visible stock partitions, while the showroom does the reverse. Reproduce using a white/graphite stock-body Ryker; fix the composition/binding order consistently. Inspect actual visible materials through departure, retry and return.
+3. build-mods.py extracts stock parts by bounding rules and hard-coded component enumeration IDs. Validate the selected surfaces against real source geometry. Triangle-count conservation alone is insufficient. Make the source-hash/semantic partition mapping explicit and safe when geometry changes.
+4. The script merges all three new shocks into a single rigid mesh. RykerMotion poses wheels and handlebars; the Ryker hero path returns before FrontLinks.update. Rear mechanical motion is explicitly cosmetic. Separate real rigid-motion groups, animate correct anchors and test left/right/rear motion independently.
+5. BuildRecipe still serializes a Ryker as vehicleId slingshot-r-2024 with a Slingshot handling profile. Separate storage namespaces are not enough. Add a self-describing versioned vehicle/build snapshot without rewriting historical records.
+6. Selecting a vehicle from the career bay routes into free preview. Preview Ryker parts are not career purchases or physical upgrades, while the road still consumes Slingshot equipment IDs. Make mode/ownership/return behavior deliberate and prevent invisible cross-platform effects.
+
+IMPLEMENTATION SEQUENCE
+A — Validate the assembled baseline, dimensional manifest, stock cut masks and paint lifecycle.
+B — Extend existing vehicle creation minimally; get a stock Ryker with its own geometry/mass/inertia/CVT onto ONE existing road. Preserve mixed-world Slingshot rivals and old behavior.
+C — Finish suspension/linkage/rider/optics/instrument/audio coherence in motion.
+D — Refine the four already chosen product families. Use Elka as the first moving-part quality pilot; require reference-based shape and mounted-motion approval before duplicating the method. Refine Panther silhouette before tiny decorative detail. Test Panther + lighting together.
+E — Complete saved builds, immutable race entries, preview/career returns and eligibility.
+F — Run targeted regressions and a measured production handoff. Keep the performance HOLD explicit where unresolved.
+
+PHYSICS DIRECTION
+Use a named, versioned base-Ryker-900 physical reference (the audit recommends 2025 base 900) without pretending the purchased mesh has a verified model year. Store provenance for every parameter. BRP provides useful engine, wheelbase, tire, travel and dry-mass anchors; the review does not establish exact loaded mass, CG, inertia, damping curves or CVT calibration.
+
+Use a declared mass budget including rider/fuel, a per-vehicle collision/contact layout, plausible estimated suspension/loading/inertia, rear-wheel-driven CVT with launch/clutch and reverse behavior, finite tire forces and bounded assists. Power and torque must be consistent. Power-peak rpm is not a verified redline. Overall width is not front track. Do not blindly stretch the bike to a specification or silently retain old Slingshot lever arms.
+
+Preserve the fixed-step/shared-world core. The goal is a predictable, lively game vehicle with steering available while braking—not an unstable stock bike that needs purchased shocks before it becomes fun. No arbitrary infinite-grip or unbounded-yaw rescue. Expose useful developer telemetry without adding distracting player UI.
+
+PART/ART DIRECTION
+Use the purchased source/master where it is good. Headless geometry must be validated in actual assembled renders, not just isolated object screenshots. Separate source extraction from new product reconstruction. Preserve normals and material roles; paint must not recolor rubber, metal, glass or shock springs. Stable part identity, reference views, physical mount location and motion ownership belong in a manifest.
+
+Merge only geometry sharing a rigid transform. Keep individual shock bodies/shafts/springs, wheel carriers and lights on moving arms appropriately separate. Mounts must work at compression/droop/steer limits, not only neutral pose.
+
+Exact selected products, current SKU/year/trim/rider conditions and source URLs must be verified. Current families: TricLED SM-7227; Elka front SM-5475 and rear SM-8178 with Stage 3 solo condition; Panther SM-8167 with Rally-year exclusions; Treal manufacturer part TRP-RKR-SES with its corresponding SlingMods listing resolved. Do not substitute unrelated generic products. Stage 3 adjustment controls must match the manufacturer documentation. Cosmetic bodywork/lighting must not acquire unsupported performance bonuses. Label game physics/audio approximations honestly.
+
+BUILD AND CAREER DIRECTION
+Use one resolved, immutable vehicle/build snapshot per run. Shared assembly should behave identically across showroom, road and career. Do not use the global current visual as the only authority for a saved build. Add explicit version/vehicle/definition/tune/product options as needed; retain all old Slingshot keys and interpretation. Preserve active historical entries and recorded results; version new runs rather than silently changing old ones.
+
+For the initial integration, make the new bike accessible without forcing a career reset or new grind. Keep free preview distinct from owned equipment and valid purchases. Return the owner to the originating mode and build; do not strand a career visit in the preview showroom. Never turn a free visual toggle into an owned transaction implicitly.
+
+PERFORMANCE DIRECTION
+First avoid unnecessary resource work: load Slingshot rival templates only when rivals are requested, remove avoidable duplicate stock buffers safely, and keep moving geometry separable. Measure actual main/shadow/mirror/wet-reflection costs before choosing LODs. Short refresh-capped showroom samples are not sustained-performance proof. Reuse project gates, do not invent an elaborate new benchmark campaign.
+
+REQUIRED END-TO-END PROOF
+- Stock reconstruction and semantic part-mask review from actual geometry.
+- Non-default paint parity through showroom/departure/road/retry/return.
+- Real contact/collider overlay alignment and a curb/edge test on both sides.
+- Forward/reverse, left/right turns, braking-in-turn, ordinary bump response and recovery for the stock bike.
+- Correct CVT telemetry/instrument/audio path; no Slingshot five-gear simulation underneath it.
+- Attached wheels/links/shocks/lights/rider/mirrors during relevant motion, with kit off and on.
+- One complete actual race and a career reward/return path once the new entry type is enabled; retries and resumes retain the frozen vehicle/build.
+- Save/load/vehicle switch/isolated-context link validation; no cross-vehicle draft corruption or hidden equipment effects.
+- Slingshot regression against the preserved baseline; mixed-vehicle world test.
+- Existing test suite and targeted new tests; production allowlist/build validation; bounded actual frame-tail measurement when the machine conditions allow a meaningful result.
+
+Do not claim a full pass because a model loads or 401 old tests still pass. State what was actually exercised, on which revision, with what limits. Inspect the renders and telemetry yourself before handing back the result.
+
+FINAL HANDOFF
+Provide one concise owner report: changes made, actual commit IDs, how to launch/switch, what the owner should notice, a small set of useful images/telemetry, actual validation commands/results and any remaining visual/physics/UX/performance limits. Keep editable sources and reproducing scripts in the established structure under the owner's publication policy. Update the active root handoff pointers so a fresh session continues this implementation rather than reviving the old visual-only assignment.

@@ -1,0 +1,36 @@
+✔ engine pitch: every contributing bed follows the one commanded engine RPM (1.8827ms)
+✔ engine pitch: finite nonnegative layer parameters and nonzero coverage across operating range (5.9837ms)
+✔ engine pitch: lifecycle master muting and no-road-at-rest remain intact (0.5381ms)
+✔ audio mapper: actual RPM/load, contacting longitudinal speed/slip, wind and lifecycle sanitation (92.3524ms)
+✔ actual shift begins once, completion does not double-fire, reset establishes baseline (1.1218ms)
+✔ driver analytic arm preserves segment lengths and clamps unreachable targets (0.6608ms)
+✔ driver regrip releases deliberately, returns to stable rim and resets discontinuity (0.3634ms)
+✔ driver alternating regrip retains a supporting hand on rim through rapid full locks (1.8889ms)
+✔ recovery prioritizes below-road and overturned state, without interrupting moving upright driving (86.3604ms)
+✔ stranded prompt requires slow motion beyond runoff, while unsupported prompt does not intercept ordinary airborne motion (1.1974ms)
+✔ free recovery returns six metres behind on road, heading forward, without mutating telemetry or route (1.4305ms)
+✔ free recovery wraps behind the start line onto the previous road segment instead of advancing a lap (0.5774ms)
+✔ actual Sport v2 high-speed-curb overturn is detected and explicit free recovery restores supported upright state (144.5234ms)
+✔ wheel effects require moving grounded tires; wet spray does not create dry skids (1.56ms)
+✔ brake heat integrates braking work, cools, and remains frozen on pause (1.2617ms)
+✔ flame pops require high-rpm lift, equipped exhaust, normal motion, and cooldown (0.4243ms)
+✔ skid ring is bounded, follows height, and rejects teleport bridges (1.4916ms)
+✔ shared batches emit for rivals at reduced density, preserve telemetry and freeze on pause (20.9835ms)
+✔ graphics presets budget effects and disabling them leaves the scene and telemetry inert (1.7669ms)
+✔ sparks read solved barrier contacts without changing the world (110.1162ms)
+✔ a sudden stop at a solved contact still emits an impact spark (2.5126ms)
+✔ contact reads real static ground and leaves physics untouched (126.08ms)
+✔ shared patches follow a sloped receiver plane and preserve telemetry (10.6428ms)
+✔ airborne tires, rollovers, missing receivers and the off switch do not leave floating contact patches (9.3379ms)
+✔ player contact follows the interpolated visual pose rather than the previous physics tick (8.3579ms)
+✔ light-space snapping keeps sub-texel movement stable and tracks large movement (1.0931ms)
+✔ shadow quality switches dispose the old map once and bound camera focus (0.8063ms)
+✔ published contact comparison flag is allowlisted and unknown values are dropped (0.3995ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 896.9359
