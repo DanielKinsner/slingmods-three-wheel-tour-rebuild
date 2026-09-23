@@ -1,4 +1,5 @@
 import {RaceFilmDirector} from './presentation/cinematics/director';
+import {ReplayRecorder,ReplayPlayer} from './game/replay';
 import {Rumble} from './game/rumble';
 import {PhotoMode} from './game/photo-mode';
 import {difficulty,DIFFICULTY_SCALE,DIFFICULTY_LABEL} from './game/difficulty';
@@ -116,6 +117,9 @@ const raceFx=new RaceFX(ui.root,{freeDrive:free,trial,vehicle:recipe.vehicleId,r
 // Photo mode from the pause menu: free orbit around the paused car, lens control, PNG capture of the rendered frame.
 const photo=lifetime.own(new PhotoMode(renderer.domElement,camera,()=>hero.root.position.clone().add(new THREE.Vector3(0,.55,0)),(x,z)=>route.heightAt?.(x,z)??0,()=>{raceFx.refreshPrompts();document.querySelector<HTMLElement>('#race-menu [data-gx-photo]')?.focus()}),v=>v.dispose());
 const photoClick=(e:Event)=>{if((e.target as Element)?.closest?.('[data-gx-photo]')&&race.snapshot().paused)photo.enter()};document.addEventListener('click',photoClick);lifetime.own({},()=>document.removeEventListener('click',photoClick));
+// Instant replay: recorded in memory during every run, offered from the results screen.
+const replayRecorder=new ReplayRecorder(),replay=lifetime.own(new ReplayPlayer(route,(x,z)=>route.heightAt?.(x,z)??0,ridge?(from,to)=>{const hit=ridgeCameraObstruction(to,from);return hit!==undefined&&hit<to.distanceTo(from)-1}:undefined,()=>{resetPresentation=true;raceFx.refreshPrompts();document.querySelector<HTMLElement>('#race-menu [data-gx-replay]')?.focus()}),v=>v.dispose());
+const replayClick=(e:Event)=>{if((e.target as Element)?.closest?.('[data-gx-replay]')&&replayRecorder.available&&race.snapshot().playerResult)replay.enter(replayRecorder.frames)};document.addEventListener('click',replayClick);lifetime.own({},()=>document.removeEventListener('click',replayClick));
 const rumble=new Rumble();lifetime.own(rumble,v=>v.stop());
 const timeAttack=trial?lifetime.own(new TimeAttack(scene,hero.root,snapshot.route as TrialRoute,recipe.vehicleId,ui.root,route),v=>v.dispose()):undefined;timeAttack?.observe();
 const films=lifetime.own(new RaceFilmDirector({autoplay:!trial,parent:app,camera,hero:hero.root,vehicle:recipe.vehicleId==='can-am-ryker-900'?'ryker':'slingshot',destination:ridge?'Smoky Ridge':express?'Harbor Express':'Original Harbor',context:activeLook.label,ground:route.heightAt??(()=>0),obstruction:ridgeCameraObstruction,score:(film,elapsed)=>audio.film(film,elapsed)}),v=>v.dispose());
@@ -131,7 +135,16 @@ const presentationTelemetry=new PresentationTelemetry();
 // Query actual fixed geometry, including road, terrain and rails; does not alter vehicle motion.
 function ridgeCameraObstruction(target:THREE.Vector3,desired:THREE.Vector3){const delta=desired.clone().sub(target),length=delta.length();if(length<1e-6)return;delta.divideScalar(length);const hit=world.world.castRay(new RAPIER.Ray(target,delta),length,true,undefined,undefined,undefined,undefined,c=>!c.parent()&&!c.isSensor());return hit?.timeOfImpact}
 
+/** Replay playback: cars posed from the recording, broadcast camera, same render path. Simulation keeps idling behind it. */
+function presentReplay(dt:number,raster:boolean){
+ const {field,reset}=replay.frame(dt,camera),t=field.player;hero.pose(t,dt,false,reset);for(const[id,peer]of Object.entries(peers))if(field[id])peer.pose(field[id],dt,false,reset);
+ lights.update(hero.root.position,t.brake,camera.position,pipeline.quality);contact.update(field,t);shocks.update();under.update();audio.update(t,false,false,reset);audio.updateOpponents(t,Object.fromEntries(Object.entries(field).filter(([id])=>id!=='player')));display.update(t,camera,performance.now());updateWorld(camera.position,t.time);
+ effects.update(field,camera,innerHeight*renderer.getPixelRatio(),pipeline.quality,activeLook.wet,activeLook.lampsOn,speedFeel.reducedMotion,reset);
+ if(!raster)return;const begin=performance.now();mirrors.update(camera,innerHeight,false,false);scene.updateMatrixWorld();scene.matrixWorldAutoUpdate=false;try{mirrors.render(renderer,scene,camera);renderWetRoad();pipeline.render(scene,camera,{edgeBlur:0,cinema:films.look,focus:hero.root.position,bloom:frameBloom,grade:activeLook.grade,heatHaze:effects.heatHaze,effectTime:t.time});photo.afterRender()}finally{scene.matrixWorldAutoUpdate=true}profile.renderMs=performance.now()-begin;
+}
 function present(dt:number,alpha:number,reset:boolean,raster:boolean){
+ if(replay.active){presentReplay(dt,raster);return}
+ replayRecorder.record(race.snapshot(),currentField);
  const t=presentationTelemetry.sample(session.previous,session.current,alpha);hero.pose(t,dt,cameraMode==='cockpit'&&!lookBack&&!films.active&&!(!!race.snapshot().playerResult&&!race.snapshot().paused),reset);chase.update(hero.root.position,hero.root.quaternion,t.speed,dt,cameraMode,lookBack,reset,ridge?ridgeCameraObstruction:undefined);
  const finished=!!race.snapshot().playerResult&&!race.snapshot().paused;if(finished)speedFeel.edgeBlur=0;else speedFeel.apply(camera,chase.target,t,chase.activeView,dt,innerHeight,reset,ridge?ridgeCameraObstruction:undefined);
  for(const[id,peer]of Object.entries(peers))peer.pose(currentField[id],dt,false,reset);lights.update(hero.root.position,t.brake,camera.position,pipeline.quality);contact.update(currentField,t);shocks.update();under.update();audio.setSoundScene({place:ridge?'ridge':express?'express':'harbor',night:preset==='night',wet:activeLook.wet,free,phase:race.snapshot().phase});audio.update(session.current,session.input.paused,cameraMode==='cockpit'&&!lookBack,reset);audio.updateOpponents(session.current,Object.fromEntries(Object.entries(currentField).filter(([id])=>id!=='player')));display.update(session.current,camera,performance.now());raceCues.update(race.snapshot(),id=>audio.cue(id));updateWorld(camera.position,session.current.time);
