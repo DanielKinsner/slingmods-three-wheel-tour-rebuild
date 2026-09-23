@@ -22,7 +22,7 @@ html.gx[data-input=pad] body .gx-tab-hint[data-gx-hint=prev]::before{content:'LB
 html.gx[data-input=mouse] body .gx-tab-hint{opacity:.55}
 
 /* ---------- Player card ---------- */
-html.gx body .gx-player{position:absolute;right:calc(var(--gx-edge-x) + 212px);top:17px;display:flex;align-items:center;gap:12px;height:44px;padding:0 14px 0 4px;background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(10px);color:var(--gx-ink);font-family:var(--gx-body);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+html.gx body .gx-player{position:absolute;right:calc(var(--gx-edge-x) + 280px);top:17px;display:flex;align-items:center;gap:12px;height:44px;padding:0 14px 0 4px;background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(10px);color:var(--gx-ink);font-family:var(--gx-body);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
 html.gx body .gx-player-level{display:grid;place-items:center;width:44px;height:36px;margin-left:6px;background:var(--gx-hot);color:#161200;font:italic 800 22px/1 var(--gx-display);font-synthesis:style;clip-path:polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%);position:relative}
 html.gx body .gx-player-level small{display:none}
 html.gx body .gx-player-rank{display:grid;gap:5px;min-width:110px}html.gx body .gx-player-rank b{font:800 11px/1 var(--gx-body);letter-spacing:.16em;text-transform:uppercase}
@@ -132,3 +132,5 @@ html.gx body .signature-ui{transition:opacity .45s}
  html.gx body .signature-ui[data-screen=entry] .vehicle-appearance-picker{position:absolute;right:auto;left:16px;bottom:auto;top:120px}
  .gx-prompts{display:none}
 }
+html.gx body .gx-tile-slim{min-height:52px}html.gx body .gx-tile-slim strong{font-size:clamp(22px,1.8vw,28px)}html.gx body .gx-tile-slim .gx-tile-body{padding:8px 0}
+@media (max-height:820px){html.gx body .gx-menu-title h1{font-size:clamp(44px,4.2vw,70px)}html.gx body .gx-tile{min-height:56px}html.gx body .gx-tile-hero{min-height:92px}html.gx body .gx-tile em{display:none}html.gx body .gx-tile-slim{min-height:48px}html.gx body .sig-entry.gx-menu{gap:14px}}

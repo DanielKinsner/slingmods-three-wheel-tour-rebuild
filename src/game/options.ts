@@ -1,14 +1,22 @@
 import './options.css';
 import {gameCue} from './audio-bus';
 import {setPrompts} from './shell';
+import type {Career} from '../career/store';
+import {achievementState,recordsTable,driveStats} from './achievements';
+import {tourProgress} from './progress';
+import {MEDAL_NAMES,MEDAL_TARGETS,trialTime} from './time-attack';
 import {GRAPHICS_ORDER,GRAPHICS_PRESETS,loadGraphicsQuality,saveGraphicsQuality,type GraphicsQuality} from '../presentation/graphics-settings';
 /**
  * OPTIONS: one game-style settings screen for every page. It owns no settings of its own: audio sliders drive the page's
  * existing #game-audio mixer inputs (which persist and apply), quality drives the page's live graphics control when there
  * is one or the saved preset otherwise, and motion / race-film switches use the keys their systems already read.
  */
-type Tab='audio'|'video'|'gameplay'|'controls';
-const TABS:[Tab,string][]=[['audio','Audio'],['video','Video'],['gameplay','Gameplay'],['controls','Controls']];
+type Tab='audio'|'video'|'gameplay'|'controls'|'achievements'|'records'|'stats';
+type Mode='options'|'log';
+const MODES:Record<Mode,{title:string;tabs:[Tab,string][]}>={options:{title:'OPTIONS',tabs:[['audio','Audio'],['video','Video'],['gameplay','Gameplay'],['controls','Controls']]},log:{title:'TOUR LOG',tabs:[['achievements','Achievements'],['records','Time Attack'],['stats','Stats']]}};
+let mode:Mode='options';const TABS=()=>MODES[mode].tabs;
+/** Pages that know the career register it so the Tour Log can show it (read-only). */
+let careerSource:()=>Career|null=()=>null;export function setCareerSource(source:()=>Career|null){careerSource=source}
 const MIX:[string,string][]=[['audio-master','Master'],['audio-music','Music'],['audio-engine','Engine'],['audio-environment','World'],['audio-interface','Interface']];
 const MOTION_KEY='slingmods-signature-motion',FILMS_KEY='slingmods-race-films';
 const get=(k:string)=>{try{return localStorage.getItem(k)}catch{return null}};
@@ -35,15 +43,22 @@ function gameplayRows(){
 }
 function controlsRows(){return `<table class="gx-opt-controls"><thead><tr><th>Action</th><th>Keyboard</th><th>Controller</th></tr></thead><tbody>${CONTROLS.map(([a,k,p],i)=>`${i===8?'<tr class="gx-opt-sep"><td colspan="3">MENUS</td></tr>':''}<tr><td>${a}</td><td><kbd class="gx-glyph gx-key">${k}</kbd></td><td><kbd class="gx-glyph gx-key">${p}</kbd></td></tr>`).join('')}</tbody></table>`}
 
+function achievementRows(){const list=achievementState(careerSource()),done=list.filter(x=>x.done).length;
+ return `<p class="gx-log-summary"><b>${done}<i>/${list.length}</i></b><span>ACHIEVEMENTS UNLOCKED</span></p><div class="gx-log-grid">${list.map(({a,done,progress})=>`<article class="gx-ach" data-done="${done}"><i aria-hidden="true">${done?a.icon:'🔒'}</i><div><b>${a.title}</b><span>${a.detail}</span>${progress&&!done?`<span class="gx-ach-bar"><em style="--gx-fill:${(progress[0]/progress[1]).toFixed(3)}"></em></span><small>${progress[0]} / ${progress[1]}</small>`:''}</div></article>`).join('')}</div>`}
+function recordRows(){const names:Record<string,string>={harbor:'Original Harbor',express:'Harbor Express',ridge:'Smoky Ridge'},ride:Record<string,string>={'slingshot-r-2024':'Slingshot R','can-am-ryker-900':'Ryker 900'};
+ return `<table class="gx-opt-controls gx-log-records"><thead><tr><th>Course</th><th>Ride</th><th>Best</th><th>Medal</th><th>Runs</th></tr></thead><tbody>${recordsTable().map(({route,rows})=>rows.map((r,i)=>`<tr>${i===0?`<td rowspan="2"><b>${names[route]}</b><small>Gold ${trialTime(MEDAL_TARGETS[route].gold)}</small></td>`:''}<td>${ride[r.vehicle]}</td><td>${r.best?trialTime(r.best.timeMs):'—'}</td><td>${r.best?.medal?`<span class="gx-medal-chip" data-medal="${r.best.medal}">${MEDAL_NAMES[r.best.medal]}</span>`:'—'}</td><td>${r.best?.runs??0}</td></tr>`).join('')).join('')}</tbody></table><p class="gx-opt-note">Time Attack lives on the Race screen. Beat a medal time, then beat your own ghost.</p>`}
+function statRows(){const c=careerSource(),p=tourProgress(c),s=driveStats();const tile=(v:string,l:string)=>`<div class="gx-stat"><b>${v}</b><span>${l}</span></div>`;
+ return `<div class="gx-stats">${tile('LV '+p.level,p.title)}${tile(p.rep.toLocaleString('en-US'),'Tour Rep')}${tile(c?p.credits.toLocaleString('en-US')+' CR':'—','Credits')}${tile(p.completed+'/'+p.total,'Career events')}${tile(String(s.drives),'Drives started')}${tile(String(s.races),'Races')}${tile(String(s.trials),'Time Attacks')}${tile(String(s.tests),'Test drives')}</div>${c?'':'<p class="gx-opt-note">Open the career from the main menu to include its progress here.</p>'}`}
 function render(){
  if(!open)return;const body=open.querySelector<HTMLElement>('.gx-opt-body')!;
  open.querySelectorAll<HTMLElement>('[data-gx-tab]').forEach(b=>{const on=b.dataset.tab===tab;b.setAttribute('aria-selected',String(on))});
- body.innerHTML=tab==='audio'?audioRows():tab==='video'?videoRows():tab==='gameplay'?gameplayRows():controlsRows();
+ body.innerHTML=tab==='audio'?audioRows():tab==='video'?videoRows():tab==='gameplay'?gameplayRows():tab==='controls'?controlsRows():tab==='achievements'?achievementRows():tab==='records'?recordRows():statRows();
 }
-export function openOptions(initial:Tab=tab){
- if(open)return;tab=initial;returnFocus=document.activeElement as HTMLElement|null;document.body.dataset.gxModal='1';
- open=document.createElement('section');open.className='gx-options';open.setAttribute('role','dialog');open.setAttribute('aria-modal','true');open.setAttribute('aria-label','Options');
- open.innerHTML=`<div class="gx-opt-panel"><header><span class="gx-kicker">SLINGMODS · THREE-WHEEL TOUR</span><h2 class="gx-display">OPTIONS</h2><button class="gx-opt-close" data-opt="close" aria-label="Close options">✕</button></header><nav class="gx-opt-tabs" data-gx-tabs data-gx-modal-tabs>${TABS.map(([id,label])=>`<button data-gx-tab data-tab="${id}" role="tab">${label}</button>`).join('')}</nav><div class="gx-opt-body"></div></div>`;
+export function openTourLog(initial:Tab='achievements'){openOptions(initial,'log')}
+export function openOptions(initial:Tab='audio',which:Mode='options'){
+ if(open)return;mode=which;tab=initial;returnFocus=document.activeElement as HTMLElement|null;document.body.dataset.gxModal='1';
+ open=document.createElement('section');open.className='gx-options';open.setAttribute('role','dialog');open.setAttribute('aria-modal','true');open.setAttribute('aria-label',MODES[mode].title);open.dataset.mode=mode;
+ open.innerHTML=`<div class="gx-opt-panel"><header><span class="gx-kicker">SLINGMODS · THREE-WHEEL TOUR</span><h2 class="gx-display">${MODES[mode].title}</h2><button class="gx-opt-close" data-opt="close" aria-label="Close">✕</button></header><nav class="gx-opt-tabs" data-gx-tabs data-gx-modal-tabs>${TABS().map(([id,label])=>`<button data-gx-tab data-tab="${id}" role="tab">${label}</button>`).join('')}</nav><div class="gx-opt-body"></div></div>`;
  document.body.append(open);render();gameCue('gx.select');
  setPrompts([{key:'confirm',label:'Select'},{key:'adjust',label:'Adjust'},{key:'tabs',label:'Tabs'},{key:'back',label:'Close'}]);
  open.addEventListener('click',onClick);open.addEventListener('input',onInput);open.addEventListener('keydown',onKey);
@@ -71,7 +86,7 @@ function move(dx:number,dy:number){
  for(const el of list){if(el===cur)continue;const b=el.getBoundingClientRect(),x=b.left+b.width/2-cx,y=b.top+b.height/2-cy;const along=dx?x*dx:y*dy,across=dx?Math.abs(y):Math.abs(x);if(along<=4)continue;const s=along+across*2.2;if(s<score){score=s;best=el}}
  best?.focus();
 }
-function cycle(d:number){const i=TABS.findIndex(([id])=>id===tab);tab=TABS[(i+d+TABS.length)%TABS.length][0];gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-tab="${tab}"]`)?.focus()}
+function cycle(d:number){const tabs=TABS(),i=tabs.findIndex(([id])=>id===tab);tab=tabs[(i+d+tabs.length)%tabs.length][0];gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-tab="${tab}"]`)?.focus()}
 function onKey(e:KeyboardEvent){
  const k=e.code;if(k==='Escape'||k==='Backspace'&&!(e.target instanceof HTMLInputElement&&e.target.type!=='range')){e.preventDefault();e.stopPropagation();closeOptions();return}
  if(k==='KeyQ'||k==='KeyE'){e.preventDefault();e.stopPropagation();cycle(k==='KeyE'?1:-1);return}
@@ -88,7 +103,7 @@ function padLoop(){
 }
 /** Global entry points: O key or the controller View button outside of driving, and any [data-gx-options] button. */
 export function installOptions(){
- document.addEventListener('click',e=>{const t=(e.target as Element)?.closest?.('[data-gx-options]');if(t){e.preventDefault();openOptions()}});
+ document.addEventListener('click',e=>{const t=(e.target as Element)?.closest?.('[data-gx-options],[data-gx-log]');if(t){e.preventDefault();if(t.hasAttribute('data-gx-log'))openTourLog();else openOptions()}});
  addEventListener('keydown',e=>{if(e.code!=='KeyO'||e.repeat||open||e.ctrlKey||e.metaKey||e.altKey)return;const t=e.target as Element;if(t instanceof HTMLInputElement&&t.type!=='range'||t instanceof HTMLTextAreaElement)return;if(document.body.classList.contains('harbor-race')&&!document.body.classList.contains('race-menu-open'))return;if(document.querySelector('.gx-title:not(.is-leaving)'))return;e.preventDefault();openOptions()});
  let view=false;(function poll(){const pad=(Array.from(navigator.getGamepads?.()??[]) as (Gamepad|null)[]).find(p=>p?.connected&&p.mapping==='standard');const v=(pad?.buttons[8]?.value??0)>.5;if(v&&!view&&!open&&(!document.body.classList.contains('harbor-race')||document.body.classList.contains('race-menu-open')))openOptions();view=v;requestAnimationFrame(poll)})();
 }

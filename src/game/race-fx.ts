@@ -1,4 +1,6 @@
 import './race.css';
+import {countDrive} from './achievements';
+import {announceAchievements} from './toast';
 import {gameCue} from './audio-bus';
 import {setPrompts} from './shell';
 import {tourProgress,repGain,rankTitle,repForLevel} from './progress';
@@ -12,7 +14,7 @@ import {radioLine,CREW,portraitMarkup,type CrewId,type RadioMoment} from './crew
  */
 interface Standing {id:string;place:number;status:string;lap:number;nextGate:number;timeMs:number|null}
 export interface RaceSnapshotLike {event:string;laps:number;phase:string;paused:boolean;countdown:number;elapsedMs:number;standings:Standing[];playerResult:{valid:boolean;place:number|null;timeMs:number|null;status:string}|null;allFinished:boolean}
-export interface RaceReward {credits:number;balance:number;before:Career|null;receipt?:Pick<Receipt,'kind'|'amount'>;first?:boolean}
+export interface RaceReward {credits:number;balance:number;before:Career|null;after?:Career|null;receipt?:Pick<Receipt,'kind'|'amount'>;first?:boolean}
 const ordinal=(n:number)=>n+(n%100>=11&&n%100<=13?'TH':['TH','ST','ND','RD'][n%10]??'TH');
 const fmt=(ms:number)=>{const s=Math.abs(ms)/1000,m=Math.floor(s/60);return `${m}:${(s-m*60).toFixed(3).padStart(6,'0')}`};
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -23,11 +25,11 @@ function writeSplits(event:string,splits:number[]){try{const all=JSON.parse(loca
 export class RaceFX {
  readonly root=document.createElement('div');
  private lights=document.createElement('div');private callout=document.createElement('div');private split=document.createElement('div');private flash=document.createElement('div');
- private radioNode=document.createElement('div');private radioAt=-Infinity;private radioTimer=0;private order:string[]=[];private trial:boolean;private field:CrewId[]=[];
+ private radioNode=document.createElement('div');private radioAt=-Infinity;private radioTimer=0;private order:string[]=[];private trial:boolean;private vehicle:string;private field:CrewId[]=[];
  private phase='';private count=-1;private place=0;private lap=1;private gate=-1;private gates:number[]=[];private lapStart=0;private finished=false;private runKey='';private best:number[]|null=null;private freeDrive:boolean;
  private reward?:RaceReward;private tallied='';private menuObserver?:MutationObserver;private calloutTimer=0;private splitTimer=0;private prompts='';
- constructor(parent:Element,options:{freeDrive?:boolean;trial?:boolean}={}){
-  this.freeDrive=!!options.freeDrive;this.trial=!!options.trial;this.radioNode.className='gx-radio';
+ constructor(parent:Element,options:{freeDrive?:boolean;trial?:boolean;vehicle?:string}={}){
+  this.freeDrive=!!options.freeDrive;this.trial=!!options.trial;this.vehicle=options.vehicle??'slingshot-r-2024';this.radioNode.className='gx-radio';
   this.root.className='gx-race';this.root.setAttribute('aria-hidden','true');
   this.lights.className='gx-lights';this.lights.innerHTML='<i></i><i></i><i></i><b></b>';
   this.callout.className='gx-callout';this.split.className='gx-split';this.flash.className='gx-flash';
@@ -39,7 +41,7 @@ export class RaceFX {
  /** Crew radio: a portrait call-out that never stacks (one at a time, a short gap between them). */
  radio(moment:RadioMoment,who?:CrewId,force=false){const now=performance.now();if(!force&&now-this.radioAt<4200)return;const line=radioLine(moment,who);if(!line)return;this.radioAt=now;const m=line.member;this.radioNode.style.setProperty('--gx-crew',m.color);this.radioNode.innerHTML=`<img src="${m.portrait}" alt=""><div><b>${m.name}</b><span>${line.text}</span></div><i aria-hidden="true"></i>`;this.radioNode.classList.remove('is-on');void this.radioNode.offsetWidth;this.radioNode.classList.add('is-on');gameCue('gx.tab');clearTimeout(this.radioTimer);this.radioTimer=window.setTimeout(()=>this.radioNode.classList.remove('is-on'),3600)}
  /** Called by the drive when a career result commits: numbers for the tally (the text reward remains the source of truth). */
- setReward(reward:RaceReward){this.reward=reward;const menu=document.getElementById('race-menu');if(menu)this.decorateMenu(menu)}
+ setReward(reward:RaceReward){this.reward=reward;if(reward.after)setTimeout(()=>announceAchievements(reward.after!),2600);const menu=document.getElementById('race-menu');if(menu)this.decorateMenu(menu)}
  private show(node:HTMLElement,cls:string,html:string,ms:number,timer:'calloutTimer'|'splitTimer'){node.className=node.className.split(' ')[0]+' '+cls;node.innerHTML=html;node.classList.remove('is-on');void node.offsetWidth;node.classList.add('is-on');clearTimeout(this[timer]);this[timer]=window.setTimeout(()=>node.classList.remove('is-on'),ms)}
  private banner(html:string,cls='',ms=1600){this.show(this.callout,cls,html,ms,'calloutTimer')}
  update(s:RaceSnapshotLike){
@@ -49,7 +51,7 @@ export class RaceFX {
   if(s.phase==='ready'&&this.phase!=='ready'||key!==this.runKey&&s.phase!=='finished'||this.phase==='finished'&&s.phase!=='finished'&&!s.playerResult)this.resetRun(key,s.event);
   // Start lights: three reds count down with the existing 3-second countdown, then all green on GO.
   if(s.phase==='countdown'&&!s.paused){const n=Math.ceil(s.countdown);if(this.phase!=='countdown'&&!this.freeDrive)setTimeout(()=>this.radio(this.trial?'trialStart':'start'),350);if(n!==this.count){this.count=n;this.lights.classList.add('is-on');this.lights.dataset.lit=String(Math.max(0,3-n+1));this.lights.classList.remove('is-go');if(n>0){this.lights.querySelector('b')!.textContent=String(n);this.pulse(this.lights.querySelector('b')!)}}}
-  if(this.phase==='countdown'&&s.phase==='running'){this.count=-1;this.lights.dataset.lit='3';this.lights.classList.add('is-go');this.lights.querySelector('b')!.textContent='GO!';this.pulse(this.lights.querySelector('b')!);this.lapStart=0;setTimeout(()=>this.lights.classList.remove('is-on'),1100)}
+  if(this.phase==='countdown'&&s.phase==='running'){countDrive(this.freeDrive?'test':this.trial?'trial':'race',this.vehicle);this.count=-1;this.lights.dataset.lit='3';this.lights.classList.add('is-go');this.lights.querySelector('b')!.textContent='GO!';this.pulse(this.lights.querySelector('b')!);this.lapStart=0;setTimeout(()=>this.lights.classList.remove('is-on'),1100)}
   if(s.phase==='running'&&!s.paused&&!this.finished){
    // Position changes (only in real races with a field).
    const order=s.standings.map(x=>x.id);
@@ -61,7 +63,7 @@ export class RaceFX {
    if(me.lap!==this.lap&&me.lap>this.lap){const lapMs=s.elapsedMs-this.lapStart;this.lapStart=s.elapsedMs;this.lap=me.lap;const final=me.lap===s.laps&&s.laps>1;this.banner(`<small>LAP ${me.lap-1} · ${fmt(lapMs)}</small><b>${final?'FINAL LAP':'LAP '+me.lap+' / '+s.laps}</b>`,final?'is-final':'is-lap',1900);gameCue('gx.lap');if(final)this.radio('finalLap',undefined,true)}
   }
   // Finish slam.
-  if(s.playerResult&&!this.finished){this.finished=true;const r=s.playerResult;
+  if(s.playerResult&&!this.finished){this.finished=true;const r=s.playerResult;setTimeout(()=>announceAchievements(null),3200);
    if(r.valid){const fieldRace=s.standings.length>1;this.banner(`<b>${fieldRace&&r.place?ordinal(r.place):'FINISH'}</b><span>${fieldRace?'FINISH':fmt(r.timeMs??s.elapsedMs)}</span>`,'is-finish '+(r.place===1&&fieldRace?'is-gold':''),2600);this.hit();gameCue('gx.slam');if(fieldRace)setTimeout(()=>this.radio(r.place===1?'youWon':'theyWon',undefined,true),1200);
     const splits=[...this.gates,r.timeMs??s.elapsedMs],bestTotal=this.best?.at(-1);if(!this.freeDrive&&(bestTotal===undefined||(r.timeMs??Infinity)<bestTotal))writeSplits(s.event,splits)}
    else{this.banner('<b>DNF</b><span>RUN NOT COUNTED</span>','is-down',2200)}}

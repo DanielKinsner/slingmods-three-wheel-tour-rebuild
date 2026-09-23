@@ -1,4 +1,6 @@
 import {vehicleDefinition} from '../simulation/vehicle-definition';
+import {setCareerSource} from '../game/options';
+import {announceAchievements} from '../game/toast';
 import {shouldShowTitle,showTitle} from '../game/title';
 import {markEntering} from '../game/shell';
 import {tourProgress} from '../game/progress';
@@ -178,7 +180,8 @@ const finishPreparation:{finish:string;ms:number;error?:string}[]=[];
 for(const finish of ['black-red','white-graphite','graphite-red','blue-orange'].filter(f=>f!==recipe.finish).slice(0,3) as ('black-red'|'white-graphite'|'graphite-red'|'blue-orange')[]){const at=performance.now();try{await finishes.set(finish);await prepareRenderer(renderer,scene,camera);display.snapshot(renderer,scene.environment,'loading-finish:'+finish);finishPreparation.push({finish,ms:performance.now()-at})}catch(error){finishPreparation.push({finish,ms:performance.now()-at,error:String(error)})}}
 await apply();const preparation=await prepareRenderer(renderer,scene,camera,()=>pipeline.render(scene,camera));veil.remove();
 // Attract screen on the first visit of a tab session: slow turntable behind "press any key", which also unlocks sound.
-if(!garage&&screen==='entry'&&shouldShowTitle()){const turntable=!reducedMotion;showTitle({onIdle:active=>{controls.autoRotate=active&&turntable;controls.autoRotateSpeed=-.55},onStart:()=>{markEntering(ui.root,1400);view('hero')}})}const loadMs=performance.now()-started;
+setCareerSource(careerState);
+if(!garage&&screen==='entry'&&shouldShowTitle()){const turntable=!reducedMotion;showTitle({onIdle:active=>{controls.autoRotate=active&&turntable;controls.autoRotateSpeed=-.55},onStart:()=>{markEntering(ui.root,1400);view('hero');setTimeout(()=>announceAchievements(careerState()),1200)}})}else if(!garage)announceAchievements(careerState());const loadMs=performance.now()-started;
 // The career garage follows purchases, equipment and finish changes made through its own workshop or another tab.
 career?.subscribe(()=>{if(!career)return;const next=careerRecipe(career.state);if(sameBuild(next,recipe))return;recipe=next;original=structuredClone(next);void apply()});
 let graphicsControl:{root:HTMLElement;dispose():void}|undefined;if(garage){const {installGraphicsControl}=await import('../presentation/graphics-control');graphicsControl=installGraphicsControl(app,renderer,pipeline,GRAPHICS_PRESETS[graphics].lighting);graphicsControl.root.style.display='flex'}

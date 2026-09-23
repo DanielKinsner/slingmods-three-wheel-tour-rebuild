@@ -35,6 +35,7 @@ export function tourEntry({model, ryker, careerLabel, careerDetail, progress, re
       ${tile('quick-race', 'Quick race', 'Race the crew · Time Attack medals · free drive', 'ARCADE')}
       ${tile('build', 'Garage', 'Make it yours · paint, parts and setup', 'MAKE IT YOURS')}
       ${tile('shop', 'Shop this build', 'Every part you fit, on SlingMods.com', 'REAL PARTS')}
+      <button class="gx-tile gx-tile-slim" data-gx-log data-gx-sfx="select"><span class="gx-tile-body"><small>ACHIEVEMENTS · RECORDS</small><strong>Tour log</strong></span><b class="gx-tile-arrow" aria-hidden="true"></b></button>
     </nav>
   </main>
   <aside class="tour-machine gx-ride" aria-label="Current vehicle">

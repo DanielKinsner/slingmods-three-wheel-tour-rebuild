@@ -1,4 +1,6 @@
 import {RykerWorkshop} from './ryker-workshop';
+import {setCareerSource} from '../game/options';
+import {announceAchievements} from '../game/toast';
 import './garage.css';
 import '../game/menu.css';
 import {ChapterUI} from '../career/chapter-ui';
@@ -57,7 +59,7 @@ export class GarageUI {
  }
  update(state:SignatureState){this.state=state;const s=this.career.state,finish=FINISHES.find(f=>f.id===careerRecipe(s).finish)?.name??'',key=JSON.stringify([state.view,state.viewManual,state.lighting,state.driverVisible,s.ownBuild.finish,s.revision,this.career.durable,this.career.profile]);if(key===this.key)return;this.key=key;
   const pressed=(v:string)=>String((state.view??'hero')===v&&!state.viewManual),step=nextCareerStep(s);
-  setPrompts([{key:'confirm',label:'Select'},{key:'back',label:'Back'},{key:'tabs',label:'Tabs'},{key:'orbit',label:'Orbit'}]);
+  setPrompts([{key:'confirm',label:'Select'},{key:'back',label:'Back'},{key:'tabs',label:'Tabs'},{key:'orbit',label:'Orbit'}]);setCareerSource(()=>this.career.state);announceAchievements(s);
   this.root.innerHTML=`${gameHeader({current:'career',career:{label:'Career',detail:step.detail,returning:false,returnLabel:'',progress:tourProgress(s)}})}
   <div class="sig-view-tools garage-view-tools" aria-label="Garage view"><p class="garage-identity"><strong>${esc(VEHICLE_MODEL_LABEL)} · ${esc(finish)}</strong><small>Your earned career build · ${esc(driveTuneLabel(careerRecipe(s).handlingProfile))} · ${this.career.profile==='demo'?'Prepared demo profile':this.career.durable?'Saved on this browser':'Temporary career · this tab only'}</small></p><div class="sig-camera-rail">${[['hero','Full vehicle'],['front','Front'],['rear','Rear'],['interior','Interior'],['tour-wall','Tour Wall'],['route-relief','Route relief']].map(([v,l])=>`<button data-action="view" data-value="${v}" aria-pressed="${pressed(v)}">${l}</button>`).join('')}<button data-action="lighting" data-value="${state.lighting==='lights'?'studio':'lights'}" aria-pressed="${state.lighting==='lights'}">Lights</button><button data-action="driver" data-value="${!state.driverVisible}" aria-pressed="${!!state.driverVisible}">Driver</button></div></div>`;
  }

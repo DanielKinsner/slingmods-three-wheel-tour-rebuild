@@ -29,3 +29,10 @@ test('Ghost track interpolates position and clamps outside the recorded lap',()=
  Track.sample(track.data,5000,p,r);assert.deepEqual(p.toArray(),[10,0,-20]);Track.sample(track.data,-5,p,r);assert.deepEqual(p.toArray(),[0,0,0]);
  assert.equal(Track.sample([],10,p,r),false);
 });
+test('Achievements derive from the career save and never require storage',async()=>{
+ const {achievementState,ACHIEVEMENTS}=await import('../src/game/achievements');
+ const ids=new Set(ACHIEVEMENTS.map(a=>a.id));assert.equal(ids.size,ACHIEVEMENTS.length,'unique ids');
+ const s=freshCareer();let st=achievementState(s);assert.equal(st.find(x=>x.a.id==='off-the-line')!.done,false);
+ s.chapters.firstCompletion=true;s.crew.bestPlace=1;st=achievementState(s);assert.equal(st.find(x=>x.a.id==='off-the-line')!.done,true);assert.equal(st.find(x=>x.a.id==='harbor-hero')!.done,true);
+ assert.deepEqual(st.find(x=>x.a.id==='tour-regular')!.progress,[1,5]);assert.equal(achievementState(null).filter(x=>x.done).length,0);
+});
