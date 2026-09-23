@@ -193,3 +193,24 @@ html.gx body .sig-destination-actions .gx-chal-list button[data-medal=none] i{ba
  html.gx body .sig-destination-actions{max-height:100%;overflow:auto;scrollbar-width:thin}
 }
 html.gx body .sig-destination-footer button{white-space:nowrap;letter-spacing:.1em}
+/* Shop, empty build: the parts made for this ride, each a click from trying it on. */
+html.gx body .sig-shop-empty{padding:16px 0 14px;margin-bottom:6px}
+html.gx body .sig-shop-empty p{margin:8px 0 0}
+html.gx body .sig-shop-list article:not(:has(>img)){grid-template-columns:minmax(0,1fr) auto}
+html.gx body .gx-shop-suggest article{animation:gx-rise var(--gx-t) var(--gx-ease) both}
+html.gx body .gx-shop-suggest article:nth-child(2){animation-delay:var(--gx-stagger)}html.gx body .gx-shop-suggest article:nth-child(3){animation-delay:calc(var(--gx-stagger)*2)}html.gx body .gx-shop-suggest article:nth-child(4){animation-delay:calc(var(--gx-stagger)*3)}html.gx body .gx-shop-suggest article:nth-child(n+5){animation-delay:calc(var(--gx-stagger)*4)}
+html.gx body .sig-shop-list p{margin:4px 0 0;font-size:12px;line-height:1.45}
+html.gx body .sig-shop-meta{font:800 9px/1 var(--gx-body);letter-spacing:.24em;text-transform:uppercase;color:var(--gx-mute)}
+html.gx body .sig-shop-list.gx-shop-suggest article{grid-template-columns:64px minmax(0,1fr);row-gap:10px}
+html.gx body .gx-shop-suggest img{width:64px;height:64px}
+html.gx body .gx-shop-cta{grid-column:2;display:flex;align-items:center;gap:18px}
+html.gx body .sig-shop-list article:not(:has(>img)) .gx-shop-cta{grid-column:auto;flex-direction:column;align-items:flex-end;gap:8px}
+html.gx body .signature-ui .gx-shop-cta button{min-height:44px;padding:0 18px;border:0;background:var(--gx-red);color:#fff;font:italic 800 19px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;text-transform:uppercase;transform:skewX(var(--gx-rake));box-shadow:0 8px 24px var(--gx-red-glow);transition:background var(--gx-t-fast),transform var(--gx-t-fast) var(--gx-ease);white-space:nowrap}
+html.gx body .signature-ui .gx-shop-cta button:is(:hover,:focus-visible){background:#ff5448;transform:skewX(var(--gx-rake)) translateX(3px);outline:0}
+html.gx body .gx-shop-cta a{font-size:11px;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){html.gx body .gx-shop-suggest article{animation:none}}
+/* Garage product actions in the GX voice: the primary is the raked display button, the rest are caps labels. */
+html.gx body .sig-product-actions button{min-height:46px;font:800 13px/1 var(--gx-body);letter-spacing:.12em;text-transform:uppercase;transition:background var(--gx-t-fast),border-color var(--gx-t-fast),transform var(--gx-t-fast) var(--gx-ease)}
+html.gx body .sig-product-actions .sig-primary{white-space:nowrap;padding-inline:14px;font:italic 800 19px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;transform:skewX(var(--gx-rake));border:0}
+html.gx body .sig-product-actions .sig-primary:is(:hover,:focus-visible):not(:disabled){transform:skewX(var(--gx-rake)) translateX(3px)}
+html.gx body .sig-detail .sig-external{font:800 11px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gx-cool)}

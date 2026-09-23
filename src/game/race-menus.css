@@ -49,7 +49,7 @@ html.gx body #race-menu[data-phase=pause] .race-help{margin-top:22px;max-width:3
 }
 @media (max-height:620px){
  html.gx body #race-menu[data-phase=pause] h1{font-size:64px}
- html.gx body #race-menu .menu-actions[data-gx-layout=list] :is(button,a){min-height:40px;font-size:19px}
+ html.gx body #race-menu .menu-actions[data-gx-layout=list] :is(button,a){min-height:44px;font-size:19px}
  html.gx body #race-menu .menu-actions[data-gx-layout=list] .primary{min-height:48px;font-size:24px}
 }
 
@@ -59,7 +59,7 @@ html.gx body #race-menu .menu-actions[data-gx-layout=row]>.primary{flex:1 1 auto
 html.gx body #race-menu .menu-actions[data-gx-layout=row]>[data-gx-replay]{flex:0 0 auto}
 .gx-actions-sub{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px}
 .gx-actions-sub:empty{display:none}
-html.gx body #race-menu .gx-actions-sub>:is(button,a){flex:1 1 auto;justify-content:center;min-height:40px;padding:0 12px;background:#ffffff06;border-color:var(--gx-edge);font-size:11px;letter-spacing:.16em;color:var(--gx-ink-2);white-space:nowrap;transition:background var(--gx-t-fast),color var(--gx-t-fast),border-color var(--gx-t-fast)}
+html.gx body #race-menu .gx-actions-sub>:is(button,a){flex:1 1 auto;justify-content:center;min-height:44px;padding:0 12px;background:#ffffff06;border-color:var(--gx-edge);font-size:13px;letter-spacing:.1em;color:var(--gx-ink-2);white-space:nowrap;transition:background var(--gx-t-fast),color var(--gx-t-fast),border-color var(--gx-t-fast)}
 html.gx body #race-menu .gx-actions-sub>:is(button,a):is(:hover,:focus-visible){background:#ffffff16;border-color:var(--gx-edge-2);color:var(--gx-ink)}
 
 /* ---------- Results: run accolades ---------- */
