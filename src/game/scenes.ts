@@ -18,7 +18,7 @@ export const SCENES:Record<string,Beat[]>={
 /** Mounts a scene into `host`. `done` runs when the last beat is shown; `onFirst` lets the caller relabel its skip button. */
 export class ScenePlayer {
  private i=0;private typing=0;private full='';private node=document.createElement('div');
- constructor(host:HTMLElement,private beats:Beat[],private done:()=>void,start=0){
+ constructor(host:HTMLElement,private beats:Beat[],private done:()=>void,start=0,private resume=false){
   this.i=Math.min(start,beats.length-1);this.node.className='gx-scene';host.replaceChildren(this.node);this.node.addEventListener('click',e=>{if((e.target as Element).closest('[data-scene-next]')||(e.target as Element).closest('.gx-scene-text'))this.next()});this.show();
  }
  get index(){return this.i}
@@ -26,9 +26,9 @@ export class ScenePlayer {
   const [id,text]=this.beats[this.i],m=CREW[id],last=this.i===this.beats.length-1;this.full=text;
   this.node.style.setProperty('--gx-crew',m.color);
   this.node.innerHTML=`<figure class="gx-scene-portrait"><img src="${m.portrait}" alt=""></figure><div class="gx-scene-body"><header><b>${m.name}</b><small>${m.role}</small><span>${this.i+1} / ${this.beats.length}</span></header><p class="gx-scene-text" aria-live="polite"></p>${last?'':'<button type="button" class="gx-scene-next" data-scene-next>Next <i aria-hidden="true">▸</i></button>'}</div>`;
-  const p=this.node.querySelector('.gx-scene-text')!;cancelAnimationFrame(this.typing);const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced)p.textContent=text;else{const t0=performance.now();const step=(now:number)=>{const n=Math.min(text.length,Math.floor((now-t0)/22));p.textContent=text.slice(0,n);if(n<text.length)this.typing=requestAnimationFrame(step)};this.typing=requestAnimationFrame(step)}
-  gameCue('gx.tab');if(last)this.done();else this.node.querySelector<HTMLElement>('[data-scene-next]')?.focus({preventScroll:true});
+  const p=this.node.querySelector('.gx-scene-text')!,resumed=this.resume;cancelAnimationFrame(this.typing);const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced||this.resume){p.textContent=text;this.resume=false}else{const t0=performance.now();const step=(now:number)=>{const n=Math.min(text.length,Math.floor((now-t0)/22));p.textContent=text.slice(0,n);if(n<text.length)this.typing=requestAnimationFrame(step)};this.typing=requestAnimationFrame(step)}
+  if(!resumed)gameCue('gx.tab');if(last)this.done();else this.node.querySelector<HTMLElement>('[data-scene-next]')?.focus({preventScroll:true});
  }
  /** First press finishes the typing; the next moves on. */
  next(){const p=this.node.querySelector('.gx-scene-text');if(p&&p.textContent!==this.full){cancelAnimationFrame(this.typing);p.textContent=this.full;return}if(this.i<this.beats.length-1){this.i++;this.show()}}

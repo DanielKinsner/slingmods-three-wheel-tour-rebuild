@@ -23,7 +23,8 @@ export function recordSeriesRace(standings:{id:string;place:number;status:string
  const s=seriesState();if(!s||s.attempts[s.index]===attemptId)return s;
  const points:Record<string,number>={};for(const x of standings)points[x.id]=x.status==='finished'?SERIES_POINTS[x.place-1]??0:0;
  s.results[s.index]=points;s.attempts[s.index]=attemptId;save(s);
- if(seriesComplete(s)&&!s.counted&&seriesTotals(s)[0].id==='player'){s.counted=true;save(s);try{localStorage.setItem(WINS,String(seriesWins()+1))}catch{}}
+ // A retried final race can change the champion: keep the win count in step with who holds the title now.
+ const champion=seriesComplete(s)&&seriesTotals(s)[0].id==='player';if(champion!==!!s.counted){s.counted=champion;save(s);try{localStorage.setItem(WINS,String(Math.max(0,seriesWins()+(champion?1:-1))))}catch{}}
  return s;
 }
 export function advanceSeries(){const s=seriesState();if(!s)return null;s.index=Math.min(SERIES_RACES.length-1,s.index+1);save(s);return s}

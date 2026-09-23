@@ -12,8 +12,8 @@ const image=(src:string)=>new Promise<HTMLImageElement|null>(r=>{const i=new Ima
 export interface ShareData {headline:string;kicker:string;course:string;detail:string[];accent?:string}
 export async function composeCard(d:ShareData){
  const W=1200,H=630,c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d')!;
- const [frame,logo]=await Promise.all([nextFrame(),image('/assets/brand/slingmods-logo-main.png')]);
  try{await Promise.all([document.fonts.load('italic 800 120px "Barlow Condensed"'),document.fonts.load('800 20px Manrope')])}catch{/* fallback fonts */}
+ const [frame,logo]=await Promise.all([nextFrame(),image('/assets/brand/slingmods-logo-main.png')]);
  const s=Math.max(W/frame.width,H/frame.height);g.drawImage(frame,(W-frame.width*s)/2+120,(H-frame.height*s)/2,frame.width*s,frame.height*s);
  let grad=g.createLinearGradient(0,0,W,0);grad.addColorStop(0,'rgba(7,8,10,.96)');grad.addColorStop(.46,'rgba(7,8,10,.78)');grad.addColorStop(.75,'rgba(7,8,10,.05)');g.fillStyle=grad;g.fillRect(0,0,W,H);
  grad=g.createLinearGradient(0,H,0,H-180);grad.addColorStop(0,'rgba(7,8,10,.9)');grad.addColorStop(1,'rgba(7,8,10,0)');g.fillStyle=grad;g.fillRect(0,H-180,W,180);

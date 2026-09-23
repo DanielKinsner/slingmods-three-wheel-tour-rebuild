@@ -22,7 +22,7 @@ export class Rumble {
   if(!active||dt<=0||!rumbleEnabled()||inputKind()!=='pad'){this.travel=t.wheels.map(w=>w.travel);this.speed=t.speed;return}
   const now=performance.now();
   // Impacts: deceleration beyond ~1.6 g that braking alone does not explain.
-  const decel=(this.speed-t.speed)/dt,braking=t.brake*9.81*1.1;
+  const decel=(Math.abs(this.speed)-Math.abs(t.speed))/dt,braking=t.brake*9.81*1.1;
   if(Math.abs(this.speed)>4&&decel-braking>16){pulse(Math.min(1,(decel-braking)/40),.6,180);this.hold=now+180}
   // Suspension hits: fastest travel change across the wheels.
   let hit=0;t.wheels.forEach((w,i)=>{const prev=this.travel[i];if(prev!==undefined)hit=Math.max(hit,Math.abs(w.travel-prev)/dt)});

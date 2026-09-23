@@ -312,3 +312,18 @@ html.gx body .gx-series header{position:static;inset:auto;padding:0;border:0;bac
 .gx-coach-hint.is-on{opacity:1;animation:gx-rise .4s var(--gx-ease) both}
 .gx-coach-hint span{margin-left:4px}
 html.gx body.race-menu-open .gx-coach,html.gx body.gx-replay .gx-coach{display:none}
+
+/* ---------- Skill chains ---------- */
+.gx-skill{position:fixed;left:50%;bottom:118px;transform:translateX(-50%);z-index:6;display:grid;justify-items:center;gap:4px;pointer-events:none;opacity:0;transition:opacity .25s}
+.gx-skill[data-state=live],.gx-skill[data-state=cool],.gx-skill[data-state=bank],.gx-skill[data-state=lost]{opacity:1}
+.gx-skill-chain{display:flex;align-items:baseline;gap:8px}
+.gx-skill-chain b{font:italic 800 46px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-ink);text-shadow:0 4px 20px #000,0 0 2px #000}
+.gx-skill-chain i{font:italic 800 30px/1 var(--gx-display);font-synthesis:style;color:var(--gx-hot);text-shadow:0 2px 14px #000}
+.gx-skill span{font:800 13px/1 var(--gx-body);letter-spacing:.24em;padding:4px 10px;background:#07080ab8;color:var(--gx-cool)}
+.gx-skill span:empty,.gx-skill small:empty{display:none}
+.gx-skill small{font:800 12px/1 var(--gx-body);letter-spacing:.24em;padding:4px 10px;background:#07080ab8}
+.gx-skill[data-state=live] .gx-skill-chain b{animation:gx-count-pop .25s var(--gx-ease)}
+.gx-skill[data-state=cool] .gx-skill-chain{opacity:.7}
+.gx-skill[data-state=bank] b{color:var(--gx-good)}.gx-skill[data-state=bank] small{color:var(--gx-good)}
+.gx-skill[data-state=lost] b{color:var(--gx-bad);font-size:34px}.gx-skill[data-state=lost] small{color:var(--gx-bad)}
+html.gx body.race-menu-open .gx-skill,html.gx body.gx-replay .gx-skill{display:none}

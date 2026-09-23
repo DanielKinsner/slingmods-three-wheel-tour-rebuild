@@ -32,13 +32,13 @@ export class Coach {
  update(t:VehicleTelemetry,running:boolean,countdown:boolean){
   const now=performance.now();if(now>this.hintUntil)this.hint.classList.remove('is-on');
   if(countdown){this.say('throttle');this.runTime=0}
-  if(!running){this.show('');return}
+  if(!running){this.at=now;this.show('');return}
   const dt=Math.min(.2,(now-(this.at||now))/1000);this.at=now;this.runTime+=dt;
   if(this.runTime>4&&Math.abs(t.steer)>.25)this.say('steer');if(this.runTime>22)this.say('camera');
   this.stuck=Math.abs(t.speed)<1.5&&t.throttle>.5?this.stuck+dt:0;if(this.stuck>2.5)this.say('reset');
   if(!this.enabled||t.speed<8){this.show('');return}
   const p=projectRoad(this.course,t.position.x,t.position.z).progress,v=Math.abs(t.speed),P=this.profile;let need=0,dist=0;
-  for(let x=0;x<LOOK;x+=STEP){const k=Math.floor(((p+x)%P.length+P.length)%P.length/STEP)%P.limit.length,vmax=P.limit[k];const excess=v*v-vmax*vmax-2*DECEL*x;if(excess>need){need=excess;dist=x}}
+  for(let x=0;x<LOOK;x+=STEP){const k=Math.min(P.limit.length-1,Math.floor(((p+x)%P.length+P.length)%P.length/STEP)),vmax=P.limit[k];const excess=v*v-vmax*vmax-2*DECEL*x;if(excess>need){need=excess;dist=x}}
   this.show(need>18&&t.brake<.35?'brake':need>18?'braking':'',dist);
  }
  private show(state:string,dist=0){if(state!==this.state){this.state=state;this.brake.dataset.state=state}if(state)(this.brake.lastElementChild as HTMLElement).textContent=state==='braking'?'GOOD':`${Math.round(dist)} m`}
