@@ -1,10 +1,10 @@
 import {FILMS,type Film} from '../presentation/cinematics/tracks';
 
 /** Original synthesis. No recording, network request or additional AudioContext.
- * Uses the existing interface-volume bus and the game's captured master limiter. */
+ * Uses the shared music setting and the game's captured master limiter. */
 export class RaceFilmScore {
   private bus:GainNode;private noise:AudioBuffer;private film:Film|null=null;private elapsed=-1;
-  private active=new Set<AudioScheduledSourceNode>();
+  private active=new Set<AudioScheduledSourceNode>();private level=0;
   constructor(private ctx:AudioContext,output:AudioNode){
     this.bus=ctx.createGain();this.bus.gain.value=0;this.bus.connect(output);
     this.noise=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate);
@@ -30,8 +30,9 @@ export class RaceFilmScore {
   }
   update(film:Film|null,elapsed:number,enabled:boolean,level:number){
     if(!film||!enabled||level<=0){this.stop();return}
+    this.level=level;
     this.bus.gain.setTargetAtTime(level,this.ctx.currentTime,.025);
-    if(film!==this.film||elapsed<this.elapsed){this.stop();this.film=film;this.elapsed=-.01;this.bus.gain.setTargetAtTime(level,this.ctx.currentTime,.025)}
+    if(film!==this.film||elapsed<this.elapsed){this.stop();this.level=level;this.film=film;this.elapsed=-.01;this.bus.gain.setTargetAtTime(level,this.ctx.currentTime,.025)}
     let at=0;
     for(const [index,shot]of FILMS[film].entries()){
       // Don't dump missed cues if sound was unlocked halfway through a sequence.
@@ -48,6 +49,7 @@ export class RaceFilmScore {
     }
     this.elapsed=elapsed;
   }
-  stop(){this.bus.gain.setTargetAtTime(0,this.ctx.currentTime,.012);for(const source of this.active){try{source.stop(this.ctx.currentTime+.04)}catch{}}this.active.clear();this.film=null;this.elapsed=-1}
+  inspect(){return{film:this.film,level:this.level,sources:this.active.size}}
+  stop(){this.level=0;this.bus.gain.setTargetAtTime(0,this.ctx.currentTime,.012);for(const source of this.active){try{source.stop(this.ctx.currentTime+.04)}catch{}}this.active.clear();this.film=null;this.elapsed=-1}
   dispose(){this.stop();this.bus.disconnect()}
 }

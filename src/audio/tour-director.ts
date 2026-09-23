@@ -19,6 +19,7 @@ export class MotionSounds {
  private previous?:{time:number;speed:number;travel:number[];contacts:number};private lastImpact=-Infinity;private lastBump=-Infinity;
  update(t:VehicleTelemetry,reset=false){
   const now={time:t.time,speed:Math.abs(t.speed),travel:t.wheels.map(w=>w.travel),contacts:t.wheels.filter(w=>w.contact).length},old=this.previous;this.previous=now;
+  if(reset||old&&now.time<old.time){this.lastImpact=-Infinity;this.lastBump=-Infinity;return []}
   if(reset||!old||!Number.isFinite(now.time)||now.time<=old.time||now.time-old.time>.2)return [];
   const dt=now.time-old.time,result:{id:string;gain:number}[]=[];
   const loss=old.speed-now.speed;
@@ -34,13 +35,15 @@ type Voice={source:AudioBufferSourceNode;gain:GainNode};
 export class TourDirector {
  private bank?:AudioBank;private dead=false;private bus:GainNode;private musicBus:GainNode;
  private loops=new Map<string,Voice>();private shots=new Set<Voice>();private music?:Voice;private outgoing=new Set<Voice>();
- private musicId='';private requested='';private ticket=0;private cache=new Map<string,AudioBuffer>();
+ private musicId='';private requested='';private ticket=0;private cache=new Map<string,AudioBuffer>();private cinematic=false;
  private motion=new MotionSounds();private scene:SoundScene={...DEFAULT_SOUND_SCENE};private t?:VehicleTelemetry;
  private life:AudioLife={enabled:false,paused:false,mute:false,volume:0,cockpit:false};private levels={environment:.8,music:.45};
  private duckTimer?:ReturnType<typeof setTimeout>;private duckUntil=0;private failures:string[]=[];private lastPlay=new Map<string,number>();private musicTarget=0;private worldTarget=0;
  constructor(private ctx:AudioContext,output:AudioNode){this.bus=ctx.createGain();this.musicBus=ctx.createGain();this.bus.gain.value=0;this.musicBus.gain.value=0;this.bus.connect(output);this.musicBus.connect(output)}
  async prepare(){try{const bank=await loadAudioBank(this.ctx,'tour-world-v1');if(!this.dead){this.bank=bank;this.sync()}}catch{this.failures.push('Environment unavailable');}}
  setScene(value:Partial<SoundScene>){Object.assign(this.scene,value);this.sync()}
+ /** The authored film score temporarily owns music; world and vehicle sound keep their controls. */
+ setCinematic(active:boolean){if(this.cinematic===active)return;this.cinematic=active;this.sync()}
  update(life:AudioLife,levels:{environment:number;music:number},telemetry?:VehicleTelemetry){this.life=life;this.levels=levels;
   if(telemetry){this.t=telemetry;for(const shot of this.motion.update(telemetry,life.reset||life.paused||!life.enabled||life.mute||this.scene.place==='showroom'))this.play(shot.id,shot.gain)}
   this.sync();
@@ -62,8 +65,8 @@ export class TourDirector {
   const freeSpace=this.scene.free&&this.scene.phase==='running'&&((this.t?.time??0)%100)<18;
   const duck=this.ctx.currentTime<this.duckUntil?.32:1;
   const sceneLevel=this.scene.place==='showroom'?.62:this.scene.phase==='countdown'?.14:this.scene.phase==='running'?.72:.5;
-  const mt=active&&!freeSpace?this.life.volume*this.levels.music*sceneLevel*duck:0;
-  if(mt!==this.musicTarget){this.musicTarget=mt;this.musicBus.gain.setTargetAtTime(mt,this.ctx.currentTime,active?.5:.025)}
+  const mt=active&&!freeSpace&&!this.cinematic?this.life.volume*this.levels.music*sceneLevel*duck:0;
+  if(mt!==this.musicTarget){this.musicTarget=mt;this.musicBus.gain.setTargetAtTime(mt,this.ctx.currentTime,active&&!this.cinematic?.5:.025)}
   const id=this.scene.place==='showroom'||this.scene.phase==='finished'?'music-garage':this.scene.free||this.scene.place==='ridge'?'music-ridge':'music-race';
   if(active&&this.levels.music>0&&id!==this.requested){this.requested=id;void this.selectMusic(id)}
  }
@@ -72,6 +75,6 @@ export class TourDirector {
    if(old){this.outgoing.add(old);old.source.onended=()=>{this.clean(old);this.outgoing.delete(old)};this.stop(old,2)}
   }catch{if(ticket===this.ticket){this.failures.push(id+' unavailable');this.requested=id;}}
  }
- inspect(){return{scene:{...this.scene},loaded:!!this.bank,loops:[...this.loops.keys()],shots:this.shots.size,shotLimit:6,music:this.musicId,musicTarget:this.musicTarget,worldTarget:this.worldTarget,musicVoices:(this.music?1:0)+this.outgoing.size,cachedTracks:this.cache.size,failures:[...this.failures],bus:'captured-master'}}
+ inspect(){return{scene:{...this.scene},cinematic:this.cinematic,loaded:!!this.bank,loops:[...this.loops.keys()],shots:this.shots.size,shotLimit:6,music:this.musicId,musicTarget:this.musicTarget,worldTarget:this.worldTarget,musicVoices:(this.music?1:0)+this.outgoing.size,cachedTracks:this.cache.size,failures:[...this.failures],bus:'captured-master'}}
  dispose(){if(this.dead)return;this.dead=true;clearTimeout(this.duckTimer);this.ticket++;for(const v of [...this.loops.values(),...this.shots,...this.outgoing,...(this.music?[this.music]:[])]){v.source.onended=null;v.source.stop();this.clean(v)}this.loops.clear();this.shots.clear();this.outgoing.clear();this.cache.clear();this.bank=undefined;this.bus.disconnect();this.musicBus.disconnect()}
 }

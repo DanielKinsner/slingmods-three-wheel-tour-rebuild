@@ -13,7 +13,7 @@ try{for(const entry of [{place:'showroom',visual:'2026'},{place:'harbor',visual:
   console.log('Mix bounds',JSON.stringify(controls));assert.equal(controls.length,5);for(let i=1;i<controls.length;i++)assert.ok(controls[i].y>=controls[i-1].bottom-1,'Mix controls overlap');
   for(const width of [1280,390]){await page.setViewportSize({width,height:800});const r=await page.locator('#audio-music').boundingBox();assert.ok(r.x>=0&&r.x+r.width<=width);}
  }else{
-  await page.evaluate(()=>window.audioNow=0);await page.locator('#start-crew').click();
+  await page.evaluate(()=>window.audioNow=0);await page.locator('#start-crew').click();if(await page.locator('.film-skip').isVisible())await page.locator('.film-skip').click();
   for(let i=0;i<48;i++){await page.evaluate(i=>{const h=window.__EXPRESS;h.setDeviceSample({keys:i<30?[]:['ArrowUp'],pads:[],focused:true});for(let f=0;f<6;f++){h.normalFrame(window.audioNow,f===5);window.audioNow+=1000/60}},i);await page.waitForTimeout(100)}
   const state=await page.evaluate(()=>window.__EXPRESS.inspect());assert.ok(state.telemetry.speed>2);assert.equal(state.audio.score.scene.place,entry.place);assert.equal(state.audio.score.scene.phase,'running');
   assert.equal(state.audio.soundTreatment,entry.visual==='ryker'?'tour-designed-three-cylinder':'tour-designed-stock-mix');assert.ok(state.audio.graph.rms>0);

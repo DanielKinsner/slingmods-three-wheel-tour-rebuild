@@ -50,9 +50,18 @@ try{
  // Revisiting Chapter 01 must carry the same earned build, including later parts.
  const garage=await goto('?scene=bay&play=career','__TWT');assert.deepEqual(garage.recipe,final.recipe);assert.equal(garage.finish.finish,final.recipe.finish);assert.equal(garage.products.selected.length,5);await page.screenshot({path:out+'/11-career-garage.png'});
  for(const query of ['?scene=harbor&play=career','?scene=crew&event=duel&play=career','?scene=crew&play=career']){const s=await goto(query);assert.deepEqual(s.recipe,final.recipe);assert.equal(s.products.selected.length,5);assert.equal(s.visual.asset,rows.length?'/assets/model02/slingshot-2026.glb':'');rows.push({label:'revisit-'+s.eventId,profile:s.profileContract,recipe:s.recipe,look:s.look})}
+ // Current Chapter 01 creates a frozen entry when revisited. Check those deliberate
+ // preparations separately before testing that free previews make no career writes.
+ await goto('?scene=career&play=career','__CAREER_HUB');
+ const previewBaseline=await page.evaluate(()=>window.__CAREER_HUB.inspect().state);
+ const priorEntries=final.state.ownBuild.chapterOne.entries;
+ const revisits=Object.values(previewBaseline.ownBuild.chapterOne.entries).filter(e=>!priorEntries[e.id]);
+ assert.equal(revisits.length,3);assert.deepEqual(revisits.map(e=>e.event).sort(),['crew','duel','shakedown']);
+ for(const e of revisits){assert.deepEqual(e.recipe,final.recipe);assert.equal(e.status,e.event==='crew'?'prepared':'abandoned')}
+ assert.deepEqual({...previewBaseline,revision:final.state.revision,ownBuild:{...previewBaseline.ownBuild,chapterOne:final.state.ownBuild.chapterOne}},final.state);
  // Preview the earned build on every road/mode without touching career records.
  const fragment='#build='+encodeURIComponent(JSON.stringify({...final.recipe,handlingProfile:'slingmods-sport-v2'}));
  for(const route of ['harbor','express','ridge'])for(const mode of ['test','race']){const s=await goto(`?scene=express&route=${route}&mode=${mode}`+fragment);assert.deepEqual(s.recipe,final.recipe);assert.equal(s.careerTouched,false);rows.push({label:route+'-'+mode,profile:s.profileContract,recipe:s.recipe,look:s.look});await page.screenshot({path:out+`/12-${route}-${mode}.png`})}
- await goto('?scene=career&play=career','__CAREER_HUB');assert.deepEqual((await page.evaluate(()=>window.__CAREER_HUB.inspect())).state,final.state);
+ await goto('?scene=career&play=career','__CAREER_HUB');assert.deepEqual((await page.evaluate(()=>window.__CAREER_HUB.inspect())).state,previewBaseline);
  assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);await context.storageState({path:out+'/earned-career.json',indexedDB:true});await fs.writeFile(out+'/result.json',JSON.stringify({pass:true,method:'Packaged browser. Fresh career, real fixed-step physics and test-only pedal/steering inputs; no position, checkpoint, credit or result injection. Controlled simulation clock, not performance evidence.',final,rows,errors,failed},null,2));console.log('STORY PARITY PASS');
 }catch(e){await page.screenshot({path:out+'/failure.png'}).catch(()=>{});await fs.writeFile(out+'/failure.json',JSON.stringify({error:e.stack,rows,errors,failed,state:await page.evaluate(()=>window.__EXPRESS?.inspect()||window.__TWT?.inspect()||window.__CAREER_HUB?.inspect()).catch(()=>null)},null,2));throw e}finally{await context.close();await browser.close()}

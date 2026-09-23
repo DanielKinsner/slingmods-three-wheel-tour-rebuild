@@ -36,7 +36,7 @@ test('live game capture includes both real graph buses, stereo media, sync ancho
    AudioContext.prototype.createMediaStreamDestination=function(){const result=makeDestination.call(this);destinations.push(result);return result};
    // Any accidental microphone or system-capture request fails this isolated test immediately.
    for(const method of ['getUserMedia','getDisplayMedia'])if(navigator.mediaDevices?.[method])navigator.mediaDevices[method]=()=>{throw Error('Forbidden device capture requested')};
-   const game=new GameAudio(document.querySelector('#app'));window.testGame=game;await game.unlock();if(!game.inspect().enabled)throw Error(JSON.stringify(game.inspect()));game.settings.volume=.6;game.settings.mute=false;
+   const game=new GameAudio(document.querySelector('#app'));window.testGame=game;await game.unlock();if(!game.inspect().enabled)throw Error(JSON.stringify(game.inspect()));game.settings.volume=.6;game.settings.mute=false;game.settings.musicVolume=0;game.settings.environmentVolume=0;
    const t={rpm:3200,speed:18,throttle:.7,gear:2,shifting:false,position:{x:0,y:0,z:0},quaternion:{x:0,y:0,z:0,w:1},wheels:[0,1,2].map(()=>({contact:true,longitudinalSpeed:18,slipRatio:0,slipAngle:0,surface:'road'}))};
    const peers={maya:{...t,rpm:4800,position:{x:-3,y:0,z:0}},jett:{...t,rpm:2400,position:{x:4,y:0,z:-1}}};
    game.update(t,false,false,true);game.updateOpponents(t,{});await wait(200);

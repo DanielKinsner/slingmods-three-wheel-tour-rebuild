@@ -28,6 +28,18 @@ test('Motion foley rejects normal braking, reset discontinuities and repeated im
  t.time+=1/60;t.speed=5;assert.deepEqual(events.update(t),[]);
  }finally{sim.dispose()}
 });
+
+test('Motion foley cooldowns restart with a new attempt clock',async()=>{
+ const sim=await Simulation.create();try{
+  const t=sim.telemetry(),events=new MotionSounds();
+  t.time=100;t.speed=20;t.wheels.forEach(w=>{w.contact=true;w.travel=0});events.update(t);
+  t.time+=1/60;t.speed=10;t.wheels[0].travel=.1;
+  assert.deepEqual(events.update(t).map(e=>e.id),['impact','suspension']);
+  t.time=0;t.speed=20;t.wheels[0].travel=0;assert.deepEqual(events.update(t,true),[]);
+  t.time=1/60;t.speed=10;t.wheels[0].travel=.1;
+  assert.deepEqual(events.update(t).map(e=>e.id),['impact','suspension']);
+ }finally{sim.dispose()}
+});
 test('Race cue edges distinguish checkpoints and failed finishes without replaying on pause',()=>{
  const cues=new RaceCues(),played:string[]=[];const play=(id:string)=>played.push(id);
  const state={attemptId:'a',phase:'running',paused:false,countdown:0,standings:[{id:'player',lap:1,nextGate:1,valid:true}]};
