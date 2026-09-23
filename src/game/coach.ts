@@ -15,11 +15,11 @@ export function coachMode():CoachMode{try{const v=localStorage.getItem(KEY);retu
 export function setCoachMode(m:CoachMode){try{localStorage.setItem(KEY,m)}catch{/* session default */}}
 const DECEL=7,LOOK=170;
 
-const HINTS:{id:string;key:string[];pad:string[];text:string}[]=[
- {id:'throttle',key:['W','↑'],pad:['RT'],text:'Hold to accelerate'},
- {id:'steer',key:['A','D'],pad:['LS'],text:'Steer through the bends'},
- {id:'camera',key:['C'],pad:['Y'],text:'Change camera'},
- {id:'reset',key:['R'],pad:['A'],text:'Hold to reset onto the road'},
+const HINTS:{id:string;key:string[];pad:string[];touch:string[];text:string;touchText?:string}[]=[
+ {id:'throttle',key:['W','↑'],pad:['RT'],touch:['GAS'],text:'Hold to accelerate'},
+ {id:'steer',key:['A','D'],pad:['LS'],touch:['◀ ▶'],text:'Steer through the bends',touchText:'Drag on the left to steer'},
+ {id:'camera',key:['C'],pad:['Y'],touch:['CAM'],text:'Change camera'},
+ {id:'reset',key:['R'],pad:['A'],touch:['RESET'],text:'Hold to reset onto the road'},
 ];
 export class Coach {
  readonly root=document.createElement('div');private brake=document.createElement('div');private hint=document.createElement('div');
@@ -28,7 +28,7 @@ export class Coach {
   this.profile=cornerProfile(course);const mode=coachMode(),newbie=driveStats().drives<4;this.enabled=mode==='on'||mode==='auto'&&newbie;this.hints=mode!=='off'&&newbie;
   this.root.className='gx-coach';this.brake.className='gx-coach-brake';this.brake.innerHTML='<b>BRAKE</b><span></span>';this.hint.className='gx-coach-hint';this.root.append(this.brake,this.hint);parent.append(this.root);
  }
- private say(id:string){if(!this.hints||this.shown.has(id))return;const h=HINTS.find(x=>x.id===id)!;this.shown.add(id);const pad=inputKind()==='pad';this.hint.innerHTML=`${(pad?h.pad:h.key).map(k=>`<kbd class="gx-glyph ${pad?'gx-pad gx-pad-'+k.toLowerCase():'gx-key'}">${k}</kbd>`).join('')}<span>${h.text}</span>`;this.hint.classList.remove('is-on');void this.hint.offsetWidth;this.hint.classList.add('is-on');this.hintUntil=performance.now()+3800}
+ private say(id:string){if(!this.hints||this.shown.has(id))return;const h=HINTS.find(x=>x.id===id)!;this.shown.add(id);const touch=!!document.querySelector('.gx-touch:not([hidden])'),pad=!touch&&inputKind()==='pad';this.hint.innerHTML=`${(touch?h.touch:pad?h.pad:h.key).map(k=>`<kbd class="gx-glyph ${pad?'gx-pad gx-pad-'+k.toLowerCase():'gx-key'}">${k}</kbd>`).join('')}<span>${touch&&h.touchText||h.text}</span>`;this.hint.classList.remove('is-on');void this.hint.offsetWidth;this.hint.classList.add('is-on');this.hintUntil=performance.now()+3800}
  update(t:VehicleTelemetry,running:boolean,countdown:boolean){
   const now=performance.now();if(now>this.hintUntil)this.hint.classList.remove('is-on');
   if(countdown){this.say('throttle');this.runTime=0}

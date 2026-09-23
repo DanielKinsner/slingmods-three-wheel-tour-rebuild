@@ -96,6 +96,12 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
   rotates through six course/light reels, returns to the title after the finish, and any key/click/pad button goes to
   the main menu. Demo runs never write stats, splits, skills or achievements (`attract-flag.ts` guard); reduced-motion
   players are never sent into it. Check quickly with `?title=1&idle=4`.
+- Touch driving (`src/game/touch-drive.ts`): phones and tablets get a floating steering stick (left thumb), GAS and
+  BRAKE pedals and CAM / RESET / pause buttons. The overlay publishes a virtual standard gamepad, so the unchanged input
+  resolver drives it exactly like a controller (no physics or input-rule change). On automatically for coarse pointers,
+  `?touch=1` forces it (mouse accepted), `?touch=0` disables it. Gauges move to bottom centre, phone-height HUD is
+  compacted, coach hints show touch glyphs, portrait shows a turn-sideways hint. Verified with real multi-touch in a
+  headless touch context (simultaneous gas + steer) at 1600x900 and 844x390.
 
 ## Developer notes
 - `?title=1` forces the title screen (skipped automatically under WebDriver).
@@ -119,6 +125,6 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 - Visual checks by headless Chromium (`--use-angle=d3d11`) at 1280x720, 1600x900 and 1920x1080 of title, menu, all
   showroom screens, career hub (fresh and seeded), garage, workshop, race ready/countdown/running/pause/results, Time
   Attack with ghost, Options and Tour Log; the production demo build was exercised through menu > Race > Time Attack.
-- Not verified: physical controllers, touch devices, non-Chromium browsers, human listening of the synthesized cues.
+- Not verified: physical controllers, physical touch devices (touch is verified by emulated multi-touch only), non-Chromium browsers, human listening of the synthesized cues.
 - The sustained performance gate remains HOLD (unchanged). The ghost adds one draw call in Time Attack only; rival
   nameplates are DOM overlays.
