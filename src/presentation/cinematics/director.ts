@@ -26,6 +26,8 @@ export class RaceFilmDirector {
   private progress=document.createElement('i');private skip=document.createElement('button');
   private veil=document.createElement('div');private titleBlock=document.createElement('div');
   private parked=vehicleContact();
+  // The race's own finish slam gets the frame for a beat before the victory film rolls (0 = no finish pending).
+  private victoryAt=0;
   private gate=new FinishFilmGate();private film:Film|null=null;private elapsed=0;private shot=-1;
   private done?:()=>void;private preview=false;private reduced=false;private resumeFocus:HTMLElement|null=null;
   private suppressed:HTMLElement[]=[];private padReleased=false;private dead=false;
@@ -99,8 +101,10 @@ export class RaceFilmDirector {
     const canWatch=(state.phase==='ready'||!!state.playerResult)&&!state.paused;
     this.launcher.hidden=!canWatch||this.active;
     if(this.gate.accept(state.playerResult,state.paused)&&!this.disabled&&this.options.autoplay!==false&&!motionReduced()){
-      this.result=state.playerResult;if(!this.active)this.play('victory');
+      this.result=state.playerResult;this.victoryAt=performance.now()+1300;
     }
+    if(!state.playerResult)this.victoryAt=0;
+    else if(this.victoryAt&&!state.paused&&performance.now()>=this.victoryAt){this.victoryAt=0;if(!this.active)this.play('victory')}
     if(!this.film)return;
     if(hidden||state.paused){this.options.score(null);return}
     // Honour an accessibility preference changed while the film is already playing.

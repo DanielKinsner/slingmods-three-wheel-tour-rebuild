@@ -35,7 +35,7 @@ export class SkillChain {
    if(d<2.4&&d>1.05&&rel>2.5&&v>12&&now-last>3){this.near.set(id,now);this.add('near',250+rel*20);scored=true}}
   if(!scored&&this.points){this.active=null;this.quiet+=dt;if(this.quiet>BANK_AFTER)this.bank();else if(performance.now()-this.shownAt>120)this.render(false)}
  }
- private bank(){const total=Math.round(this.points*this.mult);if(total>=50){const r=skillRecord(),best=total>r.best;r.total+=total;r.chains++;if(best)r.best=total;saveRecord(r);this.sessionBest=Math.max(this.sessionBest,total);this.flash(`+${total.toLocaleString('en-US')}`,best?'NEW BEST CHAIN':`${this.kinds.map(k=>LABEL[k]).filter((x,i,a)=>a.indexOf(x)===i).join(' · ')}`,'bank');gameCue(best?'gx.record':'gx.reward')}else this.clear()}
+ private bank(){const total=Math.round(this.points*this.mult);if(total>=50){document.dispatchEvent(new CustomEvent('gx:skill-bank',{detail:{points:total}}));const r=skillRecord(),best=total>r.best;r.total+=total;r.chains++;if(best)r.best=total;saveRecord(r);this.sessionBest=Math.max(this.sessionBest,total);this.flash(`+${total.toLocaleString('en-US')}`,best?'NEW BEST CHAIN':`${this.kinds.map(k=>LABEL[k]).filter((x,i,a)=>a.indexOf(x)===i).join(' · ')}`,'bank');gameCue(best?'gx.record':'gx.reward')}else this.clear()}
  private lose(){this.flash('CHAIN LOST','Impact','lost');gameCue('gx.pos-down')}
  private flash(big:string,small:string,cls:string){this.points=0;this.mult=1;this.kinds=[];this.active=null;this.quiet=0;this.q('pts').textContent=big;this.q('mult').textContent='';this.q('kinds').textContent='';this.q('bank').textContent=small;this.root.dataset.state=cls;setTimeout(()=>{if(this.root.dataset.state===cls)this.clear()},1600)}
  private clear(){this.points=0;this.mult=1;this.kinds=[];this.root.dataset.state='';}

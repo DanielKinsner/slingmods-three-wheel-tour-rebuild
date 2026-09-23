@@ -16,6 +16,8 @@ html.gx{
  --gx-display:"Barlow Condensed","Arial Narrow",sans-serif;--gx-body:"Manrope","Segoe UI",system-ui,sans-serif;
  --gx-rake:-8deg;--gx-cut:14px;
  --gx-ease:cubic-bezier(.16,1,.3,1);--gx-snap:cubic-bezier(.7,0,.2,1);
+ /* Shared motion timing: quick feedback, a screen or panel arriving, a big moment settling. */
+ --gx-t-fast:.22s;--gx-t:.45s;--gx-t-slow:.7s;--gx-stagger:.06s;
  --gx-edge-x:clamp(20px,3.4vw,64px);
  /* Legacy tokens pulled into the new palette so untouched screens still agree. */
  --sm-red:var(--gx-red);--sm-red-hover:#ff5448;--sm-focus:var(--gx-hot);

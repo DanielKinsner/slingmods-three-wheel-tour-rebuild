@@ -1,0 +1,95 @@
+/* GX race menus, pass 4: start gantry, a real pause screen, one-primary action rows, run accolades. */
+
+/* ---------- Start gantry: three lights on a plate, the count big and clear beneath ---------- */
+.gx-lights{top:9%;grid-template-columns:auto;gap:6px;padding:0;background:none;border:0;box-shadow:none}
+.gx-gantry{display:flex;gap:18px;padding:14px 26px;background:linear-gradient(180deg,#1b1e24,#07080a);border:1px solid var(--gx-edge-2);border-bottom:3px solid var(--gx-red);box-shadow:0 18px 50px #000b;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 100%,0 100%);transition:border-color var(--gx-t-fast)}
+.gx-lights.is-go .gx-gantry{border-bottom-color:var(--gx-good)}
+.gx-lights b{margin-top:0;font-size:clamp(110px,12vw,190px);line-height:.95;text-shadow:0 10px 50px #000,0 0 3px #000}
+.gx-lights.is-go b{text-shadow:0 0 60px #39e27d88,0 10px 40px #000}
+/* Rival nameplates wait for the green; during the count they sat on top of the lights. */
+html.gx body:has(.gx-lights.is-on) .gx-tag{visibility:hidden}
+@media (max-width:760px){.gx-gantry{gap:10px;padding:10px 16px}.gx-lights b{font-size:96px}}
+
+/* ---------- Launch call-out ---------- */
+html.gx body:has(.gx-callout.is-launch.is-on) .gx-tag{visibility:hidden}
+.gx-callout.is-launch b{font-size:clamp(56px,6vw,96px);color:var(--gx-good)}
+/* Gradient-clipped text must not carry a text-shadow: the shadow paints over the gradient and turns it black. */
+.gx-callout.is-gold b{text-shadow:none}
+.gx-callout.is-launch.is-gold b{background:linear-gradient(180deg,#fff6c9 0%,#ffd23c 45%,#d58b00 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 30px #000)}
+
+/* ---------- Pause: dim the world, a menu down the left, the race status above it ---------- */
+html.gx body.gx-paused:not(.gx-photo)::before{content:'';position:fixed;inset:0;z-index:7;pointer-events:none;background:linear-gradient(90deg,#07080af7 0%,#07080ae0 30%,#07080a8c 60%,#07080a4d 100%);backdrop-filter:blur(5px) saturate(.75);animation:gx-fade-in var(--gx-t-fast) ease-out both}
+html.gx body.gx-paused :is(#game-graphics,.film-launcher){visibility:hidden}
+html.gx body.race-menu-open:not(.race-results-open) #race-menu[data-phase=pause]{left:0;top:0;bottom:0;transform:none;width:min(600px,48vw);max-height:none;padding:40px 48px 40px var(--gx-edge-x);background:none;border:0;box-shadow:none;backdrop-filter:none;display:flex;flex-direction:column;justify-content:safe center;animation:none}
+html.gx body #race-menu[data-phase=pause]>*{animation:gx-slide var(--gx-t) var(--gx-ease) both}
+html.gx body #race-menu[data-phase=pause]>:nth-child(2){animation-delay:var(--gx-stagger)}
+html.gx body #race-menu[data-phase=pause]>:nth-child(3){animation-delay:calc(var(--gx-stagger)*2)}
+html.gx body #race-menu[data-phase=pause]>:nth-child(4){animation-delay:calc(var(--gx-stagger)*3)}
+html.gx body #race-menu[data-phase=pause]>:nth-child(n+5){animation-delay:calc(var(--gx-stagger)*4)}
+html.gx body #race-menu[data-phase=pause] .result-numeral{display:none}
+html.gx body #race-menu[data-phase=pause] h1{font-size:clamp(76px,8.4vw,136px);line-height:.86;margin:10px 0 8px;text-shadow:0 8px 40px #0008}
+html.gx body #race-menu[data-phase=pause]>p{font-size:15px;margin:0 0 20px}
+.gx-pause-status{display:flex;flex-wrap:wrap;margin:0 0 26px;padding:0;border-block:1px solid var(--gx-edge-2)}
+.gx-pause-status>div{padding:12px 26px 12px 0;margin-right:26px;border-right:1px solid var(--gx-edge)}
+.gx-pause-status>div:last-child{border-right:0;margin-right:0}
+.gx-pause-status dt{font:800 9px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute);margin-bottom:6px}
+.gx-pause-status dd{margin:0;font:italic 800 34px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-ink)}
+.gx-pause-status dd small{display:inline;margin:0;font:inherit;font-size:.6em;color:var(--gx-ink-2)}
+.gx-pause-status>div:first-child dd{color:var(--gx-hot)}
+html.gx body #race-menu .menu-actions[data-gx-layout=list]{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:4px;max-width:380px}
+html.gx body #race-menu .menu-actions[data-gx-layout=list] :is(button,a){justify-content:flex-start;min-height:50px;padding:0 20px;border:0;border-left:3px solid transparent;background:#ffffff08;font:italic 800 23px/1 var(--gx-display);font-synthesis:style;letter-spacing:.05em;transform:none;box-shadow:none;transition:background var(--gx-t-fast),padding var(--gx-t-fast) var(--gx-ease),border-color var(--gx-t-fast)}
+html.gx body #race-menu .menu-actions[data-gx-layout=list] :is(button,a):is(:hover,:focus-visible){background:#ffffff16;border-left-color:var(--gx-red);padding-left:30px;outline:none}
+html.gx body #race-menu .menu-actions[data-gx-layout=list] .primary{min-height:60px;margin-bottom:8px;background:var(--gx-red);border-left-color:#fff;font-size:30px;box-shadow:0 10px 34px var(--gx-red-glow)}
+html.gx body #race-menu .menu-actions[data-gx-layout=list] .primary:is(:hover,:focus-visible){background:#ff5448;border-left-color:#fff}
+html.gx body #race-menu[data-phase=pause] .race-help{margin-top:22px;max-width:380px}
+@media (max-width:760px){
+ html.gx body.race-menu-open:not(.race-results-open) #race-menu[data-phase=pause]{width:100%;padding:24px 16px}
+ html.gx body #race-menu .menu-actions[data-gx-layout=list]{max-width:none}
+ .gx-pause-status>div{padding-right:16px;margin-right:16px}.gx-pause-status dd{font-size:26px}
+}
+@media (max-height:620px){
+ html.gx body #race-menu[data-phase=pause] h1{font-size:64px}
+ html.gx body #race-menu .menu-actions[data-gx-layout=list] :is(button,a){min-height:40px;font-size:19px}
+ html.gx body #race-menu .menu-actions[data-gx-layout=list] .primary{min-height:48px;font-size:24px}
+}
+
+/* ---------- Ready + results: one primary action, then an even secondary row ---------- */
+html.gx body #race-menu .menu-actions[data-gx-layout=row]{display:flex;flex-wrap:wrap;gap:8px}
+html.gx body #race-menu .menu-actions[data-gx-layout=row]>.primary{flex:1 1 auto;justify-content:center}
+html.gx body #race-menu .menu-actions[data-gx-layout=row]>[data-gx-replay]{flex:0 0 auto}
+.gx-actions-sub{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px}
+.gx-actions-sub:empty{display:none}
+html.gx body #race-menu .gx-actions-sub>:is(button,a){flex:1 1 auto;justify-content:center;min-height:40px;padding:0 12px;background:#ffffff06;border-color:var(--gx-edge);font-size:11px;letter-spacing:.16em;color:var(--gx-ink-2);white-space:nowrap;transition:background var(--gx-t-fast),color var(--gx-t-fast),border-color var(--gx-t-fast)}
+html.gx body #race-menu .gx-actions-sub>:is(button,a):is(:hover,:focus-visible){background:#ffffff16;border-color:var(--gx-edge-2);color:var(--gx-ink)}
+
+/* ---------- Results: run accolades ---------- */
+.gx-accolades{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px;padding:0}
+.gx-accolades li{--gx-acc:var(--gx-ink);display:grid;gap:4px;padding:8px 14px 9px 12px;background:#ffffff0c;border-left:3px solid var(--gx-acc);clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%);animation:gx-pop var(--gx-t) calc(.6s + var(--i)*.14s) var(--gx-ease) both}
+.gx-accolades b{font:800 9px/1 var(--gx-body);letter-spacing:.26em;color:var(--gx-acc)}
+.gx-accolades span{font:italic 800 20px/1 var(--gx-display);font-synthesis:style;font-variant-numeric:tabular-nums;color:var(--gx-ink)}
+.gx-accolades [data-kind=pb],.gx-accolades [data-kind=perfect]{--gx-acc:var(--gx-hot);background:linear-gradient(90deg,#ffd23c26,#ffffff08)}
+.gx-accolades [data-kind=great],.gx-accolades [data-kind=up],.gx-accolades [data-kind=clean]{--gx-acc:var(--gx-good)}
+.gx-accolades [data-kind=skill]{--gx-acc:var(--gx-cool)}
+@media (prefers-reduced-motion:reduce){.gx-accolades li,html.gx body #race-menu[data-phase=pause]>*{animation:none}}
+
+/* ---------- Transition beats ---------- */
+/* Countdown begins: the menu's hard cut is softened by a quick lift from dark, and the gantry drops into place. */
+.gx-fade{position:absolute;inset:0;background:#07080a;opacity:0;pointer-events:none}
+.gx-fade.is-on{animation:gx-lift var(--gx-t) ease-out both}
+@keyframes gx-lift{from{opacity:.75}to{opacity:0}}
+.gx-lights.is-on .gx-gantry{animation:gx-gantry-in var(--gx-t) var(--gx-ease) both}
+@keyframes gx-gantry-in{from{opacity:0;transform:translateY(-28px)}to{opacity:1;transform:none}}
+/* Finish: the slam gets the frame to itself, then the results arrive (their entrance animations run on reveal). */
+html.gx body.gx-results-hold #race-menu{display:none!important}
+html.gx body.gx-results-hold.race-results-open::before{display:none}
+
+/* ---------- Race films (arrival / grid / victory) in the GX type system ---------- */
+html.gx body .film-brand b{font:italic 800 20px/1 var(--gx-display);font-synthesis:style;letter-spacing:.02em}
+html.gx body .film-brand span{font:800 9px/1 var(--gx-body);letter-spacing:.32em;color:var(--gx-mute)}
+html.gx body .film-eyebrow{font:800 11px/1 var(--gx-body);letter-spacing:.3em}
+html.gx body .film-eyebrow::before{height:3px;background:var(--gx-red)}
+html.gx body .film-titles h1{font:italic 800 clamp(58px,8vw,132px)/.86 var(--gx-display);font-synthesis:style;letter-spacing:0;text-shadow:0 8px 40px #000a}
+html.gx body .film-detail{font:800 12px/1.6 var(--gx-body);letter-spacing:.24em;color:var(--gx-hot)}
+html.gx body .film-shot{font:800 9px/1 var(--gx-body);letter-spacing:.24em}
+html.gx body .film-timeline i{background:var(--gx-red)}
+html.gx body .film-skip{font:800 11px/1 var(--gx-body);letter-spacing:.2em;text-transform:uppercase;border-bottom:2px solid var(--gx-red)}
