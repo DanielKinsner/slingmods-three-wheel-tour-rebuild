@@ -117,7 +117,7 @@ html.gx body .signature-ui{transition:opacity .45s}
 
 /* ---------- Compact screens ---------- */
 @media (max-width:1100px){
- .gx-player{display:none}
+ html.gx body .gx-player{display:none}
  html.gx body .sig-header .sig-navigation button{padding:0 12px;font-size:16px}
  html.gx body .gx-tab-hint{display:none}
 }
@@ -126,13 +126,20 @@ html.gx body .signature-ui{transition:opacity .45s}
  html.gx body .sig-header .sig-navigation{top:60px;left:12px;right:12px;transform:none;justify-content:space-between;gap:0}
  html.gx body .sig-header .sig-navigation button{padding:0 8px;font-size:15px}
  html.gx body .sig-entry.gx-menu{top:150px;width:auto;right:16px;left:16px;bottom:auto;gap:14px}
- .gx-menu-title{display:none}
- .gx-tile{min-height:62px}.gx-tile-hero{min-height:96px}
+ html.gx body .gx-menu-title{display:none}
+ html.gx body .gx-tile{min-height:62px}html.gx body .gx-tile-hero{min-height:96px}
  html.gx body .tour-machine.gx-ride{display:none}
  html.gx body .signature-ui[data-screen=entry] .vehicle-appearance-picker{position:absolute;right:auto;left:16px;bottom:auto;top:120px}
- .gx-prompts{display:none}
+ html.gx body .gx-prompts{display:none}
 }
 html.gx body .gx-tile-slim{min-height:52px}html.gx body .gx-tile-slim strong{font-size:clamp(22px,1.8vw,28px)}html.gx body .gx-tile-slim .gx-tile-body{padding:8px 0}
 @media (max-height:820px){html.gx body .gx-menu-title h1{font-size:clamp(44px,4.2vw,70px)}html.gx body .gx-tile{min-height:56px}html.gx body .gx-tile-hero{min-height:92px}html.gx body .gx-tile em{display:none}html.gx body .gx-tile-slim{min-height:48px}html.gx body .sig-entry.gx-menu{gap:14px}}
 @media (max-width:1760px){html.gx body .gx-player-rank{display:none}html.gx body .gx-player{gap:8px}}
 @media (max-width:1280px){html.gx body .sig-header .sig-navigation{left:44%}}
+
+/* Secondary actions row: Tour Log + Options side by side */
+html.gx body .gx-menu-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+html.gx body .gx-menu-row .gx-tile{min-height:52px}
+@media (max-width:760px){html.gx body .gx-player,html.gx body .gx-opt-open,html.gx body .gx-log-open{display:none}html.gx body .sig-header .sig-brand img{width:112px}}
+html.gx body .gx-menu-row .gx-tile small{white-space:nowrap}
+@media (max-width:760px){html.gx body .sig-header .sig-navigation{overflow-x:auto;scrollbar-width:none;justify-content:flex-start}html.gx body .sig-header .sig-navigation::-webkit-scrollbar{display:none}html.gx body .sig-header .sig-navigation button{flex:none}}
