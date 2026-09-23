@@ -1,3 +1,13 @@
+# GX game-feel overhaul — current (2026-09-23)
+
+The owner handed the project over to make it truly feel like a video game (slicker, more fun UI, generated assets
+allowed, everything on main and pushed). Read `handoff/GX-GAME-FEEL.md`. The game shell, title screen, tile menu,
+GX screens, race FX/results, Time Attack with ghosts and medals, Quick Race difficulty, crew portraits and radio,
+achievements, Options and Tour Log live under `src/game/`. Physics, routes, race rules, reward certification and
+the career save schema are unchanged. Performance remains HOLD; do not start Phase 3 automatically. Pushing main
+deploys the existing Vercel game. Earlier headers below are history.
+
+---
 # Current cross-machine transfer (2026-09-22)
 
 The owner explicitly authorized committing the remaining work and pushing main so it can be

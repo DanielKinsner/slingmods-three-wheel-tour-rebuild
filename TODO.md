@@ -1,3 +1,11 @@
+# Current work - GX game-feel overhaul
+
+- Done: see `handoff/GX-GAME-FEEL.md` (shell, title, menus, race FX, Time Attack, difficulty, crew, achievements).
+- Next candidates: photo mode; wrong-way indicator; more radio lines per event; controller glyph art; human listening
+  pass on the synthesized cues; physical controller and touch testing.
+- Performance HOLD unchanged.
+
+---
 # Current work - Phase 2 performance fixes
 
 - Render CPU fixes committed (d2f57e7, 19473ad, 1f6a596, 602fc6c); see `handoff/PHASE-2-PERF-FIX.md`.

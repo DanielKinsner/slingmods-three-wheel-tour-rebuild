@@ -1,0 +1,74 @@
+# GX game-feel overhaul (2026-09-22/23)
+
+Owner request: take the project over, make it truly feel like a video game, make the UI slicker and more fun than the
+Gran-Turismo-style pass, generate assets where needed, and leave everything on `main` and pushed.
+
+Everything here is presentation and meta-game. Sport v5 / Ryker physics, routes, race rules, reward certification,
+career save schema (v4) and every historical record are unchanged. New local keys are listed at the end.
+
+## What changed for the player
+
+**Shell (every page)** — `src/game/shell.ts`, `shell.css`, inline boot in `index.html`
+- No more unstyled HTML flash: an inline boot screen paints first; every same-origin page change wipes to a loading
+  curtain (Navigation API) that hands off to the same look; scene loading veils show destination art and rotating tips.
+- Button-prompt bar with keyboard or controller glyphs (switches with the last device used).
+- Q/E (LB/RB) cycle any visible tab strip; quiet focus ticks when navigating with keys/pad.
+- 17 original UI/HUD cues synthesized by `scripts/game-feel/synth-cues.py` (bank `public/assets/audio/game-cues-v1`).
+
+**Front end** — `src/interface/entry.ts`, `src/game/menu.css`, `src/game/title.ts`, `src/signature/header.ts`
+- Title screen ("press any key", once per tab session) over a slow turntable; the key press also unlocks sound.
+- Main menu of raked tiles: Career (with chapter progress), Quick Race, Garage, Shop, Tour Log; ride card with stats.
+- Game top bar: HOME / GARAGE / RACE / SHOP / CAREER tabs, Tour Rep level + credits card, Tour Log (trophy) and
+  Options (gear) buttons.
+- Garage, Race and Shop screens restyled (`src/game/screens.css`).
+
+**Career** — `src/game/career.css`, `src/game/garage.css`
+- Hub: art-backed event cards with NEXT / completed / locked states, reward chips, events meter, wallet, next-up hero.
+- Chapter 01 garage panel is a mission ladder; workshop panel restyled; data-recovery panel restyled.
+
+**Racing** — `src/game/race-fx.ts`, `src/game/race.css`
+- Broadcast-style HUD; three-light start sequence; position gained/lost call-outs; checkpoint splits against your best
+  (cosmetic local key); lap / final-lap banners; finish slam with flash.
+- Results: ordinal with medal colour, staggered standings, top speed, animated credits + Tour Rep tally, level-up.
+- Crew radio with portraits (grid, overtakes, final lap, finish); rival lineup on the ready screen; floating rival
+  nameplates with gaps.
+
+**Time Attack** — `src/game/time-attack.ts` (Race screen button, URL `?trial=1`)
+- Solo validated standing-start lap, instant retry, no films, medal ladder HUD (SlingMods / Gold / Silver / Bronze).
+- Medal targets come from the production AI lapping each course (`scripts/game-feel/ai-lap-times.ts`).
+- Holographic ghost of your best run (single draw, fresnel additive), stored locally per course and ride.
+
+**Quick Race difficulty** — `src/game/difficulty.ts`; `RivalController` gained an optional `paceScale` (default 1).
+Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Career events always use scale 1.
+
+**Characters** — `src/game/crew.ts`, portraits in `public/assets/game-feel/crew` (sources + provenance in
+`assets/game-feel/`). Portraits appear in radio, career invitations, Chapter 01 crew invite and race lineups.
+
+**Meta** — `src/game/progress.ts` (Tour Rep, derived read-only from award receipts), `achievements.ts` (16 goals),
+`toast.ts` (unlock toasts), `options.ts` (shared modal: OPTIONS and TOUR LOG).
+- Options: audio mix (drives the existing mixer inputs), quality, Quick Race difficulty, camera motion, race films,
+  title screen, full controls reference. Opens with the gear, O key, controller View, or race menus.
+- Tour Log: achievements with progress, Time Attack records per course and ride, career and driving stats.
+
+## Developer notes
+- `?title=1` forces the title screen (skipped automatically under WebDriver).
+- `?autopilot=1` (only where evidence hooks are enabled, i.e. dev or `test=1&profile=1`) lets the production rival AI
+  drive the player car. Used for unattended captures of full races, results and Time Attack.
+- `.claude/launch.json` has `tour-dev` (vite) and `tour-demo` (serves the latest `npm run demo:build` on 5188).
+- New public assets must be added to `demo-assets.json`; use `python scripts/game-feel/allowlist.py <dir>` (keeps the
+  file's mixed line endings byte-for-byte).
+- `main.ts` now logs the load error to the console before showing the recovery screen.
+
+## Local storage keys added (all cosmetic / convenience, never part of the career save)
+`slingmods-gx-title-seen` (session), `slingmods-gx-splits-v1`, `slingmods-gx-time-attack-v1`,
+`slingmods-gx-difficulty`, `slingmods-gx-achievements-v1`, `slingmods-gx-stats-v1`.
+
+## Verification
+- `npm test` (437 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
+  `npm run deploy:build`.
+- Visual checks by headless Chromium (`--use-angle=d3d11`) at 1280x720, 1600x900 and 1920x1080 of title, menu, all
+  showroom screens, career hub (fresh and seeded), garage, workshop, race ready/countdown/running/pause/results, Time
+  Attack with ghost, Options and Tour Log; the production demo build was exercised through menu > Race > Time Attack.
+- Not verified: physical controllers, touch devices, non-Chromium browsers, human listening of the synthesized cues.
+- The sustained performance gate remains HOLD (unchanged). The ghost adds one draw call in Time Attack only; rival
+  nameplates are DOM overlays.
