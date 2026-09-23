@@ -1,3 +1,5 @@
+> Current playable-vehicle work supersedes the visual-only limitations below. See [PHYSICS.md](PHYSICS.md), [PRODUCT-REFERENCES.md](PRODUCT-REFERENCES.md) and the root handoff for the complete vehicle and acceptance evidence. Original conversion records below are preserved as history.
+
 # Ryker equipment and switching
 
 The shared showroom header now has persistent Slingshot R / Can-Am Ryker 900 choices, including Build, Destinations and Shop. Switching preserves the screen and restores that vehicle's draft. Ryker drafts, named recipes and drive snapshots use a separate `-ryker` storage namespace. Existing Slingshot keys and career transactions are unchanged. The default remains Adrenaline Red panels with a black seat.

@@ -1,6 +1,7 @@
 import type {Vector3} from 'three';
 import asset from '../../public/assets/ryker/manifest.json';
-import layout from '../../public/assets/slingshot-contact-layout.json';
+import {RYKER_DEFINITION} from '../simulation/vehicle-definition';
+const layout=RYKER_DEFINITION.layout;
 /** Visual positions only. Authoritative collision/raycast telemetry is never modified. */
 export const rykerWheels=['front_left','front_right','rear'].map((id,i)=>({...asset.wheels[id as keyof typeof asset.wheels],width:i===2?.168:.135}));
 export function visualWheel(out:Vector3,i:number,center:{x:number;y:number;z:number},ryker:boolean){

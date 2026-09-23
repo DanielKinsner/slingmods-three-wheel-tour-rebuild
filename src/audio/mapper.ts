@@ -11,12 +11,12 @@ export function mapAudio(t:VehicleTelemetry,life:AudioLife){
  const roadSpeed=contact.reduce((a,w)=>a+Math.abs(finite(w.longitudinalSpeed)),0)/Math.max(1,contact.length);
  const surface=contact.some(w=>w.surface==='gravel')?1.35:contact.some(w=>w.surface==='wet')?.85:1;
  layers.push({name:'road',rate:1,gain:contact.length?clamp(roadSpeed/28)*(.06+.10*slip)*surface:0},{name:'wind',rate:1,gain:clamp(speed/32)**1.7*.13});
- return{rpm,speed,load,layers,master:life.enabled&&!life.paused&&!life.mute?clamp(life.volume):0,cutoff:life.cockpit?2600:6500,shiftGain:.18,reset:!!life.reset};
+ return{powertrain:t.powertrain,rpm,speed,load,layers,master:life.enabled&&!life.paused&&!life.mute?clamp(life.volume):0,cutoff:life.cockpit?2600:6500,shiftGain:.18,reset:!!life.reset};
 }
 export class ShiftEvents {
  private gear:number|undefined;private shifting=false;private pending=false;
- update(t:VehicleTelemetry,reset=false){if(reset||this.gear===undefined){this.gear=t.gear;this.shifting=t.shifting;this.pending=t.shifting;return false}
+ update(t:VehicleTelemetry,reset=false){if(t.powertrain==='cvt'){this.gear=t.gear;this.shifting=false;this.pending=false;return false}if(reset||this.gear===undefined){this.gear=t.gear;this.shifting=t.shifting;this.pending=t.shifting;return false}
  let event=false;if(t.shifting&&!this.shifting){event=true;this.pending=true}if(t.gear!==this.gear){if(!this.pending)event=true;this.pending=false}if(!t.shifting&&!this.shifting)this.pending=false;this.gear=t.gear;this.shifting=t.shifting;return event;
  }
 }
-export type AudioParameters=ReturnType<typeof mapAudio>;
+export type AudioParameters=Omit<ReturnType<typeof mapAudio>,'powertrain'>&{powertrain?:VehicleTelemetry['powertrain']};

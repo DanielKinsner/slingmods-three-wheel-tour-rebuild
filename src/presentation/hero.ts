@@ -14,12 +14,12 @@ import {mergeRigidParts,type MergeReport} from './merge-rigid';
 import {perfLegacy} from './perf-switches';
 import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
-export async function loadDrivingHero(loader:GLTFLoader){
+export async function loadDrivingHero(loader:GLTFLoader,options:{rivals?:boolean}={}){
  const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync('/assets/drivers/test-driver.glb'),fetch(CURRENT_DRIVER_ATTACHMENT).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
  if(!isRyker(asset.scene))restoreConsoleDetail(asset.scene);
  asset.scene.userData.assetURL=CURRENT_VEHICLE_URL;
  const hero=bindDrivingHero(asset.scene,person.scene,attachment,rig);
- if(!isRyker(asset.scene))return hero;
+ if(!isRyker(asset.scene)||!options.rivals)return hero;
  // Selecting a Ryker changes the player only; the established rival fleet remains Slingshots.
  const [fleet,fleetAttachment,fleetRig]=await Promise.all([loader.loadAsync('/assets/model02/slingshot-2026.glb'),fetch('/assets/model02/driver-attachment.json').then(r=>r.json() as Promise<DriverAttachment>),fetch('/assets/model02/rear-rig.json').then(r=>r.json() as Promise<RearRig>)]);
  fleet.scene.userData.assetURL='/assets/model02/slingshot-2026.glb';restoreConsoleDetail(fleet.scene);const rivals=bindDrivingHero(fleet.scene,cloneRig(person.scene) as THREE.Group,fleetAttachment,fleetRig);return {...hero,cloneRival:rivals.cloneRival};

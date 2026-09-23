@@ -1,0 +1,8 @@
+import {chromium} from '@playwright/test';import {mkdir,writeFile} from 'node:fs/promises';
+const out='assets/ryker/evidence/complete/reconstruction';await mkdir(out,{recursive:true});await mkdir('.tools',{recursive:true});await writeFile('.tools/ryker-stock.html','<!doctype html><title>Ryker stock reconstruction</title><script type="module" src="/scripts/ryker/stock-fixture.ts"></script>');
+const b=await chromium.launch({headless:true,args:['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist']});const p=await b.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
+try{await p.goto('http://127.0.0.1:5198/.tools/ryker-stock.html');await p.waitForFunction(()=>window.__RYKER_STOCK?.ready,null,{timeout:60000});
+ const views=[['front',[0,.8,-3.7],[0,.45,-.15]],['rear',[0,.8,3.7],[0,.45,.1]],['left',[-3.4,.9,0],[0,.45,0]],['right',[3.4,.9,0],[0,.45,0]],['top',[.001,4.3,0],[0,.45,0]],['underside',[0,-3.5,.01],[0,.4,0]],['front-detail',[1,.42,-1.9],[0,.3,-.8]],['rear-detail',[1,.55,1.7],[0,.3,.4]]];
+ for(const [name,position,target]of views)for(const which of ['original','complete','mask']){const data=await p.evaluate(([which,pos,target])=>window.__RYKER_STOCK.render(which==='mask'?'complete':which,pos,target,which==='mask'),[which,position,target]);await writeFile(`${out}/${name}-${which}.png`,Buffer.from(data.split(',')[1],'base64'))}
+ await writeFile(out+'/capture.json',JSON.stringify({errors,views,method:'Identical Three.js renderer, PBR materials, lighting, cameras and preserved source GLB versus assembled stock; no presenters or simulation pose applied. Source originals untouched; yellow=replaceable body, red=stock shocks, blue=stock exhaust, gray=retained.'},null,2));console.log({errors});
+}finally{await b.close()}

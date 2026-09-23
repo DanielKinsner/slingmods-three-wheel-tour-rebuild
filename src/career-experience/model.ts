@@ -1,3 +1,6 @@
+import {RYKER_PRODUCTS,type RykerPart} from '../signature/ryker-catalog';
+import {freshRykerRecipe,type FinishId as RykerFinish} from '../signature/config';
+import type {Appearance} from '../career/catalog';
 import type {Career,Receipt} from '../career/store';
 import {freshRecipe,currentDrivingCopy,validateRecipe,type BuildRecipe,type FinishId} from '../signature/config';
 import {PRODUCTS,productById,type ProductId} from '../signature/catalog';
@@ -27,7 +30,9 @@ export const chapterRouteVersion=(route:RouteId)=>route==='ridge'?'ridge-layout-
 export interface Attempt {version:1;id:string;event:ChapterEvent;competitionId:string;route:RouteId;routeVersion:string;handlingProfile:string;laps:1|2;participants:string[];recipe:BuildRecipe;cupId:string|null;stage:0|1;status:'prepared'|'completed'|'abandoned'}
 export interface RaceRecord {attemptId:string;competitionId:string;route:RouteId;routeVersion:string;handlingProfile:string;laps:1|2;recipe:BuildRecipe;timeMs:number;place:number;standings:{id:string;place:number;status:string;timeMs:number|null}[]}
 export interface Cup {id:string;status:'active'|'completed'|'abandoned';stages:RaceRecord[];recipe:BuildRecipe;handlingProfile:string}
-export interface OwnBuild {version:1;finish:FinishId;products:Partial<Record<ProductId,{owned:true;equipped:boolean}>>;completed:Record<CoastlineEvent,boolean>;won:Record<CoastlineEvent,boolean>;ridge:ReturnType<typeof freshRidge>;active:Attempt|null;attempts:Record<string,Attempt>;cups:Record<string,Cup>;activeCupId:string|null;records:RaceRecord[]}
+export const RYKER_CREDITS:Record<RykerPart,number>={underglow:450,shocks:1000,exhaust:700,body:650};
+export interface ChapterOneEntry {id:string;event:'shakedown'|'duel'|'crew';preset:'day'|'night';recipe:BuildRecipe;status:'prepared'|'completed'|'abandoned'}
+export interface OwnBuild {chapterOne?:{activeId:string|null;entries:Record<string,ChapterOneEntry>};vehicle?:'slingshot-r-2024'|'can-am-ryker-900';ryker?:{recipe:BuildRecipe;owned:RykerPart[]};version:1;finish:FinishId;products:Partial<Record<ProductId,{owned:true;equipped:boolean}>>;completed:Record<CoastlineEvent,boolean>;won:Record<CoastlineEvent,boolean>;ridge:ReturnType<typeof freshRidge>;active:Attempt|null;attempts:Record<string,Attempt>;cups:Record<string,Cup>;activeCupId:string|null;records:RaceRecord[]}
 export const freshOwnBuild=():OwnBuild=>({version:1,finish:'blue-orange',products:{},ridge:freshRidge(),completed:{'open-it-up':false,'hold-your-nerve':false,'coastline-cup':false},won:{'open-it-up':false,'hold-your-nerve':false,'coastline-cup':false},active:null,attempts:{},cups:{},activeCupId:null,records:[]});
 export const uuid=(value:unknown):value is string=>typeof value==='string'&&/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
 const same=(a:unknown,b:unknown)=>JSON.stringify(a)===JSON.stringify(b);
@@ -38,12 +43,15 @@ export function eventAvailable(s:Career,event:ChapterEvent){if(isRidgeEvent(even
 export function productUnlocked(s:Career,id:ProductId){return id==='SM-133'||id==='SM-3223'||Object.entries(EVENTS).some(([event,value])=>value.unlock===id&&s.ownBuild.completed[event as CoastlineEvent])}
 export function productOwned(s:Career,id:ProductId){return id==='SM-133'?s.owned:id==='SM-3223'?s.suspension.owned:!!s.ownBuild.products[id]?.owned}
 export function productEquipped(s:Career,id:ProductId){return id==='SM-133'?s.equipped:id==='SM-3223'?s.suspension.equipped:!!s.ownBuild.products[id]?.equipped}
-export function careerRecipe(s:Career):BuildRecipe {const recipe=freshRecipe();recipe.finish=s.ownBuild.finish;recipe.lights=structuredClone(s.appearance);recipe.suspension=structuredClone(s.suspension.setup);for(const p of PRODUCTS)if(productEquipped(s,p.id))recipe.products[p.id]=p.option;return validateRecipe(recipe)}
+export function careerRecipe(s:Career):BuildRecipe {if(s.ownBuild.vehicle==='can-am-ryker-900')return validateRecipe(s.ownBuild.ryker?.recipe??freshRykerRecipe());const recipe=freshRecipe();recipe.finish=s.ownBuild.finish;recipe.lights=structuredClone(s.appearance);recipe.suspension=structuredClone(s.suspension.setup);for(const p of PRODUCTS)if(productEquipped(s,p.id))recipe.products[p.id]=p.option;return validateRecipe(recipe)}
 export function competition(event:ChapterEvent,stage:0|1){if(isRidgeEvent(event))return {route:'ridge' as const,eventId:`p10a-${event}-ridge-v1`,participants:event==='find-the-ridge'?['player']:event==='nico-ridge-duel'?['nico','player']:['maya','jett','nico','player'],laps:RIDGE_EVENTS[event].laps};const route:RouteId=event==='coastline-cup'&&stage===0?'harbor':'express';return {route,laps:1 as const,eventId:`p09a-${event}-${route}-v1`,participants:event==='open-it-up'?['player']:event==='hold-your-nerve'?['jett','player']:['maya','jett','nico','player']}}
 export function cupStandings(cup:Cup){return ['maya','jett','nico','player'].map(id=>({id,points:cup.stages.reduce((n,r)=>{const s=r.standings.find(s=>s.id===id);return n+(s?.status==='finished'?([0,10,7,5,3][s.place]??0):0)},0),timeMs:cup.stages.reduce((n,r)=>n+(r.standings.find(s=>s.id===id)?.timeMs??1e9),0)})).sort((a,b)=>b.points-a.points||a.timeMs-b.timeMs||a.id.localeCompare(b.id))}
 export function validateOwnBuild(raw:unknown):OwnBuild {
  const s=structuredClone(raw) as OwnBuild;const fail=()=>{throw Error('Chapter save requires recovery')};
  if(!s||s.version!==1||[s.products,s.completed,s.won,s.attempts,s.cups].some(v=>!v||typeof v!=='object'||Array.isArray(v))||!Array.isArray(s.records))return fail();
+ if(s.chapterOne){const b=s.chapterOne;if(!b.entries||typeof b.entries!=='object'||Array.isArray(b.entries))return fail();for(const [id,e]of Object.entries(b.entries)){if(!uuid(id)||e.id!==id||!['shakedown','duel','crew'].includes(e.event)||!['day','night'].includes(e.preset)||!['prepared','completed','abandoned'].includes(e.status))return fail();validateRecipe(e.recipe)}if(b.activeId!==null&&(!uuid(b.activeId)||b.entries[b.activeId]?.status!=='prepared'))return fail();if(Object.values(b.entries).filter(e=>e.status==='prepared').length!==(b.activeId?1:0))return fail()}
+ if(s.vehicle!==undefined&&!['slingshot-r-2024','can-am-ryker-900'].includes(s.vehicle))return fail();
+ if(s.ryker){const r=validateRecipe(s.ryker.recipe);if(r.vehicleId!=='can-am-ryker-900'||!Array.isArray(s.ryker.owned)||new Set(s.ryker.owned).size!==s.ryker.owned.length||s.ryker.owned.some(id=>!RYKER_PRODUCTS.some(p=>p.id===id))||Object.entries(r.ryker??{}).some(([id,on])=>on&&!s.ryker!.owned.includes(id as RykerPart)))return fail()}
  if(s.ridge===undefined)s.ridge=freshRidge();
  if(!s.ridge||[s.ridge.completed,s.ridge.won].some(v=>!v||typeof v!=='object'||Array.isArray(v)))return fail();
  for(const event of Object.keys(RIDGE_EVENTS) as RidgeEvent[])if(typeof s.ridge.completed[event]!=='boolean'||typeof s.ridge.won[event]!=='boolean'||s.ridge.won[event]&&!s.ridge.completed[event])return fail();
@@ -76,9 +84,25 @@ export function certifyCareerFinish(attempt:Attempt,race:ReturnType<CrewRace['sn
  if(!uuid(attempt.id)||!Number.isFinite(p.timeMs)||p.timeMs<=0||!Number.isInteger(p.place)||p.place<1||p.place>attempt.participants.length||race.standings.some(s=>!['finished','dnf','invalid','unfinished'].includes(s.status)||s.status==='finished'&&(!Number.isFinite(s.timeMs)||s.timeMs!<=0))||race.standings.find(s=>s.id==='player')?.timeMs!==p.timeMs||race.standings.find(s=>s.id==='player')?.place!==p.place)throw Error('Career result contains invalid timing or standings');
  const proof=freeze(record) as CareerFinish;issued.add(proof);return proof;
 }
-export type OwnBuildCommand={type:'chapter-begin';event:ChapterEvent;id:string;cupId?:string;routeVersion:string;retryOf?:string}|{type:'chapter-abandon'}|{type:'chapter-result';result:CareerFinish}|{type:'chapter-purchase';id:string;productId:ProductId;option:string;vehicleId:string}|{type:'chapter-equip';productId:ProductId;equipped:boolean}|{type:'chapter-finish';finish:FinishId};
+export type OwnBuildCommand={type:'chapter-one-begin';id:string;event:ChapterOneEntry['event'];preset:'day'|'night';retryOf?:string}|{type:'chapter-vehicle';vehicle:'slingshot-r-2024'|'can-am-ryker-900'}|{type:'chapter-ryker-purchase';id:string;part:RykerPart}|{type:'chapter-ryker-equip';part:RykerPart;equipped:boolean}|{type:'chapter-ryker-style';finish?:RykerFinish;lights?:Appearance}|{type:'chapter-begin';event:ChapterEvent;id:string;cupId?:string;routeVersion:string;retryOf?:string}|{type:'chapter-abandon'}|{type:'chapter-result';result:CareerFinish}|{type:'chapter-purchase';id:string;productId:ProductId;option:string;vehicleId:string}|{type:'chapter-equip';productId:ProductId;equipped:boolean}|{type:'chapter-finish';finish:FinishId};
 export function ownBuildTransition(s:Career,c:OwnBuildCommand,at:string):{changed:boolean;receipt?:Receipt}{
  const b=s.ownBuild;
+ if(c.type==='chapter-one-begin'){
+  const entries=b.chapterOne??={activeId:null,entries:{}};
+  if(!uuid(c.id)||entries.entries[c.id]||s.receipts[c.id]||!['shakedown','duel','crew'].includes(c.event)||!['day','night'].includes(c.preset))throw Error('Invalid Chapter 01 entry');
+  if(c.event!=='shakedown'&&!s.chapters.firstCompletion||c.event==='crew'&&!s.buildMatters.legacyCrewAccess&&!s.buildMatters.duelCompleted)throw Error('Chapter event is locked');
+  const retry=c.retryOf?entries.entries[c.retryOf]:undefined;if(c.retryOf&&(!retry||retry.status==='abandoned'||retry.status==='prepared'&&entries.activeId!==retry.id||retry.event!==c.event))throw Error('Retry requires the frozen entry');
+  const recipe=structuredClone(retry?.recipe??careerRecipe(s));if(entries.activeId)entries.entries[entries.activeId].status='abandoned';
+  entries.entries[c.id]={id:c.id,event:c.event,preset:retry?.preset??c.preset,recipe,status:'prepared'};entries.activeId=c.id;return {changed:true};
+ }
+ if(c.type==='chapter-vehicle'){if(!['slingshot-r-2024','can-am-ryker-900'].includes(c.vehicle))throw Error('Unknown vehicle');if((b.vehicle??'slingshot-r-2024')===c.vehicle)return {changed:false};b.vehicle=c.vehicle;if(c.vehicle==='can-am-ryker-900')b.ryker??={recipe:freshRykerRecipe(),owned:[]};return {changed:true}}
+ if(c.type==='chapter-ryker-purchase'||c.type==='chapter-ryker-equip'||c.type==='chapter-ryker-style'){
+  if(b.vehicle!=='can-am-ryker-900'||!b.ryker)throw Error('Select the Ryker in your career garage');const r=b.ryker;
+  if(c.type==='chapter-ryker-style'){r.recipe=validateRecipe({...r.recipe,...(c.finish?{finish:c.finish}:{}),...(c.lights?{lights:c.lights}:{})});return {changed:true}}
+  if(!RYKER_PRODUCTS.some(p=>p.id===c.part))throw Error('Unknown Ryker part');
+  if(c.type==='chapter-ryker-equip'){if(!r.owned.includes(c.part)||typeof c.equipped!=='boolean')throw Error('Owned Ryker part required');r.recipe.ryker![c.part]=c.equipped;return {changed:true}}
+  if(!uuid(c.id))throw Error('Purchase identity required');if(r.owned.includes(c.part))return {changed:false};if(s.receipts[c.id])throw Error('Transaction identity already used');const price=RYKER_CREDITS[c.part];if(s.credits<price)throw Error(`${price} game credits required`);s.credits-=price;r.owned.push(c.part);r.recipe.ryker![c.part]=true;return {changed:true,receipt:{id:c.id,kind:'ryker-purchase',amount:-price,balance:s.credits,first:true,at,productId:c.part}};
+ }
  if(c.type==='chapter-finish'){const recipe=careerRecipe(s);recipe.finish=c.finish;validateRecipe(recipe);b.finish=c.finish;return {changed:true}}
  if(c.type==='chapter-purchase'){
   const p=productById(c.productId);if(!uuid(c.id)||!p||!['SM-7720','SM-26801','SM-28919'].includes(c.productId)||p.saveVehicleId!==c.vehicleId||p.option!==c.option)throw Error('Invalid product, option or fitment');

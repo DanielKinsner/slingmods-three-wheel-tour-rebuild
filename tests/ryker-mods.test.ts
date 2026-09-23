@@ -1,14 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {BuildRepository,freshRecipe,stockRecipe,validateRecipe} from '../src/signature/config';
+import {BuildRepository,freshRecipe,rykerRecipe,stockRecipe,validateRecipe} from '../src/signature/config';
 import {RYKER_PRODUCTS} from '../src/signature/ryker-catalog';
 const memory=()=>{const m=new Map<string,string>();return {getItem:(k:string)=>m.get(k)??null,setItem:(k:string,v:string)=>void m.set(k,v)}};
 test('vehicle drafts, named saves and drive snapshots remain isolated in shared storage',()=>{
  const durable=memory(),session=memory(),s=new BuildRepository(durable,session,'slingshot'),r=new BuildRepository(durable,session,'ryker');
  const sling=freshRecipe();sling.products['SM-28919']='lower-pair';sling.finish='white-graphite';s.setDraft(sling);s.save('Mine',sling);s.beginDrive(sling,'harbor','test');
  const ryker={...freshRecipe(),ryker:{body:true,exhaust:true,shocks:true,underglow:true}};r.setDraft(ryker);r.save('Mine',ryker);r.beginDrive(ryker,'ridge','test','night');
- assert.deepEqual(new BuildRepository(durable,session,'slingshot').draft(),sling);assert.deepEqual(new BuildRepository(durable,session,'ryker').draft(),ryker);
+ assert.deepEqual(new BuildRepository(durable,session,'slingshot').draft(),sling);assert.deepEqual(new BuildRepository(durable,session,'ryker').draft(),rykerRecipe(ryker));
  assert.equal(s.recipes()[0].recipe.products['SM-28919'],'lower-pair');assert.equal(r.recipes()[0].recipe.ryker?.body,true);assert.equal(s.drive().route,'harbor');assert.equal(r.drive().route,'ridge');
 });
 test('stock comparison removes Ryker accessories without mutating its build; malformed equipment is rejected',()=>{

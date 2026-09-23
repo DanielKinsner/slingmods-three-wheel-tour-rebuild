@@ -1,4 +1,3 @@
-import {VEHICLE_VISUAL} from './vehicle-asset';
 import {rykerWheels,visualWheel} from './ryker-contacts';
 import * as THREE from 'three';
 import RAPIER from '@dimforge/rapier3d-compat';
@@ -50,7 +49,7 @@ export class DrivingContact {
    const upright=t?1-2*(t.quaternion.x*t.quaternion.x+t.quaternion.z*t.quaternion.z):0;
    if(t){this.q.copy(t.quaternion);this.forward.set(0,0,1).applyQuaternion(this.q);this.forward.y=0;this.forward.normalize();this.right.set(this.forward.z,0,-this.forward.x)}
    for(let part=0;part<4;part++){
-    const ryker=VEHICLE_VISUAL==='ryker'&&id==='player',index=(ci*4+part)*4,w=t?.wheels[part],wheel=(ryker?rykerWheels:layout.wheels)[part];let alpha=0;
+    const ryker=t?.vehicleId==='can-am-ryker-900',index=(ci*4+part)*4,w=t?.wheels[part],wheel=(ryker?rykerWheels:layout.wheels)[part];let alpha=0;
     if(this.enabled&&t&&upright>.35&&(part===3||w?.contact)){
      if(w)visualWheel(this.p,part,w.localCenter,ryker);else this.p.set(0,.6,-.1);
      this.p.applyQuaternion(this.q).add(t.position);this.p.y+=.08;

@@ -34,18 +34,18 @@ test('shared Shakedown preserves standing-lap timing, pause, invalid practice co
   shared.restart(randomUUID());original.restart();tick(at(-5),at(-5));
  }
 });
-test('Chapter 01 shares all earned equipment and finish; locked races stay locked and preview-only parts never appear',()=>{
+test('Chapter 01 shares all earned equipment and finish; locked races stay locked and preview-only parts never appear',async()=>{
  const s=freshCareer();s.ownBuild.finish='white-graphite';s.ownBuild.products['SM-7720']={owned:true,equipped:true};s.ownBuild.products['SM-28919']={owned:true,equipped:false};
- const c=client(s);assert.equal(chapterOneRace(c,new URLSearchParams('scene=crew')),null);
- const solo=chapterOneRace(c,new URLSearchParams('scene=harbor'))!;assert.deepEqual(solo.recipe,careerRecipe(s));assert.equal(solo.recipe.products['SM-28919'],undefined);assert.equal(solo.recipe.handlingProfile,CURRENT_HANDLING_PROFILE);
+ const c=client(s);assert.equal(await chapterOneRace(c,new URLSearchParams('scene=crew')),null);
+ const solo=(await chapterOneRace(c,new URLSearchParams('scene=harbor')))!;assert.deepEqual(solo.recipe,careerRecipe(s));assert.equal(solo.recipe.products['SM-28919'],undefined);assert.equal(solo.recipe.handlingProfile,CURRENT_HANDLING_PROFILE);
  s.chapters.firstCompletion=true;s.buildMatters.duelCompleted=true;
- for(const query of ['scene=crew','scene=crew&event=duel'])assert.deepEqual(chapterOneRace(c,new URLSearchParams(query))!.recipe,solo.recipe);
+ for(const query of ['scene=crew','scene=crew&event=duel'])assert.deepEqual((await chapterOneRace(client(s),new URLSearchParams(query)))!.recipe,solo.recipe);
  assert.deepEqual(solo.recipe.products,{'SM-7720':careerRecipe(s).products['SM-7720']});
 });
 test('Chapter 01 rewards still require its actual race proof and pay once across callbacks; retry rejects the old finish',async()=>{
  for(const solo of [true,false]){
   const s=freshCareer();s.chapters.firstCompletion=!solo;
-  const c=client(s),entry=chapterOneRace(c,new URLSearchParams(solo?'scene=harbor':'scene=crew&event=duel'))!;
+  const c=client(s),entry=(await chapterOneRace(c,new URLSearchParams(solo?'scene=harbor':'scene=crew&event=duel')))!;
   const race=solo?new ShakedownRace(route,'day',CURRENT_HANDLING_PROFILE):new CrewRace(route,entry.participants,'player',true,{handlingProfileId:CURRENT_HANDLING_PROFILE});
   race.restart(entry.attempt.id);
   const field=(d:number)=>Object.fromEntries(entry.participants.map(id=>[id,at(id==='player'?d:d-2)]));

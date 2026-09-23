@@ -1,5 +1,4 @@
 import bpy,json,sys,pathlib,numpy as np
-out=pathlib.Path(sys.argv[sys.argv.index('--')+1])
 def components(mesh):
  parent=list(range(len(mesh.vertices)))
  def root(i):
@@ -12,6 +11,7 @@ def components(mesh):
  for p in mesh.polygons:groups.setdefault(int(labels[p.vertices[0]]),[]).append(p.index)
  return labels,groups
 if __name__=='__main__':
+ out=pathlib.Path(sys.argv[sys.argv.index('--')+1])
  report={}
  for n in [7,8,9,10,13,14,15,17,18]:
   o=bpy.data.objects[f'Part___{n}'];labels,groups=components(o.data);co=np.array([v.co for v in o.data.vertices]);rows=[]

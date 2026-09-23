@@ -1,3 +1,4 @@
+import {RykerWorkshop} from './ryker-workshop';
 import './garage.css';
 import {ChapterUI} from '../career/chapter-ui';
 import {BuildUI} from '../career/build-ui';
@@ -27,11 +28,11 @@ const esc=(v:unknown)=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
  * vehicle presentation and camera controller as the free showroom. Mode changes labels, permissions and transactions only.
  */
 export class GarageUI {
- readonly root=document.createElement('section');readonly chapter:ChapterUI;readonly build:BuildUI;private entry:HTMLElement;private state!:SignatureState;private key='';private workshopCamera:unknown;
+ readonly root=document.createElement('section');readonly chapter:ChapterUI;readonly build:BuildUI|RykerWorkshop;private entry:HTMLElement;private state!:SignatureState;private key='';private workshopCamera:unknown;
  constructor(private app:HTMLElement,private career:CareerClient,private stage:GarageStage){
   this.root.className='signature-ui garage-ui';this.root.id='garage-ui';this.root.setAttribute('aria-label','Career garage');this.root.dataset.screen='garage';app.append(this.root);
   this.entry=mountHarborEntry();this.entry.hidden=true;
-  this.build=new BuildUI(career,{cue:(id,key)=>stage.cue(id,key),suspension:equipped=>stage.suspension(equipped),
+  const Workshop=career.state.ownBuild.vehicle==='can-am-ryker-900'?RykerWorkshop:BuildUI;this.build=new Workshop(career,{inspectPart:part=>stage.view('ryker-'+part),cue:(id,key)=>stage.cue(id,key),suspension:equipped=>stage.suspension(equipped),
    inspectHardware:rear=>stage.view(rear===null?'workshop':rear?'SM-3223-rear':'SM-3223-front'),
    // Restore the exact prior view once the workshop layout is gone; fitting belongs to opening only.
    open:opened=>{this.chapter?.setVisible(!opened);this.entry.hidden=true;if(opened){this.workshopCamera=stage.saveCamera();stage.view('workshop')}else if(this.workshopCamera!==undefined){const saved=this.workshopCamera;this.workshopCamera=undefined;stage.restoreCamera(saved)}stage.layout()},
@@ -51,10 +52,10 @@ export class GarageUI {
   if(action==='lighting'){this.stage.lighting(value==='lights'?'lights':'studio');return}
   if(action==='driver'){this.stage.driver(value==='true');return}
  }
- update(state:SignatureState){this.state=state;const s=this.career.state,finish=FINISHES.find(f=>f.id===s.ownBuild.finish)?.name??'',key=JSON.stringify([state.view,state.viewManual,state.lighting,state.driverVisible,s.ownBuild.finish,s.revision,this.career.durable,this.career.profile]);if(key===this.key)return;this.key=key;
+ update(state:SignatureState){this.state=state;const s=this.career.state,finish=FINISHES.find(f=>f.id===careerRecipe(s).finish)?.name??'',key=JSON.stringify([state.view,state.viewManual,state.lighting,state.driverVisible,s.ownBuild.finish,s.revision,this.career.durable,this.career.profile]);if(key===this.key)return;this.key=key;
   const pressed=(v:string)=>String((state.view??'hero')===v&&!state.viewManual),step=nextCareerStep(s);
   this.root.innerHTML=`${gameHeader({current:'career',career:{label:'Career',detail:step.detail,returning:false,returnLabel:''}})}
-  <div class="sig-view-tools garage-view-tools" aria-label="Garage view"><p class="garage-identity"><strong>${esc(VEHICLE_MODEL_LABEL)} · ${esc(finish)}</strong><small>Your earned career build · ${esc(driveTuneLabel(careerRecipe(s).handlingProfile))} · ${this.career.profile==='demo'?'Prepared demo profile':this.career.durable?'Saved on this browser':'Temporary career · this tab only'}</small></p><div class="sig-camera-rail">${[['hero','Full vehicle'],['front','Front'],['rear','Rear'],['interior','Interior'],['tour-wall','Tour Wall']].map(([v,l])=>`<button data-action="view" data-value="${v}" aria-pressed="${pressed(v)}">${l}</button>`).join('')}<button data-action="lighting" data-value="${state.lighting==='lights'?'studio':'lights'}" aria-pressed="${state.lighting==='lights'}">Lights</button><button data-action="driver" data-value="${!state.driverVisible}" aria-pressed="${!!state.driverVisible}">Driver</button></div></div>`;
+  <div class="sig-view-tools garage-view-tools" aria-label="Garage view"><p class="garage-identity"><strong>${esc(VEHICLE_MODEL_LABEL)} · ${esc(finish)}</strong><small>Your earned career build · ${esc(driveTuneLabel(careerRecipe(s).handlingProfile))} · ${this.career.profile==='demo'?'Prepared demo profile':this.career.durable?'Saved on this browser':'Temporary career · this tab only'}</small></p><div class="sig-camera-rail">${[['hero','Full vehicle'],['front','Front'],['rear','Rear'],['interior','Interior'],['tour-wall','Tour Wall'],['route-relief','Route relief']].map(([v,l])=>`<button data-action="view" data-value="${v}" aria-pressed="${pressed(v)}">${l}</button>`).join('')}<button data-action="lighting" data-value="${state.lighting==='lights'?'studio':'lights'}" aria-pressed="${state.lighting==='lights'}">Lights</button><button data-action="driver" data-value="${!state.driverVisible}" aria-pressed="${!!state.driverVisible}">Driver</button></div></div>`;
  }
  frame(sample:DeviceSample){this.build.frame(sample);this.chapter.frame(sample)}
  /** Unobstructed canvas rectangle: right of whichever career panel is open, above the camera rail. */
