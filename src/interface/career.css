@@ -1,0 +1,76 @@
+/* Career / the driver's journal. Same saved progress and actions, new composition. */
+.tour-ui body.career-experience { background: #191c17; }
+.tour-ui body .career-shell { max-width: 1680px; padding: 0 var(--tour-edge) 64px; }
+.tour-ui body .career-shell .sig-header,
+.tour-ui body .career-shell .sig-header:has(.vehicle-appearance-picker) { min-height: 134px; height: 134px; padding: 0; border: 0; }
+.tour-ui body .career-shell .sig-header::after { left: 0; right: 0; }
+.tour-ui body .career-shell .vehicle-appearance-picker { left: 0; }
+.tour-ui body .career-shell .sig-brand { min-height: 0; }
+.tour-ui body .career-chapters { margin: 14px 0 0; gap: 0; border-bottom: 1px solid var(--sm-line); }
+.tour-ui body .career-chapters a { border: 0; border-bottom: 2px solid transparent; border-radius: 0; padding: 12px 24px; font-size: 10px; gap: 18px; text-transform: uppercase; letter-spacing: .08em; }
+.tour-ui body .career-chapters a span { font-size: 24px; }
+.tour-ui body .career-chapters a[aria-current=page] { border-color: var(--sm-red); background: none; }
+.tour-ui body .career-intro { padding: 38px 0 32px; }
+.tour-ui body .career-intro h1 { font-size: clamp(60px, 7.2vw, 116px); letter-spacing: -.015em; line-height: .9; margin: 16px 0 20px; text-transform: uppercase; }
+.tour-ui body .career-intro p { font-size: 12px; line-height: 1.8; max-width: 560px; }
+.tour-ui body .career-wallet { border-left: 1px solid var(--sm-line); padding-left: 42px; }
+.tour-ui body .career-wallet strong { font-size: 64px; }
+.tour-ui body .career-wallet span { font-size: 9px; letter-spacing: .18em; }
+.tour-ui body .career-wallet small { font-size: 10px; }
+.tour-ui body .career-next { background: var(--tour-paper); border: 0; border-radius: 0; color: var(--tour-ink); padding: 26px 30px; margin-bottom: 28px; }
+.tour-ui body .career-next .career-kicker { color: #666e5d; }
+.tour-ui body .career-next strong { font-size: 42px; text-transform: uppercase; }
+.tour-ui body .career-next p { color: #646b5b; font-size: 12px; }
+.tour-ui body .career-next button { border-radius: 0; font: 700 23px var(--sm-display); text-transform: uppercase; padding: 16px 28px; }
+.tour-ui body .career-section-title { margin-top: 40px; }
+.tour-ui body .career-section-title h2 { font-size: 34px; text-transform: uppercase; }
+.tour-ui body .career-section-title span { font-size: 9px; }
+.tour-ui body .career-events { gap: 22px; }
+.tour-ui body .career-events article { background: #22271f; border: 0; border-radius: 0; }
+.tour-ui body .career-event-route { height: 150px; background: linear-gradient(0deg,#161e18e6,#161e1822), url('/assets/interface/express-day.jpg') center 55% / cover; border: 0; }
+.tour-ui body .career-event-route:has(svg[aria-label="Smoky Ridge course"]) { background-image: linear-gradient(0deg,#161e18e6,#161e1822), url('/assets/interface/ridge-day.jpg'); }
+.tour-ui body .career-event-route svg { width: 140px; padding: 20px; }
+.tour-ui body .career-event-route path { stroke: #eceee2; stroke-width: 3; }
+.tour-ui body .career-event-route > span { font-size: 9px; letter-spacing: .16em; left: 24px; bottom: 20px; color: var(--sm-ink); }
+.tour-ui body .career-event-body { padding: 24px; }
+.tour-ui body .career-events h3 { font-size: 36px; text-transform: uppercase; }
+.tour-ui body .career-events p { font-size: 12px; line-height: 1.8; }
+.tour-ui body .career-events small { font-size: 10px; }
+.tour-ui body .career-events .career-reward { font-size: 11px; color: #d4d9c9; }
+.tour-ui body .career-events button { width: 100%; font-size: 11px; background: transparent; border-radius: 0; }
+.tour-ui body .career-events [data-event-state=next] { border-top: 0; box-shadow: inset 0 -3px var(--sm-red); }
+.tour-ui body .career-events [data-event-state=next] button { background: var(--sm-red); }
+.tour-ui body .career-callout, .tour-ui body .career-resume { border: 0; border-top: 1px solid var(--sm-line); background: transparent; padding: 24px 0; border-radius: 0; }
+.tour-ui body .career-callout p, .tour-ui body .career-resume p { font-size: 12px; }
+.tour-ui body .career-shell button { border-radius: 0; font-size: 13px; }
+.tour-ui body .career-products { gap: 0 40px; }
+.tour-ui body .career-products article { background: transparent; padding: 28px 0; }
+.tour-ui body .career-products img { background: #d9dccf; border-radius: 0; padding: 12px; }
+.tour-ui body .career-products h3 { text-transform: uppercase; }
+.tour-ui body .career-products p { font-size: 11px; line-height: 1.8; }
+.tour-ui body .career-product-actions, .tour-ui body .career-external { font-size: 10px; }
+.tour-ui body .career-finish { font-size: 11px; }
+.tour-ui body .career-finish select { font-size: 12px; border-radius: 0; background: #22271f; }
+.tour-ui body .career-cup { background: #252b21; border-radius: 0; border: 0; }
+.tour-ui body .career-records { font-size: 11px; }
+.tour-ui body .career-records summary { font-size: 12px; }
+.tour-ui body .career-dialog { border-radius: 0; background: #23271f; }
+.tour-ui body .career-dialog h2 { font-size: 52px; text-transform: uppercase; }
+.tour-ui body .career-dialog p { font-size: 13px; line-height: 1.8; }
+
+/* Chapter garage and earned workshop. Existing camera safe regions remain authoritative. */
+.tour-ui body.career-garage #chapter-panel,
+.tour-ui body.career-garage #build-panel,
+.tour-ui body.career-garage #harbor-entry { border-radius: 0; background: #1d211bf7; border: 1px solid var(--sm-line); box-shadow: none; }
+.tour-ui body.career-garage #chapter-panel { left: var(--tour-edge); padding: 26px; }
+.tour-ui body.career-garage #chapter-panel h1 { font-size: 52px; text-transform: uppercase; line-height: .95; }
+.tour-ui body.career-garage #chapter-status { font-size: 12px; line-height: 1.8; }
+.tour-ui body.career-garage #chapter-panel button { font-size: 11px; border-radius: 0; background: transparent; }
+.tour-ui body.career-garage #chapter-panel .chapter-primary { background: var(--sm-red); }
+.tour-ui body.career-garage #chapter-wallet { font-size: 10px; }
+.tour-ui body.career-garage #chapter-roadmap { font-size: 12px; }
+.tour-ui body.career-garage #chapter-roadmap small { font-size: 10px; }
+.tour-ui body.career-garage #build-panel h2 { text-transform: uppercase; }
+.tour-ui body.career-garage #build-panel button { border-radius: 0; }
+.tour-ui body.career-garage .garage-identity strong { font-size: 30px; }
+.tour-ui body.career-garage .garage-identity small { font-size: 10px; }

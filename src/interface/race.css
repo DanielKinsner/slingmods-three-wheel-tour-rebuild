@@ -1,0 +1,49 @@
+/* Race / broadcast precision. Stable instrument nodes and telemetry are unchanged. */
+.tour-ui body .race-top { inset: 28px 36px auto; grid-template-columns: 260px 1fr 210px 44px; gap: 24px; }
+.tour-ui body .race-identity { grid-template-columns: 1fr 1fr; gap: 12px 25px; }
+.tour-ui body .race-identity > img { width: 156px; margin-bottom: 2px; }
+.tour-ui body .race-position > span, .tour-ui body .race-laps > span,
+.tour-ui body .race-timing > span { font-size: 9px; letter-spacing: .2em; color: #dedfd4; }
+.tour-ui body .race-position strong, .tour-ui body .race-laps strong { font-size: 64px; font-weight: 800; }
+.tour-ui body .race-position b, .tour-ui body .race-laps b { font-size: 26px; }
+.tour-ui body .race-position i, .tour-ui body .race-laps i { font-size: 29px; color: #c5c9ba; }
+.tour-ui body .race-course-title { margin-top: 4px; font-size: 9px; letter-spacing: .15em; }
+.tour-ui body .race-course-title::before { width: 22px; height: 2px; background: var(--sm-red); }
+.tour-ui body .race-course-title::after { display: none; }
+.tour-ui body .race-timing { padding: 0; }
+.tour-ui body .race-timing strong { font-size: 40px; }
+.tour-ui body .race-timing small { font-size: 10px; }
+.tour-ui body .race-top button { border-radius: 0; border: 1px solid #ebefe052; background: #161b1680; font-size: 16px; }
+.tour-ui body .race-progress-detail { font-size: 9px; }
+.tour-ui body .race-gauges { right: 30px; bottom: 28px; width: 300px; height: 212px; background: radial-gradient(ellipse at 55% 70%,#11180d80,transparent 73%); }
+.tour-ui body .race-tach { height: 165px; }
+.tour-ui body .race-tach path { stroke-width: 4; }
+.tour-ui body .race-tach path.lit { stroke: #eeefe3; }
+.tour-ui body .race-tach path.limit.lit { stroke: var(--sm-red); }
+.tour-ui body .race-tach text { font-size: 10px; }
+.tour-ui body .race-speed-readout { top: 80px; left: 42px; gap: 12px; }
+.tour-ui body .race-speed-readout strong { font-size: 88px; font-weight: 800; }
+.tour-ui body .race-speed-readout span { font-size: 10px; }
+.tour-ui body .race-transmission { top: 86px; right: 22px; }
+.tour-ui body .race-transmission b { font-size: 41px; border: 0; border-left: 1px solid #d1d6c67a; padding: 5px 10px; border-radius: 0; }
+.tour-ui body .race-transmission span { font-size: 8px; }
+.tour-ui body .race-engine-readout { top: 180px; left: 43px; font-size: 9px; letter-spacing: .1em; }
+.tour-ui body .race-route-aid { width: 182px; left: 32px; bottom: 34px; }
+.tour-ui body .race-route-aid path { stroke-width: 2.8; }
+.tour-ui body .race-route-aid .map-boundary { fill: #17201145; stroke: #eeefe324; stroke-width: 1; }
+.tour-ui body .race-route-aid span { font-size: 9px; letter-spacing: .13em; }
+.tour-ui body.harbor-race #game-audio { top: 91px; right: 36px; background: #17201155; }
+.tour-ui body.harbor-race #game-audio button { border: 0; font-size: 10px; }
+.tour-ui body #race-menu { background: #1a1e18f7; border: 1px solid var(--sm-line); border-top: 3px solid var(--sm-red); border-radius: 0; padding: 34px; box-shadow: none; }
+.tour-ui body #race-menu h1 { font-size: clamp(42px, 5vw, 72px); line-height: .9; }
+.tour-ui body #race-menu p { font-size: 12px; line-height: 1.8; }
+.tour-ui body #race-menu small { font-size: 10px; }
+.tour-ui body #race-menu summary { font-size: 11px; }
+.tour-ui body .menu-actions button, .tour-ui body .menu-actions a { font-size: 11px; border-radius: 0; }
+.tour-ui body .menu-actions .primary { font: 700 23px var(--sm-display); letter-spacing: .04em; text-transform: uppercase; }
+.tour-ui body.race-results-open #race-menu { border: 0; background: transparent; padding: 12px 0; left: var(--tour-edge); width: min(450px, 36vw); }
+.tour-ui body.race-results-open #race-menu > .result-numeral { font-size: 110px; border: 0; padding: 0; color: var(--sm-ink); }
+.tour-ui body.race-results-open .result-time { font-size: 56px; }
+.tour-ui body.race-results-open .result-standings { font-size: 12px; }
+.tour-ui body.race-results-open .result-standings .crew-player { background: var(--tour-paper); color: var(--tour-ink); border: 0; padding-inline: 12px; }
+.tour-ui body .notice#race-banner, .tour-ui body .invalid#race-banner { font-size: 12px; background: #1a1e18e6; }
