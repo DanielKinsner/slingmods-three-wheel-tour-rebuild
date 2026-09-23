@@ -1,6 +1,6 @@
 import {chromium} from '@playwright/test';
 import {mkdir,writeFile} from 'node:fs/promises';
-const out=process.env.RYKER_WORK??'C:/Users/SM - Dan/Documents/GitHub/slingmods game/ryker-purchased/work';
+const out=process.env.RYKER_WORK??'.tools/ryker-work';
 await mkdir(out+'/browser',{recursive:true});
 const browser=await chromium.launch({headless:true,args:['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist','--mute-audio']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});

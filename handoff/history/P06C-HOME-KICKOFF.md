@@ -1,0 +1,43 @@
+# Portable home-session kickoff — P06C Built Waterfront
+
+Continue **SlingMods: Three-Wheel Tour in the EXISTING rebuild**. Implement P06C as one integrated autonomous run. Do not restart, scaffold another project, execute the historical Fresh-Start Kit, or repeat completed P06B. Astra-Review-12 was the last submission; this run should produce Astra-Review-13.zip.
+
+## 1. Discover this machine and establish authority
+
+The intended private repository is `DanielKinsner/slingmods-three-wheel-tour-rebuild`, expected branch `main`. Discover the actual checkout; never assume an old username, absolute path, conversation, executable, browser profile or installation exists here. Use literal-path handling and resolve project paths relative to the verified checkout.
+
+For this machine transition only, you may inspect the remote read-only to verify the handoff and clone that exact repository if no checkout exists, using existing authentication. This narrow setup permission overrides the kit's remote-operation prohibition only for discovery/verification and an initial clone. Do not push, remotely merge, reset, clean, rewrite history, overwrite local work, or automatically pull into an existing checkout. If access is unavailable or local and remote state differ, report the concrete evidence; preserve local work and continue only where the baseline is established. Do not assume the work-machine push succeeded. Do not expose credentials.
+
+Read `HANDOFF.md` first, then the checkout's `AGENTS.md`, `director-kit/AGENTS.md`, production state and relevant handoff manifests/validation. Read historical fresh-start policy only as context subordinate to this continuation instruction. Locate the supplied **SlingMods-Astra-Director-Review-12.zip**. Inspect its manifest and safely extract it into a dedicated, non-conflicting review-12 packet directory, preserving internal relative paths. Do not extract it over the game. If already extracted, verify it matches the supplied kit and reuse it. If the kit is missing, request that exact file; do not substitute an older assignment.
+
+Read all of the latest kit's `START-HERE.md`, `CODEX_NEXT.md`, `review/AUDIT.md`, `packets/P06C-BUILT-WATERFRONT.md`, `packets/VALIDATION-AND-DELIVERY.md`, `references/ART-TARGETS.md`, and `references/composition-bands.json`; inspect its visual evidence. This instruction corrects its obsolete absolute path. The latest P06C packet supersedes the old implementation pause and historical assignment scopes.
+
+Record branch, HEAD, dirty/untracked work, remote verification, active exports, hardware/renderer, dependency/tool versions and missing source/runtime assets. Review12 runtime `9348fa90311c5fbdfd74529feb50548582cdca17` and packaging `7f5e8c4f16eacd1e466de0fed359087b6156e598` are historical provenance, never reset targets. Protect the actual starting state.
+
+Discover Node/npm, Python, browser tooling and Blender. **Downloading Blender from its official source is authorized**; prefer the handoff's Blender 4.5.2 for reproduction. Use background Blender and isolated browser tests. Install required project/test dependencies as needed. No paid tools/assets, desktop takeover or interaction with my personal browser. Existing runtime exports should work without re-exporting. Validate transferred assets with the read-only handoff verifier; distinguish documented line-ending normalization from changed content. Personal browser saves do not transfer through Git; use isolated test saves.
+
+## 2. Execute P06C
+
+Preserve the accepted Slingshot/rear/driver/product assets, shared physics, controls/cameras/audio, actual course and collision/runoff envelope, rivals, two-lap chapter, rules, rewards, ownership and save schema. Keep the photo-based material sources and outdoor sky/probe/light-preparation pipeline. G3/G4 and final environmental art remain held. No new vehicles, products, chapters, engine, city or major garage rebuild.
+
+Follow the packet's M0–M4 sequence:
+
+- Capture matched baseline runtime views and protect source/assets. Load the actual route/collision bounds as locked Blender guides. Plan connected frontage, working yards, planting and intentional water openings using real local route geometry. Keep all new visible art editable in Blender, in named collections with clear footprints/transforms.
+- Start in the weak service section, stations 300–935 m: working quay at 300–510, warehouse court at 510–735, and yard-to-promenade transition at 735–935. Prove a connected 120–180 m sample including a corner. Inspect normal chase/cockpit views, day/night and motion; record concrete critique and repair before rollout. Put solid masses behind existing blockers and preserve sightlines and vehicle clearance.
+- Replace the four-way mirrored asphalt motif. Separate fine photographed aggregate from restrained authored road-scale variation; preserve aligned channels, correct color spaces and the dry physical road. Inspect ground detail and long normal driving views under daylight and headlights.
+- Rebuild coherent palm fronds/crowns while retaining useful trunks/bark. Keep editable authoring and bake/export sources. Review near/mid/far crowns around 15/40/80 m and actual LOD transitions at 720p/1080p, day/night, pale/dark backgrounds and motion. Verify any alpha masking in the actual exported runtime. Avoid wispy ribbons, black cards, unstable thinning and excessive transparent overdraw.
+- Roll the accepted construction method across all three service bands and connect marina/promenade/terminal transitions. Preserve good existing work and open water views. Keep night rivals, route cues and underglow readable; garage changes are limited to necessary lighting consistency.
+
+Make routine creative/technical decisions without repeated approval requests. Use recoverable local commits containing only your changes. Perform internal critique, repairs, full-course integration and testing before delivery. A visual HOLD calls for another bounded iteration while capacity remains. After two genuinely different failed approaches to one blocker, diagnose and change method or document a precise blocker. Do not substitute more scattered objects, higher-resolution textures or darker lighting for the requested construction improvements.
+
+## 3. Validate and deliver once
+
+Follow the full validation packet: installed full tests and production build; protected-source/clearance/material/channel/LOD checks; fresh and existing saves, product states, lap validity, race payouts/retry, transitions/reload, pause/focus/device loss, cameras and audio. Use ordinary input/physics paths, never scripted transform motion or fabricated results.
+
+Capture the eight matched district day/night anchors plus service views, road detail/long views and palm distance/transition comparisons. Identify frozen source/assets and renderer. Deliver a continuous ordinary daylight lap and a continuous two-lap crew race through results/garage with actual synchronized game audio; explicitly disclose silence or capture limits.
+
+Measure performance separately from media capture on this machine, standard quality/DPR1: stock1080, stock720, equipped1080, equipped720, plus two complete equipped1080 races in one retry context after transitions—five configurations/six races. Add daylight testing if its material/foliage path differs significantly. Retain whole active races, first scored failures and outliers. Working gates: p95 ≤20 ms, p99 ≤33.4 ms, no active interval >100 ms. Record hardware, viewport, loading/ready events and resource stability; do not inherit old-machine FPS or claim unexplained shader/ready stalls are resolved. Repair measured art/render costs without changing physics or lowering targets.
+
+Return one **Astra-Review-13.zip** in the checkout root, using a fresh numbered filename if needed. Follow every delivery-packet inclusion: review-first/run instructions, commits and limitations, runnable source/runtime assets, changed editable Blender/bake sources, license/provenance records, selected comparisons/videos, full validation logs, raw timing and critique/repair history. Hash every archive entry except its manifest. Preserve relative paths and historical evidence. Exclude `.git`, dependencies, installed tools, secrets, caches, `dist`, redundant archives and temporary media; do not commit the ZIP.
+
+No intermediate review ZIPs, spending, deployment, remote writes or user QA chores. If genuinely blocked or the session must end, leave a recoverable checkpoint and `RESUME.md` stating completed work, exact blocker, active files, test state, next command and limitations. Never claim unexecuted work, future background progress, final art approval or G3/G4 approval.

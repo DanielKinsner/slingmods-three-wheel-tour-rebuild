@@ -1,6 +1,6 @@
-import {chromium} from '@playwright/test';import {writeFile} from 'node:fs/promises';import assert from 'node:assert/strict';
-const out=process.env.RYKER_WORK??'C:/Users/SM - Dan/Documents/GitHub/slingmods game/ryker-purchased/work';const base=process.env.BASE_URL??'http://127.0.0.1:5198';
-const b=await chromium.launch({headless:true,args:['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist','--mute-audio']}),p=await b.newPage({viewport:{width:1440,height:1000}});const report={errors:[]};p.on('pageerror',e=>report.errors.push(e.message));
+import {chromium} from '@playwright/test';import {mkdir,writeFile} from 'node:fs/promises';import assert from 'node:assert/strict';
+const out=process.env.RYKER_WORK??'.tools/ryker-work';const base=process.env.BASE_URL??'http://127.0.0.1:5198';
+await mkdir(out+'/browser',{recursive:true});const b=await chromium.launch({headless:true,args:['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist','--mute-audio']}),p=await b.newPage({viewport:{width:1440,height:1000}});const report={errors:[]};p.on('pageerror',e=>report.errors.push(e.message));
 const ready=key=>p.waitForFunction(k=>window[k]?.ready,key,{timeout:180000});
 try{
  await p.goto(base+'/?scene=signature&visual=ryker&screen=events&test=1&profile=1');await ready('__SIGNATURE');

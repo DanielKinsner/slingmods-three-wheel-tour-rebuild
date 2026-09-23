@@ -1,7 +1,7 @@
 import {chromium} from '@playwright/test';
 import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
-const base=process.env.RYKER_URL??'http://127.0.0.1:5198',out='C:/Users/SM - Dan/Documents/GitHub/slingmods game/ryker-purchased/work/mods';
+const base=process.env.RYKER_URL??'http://127.0.0.1:5198',out=(process.env.RYKER_WORK??'.tools/ryker-work')+'/mods';
 await mkdir(out,{recursive:true});const b=await chromium.launch({headless:true,args:['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist','--mute-audio']}),p=await b.newPage({viewport:{width:1440,height:1000}}),report={base,errors:[],parts:{}};
 p.on('pageerror',e=>report.errors.push(e.message));p.on('console',m=>{if(m.type()==='error')report.errors.push(m.text())});
 await p.addInitScript(()=>{const u=new URL(location.href);if(u.searchParams.get('scene')==='express'){u.searchParams.set('test','1');u.searchParams.set('profile','1');history.replaceState(null,'',u.href)}});

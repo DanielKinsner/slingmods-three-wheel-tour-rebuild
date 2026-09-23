@@ -1,5 +1,5 @@
 import {chromium} from '@playwright/test';import {mkdir,writeFile} from 'node:fs/promises';import assert from 'node:assert/strict';
-const out=process.env.RYKER_WORK??'C:/Users/SM - Dan/Documents/GitHub/slingmods game/ryker-purchased/work';await mkdir(out+'/browser',{recursive:true});
+const out=process.env.RYKER_WORK??'.tools/ryker-work';await mkdir(out+'/browser',{recursive:true});
 const b=await chromium.launch({headless:true,args:['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist','--mute-audio']});
 const p=await b.newPage({viewport:{width:1440,height:1000}}),errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
 const report={browser:await b.version(),viewport:[1440,1000],method:'Isolated headless Chromium, ANGLE D3D11, same viewport and fixed reference camera; short RAF samples include whole scene/post passes. Not sustained FPS certification.',showrooms:{},errors};

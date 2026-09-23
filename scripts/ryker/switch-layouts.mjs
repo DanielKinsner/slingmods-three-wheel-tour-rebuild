@@ -1,7 +1,8 @@
 import {chromium} from '@playwright/test';
-import {writeFile} from 'node:fs/promises';
+import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
-const out='C:/Users/SM - Dan/Documents/GitHub/slingmods game/ryker-purchased/work/mods',base=process.env.RYKER_URL??'http://127.0.0.1:5197';
+const out=(process.env.RYKER_WORK??'.tools/ryker-work')+'/mods',base=process.env.RYKER_URL??'http://127.0.0.1:5197';
+await mkdir(out,{recursive:true});
 const b=await chromium.launch({headless:true,args:['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist','--mute-audio']}),p=await b.newPage(),report={errors:[],views:[]};p.on('pageerror',e=>report.errors.push(e.message));
 try{for(const scene of ['career','bay']){
  await p.goto(`${base}/?scene=${scene}&visual=ryker&play=career&test=1&profile=1`);await p.locator('.vehicle-appearance-picker').waitFor();if(scene==='bay')await p.waitForFunction(()=>window.__SIGNATURE?.ready,null,{timeout:120000});

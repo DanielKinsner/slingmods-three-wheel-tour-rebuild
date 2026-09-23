@@ -1,3 +1,15 @@
+# Current cross-machine transfer (2026-09-22)
+
+The owner explicitly authorized committing the remaining work and pushing main so it can be
+pulled on another system. This supersedes earlier local-only/no-push restrictions for this
+transfer. Read `handoff/NEXT-MACHINE.md` first. All four rider/UI/cinematic/audio worktrees and
+the subsequent rider-hand repair are integrated. Continue from main; no old worktree is needed.
+Preserve physics, saves, approved assets and historical evidence. Performance remains HOLD;
+no automatic Phase 3, subagents, spending or separate deployment. The original untracked
+`P06C-HOME-KICKOFF.md` is untouched; a byte-identical historical copy is now tracked under
+`handoff/history/` for recovery. Earlier headers below describe completed assignments.
+
+---
 # Rider hands repaired (2026-09-22)
 
 The owner reported malformed rider hands after integration. Read `handoff/RIDER-HANDS.md`
