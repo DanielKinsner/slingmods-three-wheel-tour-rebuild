@@ -112,6 +112,37 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
   photographs of the actual Slingshot and Ryker attached as references and checked against them (see
   `assets/game-feel/README.md`).
 
+**Fourth batch (owner: "slicker, more intentional, more fun wins, even out the transitions")**
+- Pause screen (`src/game/race-menus.css`, `RaceFX.arrangeActions/pauseStatus`): world dims and blurs (`body.gx-paused`
+  scrim), a vertical menu down the left in Up/Down order (Continue, Restart, Photo mode, Options, Change event,
+  Showroom; the DOM is reordered so focus order matches), race status frozen above it (position, lap, time, top speed).
+  Copy is "Paused / Take a breath". Time/graphics/film chips hide while paused.
+- Ready and results action rows: one primary, then an even secondary row (`.gx-actions-sub`); Watch replay and the rare
+  Retry-saving button stay beside the primary.
+- Start gantry: lights on a plate with the count large beneath; rival nameplates hide during the count and the launch
+  call-out. PERFECT START (throttle within -0.35 s..+0.2 s of the green) / GREAT START (to +0.45 s) call-out, timed
+  from the driver's own throttle before the race's start hold (`launchThrottle` in `express.ts`, `RaceFX.drive`).
+- Results accolades (max five, pop in with ticks): Personal Best (vs the split best), Perfect/Great Start, Places
+  gained, Clean race/lap (no impact by the skill-chain rule, never off track or wrong way), Skill points (banked chains
+  now dispatch `gx:skill-bank`). Not shown in test drives.
+- Transition beats: a lift from dark as the count begins, the gantry drops in; the finish slam gets 1.4 s before the
+  results arrive (`body.gx-results-hold` = display:none so the results' own entrances play on reveal) and the victory
+  film waits 1.3 s (`director.ts victoryAt`). Race films use the GX type; the prompt bar says "Skip film" during one.
+- Shared motion tokens in `shell.css`: `--gx-t-fast` .22 s, `--gx-t` .45 s, `--gx-t-slow` .7 s, `--gx-stagger`.
+- Gradient gold call-outs (finish gold, Perfect Start) drop their text-shadow, which painted over the gradient.
+- Race select (wide screens): course art fills the column again; title and action panel sit over it (the panel had
+  grown and squeezed the art into a strip). Panel scrolls on short windows.
+- Shop: an empty build lists the compatible parts for the ride (Slingshot via `retailFitment().compatible`, Ryker
+  catalogue) with Try it on (`shop-try` action: sets the garage category, opens Build) and the real listing.
+- Garage product buttons in the GX voice. All new buttons meet the readability floor in `tests/p08b-ui.test.mjs`
+  (13 px text, 44 px tall).
+- Achievements Lights Out (a Perfect Start) and Spotless (win without contact); Tour Log tiles Perfect starts and Clean
+  wins. Counted in `slingmods-gx-stats-v1` (new fields `perfectStarts`, `cleanWins`; old saves default to 0).
+- Phones (landscape <= 500 px tall): compact two-column pause, shrunken ready lineup so Start stays on screen. 720p:
+  tighter results so the whole column fits.
+- Verified by headless Chromium with real key presses (launch timing), autopilot races (finish hold, film, skip,
+  accolades, Personal Best via a slowed stored best) at 1600x900, 1280x720 and 844x390 touch, plus the demo build.
+
 ## Developer notes
 - `?title=1` forces the title screen (skipped automatically under WebDriver).
 - `?autopilot=1` (only where evidence hooks are enabled, i.e. dev or `test=1&profile=1`) lets the production rival AI
