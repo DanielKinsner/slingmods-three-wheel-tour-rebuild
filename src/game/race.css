@@ -237,3 +237,10 @@ html.gx body.gx-photo-clean .gx-photo-ui,html.gx body.gx-photo-clean .gx-prompts
 @keyframes gx-spin{to{transform:rotate(-360deg)}}
 html.gx body #harbor-ui:is([data-gx-mode=free],[data-gx-mode=trial]) .race-position{display:none}
 html.gx body :is(.race-position,.race-laps){min-width:88px}
+/* Solo laps (Test Drive, Time Attack, Chapter 01 shakedown): no ordinal or one-row standings */
+html.gx body #harbor-ui[data-gx-solo] #race-menu :is(.result-numeral,.result-standings){display:none}
+html.gx body #harbor-ui[data-gx-solo] #race-menu{padding-top:60px}
+/* Director's cut launcher sits bottom-right, clear of the results column */
+html.gx body .film-launcher{left:auto;right:var(--gx-edge-x);bottom:84px}
+html.gx body .film-launcher summary{background:var(--gx-glass);border:1px solid var(--gx-edge);font:800 13px/1 var(--gx-body);letter-spacing:.12em;text-transform:uppercase;color:var(--gx-ink-2);backdrop-filter:blur(8px)}
+html.gx body .film-launcher .film-library{background:var(--gx-glass-2);border:1px solid var(--gx-edge)}

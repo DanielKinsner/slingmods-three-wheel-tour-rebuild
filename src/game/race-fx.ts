@@ -93,7 +93,8 @@ export class RaceFX {
     const splits=[...this.gates,r.timeMs??s.elapsedMs],bestTotal=this.best?.at(-1);if(!this.freeDrive&&(bestTotal===undefined||(r.timeMs??Infinity)<bestTotal))writeSplits(s.event,splits)}
    else{this.banner('<b>DNF</b><span>RUN NOT COUNTED</span>','is-down',2200)}}
   this.phase=s.phase;
-  const menuOpen=s.phase==='ready'||s.phase==='finished'||s.paused,label=s.paused?'Resume':s.playerResult?'Race again':'Start';const prompts=menuOpen?label:'none';if(prompts!==this.prompts){this.prompts=prompts;setPrompts(menuOpen?[{key:'confirm',label}]:null)}
+  (this.root.parentElement as HTMLElement|null)?.toggleAttribute('data-gx-solo',s.standings.length===1);
+  const menuOpen=s.phase==='ready'||s.phase==='finished'||s.paused,primary=document.getElementById('start-crew')?.textContent?.trim(),label=primary||(s.paused?'Resume':s.playerResult?'Race again':'Start');const prompts=menuOpen?label:'none';if(prompts!==this.prompts){this.prompts=prompts;setPrompts(menuOpen?[{key:'confirm',label}]:null)}
  }
  private resetRun(key:string,event:string){this.runKey=key;this.topSpeed=0;this.finished=false;this.place=0;this.lap=1;this.gate=-1;this.gates=[];this.lapStart=0;this.count=-1;this.best=readSplits(event);this.tallied=''}
  private pulse(node:HTMLElement){node.classList.remove('is-pulse');void node.offsetWidth;node.classList.add('is-pulse')}

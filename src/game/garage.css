@@ -50,3 +50,20 @@ html.gx body #build-panel .setup-row input{background:#ffffff0d;border:1px solid
 html.gx body #career-reward{background:#ffd23c14;border-left:4px solid var(--gx-hot)}
 html.gx body #career-reward strong{font:italic 800 34px/1 var(--gx-display);font-synthesis:style;color:var(--gx-hot)}
 html.gx body #rae-card{background:var(--gx-glass-2);border-left:4px solid var(--gx-hot);border-radius:0;backdrop-filter:blur(12px);bottom:64px}
+
+/* Chapter 01 shakedown briefing card (#harbor-entry) */
+html.gx body #harbor-entry{left:var(--gx-edge-x);width:380px;padding:22px 24px;background:var(--gx-glass-2);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-red);border-radius:0;backdrop-filter:blur(14px);box-shadow:0 30px 80px #000a;font-family:var(--gx-body);animation:gx-slide .5s var(--gx-ease) both}
+html.gx body #harbor-entry .race-label{font:800 10px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body #harbor-entry h2{margin:10px 0 8px;font:italic 800 52px/.9 var(--gx-display);font-synthesis:style;text-transform:uppercase;color:var(--gx-ink)}
+html.gx body #harbor-entry p{color:var(--gx-ink-2);font-size:14px}
+html.gx body #harbor-entry .entry-meta{display:flex;gap:14px;margin:10px 0 14px;font:italic 800 18px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;color:var(--gx-ink)}
+html.gx body #harbor-entry .entry-meta span{color:var(--gx-hot)}
+html.gx body #harbor-entry .preset-pair{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+html.gx body #harbor-entry .preset-pair button{min-height:46px;border:1px solid var(--gx-edge-2);border-radius:0;background:#ffffff08;color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.08em;text-transform:uppercase}
+html.gx body #harbor-entry .preset-pair button[aria-pressed=true]{border-color:var(--gx-hot);box-shadow:inset 3px 0 0 var(--gx-hot);background:#ffffff18}
+html.gx body #harbor-entry .quality-choice{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;margin:10px 0;font:800 11px/1 var(--gx-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gx-mute)}
+html.gx body #harbor-entry .quality-choice select{background:#ffffff0d;border:1px solid var(--gx-edge-2);border-radius:0;color:var(--gx-ink);font:700 13px var(--gx-body);min-height:44px}
+html.gx body #harbor-entry #start-shakedown{display:flex;justify-content:space-between;align-items:center;min-height:60px;margin-top:12px;padding:0 24px;border:0;border-radius:0;background:var(--gx-red);color:#fff;font:italic 800 28px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase;text-decoration:none;letter-spacing:.03em;transform:skewX(var(--gx-rake));box-shadow:0 10px 30px var(--gx-red-glow)}
+html.gx body #harbor-entry #start-shakedown:hover{background:#ff5448}
+html.gx body #harbor-entry small{color:var(--gx-mute)}
+html.gx body #harbor-entry>button{min-height:44px;margin-top:10px;border:1px solid var(--gx-edge-2);border-radius:0;background:transparent;color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.12em;text-transform:uppercase}
