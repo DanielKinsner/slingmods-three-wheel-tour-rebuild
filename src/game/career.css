@@ -124,3 +124,12 @@ html.gx body.career-experience .career-shell .career-dialog button:first-of-type
 html.gx body.career-experience .career-events .gx-best{display:flex;align-items:baseline;gap:10px;margin:6px 0 2px}
 html.gx body.career-experience .career-events .gx-best span{font:800 10px/1 var(--gx-body);letter-spacing:.24em;color:var(--gx-mute)}
 html.gx body.career-experience .career-events .gx-best b{font:italic 800 20px/1 var(--gx-display);font-synthesis:style;color:var(--gx-good)}
+/* Career art uses the illustrated course maps (same set as the Race screen); the route sits left of centre. */
+html.gx body.career-experience::before{background:linear-gradient(90deg,#07080af7 0%,#07080ae6 40%,#07080ab3 100%),linear-gradient(0deg,#07080a 0%,#07080a00 60%),url('/assets/game-feel/maps/express.jpg') 30% 40%/cover no-repeat}
+html.gx body.career-experience[data-gx-chapter="3"]::before{background:linear-gradient(90deg,#07080af7 0%,#07080ae6 40%,#07080ab3 100%),linear-gradient(0deg,#07080a 0%,#07080a00 60%),url('/assets/game-feel/maps/ridge.jpg') 30% 40%/cover no-repeat}
+html.gx body.career-experience article[data-route] .career-event-route{background-position:center,32% 38%;background-size:auto,cover}
+html.gx body.career-experience article[data-route=express] .career-event-route,html.gx body.career-experience article[data-route=express][data-look] .career-event-route{background-image:linear-gradient(0deg,#0d0f13 0%,#0d0f1300 60%),url('/assets/game-feel/maps/express.jpg')}
+html.gx body.career-experience article[data-route=harbor] .career-event-route,html.gx body.career-experience article[data-route=harbor][data-look] .career-event-route{background-image:linear-gradient(0deg,#0d0f13 0%,#0d0f1300 60%),url('/assets/game-feel/maps/harbor.jpg')}
+html.gx body.career-experience article[data-route=ridge] .career-event-route,html.gx body.career-experience article[data-route=ridge][data-look] .career-event-route{background-image:linear-gradient(0deg,#0d0f13 0%,#0d0f1300 60%),url('/assets/game-feel/maps/ridge.jpg')}
+/* Sticky header: solid behind the nav (scrolled text ghosted through the old 90% gradient), soft fade below it. */
+html.gx body.career-experience .career-shell .sig-header{background:linear-gradient(180deg,#07080a 0%,#07080a 74%,#07080a00 100%);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);-webkit-mask:none}
