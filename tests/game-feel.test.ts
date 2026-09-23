@@ -36,3 +36,9 @@ test('Achievements derive from the career save and never require storage',async(
  s.chapters.firstCompletion=true;s.crew.bestPlace=1;st=achievementState(s);assert.equal(st.find(x=>x.a.id==='off-the-line')!.done,true);assert.equal(st.find(x=>x.a.id==='harbor-hero')!.done,true);
  assert.deepEqual(st.find(x=>x.a.id==='tour-regular')!.progress,[1,5]);assert.equal(achievementState(null).filter(x=>x.done).length,0);
 });
+test('Daily Run is deterministic per day and streaks count consecutive days only',async()=>{
+ const {dailyRun,liveStreak}=await import('../src/game/daily');
+ const a=dailyRun(new Date(2026,8,23)),b=dailyRun(new Date(2026,8,23,23,59));assert.deepEqual(a,b);
+ const week=new Set(Array.from({length:6},(_,i)=>dailyRun(new Date(2026,8,20+i)).route));assert.equal(week.size,3,'all courses rotate within a week');
+ assert.equal(liveStreak({lastDone:'2026-09-22',streak:4,best:4},'2026-09-23'),4);assert.equal(liveStreak({lastDone:'2026-09-20',streak:4,best:4},'2026-09-23'),0);
+});

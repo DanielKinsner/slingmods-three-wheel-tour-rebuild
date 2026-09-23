@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {recordDaily} from './daily';
 import {mergeGeometries} from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import {gameCue} from './audio-bus';
 /**
@@ -60,7 +61,7 @@ function ghostModel(source:THREE.Object3D){
 
 export interface TrialSnapshot {phase:string;paused:boolean;elapsedMs:number;playerResult:{valid:boolean;timeMs:number|null}|null}
 export class TimeAttack {
- private best:TrialBest|null;private recording=new Track();private lastSample=-Infinity;private done=false;private runKey='';private lastElapsed=0;private ghost?:{mesh:THREE.Mesh;material:THREE.ShaderMaterial};private p=new THREE.Vector3();private q=new THREE.Quaternion();private hud=document.createElement('div');private result?:{timeMs:number;medal:Medal|null;improved:boolean;previous:TrialBest|null};
+ private best:TrialBest|null;private recording=new Track();private lastSample=-Infinity;private done=false;private runKey='';private lastElapsed=0;private ghost?:{mesh:THREE.Mesh;material:THREE.ShaderMaterial};private p=new THREE.Vector3();private q=new THREE.Quaternion();private hud=document.createElement('div');private result?:{timeMs:number;medal:Medal|null;improved:boolean;previous:TrialBest|null;daily:boolean};
  constructor(private scene:THREE.Scene,private hero:THREE.Object3D,readonly route:TrialRoute,readonly vehicle:string,hudParent:Element){
   this.best=trialBest(route,vehicle);
   if(this.best?.ghost?.length)this.ensureGhost();
@@ -92,7 +93,8 @@ export class TimeAttack {
   this.recording.push(r.timeMs,this.hero.getWorldPosition(this.p),this.hero.getWorldQuaternion(this.q));
   const runs=(previous?.runs??0)+1;store[k]=improved?{timeMs:r.timeMs,medal,at:new Date().toISOString(),runs,ghost:this.recording.data}:{...previous!,runs};
   if(!write(store)&&improved){delete store[k].ghost;write(store)}
-  this.result={timeMs:r.timeMs,medal,improved,previous};if(improved){this.best=store[k];if(this.best.ghost)this.ensureGhost();this.renderHud(null)}
+  const daily=recordDaily(this.route,r.timeMs);if(daily)setTimeout(()=>document.dispatchEvent(new CustomEvent('gx:daily')),2200);
+  this.result={timeMs:r.timeMs,medal,improved,previous,daily};if(improved){this.best=store[k];if(this.best.ghost)this.ensureGhost();this.renderHud(null)}
   const prevMedal=previous?.medal??null,newMedal=medal&&(!prevMedal||MEDALS.indexOf(medal)<MEDALS.indexOf(prevMedal));
   setTimeout(()=>gameCue(improved?'gx.record':'gx.reward'),900);
   if(improved)setTimeout(()=>document.dispatchEvent(new CustomEvent('gx:radio',{detail:{moment:medal==='gold'||medal==='slingmods'?'trialGold':'trialImproved'}})),1500);
@@ -103,7 +105,7 @@ export class TimeAttack {
   const menu=document.getElementById('race-menu'),r=this.result;if(!menu||!r||menu.querySelector('.gx-trial-result'))return;
   const next=MEDALS.slice().reverse().find(m=>r.timeMs>MEDAL_TARGETS[this.route][m]),delta=r.previous?r.timeMs-r.previous.timeMs:null;
   const panel=document.createElement('section');panel.className='gx-trial-result';panel.dataset.medal=r.medal??'none';
-  panel.innerHTML=`<div class="gx-medal" data-medal="${r.medal??'none'}"><i></i><b>${r.medal?MEDAL_NAMES[r.medal].toUpperCase():'NO MEDAL'}</b>${newMedal?'<span>NEW MEDAL</span>':''}</div><div class="gx-trial-lines">${r.improved?`<p class="is-record"><b>${r.previous?'NEW PERSONAL BEST':'FIRST TIME SET'}</b>${delta!==null?`<span>${(delta/1000).toFixed(3)}s</span>`:''}</p>`:`<p><b>BEST ${trialTime(r.previous!.timeMs)}</b><span>+${((delta??0)/1000).toFixed(3)}s</span></p>`}${next?`<p><b>NEXT: ${MEDAL_NAMES[next].toUpperCase()}</b><span>${trialTime(MEDAL_TARGETS[this.route][next])} · ${((r.timeMs-MEDAL_TARGETS[this.route][next])/1000).toFixed(3)}s to find</span></p>`:'<p><b>EVERY MEDAL EARNED</b><span>Go find another tenth.</span></p>'}${r.improved?'<p><small>Your ghost now drives this lap.</small></p>':''}</div>`;
+  panel.innerHTML=`<div class="gx-medal" data-medal="${r.medal??'none'}"><i></i><b>${r.medal?MEDAL_NAMES[r.medal].toUpperCase():'NO MEDAL'}</b>${newMedal?'<span>NEW MEDAL</span>':''}</div><div class="gx-trial-lines">${r.improved?`<p class="is-record"><b>${r.previous?'NEW PERSONAL BEST':'FIRST TIME SET'}</b>${delta!==null?`<span>${(delta/1000).toFixed(3)}s</span>`:''}</p>`:`<p><b>BEST ${trialTime(r.previous!.timeMs)}</b><span>+${((delta??0)/1000).toFixed(3)}s</span></p>`}${next?`<p><b>NEXT: ${MEDAL_NAMES[next].toUpperCase()}</b><span>${trialTime(MEDAL_TARGETS[this.route][next])} · ${((r.timeMs-MEDAL_TARGETS[this.route][next])/1000).toFixed(3)}s to find</span></p>`:'<p><b>EVERY MEDAL EARNED</b><span>Go find another tenth.</span></p>'}${r.daily?'<p class="is-record"><b>DAILY RUN COMPLETE</b><span>Streak extended · come back tomorrow</span></p>':''}${r.improved?'<p><small>Your ghost now drives this lap.</small></p>':''}</div>`;
   menu.insertBefore(panel,menu.querySelector('.menu-actions'));
  }
  private observer?:MutationObserver;

@@ -1,4 +1,5 @@
 import type {TourProgress} from '../game/progress';
+import {dailyCardMarkup} from '../game/daily';
 import '../game/menu.css';
 /** Presentation only. All actions go through the showroom's existing event delegation. */
 export interface TourEntry {
@@ -38,6 +39,7 @@ export function tourEntry({model, ryker, careerLabel, careerDetail, progress, re
       <div class="gx-menu-row"><button class="gx-tile gx-tile-slim" data-gx-log data-gx-sfx="select"><span class="gx-tile-body"><small>RECORDS</small><strong>Tour log</strong></span><b class="gx-tile-arrow" aria-hidden="true"></b></button><button class="gx-tile gx-tile-slim" data-gx-options data-gx-sfx="select"><span class="gx-tile-body"><small>SETTINGS</small><strong>Options</strong></span><b class="gx-tile-arrow" aria-hidden="true"></b></button></div>
     </nav>
   </main>
+  ${dailyCardMarkup()}
   <aside class="tour-machine gx-ride" aria-label="Current vehicle">
     <span class="gx-kicker">YOUR RIDE <b>${ride.index}</b>/02</span>
     <strong class="gx-display">${ride.name}</strong>
