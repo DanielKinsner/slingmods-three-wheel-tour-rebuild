@@ -12,6 +12,7 @@ import {loadSave,writeSave,browserStorage} from '../save';
 import {mapAudio,ShiftEvents,type AudioLife} from './mapper';
 import {mapAudioLegacy} from './mapper-legacy';
 import {createAudioGraph,loadAudioBank} from './graph';
+import {registerGameAudio} from '../game/audio-bus';
 export type AudioTimelineFrame={time:number;telemetry:VehicleTelemetry;life:AudioLife};
 export class GameAudio {
  private filmScore?:RaceFilmScore;private currentFilm:Film|null=null;private filmElapsed=0;
@@ -22,7 +23,7 @@ export class GameAudio {
  private context?:AudioContext;private graph?:ReturnType<typeof createAudioGraph>;private shifts=new ShiftEvents();private last?:VehicleTelemetry;private paused=false;private cockpit=false;private enabled=false;private failure='';private loading=false;private disposed=false;
  readonly settings=loadSave(browserStorage()).settings;readonly ui=document.createElement('div');private enable=document.createElement('button');private mute=document.createElement('button');
  constructor(parent:Element){
-  this.ui.id='game-audio';this.enable.id='enable-sound';this.enable.textContent='Enable sound';this.mute.id='mute-sound';this.mute.textContent=this.settings.mute?'Unmute':'Mute';
+  registerGameAudio(this);this.ui.id='game-audio';this.enable.id='enable-sound';this.enable.textContent='Enable sound';this.mute.id='mute-sound';this.mute.textContent=this.settings.mute?'Unmute':'Mute';
   const settings=document.createElement('details');settings.className='audio-settings';const summary=document.createElement('summary');summary.textContent='Sound mix';settings.append(summary);
   const fields=[['volume','Master','master'],['interfaceVolume','Interface','interface'],['engineVolume','Engine','engine'],['environmentVolume','World','environment'],['musicVolume','Music','music']] as const;
   for(const [key,label,id] of fields){const row=document.createElement('label'),input=document.createElement('input'),value=document.createElement('output');row.textContent=label;input.id='audio-'+id;input.type='range';input.min='0';input.max='1';input.step='.05';input.value=String(this.settings[key]);input.setAttribute('aria-label',label+' volume');value.value=Math.round(this.settings[key]*100)+'%';input.oninput=()=>{this.settings[key]=Number(input.value);value.value=Math.round(this.settings[key]*100)+'%';this.persist();this.refresh()};row.append(input,value);settings.append(row)}

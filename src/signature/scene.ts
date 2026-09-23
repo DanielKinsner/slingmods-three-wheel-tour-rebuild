@@ -1,4 +1,7 @@
 import {vehicleDefinition} from '../simulation/vehicle-definition';
+import {shouldShowTitle,showTitle} from '../game/title';
+import {markEntering} from '../game/shell';
+import {tourProgress} from '../game/progress';
 import {RYKER_PRESETS} from './ryker-catalog';
 import {loadSurfaceMaterials} from '../presentation/surface-materials';
 import {CURRENT_HANDLING_PROFILE} from '../simulation/profile';
@@ -83,7 +86,7 @@ const ui:ShowroomUI=kit&&career?new kit.GarageUI(app as HTMLElement,career,{view
 const fromCareer=params.get('from')==='career'?'career':params.get('from')==='bay'?'bay':null;
 const returnHref=fromCareer==='bay'?`?scene=bay&play=${careerView?.profile==='demo'?'demo':'career'}`:fromCareer==='career'?'?scene=career&play=career':null;
 const sameBuild=(a:BuildRecipe,b:BuildRecipe)=>{const c=(r:BuildRecipe)=>JSON.stringify({...r,products:Object.fromEntries(Object.entries(r.products).sort())});return c(a)===c(b)};
-function careerSummary():CareerSummary{const s=careerState(),step=nextCareerStep(s);return {label:step.kind==='start'?'Start Career':'Continue Career',detail:step.detail,returning:!!returnHref,returnLabel:fromCareer==='bay'?'Return to career garage':'Return to career',temporary:!!careerView?.temporary||!!career&&!career.durable,earned:!!returnHref&&!!s&&sameBuild(recipe,careerRecipe(s))}}
+function careerSummary():CareerSummary{const s=careerState(),step=nextCareerStep(s);return {label:step.kind==='start'?'Start Career':'Continue Career',detail:step.detail,returning:!!returnHref,returnLabel:fromCareer==='bay'?'Return to career garage':'Return to career',temporary:!!careerView?.temporary||!!career&&!career.durable,earned:!!returnHref&&!!s&&sameBuild(recipe,careerRecipe(s)),progress:tourProgress(s)}}
 function state():SignatureState{const s=careerState();return {ignition,initialDestination,destination,destinationLighting,destinationLooks:{...destinationLooks},view:currentView,viewManual,career:careerSummary(),recipe:structuredClone(recipe),pending,status,screen,lighting,driverVisible,compare,reducedMotion,canUndo:history.length>0,savedRecipes:saved.map(r=>({id:r.id,name:r.name})),ownedProductIds:s?PRODUCTS.filter(p=>productOwned(s,p.id)).map(p=>p.id):[],thumbs,routePreviews:{harbor:'/assets/p10b/previews/harbor-day.jpg',express:'/assets/p10b/previews/express-day.jpg',ridge:'/assets/p10b/previews/ridge-day.jpg','ridge-night':'/assets/p10b/previews/ridge-night.jpg'},...routeGraphics}}
 function historyFragment(){if(garage)return;window.history.replaceState(window.history.state,'',location.pathname+location.search+recipeFragment(recipe))}
 function refresh(){ui.update(state())}
@@ -173,7 +176,9 @@ resize();await apply();view('hero',false);ui.ready?.();
 // loading veil is present. Never change the recipe, save, history or action sounds.
 const finishPreparation:{finish:string;ms:number;error?:string}[]=[];
 for(const finish of ['black-red','white-graphite','graphite-red','blue-orange'].filter(f=>f!==recipe.finish).slice(0,3) as ('black-red'|'white-graphite'|'graphite-red'|'blue-orange')[]){const at=performance.now();try{await finishes.set(finish);await prepareRenderer(renderer,scene,camera);display.snapshot(renderer,scene.environment,'loading-finish:'+finish);finishPreparation.push({finish,ms:performance.now()-at})}catch(error){finishPreparation.push({finish,ms:performance.now()-at,error:String(error)})}}
-await apply();const preparation=await prepareRenderer(renderer,scene,camera,()=>pipeline.render(scene,camera));veil.remove();const loadMs=performance.now()-started;
+await apply();const preparation=await prepareRenderer(renderer,scene,camera,()=>pipeline.render(scene,camera));veil.remove();
+// Attract screen on the first visit of a tab session: slow turntable behind "press any key", which also unlocks sound.
+if(!garage&&screen==='entry'&&shouldShowTitle()){const turntable=!reducedMotion;showTitle({onIdle:active=>{controls.autoRotate=active&&turntable;controls.autoRotateSpeed=-.55},onStart:()=>{markEntering(ui.root,1400);view('hero')}})}const loadMs=performance.now()-started;
 // The career garage follows purchases, equipment and finish changes made through its own workshop or another tab.
 career?.subscribe(()=>{if(!career)return;const next=careerRecipe(career.state);if(sameBuild(next,recipe))return;recipe=next;original=structuredClone(next);void apply()});
 let graphicsControl:{root:HTMLElement;dispose():void}|undefined;if(garage){const {installGraphicsControl}=await import('../presentation/graphics-control');graphicsControl=installGraphicsControl(app,renderer,pipeline,GRAPHICS_PRESETS[graphics].lighting);graphicsControl.root.style.display='flex'}

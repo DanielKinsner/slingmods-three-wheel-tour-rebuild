@@ -1,0 +1,146 @@
+/* GX showroom screens: Garage (build), Race (destinations), Shop. Markup is SignatureUI's; this restyles it as game UI. */
+html.gx body .signature-ui{--sig-top:124px;--sig-bottom:124px;--sig-rail:clamp(200px,16vw,260px);--sig-inspector:clamp(320px,25vw,410px);--sig-edge:var(--gx-edge-x)}
+html.gx body .gx-prompts{left:0;right:0;bottom:0;height:46px;padding:0 var(--gx-edge-x);justify-content:flex-end;background:linear-gradient(0deg,#07080af0 0%,#07080aa8 60%,#07080a00 100%)}
+html.gx body .sig-status{bottom:calc(var(--sig-bottom) + 70px);background:var(--gx-glass);border-left:3px solid var(--gx-hot);font:600 13px/1.4 var(--gx-body);padding:8px 14px;backdrop-filter:blur(8px)}
+html.gx body .sig-status:empty{display:none}
+
+/* Shared button language inside the showroom */
+html.gx body .signature-ui :is(.sig-detail,.sig-bottom,.sig-events,.sig-shop,.sig-view-tools) button{font-family:var(--gx-body);border-radius:0}
+html.gx body .signature-ui .sig-primary{background:var(--gx-red);border-color:var(--gx-red);color:#fff;box-shadow:0 8px 28px var(--gx-red-glow)}
+html.gx body .signature-ui .sig-primary:hover:not(:disabled){background:#ff5448}
+
+/* ---------- Garage: category rail ---------- */
+html.gx body .sig-categories{top:calc(var(--sig-top) + 18px);background:none;gap:6px;width:var(--sig-rail)}
+html.gx body .sig-categories::before{content:'GARAGE · MAKE IT YOURS';padding:0 0 10px 4px;font:800 10px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body .sig-categories button{position:relative;min-height:50px;padding:0 16px 0 18px;border:0;background:var(--gx-glass);color:var(--gx-ink-2);font:italic 800 22px/1 var(--gx-display);font-synthesis:style;letter-spacing:.02em;text-shadow:none;transform:skewX(var(--gx-rake));backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--gx-edge);transition:transform .25s var(--gx-ease),background .18s,color .18s}
+html.gx body .sig-categories button>*{transform:skewX(calc(-1*var(--gx-rake)))}
+html.gx body .sig-categories button span{font:800 13px/1 var(--gx-body);font-style:normal;letter-spacing:.1em;color:var(--gx-mute);margin-right:14px}
+html.gx body .sig-categories button b{font-size:20px;color:var(--gx-mute)}
+html.gx body .sig-categories button:is(:hover,:focus-visible){background:var(--gx-glass-hi);color:var(--gx-ink);transform:skewX(var(--gx-rake)) translateX(6px);outline:0}
+html.gx body .sig-categories button:focus-visible{box-shadow:inset 0 0 0 2px var(--gx-hot)}
+html.gx body .sig-categories button[aria-pressed=true]{background:var(--gx-red);color:#fff;box-shadow:0 8px 26px var(--gx-red-glow);transform:skewX(var(--gx-rake)) translateX(10px)}
+html.gx body .sig-categories button[aria-pressed=true] :is(span,b){color:#ffffffc8}
+
+/* ---------- Garage: inspector ---------- */
+html.gx body .sig-detail{top:calc(var(--sig-top) + 18px);max-height:calc(100dvh - var(--sig-top) - var(--sig-bottom) - 40px);padding:22px 24px;background:var(--gx-glass-2);color:var(--gx-ink);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-red);border-radius:0;backdrop-filter:blur(14px);box-shadow:0 30px 80px #000a;scrollbar-color:#ffffff40 transparent}
+html.gx body .sig-detail .sig-eyebrow{color:var(--gx-mute);font:800 10px/1 var(--gx-body);letter-spacing:.3em}
+html.gx body .sig-detail h2{margin:14px 0 8px;font:italic 800 clamp(34px,2.7vw,46px)/.92 var(--gx-display);font-synthesis:style;text-transform:uppercase;color:var(--gx-ink);letter-spacing:0}
+html.gx body .sig-detail h3{font:italic 800 22px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body .sig-detail p{color:var(--gx-ink-2);font-size:13px;line-height:1.55}
+html.gx body .sig-detail a{color:var(--gx-cool)}
+html.gx body .sig-detail summary{color:var(--gx-mute);font-size:13px}
+html.gx body .sig-detail details p{font-size:12px}
+html.gx body .sig-detail-heading{border-bottom:1px solid var(--gx-edge);padding-bottom:10px}
+html.gx body .sig-detail-heading button{color:var(--gx-mute);font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;min-height:44px;border:1px solid var(--gx-edge);background:transparent;padding:0 12px}
+html.gx body .sig-detail button:not(.sig-primary){color:var(--gx-ink);border:1px solid var(--gx-edge-2);background:#ffffff08}
+html.gx body .sig-detail button:hover:not(:disabled):not(.sig-primary){background:#ffffff1c;border-color:#ffffff50}
+html.gx body .sig-detail button[aria-pressed=true]{background:#ffffff1a;border-color:var(--gx-hot);box-shadow:inset 3px 0 0 var(--gx-hot)}
+html.gx body .sig-detail .sig-owned{background:#39e27d22;color:var(--gx-good);border:1px solid #39e27d55}
+html.gx body .sig-detail .sig-fitment{color:var(--gx-ink-2)}
+html.gx body .sig-finishes{display:grid;gap:8px}
+html.gx body .sig-finishes button{min-height:64px;padding:8px 14px 8px 8px;display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:14px;text-align:left;font:700 14px/1.2 var(--gx-body);border-bottom:0}
+html.gx body .sig-finishes button i{width:64px;height:46px;border-radius:0;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);box-shadow:none}
+html.gx body .sig-finishes button b{color:var(--gx-hot);font-size:18px}
+html.gx body .sig-product-actions,html.gx body .sig-options{gap:8px}
+
+/* ---------- Garage: camera rail + footer ---------- */
+html.gx body .sig-view-tools>div{background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(10px);padding:0 6px}
+html.gx body .sig-view-tools .sig-tool-label{font:800 10px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute);align-self:center;padding:0 8px}
+html.gx body .sig-view-tools button{color:var(--gx-ink-2);font:700 13px/1 var(--gx-body);letter-spacing:.08em;text-transform:uppercase;min-height:44px;border-bottom:3px solid transparent}
+html.gx body .sig-view-tools button[aria-pressed=true]{color:#fff;border-bottom-color:var(--gx-red);background:#ffffff0c}
+html.gx body .sig-view-tools>.sig-advanced-rail{bottom:52px}
+html.gx body .sig-bottom{position:absolute;left:var(--gx-edge-x);right:var(--gx-edge-x);bottom:52px;padding:0;background:none;display:flex;align-items:center;gap:20px}
+html.gx body .sig-build-identity{padding:10px 16px;background:var(--gx-glass);border-left:4px solid var(--gx-hot);backdrop-filter:blur(8px)}
+html.gx body .sig-build-identity[data-earned=true]{border-left-color:var(--gx-good)}
+html.gx body .sig-bottom strong{font:italic 800 18px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase;letter-spacing:.03em}
+html.gx body .sig-bottom small{font-size:11px;color:var(--gx-mute)}
+html.gx body .sig-history{display:flex;gap:4px;margin:0 auto;background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px);padding:0 4px}
+html.gx body .sig-history button{min-height:44px;padding:0 14px;border:0;background:transparent;color:var(--gx-ink-2);font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase}
+html.gx body .sig-history button:hover:not(:disabled){color:#fff;background:#ffffff14}
+html.gx body .sig-test{display:flex;align-items:center;gap:10px}
+html.gx body .sig-test>button:not(.sig-test-drive){min-height:44px;border:1px solid var(--gx-edge-2);background:var(--gx-glass);color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:0 14px}
+html.gx body .sig-bottom .sig-test-drive{min-height:62px;padding:8px 30px 8px 26px;transform:skewX(var(--gx-rake));border:0;transition:transform .25s var(--gx-ease),box-shadow .2s}
+html.gx body .sig-bottom .sig-test-drive>*{transform:skewX(calc(-1*var(--gx-rake)));display:block}
+html.gx body .sig-bottom .sig-test-drive span{font:italic 800 26px/1 var(--gx-display);font-synthesis:style;letter-spacing:.03em}
+html.gx body .sig-bottom .sig-test-drive small{font:700 10px/1.2 var(--gx-body);letter-spacing:.08em;opacity:.85;margin-top:4px}
+html.gx body .sig-bottom .sig-test-drive:is(:hover,:focus-visible){transform:skewX(var(--gx-rake)) translateY(-2px);box-shadow:0 12px 40px var(--gx-red-glow);outline:0}
+html.gx body .sig-bottom .sig-test-drive:focus-visible{box-shadow:0 0 0 3px var(--gx-hot),0 12px 40px var(--gx-red-glow)}
+
+/* ---------- Race: destination select ---------- */
+html.gx body .sig-events{inset:118px var(--gx-edge-x) 60px;gap:32px;grid-template-columns:minmax(280px,27%) minmax(0,1fr)}
+html.gx body .sig-events .sig-eyebrow{font:800 10px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body .sig-events h1{margin:14px 0 22px;font:italic 800 clamp(48px,4.4vw,80px)/.88 var(--gx-display);font-synthesis:style;letter-spacing:0}
+html.gx body .sig-destination-list{display:grid;gap:8px;border:0}
+html.gx body .sig-destination-list button{position:relative;min-height:86px;padding:0 18px 0 16px;display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:14px;border:0;background:var(--gx-glass);color:var(--gx-ink);box-shadow:inset 0 0 0 1px var(--gx-edge);transform:skewX(var(--gx-rake));transition:transform .25s var(--gx-ease),background .18s}
+html.gx body .sig-destination-list button>*{transform:skewX(calc(-1*var(--gx-rake)))}
+html.gx body .sig-destination-list button svg{width:54px;height:54px;stroke:currentColor}
+html.gx body .sig-destination-list button path{stroke:currentColor;stroke-width:6}
+html.gx body .sig-destination-list strong{font:italic 800 28px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body .sig-destination-list small{font:600 12px/1.3 var(--gx-body);color:var(--gx-ink-2)}
+html.gx body .sig-destination-list button:is(:hover,:focus-visible){background:var(--gx-glass-hi);transform:skewX(var(--gx-rake)) translateX(6px);outline:0}
+html.gx body .sig-destination-list button:focus-visible{box-shadow:inset 0 0 0 2px var(--gx-hot)}
+html.gx body .sig-destination-list button[aria-pressed=true]{background:var(--gx-red);color:#fff;box-shadow:0 10px 30px var(--gx-red-glow);transform:skewX(var(--gx-rake)) translateX(10px)}
+html.gx body .sig-destination-list button[aria-pressed=true] small{color:#ffffffd0}
+html.gx body .sig-destination-footer{display:flex;gap:8px;margin-top:18px;border:0}
+html.gx body .sig-destination-footer button{min-height:44px;padding:0 14px;border:1px solid var(--gx-edge-2);background:var(--gx-glass);color:var(--gx-ink-2);font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase}
+html.gx body .sig-selected-destination{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:0;min-height:0}
+html.gx body .sig-route-art{position:relative;min-height:0;border:0;border-radius:0;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%)}
+html.gx body .sig-route-art img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.05)}
+html.gx body .sig-route-art::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#07080ae6 0%,#07080a00 45%),linear-gradient(90deg,#07080a80 0%,#07080a00 30%);pointer-events:none}
+html.gx body .sig-route-art svg{z-index:2;filter:drop-shadow(0 2px 8px #000)}
+html.gx body .sig-route-art .sig-preview-label{z-index:2;font:800 10px/1 var(--gx-body);letter-spacing:.3em;color:#ffffffb0}
+html.gx body .sig-destination-info{position:relative;margin-top:-120px;z-index:3;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:24px;align-items:end;padding:0 24px 0 28px}
+html.gx body .sig-destination-info h2{margin:8px 0 6px;font:italic 800 clamp(48px,4.6vw,84px)/.88 var(--gx-display);font-synthesis:style;letter-spacing:0;text-shadow:0 6px 30px #000}
+html.gx body .sig-route-facts{font:italic 800 20px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em}
+html.gx body .sig-route-facts i{color:var(--gx-red)}
+html.gx body .sig-destination-info p{color:var(--gx-ink-2);font-size:14px;max-width:48ch;border:0}
+html.gx body .sig-destination-actions{padding:18px;background:var(--gx-glass-2);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-red);backdrop-filter:blur(14px);color:var(--gx-ink);border-radius:0}
+html.gx body .sig-destination-actions .sig-eyebrow{color:var(--gx-mute)}
+html.gx body .sig-destination-actions select{width:100%;min-height:42px;margin:8px 0 12px;background:#ffffff0d;color:var(--gx-ink);border:1px solid var(--gx-edge-2);border-radius:0;font:700 13px var(--gx-body);padding:0 12px}
+html.gx body .sig-destination-actions select option{background:#15171c}
+html.gx body .sig-destination-light{display:flex;gap:6px;margin:8px 0 12px}
+html.gx body .sig-destination-light button{flex:1;min-height:44px;border:1px solid var(--gx-edge-2);background:#ffffff08;color:var(--gx-ink);font:700 13px var(--gx-body)}
+html.gx body .sig-destination-light button[aria-pressed=true]{border-color:var(--gx-hot);box-shadow:inset 3px 0 0 var(--gx-hot);background:#ffffff18}
+html.gx body .sig-destination-actions .sig-primary{width:100%;min-height:58px;font:italic 800 28px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em;transform:skewX(var(--gx-rake));border:0}
+html.gx body .sig-destination-actions button:not(.sig-primary):not([data-action=destination-lighting]){width:100%;min-height:44px;margin-top:8px;border:1px solid var(--gx-edge-2);background:transparent;color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.16em;text-transform:uppercase}
+html.gx body .sig-destination-actions p,html.gx body .sig-destination-actions small{color:var(--gx-mute);font-size:11px}
+
+/* ---------- Shop ---------- */
+html.gx body .sig-shop{top:124px;bottom:60px;padding:26px 28px;background:var(--gx-glass-2);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-red);backdrop-filter:blur(14px);color:var(--gx-ink);overflow:auto}
+html.gx body .sig-shop h1{font:italic 800 clamp(44px,4vw,72px)/.9 var(--gx-display);font-synthesis:style;margin:12px 0 14px}
+html.gx body .sig-shop .sig-eyebrow{font:800 10px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}
+html.gx body .sig-shop p{color:var(--gx-ink-2)}
+html.gx body .sig-shop-heading{font:italic 800 24px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body .sig-shop-list article{border-bottom:1px solid var(--gx-edge)}
+html.gx body .sig-shop-list img{background:#ffffff10;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+html.gx body .sig-shop-list h3{font:italic 800 24px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body .sig-shop-list a{color:var(--gx-cool);border-bottom-color:#39c6ff66;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+html.gx body .sig-shop-empty{border-block:1px solid var(--gx-edge)}
+html.gx body .sig-shop-empty strong{font:italic 800 28px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+html.gx body .sig-shop-actions button{min-height:44px;padding:0 18px;border:1px solid var(--gx-edge-2);background:transparent;color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- Modal ---------- */
+html.gx body .sig-confirm{background:var(--gx-glass-2);border:1px solid var(--gx-edge);border-top:4px solid var(--gx-red);border-radius:0;color:var(--gx-ink);backdrop-filter:blur(14px)}
+html.gx body .sig-confirm h2{font:italic 800 34px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
+
+/* ---------- Enter choreography per screen ---------- */
+html.gx body .signature-ui[data-gx-entering] .sig-categories button{animation:gx-cat-in .45s var(--gx-ease) both}
+html.gx body .signature-ui[data-gx-entering] .sig-categories button:nth-child(2){animation-delay:.03s}html.gx body .signature-ui[data-gx-entering] .sig-categories button:nth-child(3){animation-delay:.06s}html.gx body .signature-ui[data-gx-entering] .sig-categories button:nth-child(4){animation-delay:.09s}html.gx body .signature-ui[data-gx-entering] .sig-categories button:nth-child(5){animation-delay:.12s}html.gx body .signature-ui[data-gx-entering] .sig-categories button:nth-child(6){animation-delay:.15s}html.gx body .signature-ui[data-gx-entering] .sig-categories button:nth-child(7){animation-delay:.18s}
+html.gx body .signature-ui[data-gx-entering] :is(.sig-detail,.sig-destination-actions){animation:gx-slide-r .5s var(--gx-ease) both}
+html.gx body .signature-ui[data-gx-entering] :is(.sig-bottom,.sig-view-tools){animation:gx-rise .5s .1s var(--gx-ease) both}
+html.gx body .signature-ui[data-gx-entering] .sig-destination-rail{animation:gx-slide .5s var(--gx-ease) both}
+html.gx body .signature-ui[data-gx-entering] .sig-route-art{animation:gx-art-in .7s var(--gx-ease) both}
+html.gx body .signature-ui[data-gx-entering] .sig-shop{animation:gx-slide .5s var(--gx-ease) both}
+@keyframes gx-cat-in{from{opacity:0;transform:skewX(var(--gx-rake)) translateX(-40px)}to{opacity:1}}
+@keyframes gx-art-in{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+
+@media (max-width:1100px){html.gx body .sig-destination-info{grid-template-columns:1fr;margin-top:-60px}}
+@media (max-width:760px){
+ html.gx body .signature-ui{--sig-top:150px}
+ html.gx body .sig-events{inset:150px 16px 16px;grid-template-columns:1fr}
+ html.gx body .sig-destination-info{margin-top:0;padding:0}
+ html.gx body .sig-bottom{bottom:12px;left:16px;right:16px;flex-wrap:wrap}
+ html.gx body .sig-history{display:none}
+}
+html.gx body .sig-bottom{border:0}html.gx body .sig-bottom::before,html.gx body .sig-bottom::after{display:none}
+html.gx body .sig-bottom .sig-test-drive small{color:#ffffffd9}

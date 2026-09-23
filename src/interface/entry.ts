@@ -1,23 +1,47 @@
+import type {TourProgress} from '../game/progress';
+import '../game/menu.css';
 /** Presentation only. All actions go through the showroom's existing event delegation. */
 export interface TourEntry {
   model: string;
   ryker: boolean;
   careerLabel: string;
   careerDetail: string;
+  progress?: TourProgress;
+  returning?: boolean;
 }
 const escape = (value: string) => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 
-export function tourEntry({model, ryker, careerLabel, careerDetail}: TourEntry): string {
-  return `<main class="sig-entry tour-entry">
-    <div class="tour-edition"><span class="tour-mark" aria-hidden="true"><i></i><i></i><i></i></span> SLINGMODS ORIGINAL <span> / 001</span></div>
-    <h1>THREE<br>WHEELS.<br><em>NO LIMITS.</em></h1>
-    <p class="tour-entry-copy">Your machine. Your signature.<br>The open road is yours.</p>
-    <div class="sig-entry-actions tour-entry-actions">
-      <button data-action="build" class="sig-primary tour-start"><span><small>THE ATELIER</small>MAKE IT YOURS</span><b aria-hidden="true">↗</b></button>
-      <button data-action="career" class="sig-career-entry"><span>${escape(careerLabel)}</span><small>${escape(careerDetail)}</small><b aria-hidden="true">→</b></button>
-      <button data-action="quick-race" class="sig-career-entry"><span>Just drive</span><small>Three destinations. No commitments.</small><b aria-hidden="true">→</b></button>
-    </div>
+/** Game ratings shown on the ride card (1-10). Presentation only; the simulation owns the real numbers. */
+const RIDES = {
+  slingshot: {index: '01', name: 'POLARIS SLINGSHOT R', engine: '2.0L ProStar I4 · 203 hp', drive: '5-speed · rear-wheel drive', stats: [['Power', 8], ['Grip', 7], ['Braking', 7], ['Agility', 6]]},
+  ryker: {index: '02', name: 'CAN-AM RYKER 900', engine: '900 ACE triple · 82 hp', drive: 'CVT · shaft drive', stats: [['Power', 5], ['Grip', 6], ['Braking', 6], ['Agility', 9]]},
+} as const;
+
+function tile(action: string, title: string, sub: string, kicker: string, extra = '', cls = '') {
+  return `<button data-action="${action}" class="gx-tile ${cls}" data-gx-sfx="select"><span class="gx-tile-body"><small>${kicker}</small><strong>${title}</strong><em>${sub}</em>${extra}</span><b class="gx-tile-arrow" aria-hidden="true"></b></button>`;
+}
+
+export function tourEntry({model, ryker, careerLabel, careerDetail, progress, returning}: TourEntry): string {
+  const ride = ryker ? RIDES.ryker : RIDES.slingshot;
+  const p = progress;
+  const career = p
+    ? `<span class="gx-tile-meter" aria-label="${p.completed} of ${p.total} career events complete"><i style="--gx-fill:${(p.completed / Math.max(1, p.total)).toFixed(3)}"></i></span><span class="gx-tile-foot">CHAPTER 0${p.chapter} · ${p.completed}/${p.total} EVENTS</span>`
+    : '';
+  const [careerTitle, careerSub] = returning ? ['CAREER', careerLabel] : [careerLabel.replace(/^Continue Career$/, 'Continue').replace(/^Start Career$/, 'Start career'), careerDetail];
+  return `<main class="sig-entry gx-menu" aria-label="Main menu">
+    <header class="gx-menu-title"><span class="gx-kicker">SLINGMODS PRESENTS</span><h1 class="gx-display">THREE-WHEEL<br><em>TOUR</em></h1></header>
+    <nav class="gx-menu-stack" aria-label="Game modes">
+      ${tile('career', escape(careerTitle), escape(careerSub), 'CAREER', career, 'gx-tile-hero')}
+      ${tile('quick-race', 'Quick race', 'Three destinations · race the crew or free drive', 'ARCADE')}
+      ${tile('build', 'Garage', 'Make it yours · paint, parts and setup', 'MAKE IT YOURS')}
+      ${tile('shop', 'Shop this build', 'Every part you fit, on SlingMods.com', 'REAL PARTS')}
+    </nav>
   </main>
-  <aside class="tour-machine" aria-label="Current vehicle"><span class="tour-machine-index">${ryker?'02':'01'}<i> / THE COLLECTION</i></span><strong>${ryker?'CAN-AM RYKER':'POLARIS SLINGSHOT'}</strong><span>${escape(model)}</span><small><i aria-hidden="true"></i> LIVE IN THE STUDIO</small></aside>
-  <footer class="tour-entry-footer"><span>BUILT TO BE <b>YOURS.</b></span><span>DRAG TO ORBIT <i> / </i> SCROLL TO EXPLORE</span><button data-action="quick-race"><span>THE NEXT HORIZON</span> EXPLORE THE TOUR <b aria-hidden="true">↗</b></button></footer>`;
+  <aside class="tour-machine gx-ride" aria-label="Current vehicle">
+    <span class="gx-kicker">YOUR RIDE <b>${ride.index}</b>/02</span>
+    <strong class="gx-display">${ride.name}</strong>
+    <span class="gx-ride-model">${escape(model)} · ${ride.engine}</span>
+    <dl class="gx-ride-stats">${ride.stats.map(([label, value]) => `<div><dt>${label}</dt><dd aria-label="${value} of 10">${Array.from({length: 10}, (_, k) => `<i${k < (value as number) ? ' class="on"' : ''}></i>`).join('')}</dd></div>`).join('')}</dl>
+    <span class="gx-ride-drive">${ride.drive}</span>
+  </aside>`;
 }

@@ -1,0 +1,94 @@
+/*
+ * GX — the SlingMods Tour game design language.
+ * Dark smoked glass, raked (italic, skewed) racing type, one hot red, one electric yellow for "you are here".
+ * Loaded after every legacy stylesheet; rules are scoped under html.gx so they win without !important wars.
+ */
+@font-face{font-family:"Barlow Condensed";src:url('/assets/fonts/BarlowCondensed-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url('/assets/fonts/BarlowCondensed-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+
+html.gx{
+ --gx-bg:#07080a;--gx-bg-2:#0d0f13;--gx-glass:rgba(12,14,18,.78);--gx-glass-2:rgba(22,25,31,.86);--gx-glass-hi:rgba(34,38,46,.92);
+ --gx-edge:rgba(255,255,255,.09);--gx-edge-2:rgba(255,255,255,.18);
+ --gx-ink:#f6f5ef;--gx-ink-2:#c9cbc6;--gx-mute:#8d9197;
+ --gx-red:#ff3b2f;--gx-red-2:#d61f16;--gx-red-glow:rgba(255,59,47,.45);
+ --gx-hot:#ffd23c;--gx-hot-glow:rgba(255,210,60,.38);
+ --gx-good:#39e27d;--gx-bad:#ff5a4f;--gx-cool:#39c6ff;
+ --gx-display:"Barlow Condensed","Arial Narrow",sans-serif;--gx-body:"Manrope","Segoe UI",system-ui,sans-serif;
+ --gx-rake:-8deg;--gx-cut:14px;
+ --gx-ease:cubic-bezier(.16,1,.3,1);--gx-snap:cubic-bezier(.7,0,.2,1);
+ --gx-edge-x:clamp(20px,3.4vw,64px);
+ /* Legacy tokens pulled into the new palette so untouched screens still agree. */
+ --sm-red:var(--gx-red);--sm-red-hover:#ff5448;--sm-focus:var(--gx-hot);
+}
+html.gx body{background:var(--gx-bg)}
+html[data-gx-legacy] #app>:is(header,.caption,footer){visibility:visible}
+
+/* ---------- Shared type + shapes ---------- */
+.gx-display{font:italic 800 1em/.92 var(--gx-display);text-transform:uppercase;letter-spacing:.005em;font-synthesis:style}
+.gx-kicker{font:800 11px/1 var(--gx-body);letter-spacing:.28em;text-transform:uppercase;color:var(--gx-mute)}
+.gx-cut{clip-path:polygon(var(--gx-cut) 0,100% 0,calc(100% - var(--gx-cut)) 100%,0 100%)}
+.gx-chev::after{content:'';display:inline-block;width:.5em;height:.5em;border:solid currentColor;border-width:3px 3px 0 0;transform:rotate(45deg);margin-left:.4em}
+
+/* ---------- Prompt bar ---------- */
+.gx-prompts{position:fixed;right:var(--gx-edge-x);bottom:18px;z-index:60;display:flex;gap:22px;align-items:center;pointer-events:none;font:700 12px/1 var(--gx-body);letter-spacing:.08em;text-transform:uppercase;color:var(--gx-ink);text-shadow:0 1px 8px #000a;animation:gx-fade-in .4s var(--gx-ease) both}
+.gx-prompt{display:flex;align-items:center;gap:7px}.gx-prompt b{font-weight:700;margin-left:3px}
+.gx-glyph{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 7px;box-sizing:border-box;font:800 11px/1 var(--gx-body);letter-spacing:.02em;color:#0b0c0e;background:var(--gx-ink);border-radius:5px;box-shadow:0 2px 0 #9b9d98,0 3px 10px #0008;text-transform:none}
+.gx-pad{border-radius:50%;width:24px;padding:0;color:#fff;box-shadow:0 2px 8px #0009,inset 0 -2px 0 #0004}
+.gx-pad-a{background:#2fb34a}.gx-pad-b{background:#e23a2f}.gx-pad-x{background:#2f7fe2}.gx-pad-y{background:#e2b42f;color:#1a1400}
+.gx-pad-lb,.gx-pad-rb,.gx-pad-lt,.gx-pad-rt,.gx-pad-rs,.gx-pad-ls{border-radius:6px;width:auto;padding:0 8px;background:#e9e9e4;color:#111}
+.gx-pad-menu{background:#e9e9e4;color:#111}
+
+/* ---------- Boot + curtain (shares index.html inline boot markup) ---------- */
+#gx-curtain{position:fixed;inset:0;z-index:10060;pointer-events:none;overflow:hidden;color:var(--gx-ink);font-family:var(--gx-display)}
+#gx-curtain .gx-wipe{position:absolute;top:-10%;bottom:-10%;left:-30%;right:-30%;transform:translateX(120%) skewX(-18deg);will-change:transform}
+#gx-curtain .gx-wipe-a{background:var(--gx-bg)}
+#gx-curtain .gx-wipe-b{background:var(--gx-red);top:-10%;bottom:-10%}
+#gx-curtain .gx-boot-core{position:absolute;left:clamp(24px,6vw,96px);bottom:clamp(40px,10vh,120px);display:grid;gap:14px;width:min(420px,80vw);opacity:0}
+#gx-curtain img{width:190px}
+#gx-curtain strong{font:italic 800 clamp(40px,6vw,76px)/.9 var(--gx-display);font-synthesis:style}
+#gx-curtain .gx-boot-bar{display:block;height:4px;background:#ffffff18;overflow:hidden}
+#gx-curtain .gx-boot-bar i{display:block;height:100%;width:38%;background:var(--gx-red);animation:gx-run 1.1s cubic-bezier(.6,0,.3,1) infinite}
+#gx-curtain small{font:700 13px/1 var(--gx-body);letter-spacing:.32em;color:#ffffff99}
+#gx-curtain.is-closing{pointer-events:auto}
+#gx-curtain.is-closing .gx-wipe-b{animation:gx-wipe-in .34s var(--gx-snap) both}
+#gx-curtain.is-closing .gx-wipe-a{animation:gx-wipe-in .34s .07s var(--gx-snap) both}
+#gx-curtain.is-closing .gx-boot-core{animation:gx-fade-in .2s .3s both}
+@keyframes gx-wipe-in{from{transform:translateX(120%) skewX(-18deg)}to{transform:translateX(0) skewX(-18deg)}}
+@keyframes gx-run{from{transform:translateX(-110%)}to{transform:translateX(280%)}}
+@keyframes gx-fade-in{from{opacity:0}to{opacity:1}}
+#gx-boot.is-leaving .gx-boot-core{transition:transform .5s var(--gx-snap);transform:translateX(-30px)}
+
+/* ---------- Loading veil (scene preparation) as a game loading screen ---------- */
+html.gx body .drive-preparation{background:var(--gx-bg) center/cover no-repeat;place-items:end start;padding:clamp(24px,6vw,96px);padding-bottom:clamp(64px,12vh,140px);overflow:hidden;isolation:isolate}
+html.gx[data-gx-route=express] body .drive-preparation{background-image:linear-gradient(90deg,#07080af2 0%,#07080acc 32%,#07080a33 70%),linear-gradient(0deg,#07080a 0%,#07080a00 45%),url('/assets/p10b/previews/express-day.jpg')}
+html.gx[data-gx-route=harbor] body .drive-preparation{background-image:linear-gradient(90deg,#07080af2 0%,#07080acc 32%,#07080a33 70%),linear-gradient(0deg,#07080a 0%,#07080a00 45%),url('/assets/p10b/previews/harbor-day.jpg')}
+html.gx[data-gx-route=ridge] body .drive-preparation{background-image:linear-gradient(90deg,#07080af2 0%,#07080acc 32%,#07080a33 70%),linear-gradient(0deg,#07080a 0%,#07080a00 45%),url('/assets/p10b/previews/ridge-day.jpg')}
+html.gx[data-gx-route=ridge][data-gx-look=night] body .drive-preparation{background-image:linear-gradient(90deg,#07080af2 0%,#07080acc 32%,#07080a33 70%),linear-gradient(0deg,#07080a 0%,#07080a00 45%),url('/assets/p10b/previews/ridge-night.jpg')}
+@media (prefers-reduced-motion:no-preference){html.gx[data-gx-route] body .drive-preparation{animation:gx-kenburns 18s ease-out both}}
+@keyframes gx-kenburns{from{background-size:auto,auto,112%}to{background-size:auto,auto,100%}}
+html.gx body .drive-preparation .gx-veil-stripes{position:absolute;inset:auto 0 0 0;height:6px;z-index:-1;background:repeating-linear-gradient(-60deg,var(--gx-red) 0 18px,transparent 18px 30px);opacity:.85;animation:gx-stripes 1.2s linear infinite}
+@keyframes gx-stripes{from{background-position:0 0}to{background-position:69px 0}}
+html.gx body .drive-loading-panel{width:min(560px,100%);margin:0;border:0;padding:0}
+html.gx body .drive-loading-brand{width:170px;margin-bottom:28px}
+html.gx body .drive-loading-eyebrow{font:800 12px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-red)}
+html.gx body :is(.drive-preparation,.sig-drive-loading) :is(h1,h2){font:italic 800 clamp(44px,6.4vw,92px)/.9 var(--gx-display);font-synthesis:style;margin:6px 0 22px;text-shadow:0 4px 30px #000c}
+html.gx body .drive-loading-steps{gap:10px;margin:18px 0}
+html.gx body .drive-loading-steps li{border-top-width:4px;font:700 12px/1.3 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;padding-top:10px}
+html.gx body .drive-loading-steps [aria-current=step]{border-color:var(--gx-red);color:var(--gx-ink);position:relative;overflow:hidden}
+html.gx body .drive-loading-detail{color:var(--gx-ink-2);font-size:15px;margin:12px 0 22px}
+html.gx body .drive-preparation .drive-loading-button{border-radius:0;border-color:var(--gx-edge-2);background:#07080a99;backdrop-filter:blur(6px);font-weight:700;letter-spacing:.04em}
+html.gx body .drive-preparation .gx-tip{position:absolute;right:var(--gx-edge-x);bottom:34px;max-width:min(520px,44vw);margin:0;padding:14px 18px 14px 16px;background:var(--gx-glass);border-left:4px solid var(--gx-hot);backdrop-filter:blur(10px);font:600 14px/1.45 var(--gx-body);color:var(--gx-ink)}
+html.gx body .drive-preparation .gx-tip b{display:block;font:800 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-hot);margin-bottom:6px}
+html.gx body .drive-preparation .gx-tip.is-in{animation:gx-tip-in .5s var(--gx-ease) both}
+@keyframes gx-tip-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width:760px){html.gx body .drive-preparation .gx-tip{left:16px;right:16px;max-width:none;bottom:16px}html.gx body .drive-preparation{padding-bottom:170px}}
+
+/* ---------- Focus: one unmistakable "you are here" ---------- */
+html.gx body :is(button,a,summary,select,input):focus-visible{outline:3px solid var(--gx-hot);outline-offset:3px}
+
+/* ---------- Generic enter choreography (applied only while [data-gx-entering]) ---------- */
+@keyframes gx-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes gx-slide{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+@keyframes gx-slide-r{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
+@keyframes gx-pop{0%{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.08)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){html.gx *{animation-duration:0s!important;transition-duration:0s!important}}
