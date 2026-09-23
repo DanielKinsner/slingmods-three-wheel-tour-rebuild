@@ -26,7 +26,7 @@ const CONTROLS:[string,string,string][]=[
  ['Throttle','W / ↑','RT'],['Brake · reverse','S / ↓','LT'],['Steer','A D / ← →','Left stick'],['Camera','C','Y'],['Look back (hold)','B','LB'],['Drive / reverse','X','B'],['Reset to road (hold)','R','A'],['Pause','Esc','Menu'],
  ['Select','Enter','A'],['Back','Esc','B'],['Switch tabs','Q / E','LB / RB'],['Options','O','View']
 ];
-let open:HTMLElement|null=null,returnFocus:HTMLElement|null=null,tab:Tab='audio';
+let open:HTMLElement|null=null,returnFocus:HTMLElement|null=null,tab:Tab='audio',padToken=0,inerted:HTMLElement[]=[];
 export const optionsOpen=()=>!!open;
 
 function audioRows(){
@@ -61,12 +61,12 @@ export function openOptions(initial:Tab='audio',which:Mode='options'){
  if(open)return;mode=which;tab=initial;returnFocus=document.activeElement as HTMLElement|null;document.body.dataset.gxModal='1';
  open=document.createElement('section');open.className='gx-options';open.setAttribute('role','dialog');open.setAttribute('aria-modal','true');open.setAttribute('aria-label',MODES[mode].title);open.dataset.mode=mode;
  open.innerHTML=`<div class="gx-opt-panel"><header><span class="gx-kicker">SLINGMODS · THREE-WHEEL TOUR</span><h2 class="gx-display">${MODES[mode].title}</h2><button class="gx-opt-close" data-opt="close" aria-label="Close">✕</button></header><nav class="gx-opt-tabs" data-gx-tabs data-gx-modal-tabs>${TABS().map(([id,label])=>`<button data-gx-tab data-tab="${id}" role="tab">${label}</button>`).join('')}</nav><div class="gx-opt-body"></div></div>`;
- document.body.append(open);render();gameCue('gx.select');
+ document.body.append(open);inerted=[...document.body.children].filter((el):el is HTMLElement=>el instanceof HTMLElement&&el!==open&&!el.classList.contains('gx-prompts')&&!el.inert);for(const el of inerted)el.inert=true;render();gameCue('gx.select');
  setPrompts([{key:'confirm',label:'Select'},{key:'adjust',label:'Adjust'},{key:'tabs',label:'Tabs'},{key:'back',label:'Close'}]);
  open.addEventListener('click',onClick);open.addEventListener('input',onInput);open.addEventListener('keydown',onKey);
  (open.querySelector<HTMLElement>(`[data-tab="${tab}"]`))?.focus();padLoop();
 }
-export function closeOptions(){if(!open)return;open.remove();open=null;delete document.body.dataset.gxModal;gameCue('gx.back');setPrompts(null);document.dispatchEvent(new CustomEvent('gx:options-closed'));returnFocus?.focus?.({preventScroll:true})}
+export function closeOptions(){if(!open)return;for(const el of inerted)el.inert=false;inerted=[];open.remove();open=null;padToken++;delete document.body.dataset.gxModal;gameCue('gx.back');setPrompts(null);document.dispatchEvent(new CustomEvent('gx:options-closed'));returnFocus?.focus?.({preventScroll:true})}
 function onClick(e:Event){const t=(e.target as Element).closest<HTMLElement>('[data-opt],[data-gx-tab]');if(!t)return;
  if(t.dataset.tab){tab=t.dataset.tab as Tab;render();open?.querySelector<HTMLElement>(`[data-tab="${tab}"]`)?.focus();return}
  const o=t.dataset.opt;
@@ -91,14 +91,14 @@ function move(dx:number,dy:number){
 }
 function cycle(d:number){const tabs=TABS(),i=tabs.findIndex(([id])=>id===tab);tab=tabs[(i+d+tabs.length)%tabs.length][0];gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-tab="${tab}"]`)?.focus()}
 function onKey(e:KeyboardEvent){
- const k=e.code;if(k==='Escape'||k==='Backspace'&&!(e.target instanceof HTMLInputElement&&e.target.type!=='range')){e.preventDefault();e.stopPropagation();closeOptions();return}
+ const k=e.code;if(k==='Escape'){e.preventDefault();e.stopPropagation();closeOptions();return}
  if(k==='KeyQ'||k==='KeyE'){e.preventDefault();e.stopPropagation();cycle(k==='KeyE'?1:-1);return}
  const d={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[k];if(d){e.preventDefault();e.stopPropagation();move(d[0],d[1])}
  if(k==='Tab'){const list=focusables(),i=list.indexOf(document.activeElement as HTMLElement);e.preventDefault();list[(i+(e.shiftKey?-1:1)+list.length)%list.length]?.focus()}
 }
 function padLoop(){
- const prior=new Map<number,boolean>();let armed=false;
- const tick=()=>{if(!open)return;const pad=(Array.from(navigator.getGamepads?.()??[]) as (Gamepad|null)[]).find(p=>p?.connected&&p.mapping==='standard');
+ const token=++padToken,prior=new Map<number,boolean>();let armed=false;
+ const tick=()=>{if(!open||token!==padToken)return;const pad=(Array.from(navigator.getGamepads?.()??[]) as (Gamepad|null)[]).find(p=>p?.connected&&p.mapping==='standard');
   if(pad){const held=(i:number)=>(pad.buttons[i]?.value??0)>.5,ax=pad.axes[0]??0,ay=pad.axes[1]??0,state:[number,boolean][]=[[0,held(0)],[1,held(1)],[4,held(4)],[5,held(5)],[12,held(12)||ay<-.6],[13,held(13)||ay>.6],[14,held(14)||ax<-.6],[15,held(15)||ax>.6],[8,held(8)]];
    if(!armed){if(state.every(([,v])=>!v))armed=true}else for(const [i,v] of state){if(v&&!prior.get(i)){if(i===0)(document.activeElement as HTMLElement)?.click();else if(i===1||i===8)closeOptions();else if(i===4||i===5)cycle(i===5?1:-1);else move(i===14?-1:i===15?1:0,i===12?-1:i===13?1:0)}}
    for(const [i,v] of state)prior.set(i,v)}

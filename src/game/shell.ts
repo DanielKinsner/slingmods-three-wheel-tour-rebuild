@@ -49,7 +49,7 @@ document.addEventListener('click',e=>{const t=(e.target as Element)?.closest?.('
 // ---- Tabs (Q/E, LB/RB) ------------------------------------------------------------------------------------------
 function visibleTabs(){for(const strip of document.querySelectorAll<HTMLElement>('[data-gx-tabs]')){if(strip.closest('[hidden],[inert]')||!strip.getClientRects().length)continue;const tabs=[...strip.querySelectorAll<HTMLElement>('[data-gx-tab]')].filter(t=>!t.hidden&&!(t as HTMLButtonElement).disabled);if(tabs.length>1)return tabs}return null}
 export function cycleTabs(direction:1|-1){const tabs=visibleTabs();if(!tabs)return false;let i=tabs.findIndex(t=>t.getAttribute('aria-current')==='page'||t.getAttribute('aria-selected')==='true'||t.dataset.gxCurrent==='true');if(i<0)i=direction>0?-1:0;const next=tabs[(i+direction+tabs.length)%tabs.length];gameCue('gx.tab');next.click();return true}
-addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;const t=e.target as Element;if(t instanceof HTMLInputElement&&!['range','checkbox','radio'].includes(t.type)||t instanceof HTMLTextAreaElement)return;if(document.querySelector('.gx-title:not([hidden])'))return;if(e.code==='KeyQ'||e.code==='KeyE'){if(cycleTabs(e.code==='KeyE'?1:-1))e.preventDefault()}});
+addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;const t=e.target as Element;if(t instanceof HTMLInputElement&&!['range','checkbox','radio'].includes(t.type)||t instanceof HTMLTextAreaElement||(t as HTMLElement)?.isContentEditable)return;if(document.querySelector('.gx-title:not([hidden])')||document.body.dataset.gxModal)return;if(e.code==='KeyQ'||e.code==='KeyE'){if(cycleTabs(e.code==='KeyE'?1:-1))e.preventDefault()}});
 
 // ---- Gamepad: device detection + bumpers --------------------------------------------------------------------------
 const bumper=[false,false];
@@ -76,10 +76,12 @@ nav?.addEventListener('navigate',event=>{const e=event as NavigateEventLike;
  if(leaving||!e.cancelable||e.hashChange||e.downloadRequest||e.destination.sameDocument||e.navigationType==='reload'||e.navigationType==='traverse')return;
  const url=new URL(e.destination.url);if(url.origin!==location.origin||reduced()||document.documentElement.dataset.gxNoCurtain==='1')return;
  e.preventDefault();leaving=true;const replace=e.navigationType==='replace';
- void wipeOut().then(()=>{if(replace)location.replace(url.href);else location.assign(url.href)});
+ void wipeOut().then(()=>{if(replace)location.replace(url.href);else location.assign(url.href);
+  // If the document never unloads (attachment response, blocked or cancelled navigation), give the page back.
+  setTimeout(()=>{if(document.visibilityState!=='hidden'){leaving=false;document.getElementById('gx-curtain')?.remove()}},4500)});
 });
 // Returning via bfcache: never leave the curtain covering a live page.
-addEventListener('pageshow',e=>{if((e as PageTransitionEvent).persisted){leaving=false;document.getElementById('gx-curtain')?.remove()}});
+addEventListener('pageshow',()=>{leaving=false;document.getElementById('gx-curtain')?.remove()});
 
 // ---- Boot screen hand-off ---------------------------------------------------------------------------------------
 const READY='#signature-ui,#harbor-ui,.career-shell,.drive-preparation,.preview-recovery,.gx-title,#chapter-panel';

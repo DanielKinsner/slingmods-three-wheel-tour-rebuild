@@ -76,8 +76,10 @@ export class TimeAttack {
  /** Per rendered frame, after the hero is posed. */
  frame(s:TrialSnapshot,camera:THREE.Camera){
   // A new run starts at every countdown and whenever the race clock jumps back (hold-R restart, retry).
-  if((s.phase==='countdown'||s.phase==='ready')&&this.runKey!=='armed'||s.elapsedMs+100<this.lastElapsed){this.runKey='armed';this.recording=new Track();this.lastSample=-Infinity;this.done=false;this.result=undefined}
-  if(s.phase==='running')this.runKey='';this.lastElapsed=s.elapsedMs;
+  const newRun=((s.phase==='countdown'||s.phase==='ready')&&this.runKey!=='armed')||s.elapsedMs+100<this.lastElapsed;
+  if(newRun){this.runKey='armed';this.recording=new Track();this.lastSample=-Infinity;this.done=false;this.result=undefined;if(this.ghost)this.ghost.mesh.visible=false}
+  if(s.phase==='running'){this.runKey=''}
+  this.lastElapsed=s.elapsedMs;
   const running=s.phase==='running'&&!s.paused&&!s.playerResult;
   if(running&&s.elapsedMs-this.lastSample>=SAMPLE_MS){this.lastSample=s.elapsedMs;this.recording.push(s.elapsedMs,this.hero.getWorldPosition(this.p),this.hero.getWorldQuaternion(this.q))}
   if(this.ghost&&this.best?.ghost){const g=this.ghost,data=this.best.ghost;const show=s.phase==='countdown'||s.phase==='running'&&!s.playerResult||s.phase==='ready';g.mesh.visible=show&&Track.sample(data,s.phase==='running'?s.elapsedMs:0,g.mesh.position,g.mesh.quaternion);
@@ -104,6 +106,7 @@ export class TimeAttack {
   panel.innerHTML=`<div class="gx-medal" data-medal="${r.medal??'none'}"><i></i><b>${r.medal?MEDAL_NAMES[r.medal].toUpperCase():'NO MEDAL'}</b>${newMedal?'<span>NEW MEDAL</span>':''}</div><div class="gx-trial-lines">${r.improved?`<p class="is-record"><b>${r.previous?'NEW PERSONAL BEST':'FIRST TIME SET'}</b>${delta!==null?`<span>${(delta/1000).toFixed(3)}s</span>`:''}</p>`:`<p><b>BEST ${trialTime(r.previous!.timeMs)}</b><span>+${((delta??0)/1000).toFixed(3)}s</span></p>`}${next?`<p><b>NEXT: ${MEDAL_NAMES[next].toUpperCase()}</b><span>${trialTime(MEDAL_TARGETS[this.route][next])} · ${((r.timeMs-MEDAL_TARGETS[this.route][next])/1000).toFixed(3)}s to find</span></p>`:'<p><b>EVERY MEDAL EARNED</b><span>Go find another tenth.</span></p>'}${r.improved?'<p><small>Your ghost now drives this lap.</small></p>':''}</div>`;
   menu.insertBefore(panel,menu.querySelector('.menu-actions'));
  }
- observe(){const menu=document.getElementById('race-menu');if(!menu)return;new MutationObserver(()=>{if(menu.dataset.phase==='result')this.decorate()}).observe(menu,{childList:true})}
- dispose(){if(this.ghost){this.scene.remove(this.ghost.mesh);this.ghost.mesh.geometry.dispose();this.ghost.material.dispose()}this.hud.remove()}
+ private observer?:MutationObserver;
+ observe(){const menu=document.getElementById('race-menu');if(!menu)return;this.observer?.disconnect();this.observer=new MutationObserver(()=>{if(menu.dataset.phase==='result')this.decorate()});this.observer.observe(menu,{childList:true})}
+ dispose(){this.observer?.disconnect();if(this.ghost){this.scene.remove(this.ghost.mesh);this.ghost.mesh.geometry.dispose();this.ghost.material.dispose()}this.hud.remove()}
 }

@@ -1,4 +1,5 @@
 import './race.css';
+import * as THREE from 'three';
 import {countDrive} from './achievements';
 import {announceAchievements} from './toast';
 import {gameCue} from './audio-bus';
@@ -13,7 +14,7 @@ import {radioLine,CREW,portraitMarkup,type CrewId,type RadioMoment} from './crew
  * results, rewards or saves (split bests live under their own local key and are cosmetic).
  */
 interface Standing {id:string;place:number;status:string;lap:number;nextGate:number;timeMs:number|null}
-export interface RaceSnapshotLike {event:string;laps:number;phase:string;paused:boolean;countdown:number;elapsedMs:number;standings:Standing[];playerResult:{valid:boolean;place:number|null;timeMs:number|null;status:string}|null;allFinished:boolean}
+export interface RaceSnapshotLike {event:string;attemptId?:string|null;laps:number;phase:string;paused:boolean;countdown:number;elapsedMs:number;standings:Standing[];playerResult:{valid:boolean;place:number|null;timeMs:number|null;status:string}|null;allFinished:boolean}
 export interface RaceReward {credits:number;balance:number;before:Career|null;after?:Career|null;receipt?:Pick<Receipt,'kind'|'amount'>;first?:boolean}
 const ordinal=(n:number)=>n+(n%100>=11&&n%100<=13?'TH':['TH','ST','ND','RD'][n%10]??'TH');
 const fmt=(ms:number)=>{const s=Math.abs(ms)/1000,m=Math.floor(s/60);return `${m}:${(s-m*60).toFixed(3).padStart(6,'0')}`};
@@ -25,7 +26,7 @@ function writeSplits(event:string,splits:number[]){try{const all=JSON.parse(loca
 export class RaceFX {
  readonly root=document.createElement('div');
  private lights=document.createElement('div');private callout=document.createElement('div');private split=document.createElement('div');private flash=document.createElement('div');
- private radioNode=document.createElement('div');private radioAt=-Infinity;private radioTimer=0;private order:string[]=[];private trial:boolean;private vehicle:string;private field:CrewId[]=[];
+ private radioNode=document.createElement('div');private radioAt=-Infinity;private radioTimer=0;private order:string[]=[];private trial:boolean;private tagNodes=new Map<string,HTMLElement>();private v=new THREE.Vector3();private topSpeed=0;private vehicle:string;private field:CrewId[]=[];
  private phase='';private count=-1;private place=0;private lap=1;private gate=-1;private gates:number[]=[];private lapStart=0;private finished=false;private runKey='';private best:number[]|null=null;private freeDrive:boolean;
  private reward?:RaceReward;private tallied='';private menuObserver?:MutationObserver;private calloutTimer=0;private splitTimer=0;private prompts='';
  constructor(parent:Element,options:{freeDrive?:boolean;trial?:boolean;vehicle?:string}={}){
@@ -44,18 +45,29 @@ export class RaceFX {
  setReward(reward:RaceReward){this.reward=reward;if(reward.after)setTimeout(()=>announceAchievements(reward.after!),2600);const menu=document.getElementById('race-menu');if(menu)this.decorateMenu(menu)}
  private show(node:HTMLElement,cls:string,html:string,ms:number,timer:'calloutTimer'|'splitTimer'){node.className=node.className.split(' ')[0]+' '+cls;node.innerHTML=html;node.classList.remove('is-on');void node.offsetWidth;node.classList.add('is-on');clearTimeout(this[timer]);this[timer]=window.setTimeout(()=>node.classList.remove('is-on'),ms)}
  private banner(html:string,cls='',ms=1600){this.show(this.callout,cls,html,ms,'calloutTimer')}
- update(s:RaceSnapshotLike){
+ /** Floating rival nameplates: livery colour, name and gap. Projected each frame; hidden off-screen, far away or in films. */
+ tags(camera:THREE.Camera,field:Record<string,{position:{x:number;y:number;z:number}}>,hidden:boolean){
+  const me=field.player;if(!me)return;
+  for(const id of this.field){const t=field[id];let el=this.tagNodes.get(id);if(!el){el=document.createElement('div');el.className='gx-tag';const m=CREW[id];el.style.setProperty('--gx-crew',m.color);el.innerHTML=`<b>${m.name}</b><span></span>`;this.root.append(el);this.tagNodes.set(id,el)}
+   if(!t||hidden||this.finished){el.style.opacity='0';continue}
+   const d=Math.hypot(t.position.x-me.position.x,t.position.z-me.position.z);this.v.set(t.position.x,t.position.y+1.55,t.position.z).project(camera);
+   const on=this.v.z<1&&this.v.z>-1&&Math.abs(this.v.x)<1.1&&Math.abs(this.v.y)<1.1&&d>2.5&&d<140;
+   if(!on){el.style.opacity='0';continue}
+   const x=(this.v.x+1)/2*innerWidth,y=(1-this.v.y)/2*innerHeight;el.style.transform=`translate(${x.toFixed(1)}px,${y.toFixed(1)}px) translate(-50%,-100%)`;el.style.opacity=String(Math.min(1,Math.max(.25,1.2-d/120)));
+   const gapText=d<10?'':`${Math.round(d)} m`;const span=el.lastElementChild as HTMLElement;if(span.textContent!==gapText)span.textContent=gapText}
+ }
+ update(s:RaceSnapshotLike,speed=0){
   const me=s.standings.find(x=>x.id==='player');if(!me)return;
   if(!this.field.length&&s.standings.length>1)this.field=s.standings.map(x=>x.id).filter(id=>id in CREW) as CrewId[];
-  const key=s.event+':'+(s as {attemptId?:string}).attemptId;
+  const key=s.event+':'+(s.attemptId??'');
   if(s.phase==='ready'&&this.phase!=='ready'||key!==this.runKey&&s.phase!=='finished'||this.phase==='finished'&&s.phase!=='finished'&&!s.playerResult)this.resetRun(key,s.event);
   // Start lights: three reds count down with the existing 3-second countdown, then all green on GO.
   if(s.phase==='countdown'&&!s.paused){const n=Math.ceil(s.countdown);if(this.phase!=='countdown'&&!this.freeDrive)setTimeout(()=>this.radio(this.trial?'trialStart':'start'),350);if(n!==this.count){this.count=n;this.lights.classList.add('is-on');this.lights.dataset.lit=String(Math.max(0,3-n+1));this.lights.classList.remove('is-go');if(n>0){this.lights.querySelector('b')!.textContent=String(n);this.pulse(this.lights.querySelector('b')!)}}}
   if(this.phase==='countdown'&&s.phase==='running'){countDrive(this.freeDrive?'test':this.trial?'trial':'race',this.vehicle);this.count=-1;this.lights.dataset.lit='3';this.lights.classList.add('is-go');this.lights.querySelector('b')!.textContent='GO!';this.pulse(this.lights.querySelector('b')!);this.lapStart=0;setTimeout(()=>this.lights.classList.remove('is-on'),1100)}
-  if(s.phase==='running'&&!s.paused&&!this.finished){
+  if(s.phase==='running'&&!s.paused&&!this.finished){this.topSpeed=Math.max(this.topSpeed,Math.abs(speed)*2.23694);
    // Position changes (only in real races with a field).
    const order=s.standings.map(x=>x.id);
-   if(s.standings.length>1&&!this.freeDrive&&this.place&&me.place!==this.place&&me.status==='running'){const up=me.place<this.place;const other=(up?order[me.place]:order[me.place-2]) as CrewId|undefined;if(other&&other!=='player'as string)this.radio(up?'passedThem':'passedYou',other);this.banner(`<b>P${me.place}</b><span>${up?'▲ POSITION GAINED':'▼ POSITION LOST'}</span>`,up?'is-up':'is-down',1300);gameCue(up?'gx.pos-up':'gx.pos-down')}
+   if(s.standings.length>1&&!this.freeDrive&&this.place&&me.place!==this.place&&me.status==='running'){const up=me.place<this.place;const other=(up?order[me.place]:order[me.place-2]) as CrewId|undefined;if(other&&other in CREW)this.radio(up?'passedThem':'passedYou',other);this.banner(`<b>P${me.place}</b><span>${up?'▲ POSITION GAINED':'▼ POSITION LOST'}</span>`,up?'is-up':'is-down',1300);gameCue(up?'gx.pos-up':'gx.pos-down')}
    this.place=me.place;this.order=order;
    // Checkpoint splits against the best recorded run of this event.
    if(me.nextGate!==this.gate){if(this.gate>=0&&me.nextGate>this.gate||this.gate>0&&me.nextGate<this.gate){this.gates.push(s.elapsedMs);const i=this.gates.length-1,ref=this.best?.[i];if(!this.freeDrive&&ref!==undefined){const d=s.elapsedMs-ref;this.show(this.split,d<=0?'is-ahead':'is-behind',`<small>SPLIT ${i+1}</small><b>${d<=0?'−':'+'}${(Math.abs(d)/1000).toFixed(2)}</b>`,1800,'splitTimer')}}this.gate=me.nextGate}
@@ -70,7 +82,7 @@ export class RaceFX {
   this.phase=s.phase;
   const menuOpen=s.phase==='ready'||s.phase==='finished'||s.paused,label=s.paused?'Resume':s.playerResult?'Race again':'Start';const prompts=menuOpen?label:'none';if(prompts!==this.prompts){this.prompts=prompts;setPrompts(menuOpen?[{key:'confirm',label}]:null)}
  }
- private resetRun(key:string,event:string){this.runKey=key;this.finished=false;this.place=0;this.lap=1;this.gate=-1;this.gates=[];this.lapStart=0;this.count=-1;this.best=readSplits(event);this.tallied=''}
+ private resetRun(key:string,event:string){this.runKey=key;this.topSpeed=0;this.finished=false;this.place=0;this.lap=1;this.gate=-1;this.gates=[];this.lapStart=0;this.count=-1;this.best=readSplits(event);this.tallied=''}
  private pulse(node:HTMLElement){node.classList.remove('is-pulse');void node.offsetWidth;node.classList.add('is-pulse')}
  private hit(){if(reduced())return;this.flash.classList.remove('is-on');void this.flash.offsetWidth;this.flash.classList.add('is-on')}
  /** Results: ordinal slam, staggered standings, and the reward tally panel. Runs after CrewUI renders its menu. */
@@ -81,7 +93,8 @@ export class RaceFX {
   if(menu.dataset.phase==='ready'&&this.field.length&&!menu.querySelector('.gx-lineup')){const h=menu.querySelector('h1');h?.insertAdjacentHTML('afterend',`<div class="gx-lineup is-grid">${this.field.map(id=>portraitMarkup(CREW[id],'gx-portrait is-small')).join('')}<figure class="gx-portrait is-small is-you"><span>YOU</span><figcaption><b>YOU</b><small>Your build</small></figcaption></figure></div>`)}
   if(menu.dataset.phase!=='result'||menu.hidden){return}
   const place=Number(menu.dataset.place);const numeral=menu.querySelector<HTMLElement>('.result-numeral');
-  if(numeral&&!numeral.dataset.gx&&Number.isFinite(place)&&place>0){numeral.dataset.gx='1';numeral.dataset.medal=place===1?'gold':place===2?'silver':place===3?'bronze':'';numeral.firstChild!.textContent=String(place);const sfx=document.createElement('sup');sfx.textContent=ordinal(place).replace(String(place),'');numeral.insertBefore(sfx,numeral.querySelector('small'))}
+  if(numeral&&!numeral.dataset.gx&&Number.isFinite(place)&&place>0){numeral.dataset.gx='1';numeral.dataset.medal=place===1?'gold':place===2?'silver':place===3?'bronze':'';const small=numeral.querySelector('small'),sfx=document.createElement('sup');sfx.textContent=ordinal(place).replace(String(place),'');numeral.replaceChildren(document.createTextNode(String(place)),sfx,...(small?[small]:[]))}
+  if(!menu.querySelector('.gx-run-stats')&&this.topSpeed>1){const p=document.createElement('p');p.className='gx-run-stats';p.innerHTML=`<span>TOP SPEED</span><b>${Math.round(this.topSpeed)}<small> MPH</small></b>`;menu.insertBefore(p,menu.querySelector('.result-standings,.menu-actions'))}
   const r=this.reward;if(!r||menu.querySelector('.gx-reward'))return;
   const tallyKey=JSON.stringify([r.credits,r.balance]);const animate=this.tallied!==tallyKey&&!reduced();this.tallied=tallyKey;
   const gain=repGain(r.before,r.receipt),after=tourProgress(r.before);after.rep=gain.rep;

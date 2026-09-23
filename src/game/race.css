@@ -196,3 +196,16 @@ html.gx body #race-menu h1{overflow-wrap:anywhere}html.gx body #harbor-ui:has(.g
 @keyframes gx-radio-eq{0%{clip-path:inset(40% 0 0 0)}33%{clip-path:inset(0 0 0 0)}66%{clip-path:inset(60% 0 0 0)}}
 html.gx body.race-menu-open .gx-radio{opacity:0}
 html.gx body #harbor-ui:has(#crew-order:not([hidden])) .gx-radio{top:282px}
+
+/* ---------- Rival nameplates + run stats ---------- */
+.gx-tag{position:absolute;left:0;top:0;display:flex;align-items:baseline;gap:6px;padding:3px 9px 4px 8px;background:#07080ab8;border-left:3px solid var(--gx-crew,#fff);font-family:var(--gx-body);white-space:nowrap;opacity:0;transition:opacity .2s;will-change:transform;pointer-events:none}
+.gx-tag b{font:italic 800 14px/1 var(--gx-display);font-synthesis:style;letter-spacing:.08em;color:var(--gx-crew,#fff)}
+.gx-tag span{font:700 10px/1 var(--gx-body);color:var(--gx-ink-2)}
+.gx-tag span:empty{display:none}
+.gx-tag::after{content:'';position:absolute;left:50%;bottom:-6px;width:0;height:0;border:5px solid transparent;border-top-color:#07080ab8;transform:translateX(-50%)}
+html.gx body.race-menu-open .gx-tag{display:none}
+.gx-run-stats{display:flex!important;align-items:baseline;gap:12px;margin:2px 0 6px!important}
+.gx-run-stats span{font:800 10px/1 var(--gx-body);letter-spacing:.28em;color:var(--gx-mute)}
+.gx-run-stats b{font:italic 800 30px/1 var(--gx-display);font-synthesis:style;color:var(--gx-ink)}
+.gx-run-stats small{font:800 12px/1 var(--gx-body);color:var(--gx-mute);font-style:normal}
+html.gx body #race-menu .gx-run-stats b{white-space:nowrap}html.gx body #race-menu .gx-run-stats small{display:inline;margin:0}
