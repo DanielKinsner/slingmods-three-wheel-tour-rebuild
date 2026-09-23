@@ -1,0 +1,46 @@
+✖ shipped rider fingers wrap the tilted Slingshot wheel in its moving frame (18.1226ms)
+✖ shipped rider fingers wrap the Ryker handlebar in its moving frame (17.0062ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 279.967
+
+✖ failing tests:
+
+test at tests\rider-grip.test.ts:22:33
+✖ shipped rider fingers wrap the tilted Slingshot wheel in its moving frame (18.1226ms)
+  AssertionError [ERR_ASSERTION]: left grip axis differs by 19.5 degrees
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\rider-grip.test.ts:40:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\rider-grip.test.ts:22:33
+✖ shipped rider fingers wrap the Ryker handlebar in its moving frame (17.0062ms)
+  AssertionError [ERR_ASSERTION]: left grip axis differs by 90.0 degrees
+      at TestContext.<anonymous> (C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\tests\rider-grip.test.ts:40:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

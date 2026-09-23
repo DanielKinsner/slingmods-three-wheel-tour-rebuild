@@ -12,7 +12,7 @@ bpy.ops.wm.open_mainfile(filepath=str(P/'assets/blender/drivers/test-driver.blen
 rig=bpy.data.objects['driver_rig']
 # Preserve semantic joints, bind matrices and contact pivots exactly.
 for ob in list(bpy.data.objects):
- if ob.type=='MESH' and (ob.name.startswith(('driver_helmet','driver_opaque','Jacket_sewn'))):
+ if ob.type=='MESH' and (ob.name.startswith(('driver_helmet','driver_opaque','Jacket_sewn','Gloved_palm','Curled_glove_finger','Opposed_thumb'))):
   bpy.data.objects.remove(ob,do_unlink=True)
 meshes=[o for o in bpy.data.objects if o.type=='MESH']
 jacket=bpy.data.objects['driver_jacket']
@@ -134,13 +134,49 @@ for i in range(9):
  if ok:ps.append(co+no*.002)
 ob=tube('Nape_reflective_tab',ps,.0024);ob['tile']='reflective'
 
-# Glove knuckle shells and stitched wrist closures; boots get toe caps, welt and actual soles.
+# Smooth glove sections use a transported frame. Re-projecting a fixed X axis at
+# each bend flips the old finger rings and folds their quads through themselves.
+def glove_sweep(name,points,radii,bone,rings=16,segments=10):
+ controls=[Vector(p)for p in points];vs=[];fs=[];previous=None
+ samples=[]
+ for i in range(rings):
+  u=i/(rings-1)*(len(controls)-1);k=min(int(u),len(controls)-2);t=u-k
+  p0=controls[max(0,k-1)];p1=controls[k];p2=controls[k+1];p3=controls[min(len(controls)-1,k+2)]
+  center=.5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t*t+(-p0+3*p1-3*p2+p3)*t*t*t)
+  a,b=radii[k],radii[k+1];samples.append((center,(a[0]*(1-t)+b[0]*t,a[1]*(1-t)+b[1]*t)))
+ for i,(center,(rx,ry))in enumerate(samples):
+  tangent=(samples[min(i+1,rings-1)][0]-samples[max(0,i-1)][0]).normalized()
+  reference=previous if previous is not None else Vector((0,0,1))
+  axis=reference-tangent*reference.dot(tangent)
+  if axis.length<.01:
+   reference=min([Vector((1,0,0)),Vector((0,1,0)),Vector((0,0,1))],key=lambda v:abs(v.dot(tangent)))
+   axis=reference-tangent*reference.dot(tangent)
+  axis.normalize();previous=axis.copy();other=tangent.cross(axis)
+  for j in range(segments):
+   a=math.tau*j/segments;vs.append(center+axis*(rx*math.cos(a))+other*(ry*math.sin(a)))
+ for i in range(rings-1):
+  for j in range(segments):a=i*segments+j;b=i*segments+(j+1)%segments;fs.append((a,b,b+segments,a+segments))
+ fs +=[tuple(reversed(range(segments))),tuple((rings-1)*segments+j for j in range(segments))]
+ ob=mesh(name,vs,fs,bone);ob['tile']='leather';ob['gripRingSegments']=segments;return ob
+
+# Four rounded fingers curl around the actual control centre, 23 mm ahead of
+# the retained contact pivot. The thumb opposes them on the index-finger side.
 for side in ['left','right']:
- hand=rig.data.bones['driver_hand_'+side].head_local.copy()
- s=-1 if side=='left' else 1
- for j in range(4):
-  z=hand.z+(j-1.5)*.019
-  ob=tube('Glove_knuckle_'+side+str(j),[(hand.x+s*.026,hand.y-.028,z-.006),(hand.x+s*.033,hand.y-.024,z),(hand.x+s*.030,hand.y-.013,z+.006)],.0045,'hand_'+side,8);ob['tile']='rubber'
+ hand=rig.data.bones['driver_hand_'+side].head_local.copy();s=-1 if side=='left'else 1
+ elbow=rig.data.bones['driver_forearm_'+side].head_local;back=(elbow-hand).normalized()
+ points=[hand+back*.072,hand+back*.048,hand+Vector((s*.004,-.026,0)),hand+Vector((s*.008,-.016,0)),hand+Vector((s*.010,-.010,0))]
+ glove_sweep('Gloved_palm_'+side,points,[(.022,.025),(.032,.027),(.040,.028),(.041,.027),(.037,.020)],'hand_'+side,rings=8,segments=16)
+ for j,(z,r)in enumerate([(-.030,.008),(-.010,.009),(.010,.0092),(.030,.0088)]):
+  points=[hand+Vector((s*x,y,z))for x,y in [(.012,-.025),(.028,-.007),(.026,.019),(.013,.044),(-.007,.040),(-.013,.031)]]
+  glove_sweep('Curled_glove_finger_'+side+str(j),points,[(r*.95,r),(r,r),(r*.96,r*.96),(r*.88,r*.88),(r*.7,r*.7),(.0015,.0015)],'hand_'+side)
+ points=[hand+Vector((s*x,y,z))for x,y,z in [(-.024,-.044,.012),(-.035,-.023,.030),(-.034,.003,.044),(-.020,.025,.047),(-.003,.030,.044)]]
+ glove_sweep('Opposed_thumb_'+side,points,[(.014,.013),(.013,.012),(.011,.011),(.009,.009),(.002,.002)],'hand_'+side,rings=10)
+ # A restrained padded knuckle strip follows the back of the glove.
+ points=[hand+Vector((s*.032,-.007,z))for z in [-.027,-.012,.012,.027]]
+ glove_sweep('Glove_knuckle_'+side,points,[(.0015,.0015),(.005,.006),(.005,.006),(.0015,.0015)],'hand_'+side,rings=7,segments=8)['tile']='rubber'
+
+# Boots retain the authored toe caps, welt and soles.
+for side in ['left','right']:
  x=-.49 if side=='left' else -.28
  for z,r,tile in [(.175,.007,'rubber'),(.185,.002,'thread')]:
   ps=[(x+dx,y,z)for dx,y in [(-.038,.40),(-.05,.45),(-.052,.535),(-.038,.596),(0,.614),(.038,.596),(.052,.535),(.05,.45),(.038,.40),(-.038,.40)]]
@@ -236,6 +272,7 @@ for ob in meshes:
    uv=ob.data.uv_layers.active.data[li].uv;uv.x=u0+uv.x*(u1-u0);uv.y=v0+uv.y*(v1-v0)
 # Metadata is the opt-in contract; old assets keep their original pose behavior.
 bpy.data.objects['driver_root']['riderMotionVersion']=1
+bpy.data.objects['driver_root']['gripPoseVersion']=1
 bpy.data.objects['driver_root']['riderDesign']='Tour Rider / sage textile / porcelain shell'
 bpy.context.scene.unit_settings.system='METRIC'
 # Keep all individually editable garment components, weights and packed textures in the source.

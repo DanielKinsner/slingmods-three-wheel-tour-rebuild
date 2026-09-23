@@ -1,3 +1,12 @@
+# Rider hands repaired (2026-09-22)
+
+The owner reported malformed rider hands after integration. Read `handoff/RIDER-HANDS.md`
+and its validation receipt. The Tour glove geometry is rebuilt with stable curl sections;
+its opted-in grip pose follows the tilted Slingshot wheel and horizontal Ryker bars.
+Preserve the merged rider/UI/cinematic/audio work, original rider, vehicle physics,
+career saves and owner file. Performance HOLD, one lead and local-only policy remain.
+
+---
 # Four completed worktrees integrated on main (2026-09-22)
 
 The owner authorized merging the rider, premium racing UI, race cinematics and audio

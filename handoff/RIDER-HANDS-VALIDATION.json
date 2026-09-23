@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "baseline": "55583a396862cbec39cf5828150625452c74c3d5",
+  "problem": "Visible folded finger geometry and control-frame grip orientation missed by earlier bone-contact-only checks.",
+  "geometry": {
+    "oldMinimumAdjacentSectionDot": -0.412823,
+    "newMinimumAdjacentSectionDot": 0.99999994,
+    "fingers": 8,
+    "sectionsPerFinger": 16,
+    "rigidHandWeights": true,
+    "nondegenerateFaces": true
+  },
+  "grip": {
+    "slingshotOldTiltErrorDegrees": 19.48,
+    "rykerOldAxisErrorDegrees": 90,
+    "rykerPivotCompensationMm": 20,
+    "physicalControlCenterToleranceMm": 1,
+    "legacyPoseUnchanged": true
+  },
+  "asset": {
+    "version": 1,
+    "source": "assets/blender/drivers/tour-rider.blend",
+    "asset": "/assets/drivers/tour-rider/tour-rider.glb",
+    "triangles": 44515,
+    "primitives": 4,
+    "materials": 3,
+    "textures": {
+      "uniqueImages": 3,
+      "size": 1024,
+      "rgba8WithMipsMiB": 16.0
+    },
+    "bytes": 4134608,
+    "sha256": "03b48887040916018a09e37e77e55418968a6932b81428bb5aef74488a51bb59",
+    "animation": "Runtime additive semantic-bone motion; applied before original control/foot IK. No baked clip dependency.",
+    "provenance": "Original repository-owned seated skeleton and garment base; original Blender-authored tailoring, protective gear, helmet and deterministic PBR atlas. No downloads or likeness.",
+    "baseSourceSha256": "59b92afcd742abe9f9c87bc40bfeaeaff8743e592ea8fe85461ff4290df8c723"
+  },
+  "tests": {
+    "passed": 431,
+    "failed": 0,
+    "log": "rider-hands/all-tests.log"
+  },
+  "build": {
+    "output": "demo-dist/2026-09-23T04-18-15-156Z-55583a396862-working",
+    "commit": "55583a396862cbec39cf5828150625452c74c3d5",
+    "buildRef": "55583a396862-working",
+    "manifest": "OUTPUT-MANIFEST.json"
+  },
+  "allBuildInputsMatch": true,
+  "inputCount": 614,
+  "browser": {
+    "motion": {
+      "pass": true,
+      "path": "rider-hands/final-motion/browser-validation.json"
+    },
+    "closeups": {
+      "pass": true,
+      "path": "rider-hands/final-closeups/report.json"
+    },
+    "packaged": {
+      "pass": true,
+      "path": "rider-hands/packaged/game-smoke.json"
+    }
+  },
+  "visuallyInspected": [
+    "final-closeups/slingshot-idle-right.png",
+    "final-closeups/slingshot-left-lock-left.png",
+    "final-closeups/ryker-idle-left.png",
+    "final-closeups/ryker-right-lock-right.png"
+  ],
+  "protectedPathsUnchanged": [
+    "src/simulation",
+    "src/driving",
+    "src/career",
+    "src/career-experience",
+    "src/audio",
+    "public/assets/model02",
+    "public/assets/ryker",
+    "public/assets/drivers/test-driver.glb",
+    "assets/blender/drivers/test-driver.blend"
+  ],
+  "ownerFileSha256": "c71fe1d6e732c3c43c05969cd5e6747dd9ddea024a161550a5b4d5bc9665ce77",
+  "limits": [
+    "Existing sustained performance HOLD remains.",
+    "Browser presentation checks do not certify physical controllers or human enjoyment.",
+    "No push, deployment, dependencies, spending or source publication."
+  ]
+}

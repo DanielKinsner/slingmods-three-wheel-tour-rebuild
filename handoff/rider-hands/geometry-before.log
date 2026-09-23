@@ -1,0 +1,10 @@
+Blender 4.5.2 LTS (hash ab25eae04993 built 2025-08-20 02:20:52)
+Read blend: "C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\assets\blender\drivers\tour-rider.blend"
+Traceback (most recent call last):
+  File "C:\Users\Daniel Kinsner\OneDrive\Documents\GitHub\slingmods-three-wheel-tour-rebuild\scripts\check-rider-hands.py", line 18, in <module>
+    assert all(r['minAdjacentRingDot']>.5 for r in rows),'finger cross-sections reverse: pinched/self-crossing geometry'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: finger cross-sections reverse: pinched/self-crossing geometry
+HAND_GEOMETRY [{"finger": "Curled_glove_finger_left0", "minAdjacentRingDot": -0.41282178461551666, "rings": 5}, {"finger": "Curled_glove_finger_left1", "minAdjacentRingDot": -0.41282178461551666, "rings": 5}, {"finger": "Curled_glove_finger_left2", "minAdjacentRingDot": -0.41282178461551666, "rings": 5}, {"finger": "Curled_glove_finger_left3", "minAdjacentRingDot": -0.4128217845762824, "rings": 5}, {"finger": "Curled_glove_finger_right0", "minAdjacentRingDot": -0.4128233641386032, "rings": 5}, {"finger": "Curled_glove_finger_right1", "minAdjacentRingDot": -0.4128233641386032, "rings": 5}, {"finger": "Curled_glove_finger_right2", "minAdjacentRingDot": -0.4128233641386032, "rings": 5}, {"finger": "Curled_glove_finger_right3", "minAdjacentRingDot": -0.41282336409936893, "rings": 5}]
+
+Blender quit
