@@ -1,4 +1,5 @@
 import './race.css';
+import {projectRoad,type CourseRoute} from '../course/environment';
 import * as THREE from 'three';
 import {countDrive} from './achievements';
 import {announceAchievements} from './toast';
@@ -26,15 +27,16 @@ function writeSplits(event:string,splits:number[]){try{const all=JSON.parse(loca
 export class RaceFX {
  readonly root=document.createElement('div');
  private lights=document.createElement('div');private callout=document.createElement('div');private split=document.createElement('div');private flash=document.createElement('div');
- private radioNode=document.createElement('div');private radioAt=-Infinity;private radioTimer=0;private order:string[]=[];private trial:boolean;private tagNodes=new Map<string,HTMLElement>();private v=new THREE.Vector3();private topSpeed=0;private vehicle:string;private field:CrewId[]=[];
+ private radioNode=document.createElement('div');private radioAt=-Infinity;private radioTimer=0;private order:string[]=[];private trial:boolean;private route?:CourseRoute;private warn=document.createElement('div');private wrongFor=0;private offFor=0;private roadAt=0;private warnState='';private tagNodes=new Map<string,HTMLElement>();private v=new THREE.Vector3();private topSpeed=0;private vehicle:string;private field:CrewId[]=[];
  private phase='';private count=-1;private place=0;private lap=1;private gate=-1;private gates:number[]=[];private lapStart=0;private finished=false;private runKey='';private best:number[]|null=null;private freeDrive:boolean;
  private reward?:RaceReward;private tallied='';private menuObserver?:MutationObserver;private calloutTimer=0;private splitTimer=0;private prompts='';
- constructor(parent:Element,options:{freeDrive?:boolean;trial?:boolean;vehicle?:string}={}){
-  this.freeDrive=!!options.freeDrive;this.trial=!!options.trial;this.vehicle=options.vehicle??'slingshot-r-2024';this.radioNode.className='gx-radio';
+ constructor(parent:Element,options:{freeDrive?:boolean;trial?:boolean;vehicle?:string;route?:CourseRoute}={}){
+  this.route=options.route;this.warn.className='gx-warn';
+  this.freeDrive=!!options.freeDrive;this.trial=!!options.trial;this.vehicle=options.vehicle??'slingshot-r-2024';(parent as HTMLElement).dataset.gxMode=this.freeDrive?'free':this.trial?'trial':'race';this.radioNode.className='gx-radio';
   this.root.className='gx-race';this.root.setAttribute('aria-hidden','true');
   this.lights.className='gx-lights';this.lights.innerHTML='<i></i><i></i><i></i><b></b>';
   this.callout.className='gx-callout';this.split.className='gx-split';this.flash.className='gx-flash';
-  this.root.append(this.flash,this.lights,this.callout,this.split,this.radioNode);parent.append(this.root);
+  this.root.append(this.flash,this.lights,this.callout,this.split,this.radioNode,this.warn);parent.append(this.root);
   document.addEventListener('gx:radio',this.onRadio);
   const menu=document.getElementById('race-menu');if(menu){this.menuObserver=new MutationObserver(()=>this.decorateMenu(menu));this.menuObserver.observe(menu,{childList:true})}
  }
@@ -55,6 +57,16 @@ export class RaceFX {
    if(!on){el.style.opacity='0';continue}
    const x=(this.v.x+1)/2*innerWidth,y=(1-this.v.y)/2*innerHeight;el.style.transform=`translate(${x.toFixed(1)}px,${y.toFixed(1)}px) translate(-50%,-100%)`;el.style.opacity=String(Math.min(1,Math.max(.25,1.2-d/120)));
    const gapText=d<10?'':`${Math.round(d)} m`;const span=el.lastElementChild as HTMLElement;if(span.textContent!==gapText)span.textContent=gapText}
+ }
+ /** Wrong-way and off-track warnings from the player's heading against the course centreline (10 Hz, presentation only). */
+ road(t:{position:{x:number;z:number};velocity:{x:number;z:number}},running:boolean){
+  const now=performance.now();if(!this.route||now-this.roadAt<100)return;const dt=Math.min(.3,(now-this.roadAt)/1000);this.roadAt=now;
+  let state='';if(running){const p=projectRoad(this.route,t.position.x,t.position.z),v=Math.hypot(t.velocity.x,t.velocity.z),dot=v>4?(t.velocity.x*p.dx+t.velocity.z*p.dz)/v:0;
+   this.wrongFor=dot<-.5?this.wrongFor+dt:0;this.offFor=!this.freeDrive&&p.distance>this.route.width/2+.6?this.offFor+dt:0;
+   state=this.wrongFor>.7?'wrong':this.offFor>.35?'off':''}else{this.wrongFor=this.offFor=0}
+  if(state===this.warnState)return;this.warnState=state;this.warn.dataset.state=state;
+  this.warn.innerHTML=state==='wrong'?'<i aria-hidden="true">⟲</i><b>WRONG WAY</b><span>Turn around · hold R to reset</span>':state==='off'?'<b>OFF TRACK</b><span>Rejoin the course · stay between the lines</span>':'';
+  if(state==='wrong')gameCue('race.invalid');
  }
  update(s:RaceSnapshotLike,speed=0){
   const me=s.standings.find(x=>x.id==='player');if(!me)return;
