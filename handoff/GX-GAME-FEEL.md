@@ -143,6 +143,17 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 - Verified by headless Chromium with real key presses (launch timing), autopilot races (finish hold, film, skip,
   accolades, Personal Best via a slowed stored best) at 1600x900, 1280x720 and 844x390 touch, plus the demo build.
 
+**Fifth batch (owner: "keep going", course maps in the style of the owner's reference, made with Codex)**
+- Illustrated course maps (`public/assets/game-feel/maps/{harbor,express,ridge}.jpg`, provenance and regeneration in
+  `assets/game-feel/README.md` and `assets/game-feel/map-src/`): golden-hour aerial views with the route painted in
+  red, generated with Codex from each course's real outline so the loop matches the game's layout and start line.
+  The PATH `codex` (0.61) is too old for the configured model; `gen.sh` takes `CODEX=` (the Codex desktop app's CLI).
+- Race select shows the map (label COURSE MAP · ILLUSTRATED, lookup `courseMap()` in `src/interface/route-art.ts`) with
+  the real in-game capture pinned in the corner (IN GAME); if the map fails, the capture and outline remain.
+- Time of day for Harbor/Express is an option cycler (‹ Dusk, after rain ›, pips) instead of a native select;
+  `scripts/verify-ux-repair.mjs` clicks it instead of selectOption.
+- Career hub cards and backdrop use the maps; the sticky career header is solid behind the nav.
+
 ## Developer notes
 - `?title=1` forces the title screen (skipped automatically under WebDriver).
 - `?autopilot=1` (only where evidence hooks are enabled, i.e. dev or `test=1&profile=1`) lets the production rival AI
