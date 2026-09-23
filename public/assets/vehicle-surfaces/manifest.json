@@ -1,0 +1,32 @@
+{
+ "version": 1,
+ "size": 512,
+ "build": "scripts/build-vehicle-surface-maps.py",
+ "encoding": "R,G tangent normal xy (0.5 flat); B roughness modulation (0.5 unchanged)",
+ "maps": {
+  "flake": {
+   "file": "flake.webp",
+   "note": "metallic flake, 96 cells per tile"
+  },
+  "peel": {
+   "file": "peel.webp",
+   "note": "clear-coat orange peel"
+  },
+  "stipple": {
+   "file": "stipple.webp",
+   "note": "textured plastic stipple, 64 cells per tile"
+  },
+  "leather": {
+   "file": "leather.webp",
+   "note": "leather pebble grain, 40 cells per tile"
+  },
+  "rubber": {
+   "file": "rubber.webp",
+   "note": "rubber micro texture"
+  },
+  "metal": {
+   "file": "metal.webp",
+   "note": "brushed/cast metal streaks along U"
+  }
+ }
+}
