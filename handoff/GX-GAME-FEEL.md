@@ -59,6 +59,13 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 - Main menu: slow cinematic camera sway; Tour Log and Options tiles; phone-width header fixes.
 - Sound stays on across pages once enabled in the tab (first key/click re-arms audio).
 - Fixes from an independent code review (curtain fail-safe, observer cleanup, single gamepad loop, modal inert, etc.).
+- Time Attack live delta to your ghost under the lap timer (time-at-distance on the course centreline).
+- Garage stamps (INSTALLED / REMOVED / NEW FINISH / PRESET LOADED); PART UNLOCKED toast in the career hub.
+- Options: speed units (MPH / KM/H). Title screen hands focus and prompts back to the menu. Hub prompt bar.
+- Second independent review fixed: Esc out of photo mode no longer unpauses the race (drive input ignores keys while a
+  GX modal is open), prompt restore, capture/listener cleanup.
+- Production visitor flow re-verified on the demo build (no test hooks): title > menu > Options > Tour Log > Race >
+  Hard rivals > Quick Race > drive > pause > photo mode > back > continue.
 - End-to-end new-player run verified: Start Career > garage > shakedown briefing > lap > +800 CR, +950 Rep, level-up.
 
 ## Developer notes
@@ -72,7 +79,8 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 
 ## Local storage keys added (all cosmetic / convenience, never part of the career save)
 `slingmods-gx-title-seen` (session), `slingmods-gx-splits-v1`, `slingmods-gx-time-attack-v1`,
-`slingmods-gx-difficulty`, `slingmods-gx-achievements-v1`, `slingmods-gx-stats-v1`, `slingmods-gx-daily-v1`.
+`slingmods-gx-difficulty`, `slingmods-gx-achievements-v1`, `slingmods-gx-stats-v1`, `slingmods-gx-daily-v1`, `slingmods-gx-units`,
+`slingmods-gx-seen-unlocks`.
 
 ## Verification
 - `npm test` (438 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
