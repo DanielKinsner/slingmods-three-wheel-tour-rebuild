@@ -19,7 +19,7 @@ const VERSION = 'vehicle-surface-v1';
 // Tile sizes are metres per map repeat; strengths are tangent-plane slopes at full detail.
 const PEEL: Detail = {map: 'peel', tile: .22, strength: .55, rough: 0, fade: [1.5, 18]};
 const SPECS: Record<SurfaceKind, SurfaceSpec> = {
- paint: {kind: 'paint', detail: {map: 'flake', tile: .1, strength: .09, rough: .12, fade: [.3, 2.5]}, coat: {roughness: .04, weight: 1, peel: PEEL}},
+ paint: {kind: 'paint', detail: {map: 'flake', tile: .1, strength: .045, rough: .05, fade: [.25, 1.8]}, coat: {roughness: .04, weight: 1, peel: PEEL}},
  decal: {kind: 'decal', coat: {roughness: .05, weight: .9, peel: PEEL}},
  'gloss-panel': {kind: 'gloss-panel', coat: {roughness: .05, weight: .85, peel: PEEL}},
  coated: {kind: 'coated', detail: {map: 'stipple', tile: .035, strength: .18, rough: .25, fade: [.5, 7]}},
