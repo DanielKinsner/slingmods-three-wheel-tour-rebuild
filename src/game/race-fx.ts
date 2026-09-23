@@ -88,7 +88,7 @@ export class RaceFX {
  /** Results: ordinal slam, staggered standings, and the reward tally panel. Runs after CrewUI renders its menu. */
  private decorateMenu(menu:HTMLElement){
   // Every race menu (ready / pause / result) offers Options next to its own actions.
-  const actions=menu.querySelector('.menu-actions');if(actions&&!actions.querySelector('[data-gx-options]')){const b=document.createElement('button');b.type='button';b.dataset.gxOptions='';b.textContent='Options';actions.append(b)}
+  const actions=menu.querySelector('.menu-actions');if(actions&&!actions.querySelector('[data-gx-options]')){if(menu.dataset.phase==='pause'){const p=document.createElement('button');p.type='button';p.dataset.gxPhoto='';p.textContent='Photo mode';actions.append(p)}const b=document.createElement('button');b.type='button';b.dataset.gxOptions='';b.textContent='Options';actions.append(b)}
   // Crew races open on a rival lineup: who you are about to race.
   if(menu.dataset.phase==='ready'&&this.field.length&&!menu.querySelector('.gx-lineup')){const h=menu.querySelector('h1');h?.insertAdjacentHTML('afterend',`<div class="gx-lineup is-grid">${this.field.map(id=>portraitMarkup(CREW[id],'gx-portrait is-small')).join('')}<figure class="gx-portrait is-small is-you"><span>YOU</span><figcaption><b>YOU</b><small>Your build</small></figcaption></figure></div>`)}
   if(menu.dataset.phase!=='result'||menu.hidden){return}
