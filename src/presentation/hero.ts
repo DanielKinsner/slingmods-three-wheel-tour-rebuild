@@ -1,4 +1,5 @@
 import {riderAssetURL,riderAttachmentURL} from './rider-asset';
+import {finishVehicleSurfaces,loadVehicleSurfaceMaps} from './vehicle-surfaces';
 import {hasMaterialBindings,recolorRivalMaterial,VehicleOptics} from './vehicle-materials';
 import {restoreConsoleDetail} from './console-detail';
 import {isSpyder,SpyderMotion} from './spyder';
@@ -17,15 +18,17 @@ import {perfLegacy} from './perf-switches';
 import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
 export async function loadDrivingHero(loader:GLTFLoader,options:{rivals?:boolean}={}){
- const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync(riderAssetURL()),fetch(riderAttachmentURL()).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
+ const [asset,person,attachment,rig,surfaceMaps]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync(riderAssetURL()),fetch(riderAttachmentURL()).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>),loadVehicleSurfaceMaps()]);
+ // Physically based surfaces before any rival is cloned from this car (vehicle-surfaces.ts; ?vehiclesurfaces=off compares).
+ const surfaces=/[?&]vehiclesurfaces=off/.test(globalThis.location?.search??'')?undefined:finishVehicleSurfaces(asset.scene,surfaceMaps);
  if(!isRyker(asset.scene)&&!isSpyder(asset.scene))restoreConsoleDetail(asset.scene);
  asset.scene.userData.assetURL=CURRENT_VEHICLE_URL;
- const hero=bindDrivingHero(asset.scene,person.scene,attachment,rig);
+ const hero={...bindDrivingHero(asset.scene,person.scene,attachment,rig),surfaces};
  if((!isRyker(asset.scene)&&!isSpyder(asset.scene))||!options.rivals)return hero;
  // Rivals are 2026 Slingshots: same rider asset where it matches the hero's, always the Slingshot fit.
  const fleetSearch=new URLSearchParams(globalThis.location?.search??'');fleetSearch.set('visual','2026');const fleetRider=riderAssetURL('?'+fleetSearch);
  const [fleet,fleetAttachment,fleetRig,fleetPerson]=await Promise.all([loader.loadAsync('/assets/model02/slingshot-2026.glb'),fetch(riderAttachmentURL('2026')).then(r=>r.json() as Promise<DriverAttachment>),fetch('/assets/model02/rear-rig.json').then(r=>r.json() as Promise<RearRig>),fleetRider===riderAssetURL()?Promise.resolve(person):loader.loadAsync(fleetRider)]);
- fleet.scene.userData.assetURL='/assets/model02/slingshot-2026.glb';restoreConsoleDetail(fleet.scene);const rivals=bindDrivingHero(fleet.scene,cloneRig(fleetPerson.scene) as THREE.Group,fleetAttachment,fleetRig);return {...hero,cloneRival:rivals.cloneRival};
+ fleet.scene.userData.assetURL='/assets/model02/slingshot-2026.glb';restoreConsoleDetail(fleet.scene);if(surfaces)finishVehicleSurfaces(fleet.scene,surfaceMaps);const rivals=bindDrivingHero(fleet.scene,cloneRig(fleetPerson.scene) as THREE.Group,fleetAttachment,fleetRig);return {...hero,cloneRival:rivals.cloneRival};
 }
 export function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttachment,rig:RearRig){
  if(attachment.rootOffset)body.position.fromArray(attachment.rootOffset);
