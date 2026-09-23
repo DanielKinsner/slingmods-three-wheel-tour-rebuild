@@ -179,3 +179,17 @@ html.gx body .sig-destination-actions .gx-chal-list button em{display:block;font
 html.gx body .sig-destination-actions .gx-chal-list button small{font:700 12px/1 var(--gx-body);color:var(--gx-ink-2)}
 html.gx body .sig-destination-actions .gx-chal-list button i{position:absolute;left:13px;top:50%;width:15px;height:15px;margin-top:-7px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--gx-medal,#666) 45%,#0008);box-shadow:0 0 10px var(--gx-medal,transparent)}
 html.gx body .sig-destination-actions .gx-chal-list button[data-medal=none] i{background:#ffffff18;box-shadow:inset 0 0 0 2px #ffffff40}
+/* Race select, wide screens: the actions panel grew (Time Attack, Series, Challenges, Test Drive) and stacking it under the
+   art squeezed the art into a strip with a dead gap below. The art now fills the column; title and panel sit over it. */
+@media (min-width:1101px){
+ html.gx body .sig-selected-destination{grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,1fr)}
+ html.gx body .sig-selected-destination>*{grid-area:1/1}
+ html.gx body .sig-route-art{max-height:none}
+ html.gx body .sig-route-art::after{background:linear-gradient(0deg,#07080af2 0%,#07080a99 26%,#07080a00 55%),linear-gradient(90deg,#07080aa6 0%,#07080a00 45%),linear-gradient(180deg,#07080a8c 0%,#07080a00 22%)}
+ html.gx body .sig-route-art .sig-preview-label{top:24px;bottom:auto;left:28px}
+ html.gx body .sig-route-art>svg{inset:48px auto auto 28px;width:150px;height:82px}
+ html.gx body .sig-destination-info{margin-top:0;min-height:0;align-self:stretch;align-items:end;padding:24px 24px 28px 30px;pointer-events:none}
+ html.gx body .sig-destination-info>*{pointer-events:auto}
+ html.gx body .sig-destination-actions{max-height:100%;overflow:auto;scrollbar-width:thin}
+}
+html.gx body .sig-destination-footer button{white-space:nowrap;letter-spacing:.1em}
