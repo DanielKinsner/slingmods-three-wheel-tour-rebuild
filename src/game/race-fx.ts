@@ -1,4 +1,5 @@
 import './race.css';
+import {displaySpeed,speedLabel} from './units';
 import {projectRoad,type CourseRoute} from '../course/environment';
 import * as THREE from 'three';
 import {countDrive} from './achievements';
@@ -77,7 +78,7 @@ export class RaceFX {
   // Start lights: three reds count down with the existing 3-second countdown, then all green on GO.
   if(s.phase==='countdown'&&!s.paused){const n=Math.ceil(s.countdown);if(this.phase!=='countdown'&&!this.freeDrive)setTimeout(()=>this.radio(this.trial?'trialStart':'start'),350);if(n!==this.count){this.count=n;this.lights.classList.add('is-on');this.lights.dataset.lit=String(Math.max(0,3-n+1));this.lights.classList.remove('is-go');if(n>0){this.lights.querySelector('b')!.textContent=String(n);this.pulse(this.lights.querySelector('b')!)}}}
   if(this.phase==='countdown'&&s.phase==='running'){countDrive(this.freeDrive?'test':this.trial?'trial':'race',this.vehicle);this.count=-1;this.lights.dataset.lit='3';this.lights.classList.add('is-go');this.lights.querySelector('b')!.textContent='GO!';this.pulse(this.lights.querySelector('b')!);this.lapStart=0;setTimeout(()=>this.lights.classList.remove('is-on'),1100)}
-  if(s.phase==='running'&&!s.paused&&!this.finished){this.topSpeed=Math.max(this.topSpeed,Math.abs(speed)*2.23694);
+  if(s.phase==='running'&&!s.paused&&!this.finished){this.topSpeed=Math.max(this.topSpeed,displaySpeed(speed));
    // Position changes (only in real races with a field).
    const order=s.standings.map(x=>x.id);
    if(s.standings.length>1&&!this.freeDrive&&this.place&&me.place!==this.place&&me.status==='running'){const up=me.place<this.place;const other=(up?order[me.place]:order[me.place-2]) as CrewId|undefined;if(other&&other in CREW)this.radio(up?'passedThem':'passedYou',other);this.banner(`<b>P${me.place}</b><span>${up?'▲ POSITION GAINED':'▼ POSITION LOST'}</span>`,up?'is-up':'is-down',1300);gameCue(up?'gx.pos-up':'gx.pos-down')}
@@ -108,7 +109,7 @@ export class RaceFX {
   if(menu.dataset.phase!=='result'||menu.hidden){return}
   const place=Number(menu.dataset.place);const numeral=menu.querySelector<HTMLElement>('.result-numeral');
   if(numeral&&!numeral.dataset.gx&&Number.isFinite(place)&&place>0){numeral.dataset.gx='1';numeral.dataset.medal=place===1?'gold':place===2?'silver':place===3?'bronze':'';const small=numeral.querySelector('small'),sfx=document.createElement('sup');sfx.textContent=ordinal(place).replace(String(place),'');numeral.replaceChildren(document.createTextNode(String(place)),sfx,...(small?[small]:[]))}
-  if(!menu.querySelector('.gx-run-stats')&&this.topSpeed>1){const p=document.createElement('p');p.className='gx-run-stats';p.innerHTML=`<span>TOP SPEED</span><b>${Math.round(this.topSpeed)}<small> MPH</small></b>`;menu.insertBefore(p,menu.querySelector('.result-standings,.menu-actions'))}
+  if(!menu.querySelector('.gx-run-stats')&&this.topSpeed>1){const p=document.createElement('p');p.className='gx-run-stats';p.innerHTML=`<span>TOP SPEED</span><b>${Math.round(this.topSpeed)}<small> ${speedLabel()}</small></b>`;menu.insertBefore(p,menu.querySelector('.result-standings,.menu-actions'))}
   const r=this.reward;if(!r||menu.querySelector('.gx-reward'))return;
   const tallyKey=JSON.stringify([r.credits,r.balance]);const animate=this.tallied!==tallyKey&&!reduced();this.tallied=tallyKey;
   const gain=repGain(r.before,r.receipt),after=tourProgress(r.before);after.rep=gain.rep;

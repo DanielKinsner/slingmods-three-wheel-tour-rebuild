@@ -1,4 +1,5 @@
 import './options.css';
+import {speedUnits,setSpeedUnits,speedLabel,type SpeedUnits} from './units';
 import {gameCue} from './audio-bus';
 import {setPrompts} from './shell';
 import type {Career} from '../career/store';
@@ -41,7 +42,8 @@ function videoRows(){
 function gameplayRows(){
  const reduced=get(MOTION_KEY)==='reduced',films=get(FILMS_KEY)!=='off';
  const d=difficulty();
- return `<div class="gx-opt-group"><div class="gx-opt-row"><span>Quick Race rivals</span><div class="gx-opt-seg" role="radiogroup" aria-label="Quick Race rival difficulty">${DIFFICULTIES.map(x=>`<button role="radio" data-opt="difficulty" data-value="${x}" aria-checked="${x===d}">${DIFFICULTY_LABEL[x]}</button>`).join('')}</div><small>Career events always race the crew at full pace</small></div><div class="gx-opt-row"><span>Camera motion</span><button class="gx-opt-toggle" data-opt="motion" aria-pressed="${!reduced}">${reduced?'Reduced':'Full'}</button><small>Speed camera, shake and screen blur</small></div><div class="gx-opt-row"><span>Race films</span><button class="gx-opt-toggle" data-opt="films" aria-pressed="${films}">${films?'On':'Off'}</button><small>Grid intro and victory cinematics</small></div><div class="gx-opt-row"><span>Title screen</span><button class="gx-opt-toggle" data-opt="title">Show again</button><small>On your next visit to the menu</small></div></div><p class="gx-opt-note">Camera motion applies from your next drive.</p>`;
+ const u=speedUnits();
+ return `<div class="gx-opt-group"><div class="gx-opt-row"><span>Speed units</span><div class="gx-opt-seg" role="radiogroup" aria-label="Speed units">${(['mph','kmh'] as SpeedUnits[]).map(x=>`<button role="radio" data-opt="units" data-value="${x}" aria-checked="${x===u}">${speedLabel(x)}</button>`).join('')}</div><small>HUD and results</small></div><div class="gx-opt-row"><span>Quick Race rivals</span><div class="gx-opt-seg" role="radiogroup" aria-label="Quick Race rival difficulty">${DIFFICULTIES.map(x=>`<button role="radio" data-opt="difficulty" data-value="${x}" aria-checked="${x===d}">${DIFFICULTY_LABEL[x]}</button>`).join('')}</div><small>Career events always race the crew at full pace</small></div><div class="gx-opt-row"><span>Camera motion</span><button class="gx-opt-toggle" data-opt="motion" aria-pressed="${!reduced}">${reduced?'Reduced':'Full'}</button><small>Speed camera, shake and screen blur</small></div><div class="gx-opt-row"><span>Race films</span><button class="gx-opt-toggle" data-opt="films" aria-pressed="${films}">${films?'On':'Off'}</button><small>Grid intro and victory cinematics</small></div><div class="gx-opt-row"><span>Title screen</span><button class="gx-opt-toggle" data-opt="title">Show again</button><small>On your next visit to the menu</small></div></div><p class="gx-opt-note">Camera motion applies from your next drive.</p>`;
 }
 function controlsRows(){return `<table class="gx-opt-controls"><thead><tr><th>Action</th><th>Keyboard</th><th>Controller</th></tr></thead><tbody>${CONTROLS.map(([a,k,p],i)=>`${i===8?'<tr class="gx-opt-sep"><td colspan="3">MENUS</td></tr>':''}<tr><td>${a}</td><td><kbd class="gx-glyph gx-key">${k}</kbd></td><td><kbd class="gx-glyph gx-key">${p}</kbd></td></tr>`).join('')}</tbody></table>`}
 
@@ -74,6 +76,7 @@ function onClick(e:Event){const t=(e.target as Element).closest<HTMLElement>('[d
  if(o==='unlock'){document.querySelector<HTMLButtonElement>('#enable-sound')?.click();setTimeout(render,900)}
  if(o==='mute'){document.querySelector<HTMLButtonElement>('#mute-sound')?.click();render();focusOpt('mute')}
  if(o==='quality'){const q=t.dataset.value as GraphicsQuality,live=document.querySelector<HTMLSelectElement>('#game-graphics select[aria-label="Graphics quality"]');if(live){live.value=q;live.dispatchEvent(new Event('change',{bubbles:true}))}else saveGraphicsQuality(q);gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=quality][data-value=${q}]`)?.focus()}
+ if(o==='units'){setSpeedUnits(t.dataset.value as SpeedUnits);const label=document.querySelector('.race-speed-readout span');if(label)label.textContent=speedLabel();gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=units][data-value=${t.dataset.value}]`)?.focus()}
  if(o==='difficulty'){setDifficulty(t.dataset.value as Difficulty);gameCue('gx.tab');render();open?.querySelector<HTMLElement>(`[data-opt=difficulty][data-value=${t.dataset.value}]`)?.focus()}
  if(o==='motion'){set(MOTION_KEY,get(MOTION_KEY)==='reduced'?'full':'reduced');render();focusOpt('motion')}
  if(o==='films'){set(FILMS_KEY,get(FILMS_KEY)==='off'?'on':'off');render();focusOpt('films')}

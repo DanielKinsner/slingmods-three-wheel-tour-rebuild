@@ -27,6 +27,7 @@ const GLYPHS:Record<PromptKey,{key:string[];pad:string[]}>={
  pause:{key:['Esc'],pad:['☰']},reset:{key:['R'],pad:['A']},camera:{key:['C'],pad:['Y']},adjust:{key:['←','→'],pad:['◀','▶']},skip:{key:['Space'],pad:['A']},any:{key:['Any key'],pad:['A']}
 };
 let prompts:Prompt[]|null=null;let bar:HTMLElement|undefined;
+export const currentPrompts=()=>prompts;
 export function setPrompts(next:Prompt[]|null){const key=JSON.stringify(next);if(key===JSON.stringify(prompts))return;prompts=next;renderPrompts()}
 function glyph(label:string){const pad=input==='pad';const cls=pad?`gx-glyph gx-pad gx-pad-${label.replace(/[^a-z0-9]/gi,'').toLowerCase()||'menu'}`:'gx-glyph gx-key';return `<kbd class="${cls}">${label}</kbd>`}
 function renderPrompts(){
