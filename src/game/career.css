@@ -3,14 +3,14 @@ html.gx body.career-experience{background:transparent;color:var(--gx-ink)}
 html.gx body.career-experience::before{content:'';position:fixed;inset:0;z-index:-1;background:linear-gradient(90deg,#07080af7 0%,#07080ae0 40%,#07080a99 100%),linear-gradient(0deg,#07080a 0%,#07080a00 60%),url('/assets/p10b/previews/express-day.jpg') center/cover no-repeat}
 html.gx body.career-experience[data-gx-chapter="3"]::before{background:linear-gradient(90deg,#07080af7 0%,#07080ae0 40%,#07080a99 100%),linear-gradient(0deg,#07080a 0%,#07080a00 60%),url('/assets/p10b/previews/ridge-night.jpg') center/cover no-repeat}
 html.gx body.career-experience .career-shell{max-width:1680px;padding:0 var(--gx-edge-x) 70px}
-html.gx body.career-experience .career-shell .sig-header{position:sticky;top:0;z-index:20;height:78px;min-height:0;margin:0 calc(-1*var(--gx-edge-x));padding:0 var(--gx-edge-x);background:linear-gradient(180deg,#07080a 0%,#07080ae6 70%,#07080a00 100%);display:flex;align-items:center}
+html.gx body.career-experience .career-shell .sig-header{position:sticky;top:0;z-index:20;height:126px;min-height:126px;margin:0 calc(-1*var(--gx-edge-x));padding:17px var(--gx-edge-x) 0;background:linear-gradient(180deg,#07080a 0%,#07080ae6 70%,#07080a00 100%);display:flex;align-items:flex-start}
 html.gx body.career-experience .career-shell .sig-header .sig-brand{width:auto;display:flex}
 html.gx body.career-experience .career-shell .sig-header .sig-brand img{width:136px}
 html.gx body.career-experience .career-shell .sig-navigation button{border:0;padding:0 20px;font:italic 800 19px/44px var(--gx-display);letter-spacing:.06em;color:#ffffffa8}
 html.gx body.career-experience .career-shell .sig-navigation button[aria-current=page]{color:#fff}
 html.gx body.career-experience .career-shell .vehicle-appearance-picker{position:static;margin:14px 0 0}
-html.gx body.career-experience .career-shell .sig-header:has(.vehicle-appearance-picker){min-height:0}
-html.gx body.career-experience .career-shell .sig-header .vehicle-appearance-picker{position:static;margin:0 0 0 22px}
+html.gx body.career-experience .career-shell .sig-header:has(.vehicle-appearance-picker){min-height:126px}
+html.gx body.career-experience .career-shell .sig-header .vehicle-appearance-picker{position:absolute;top:78px;left:var(--gx-edge-x);right:var(--gx-edge-x);margin:0;overflow-x:auto;white-space:nowrap}
 html.gx body.career-experience .career-shell .sig-header .vehicle-appearance-picker>span{display:none}
 
 /* Chapter select */
@@ -133,3 +133,6 @@ html.gx body.career-experience article[data-route=harbor] .career-event-route,ht
 html.gx body.career-experience article[data-route=ridge] .career-event-route,html.gx body.career-experience article[data-route=ridge][data-look] .career-event-route{background-image:linear-gradient(0deg,#0d0f13 0%,#0d0f1300 60%),url('/assets/game-feel/maps/ridge.jpg')}
 /* Sticky header: solid behind the nav (scrolled text ghosted through the old 90% gradient), soft fade below it. */
 html.gx body.career-experience .career-shell .sig-header{background:linear-gradient(180deg,#07080a 0%,#07080a 74%,#07080a00 100%);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);-webkit-mask:none}
+
+/* Three rows on phones: brand/audio, navigation, then vehicle selection. */
+@media(max-width:760px){html.gx body.career-experience .career-shell .sig-header,html.gx body.career-experience .career-shell .sig-header:has(.vehicle-appearance-picker){height:160px;min-height:160px;padding-top:12px}html.gx body.career-experience .career-shell .sig-header .vehicle-appearance-picker{top:112px}html.gx body.career-experience .career-chapters{margin-top:20px}}

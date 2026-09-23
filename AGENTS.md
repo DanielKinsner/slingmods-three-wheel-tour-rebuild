@@ -1,4 +1,16 @@
-# Fleet rendering continuation - current (2026-09-23)
+# Career entry repair - current (2026-09-23)
+
+The owner reported a repeated loading failure after Continue Career. Reproduced the Spyder
+Chapters 02-03 hub falling through the Slingshot workshop, producing an invalid preview recipe.
+Read `handoff/CAREER-ENTRY-REPAIR.md` and its validation receipt. Vehicle-specific workshops,
+earlier saved-vehicle resolution, retained startup diagnostics and header spacing are repaired.
+491 tests pass; packaged Continue Career/reload/workshop checks preserve all three vehicle fixtures.
+No save reset, migration, physics/steering change, asset replacement, push or deployment.
+Resume the bounded quality/performance work below; its sustained performance HOLD remains.
+Earlier headers below are history.
+
+---
+# Fleet rendering continuation (2026-09-23)
 
 Owner asked to keep improving after `5a14717`. Read `handoff/FLEET-RENDER.md` and its validation
 receipt. Rider IK reuses current matrices and cached node references; rivals share immutable opaque

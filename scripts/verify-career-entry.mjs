@@ -1,0 +1,28 @@
+/** Packaged Continue Career regression. Isolated browser profiles; never reads or edits the owner's save. */
+import {chromium} from '@playwright/test';import fs from 'node:fs/promises';import assert from 'node:assert/strict';
+import {freshCareer,transition,CAREER_DB} from '../src/career/store.ts';
+const base=process.env.BASE_URL??'http://127.0.0.1:5227',out=process.env.EVIDENCE_DIR;if(!out)throw Error('Fresh EVIDENCE_DIR required');await fs.mkdir(out,{recursive:false});
+const browser=await chromium.launch({headless:true,args:['--use-angle=d3d11','--mute-audio']}),report={method:'Final packaged game, isolated valid Chapter 02 fixtures for all three vehicles. Ordinary Continue Career, reload, workshop links, saved-state comparison and rendered header checks. No owner browser data.',cases:[]};
+try{for(const [visual,vehicle,label]of [['2026','slingshot-r-2024','Career workshop'],['ryker','can-am-ryker-900','Ryker career workshop'],['spyder','can-am-spyder-f3','Spyder career workshop']]){
+ const context=await browser.newContext({viewport:{width:1280,height:800}}),p=await context.newPage(),errors=[],failedRequests=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});p.on('response',r=>{if(r.status()>=400)failedRequests.push({url:r.url(),status:r.status()})});
+ try{
+  let state=freshCareer();state.chapters.entry=true;state.chapters.firstCompletion=true;state.buildMatters.legacyCrewAccess=true;state.credits=5000;state=transition(state,{type:'chapter-vehicle',vehicle}).state;
+  if(visual==='spyder'){for(const part of ['front','underglow'])state=transition(state,{type:'chapter-spyder-purchase',id:crypto.randomUUID(),part}).state;state=transition(state,{type:'chapter-spyder-equip',part:'front',equipped:false}).state}
+  state=transition(state,{type:'chapter-begin',event:'open-it-up',id:crypto.randomUUID(),routeVersion:'express-layout-v1'}).state;
+  // Establish this disposable origin without starting the app before the fixture is committed.
+  await p.goto(base+'/NOTICES.txt');await p.evaluate(async({name,state})=>{const db=await new Promise((resolve,reject)=>{const r=indexedDB.open(name,2);r.onupgradeneeded=()=>r.result.createObjectStore('career');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});await new Promise((resolve,reject)=>{const tx=db.transaction('career','readwrite');tx.objectStore('career').put(state,'current');tx.oncomplete=resolve;tx.onabort=()=>reject(tx.error)});db.close()}, {name:CAREER_DB,state});
+  const saved=()=>p.evaluate(async name=>{const db=await new Promise((resolve,reject)=>{const r=indexedDB.open(name);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});const value=await new Promise((resolve,reject)=>{const r=db.transaction('career').objectStore('career').get('current');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});db.close();return value},CAREER_DB);
+  await p.goto(base+`/?screen=entry&visual=${visual}`,{timeout:120000});await p.locator('.gx-tile-hero').waitFor({timeout:120000});await p.locator('.gx-tile-hero').click();
+  await p.waitForURL(u=>u.searchParams.get('scene')==='career',{timeout:120000});await p.locator(`section[aria-label="${label}"]`).waitFor({timeout:120000});
+  assert.equal(await p.locator('.preview-recovery').count(),0);assert.deepEqual(await saved(),state);
+  await p.reload();await p.locator(`section[aria-label="${label}"]`).waitFor({timeout:120000});await p.locator('#gx-boot').waitFor({state:'hidden',timeout:120000});assert.deepEqual(await saved(),state);
+  if(visual==='spyder'){assert.equal(await p.locator('[data-product=front] .career-product-state').textContent(),'Owned · removed');assert.equal(await p.locator('[data-product=underglow] .career-product-state').textContent(),'Installed')}
+  const header=()=>p.evaluate(()=>{const selectors=['.sig-brand','.sig-navigation','.vehicle-appearance-picker'],boxes=selectors.map(s=>{const r=document.querySelector('.sig-header '+s).getBoundingClientRect();return{selector:s,left:r.left,right:r.right,top:r.top,bottom:r.bottom}});return{boxes,width:innerWidth,documentWidth:document.documentElement.scrollWidth}});
+  const desktop=await header();const disjoint=({boxes})=>{for(let i=0;i<boxes.length;i++)for(let j=i+1;j<boxes.length;j++){const a=boxes[i],b=boxes[j];assert.ok(a.right<=b.left||b.right<=a.left||a.bottom<=b.top||b.bottom<=a.top,`${a.selector} overlaps ${b.selector}`)}};disjoint(desktop);
+  await p.screenshot({path:`${out}/${visual}-hub.png`});
+  await p.setViewportSize({width:390,height:844});const mobile=await header();disjoint(mobile);assert.ok(mobile.documentWidth<=mobile.width+1);await p.screenshot({path:`${out}/${visual}-hub-mobile.png`});await p.setViewportSize({width:1280,height:800});
+  const workshop=p.locator(`section[aria-label="${label}"] a[href*="shop=build"]`).first();await workshop.click();await p.locator('#build-panel').waitFor({state:'visible',timeout:120000});assert.equal(await p.locator('.preview-recovery').count(),0);assert.deepEqual(await saved(),state);
+  await p.locator('#gx-boot').waitFor({state:'hidden',timeout:120000});await p.screenshot({path:`${out}/${visual}-workshop.png`});assert.deepEqual(errors,[]);assert.deepEqual(failedRequests,[]);
+  report.cases.push({visual,vehicle,pass:true,unchangedCareer:true,desktop,mobile,errors,failedRequests});console.log(JSON.stringify({visual,pass:true}));
+ }finally{await context.close();await fs.writeFile(out+'/report.json',JSON.stringify(report,null,2))}
+}report.pass=true;}catch(error){report.failure=error.stack;throw error}finally{await browser.close();await fs.writeFile(out+'/report.json',JSON.stringify(report,null,2))}

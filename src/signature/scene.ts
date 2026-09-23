@@ -52,6 +52,9 @@ const params=new URLSearchParams(location.search),started=performance.now(),app=
 // with career permissions and transactions instead of free preview editing.
 const garage=sceneOf(new URL(location.href))==='bay',garageKit=garage?import('../showroom/garage'):undefined;
 document.body.className='signature-showroom'+(garage?' career-garage':'');app.innerHTML='<div id="viewport"></div>';
+// Resolve the saved career vehicle (and any redirect/recovery choice) before allocating its 3D showroom.
+// A previewed Ryker/Spyder must not load an entire wrong-vehicle scene on the way back to a Slingshot career.
+const kit=await garageKit,career=kit?await kit.careerClient():undefined;
 const veil=preparationVeil(app,{showroom:true,art:artUrl(CURRENT_VEHICLE_CONTEXT.visual==='spyder'?'garage-spyder':CURRENT_VEHICLE_CONTEXT.visual==='ryker'?'garage-ryker':'garage')}),renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:params.has('captureBuffer')});
 const graphics=loadGraphicsQuality();renderer.setPixelRatio(Math.min(devicePixelRatio,GRAPHICS_PRESETS[graphics].pixelRatioCap));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
 app.querySelector('#viewport')!.append(renderer.domElement);
@@ -61,7 +64,7 @@ const env=createStudioReflectionEnvironment(),pmrem=new THREE.PMREMGenerator(ren
 const hemi=new THREE.HemisphereLight(0xf3f4f5,0x6f6a66,1.1),key=new THREE.DirectionalLight(0xfffbf3,2.1),fill=new THREE.DirectionalLight(0xe5edf7,.8),rim=new THREE.DirectionalLight(0xffffff,.95);key.position.set(-3,6,-4);fill.position.set(5,3,-2);rim.position.set(1,4,5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-6,right:6,top:6,bottom:-6,near:.1,far:25});key.shadow.normalBias=.012;scene.add(hemi,key,fill,rim,key.target);
 const loader=new GLTFLoader();const [hero,room,wall,routeGraphics]=await Promise.all([loadDrivingHero(loader),loadSignatureShowroom(loader),loadTourWall(loader),loadRouteGraphics()]);scene.add(hero.root,room);const contact=vehicleContact();hero.root.add(contact.mesh);scene.add(wall.group,createStudioContactOcclusion());
 // Career access: the garage transacts through the career client; the free showroom only reads (labels, return path) and relays a temporary career.
-const kit=await garageKit,career=kit?await kit.careerClient():undefined,careerView=garage?undefined:await readCareerContext();
+const careerView=garage?undefined:await readCareerContext();
 const careerState=():Career|null=>career?career.state:careerView?.state??null;
 const surfaceFinish=await loadSurfaceMaterials(renderer,room,params.get('surfaces')!=='off');
 const [under,shocks,accessories]=await Promise.all([ProductPresenter.load(loader,hero.root,scene),SuspensionPresenter.load(loader,hero.asset),SignatureProducts.load(loader,hero.asset)]),finishes=new SignatureFinishPresenter(hero.asset,{studio:true}),audio=new GameAudio(app);

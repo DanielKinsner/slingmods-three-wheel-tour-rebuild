@@ -1,4 +1,13 @@
-# Current work - fleet rendering continuation
+# Current work - career entry repair
+
+- Fixed: Spyder Chapters 02-03 loaded Slingshot upgrade previews and threw during startup.
+- 491 tests pass; all three vehicles pass packaged Continue Career, reload and workshop checks
+  with exact saved-state equality. Recovery diagnostics survive Retry without resetting a career.
+- See `handoff/CAREER-ENTRY-REPAIR.md` and its validation receipt.
+- Next: resume the bounded rendering work below. The sustained performance HOLD is unchanged.
+
+---
+# Previous work - fleet rendering continuation
 
 - Done: targeted rider hierarchy updates/direct matrix reads and shared opaque rival trim materials.
 - 483 tests pass; paired static-grid diagnostic cuts CPU frame time about 11%, with identical draw count.

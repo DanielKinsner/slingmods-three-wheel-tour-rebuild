@@ -1,0 +1,316 @@
+{
+  "date": "2026-09-23",
+  "baseCommit": "d4446dcdd581e16e09f4f736c739a125f5a521fd",
+  "scope": "Local Continue Career repair. No save reset/schema change, steering/physics changes, asset replacements, push or deployment. Sustained performance HOLD remains.",
+  "reproduction": {
+    "build": "demo-dist/2026-09-23T22-21-28-957Z-5a14717dfa41-working",
+    "route": "?scene=career&play=career",
+    "vehicle": "can-am-spyder-f3",
+    "observedAt": "2026-09-23T22:56:12.706Z",
+    "exception": "This build recipe needs recovery; saved data is unchanged.",
+    "source": "Spyder fell through the Slingshot workshop, inserting Slingshot product IDs into a temporary preview recipe.",
+    "limit": "Original screenshot exception was not retained; a matching defect was reproduced in the packaged candidate."
+  },
+  "build": {
+    "output": "demo-dist/2026-09-23T23-03-31-520Z-d4446dcdd581-working",
+    "commit": "d4446dcdd581e16e09f4f736c739a125f5a521fd",
+    "buildRef": "d4446dcdd581-working",
+    "manifest": "OUTPUT-MANIFEST.json",
+    "reviewBuild": {
+      "path": "demo-dist/2026-09-23T23-03-31-520Z-d4446dcdd581-working/review-build.json",
+      "sha256": "cd64105010ebc52369b0cede831a379c0f4a750c21ef946439367257a6d583aa"
+    },
+    "outputManifest": {
+      "path": "demo-dist/2026-09-23T23-03-31-520Z-d4446dcdd581-working/OUTPUT-MANIFEST.json",
+      "sha256": "7d2ccccef1e45ea21af83050e9ea5b109ca575cc8c67d073456665f49aca3dd4"
+    },
+    "matchingInputs": 764,
+    "changedRuntimeInputs": {
+      "src/career-experience/hub.ts": "37eb517cc8f066588fc4b19ed849fb22b8a6ed326b521be92ac01a371d4a7c25",
+      "src/career-experience/workshop.ts": "fff9803d5d8b05d9ac8e8cc19e31e5c12ed5f549561bcdccfb3ba6c63c2a1960",
+      "src/demo/preview.css": "196018b24587fec3a520a1a0051f4419a13bef39cfec8dd1a9ca94fbe870cada",
+      "src/demo/recovery.ts": "eba1e833b1d22ffd4d31ead7ba9c10aa1372878d9e2fa3d1b7f4cde65a38eb94",
+      "src/demo/recovery-report.ts": "4698339ee3ea59d8041230129eb783ed185e92dda64eeb2018d3587b76150b6c",
+      "src/game/career.css": "29b2ac7a0b957e9e56eaddf3f13622146e159a97c3f4761e15b18815c94f1871",
+      "src/main.ts": "4647b79ee8fe5c8b21ed069c03699f8732a3fe46a803ea1c0283a0bebac282d3",
+      "src/signature/scene.ts": "60a776e38f4c409ff93c167aebef5fac98fd7fd9f737f96dcd08673ff1755fbd"
+    },
+    "files": 472,
+    "bytes": 507318181,
+    "servedAt": "http://127.0.0.1:5226/",
+    "servedReviewHashMatches": true
+  },
+  "tests": {
+    "fullSuite": {
+      "passed": 491,
+      "failed": 0,
+      "durationMs": 61776.1698,
+      "command": "node --import tsx --test --test-concurrency=1 tests/*.test.ts tests/*.test.mjs",
+      "log": {
+        "path": ".tools/career-recovery-tests.log",
+        "sha256": "12a32e961d9eea3b7e4b74bbe44fc1541800ff0bfe2fb4baed2daf9e0c919492"
+      }
+    },
+    "typecheck": "passed",
+    "productionBuild": {
+      "status": "passed",
+      "log": {
+        "path": ".tools/career-recovery-build-final.log",
+        "sha256": "842dec78d86f2f6ec11b245ec16f37548ad244f402041e9301ec1bbc308ac079"
+      },
+      "warning": "Existing large-chunk warning retained."
+    },
+    "packagedBrowser": {
+      "command": "node --import tsx scripts/verify-career-entry.mjs",
+      "script": {
+        "path": "scripts/verify-career-entry.mjs",
+        "sha256": "4c4b5e6fc9bf98317a27a0e5884701a038921b7394c45499baf4b057c90efa20"
+      },
+      "report": {
+        "path": ".tools/career-entry-20260923-final/report.json",
+        "sha256": "736e91d93ef679b75dc414901f73e05f51e29f29ea5fc85be63a6e220f1db29a"
+      },
+      "cases": [
+        {
+          "visual": "2026",
+          "vehicle": "slingshot-r-2024",
+          "pass": true,
+          "unchangedCareer": true,
+          "desktop": {
+            "boxes": [
+              {
+                "selector": ".sig-brand",
+                "left": 43.515625,
+                "right": 181.828125,
+                "top": 17,
+                "bottom": 62.484375
+              },
+              {
+                "selector": ".sig-navigation",
+                "left": 287.2265625,
+                "right": 839.1484375,
+                "top": 17,
+                "bottom": 61
+              },
+              {
+                "selector": ".vehicle-appearance-picker",
+                "left": 43.515625,
+                "right": 1236.484375,
+                "top": 78,
+                "bottom": 108
+              }
+            ],
+            "width": 1280,
+            "documentWidth": 1280
+          },
+          "mobile": {
+            "boxes": [
+              {
+                "selector": ".sig-brand",
+                "left": 20,
+                "right": 156,
+                "top": 12,
+                "bottom": 56
+              },
+              {
+                "selector": ".sig-navigation",
+                "left": 0,
+                "right": 390,
+                "top": 61,
+                "bottom": 104
+              },
+              {
+                "selector": ".vehicle-appearance-picker",
+                "left": 20,
+                "right": 370,
+                "top": 112,
+                "bottom": 142
+              }
+            ],
+            "width": 390,
+            "documentWidth": 390
+          },
+          "errors": [],
+          "failedRequests": []
+        },
+        {
+          "visual": "ryker",
+          "vehicle": "can-am-ryker-900",
+          "pass": true,
+          "unchangedCareer": true,
+          "desktop": {
+            "boxes": [
+              {
+                "selector": ".sig-brand",
+                "left": 43.515625,
+                "right": 181.828125,
+                "top": 17,
+                "bottom": 62.484375
+              },
+              {
+                "selector": ".sig-navigation",
+                "left": 287.2265625,
+                "right": 839.1484375,
+                "top": 17,
+                "bottom": 61
+              },
+              {
+                "selector": ".vehicle-appearance-picker",
+                "left": 43.515625,
+                "right": 1236.484375,
+                "top": 78,
+                "bottom": 108
+              }
+            ],
+            "width": 1280,
+            "documentWidth": 1280
+          },
+          "mobile": {
+            "boxes": [
+              {
+                "selector": ".sig-brand",
+                "left": 20,
+                "right": 156,
+                "top": 12,
+                "bottom": 56
+              },
+              {
+                "selector": ".sig-navigation",
+                "left": 0,
+                "right": 390,
+                "top": 61,
+                "bottom": 104
+              },
+              {
+                "selector": ".vehicle-appearance-picker",
+                "left": 20,
+                "right": 370,
+                "top": 112,
+                "bottom": 142
+              }
+            ],
+            "width": 390,
+            "documentWidth": 390
+          },
+          "errors": [],
+          "failedRequests": []
+        },
+        {
+          "visual": "spyder",
+          "vehicle": "can-am-spyder-f3",
+          "pass": true,
+          "unchangedCareer": true,
+          "desktop": {
+            "boxes": [
+              {
+                "selector": ".sig-brand",
+                "left": 43.515625,
+                "right": 181.828125,
+                "top": 17,
+                "bottom": 62.484375
+              },
+              {
+                "selector": ".sig-navigation",
+                "left": 287.2265625,
+                "right": 839.1484375,
+                "top": 17,
+                "bottom": 61
+              },
+              {
+                "selector": ".vehicle-appearance-picker",
+                "left": 43.515625,
+                "right": 1236.484375,
+                "top": 78,
+                "bottom": 108
+              }
+            ],
+            "width": 1280,
+            "documentWidth": 1280
+          },
+          "mobile": {
+            "boxes": [
+              {
+                "selector": ".sig-brand",
+                "left": 20,
+                "right": 156,
+                "top": 12,
+                "bottom": 56
+              },
+              {
+                "selector": ".sig-navigation",
+                "left": 0,
+                "right": 390,
+                "top": 61,
+                "bottom": 104
+              },
+              {
+                "selector": ".vehicle-appearance-picker",
+                "left": 20,
+                "right": 370,
+                "top": 112,
+                "bottom": 142
+              }
+            ],
+            "width": 390,
+            "documentWidth": 390
+          },
+          "errors": [],
+          "failedRequests": []
+        }
+      ],
+      "scope": "Isolated browser contexts. Chapter 02 fixtures, saved entries, Spyder installed and owned-removed parts. Exact state equality after Continue Career, reload and workshop navigation."
+    },
+    "inAppBrowser": {
+      "repairedSpyderHub": "passed",
+      "spyderWorkshop": "passed",
+      "desktopVisual": "passed after boot fade completed",
+      "mobileVisual": "passed at 390x844",
+      "injectedSpyderAssetFailure": "Expected assets recovery with career-specific copy and actual fetch error; disposable origin 5227 only.",
+      "retryAfterUnblocking": "passed; model request block removed",
+      "focusCycle": [
+        "Retry page",
+        "Back to Showroom",
+        "Error details"
+      ],
+      "ownerSaveReset": false
+    },
+    "screenshots": [
+      {
+        "path": ".tools/career-entry-20260923-final/2026-hub-mobile.png",
+        "sha256": "9d842aa877daaef64d4b224dd6f811c20ee1f893167629c05abb76574bdc1f0b"
+      },
+      {
+        "path": ".tools/career-entry-20260923-final/2026-hub.png",
+        "sha256": "8a3806cdff1f64781e054cc7b5e4e5061798c06d4894319787f3821640fbb077"
+      },
+      {
+        "path": ".tools/career-entry-20260923-final/2026-workshop.png",
+        "sha256": "3dc0d63a146b29a58bbaf1a2c4eb7f876108054a6e8b1fc13079d3574611f27f"
+      },
+      {
+        "path": ".tools/career-entry-20260923-final/ryker-hub-mobile.png",
+        "sha256": "3c56a42c7b0d5ad86ee733267366d6d6cbb040ca63f48b3a75e716984817c95a"
+      },
+      {
+        "path": ".tools/career-entry-20260923-final/ryker-hub.png",
+        "sha256": "8f5d7bcc391c0e4383a1ea72c1f13d0ea52c3af87e5c2a3acf90588c578cf945"
+      },
+      {
+        "path": ".tools/career-entry-20260923-final/ryker-workshop.png",
+        "sha256": "29e5435a74256a9951bd07dfaa894e9ef20146558e61a87bb4ac14658bd617f8"
+      },
+      {
+        "path": ".tools/career-entry-20260923-final/spyder-hub-mobile.png",
+        "sha256": "72e0663830b80e3c1a4a2ad16862c270632f40c79ced1d50b8af86d55d61867d"
+      },
+      {
+        "path": ".tools/career-entry-20260923-final/spyder-hub.png",
+        "sha256": "2df5d1da89aab8822f0487147bb316e1847f28940678bbd4332e8a33b4db8e4c"
+      },
+      {
+        "path": ".tools/career-entry-20260923-final/spyder-workshop.png",
+        "sha256": "c92e5041014d15f1ae8031a6ae566fd03d78ca82fa6615d14a9a5b74dbe4495d"
+      }
+    ]
+  }
+}
