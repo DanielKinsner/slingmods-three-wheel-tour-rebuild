@@ -1,0 +1,931 @@
+{
+  "date": "2026-09-23",
+  "baseCommit": "5a14717dfa413133b011d1ca85980cf867e64f42",
+  "scope": "Local fleet rendering continuation. No push or deployment. Vehicle geometry, textures, source assets, quality presets, reflection cadence, steering, physics, routes, saves and product bindings unchanged.",
+  "build": {
+    "output": "demo-dist/2026-09-23T22-21-28-957Z-5a14717dfa41-working",
+    "commit": "5a14717dfa413133b011d1ca85980cf867e64f42",
+    "buildRef": "5a14717dfa41-working",
+    "manifest": "OUTPUT-MANIFEST.json",
+    "reviewBuild": {
+      "path": "demo-dist/2026-09-23T22-21-28-957Z-5a14717dfa41-working/review-build.json",
+      "sha256": "d4e7c90ef04eddff7cf4f944d893dc8cbe02554cc6523c5ddcefd1cfc6921045"
+    },
+    "outputManifest": {
+      "path": "demo-dist/2026-09-23T22-21-28-957Z-5a14717dfa41-working/OUTPUT-MANIFEST.json",
+      "sha256": "6addde08cb993f8ddc7eefd33559ea7ff6a090af7e7b7584323e43802bc263c2"
+    },
+    "matchingInputs": 760,
+    "changedRuntimeInputs": {
+      "src/express.ts": "c4755e1060b760b0285c70174425eddc89a00efa6a5e07ba78bdfb676f96d770",
+      "src/presentation/driver.ts": "ec06cf1054ac1845d879692c51f567f9c1ab4d524d5edd7ad82d2d0d2750d94b",
+      "src/presentation/hero.ts": "8510f401646714ceaea8adbef7a01c4c6474c135f013fa8d894021c4e851ca25",
+      "src/presentation/perf-switches.ts": "4cf7358246ac71e94294732f30534c35c1aba4f8c02359c7b9f04f8e995a4c8b",
+      "src/presentation/rival-material-pool.ts": "0c8f85e6c1166cb8b4862d3b16250cb66ed5a67744fe22bcc5afaa3dd8a25f3d"
+    }
+  },
+  "tests": {
+    "fullSuite": {
+      "passed": 483,
+      "failed": 0,
+      "command": "node --import tsx --test --test-concurrency=1 tests/*.test.ts tests/*.test.mjs",
+      "log": {
+        "path": ".tools/fleet-tests.log",
+        "sha256": "b84745fb75a8a74a4a7ecd129a19fc6234c2c2a36c675f4cfa58022010919fc3"
+      }
+    },
+    "typecheck": "passed",
+    "productionBuild": {
+      "status": "passed",
+      "log": {
+        "path": ".tools/fleet-build-final.log",
+        "sha256": "2f1c2067bc0a93b9ce99537cb7bd018a4f6e29ea32d66229f5de6ea6b55b5987"
+      },
+      "files": 472,
+      "bytes": 507314290,
+      "warning": "Existing chunk-size warning retained."
+    }
+  },
+  "visualAB": {
+    "evidence": {
+      "path": ".tools/fleet-visual-final-20260923/report.json",
+      "sha256": "29d45be6d4f0865f45f1d3e39b992f5f5e4c5fa8f0935ffb8a738f1974a58253"
+    },
+    "method": "Same packaged build, controlled clock, Ultra 1600x900. legacy-rider,legacy-materials restores only this continuation. Player and rival views, all vehicles/routes. No geometry reduction.",
+    "pairedViews": 36,
+    "pixels": 51840000,
+    "changedPixels": 68,
+    "over8": 3,
+    "maxChannelDelta": 25,
+    "comparisons": [
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "player-front",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "player-rear",
+        "pixels": 1440000,
+        "any": 10,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "player-wide",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "maya-front",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 0,
+        "max": 2
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "maya-rear",
+        "pixels": 1440000,
+        "any": 5,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "maya-wide",
+        "pixels": 1440000,
+        "any": 4,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "jett-front",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "jett-rear",
+        "pixels": 1440000,
+        "any": 17,
+        "over8": 1,
+        "max": 19
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "view": "jett-wide",
+        "pixels": 1440000,
+        "any": 4,
+        "over8": 0,
+        "max": 3
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "player-front",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "player-rear",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "player-wide",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "maya-front",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "maya-rear",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "maya-wide",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "jett-front",
+        "pixels": 1440000,
+        "any": 4,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "jett-rear",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 0,
+        "max": 5
+      },
+      {
+        "name": "express-day-ryker",
+        "view": "jett-wide",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "player-front",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "player-rear",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "player-wide",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "maya-front",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 1,
+        "max": 25
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "maya-rear",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "maya-wide",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "jett-front",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "jett-rear",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 0,
+        "max": 5
+      },
+      {
+        "name": "harbor-day-spyder",
+        "view": "jett-wide",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 0,
+        "max": 2
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "player-front",
+        "pixels": 1440000,
+        "any": 7,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "player-rear",
+        "pixels": 1440000,
+        "any": 3,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "player-wide",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "maya-front",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "maya-rear",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "maya-wide",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "jett-front",
+        "pixels": 1440000,
+        "any": 4,
+        "over8": 0,
+        "max": 1
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "jett-rear",
+        "pixels": 1440000,
+        "any": 1,
+        "over8": 1,
+        "max": 20
+      },
+      {
+        "name": "ridge-day-2026",
+        "view": "jett-wide",
+        "pixels": 1440000,
+        "any": 0,
+        "over8": 0,
+        "max": 0
+      }
+    ],
+    "scenes": [
+      {
+        "name": "harbor-dusk-rain-2026",
+        "version": "legacy",
+        "pool": {
+          "materials": 0,
+          "users": 0
+        },
+        "memory": {
+          "geometries": 523,
+          "textures": 143
+        },
+        "programs": 152,
+        "errors": []
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "version": "fixed",
+        "pool": {
+          "materials": 66,
+          "users": 198
+        },
+        "memory": {
+          "geometries": 523,
+          "textures": 143
+        },
+        "programs": 152,
+        "errors": []
+      },
+      {
+        "name": "express-day-ryker",
+        "version": "legacy",
+        "pool": {
+          "materials": 0,
+          "users": 0
+        },
+        "memory": {
+          "geometries": 366,
+          "textures": 129
+        },
+        "programs": 124,
+        "errors": []
+      },
+      {
+        "name": "express-day-ryker",
+        "version": "fixed",
+        "pool": {
+          "materials": 66,
+          "users": 198
+        },
+        "memory": {
+          "geometries": 366,
+          "textures": 129
+        },
+        "programs": 124,
+        "errors": []
+      },
+      {
+        "name": "harbor-day-spyder",
+        "version": "legacy",
+        "pool": {
+          "materials": 0,
+          "users": 0
+        },
+        "memory": {
+          "geometries": 455,
+          "textures": 143
+        },
+        "programs": 149,
+        "errors": []
+      },
+      {
+        "name": "harbor-day-spyder",
+        "version": "fixed",
+        "pool": {
+          "materials": 66,
+          "users": 198
+        },
+        "memory": {
+          "geometries": 455,
+          "textures": 143
+        },
+        "programs": 149,
+        "errors": []
+      },
+      {
+        "name": "ridge-day-2026",
+        "version": "legacy",
+        "pool": {
+          "materials": 0,
+          "users": 0
+        },
+        "memory": {
+          "geometries": 345,
+          "textures": 131
+        },
+        "programs": 142,
+        "errors": []
+      },
+      {
+        "name": "ridge-day-2026",
+        "version": "fixed",
+        "pool": {
+          "materials": 66,
+          "users": 198
+        },
+        "memory": {
+          "geometries": 345,
+          "textures": 131
+        },
+        "programs": 142,
+        "errors": []
+      }
+    ],
+    "verdict": "Visually equivalent at normal inspection; not bit-identical. Exact pose matrix/report equality is independently tested for all three vehicles, including moving roots, resets and regrip history."
+  },
+  "submissionDiagnostic": {
+    "evidence": {
+      "path": ".tools/fleet-cost-20260923/report.json",
+      "sha256": "afc9ccff2218092cc3d7b3987464748be4e7d9e708f1df1ce0c6784cc5bdde6b"
+    },
+    "method": "Same packaged High wet Harbor starting grid, 2560x1440. ABBA sequence, 300 real RAF frames per sample. GL entry points wrapped to count submissions. All sampled frames retained. Diagnostic only; no FPS acceptance or external-load attribution.",
+    "before": {
+      "cpuFrameMs": 13.200332225928474,
+      "renderSubmissionMs": 11.938704318902223,
+      "uniformSubmissions": 6697.53,
+      "textureBindings": 1712.5,
+      "programSwitches": 405.25,
+      "drawCalls": 1906
+    },
+    "after": {
+      "cpuFrameMs": 11.773920266359944,
+      "renderSubmissionMs": 10.925581395304281,
+      "uniformSubmissions": 5923.54,
+      "textureBindings": 1218.5,
+      "programSwitches": 291.25,
+      "drawCalls": 1906
+    },
+    "reductionPercent": {
+      "cpuFrameMs": 10.805879239665872,
+      "renderSubmissionMs": 8.486037483932762,
+      "uniformSubmissions": 11.556349878238692,
+      "textureBindings": 28.846715328467155,
+      "programSwitches": 28.13078346699568,
+      "drawCalls": 0
+    },
+    "samples": [
+      {
+        "version": "legacy",
+        "cpuSamples": 301,
+        "submissionFrames": 300,
+        "pool": {
+          "materials": 0,
+          "users": 0
+        },
+        "errors": []
+      },
+      {
+        "version": "fixed",
+        "cpuSamples": 301,
+        "submissionFrames": 300,
+        "pool": {
+          "materials": 66,
+          "users": 198
+        },
+        "errors": []
+      },
+      {
+        "version": "fixed",
+        "cpuSamples": 301,
+        "submissionFrames": 300,
+        "pool": {
+          "materials": 66,
+          "users": 198
+        },
+        "errors": []
+      },
+      {
+        "version": "legacy",
+        "cpuSamples": 301,
+        "submissionFrames": 300,
+        "pool": {
+          "materials": 0,
+          "users": 0
+        },
+        "errors": []
+      }
+    ],
+    "limitation": "Short, static, instrumented ABBA sample. CPU submission is not GPU execution time; not sustained acceptance. All raw sampled frames retained."
+  },
+  "sustained": {
+    "high": {
+      "startedAt": "2026-09-23T22:26:00.229Z",
+      "quality": "high",
+      "cadence": "uncapped",
+      "route": "harbor",
+      "look": "dusk-rain",
+      "url": "http://127.0.0.1:5226",
+      "browser": "153.0.8010.12",
+      "args": [
+        "--use-angle=d3d11",
+        "--mute-audio",
+        "--disable-frame-rate-limit",
+        "--disable-gpu-vsync"
+      ],
+      "sourceCommit": "5a14717dfa413133b011d1ca85980cf867e64f42",
+      "thresholds": {
+        "p95Ms": 20,
+        "p99Ms": 33.4,
+        "maxMs": 100,
+        "highAverageMs": 10,
+        "highWorstOnePercentMs": 16.6,
+        "toleranceMs": 0.000001
+      },
+      "method": "Isolated Chromium ANGLE D3D11 on owner GPU, native wall-clock RAF (uncapped lane explicitly disables vsync); 2560x1440 DPR1. Two complete races and at least 90 active seconds, bounded at three races. Current Sport v5 pedal/steering driver only; real simulation/rivals/results. Audio graph active, output muted. All raw phases/outliers retained. No screenshots, readback, trace, draw wrappers or recorder in scored frames. CPU submission is not GPU execution time. OS/driver caches not flushed.",
+      "errors": [],
+      "failedRequests": [],
+      "attempts": [
+        {
+          "attempt": 1,
+          "samples": 5796,
+          "activeSeconds": 77.22829999999999,
+          "averageMs": 13.324413388543821,
+          "averageFps": 75.05020827857147,
+          "worstOnePercentMs": 46.62931034482646,
+          "onePercentLowFps": 21.445738583842264,
+          "p50Ms": 12.30000000000291,
+          "p95Ms": 28.19999999999709,
+          "p99Ms": 39,
+          "maxMs": 93.69999999999709,
+          "over33_4": 139,
+          "over50": 7,
+          "over100": 0,
+          "frameTail": false,
+          "highBudget": false,
+          "resolutionScale": {
+            "minimum": 0.6,
+            "maximum": 0.65,
+            "average": 0.6010869565216836
+          },
+          "result": {
+            "event": "harbor-preview-quick-race-v1",
+            "attemptId": "196f6c80-0b53-4cfc-af48-6777b10323f3",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 77204.84998282082,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 70593.63290894721
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 72474.26939910986
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 75547.84660452539
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 77204.84998282082
+            }
+          ],
+          "pipeline": {
+            "quality": "high",
+            "post": true,
+            "samples": 4,
+            "bloomLevels": 5,
+            "resolutionScale": 0.6,
+            "targetFrameMs": 7.33,
+            "size": [
+              2560,
+              1440
+            ]
+          }
+        },
+        {
+          "attempt": 2,
+          "samples": 5577,
+          "activeSeconds": 77.08739999999999,
+          "averageMs": 13.822377622377621,
+          "averageFps": 72.34645350602045,
+          "worstOnePercentMs": 62.42857142856935,
+          "onePercentLowFps": 16.01830663615614,
+          "p50Ms": 12.5,
+          "p95Ms": 30.39999999999418,
+          "p99Ms": 45.89999999999418,
+          "maxMs": 95.60000000000582,
+          "over33_4": 195,
+          "over50": 37,
+          "over100": 0,
+          "frameTail": false,
+          "highBudget": false,
+          "resolutionScale": {
+            "minimum": 0.6,
+            "maximum": 0.65,
+            "average": 0.601031020261735
+          },
+          "result": {
+            "event": "harbor-preview-quick-race-v1",
+            "attemptId": "5ac9c520-f3d3-40bb-8645-da63a462946a",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 77076.77320689936,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 70593.63290894721
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 72474.26939910986
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 75547.84660452539
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 77076.77320689936
+            }
+          ],
+          "pipeline": {
+            "quality": "high",
+            "post": true,
+            "samples": 4,
+            "bloomLevels": 5,
+            "resolutionScale": 0.6,
+            "targetFrameMs": 10.15,
+            "size": [
+              2560,
+              1440
+            ]
+          }
+        }
+      ],
+      "timeOrigin": 1790202360257.5,
+      "sustained": true,
+      "pooled": {
+        "samples": 11373,
+        "activeSeconds": 154.3157000000002,
+        "averageMs": 13.568601072716099,
+        "averageFps": 73.69956524190336,
+        "worstOnePercentMs": 55.11228070175288,
+        "onePercentLowFps": 18.144776214427186,
+        "p50Ms": 12.400000000001455,
+        "p95Ms": 29.20000000001164,
+        "p99Ms": 42.400000000001455,
+        "maxMs": 95.60000000000582,
+        "over33_4": 334,
+        "over50": 44,
+        "over100": 0
+      },
+      "pass": false,
+      "raw": {
+        "path": ".tools/fleet-high-20260923/run.json",
+        "sha256": "d0dfc77550dd9553ae7c31e3c0dc03df7e068bedc191058ae5261dd551ccbdeb"
+      },
+      "summary": {
+        "path": ".tools/fleet-high-20260923/summary.json",
+        "sha256": "93f99f8b9ed65333e3835621e546858dc2cc9e47913a82dee3d3aa04eb71d07f"
+      }
+    },
+    "ultra": {
+      "startedAt": "2026-09-23T22:29:43.517Z",
+      "quality": "ultra",
+      "cadence": "uncapped",
+      "route": "harbor",
+      "look": "dusk-rain",
+      "url": "http://127.0.0.1:5226",
+      "browser": "153.0.8010.12",
+      "args": [
+        "--use-angle=d3d11",
+        "--mute-audio",
+        "--disable-frame-rate-limit",
+        "--disable-gpu-vsync"
+      ],
+      "sourceCommit": "5a14717dfa413133b011d1ca85980cf867e64f42",
+      "thresholds": {
+        "p95Ms": 20,
+        "p99Ms": 33.4,
+        "maxMs": 100,
+        "highAverageMs": 10,
+        "highWorstOnePercentMs": 16.6,
+        "toleranceMs": 0.000001
+      },
+      "method": "Isolated Chromium ANGLE D3D11 on owner GPU, native wall-clock RAF (uncapped lane explicitly disables vsync); 2560x1440 DPR1. Two complete races and at least 90 active seconds, bounded at three races. Current Sport v5 pedal/steering driver only; real simulation/rivals/results. Audio graph active, output muted. All raw phases/outliers retained. No screenshots, readback, trace, draw wrappers or recorder in scored frames. CPU submission is not GPU execution time. OS/driver caches not flushed.",
+      "errors": [],
+      "failedRequests": [],
+      "attempts": [
+        {
+          "attempt": 1,
+          "samples": 4893,
+          "activeSeconds": 77.12900000000002,
+          "averageMs": 15.763131003474355,
+          "averageFps": 63.43917333298758,
+          "worstOnePercentMs": 46.67346938775406,
+          "onePercentLowFps": 21.425448185396192,
+          "p50Ms": 14,
+          "p95Ms": 34.30000000000291,
+          "p99Ms": 44.60000000000582,
+          "maxMs": 79.19999999999709,
+          "over33_4": 269,
+          "over50": 1,
+          "over100": 0,
+          "frameTail": false,
+          "highBudget": null,
+          "resolutionScale": {
+            "minimum": 1,
+            "maximum": 1,
+            "average": 1
+          },
+          "result": {
+            "event": "harbor-preview-quick-race-v1",
+            "attemptId": "78572e4a-2180-45f5-b1a5-0b85eb3eb9da",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 77126.0136208318,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 70593.63290894721
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 72474.26939910986
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 75547.84660452539
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 77126.0136208318
+            }
+          ],
+          "pipeline": {
+            "quality": "ultra",
+            "post": true,
+            "samples": 4,
+            "bloomLevels": 6,
+            "resolutionScale": 1,
+            "targetFrameMs": 8.61,
+            "size": [
+              2560,
+              1440
+            ]
+          }
+        },
+        {
+          "attempt": 2,
+          "samples": 4002,
+          "activeSeconds": 78.7894,
+          "averageMs": 19.68750624687656,
+          "averageFps": 50.79363467674586,
+          "worstOnePercentMs": 134.47804878048723,
+          "onePercentLowFps": 7.436157864190397,
+          "p50Ms": 14.39999999999418,
+          "p95Ms": 44.70000000001164,
+          "p99Ms": 107.60000000000582,
+          "maxMs": 485.5,
+          "over33_4": 530,
+          "over50": 80,
+          "over100": 41,
+          "frameTail": false,
+          "highBudget": null,
+          "resolutionScale": {
+            "minimum": 1,
+            "maximum": 1,
+            "average": 1
+          },
+          "result": {
+            "event": "harbor-preview-quick-race-v1",
+            "attemptId": "a9c9d00e-db30-40d6-957b-3ca026f1a0be",
+            "participantId": "player",
+            "status": "finished",
+            "valid": true,
+            "laps": 1,
+            "timeMs": 77390.64160616235,
+            "place": 4,
+            "invalidReason": null
+          },
+          "finishers": [
+            {
+              "id": "maya",
+              "status": "finished",
+              "timeMs": 70593.63290894721
+            },
+            {
+              "id": "jett",
+              "status": "finished",
+              "timeMs": 72474.26939910986
+            },
+            {
+              "id": "nico",
+              "status": "finished",
+              "timeMs": 75547.84660452539
+            },
+            {
+              "id": "player",
+              "status": "finished",
+              "timeMs": 77390.64160616235
+            }
+          ],
+          "pipeline": {
+            "quality": "ultra",
+            "post": true,
+            "samples": 4,
+            "bloomLevels": 6,
+            "resolutionScale": 1,
+            "targetFrameMs": 8.62,
+            "size": [
+              2560,
+              1440
+            ]
+          }
+        }
+      ],
+      "timeOrigin": 1790202583545.2,
+      "sustained": true,
+      "pooled": {
+        "samples": 8895,
+        "activeSeconds": 155.9183999999997,
+        "averageMs": 17.528768971332177,
+        "averageFps": 57.04907182218402,
+        "worstOnePercentMs": 102.19325842696658,
+        "onePercentLowFps": 9.78538130002636,
+        "p50Ms": 14.10000000000582,
+        "p95Ms": 40.70000000001164,
+        "p99Ms": 47.5,
+        "maxMs": 485.5,
+        "over33_4": 799,
+        "over50": 81,
+        "over100": 41
+      },
+      "pass": false,
+      "raw": {
+        "path": ".tools/fleet-ultra-20260923/run.json",
+        "sha256": "2a44cc609c33a07f3db588b5774e0410cf4fd65c0030fde11469cbd3ff495976"
+      },
+      "summary": {
+        "path": ".tools/fleet-ultra-20260923/summary.json",
+        "sha256": "0f5f16a721479d07a89281176b50b42c9bf3d9daef188972e451389c32f2627b"
+      }
+    }
+  },
+  "performanceStatus": "HOLD",
+  "limits": [
+    "Results are specific to this Windows RTX 4080 machine and browser. The in-app preview and owner applications were left alone; external activity is not assigned as the cause of remaining stalls.",
+    "Preset resolution behavior is unchanged. High rendered at 60-65% scale, so its FPS is not native-resolution 1440p throughput; Ultra stayed at 100%. Per-attempt scales are included.",
+    "Raw .tools captures and versioned demo-dist builds are local, not transferred by this commit. Hashes identify the measured inputs and evidence.",
+    "Source-based vehicle LOD authoring, native-detail replacement textures, remaining asset validator warnings and physical-device acceptance remain separate work."
+  ]
+}

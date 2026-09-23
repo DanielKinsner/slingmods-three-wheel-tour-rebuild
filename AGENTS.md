@@ -1,4 +1,15 @@
-# Quality and performance continuation - current (2026-09-23)
+# Fleet rendering continuation - current (2026-09-23)
+
+Owner asked to keep improving after `5a14717`. Read `handoff/FLEET-RENDER.md` and its validation
+receipt. Rider IK reuses current matrices and cached node references; rivals share immutable opaque
+trim materials with independent ownership. No model/texture reduction or quality-preset change.
+The paired instrumented diagnostic reduces CPU frame time about 11%; this is not sustained acceptance.
+483 tests pass. Continue from the recorded race results; preserve the performance HOLD unless its
+unchanged gate is actually met. Physics, steering, saves, sources and product bindings remain intact.
+Local work only; no push/deployment or spending. Earlier headers below are history.
+
+---
+# Quality and performance continuation (2026-09-23)
 
 The owner requested continued fidelity, optimization and roadmap implementation. Read
 `handoff/QUALITY-AND-PERFORMANCE.md` and its validation receipt. Implemented 4K photo export,

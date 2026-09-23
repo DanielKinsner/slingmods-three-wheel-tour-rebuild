@@ -1,4 +1,13 @@
-# Current work - quality and performance continuation
+# Current work - fleet rendering continuation
+
+- Done: targeted rider hierarchy updates/direct matrix reads and shared opaque rival trim materials.
+- 483 tests pass; paired static-grid diagnostic cuts CPU frame time about 11%, with identical draw count.
+- See `handoff/FLEET-RENDER.md` and its validation receipt for visual and sustained results.
+- Next: continue from those results; the static diagnostic does not clear the sustained performance gate.
+  Reflection draw costs, source-based vehicle distance models and native-detail texture replacements remain.
+
+---
+# Previous work - quality and performance continuation
 
 - Done: 4K photo export, cockpit-to-photo rider fix, shader reuse, KTX2 decode reuse, fast rival
   material comparison and 29 geometry-preserving runtime scenery exports.
