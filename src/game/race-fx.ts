@@ -1,4 +1,5 @@
 import './race.css';
+import {pulse} from './rumble';
 import {displaySpeed,speedLabel} from './units';
 import {projectRoad,type CourseRoute} from '../course/environment';
 import * as THREE from 'three';
@@ -79,7 +80,7 @@ export class RaceFX {
   if(s.phase==='ready'&&this.phase!=='ready'||key!==this.runKey&&s.phase!=='finished'||this.phase==='finished'&&s.phase!=='finished'&&!s.playerResult)this.resetRun(key,s.event);
   // Start lights: three reds count down with the existing 3-second countdown, then all green on GO.
   if(s.phase==='countdown'&&!s.paused){const n=Math.ceil(s.countdown);if(this.phase!=='countdown'&&!this.freeDrive)setTimeout(()=>this.radio(this.trial?'trialStart':'start'),350);if(n!==this.count){this.count=n;this.lights.classList.add('is-on');this.lights.dataset.lit=String(Math.max(0,3-n+1));this.lights.classList.remove('is-go');if(n>0){this.lights.querySelector('b')!.textContent=String(n);this.pulse(this.lights.querySelector('b')!)}}}
-  if(this.phase==='countdown'&&s.phase==='running'){countDrive(this.freeDrive?'test':this.trial?'trial':'race',this.vehicle);this.count=-1;this.lights.dataset.lit='3';this.lights.classList.add('is-go');this.lights.querySelector('b')!.textContent='GO!';this.pulse(this.lights.querySelector('b')!);this.lapStart=0;setTimeout(()=>this.lights.classList.remove('is-on'),1100)}
+  if(this.phase==='countdown'&&s.phase==='running'){countDrive(this.freeDrive?'test':this.trial?'trial':'race',this.vehicle);this.count=-1;this.lights.dataset.lit='3';this.lights.classList.add('is-go');pulse(.5,.9,260);this.lights.querySelector('b')!.textContent='GO!';this.pulse(this.lights.querySelector('b')!);this.lapStart=0;setTimeout(()=>this.lights.classList.remove('is-on'),1100)}
   if(s.phase==='running'&&!s.paused&&!this.finished){this.topSpeed=Math.max(this.topSpeed,displaySpeed(speed));
    // Position changes (only in real races with a field).
    const order=s.standings.map(x=>x.id);
@@ -92,7 +93,7 @@ export class RaceFX {
   }
   // Finish slam.
   if(s.playerResult&&!this.finished){this.finished=true;const r=s.playerResult;setTimeout(()=>announceAchievements(null),3200);
-   if(r.valid){const fieldRace=s.standings.length>1;this.banner(`<b>${fieldRace&&r.place?ordinal(r.place):'FINISH'}</b><span>${fieldRace?'FINISH':fmt(r.timeMs??s.elapsedMs)}</span>`,'is-finish '+(r.place===1&&fieldRace?'is-gold':''),2600);this.hit();gameCue('gx.slam');if(fieldRace)setTimeout(()=>this.radio(r.place===1?'youWon':'theyWon',undefined,true),1200);
+   if(r.valid){const fieldRace=s.standings.length>1;this.banner(`<b>${fieldRace&&r.place?ordinal(r.place):'FINISH'}</b><span>${fieldRace?'FINISH':fmt(r.timeMs??s.elapsedMs)}</span>`,'is-finish '+(r.place===1&&fieldRace?'is-gold':''),2600);this.hit();gameCue('gx.slam');pulse(.8,1,380);if(fieldRace)setTimeout(()=>this.radio(r.place===1?'youWon':'theyWon',undefined,true),1200);
     const splits=[...this.gates,r.timeMs??s.elapsedMs],bestTotal=this.best?.at(-1);if(!this.freeDrive&&(bestTotal===undefined||(r.timeMs??Infinity)<bestTotal))writeSplits(s.event,splits)}
    else{this.banner('<b>DNF</b><span>RUN NOT COUNTED</span>','is-down',2200)}}
   this.phase=s.phase;
