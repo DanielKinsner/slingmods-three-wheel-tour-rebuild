@@ -50,6 +50,17 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
   title screen, full controls reference. Opens with the gear, O key, controller View, or race menus.
 - Tour Log: achievements with progress, Time Attack records per course and ride, career and driving stats.
 
+**Later additions (same pass)**
+- Photo mode from the race pause menu (`src/game/photo-mode.ts`): free orbit, lens, PNG capture of the rendered frame.
+- Pause menu Restart; WRONG WAY / OFF TRACK warnings; rival nameplates with gaps; top speed on results.
+- Daily Run (`src/game/daily.ts`): one Time Attack course per day with a target medal and a streak; menu card, Race
+  screen tag, two achievements.
+- Career hub cards show your best place/time from the career's own records.
+- Main menu: slow cinematic camera sway; Tour Log and Options tiles; phone-width header fixes.
+- Sound stays on across pages once enabled in the tab (first key/click re-arms audio).
+- Fixes from an independent code review (curtain fail-safe, observer cleanup, single gamepad loop, modal inert, etc.).
+- End-to-end new-player run verified: Start Career > garage > shakedown briefing > lap > +800 CR, +950 Rep, level-up.
+
 ## Developer notes
 - `?title=1` forces the title screen (skipped automatically under WebDriver).
 - `?autopilot=1` (only where evidence hooks are enabled, i.e. dev or `test=1&profile=1`) lets the production rival AI
@@ -61,10 +72,10 @@ Easy 0.90 / Normal 1 / Hard 1.08, benchmarked headless (all rivals finish). Care
 
 ## Local storage keys added (all cosmetic / convenience, never part of the career save)
 `slingmods-gx-title-seen` (session), `slingmods-gx-splits-v1`, `slingmods-gx-time-attack-v1`,
-`slingmods-gx-difficulty`, `slingmods-gx-achievements-v1`, `slingmods-gx-stats-v1`.
+`slingmods-gx-difficulty`, `slingmods-gx-achievements-v1`, `slingmods-gx-stats-v1`, `slingmods-gx-daily-v1`.
 
 ## Verification
-- `npm test` (437 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
+- `npm test` (438 pass, including `tests/game-feel.test.ts`), `npx tsc --noEmit`, `npm run demo:build`,
   `npm run deploy:build`.
 - Visual checks by headless Chromium (`--use-angle=d3d11`) at 1280x720, 1600x900 and 1920x1080 of title, menu, all
   showroom screens, career hub (fresh and seeded), garage, workshop, race ready/countdown/running/pause/results, Time
