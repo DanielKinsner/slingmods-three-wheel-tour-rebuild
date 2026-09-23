@@ -150,7 +150,7 @@ html.gx body.race-results-open .result-standings>div{padding:7px 14px}
 /* Race page chrome: sound chip under the timing plate, prompts centred clear of the graphics control. */
 html.gx body.harbor-race #game-audio{top:132px;right:var(--gx-edge-x);height:40px;background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px)}
 html.gx body.harbor-race #game-audio :is(button,summary){min-height:38px;font:800 13px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase}
-html.gx body.harbor-race .gx-prompts{justify-content:center;background:none}
+html.gx body.harbor-race .gx-prompts{left:0;right:0;justify-content:center;background:none}
 html.gx body #game-graphics{background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px);font-family:var(--gx-body)}
 html.gx body #game-graphics select{background:#ffffff0d;color:var(--gx-ink);border:1px solid var(--gx-edge-2);font:700 13px var(--gx-body)}
 
@@ -183,3 +183,4 @@ html.gx body.race-results-open .gx-trial,html.gx body.race-menu-open .gx-trial{o
 .gx-trial-lines span{font:700 13px/1.2 var(--gx-body);color:var(--gx-ink-2)}
 .gx-trial-lines .is-record b{color:var(--gx-hot)}.gx-trial-lines .is-record span{color:var(--gx-good)}
 html.gx body #harbor-ui:has(.gx-trial) #race-menu :is(.result-numeral,.result-standings){display:none}
+html.gx body #race-menu h1{overflow-wrap:anywhere}html.gx body #harbor-ui:has(.gx-trial) #race-menu[data-phase=ready] h1{font-size:clamp(40px,4vw,62px)}
