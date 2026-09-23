@@ -1,0 +1,799 @@
+{
+  "base": "http://127.0.0.1:5379",
+  "method": "Actual local scene rendering and WebAudio, controlled normal input path for brief driving checks; not a benchmark, certified lap, or listening approval.",
+  "errors": [],
+  "cases": [
+    {
+      "entry": {
+        "place": "showroom",
+        "visual": "2026"
+      },
+      "audio": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "tour-designed-stock-mix",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "score": {
+          "scene": {
+            "place": "showroom",
+            "night": false,
+            "wet": false,
+            "free": false,
+            "phase": "garage"
+          },
+          "loaded": true,
+          "loops": [
+            "showroom"
+          ],
+          "shots": 0,
+          "shotLimit": 6,
+          "music": "music-garage",
+          "musicTarget": 0.15345,
+          "worldTarget": 0.44000000000000006,
+          "musicVoices": 1,
+          "cachedTracks": 1,
+          "failures": [],
+          "bus": "captured-master"
+        },
+        "extendedLevels": {
+          "music": 0.45,
+          "environment": 0.8
+        },
+        "thermal": {
+          "loaded": true,
+          "armed": false,
+          "playing": false,
+          "elapsed": 0,
+          "offset": 0,
+          "starts": 0,
+          "paused": false,
+          "level": 0,
+          "clock": "cinematic-elapsed",
+          "bus": "captured-master"
+        },
+        "cues": {
+          "loaded": true,
+          "active": 0,
+          "poolLimit": 8,
+          "played": 0,
+          "rejected": 0,
+          "counts": {},
+          "bus": "captured-master"
+        },
+        "graph": {
+          "engine": "authored engine beds",
+          "contextState": "running",
+          "contextTime": 0.6,
+          "persistentLoops": 31,
+          "shiftCount": 0,
+          "masterTarget": 0.165,
+          "rms": 0.007383638386616447,
+          "parameters": {
+            "rpm": 950,
+            "speed": 1.1817201486217037e-9,
+            "load": 0,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 0.7916666666666666,
+                "gain": 0.055
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 0.7916666666666666,
+                "gain": 0.16
+              },
+              {
+                "name": "engine-1650-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 1.0383347850800604e-11
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 2.3903598079878144e-19
+              }
+            ],
+            "master": 0.165,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door, Thermal, world, road and score"
+      }
+    },
+    {
+      "entry": {
+        "place": "harbor",
+        "visual": "2026"
+      },
+      "audio": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "tour-designed-stock-mix",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "score": {
+          "scene": {
+            "place": "harbor",
+            "night": false,
+            "wet": true,
+            "free": true,
+            "phase": "running"
+          },
+          "loaded": true,
+          "loops": [
+            "harbor",
+            "rain",
+            "wind",
+            "road",
+            "wet-tire"
+          ],
+          "shots": 0,
+          "shotLimit": 6,
+          "music": "music-ridge",
+          "musicTarget": 0,
+          "worldTarget": 0.44000000000000006,
+          "musicVoices": 1,
+          "cachedTracks": 1,
+          "failures": [],
+          "bus": "captured-master"
+        },
+        "extendedLevels": {
+          "music": 0.45,
+          "environment": 0.8
+        },
+        "thermal": {
+          "loaded": true,
+          "armed": false,
+          "playing": false,
+          "elapsed": 0,
+          "offset": 0,
+          "starts": 0,
+          "paused": false,
+          "level": 0,
+          "clock": "cinematic-elapsed",
+          "bus": "captured-master"
+        },
+        "cues": {
+          "loaded": true,
+          "active": 0,
+          "poolLimit": 8,
+          "played": 4,
+          "rejected": 0,
+          "counts": {
+            "race.count": 3,
+            "race.start": 1
+          },
+          "bus": "captured-master"
+        },
+        "opponents": {
+          "slots": 2,
+          "sharedContext": true,
+          "sharedDecodedBuffers": true,
+          "selected": [],
+          "buses": [
+            {
+              "engine": "authored engine beds",
+              "contextState": "running",
+              "contextTime": 6.6,
+              "persistentLoops": 31,
+              "shiftCount": 0,
+              "masterTarget": 0,
+              "rms": 0
+            },
+            {
+              "engine": "authored engine beds",
+              "contextState": "running",
+              "contextTime": 6.6,
+              "persistentLoops": 31,
+              "shiftCount": 0,
+              "masterTarget": 0,
+              "rms": 0
+            }
+          ]
+        },
+        "graph": {
+          "engine": "authored engine beds",
+          "contextState": "running",
+          "contextTime": 6.6,
+          "persistentLoops": 31,
+          "shiftCount": 0,
+          "masterTarget": 0.55,
+          "rms": 0.061106812038196436,
+          "parameters": {
+            "rpm": 4147.259700332959,
+            "speed": 11.281602841809573,
+            "load": 1,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-load",
+                "rate": 1.3824199001109865,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-lift",
+                "rate": 1.3824199001109865,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-load",
+                "rate": 1.03681492508324,
+                "gain": 0.3282018168334461
+              },
+              {
+                "name": "engine-4000-lift",
+                "rate": 1.03681492508324,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-load",
+                "rate": 0.7825018302515018,
+                "gain": 0.06714586679182194
+              },
+              {
+                "name": "engine-5300-lift",
+                "rate": 0.7825018302515018,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 0.02484591982335081
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 0.022091172180854143
+              }
+            ],
+            "master": 0.55,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door, Thermal, world, road and score"
+      }
+    },
+    {
+      "entry": {
+        "place": "ridge",
+        "visual": "ryker"
+      },
+      "audio": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "tour-designed-three-cylinder",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "score": {
+          "scene": {
+            "place": "ridge",
+            "night": false,
+            "wet": false,
+            "free": true,
+            "phase": "running"
+          },
+          "loaded": true,
+          "loops": [
+            "ridge",
+            "wind",
+            "road"
+          ],
+          "shots": 0,
+          "shotLimit": 6,
+          "music": "music-ridge",
+          "musicTarget": 0,
+          "worldTarget": 0.44000000000000006,
+          "musicVoices": 1,
+          "cachedTracks": 1,
+          "failures": [],
+          "bus": "captured-master"
+        },
+        "extendedLevels": {
+          "music": 0.45,
+          "environment": 0.8
+        },
+        "thermal": {
+          "loaded": true,
+          "armed": false,
+          "playing": false,
+          "elapsed": 0,
+          "offset": 0,
+          "starts": 0,
+          "paused": false,
+          "level": 0,
+          "clock": "cinematic-elapsed",
+          "bus": "captured-master"
+        },
+        "cues": {
+          "loaded": true,
+          "active": 0,
+          "poolLimit": 8,
+          "played": 4,
+          "rejected": 0,
+          "counts": {
+            "race.count": 3,
+            "race.start": 1
+          },
+          "bus": "captured-master"
+        },
+        "opponents": {
+          "slots": 2,
+          "sharedContext": true,
+          "sharedDecodedBuffers": true,
+          "selected": [],
+          "buses": [
+            {
+              "engine": "authored engine beds",
+              "contextState": "running",
+              "contextTime": 6.232,
+              "persistentLoops": 31,
+              "shiftCount": 0,
+              "masterTarget": 0,
+              "rms": 0
+            },
+            {
+              "engine": "authored engine beds",
+              "contextState": "running",
+              "contextTime": 6.232,
+              "persistentLoops": 31,
+              "shiftCount": 0,
+              "masterTarget": 0,
+              "rms": 0
+            }
+          ]
+        },
+        "graph": {
+          "engine": "designed three-cylinder sample beds",
+          "contextState": "running",
+          "contextTime": 6.232,
+          "persistentLoops": 31,
+          "shiftCount": 0,
+          "masterTarget": 0.55,
+          "rms": 0.05064110314496017,
+          "parameters": {
+            "powertrain": "cvt",
+            "rpm": 7799.999999999999,
+            "speed": 11.230643141663997,
+            "load": 1,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-load",
+                "rate": 1.1470588235294117,
+                "gain": 0.335
+              },
+              {
+                "name": "engine-6800-lift",
+                "rate": 1.1470588235294117,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 0.024669465685378988
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 0.021921802262793336
+              }
+            ],
+            "master": 0.55,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door, Thermal, world, road and score"
+      }
+    },
+    {
+      "entry": {
+        "place": "express",
+        "visual": "2026"
+      },
+      "audio": {
+        "enabled": true,
+        "loading": false,
+        "failure": "",
+        "soundTreatment": "tour-designed-stock-mix",
+        "life": {
+          "enabled": true,
+          "paused": false,
+          "mute": false,
+          "volume": 0.55,
+          "cockpit": false,
+          "reset": false
+        },
+        "levels": {
+          "master": 0.55,
+          "interface": 1,
+          "engine": 1
+        },
+        "score": {
+          "scene": {
+            "place": "express",
+            "night": true,
+            "wet": true,
+            "free": true,
+            "phase": "running"
+          },
+          "loaded": true,
+          "loops": [
+            "express",
+            "night",
+            "rain",
+            "wind",
+            "road",
+            "wet-tire"
+          ],
+          "shots": 0,
+          "shotLimit": 6,
+          "music": "music-ridge",
+          "musicTarget": 0,
+          "worldTarget": 0.44000000000000006,
+          "musicVoices": 1,
+          "cachedTracks": 1,
+          "failures": [],
+          "bus": "captured-master"
+        },
+        "extendedLevels": {
+          "music": 0.45,
+          "environment": 0.8
+        },
+        "thermal": {
+          "loaded": true,
+          "armed": false,
+          "playing": false,
+          "elapsed": 0,
+          "offset": 0,
+          "starts": 0,
+          "paused": false,
+          "level": 0,
+          "clock": "cinematic-elapsed",
+          "bus": "captured-master"
+        },
+        "cues": {
+          "loaded": true,
+          "active": 0,
+          "poolLimit": 8,
+          "played": 4,
+          "rejected": 0,
+          "counts": {
+            "race.count": 3,
+            "race.start": 1
+          },
+          "bus": "captured-master"
+        },
+        "opponents": {
+          "slots": 2,
+          "sharedContext": true,
+          "sharedDecodedBuffers": true,
+          "selected": [],
+          "buses": [
+            {
+              "engine": "authored engine beds",
+              "contextState": "running",
+              "contextTime": 7.810666666666667,
+              "persistentLoops": 31,
+              "shiftCount": 0,
+              "masterTarget": 0,
+              "rms": 0
+            },
+            {
+              "engine": "authored engine beds",
+              "contextState": "running",
+              "contextTime": 7.810666666666667,
+              "persistentLoops": 31,
+              "shiftCount": 0,
+              "masterTarget": 0,
+              "rms": 0
+            }
+          ]
+        },
+        "graph": {
+          "engine": "authored engine beds",
+          "contextState": "running",
+          "contextTime": 7.810666666666667,
+          "persistentLoops": 31,
+          "shiftCount": 0,
+          "masterTarget": 0.55,
+          "rms": 0.032577853838206675,
+          "parameters": {
+            "rpm": 4147.261450985504,
+            "speed": 11.281606779944546,
+            "load": 1,
+            "layers": [
+              {
+                "name": "engine-1200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-1650-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-load",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-2200-lift",
+                "rate": 1.4,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-load",
+                "rate": 1.3824204836618346,
+                "gain": 0
+              },
+              {
+                "name": "engine-3000-lift",
+                "rate": 1.3824204836618346,
+                "gain": 0
+              },
+              {
+                "name": "engine-4000-load",
+                "rate": 1.0368153627463759,
+                "gain": 0.32820165862233647
+              },
+              {
+                "name": "engine-4000-lift",
+                "rate": 1.0368153627463759,
+                "gain": 0
+              },
+              {
+                "name": "engine-5300-load",
+                "rate": 0.7825021605633026,
+                "gain": 0.06714664010616858
+              },
+              {
+                "name": "engine-5300-lift",
+                "rate": 0.7825021605633026,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-load",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "engine-6800-lift",
+                "rate": 0.72,
+                "gain": 0
+              },
+              {
+                "name": "road",
+                "rate": 1,
+                "gain": 0.02484592861501761
+              },
+              {
+                "name": "wind",
+                "rate": 1,
+                "gain": 0.02209118529039632
+              }
+            ],
+            "master": 0.55,
+            "cutoff": 6500,
+            "shiftGain": 0.18,
+            "reset": false
+          }
+        },
+        "captureBus": "post-limiter master including engine, rivals, interface, door, Thermal, world, road and score"
+      }
+    }
+  ],
+  "status": "PASS"
+}
