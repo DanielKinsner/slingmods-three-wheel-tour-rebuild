@@ -54,3 +54,19 @@ test('surface maps ship and stay small', () => {
  const allow = JSON.parse(readFileSync('demo-assets.json', 'utf8')).assets as string[];
  for (const url of Object.values(VEHICLE_SURFACE_MAPS)) assert.ok(allow.includes(url.slice(1)), `${url} on the hosted allowlist`);
 });
+
+test('identical surface shaders share programs while retaining each material texture and physical parameters', () => {
+ const plasticMap = new THREE.Texture(), rubberMap = new THREE.Texture();
+ const a = upgradeVehicleMaterial(new THREE.MeshStandardMaterial(), 'plastic', {stipple: plasticMap});
+ const b = upgradeVehicleMaterial(new THREE.MeshStandardMaterial(), 'rubber', {rubber: rubberMap});
+ assert.equal(a.customProgramCacheKey(), b.customProgramCacheKey());
+ const compile = (m: THREE.Material) => {const s = {uniforms: {}, vertexShader: '#include <begin_vertex>', fragmentShader: '#include <normal_fragment_maps>\n#include <clearcoat_normal_fragment_maps>'} as any; m.onBeforeCompile(s, undefined as any); return s;};
+ const sa = compile(a), sb = compile(b);
+ assert.equal(sa.fragmentShader, sb.fragmentShader);
+ assert.equal(sa.uniforms.vsdMap.value, plasticMap); assert.equal(sb.uniforms.vsdMap.value, rubberMap);
+ assert.notDeepEqual(sa.uniforms.vsdParams.value.toArray(), sb.uniforms.vsdParams.value.toArray());
+ assert.notDeepEqual(sa.uniforms.vsdFade.value.toArray(), sb.uniforms.vsdFade.value.toArray());
+ assert.match(sa.fragmentShader, /if\(k>0\.\)/, 'invisible micro detail performs no texture lookups');
+ const paint = upgradeVehicleMaterial(new THREE.MeshStandardMaterial(), 'paint', {flake: plasticMap, peel: rubberMap});
+ assert.notEqual(paint.customProgramCacheKey(), a.customProgramCacheKey(), 'coat detail needs its own GLSL');
+});

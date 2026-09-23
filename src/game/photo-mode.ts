@@ -10,10 +10,10 @@ import {setPrompts} from './shell';
  */
 export class PhotoMode {
  active=false;
- private rig=new THREE.PerspectiveCamera();private controls?:OrbitControls;private ui=document.createElement('div');private fov=45;private captureNext=false;private padToken=0;private hideUI=false;
- constructor(private canvas:HTMLCanvasElement,private camera:THREE.PerspectiveCamera,private target:()=>THREE.Vector3,private ground:(x:number,z:number)=>number,private onExit:()=>void){
+ private rig=new THREE.PerspectiveCamera();private controls?:OrbitControls;private ui=document.createElement('div');private fov=45;private captureNext=false;private padToken=0;private hideUI=false;private saving=false;
+ constructor(private canvas:HTMLCanvasElement,private camera:THREE.PerspectiveCamera,private target:()=>THREE.Vector3,private ground:(x:number,z:number)=>number,private onExit:()=>void,private captureFull?:()=>Promise<Blob>){
   this.ui.className='gx-photo-ui';this.ui.hidden=true;
-  this.ui.innerHTML=`<span class="gx-photo-title">PHOTO MODE</span><label>LENS<input type="range" min="20" max="90" step="1" value="45" data-photo="fov"><output>45°</output></label><button data-photo="hide">Hide UI</button><button data-photo="capture" class="is-primary">Capture</button><button data-photo="exit">Back</button><small>Drag to orbit · wheel to zoom · right-drag to pan</small>`;
+  this.ui.innerHTML=`<span class="gx-photo-title">PHOTO MODE</span><label>LENS<input type="range" min="20" max="90" step="1" value="45" data-photo="fov"><output>45°</output></label>${captureFull?'<label>PHOTO SIZE<select data-photo="size"><option value="view">Screen</option><option value="4k">4K</option></select></label>':''}<button data-photo="hide">Hide UI</button><button data-photo="capture" class="is-primary">Capture</button><button data-photo="exit">Back</button><small role="status" data-photo-status>Drag to orbit · wheel to zoom · right-drag to pan</small>`;
   document.body.append(this.ui);
   this.ui.addEventListener('input',e=>{const t=e.target as HTMLInputElement;if(t.dataset.photo==='fov'){this.fov=Number(t.value);(t.nextElementSibling as HTMLOutputElement).value=t.value+'°'}});
   this.ui.addEventListener('click',e=>{const b=(e.target as Element).closest<HTMLElement>('[data-photo]');if(!b)return;if(b.dataset.photo==='capture')this.capture();else if(b.dataset.photo==='exit')this.exit();else if(b.dataset.photo==='hide')this.toggleUI()});
@@ -36,9 +36,21 @@ export class PhotoMode {
   const floor=this.ground(this.rig.position.x,this.rig.position.z)+.25;if(this.rig.position.y<floor){this.rig.position.y=floor;this.controls.update()}
   this.camera.position.copy(this.rig.position);this.camera.quaternion.copy(this.rig.quaternion);this.camera.fov=this.fov;this.camera.updateProjectionMatrix();return true;
  }
- capture(){this.captureNext=true;gameCue('gx.slam');this.ui.classList.remove('is-flash');void this.ui.offsetWidth;this.ui.classList.add('is-flash')}
+ capture(){if(!this.active||this.saving)return;this.captureNext=true;gameCue('gx.slam');this.ui.classList.remove('is-flash');void this.ui.offsetWidth;this.ui.classList.add('is-flash')}
  /** Call right after the frame is rendered (same task), so the drawing buffer still holds the image. */
- afterRender(){if(!this.captureNext)return;this.captureNext=false;this.canvas.toBlob(blob=>{if(!blob)return;const a=document.createElement('a'),stamp=new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');a.href=URL.createObjectURL(blob);a.download=`slingmods-tour-${stamp}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)},'image/png')}
+ afterRender(){
+  if(!this.captureNext||this.saving)return;this.captureNext=false;this.saving=true;
+  const button=this.ui.querySelector<HTMLButtonElement>('[data-photo=capture]')!,status=this.ui.querySelector<HTMLElement>('[data-photo-status]')!;
+  button.disabled=true;button.textContent='Saving…';status.textContent='Preparing your photo…';
+  const full=this.ui.querySelector<HTMLSelectElement>('[data-photo=size]')?.value==='4k'&&this.captureFull;
+  try {
+   const job=full?full():new Promise<Blob>((resolve,reject)=>this.canvas.toBlob(blob=>blob?resolve(blob):reject(Error('Photo encoding failed')),'image/png'));
+   void job.then(blob=>{
+    if(this.disposed)return;
+    const a=document.createElement('a'),stamp=new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');a.href=URL.createObjectURL(blob);a.download=`slingmods-tour-${stamp}${full?'-4k':''}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);status.textContent='Photo saved';
+   }).catch(()=>{status.textContent='Could not save. Try Screen size.';}).finally(()=>{this.saving=false;button.disabled=false;button.textContent='Capture';});
+  } catch {this.saving=false;button.disabled=false;button.textContent='Capture';status.textContent='Could not save. Try Screen size.';}
+ }
  private padLoop(){const token=++this.padToken;let prior=[true,true];const tick=()=>{if(!this.active||token!==this.padToken||!this.controls)return;const pad=(Array.from(navigator.getGamepads?.()??[]) as (Gamepad|null)[]).find(p=>p?.connected&&p.mapping==='standard');
   if(pad){const dead=(v:number)=>Math.abs(v)<.15?0:v,ax=dead(pad.axes[0]??0),ay=dead(pad.axes[1]??0),zoom=dead(pad.axes[3]??0);
    if(ax||ay){const o=this.rig.position.clone().sub(this.controls.target),s=new THREE.Spherical().setFromVector3(o);s.theta-=ax*.035;s.phi=THREE.MathUtils.clamp(s.phi+ay*.03,.15,Math.PI*.495);o.setFromSpherical(s);this.rig.position.copy(this.controls.target).add(o)}

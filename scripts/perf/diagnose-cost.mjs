@@ -11,7 +11,7 @@ try{
   await route.fulfill({response,body:exact.replace(marker,marker+probe)});
  });
  await p.goto((process.env.BASE_URL||'http://127.0.0.1:5186')+'/?scene=express&route=harbor&mode=race&look=dusk-rain&test=1&profile=1&quality=high');await p.waitForFunction(()=>window.__EXPRESS?.ready,null,{timeout:180000});
- await p.locator('#start-crew').click();await p.waitForFunction(()=>window.__EXPRESS.inspect().input.armed);await p.keyboard.down('w');await p.waitForTimeout(3000);
+ await p.locator('#start-crew').click();if(await p.locator('.film-skip').isVisible())await p.locator('.film-skip').click();await p.waitForFunction(()=>window.__EXPRESS.lightweight().race.phase==='running');await p.keyboard.down('w');await p.waitForTimeout(3000);
  await p.evaluate(()=>{window.__programCauses={};window.__lightExamples=[];});
  const c=await p.context().newCDPSession(p);await c.send('Profiler.enable');await c.send('Profiler.start');await p.waitForTimeout(12000);const {profile}=await c.send('Profiler.stop');
  await fs.writeFile(out+'/program-causes.json',JSON.stringify(await p.evaluate(()=>({causes:window.__programCauses,examples:window.__lightExamples})),null,2));

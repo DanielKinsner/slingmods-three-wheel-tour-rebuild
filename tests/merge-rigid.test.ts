@@ -1,8 +1,17 @@
 import test from 'node:test';import assert from 'node:assert/strict';import * as THREE from 'three';
 import {mergeRigidParts,materialSignature} from '../src/presentation/merge-rigid';import {trimSmallCasters} from '../src/presentation/shadows';
+import {upgradeVehicleMaterial} from '../src/presentation/vehicle-surfaces';
 // Rivals are drawn from a merged copy of the car (handoff/PHASE-2-DRAW-CALLS.md). These pin that merging never moves a
 // vertex, never flips a face, and never swallows a part that something addresses individually.
 const dynamic=(o:THREE.Object3D)=>/_(steer|spin)$/.test(o.name)||o.name==='steering_control'||!!o.userData.frontLink;
+test('surface material comparison never exports texture images or rounds different colours together',()=>{
+ const map=new THREE.Texture();map.toJSON=()=>{throw Error('Texture image serialization is forbidden during merging');};
+ const source=new THREE.MeshStandardMaterial({name:'BodyPlastic'}),a=upgradeVehicleMaterial(source,'plastic',{stipple:map}),b=a.clone();
+ assert.equal(materialSignature(a),materialSignature(b));
+ b.color.r+=1e-7;assert.notEqual(materialSignature(a),materialSignature(b),'physical colour values stay exact');
+ b.color.copy(a.color);b.customProgramCacheKey=()=>'different-shader';assert.notEqual(materialSignature(a),materialSignature(b));
+ const c=upgradeVehicleMaterial(source,'plastic',{stipple:new THREE.Texture()});assert.notEqual(materialSignature(a),materialSignature(c),'different maps cannot merge');
+});
 const plastic=()=>new THREE.MeshStandardMaterial({color:0x101010,roughness:.6}),part=(name:string,material:THREE.Material,at:[number,number,number],size=.4)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(size,size,size),material);m.name=name;m.position.set(...at);m.castShadow=true;m.receiveShadow=true;return m};
 /** Every triangle as world-space corners plus its winding normal, order-independent. */
 function triangles(root:THREE.Object3D){root.updateWorldMatrix(true,true);const out:string[]=[];

@@ -7,7 +7,9 @@ export const HARBOR_WATER_URLS={swell:P11+'harbor-water/swell-normal.ktx2',chop:
 export const RACE_ASPHALT_URLS=['track-4m-baseColor','dry-4m-normal','dry-4m-ORM','detail-normal'].map(n=>P11+'race-asphalt/'+n+'.ktx2');
 export const ROAD_DECAL_URLS=[...['baseColor','normal','ORM'].map(n=>P11+'road-decals/'+n+'.ktx2'),P11+'road-decals/atlas.json'];
 export const TRACKSIDE_KIT=P11+'trackside-props/';
-export const tracksideAssetURLs=(props:readonly string[])=>[...props.flatMap(p=>[0,1,2].map(l=>`${TRACKSIDE_KIT}${p}-lod${l}.glb`)),...['trim-baseColor','trim-normal','trim-ORM','chain-link'].map(n=>TRACKSIDE_KIT+n+'.ktx2')];
+/** Runtime derivatives retain exact geometry and omit the unused source PNG bindings. */
+export const sceneryGeometryURL=(source:string)=>source.replace('/assets/p11/','/assets/runtime-scenery/');
+export const tracksideAssetURLs=(props:readonly string[])=>[...props.flatMap(p=>[0,1,2].map(l=>sceneryGeometryURL(`${TRACKSIDE_KIT}${p}-lod${l}.glb`))),...['trim-baseColor','trim-normal','trim-ORM','chain-link'].map(n=>TRACKSIDE_KIT+n+'.ktx2')];
 export const EXPRESS_PROPS=['armco-straight','jersey-red-white','catch-fence','streetlight','distance-150','distance-100','distance-50']as const;
 export const HARBOR_PROPS=['catch-fence','distance-150','distance-100','distance-50']as const;
 /** Everything Phase 1 adds to a flat harbour-side route. */

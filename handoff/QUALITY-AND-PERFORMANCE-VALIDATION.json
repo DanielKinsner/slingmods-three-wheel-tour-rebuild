@@ -1,0 +1,384 @@
+{
+  "date": "2026-09-23",
+  "baseCommit": "8167284a36063323d67b3f054836bb179f3f1899",
+  "scope": "Local quality and performance continuation; no push or deployment. Physics, steering, saves, routes and original source assets preserved.",
+  "build": {
+    "output": "demo-dist/2026-09-23T21-53-33-529Z-8167284a3606-working",
+    "commit": "8167284a36063323d67b3f054836bb179f3f1899",
+    "buildRef": "8167284a3606-working",
+    "manifest": "OUTPUT-MANIFEST.json",
+    "reviewBuildSHA256": "0787e30c44485da852442a246ff7cc5a9503dcd6780012bd11d65eb1c2bd35b1",
+    "manifestSHA256": "3d3bee72a3d0c55ce3d90fdb0039f0f6a07b7cdf4e5b9f2b30304a331948856b",
+    "changedRuntimeInputs": {
+      "demo-assets.json": "86b8d991e1946a025b2b4c32522a0e67bca85ee23759119fdd422f353313c4d9",
+      "package-lock.json": "3d858b061adfe66e1b19f376a507d489ce08c1b293f707d5df50debf839f53d2",
+      "package.json": "a12e0adf1b91ca092eb6afab78c8e8e15dfbc133d99b91a07cdaed1827065717",
+      "src/express.ts": "6deb04e37c279663f125abf8dab1ec65b548c6fe4c9a49c7a0c457546668a6f9",
+      "src/game/photo-mode.ts": "246e7301b95bd1ce17e3c0a65bd6284861c8a89ef25725d841fa4310437b219d",
+      "src/game/race.css": "805c58fb57b9ee9a62d43062d81eb1c9bf0b4b03a294c605e59a7300d573f92e",
+      "src/presentation/ktx2.ts": "f5e4f21a3d0b99801891885f990439c7d26cf7b78b0c3298672c64aaebbb485d",
+      "src/presentation/merge-rigid.ts": "e3ef0aa698dad358371fbefda88b4eca0d5f6c1f4c506cad02f05cb5c921e958",
+      "src/presentation/p11-assets.ts": "c250f11a490465b82a6b71152b01fea10db3328b21da93842667026fe5b2eed9",
+      "src/presentation/trackside.ts": "0dc803df52e779d3b97fb86d9538ce04c29b300554a5adfbc8b367344d5f7fa8",
+      "src/presentation/vehicle-surfaces.ts": "1cd1bcac61cc8aaf2176d6647876bbaa6810f6ece4d8a2d60a02bc17b7f65ed7",
+      "src/ridge/forest-assets.ts": "8cc10b2061ace1d37ae16440430a3082ea553b2d5e814b15160a493ea6e15f09",
+      "src/ridge/forest.ts": "ed083ddc23ab46a94e8fcaaf16b68f88da2de5e6f97130b2df15719fcf812bde",
+      "src/signature/scene.ts": "5050f199c3faeae310e1becf9e2a178b2893b014b557e3ba0baeb50f7cb52c8a",
+      "src/game/photo-capture.ts": "b88fcc2fd9452d130fd2c5d455d1116acf63935ade8be77c0c85baaee71d4fde",
+      "src/presentation/texture-source-cache.ts": "0383ea39e88a24f024f797b18e5042da394291d2602d545af14c7a0c6a4e6eba"
+    }
+  },
+  "tests": {
+    "fullSuite": {
+      "passed": 475,
+      "failed": 0,
+      "log": ".tools/quality-perf-tests.log",
+      "sha256": "bfb2f4c7b807b08e72ecd4b95fe23f06a5fc83b756c4e622ddeed404dafeb998"
+    },
+    "finalCameraFollowUp": {
+      "passed": 6,
+      "failed": 0
+    },
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "note": "Full suite preceded the final one-predicate cockpit/photo visibility fix; final camera tests and packaged cockpit-photo smoke cover that follow-up."
+  },
+  "visualAB": {
+    "evidence": ".tools/quality-assets-ab-20260923/report.json",
+    "sha256": "56587fb37a46d602392b02f7b7d517f9e9ced5bfd4cb4868bdd3bce5033dbc2b",
+    "method": "Controlled simulation clock, Ultra fixed 100% resolution, 1600x900 DPR1, identical camera fixtures. Sequential isolated browser contexts. Load times include local caches and are diagnostic, not a sustained performance claim.",
+    "views": 12,
+    "pixels": 17280000,
+    "changedPixels": 52,
+    "maxChannelDelta": 1,
+    "over8": 0,
+    "scenes": [
+      {
+        "name": "harbor-dusk-rain-2026",
+        "version": "baseline",
+        "loadMs": 58859.90000000596,
+        "programs": 176,
+        "memory": {
+          "geometries": 523,
+          "textures": 143
+        },
+        "errors": []
+      },
+      {
+        "name": "harbor-dusk-rain-2026",
+        "version": "candidate",
+        "loadMs": 15739.70000000298,
+        "programs": 152,
+        "memory": {
+          "geometries": 523,
+          "textures": 143
+        },
+        "cache": {
+          "urls": 27,
+          "requests": 27,
+          "reused": 0
+        },
+        "errors": []
+      },
+      {
+        "name": "express-day-ryker",
+        "version": "baseline",
+        "loadMs": 36124,
+        "programs": 145,
+        "memory": {
+          "geometries": 366,
+          "textures": 129
+        },
+        "errors": []
+      },
+      {
+        "name": "express-day-ryker",
+        "version": "candidate",
+        "loadMs": 10473.59999999404,
+        "programs": 124,
+        "memory": {
+          "geometries": 366,
+          "textures": 129
+        },
+        "cache": {
+          "urls": 23,
+          "requests": 23,
+          "reused": 0
+        },
+        "errors": []
+      },
+      {
+        "name": "harbor-day-spyder",
+        "version": "baseline",
+        "loadMs": 50028.5,
+        "programs": 185,
+        "memory": {
+          "geometries": 455,
+          "textures": 143
+        },
+        "errors": []
+      },
+      {
+        "name": "harbor-day-spyder",
+        "version": "candidate",
+        "loadMs": 14681.29999999702,
+        "programs": 149,
+        "memory": {
+          "geometries": 455,
+          "textures": 143
+        },
+        "cache": {
+          "urls": 26,
+          "requests": 26,
+          "reused": 0
+        },
+        "errors": []
+      },
+      {
+        "name": "ridge-day-2026",
+        "version": "baseline",
+        "loadMs": 52522.39999999106,
+        "programs": 166,
+        "memory": {
+          "geometries": 345,
+          "textures": 131
+        },
+        "errors": []
+      },
+      {
+        "name": "ridge-day-2026",
+        "version": "candidate",
+        "loadMs": 14122.40000000596,
+        "programs": 142,
+        "memory": {
+          "geometries": 345,
+          "textures": 131
+        },
+        "cache": {
+          "urls": 31,
+          "requests": 33,
+          "reused": 2
+        },
+        "errors": []
+      }
+    ]
+  },
+  "photo": {
+    "evidence": ".tools/quality-photo-cockpit-20260923/report.json",
+    "sha256": "5b9ac14e93a7afbbd9c70591cda189514072fd03435c7414b8d9ac4c2ca087d8",
+    "pass": true,
+    "width": 3840,
+    "height": 2160,
+    "bytes": 9554145,
+    "pngSHA256": "f107269beaade3230ab05ea2fa7eb9b6ed31718d25acd9963d75b82c3978ffc2",
+    "beforeMemory": {
+      "geometries": 524,
+      "textures": 144
+    },
+    "afterMemory": {
+      "geometries": 524,
+      "textures": 144
+    },
+    "headVisibleInPhoto": true,
+    "headHiddenInCockpit": true,
+    "simulationUnchanged": true,
+    "resumedSpeed": 8.271621116357728,
+    "mobile": {
+      "x": 16,
+      "y": 178,
+      "width": 812,
+      "height": 154
+    },
+    "errors": [],
+    "failedRequests": []
+  },
+  "assets": {
+    "evidence": ".tools/runtime-asset-audit-complete-20260923/report.json",
+    "sha256": "06b3c98cc4aa38f267fe435fda2ea18d84b44d935989ad37a7fdb44356920ce7",
+    "packagedFiles": 396,
+    "glbs": 63,
+    "ktx2s": 72,
+    "errors": 0,
+    "gltfWarnings": 672,
+    "incompleteMipChains": 6,
+    "lodWarnings": 2,
+    "sceneryManifest": "public/assets/runtime-scenery/manifest.json",
+    "sceneryManifestSHA256": "69430dad74000d8bd581ccacca47359fb92c4b094f5288c8bd2240d8a95bb888",
+    "note": "Uncapped Khronos messages. Structural/closure validation does not certify visual quality, OEM accuracy, fitment or licences. Existing P11 4K foliage/card/decal atlases are disclosed 1254px resamples."
+  },
+  "performance": {
+    "status": "HOLD",
+    "gates": [
+      {
+        "lane": "high-packaged",
+        "evidence": ".tools/quality-high-final-20260923",
+        "sha256": "d541d66b8a3bb112dbbe90d747981965dd9529b2c232339b95107cb08b0f241c",
+        "pass": false,
+        "sustained": true,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "highAverageMs": 10,
+          "highWorstOnePercentMs": 16.6,
+          "toleranceMs": 0.000001
+        },
+        "pooled": {
+          "samples": 7500,
+          "activeSeconds": 156.5506,
+          "averageMs": 20.873413333333335,
+          "averageFps": 47.90783299457172,
+          "worstOnePercentMs": 100.63999999999913,
+          "onePercentLowFps": 9.93640699523061,
+          "p50Ms": 16.19999999999709,
+          "p95Ms": 44.89999999999418,
+          "p99Ms": 47.60000000000582,
+          "maxMs": 468,
+          "over33_4": 1470,
+          "over50": 63,
+          "over100": 18
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "averageMs": 18.539119109637696,
+            "worstOnePercentMs": 97.83255813953377,
+            "maxMs": 392,
+            "valid": true,
+            "finishers": 4,
+            "frameTail": false,
+            "highBudget": false
+          },
+          {
+            "attempt": 2,
+            "averageMs": 23.881568507781505,
+            "worstOnePercentMs": 102.69090909090785,
+            "maxMs": 468,
+            "valid": true,
+            "finishers": 4,
+            "frameTail": false,
+            "highBudget": false
+          }
+        ],
+        "errors": [],
+        "failedRequests": []
+      },
+      {
+        "lane": "ultra-packaged",
+        "evidence": ".tools/quality-ultra-complete-20260923",
+        "sha256": "f5251d0fdd9eea6cab8782508042033f839f76aa40d6d29878b5d3b1dbc8471e",
+        "pass": false,
+        "sustained": true,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "highAverageMs": 10,
+          "highWorstOnePercentMs": 16.6,
+          "toleranceMs": 0.000001
+        },
+        "pooled": {
+          "samples": 5135,
+          "activeSeconds": 161.9876,
+          "averageMs": 31.545783836416742,
+          "averageFps": 31.69995728068075,
+          "worstOnePercentMs": 218.7000000000003,
+          "onePercentLowFps": 4.5724737082761715,
+          "p50Ms": 30.79999999998836,
+          "p95Ms": 78.90000000000873,
+          "p99Ms": 140.90000000000873,
+          "maxMs": 641.1000000000058,
+          "over33_4": 1415,
+          "over50": 477,
+          "over100": 130
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "averageMs": 45.669665948275856,
+            "worstOnePercentMs": 301.0000000000004,
+            "maxMs": 641.1000000000058,
+            "valid": true,
+            "finishers": 4,
+            "frameTail": false,
+            "highBudget": null
+          },
+          {
+            "attempt": 2,
+            "averageMs": 23.55129612686795,
+            "worstOnePercentMs": 50.80606060606078,
+            "maxMs": 62.59999999997672,
+            "valid": true,
+            "finishers": 4,
+            "frameTail": false,
+            "highBudget": null
+          }
+        ],
+        "errors": [],
+        "failedRequests": []
+      },
+      {
+        "lane": "high-source-baseline",
+        "evidence": ".tools/quality-high-baseline-complete-20260923",
+        "sha256": "239b607f581346d4e67b9540aca855978bf3015810d6f10394aadfbcb04081d0",
+        "pass": false,
+        "sustained": true,
+        "thresholds": {
+          "p95Ms": 20,
+          "p99Ms": 33.4,
+          "maxMs": 100,
+          "highAverageMs": 10,
+          "highWorstOnePercentMs": 16.6,
+          "toleranceMs": 0.000001
+        },
+        "pooled": {
+          "samples": 5035,
+          "activeSeconds": 164.88809999999995,
+          "averageMs": 32.74838133068519,
+          "averageFps": 30.535860380464097,
+          "worstOnePercentMs": 266.6392156862763,
+          "onePercentLowFps": 3.7503860691541524,
+          "p50Ms": 31.20000000001164,
+          "p95Ms": 62.20000000001164,
+          "p99Ms": 184.89999999999418,
+          "maxMs": 580.6000000000058,
+          "over33_4": 1674,
+          "over50": 340,
+          "over100": 123
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "averageMs": 36.29028620988725,
+            "worstOnePercentMs": 300.5000000000018,
+            "maxMs": 580.6000000000058,
+            "valid": true,
+            "finishers": 4,
+            "frameTail": false,
+            "highBudget": false
+          },
+          {
+            "attempt": 2,
+            "averageMs": 29.755478197141816,
+            "worstOnePercentMs": 226.87500000000105,
+            "maxMs": 522,
+            "valid": true,
+            "finishers": 4,
+            "frameTail": false,
+            "highBudget": false
+          }
+        ],
+        "errors": [],
+        "failedRequests": []
+      }
+    ],
+    "diagnostic": ".tools/quality-cost-current-20260923/",
+    "limitations": [
+      "Scored frames retain all stalls. No external machine activity was stopped or attributed as the cause.",
+      "Source baseline runs through Vite; candidate is packaged. Results are not an attributable FPS A/B.",
+      "High packaged run precedes only the paused-photo head-visibility fix and development auditor dependency.",
+      "CPU submission is not GPU execution time; current hardware is RTX 4080 only."
+    ]
+  },
+  "transfer": "Small receipt and derivative/source manifests are tracked. Large raw captures and local demo-dist build remain on this machine."
+}

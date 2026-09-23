@@ -1,9 +1,10 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {loadKTX2} from '../presentation/ktx2';
+import {sceneryGeometryURL} from '../presentation/p11-assets';
 import {disposeGraph} from '../presentation/scene-lifetime';
 import type {GraphicsQuality} from '../presentation/graphics-settings';
-import {FOREST_SPECIES,TREE_ROOT,GROUND_ROOT,forestAssetURLs,forestGLTFURL} from './forest-assets';
+import {FOREST_SPECIES,TREE_ROOT,GROUND_ROOT,forestAssetURLs} from './forest-assets';
 import {forestFloorPlan,forestLOD,FOREST_BUDGET,type ForestPlacement} from './forest-layout';
 
 /** P11 COLOR_0 contains bend/flutter weights, never foliage albedo. Depth uses the same bend. */
@@ -39,8 +40,7 @@ export function forestCardGeometry(variant:number){
 type Batch={mesh:THREE.InstancedMesh;kind:'tree'|'cover'|'rock'|'air';variant:number;lod:number};
 /** Global compact instance batches cap draw calls independently of tree count. */
 export async function loadRidgeForest(renderer:THREE.WebGLRenderer,trees:ForestPlacement[],sun:THREE.Vector3,night:boolean){
- const manager=new THREE.LoadingManager();manager.setURLModifier(forestGLTFURL);
- const loader=new GLTFLoader(manager),urls=forestAssetURLs(),assets=new Map<string,any>(),instances=new Set<THREE.InstancedMesh>(),geometry=new Set<THREE.BufferGeometry>(),materials=new Set<THREE.Material>(),textures=new Set<THREE.Texture>();
+ const loader=new GLTFLoader(),urls=forestAssetURLs(),assets=new Map<string,any>(),instances=new Set<THREE.InstancedMesh>(),geometry=new Set<THREE.BufferGeometry>(),materials=new Set<THREE.Material>(),textures=new Set<THREE.Texture>();
  let abandoned=false,timer:ReturnType<typeof setTimeout>;
  const pending=Promise.allSettled(urls.map(async url=>{
   const value=url.endsWith('.glb')?await loader.loadAsync(url):url.endsWith('.ktx2')?await loadKTX2(renderer,url,{srgb:url.includes('baseColor'),repeat:!url.includes('imposter')&&!url.includes('cards')&&!url.includes('leaves'),anisotropy:4}):await fetch(url).then(r=>{if(!r.ok)throw Error('Forest metadata unavailable');return r.json()});
@@ -64,7 +64,7 @@ export async function loadRidgeForest(renderer:THREE.WebGLRenderer,trees:ForestP
    forestWind(bark,time,wind,sun);forestWind(leaves,time,wind,sun,true,night);
    const barkDepth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking}),leafDepth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking,map:leaves.map,alphaTest:.48,side:THREE.DoubleSide});forestWind(barkDepth,time,wind,sun);forestWind(leafDepth,time,wind,sun);
    for(let lod=0;lod<3;lod++){
-    const model=assets.get(TREE_ROOT+name+'-lod'+lod+'.glb');model.scene.updateMatrixWorld(true);
+    const model=assets.get(sceneryGeometryURL(TREE_ROOT+name+'-lod'+lod+'.glb'));model.scene.updateMatrixWorld(true);
     model.scene.traverse((o:THREE.Object3D)=>{if(!(o instanceof THREE.Mesh))return;const leaf=(o.material as THREE.Material).name.includes('leaf'),g=o.geometry.clone().applyMatrix4(o.matrixWorld);batch(g,leaf?leaves:bark,trees.length,'tree',species,lod,leaf?leafDepth:barkDepth)});
    }
    const meta=assets.get(TREE_ROOT+name+'-imposter.json'),g=new THREE.PlaneGeometry(meta.worldWidthMetres,meta.worldWidthMetres);g.translate(meta.center[0],meta.center[1],0);
@@ -91,7 +91,7 @@ export async function loadRidgeForest(renderer:THREE.WebGLRenderer,trees:ForestP
    const mat=new THREE.MeshStandardMaterial({map:cards,alphaTest:.55,side:THREE.DoubleSide,roughness:1,color:0xb5b6a3});forestWind(mat,time,wind,sun,true,night);batch(g,mat,plan.cover.length,'cover',variant);
   }
   const rockMaterial=new THREE.MeshStandardMaterial({map:tex(GROUND_ROOT,'rocks-baseColor'),normalMap:tex(GROUND_ROOT,'rocks-normal'),normalScale:new THREE.Vector2(.5,-.5),roughness:.95});
-  for(let i=0;i<2;i++){const model=assets.get(GROUND_ROOT+'rock-'+i+'-lod1.glb');model.scene.updateMatrixWorld(true);model.scene.traverse((o:THREE.Object3D)=>{if(o instanceof THREE.Mesh)batch(o.geometry.clone().applyMatrix4(o.matrixWorld),rockMaterial,plan.rocks.length,'rock',i)})}
+  for(let i=0;i<2;i++){const model=assets.get(sceneryGeometryURL(GROUND_ROOT+'rock-'+i+'-lod1.glb'));model.scene.updateMatrixWorld(true);model.scene.traverse((o:THREE.Object3D)=>{if(o instanceof THREE.Mesh)batch(o.geometry.clone().applyMatrix4(o.matrixWorld),rockMaterial,plan.rocks.length,'rock',i)})}
   // Sparse depth-tested shafts and low hollow mist; no fullscreen pass or camera shake.
   const airMaterial=new THREE.ShaderMaterial({uniforms:THREE.UniformsUtils.merge([THREE.UniformsLib.fog,{sun:{value:sun},night:{value:night?1:0}}]),vertexShader:`attribute float airKind;varying vec2 vUv;varying float kind;uniform vec3 sun;
    #include <fog_pars_vertex>

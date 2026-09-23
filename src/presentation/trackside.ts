@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
-import {loadKTX2} from './ktx2';import {TRACKSIDE_KIT as KIT} from './p11-assets';
+import {loadKTX2} from './ktx2';import {TRACKSIDE_KIT as KIT,sceneryGeometryURL} from './p11-assets';
 import {placeAlongRoute,offsetRoute,type RoutePoint} from './place-route';
 import {sampleRoad,type CourseRoute} from '../course/environment';
 
@@ -14,11 +14,9 @@ const RANGE:Record<TracksideProp,[number,number,number]>={'armco-straight':[60,1
 type Part={geometry:THREE.BufferGeometry;material:THREE.Material};
 export async function loadTrackside(renderer:THREE.WebGLRenderer,placements:TracksidePlacement[],night:boolean){
  const props=[...new Set(placements.map(p=>p.prop))];
- // The GLBs point at 15-25 MB shared PNGs. The same sheets ship as KTX2 beside the kit, so the PNG requests are answered
- // with one transparent pixel and every mesh is rebound to a single compressed material below.
- const manager=new THREE.LoadingManager();manager.setURLModifier(url=>/shared-textures\/.*\.png$/.test(url)?'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=':url);
- const loader=new GLTFLoader(manager);
- const [map,normalMap,orm,chain,...files]=await Promise.all([loadKTX2(renderer,KIT+'trim-baseColor.ktx2',{srgb:true}),loadKTX2(renderer,KIT+'trim-normal.ktx2'),loadKTX2(renderer,KIT+'trim-ORM.ktx2'),loadKTX2(renderer,KIT+'chain-link.ktx2',{srgb:true}),...props.flatMap(p=>[0,1,2].map(l=>loader.loadAsync(`${KIT}${p}-lod${l}.glb`)))]);
+ // Geometry-only derivatives keep material names; shared compressed surfaces below own every visible texture.
+ const loader=new GLTFLoader();
+ const [map,normalMap,orm,chain,...files]=await Promise.all([loadKTX2(renderer,KIT+'trim-baseColor.ktx2',{srgb:true}),loadKTX2(renderer,KIT+'trim-normal.ktx2'),loadKTX2(renderer,KIT+'trim-ORM.ktx2'),loadKTX2(renderer,KIT+'chain-link.ktx2',{srgb:true}),...props.flatMap(p=>[0,1,2].map(l=>loader.loadAsync(sceneryGeometryURL(`${KIT}${p}-lod${l}.glb`))))]);
  const trim=new THREE.MeshStandardMaterial({name:'P11_trackside_trim',map,normalMap,normalScale:new THREE.Vector2(1,-1),roughnessMap:orm,metalnessMap:orm,roughness:1,metalness:1,side:THREE.DoubleSide});
  const link=new THREE.MeshStandardMaterial({name:'P11_chain_link',map:chain,alphaTest:.35,roughness:.6,metalness:0,side:THREE.DoubleSide});
  const lamp=new THREE.MeshStandardMaterial({name:'P11_sodium_lamp',color:'#ff7017',emissive:'#ff7017',emissiveIntensity:night?6:.35,roughness:.3,metalness:0});

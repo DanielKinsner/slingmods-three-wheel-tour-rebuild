@@ -1,4 +1,16 @@
-# Biker rider + realistic vehicle surfaces - current (2026-09-23)
+# Quality and performance continuation - current (2026-09-23)
+
+The owner requested continued fidelity, optimization and roadmap implementation. Read
+`handoff/QUALITY-AND-PERFORMANCE.md` and its validation receipt. Implemented 4K photo export,
+vehicle shader reuse, shared KTX2 sources, fast material comparison and 29 audited geometry-only
+scenery derivatives. Original models, physics, steering, routes, saves and product bindings remain intact.
+Current work is local on main; no new push/deployment or spending is authorized by this continuation.
+The latest purchased biker and surface shaders are now in a sustained measurement: performance HOLD
+remains. Continue bounded rendering/LOD work with visual evidence before claiming the gate passed.
+Earlier headers below are history; do not repeat completed roadmap features or use old timing as current proof.
+
+---
+# Biker rider + realistic vehicle surfaces (2026-09-23)
 
 The owner's purchased rigged biker now rides every vehicle (2026 Slingshot, Ryker, Spyder, rivals), fitted per
 vehicle by `scripts/build-biker-rider.py`; the purchased source stays out of this public repo. Every vehicle also

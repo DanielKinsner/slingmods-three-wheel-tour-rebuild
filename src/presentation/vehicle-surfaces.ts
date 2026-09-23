@@ -14,7 +14,7 @@ type MapName = 'flake' | 'peel' | 'stipple' | 'leather' | 'rubber' | 'metal';
 type Detail = {map: MapName; tile: number; strength: number; rough: number; fade: [number, number]};
 export type SurfaceSpec = {kind: SurfaceKind; detail?: Detail; coat?: {roughness: number; weight: number; peel?: Detail}};
 export const VEHICLE_SURFACE_MAPS: Record<MapName, string> = Object.fromEntries((['flake', 'peel', 'stipple', 'leather', 'rubber', 'metal'] as MapName[]).map(n => [n, `/assets/vehicle-surfaces/${n}.webp`])) as Record<MapName, string>;
-const VERSION = 'vehicle-surface-v1';
+const VERSION = 'vehicle-surface-v2';
 
 // Tile sizes are metres per map repeat; strengths are tangent-plane slopes at full detail.
 const PEEL: Detail = {map: 'peel', tile: .22, strength: .55, rough: 0, fade: [1.5, 18]};
@@ -114,8 +114,9 @@ function inject(shader: Parameters<THREE.Material['onBeforeCompile']>[0], spec: 
  let body = 'vec3 vsdN0=normalize(vVsdNormal);float vsdDistance=length(vViewPosition);';
  if (detail) {
   Object.assign(shader.uniforms, {vsdMap: {value: maps[detail.map]}, vsdParams: {value: new THREE.Vector4(1 / detail.tile, detail.strength, detail.rough, 0)}, vsdFade: {value: new THREE.Vector2(...detail.fade)}});
-  body += `{float k=1.-smoothstep(vsdFade.x,vsdFade.y,vsdDistance),r;vec3 d=vsdDetail(vsdMap,vVsdPos,vsdN0,vsdParams.x,vsdParams.y*k,r);
-   normal=normalize(normal+faceDirection*(normalMatrix*(d-vsdN0)));roughnessFactor=clamp(roughnessFactor*(1.+(r-.5)*2.*vsdParams.z*k),.02,1.);}`;
+  body += `{float k=1.-smoothstep(vsdFade.x,vsdFade.y,vsdDistance);
+   if(k>0.){float r;vec3 d=vsdDetail(vsdMap,vVsdPos,vsdN0,vsdParams.x,vsdParams.y*k,r);
+   normal=normalize(normal+faceDirection*(normalMatrix*(d-vsdN0)));roughnessFactor=clamp(roughnessFactor*(1.+(r-.5)*2.*vsdParams.z*k),.02,1.);}}`;
  }
  let fragment = shader.fragmentShader.replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + body);
  const uniforms = (detail ? 'uniform sampler2D vsdMap;uniform vec4 vsdParams;uniform vec2 vsdFade;' : '') + (peel ? 'uniform sampler2D vsdCoatMap;uniform vec4 vsdCoatParams;uniform vec2 vsdCoatFade;' : '');
@@ -124,7 +125,8 @@ function inject(shader: Parameters<THREE.Material['onBeforeCompile']>[0], spec: 
   // Orange peel lives in the lacquer, not the base coat: it ripples reflections without touching the colour layer.
   fragment = fragment.replace('#include <clearcoat_normal_fragment_maps>', `#include <clearcoat_normal_fragment_maps>
   #ifdef USE_CLEARCOAT
-  {float r;vec3 d=vsdDetail(vsdCoatMap,vVsdPos,vsdN0,vsdCoatParams.x,vsdCoatParams.y*(1.-smoothstep(vsdCoatFade.x,vsdCoatFade.y,vsdDistance)),r);clearcoatNormal=normalize(clearcoatNormal+faceDirection*(normalMatrix*(d-vsdN0)));}
+  {float k=1.-smoothstep(vsdCoatFade.x,vsdCoatFade.y,vsdDistance);
+   if(k>0.){float r;vec3 d=vsdDetail(vsdCoatMap,vVsdPos,vsdN0,vsdCoatParams.x,vsdCoatParams.y*k,r);clearcoatNormal=normalize(clearcoatNormal+faceDirection*(normalMatrix*(d-vsdN0)));}}
   #endif`);
  }
  shader.fragmentShader = uniforms + FUNCTIONS + fragment;
@@ -133,7 +135,8 @@ function inject(shader: Parameters<THREE.Material['onBeforeCompile']>[0], spec: 
 function attach(m: THREE.MeshStandardMaterial, spec: SurfaceSpec, maps: Maps) {
  m.userData.vehicleSurface = {version: VERSION, kind: spec.kind, detail: spec.detail?.map ?? null, coat: !!spec.coat};
  m.onBeforeCompile = shader => inject(shader, spec, maps);
- const key = `${VERSION}:${spec.kind}:${!!(spec.detail && maps[spec.detail.map])}:${!!(spec.coat?.peel && maps[spec.coat.peel.map])}`;
+ // Kind, map, strength and fade are uniforms. Identical GLSL must share a program; Three already keys physical flags.
+ const key = `${VERSION}:${!!(spec.detail && maps[spec.detail.map])}:${!!(spec.coat?.peel && maps[spec.coat.peel.map])}`;
  m.customProgramCacheKey = () => key;
  (m as SurfaceMaterial).surface = {spec, maps};
 }

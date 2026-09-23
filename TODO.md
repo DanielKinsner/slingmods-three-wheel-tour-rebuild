@@ -1,7 +1,18 @@
-# Current work - GX game-feel overhaul
+# Current work - quality and performance continuation
+
+- Done: 4K photo export, cockpit-to-photo rider fix, shader reuse, KTX2 decode reuse, fast rival
+  material comparison and 29 geometry-preserving runtime scenery exports.
+- Evidence and remaining work: `handoff/QUALITY-AND-PERFORMANCE.md` and its validation receipt.
+- Performance HOLD remains. Next: reduce measured vehicle/reflection draw submission, then verify
+  both sustained presets without removing stalls or weakening thresholds. Dense Spyder/Ryker LODs
+  need source-based authoring plus close-up and moving-camera comparison.
+- Keep original source assets, steering/physics, saves and product fitment contracts intact.
+
+---
+# Previous work - GX game-feel overhaul
 
 - Done: see `handoff/GX-GAME-FEEL.md` (shell, title, menus, race FX, Time Attack, difficulty, crew, achievements).
-- Next candidates: photo mode; wrong-way indicator; more radio lines per event; controller glyph art; human listening
+- Photo mode is implemented. Next candidates: wrong-way indicator; more radio lines per event; controller glyph art; human listening
   pass on the synthesized cues; physical controller and touch testing.
 - Performance HOLD unchanged.
 

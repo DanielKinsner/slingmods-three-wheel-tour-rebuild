@@ -13,15 +13,26 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
  */
 export interface MergeReport {partsBefore:number;partsAfter:number;joined:number;groups:number;left:{dynamic:number;transparent:number;other:number}}
 const PAINTED=new Set(['paint','accent']);
+// Never JSON.stringify a material extension directly: Texture.toJSON serializes its image, including a synchronous
+// canvas PNG encode. The vehicle micro-surface extension holds six textures and used to repeat that for every part.
+// Resource identity is sufficient for equality; exact scalar values avoid merging subtly different finishes.
+function renderValue(value:unknown):string {
+ if(value instanceof THREE.Texture)return 'texture:'+value.uuid;
+ if(value instanceof THREE.Color)return 'color:'+value.r+','+value.g+','+value.b;
+ if(value instanceof THREE.Vector2||value instanceof THREE.Vector3||value instanceof THREE.Vector4)return value.toArray().join(',');
+ if(value instanceof THREE.Matrix3||value instanceof THREE.Matrix4)return value.elements.join(',');
+ if(Array.isArray(value))return '['+value.map(renderValue).join(',')+']';
+ if(value&&typeof value==='object')return '{'+Object.keys(value).sort().map(k=>JSON.stringify(k)+':'+renderValue((value as Record<string,unknown>)[k])).join(',')+'}';
+ return JSON.stringify(value)??String(value);
+}
 /** Two materials with the same signature render identically. Paint and accent ignore colour: a rival repaints them by role. */
 export function materialSignature(material:THREE.Material){
- const parts:string[]=[material.type],role=material.userData.vehicleRole as string|undefined;
+ const parts:string[]=[material.type,material.customProgramCacheKey()],role=material.userData.vehicleRole as string|undefined;
  for(const key of Object.keys(material).sort()){if(key==='uuid'||key==='name'||key==='version'||key==='userData'||key[0]==='_'||key==='color'&&PAINTED.has(role??''))continue;
   const value=(material as unknown as Record<string,unknown>)[key];
   if(value===null||typeof value==='number'||typeof value==='string'||typeof value==='boolean')parts.push(key+'='+value);
-  else if(value instanceof THREE.Color)parts.push(key+'=#'+value.getHexString());else if(value instanceof THREE.Vector2)parts.push(key+'='+value.toArray().join(','));else if(value instanceof THREE.Texture)parts.push(key+'=t:'+value.uuid+':'+value.repeat.toArray()+':'+value.offset.toArray());
-  else if(typeof value==='function'||value===undefined)continue;else parts.push(key+'=?'+JSON.stringify(value))}
- return parts.join(';')+';userData='+JSON.stringify(material.userData);
+  else if(typeof value==='function'||value===undefined)continue;else parts.push(key+'='+renderValue(value))}
+ return parts.join(';')+';userData='+renderValue(material.userData);
 }
 const layout=(g:THREE.BufferGeometry)=>Object.keys(g.attributes).sort().map(k=>{const a=g.attributes[k] as THREE.BufferAttribute;return k+':'+a.itemSize+':'+a.array.constructor.name+':'+a.normalized}).join(',')+(g.index?'|indexed':'');
 function bake(source:THREE.BufferGeometry,matrix:THREE.Matrix4){
