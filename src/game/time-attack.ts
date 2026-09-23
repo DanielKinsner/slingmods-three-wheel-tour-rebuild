@@ -22,6 +22,8 @@ export const MEDAL_TARGETS:Record<'harbor'|'express'|'ridge',Record<Medal,number
  ridge:{slingmods:105000,gold:110000,silver:116000,bronze:125000},
 };
 export type TrialRoute=keyof typeof MEDAL_TARGETS;
+/** Jett's recorded crew-ghost laps (public/assets/game-feel/ghosts, scripts/game-feel/record-crew-ghosts.ts). */
+export const CREW_GHOST_TIMES:Record<'harbor'|'express'|'ridge',number>={harbor:67780,express:77475,ridge:110568};
 export const medalFor=(route:TrialRoute,ms:number):Medal|null=>MEDALS.find(m=>ms<=MEDAL_TARGETS[route][m])??null;
 export const trialTime=(ms:number)=>{const s=ms/1000,m=Math.floor(s/60);return `${m}:${(s-m*60).toFixed(3).padStart(6,'0')}`};
 

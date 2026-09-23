@@ -58,3 +58,7 @@ test('Corner profile slows for tight corners and stays fast on straights',async(
  const square={centerline:[[0,0],[0,-200],[200,-200],[200,0]] as [number,number][]};const p=cornerProfile(square as never);
  assert.equal(p.length,800);const atCorner=p.limit[Math.round(200/5)],midStraight=p.limit[Math.round(100/5)];assert.ok(atCorner<25,`corner ${atCorner}`);assert.ok(midStraight>100,`straight ${midStraight}`);
 });
+test('Crew ghost files are valid one-lap recordings matching the published times',async()=>{
+ const fs=await import('node:fs');const {CREW_GHOST_TIMES}=await import('../src/game/time-attack');
+ for(const r of ['harbor','express','ridge'] as const){const g=JSON.parse(fs.readFileSync(`public/assets/game-feel/ghosts/${r}.json`,'utf8'));assert.equal(g.timeMs,CREW_GHOST_TIMES[r]);assert.equal(g.data.length%8,0);assert.equal(g.data.at(-8),Math.round(g.timeMs));for(let i=8;i<g.data.length;i+=8)assert.ok(g.data[i]>=g.data[i-8],'monotonic clock')}
+});
