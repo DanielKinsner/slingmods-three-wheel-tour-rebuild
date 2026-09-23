@@ -1,4 +1,4 @@
-import {riderAssetURL} from './presentation/rider-asset';
+import {riderAssetURL,riderAttachmentURL} from './presentation/rider-asset';
 import {loadSurfaceMaterials} from './presentation/surface-materials';
 import {PoweredDisplay} from './presentation/powered-display';
 import {VehicleMirrors} from './presentation/vehicle-mirrors';
@@ -40,7 +40,7 @@ import {DrivingCamera,nextDrivingView,type DrivingView} from './presentation/dri
 import {GameAudio,renderOfflineGameAudio} from './audio/game-audio';
 import {RearDiagnostic} from './presentation/rear-diagnostic';
 import {RearPresenter,type RearRig} from './presentation/rear';
-import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT,VEHICLE_MODEL_LABEL} from './presentation/vehicle-asset';
+import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL,VEHICLE_MODEL_LABEL} from './presentation/vehicle-asset';
 import {containCamera,SHOWROOM_SAFE_VOLUME} from './presentation/showroom-camera';
 import {FINISHES} from './signature/config';
 import {DriverPresenter,type DriverAttachment} from './presentation/driver';
@@ -107,7 +107,7 @@ const readDevices=():DeviceSample=>virtualSample??{...keyboard.read(),pads:typeo
 const session=sim?new DrivingSession(sim,readDevices,{profileId:CURRENT_HANDLING_PROFILE}):undefined;
 let inputState:ReturnType<DrivingSession['frame']>|undefined;
 const chase=new DrivingCamera(camera,CURRENT_HANDLING_PROFILE);
-let driver:DriverPresenter|undefined,driverStatistics:ReturnType<typeof assetStatistics>|undefined;if((driving||bay&&vehicleFile===CURRENT_VEHICLE)&&steeringControl){const configuration:DriverAttachment=await(await fetch(vehicleFile===CURRENT_VEHICLE?CURRENT_DRIVER_ATTACHMENT:'/assets/drivers/test-driver-attachment.json')).json();const driverAsset=await loader.loadAsync(riderAssetURL());if(configuration.rootOffset)driverAsset.scene.position.fromArray(configuration.rootOffset);vehicle.add(driverAsset.scene);driver=new DriverPresenter(driverAsset.scene,vehicle,steeringControl,configuration);driverStatistics=assetStatistics(driverAsset.scene);chase.eye.fromArray(configuration.eye)}
+let driver:DriverPresenter|undefined,driverStatistics:ReturnType<typeof assetStatistics>|undefined;if((driving||bay&&vehicleFile===CURRENT_VEHICLE)&&steeringControl){const configuration:DriverAttachment=await(await fetch(vehicleFile===CURRENT_VEHICLE?riderAttachmentURL():'/assets/drivers/test-driver-attachment.json')).json();const driverAsset=await loader.loadAsync(riderAssetURL());if(configuration.rootOffset)driverAsset.scene.position.fromArray(configuration.rootOffset);vehicle.add(driverAsset.scene);driver=new DriverPresenter(driverAsset.scene,vehicle,steeringControl,configuration);driverStatistics=assetStatistics(driverAsset.scene);chase.eye.fromArray(configuration.eye)}
 const gameAudio=new GameAudio(document.querySelector('#app')!);gameAudio.setExhaustTreatment(!!careerRecipe(career.state).products['SM-7720']);let audioFrame:ReturnType<GameAudio['update']>|undefined;
 addEventListener('pagehide',()=>gameAudio?.dispose());
 if(driving){const route=await loader.loadAsync('/assets/practice-p03b1.glb');route.scene.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=false;o.receiveShadow=true}});scene.add(route.scene)}

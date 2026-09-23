@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
 import {RiderMotion} from '../src/presentation/rider-motion';
-import {riderAssetURL, TOUR_RIDER_URL, LEGACY_RIDER_URL} from '../src/presentation/rider-asset';
+import {riderAssetURL, BIKER_RIDER_URL, TOUR_RIDER_URL, LEGACY_RIDER_URL} from '../src/presentation/rider-asset';
 
 function fixture(enabled=true,phase=0){
  const root=new THREE.Group(),semantic=new THREE.Group(),spine=new THREE.Bone(),head=new THREE.Bone();
@@ -17,7 +17,7 @@ const idle={speed:0,steer:0,throttle:0,brake:0};
 test('legacy rigs are byte-for-byte pose compatible and asset selection is read only',()=>{
  const f=fixture(false);for(let i=0;i<900;i++)f.step();
  assert.deepEqual(f.spine.quaternion.toArray(),[0,0,0,1]);assert.deepEqual(f.head.quaternion.toArray(),[0,0,0,1]);
- assert.equal(f.motion.trigger('look-left'),false);assert.equal(riderAssetURL('?rider=legacy'),LEGACY_RIDER_URL);assert.equal(riderAssetURL(''),TOUR_RIDER_URL);
+ assert.equal(f.motion.trigger('look-left'),false);assert.equal(riderAssetURL('?rider=legacy'),LEGACY_RIDER_URL);assert.equal(riderAssetURL(''),BIKER_RIDER_URL);assert.equal(riderAssetURL('?rider=tour'),TOUR_RIDER_URL);
 });
 test('subtle breathing loops, stationary look triggers once and hands/root are never animated',()=>{
  const f=fixture();let min=Infinity,max=-Infinity,looks=0,last='none';

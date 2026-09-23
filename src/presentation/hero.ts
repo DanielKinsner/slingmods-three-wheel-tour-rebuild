@@ -1,4 +1,4 @@
-import {riderAssetURL,TOUR_RIDER_URL} from './rider-asset';
+import {riderAssetURL,riderAttachmentURL} from './rider-asset';
 import {hasMaterialBindings,recolorRivalMaterial,VehicleOptics} from './vehicle-materials';
 import {restoreConsoleDetail} from './console-detail';
 import {isSpyder,SpyderMotion} from './spyder';
@@ -9,7 +9,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {DriverPresenter,type DriverAttachment} from './driver';
 import {RearPresenter,type RearRig} from './rear';
 import {FrontLinks} from './front-links';
-import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL,CURRENT_DRIVER_ATTACHMENT} from './vehicle-asset';
+import {CURRENT_VEHICLE,CURRENT_REAR_RIG,CURRENT_VEHICLE_URL} from './vehicle-asset';
 import {assetStatistics} from './statistics';
 import {configureShadows} from './shadows';
 import {mergeRigidParts,type MergeReport} from './merge-rigid';
@@ -17,13 +17,14 @@ import {perfLegacy} from './perf-switches';
 import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
 export async function loadDrivingHero(loader:GLTFLoader,options:{rivals?:boolean}={}){
- const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync(riderAssetURL()),fetch(CURRENT_DRIVER_ATTACHMENT).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
+ const [asset,person,attachment,rig]=await Promise.all([loader.loadAsync(CURRENT_VEHICLE_URL),loader.loadAsync(riderAssetURL()),fetch(riderAttachmentURL()).then(r=>r.json() as Promise<DriverAttachment>),fetch(CURRENT_REAR_RIG).then(r=>r.json() as Promise<RearRig>)]);
  if(!isRyker(asset.scene)&&!isSpyder(asset.scene))restoreConsoleDetail(asset.scene);
  asset.scene.userData.assetURL=CURRENT_VEHICLE_URL;
  const hero=bindDrivingHero(asset.scene,person.scene,attachment,rig);
  if((!isRyker(asset.scene)&&!isSpyder(asset.scene))||!options.rivals)return hero;
- // The established Slingshot fleet keeps its own rider weights and attachment.
- const [fleet,fleetAttachment,fleetRig,fleetPerson]=await Promise.all([loader.loadAsync('/assets/model02/slingshot-2026.glb'),fetch('/assets/model02/driver-attachment.json').then(r=>r.json() as Promise<DriverAttachment>),fetch('/assets/model02/rear-rig.json').then(r=>r.json() as Promise<RearRig>),isSpyder(asset.scene)?loader.loadAsync(TOUR_RIDER_URL):Promise.resolve(person)]);
+ // Rivals are 2026 Slingshots: same rider asset where it matches the hero's, always the Slingshot fit.
+ const fleetSearch=new URLSearchParams(globalThis.location?.search??'');fleetSearch.set('visual','2026');const fleetRider=riderAssetURL('?'+fleetSearch);
+ const [fleet,fleetAttachment,fleetRig,fleetPerson]=await Promise.all([loader.loadAsync('/assets/model02/slingshot-2026.glb'),fetch(riderAttachmentURL('2026')).then(r=>r.json() as Promise<DriverAttachment>),fetch('/assets/model02/rear-rig.json').then(r=>r.json() as Promise<RearRig>),fleetRider===riderAssetURL()?Promise.resolve(person):loader.loadAsync(fleetRider)]);
  fleet.scene.userData.assetURL='/assets/model02/slingshot-2026.glb';restoreConsoleDetail(fleet.scene);const rivals=bindDrivingHero(fleet.scene,cloneRig(fleetPerson.scene) as THREE.Group,fleetAttachment,fleetRig);return {...hero,cloneRival:rivals.cloneRival};
 }
 export function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:DriverAttachment,rig:RearRig){
