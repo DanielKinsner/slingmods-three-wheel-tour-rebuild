@@ -46,7 +46,7 @@ finishers, no stalls removed. Raw evidence (local only): `.tools/polish2-high-20
 | p95 | 19.5 ms | 29.4 ms | <= 20 | - |
 | p99 | 30.9 ms | 36.6 ms | <= 33.4 | - |
 | Max | 46.1 ms | 47.1 ms | <= 100 | 468 / 641 ms |
-| Frames > 100 ms | 0 | 0 | | many |
+| Frames > 100 ms | 0 | 0 | | some (max 468 / 641 ms) |
 
 **Verdict: HOLD remains.** High passes p95/p99/max pooled (attempt 2 alone misses p95 by 0.2 ms) but misses the
 10 ms average and 16.6 ms worst-1% budgets. Ultra misses p95 and p99. Both are far better than the last recorded
