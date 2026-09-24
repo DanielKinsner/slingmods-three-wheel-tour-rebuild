@@ -11,17 +11,12 @@ const noise=(x:number,z:number)=>Math.sin(x*.021+Math.cos(z*.018))*Math.cos(z*.0
 export function ridgeScenicHeight(x:number,z:number){const p=projectRoad(RIDGE_ROUTE,x,z),offset=(x-p.x)*-p.dz+(z-p.z)*p.dx,near=ridgeCrossHeight(p.progress,Math.sign(offset)*Math.min(60,Math.abs(offset))),far=-25+50*Math.exp(-(((x-400)/600)**2)-((z+750)/900)**2)+12*Math.sin(x*.006)*Math.cos(z*.006),raw=Math.max(0,Math.min(1,(p.distance-60)/160)),blend=raw*raw*(3-2*raw);return near*(1-blend)+far*blend}
 
 function geometry(data:RidgeMeshData){const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(data.vertices,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(data.uv,2));g.setIndex(data.indices);g.computeVertexNormals();return g}
-/**
- * The bank ripple (sin(station*.035)) is not lap-periodic, so beyond the shoulders the physical ground steps by up to 1.16 m where
- * station 3200 meets station 0 at the start line, which opened a see-through crack. The visible terrain (and the scenic land's 60 m
- * edge) eases that difference in over the last 44 m before the line, so both sides share one edge. Visual copies only: physics keeps
- * its support meshes. Within 9 m of the centreline nothing moves; the lift is under 0.3 m at 18 m and reaches the full step only 44-60 m out.
- * If the ripple is ever made lap-periodic the difference is zero and this becomes a no-op.
- */
-export function ridgeSeamBlend(land?:RidgeMeshData){const n=RIDGE_ROUTE.centerline.length,span=8,ease=(i:number)=>{const t=Math.max(0,Math.min(1,(i-(n-span))/span));return t*t*(3-2*t)};
- const terrain=RIDGE_SURFACES.terrain.map(d=>{const vertices=d.vertices.slice();for(let c=0;c<2;c++){const step=d.vertices[c*3+1]-d.vertices[(2*n+c)*3+1];for(let i=n-span;i<=n;i++)vertices[(i*2+c)*3+1]+=ease(i)*step}return{...d,vertices}});
- let landVertices=land?.vertices;if(land){landVertices=land.vertices.slice();for(const[side,column,from]of[[0,0,0],[5,1,n]]as const){const d=RIDGE_SURFACES.terrain[side],step=d.vertices[column*3+1]-d.vertices[(2*n+column)*3+1];for(let i=n-span;i<n;i++){const v=(from+i)*3,r=(i*2+column)*3;if(Math.abs(land.vertices[v]-d.vertices[r])<1e-3&&Math.abs(land.vertices[v+2]-d.vertices[r+2])<1e-3)landVertices[v+1]+=ease(i)*step}}}
- return{terrain,land:land?{...land,vertices:landVertices!}:undefined}}
+/** Scenic land edge: see ridgeCrossHeight (route.ts) for the start-line wrap; this keeps the baked land glued to it. */
+export function snapRidgeLandEdge(land:RidgeMeshData):RidgeMeshData{const n=RIDGE_ROUTE.centerline.length,vertices=land.vertices.slice();
+ // The baked scenic land's first rows are the 60 m verges. Snap each onto the physical terrain edge it duplicates, so the
+ // start-line wrap in ridgeCrossHeight (and any later height change) can never open a sliver between them.
+ for(const[side,column,from]of[[0,0,0],[5,1,n]]as const){const d=RIDGE_SURFACES.terrain[side];for(let i=0;i<n;i++){const v=(from+i)*3,r=(i*2+column)*3;if(Math.abs(land.vertices[v]-d.vertices[r])<1e-3&&Math.abs(land.vertices[v+2]-d.vertices[r+2])<1e-3)vertices[v+1]=d.vertices[r+1]}}
+ return{...land,vertices}}
 const hash1=(n:number)=>{const s=Math.sin(n*127.1)*43758.5453;return s-Math.floor(s)},noise1=(x:number)=>{const i=Math.floor(x),f=x-i,u=f*f*(3-2*f);return(hash1(i)*(1-u)+hash1(i+1)*u)*2-1};
 /**
  * Five distant ridge layers in one draw, all inside the 2.2 km camera far plane. Silhouettes carry ridge, spur and canopy detail;
@@ -90,11 +85,11 @@ export async function loadRidgePresentation(scene:THREE.Scene,preset:'day'|'nigh
  const [asphalt,normal,rough,grass,grassNormal,planks,bark,stone]=textures as THREE.Texture[];for(const t of textures as THREE.Texture[]){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=4}for(const t of[asphalt,grass,planks,bark,stone])t.colorSpace=THREE.SRGBColorSpace;for(const t of[asphalt,normal,rough])t.repeat.set(2.5,2.5);
  const materials={road:new THREE.MeshStandardMaterial({map:asphalt,normalMap:normal,roughnessMap:rough,roughness:.93,normalScale:new THREE.Vector2(.35,.35)}),shoulder:new THREE.MeshStandardMaterial({map:grass,color:'#aa9b77',roughness:1}),terrain:new THREE.MeshStandardMaterial({map:grass,normalMap:grassNormal,color:'#8c8e69',normalScale:new THREE.Vector2(.55,.55),roughness:1}),white:new THREE.MeshStandardMaterial({color:'#eee7d5',roughness:.85}),yellow:new THREE.MeshStandardMaterial({color:'#d1ac4b',roughness:.8}),rail:new THREE.MeshStandardMaterial({color:'#9a9e99',metalness:.5,roughness:.53}),dark:new THREE.MeshStandardMaterial({color:'#353c3a',roughness:.9}),stone:new THREE.MeshStandardMaterial({map:stone,color:'#777a71',roughness:1})};
  const add=(g:THREE.BufferGeometry,m:THREE.Material,name:string)=>{const mesh=new THREE.Mesh(g,m);mesh.name=name;mesh.receiveShadow=true;root.add(mesh);return mesh};
- add(geometry(RIDGE_SURFACES.road),materials.road,'Ridge_road_EXACT_support_vertices');for(const [name,data]of [['left',RIDGE_SURFACES.leftShoulder],['right',RIDGE_SURFACES.rightShoulder]]as const)add(geometry(data),materials.shoulder,'Ridge_gravel_'+name);const seam=ridgeSeamBlend(land as RidgeMeshData);seam.terrain.forEach((data,i)=>add(geometry(data),materials.terrain,'Ridge_physical_terrain_'+i));
+ add(geometry(RIDGE_SURFACES.road),materials.road,'Ridge_road_EXACT_support_vertices');for(const [name,data]of [['left',RIDGE_SURFACES.leftShoulder],['right',RIDGE_SURFACES.rightShoulder]]as const)add(geometry(data),materials.shoulder,'Ridge_gravel_'+name);RIDGE_SURFACES.terrain.forEach((data,i)=>add(geometry(data),materials.terrain,'Ridge_physical_terrain_'+i));
  for(const side of[-1,1])add(geometry(ridgeRibbon(side*5.75,side*5.90,.018)),materials.white,'Ridge_edge_'+side);
  const dashes:THREE.BufferGeometry[]=[];for(let s=15;s<3200;s+=21){const a=ridgePoint(s),b=ridgePoint(s+6),v:number[]=[];for(const p of[a,b])for(const o of[-.055,.055])v.push(p.x-p.dz*o,p.y+.026,p.z+p.dx*o);dashes.push(geometry({vertices:v,indices:[0,1,2,1,3,2],uv:[0,0,1,0,0,1,1,1]}))}add(mergeGeometries(dashes)!,materials.yellow,'Ridge_center_dashes');dashes.forEach(g=>g.dispose());
  // Scenic terrain connects the 60m physical verge to distant wooded land. No hidden support plane.
- add(geometry(seam.land!),materials.terrain,'Ridge_scenic_land_exact_bank_boundary');
+ add(geometry(snapRidgeLandEdge(land as RidgeMeshData)),materials.terrain,'Ridge_scenic_land_exact_bank_boundary');
  // Distant ridges: one merged, shaded backdrop (see ridgeBackdrop).
  {const backdrop=ridgeBackdrop(preset,new THREE.Vector3().fromArray(scene.userData.outdoorSunDirection??[-.74,.29,-.60]).normalize());add(backdrop.geometry,backdrop.material,'Ridge_distant_ridges').receiveShadow=false}
  const box=new THREE.BoxGeometry(1,1,1),matrix=new THREE.Matrix4(),q=new THREE.Quaternion(),euler=new THREE.Euler();const rails=new THREE.InstancedMesh(box,materials.rail,RIDGE_ROUTE.colliders.length);RIDGE_ROUTE.colliders.forEach((b,i)=>{q.setFromEuler(euler.set(b.pitch??0,b.yaw??0,0,'YXZ'));matrix.compose(new THREE.Vector3().fromArray(b.center as number[]),q,new THREE.Vector3().fromArray(b.size as number[]));rails.setMatrixAt(i,matrix)});rails.name='Ridge_rails_EXACT_collision_boxes';rails.computeBoundingSphere();root.add(rails);

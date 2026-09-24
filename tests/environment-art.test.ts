@@ -1,23 +1,24 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import * as THREE from 'three';
-import {RIDGE_ROUTE,RIDGE_SURFACES} from '../src/ridge/route';
-import {ridgeSeamBlend,ridgeBackdrop} from '../src/ridge/presentation';
+import {RIDGE_ROUTE,RIDGE_SURFACES,RIDGE_SEAM_METRES,ridgeCrossHeight} from '../src/ridge/route';
+import {sampleRoad} from '../src/course/environment';
+import {snapRidgeLandEdge,ridgeBackdrop} from '../src/ridge/presentation';
 import {expressLandMaterial,expressWaterMaterial} from '../src/express/presentation';
 import {surfaceRule} from '../src/presentation/surface-materials';
 
 const n=RIDGE_ROUTE.centerline.length;
-test('Ridge start-line seam: visible terrain shares one edge where station 3200 meets 0; physics meshes untouched',()=>{
- const before=RIDGE_SURFACES.terrain.map(d=>d.vertices.slice()),land=JSON.parse(readFileSync('public/assets/ridge/ridge-land.json','utf8'));
- // The physical data really does step here (this is what opened the crack); the blend must not hide a zero-size problem.
- assert.ok(Math.abs(RIDGE_SURFACES.terrain[5].vertices[4]-RIDGE_SURFACES.terrain[5].vertices[(2*n+1)*3+1])>1);
- const seam=ridgeSeamBlend(land);
- seam.terrain.forEach((d,k)=>{for(let c=0;c<2;c++)assert.equal(d.vertices[(2*n+c)*3+1],d.vertices[c*3+1],'wrap column equals the first column');
-  // Only heights in the last eight cross-sections move.
-  d.vertices.forEach((v,i)=>{if(i%3!==1||Math.floor(i/6)<n-8)assert.equal(v,before[k][i])})});
- seam.terrain.slice(2,4).forEach((d,k)=>{const inner=k===0?0:1;for(let i=n-8;i<=n;i++)assert.equal(d.vertices[(i*2+(1-inner))*3+1],before[k+2][(i*2+(1-inner))*3+1],'9 m edge stays exact')});
- RIDGE_SURFACES.terrain.forEach((d,k)=>assert.deepEqual(d.vertices,before[k],'physical support meshes are never mutated'));
- // The scenic land's 60 m edge follows the eased ribbon, so no sliver opens between them.
- assert.ok(Math.abs(seam.land!.vertices[(n-1)*3+1]-seam.terrain[0].vertices[(n-1)*2*3+1])<1e-5);
- assert.ok(Math.abs(seam.land!.vertices[(2*n-1)*3+1]-seam.terrain[5].vertices[((n-1)*2+1)*3+1])<1e-5);
+test('Ridge start line: the hillside wraps in physics, the road is untouched, the scenic land stays glued to it',()=>{
+ // Physics heights: no step anywhere across the line, on either side, out to the 60 m verge.
+ for(const off of[-60,-44,-20,-10,10,20,44,60])assert.ok(Math.abs(ridgeCrossHeight(RIDGE_ROUTE.length,off)-ridgeCrossHeight(0,off))<1e-9,`wraps at ${off} m`);
+ // The road and shoulders (<=9 m) are bit-identical to the pre-fix formula everywhere on the lap.
+ const old=(s:number,o:number)=>{const base=sampleRoad(RIDGE_ROUTE,s).y??0,d=Math.abs(o);return base-(Math.max(0,d-6)*.025)};
+ for(let s=0;s<=RIDGE_ROUTE.length;s+=7)for(const o of[-9,-6,-3,0,3,6,9])assert.equal(ridgeCrossHeight(s,o),old(s,o));
+ // Off-road ground only changes in the last RIDGE_SEAM_METRES before the line.
+ const raw=(s:number,o:number)=>{const base=sampleRoad(RIDGE_ROUTE,s).y??0,fade=Math.min(1,(Math.abs(o)-9)/35),bank=Math.sin(s/3200*Math.PI*4)*.55+(o>0?.45:-.45);return base-.075+fade*(Math.abs(o)-9)*bank*.47+Math.sin(s*.035)*fade*1.3};
+ for(let s=0;s<RIDGE_ROUTE.length-RIDGE_SEAM_METRES;s+=11)for(const o of[-40,-15,15,40])assert.equal(ridgeCrossHeight(s,o),raw(s,o));
+ // Every terrain ribbon closes on itself, and the baked land's 60 m edge sits exactly on the terrain edge.
+ RIDGE_SURFACES.terrain.forEach(d=>{for(let c=0;c<2;c++)assert.ok(Math.abs(d.vertices[(2*n+c)*3+1]-d.vertices[c*3+1])<1e-9)});
+ const land=snapRidgeLandEdge(JSON.parse(readFileSync('public/assets/ridge/ridge-land.json','utf8')));
+ for(let i=0;i<n;i++){assert.ok(Math.abs(land.vertices[i*3+1]-RIDGE_SURFACES.terrain[0].vertices[i*2*3+1])<1e-9);assert.ok(Math.abs(land.vertices[(n+i)*3+1]-RIDGE_SURFACES.terrain[5].vertices[(i*2+1)*3+1])<1e-9)}
 });
 test('Ridge backdrop: five shaded layers in one fogged draw, inside the camera far plane from anywhere on the route',()=>{
  for(const preset of['day','night']as const){const {geometry,material}=ridgeBackdrop(preset,new THREE.Vector3(-.74,.29,-.6).normalize());

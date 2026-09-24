@@ -31,7 +31,12 @@ export const RIDGE_STATIONS=stations;
 export const RIDGE_DISTRICTS=[{id:'paddock',name:'Workshop paddock',from:0,to:380},{id:'woods',name:'Wooded climb',from:380,to:1400},{id:'overlook',name:'Rock-cut and overlook',from:1400,to:2130},{id:'descent',name:'Open descent',from:2130,to:3200}] as const;
 export function ridgeDistrict(station:number){return RIDGE_DISTRICTS.find(d=>station>=d.from&&station<d.to)??RIDGE_DISTRICTS[0]}
 /** Shoulder height and terrain are authored from the same cross-section, never a floor. */
-export function ridgeCrossHeight(station:number,offset:number){const base=sampleRoad(route,station).y??ridgeElevation(station),d=Math.abs(offset);if(d<=9)return base-(Math.max(0,d-6)*.025);const fade=Math.min(1,(d-9)/35),bank=Math.sin(station/3200*Math.PI*4)*.55+(offset>0?.45:-.45);return base-.075+fade*(d-9)*bank*.47+Math.sin(station*.035)*fade*1.3}
+function rawCrossHeight(station:number,offset:number){const base=sampleRoad(route,station).y??ridgeElevation(station),d=Math.abs(offset);if(d<=9)return base-(Math.max(0,d-6)*.025);const fade=Math.min(1,(d-9)/35),bank=Math.sin(station/3200*Math.PI*4)*.55+(offset>0?.45:-.45);return base-.075+fade*(d-9)*bank*.47+Math.sin(station*.035)*fade*1.3}
+/** The .035 ripple fits 17.8 cycles per lap, so the hillside beyond 9 m stepped up to 1.16 m at the start line. Over the last
+ * RIDGE_SEAM_METRES the off-road ground eases into the station-0 height, so the lap wraps. The road and shoulders (<=9 m)
+ * return before this and are bit-identical; nothing else on the lap moves. */
+export const RIDGE_SEAM_METRES=44;
+export function ridgeCrossHeight(station:number,offset:number){const h=rawCrossHeight(station,offset);if(Math.abs(offset)<=9)return h;const t=Math.min(1,(station-(route.length-RIDGE_SEAM_METRES))/RIDGE_SEAM_METRES);if(t<=0)return h;return h+t*t*(3-2*t)*(rawCrossHeight(0,offset)-rawCrossHeight(route.length,offset))}
 export function ridgePoint(station:number,offset=0){const p=sampleRoad(route,station);return{x:p.x-p.dz*offset,y:ridgeCrossHeight(station,offset),z:p.z+p.dx*offset,dx:p.dx,dz:p.dz}}
 export type RidgeMeshData={vertices:number[];indices:number[];uv:number[]};
 /** Tangent cross sections form the single authoritative road/support topology. */
