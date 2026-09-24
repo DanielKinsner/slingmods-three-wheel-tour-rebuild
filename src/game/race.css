@@ -420,3 +420,12 @@ html.gx body .gx-chal-actions button:hover,html.gx body .gx-chal-actions button:
 .gx-photo-ui button[aria-pressed=true]{border-color:var(--gx-hot);color:var(--gx-hot);background:var(--gx-glass-hi)}
 .gx-photo-glow{display:flex;align-items:center;justify-content:center;gap:6px;grid-column:1/-1}.gx-photo-glow span{font:800 11px/1 var(--gx-body);letter-spacing:.2em;color:var(--gx-mute);margin-right:4px}
 .gx-photo-ui .gx-photo-glow button{width:44px;padding:0;background:var(--swatch);border:2px solid #0000;box-shadow:inset 0 0 0 2px #0009}.gx-photo-ui .gx-photo-glow button[aria-pressed=true]{border-color:var(--gx-ink);background:var(--swatch);box-shadow:0 0 14px var(--swatch)}
+/* Phase 3 shift light above the tach arc (race-instruments.ts shiftLight) */
+.race-shift{position:absolute;left:50%;top:-26px;transform:translateX(-50%);display:flex;gap:7px}
+.race-shift i{width:10px;height:10px;border-radius:50%;background:#ffffff1c;box-shadow:inset 0 0 0 1px #ffffff14}
+.race-shift[data-level='1'] i:nth-child(-n+1),.race-shift[data-level='2'] i:nth-child(-n+2),.race-shift[data-level='3'] i:nth-child(-n+3),.race-shift[data-level='4'] i:nth-child(-n+4),.race-shift[data-level='5'] i{background:var(--gx-good,#39e27d);box-shadow:0 0 8px var(--gx-good,#39e27d)}
+.race-shift[data-level='3'] i:nth-child(3),.race-shift[data-level='4'] i:nth-child(n+3):nth-child(-n+4),.race-shift[data-level='5'] i:nth-child(n+3):nth-child(-n+4){background:var(--gx-hot,#ffd23c);box-shadow:0 0 8px var(--gx-hot,#ffd23c)}
+.race-shift[data-level='5'] i:nth-child(5){background:var(--gx-red,#ff3b2f);box-shadow:0 0 10px var(--gx-red,#ff3b2f)}
+.race-shift.is-flash i{background:var(--gx-red,#ff3b2f)!important;box-shadow:0 0 12px var(--gx-red,#ff3b2f)!important;animation:gx-shift-flash .16s steps(2,jump-none) infinite}
+@keyframes gx-shift-flash{50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.race-shift.is-flash i{animation:none}}
