@@ -2,7 +2,7 @@ import {RectAreaLightUniformsLib}from'three/addons/lights/RectAreaLightUniformsL
 import {isRyker} from './ryker';
 import * as THREE from 'three';import type{GLTFLoader}from'three/addons/loaders/GLTFLoader.js';import{COLORS,defaultAppearance,type Appearance}from'../career/catalog';import{CURRENT_UNDERGLOW}from'./vehicle-asset';
 /** Artistic calibration in renderer nits at the existing default .6 UI brightness. Not OEM photometry. */
-export const KIT_DEFAULT_NITS=900;
+export const KIT_DEFAULT_NITS=680;
 /** Additive chassis accessory. It never reads or writes simulation controls or contact data. */
 export class ProductPresenter {
  private equipped=false;private appearance=defaultAppearance();private lights:THREE.RectAreaLight[]=[];private origins:THREE.Vector3[]=[];private diffusers:THREE.MeshStandardMaterial[]=[];private disposed=false;
