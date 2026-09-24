@@ -28,3 +28,13 @@ test('the player-car stand-in casts the shadow and fills puddles while the full 
  assert.equal(proxy.update(1000),false,'a stand-in never swaps with distance');
  proxy.dispose();assert.ok([...c.body,c.tyre].every(m=>m.castShadow&&!m.userData.reflectionExclude),'dispose restores shadows and reflections');
 });
+test('a rival always casts and reflects through its proxy; the main view swaps only with distance',()=>{
+ const c=car(),mask=(1<<STAND_IN_LAYER)|(1<<1),proxy=new VehicleProxy(c.root,o=>o.name.endsWith('_spin'),m=>!!m.userData.lamp).shadowAndReflection(mask);
+ const stand=c.root.getObjectsByProperty('name','rival_distance_proxy'),main=new THREE.Layers();
+ assert.ok(stand.every(p=>p.visible&&p.layers.mask===mask&&!p.layers.test(main)),'near: proxy only for shadow + puddles');
+ assert.ok([...c.body,c.tyre].every(m=>m.visible&&!m.castShadow&&m.userData.reflectionExclude),'near: full parts on screen, not casting');
+ proxy.update(PROXY_FAR_METRES+1);
+ assert.ok(stand.every(p=>p.layers.test(main)&&(p.layers.mask&mask)===mask),'far: proxy also takes the main view');assert.ok([...c.body,c.tyre].every(m=>!m.visible));
+ proxy.update(PROXY_NEAR_METRES-1);assert.ok(stand.every(p=>p.visible&&!p.layers.test(main)));
+ proxy.dispose();assert.ok([...c.body,c.tyre].every(m=>m.visible&&m.castShadow&&!m.userData.reflectionExclude));
+});

@@ -64,14 +64,25 @@ export class VehicleProxy {
   if(this.warming)return this.far;
   const far=this.far?distance>PROXY_NEAR_METRES:distance>PROXY_FAR_METRES;if(far===this.far)return far;this.far=far;
   for(const m of this.proxied)m.visible=!far;for(const m of this.dropped)m.visible=!far;
-  for(const p of this.proxies){p.visible=far;if(far&&this.proxied[0])p.layers.mask=this.proxied[0].layers.mask}   // reflection layer tagging follows the car
+  if(this.shadowMask!==undefined){for(const p of this.proxies)p.layers.mask=far?this.shadowMask|1:this.shadowMask}   // always the shadow/puddle stand-in; the main view too when far
+  else for(const p of this.proxies){p.visible=far;if(far&&this.proxied[0])p.layers.mask=this.proxied[0].layers.mask}   // reflection layer tagging follows the car
   return far;
  }
  /** Loading only: show the proxies alongside the full parts so their shader and shadow variants compile behind the
   *  loading veil (compileAsync only visits visible objects). Otherwise the first far rival stalled a race frame ~350 ms. */
- warm(on:boolean){this.warming=on;for(const p of this.proxies)p.visible=on||this.far}
+ warm(on:boolean){this.warming=on;if(this.shadowMask===undefined)for(const p of this.proxies)p.visible=on||this.far;else for(const p of this.proxies)p.layers.mask=on||this.far?this.shadowMask|1:this.shadowMask}
  get active(){return this.far}
- private standingIn=false;private casters=new Map<THREE.Mesh,boolean>();
+ private standingIn=false;private casters=new Map<THREE.Mesh,boolean>();private shadowMask:number|undefined;
+ /** Rival: besides the distance swap in the main view, its sun shadow and puddle reflection always come from the proxy
+  *  (layers in `layerMask`), near or far. Up close the full car is on screen but a merged stand-in casts for it; this is
+  *  most of the cost at the race start, when all four cars are near each other. */
+ shadowAndReflection(layerMask:number){
+  this.shadowMask=layerMask;
+  for(const p of this.proxies){p.visible=true;p.layers.mask=this.far?layerMask|1:layerMask}
+  for(const m of this.proxied){this.casters.set(m,m.castShadow);m.castShadow=false;m.userData.reflectionExclude=true}
+  for(const m of this.dropped)m.userData.reflectionExclude=true;
+  return this;
+ }
  /** Permanent stand-in (player car): the proxies draw only for the given layers (sun shadow + puddles) while every full
   *  part stays in the main view but stops casting shadows and stops appearing in puddles. Same shapes, ~15 draws not ~250. */
  standIn(layerMask:number){
