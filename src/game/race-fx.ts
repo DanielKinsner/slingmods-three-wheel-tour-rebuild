@@ -188,7 +188,7 @@ export class RaceFX {
   menu.querySelector('h1')?.nextElementSibling?.after(node);
  }
  /** Results: the few things worth celebrating about this run, popping in one after another. Never more than five. */
- /** Extra result lines from the race host (e.g. SlingMods Points): [kind, label, value]. Called once per result. */
+ /** Extra result lines from the race host (e.g. the rivalry line): [kind, label, value]. Called once per result. */
  extraAccolades?:()=>[string,string,string][];
  private accolades(menu:HTMLElement){
   if(this.freeDrive||menu.querySelector('.gx-accolades')||!Number.isFinite(Number(menu.dataset.place)))return;
