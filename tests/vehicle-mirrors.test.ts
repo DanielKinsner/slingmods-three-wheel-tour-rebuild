@@ -48,6 +48,14 @@ test('mirror passes reuse one cached material list instead of walking the scene 
  rig.mirrors.viewTarget=main;let before=passes;frame();assert.ok(passes>before,'renders when the main view target is current');assert.equal(targets.at(-1),main,'hands the main target back');current=other;before=passes;frame();assert.equal(passes,before,'never renders inside thumbnails or other offscreen passes');
  assert.ok(rig.mirrors.inspect().cachedMaterials>=3);rig.dispose();assert.equal(extra.material.clippingPlanes,null,'dispose hands every material back as it was');assert.equal(late.material.clippingPlanes,null);assert.equal(renderer.localClippingEnabled,false);for(const mesh of[extra,late]){mesh.geometry.dispose();mesh.material.dispose()}
 });
+test('on High the mirrors skip the puddle-reflection frames yet both faces keep taking turns',()=>{
+ const rig=mirrorRig();rig.place(1);let passes=0;
+ const renderer={localClippingEnabled:false,shadowMap:{autoUpdate:true},xr:{enabled:false},getRenderTarget:()=>null,setRenderTarget(){},render(){passes++}} as unknown as THREE.WebGLRenderer;
+ const normal=new THREE.Vector3();for(const face of rig.faces)normal.add(new THREE.Vector3(0,0,1).transformDirection(face.matrixWorld));const middle=rig.faces[0].getWorldPosition(new THREE.Vector3()).add(rig.faces[1].getWorldPosition(new THREE.Vector3())).multiplyScalar(.5);rig.camera.position.copy(middle).addScaledVector(normal.normalize(),3);rig.camera.lookAt(middle);rig.camera.updateMatrixWorld(true);
+ const before=[...rig.mirrors.inspect().updates];
+ for(let i=0;i<80;i++){rig.mirrors.update(rig.camera,1440,true,true);rig.mirrors.render(renderer,rig.scene,rig.camera,i%2===1);for(const face of rig.faces)if(face.visible)face.onBeforeRender(renderer,rig.scene,rig.camera,face.geometry,face.material as THREE.Material,null as never)}
+ const done=rig.mirrors.inspect().updates.map((n,i)=>n-before[i]);assert.ok(done[0]>=18&&done[1]>=18,`both faces refresh: ${done}`);assert.ok(passes<=42,'no pass on held frames, not even from the in-render fallback');
+});
 test('chase view refreshes one mirror per frame, taking turns; cockpit refreshes both every frame',()=>{
  const rig=mirrorRig();rig.place(1);let passes=0;
  const renderer={localClippingEnabled:false,shadowMap:{autoUpdate:true},xr:{enabled:false},getRenderTarget:()=>null,setRenderTarget(){},render(){passes++}} as unknown as THREE.WebGLRenderer;
