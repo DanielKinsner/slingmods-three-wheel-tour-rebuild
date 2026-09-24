@@ -66,7 +66,7 @@ import {COLORS,type Appearance} from './career/catalog';
 import {SlipstreamHud} from './game/slipstream-hud';
 import {DriftHud} from './game/drift-hud';
 import {DriftSparks} from './presentation/drift-sparks';
-import {tuningFor} from './game/tuning';
+import {tuningFor,fittedParts,PART_TUNING} from './game/tuning';
 import {skillEffects,NO_SKILLS} from './game/driver-skills';
 import {tourProgress} from './game/progress';
 import {GymkhanaLot,addGymkhanaLot,START as GYM_START,inLot} from './game/gymkhana';
@@ -211,7 +211,7 @@ const coach=lifetime.own(new Coach(ui.root,route),v=>v.dispose());
 // Skill chains everywhere except Time Attack, where the clock is the only score.
 const skills=lifetime.own(new SkillChain(ui.root,!trial&&!attractMode&&!challengeDef&&skillsEnabled()),v=>v.dispose());
 const rumble=new Rumble();lifetime.own(rumble,v=>v.stop());
-const timeAttack=trial?lifetime.own(new TimeAttack(scene,hero.root,snapshot.route as TrialRoute,comparisonIdentity(recipe),ui.root,route),v=>v.dispose()):undefined;timeAttack?.observe();
+const timeAttack=trial?lifetime.own(new TimeAttack(scene,hero.root,snapshot.route as TrialRoute,comparisonIdentity(recipe),ui.root,route),v=>v.dispose()):undefined;timeAttack?.observe();if(timeAttack)timeAttack.dailyContext={look:ridge?undefined:activeLook.id,lighting:ridge?preset:undefined,performance:fittedParts(recipe).some(p=>!!PART_TUNING[p])};
 const films=lifetime.own(new RaceFilmDirector({autoplay:!trial,parent:app,camera,hero:hero.root,vehicle:recipe.vehicleId==='can-am-spyder-f3'?'spyder':recipe.vehicleId==='can-am-ryker-900'?'ryker':'slingshot',destination:ridge?'Smoky Ridge':express?'Harbor Express':'Original Harbor',context:activeLook.label,ground:route.heightAt??(()=>0),obstruction:ridgeCameraObstruction,score:(film,elapsed)=>audio.film(film,elapsed)}),v=>v.dispose());
 let rewardPending=false,rewardText='',rewardStory='',rewardId='',resetPermit=false;
 const session=new DrivingSession(sim,()=>sampled,{profileId:handlingProfile,canReset:()=>{if(careerRace&&race.snapshot().playerResult?.valid){if(rewardId)careerRace.client.navigate(careerRace.returnTo);return false}if(resetPermit)return true;if(rewardPending)return false;if(careerRace&&!resetPermit){void restartCareer();return false}return true},onReset:()=>{attemptId=careerRace?.attempt.id??crypto.randomUUID();rewardText='';rewardStory='';rewardId='';attempt++;race.restart(attemptId);for(const k of keyboard.held)releaseKeys.add(k);keyboard.clear();resetPresentation=true},onPause:p=>race.setPaused(p)});session.sync();

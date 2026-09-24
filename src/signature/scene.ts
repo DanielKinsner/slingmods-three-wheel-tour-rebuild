@@ -34,6 +34,7 @@ import {Simulation,type VehicleTelemetry} from '../simulation';
 import {GameAudio} from '../audio/game-audio';
 import {KeyboardBuffer,type DeviceSample} from '../driving/input';
 import {buildRepository,fragmentRecipe,recipeFragment,validateRecipe,freshRecipe,stockRecipe,PRESETS,buildSummary,type BuildRecipe,type DestinationLighting} from './config';
+import {dailyRun} from '../game/daily';
 import {PRODUCTS} from './catalog';
 import {loadRouteGraphics} from './route-data';
 import {SignatureUI,type SignatureState,type CareerSummary,type DestinationChoice} from './ui';
@@ -170,7 +171,9 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='copy'){await navigator.clipboard.writeText(buildSummary(recipe));status='Build summary copied.'}
  // Back: leave an inspection first, then retrace in-app history, then go up one level. Never toggles.
  else if(name==='back'){audio.cue('ui.back');if(screen==='build'&&currentView!=='hero'&&(currentView.startsWith('SM-')||currentView==='tour-wall'||currentView==='interior'))view('hero');else if(navDepth>0)window.history.back();else if(screen!=='entry')goScreen(screen==='shop'?'build':'entry','replace')}
- else if(name==='test-drive'||name==='race'||name==='time-attack'||name==='challenge'||name==='gymkhana'){
+ else if(name==='test-drive'||name==='race'||name==='time-attack'||name==='challenge'||name==='gymkhana'||name==='daily'){
+  // The Daily Run is Time Attack on today's course in today's condition (game/daily.ts).
+  const daily=name==='daily'?dailyRun():undefined;if(daily){value=daily.route;name='time-attack'}
   // The Gymkhana Lot is a test drive on Harbor Express that starts on the infield lot.
   const gym=name==='gymkhana';if(gym){value='express';name='test-drive'}
   // A challenge is a test drive on its own course, started at the challenge line.
@@ -178,7 +181,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
   const seriesRun=typeof value==='string'&&value.startsWith('series:');if(seriesRun)value=(value as string).slice(7);
   if(value==='duel'||value==='crew'){careerView?careerView.navigate('?scene=career&play=career'):location.assign('?scene=career&play=career');return}
   const route=value==='ridge'?'ridge':value==='harbor'?'harbor':'express',snapshot=validateRecipe(recipe),look=route==='ridge'?'':destinationLooks[route];if(look)rememberLook(route as 'express'|'harbor',look);
-  const target=`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='test-drive'?'test':'race'}${name==='time-attack'?'&trial=1':''}${chal?'&challenge='+chal.id:''}${gym?'&gymkhana=1':''}${seriesRun?'&series=1':''}&play=preview${route==='ridge'?'&lighting='+destinationLighting:'&look='+look}${fromCareer?'&from='+fromCareer:''}${recipeFragment(snapshot)}`;
+  const target=`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='test-drive'?'test':'race'}${name==='time-attack'?'&trial=1':''}${chal?'&challenge='+chal.id:''}${gym?'&gymkhana=1':''}${seriesRun?'&series=1':''}&play=preview${route==='ridge'?'&lighting='+(daily?.lighting??destinationLighting):'&look='+(daily?.look??look)}${fromCareer?'&from='+fromCareer:''}${recipeFragment(snapshot)}`;
   pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot,name==='test-drive'?'test':'race');pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
   storage.store.beginDrive(snapshot,route,name==='test-drive'?'test':'race',destinationLighting);
   // A temporary career rides along in this tab (never into the drive's rewards) so it survives the round trip.
