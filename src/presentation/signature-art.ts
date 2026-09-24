@@ -59,6 +59,7 @@ export class SignatureProducts {
   for(const label of ['driver','passenger']){const seat=this.car.getObjectByName('signature_seat_'+label);if(seat){this.saved.set(seat,{visible:seat.visible,rotation:seat.rotation.clone()});seat.visible=false}}
  }
  update(time:number){this.spyder?.update(time)}
+ flare(gain:number){if(this.spyder)this.spyder.glow=gain}
  inspect(){return{spyder:this.spyder?.inspect(),ryker:this.ryker?.inspect(),selected:[...this.selected],storageInspection:this.saved.size>0,stockExhaust:{meshes:this.stockMeshes,visible:this.stock?.visible,kind:this.stockMeshes?'geometry':'empty compatibility anchor'},seats:['driver','passenger'].map(side=>({side,visible:this.car.getObjectByName('signature_seat_'+side)?.visible})),inspectionMethod:'Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.',mounts:SIGNATURE_MOUNT_VIEWS,productRoot:this.root.name}}
  dispose(){this.spyder?.dispose();if(this.ryker){this.ryker.dispose();disposeSignatureObject(this.ryker.root)}this.inspectStorage(false);if(this.stock)this.stock.visible=this.stockVisible;this.root.removeFromParent();disposeSignatureObject(this.root)}
 }
