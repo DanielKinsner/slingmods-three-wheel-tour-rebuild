@@ -2,7 +2,7 @@ import * as THREE from 'three';
 /**
  * Showroom part install moment. Whatever a preview change newly draws on the car (a hidden part shown, or an accessory
  * attached) flies in from just outside the car, seats with a small overshoot, and on landing throws a short burst of
- * sparks and fires `onLand` (the install sound and stamp). Lights skip the flight and ignite instead: a quick flicker,
+ * sparks, swells any fitted underglow once and fires `onLand` (the install sound and stamp). Lights skip the flight and ignite instead: a quick flicker,
  * then a glow that settles to normal (`update` returns that gain; 1 = normal).
  *
  * Vehicle agnostic: it compares what is drawn before and after the recipe is applied, so the Slingshot, Ryker and Spyder
@@ -31,7 +31,7 @@ function sparkTexture(){
 }
 type Piece={node:THREE.Object3D;home:THREE.Vector3;lift:THREE.Vector3};
 export class InstallMotion {
- private pieces:Piece[]=[];private start=0;private onLand?:()=>void;private sparkOnLand=false;private flareOnLand=false;
+ private pieces:Piece[]=[];private start=0;private onLand?:()=>void;private sparkOnLand=false;private flareOnLand=false;private flareKind:'ignite'|'pulse'='ignite';
  private sparks?:THREE.Points;private velocity=new Float32Array(SPARKS*3);private sparkAt=-1;private flareAt=-1;private last=0;private eye=new THREE.Vector3();private carCentre=new THREE.Vector3();
  private played=0;
  constructor(private scene:THREE.Scene){}
@@ -44,7 +44,7 @@ export class InstallMotion {
   const part=new THREE.Box3();for(const n of nodes)part.expandByObject(n);if(part.isEmpty())return false;
   const car=new THREE.Box3().setFromObject(root),centre=part.getCenter(new THREE.Vector3()),carCentre=car.getCenter(new THREE.Vector3());
   this.onLand=options.onLand;this.played++;this.names=nodes.slice(0,12).map(n=>n.name||n.type);
-  if(options.lights){this.land(options.now,false,true);return true}
+  if(options.lights){this.flareKind='ignite';this.land(options.now,false,true);return true}
   // Out from the car's centre and up a little; a whole-body part (centre on the car's centre) drops from above.
   const out=centre.clone().sub(carCentre).setY(0),offset=out.length()>.15?out.normalize().multiplyScalar(OUTWARD).setY(LIFT):new THREE.Vector3(0,DROP,0);
   options.camera.getWorldPosition(this.eye);this.carCentre.copy(carCentre);
@@ -52,7 +52,7 @@ export class InstallMotion {
    const parent=node.parent!,a=node.getWorldPosition(new THREE.Vector3()),b=a.clone().add(offset);parent.worldToLocal(a);parent.worldToLocal(b);
    const piece={node,home:node.position.clone(),lift:b.sub(a)};node.position.add(piece.lift);this.pieces.push(piece);
   }
-  this.start=options.now;this.sparkOnLand=true;this.flareOnLand=false;return true;
+  this.start=options.now;this.sparkOnLand=true;this.flareOnLand=true;this.flareKind='pulse';return true;
  }
  /** Advance; returns the light gain for the ignition flare (1 when idle). */
  update(now:number){
@@ -73,7 +73,8 @@ export class InstallMotion {
   }
   if(this.flareAt<0)return 1;
   const u=(now-this.flareAt)/1000;if(u>=FLARE_S){this.flareAt=-1;return 1}
-  // Ignition: dark, flash, dip, then a bright glow that eases back to normal.
+  // Any other part seating: fitted underglow swells once. Lights igniting: dark, flash, dip, then a glow that settles.
+  if(this.flareKind==='pulse')return u<.5?1+.9*Math.sin(Math.PI*u/.5):1;
   return u<.05?.12:u<.1?2.1:u<.16?.35:1+1.5*Math.exp(-(u-.16)*6);
  }
  /** Put everything home now and fire any pending landing (sound/stamp), e.g. when another change arrives. */

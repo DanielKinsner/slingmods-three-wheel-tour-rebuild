@@ -20,6 +20,7 @@ test('a part flies from outside the car and is put back exactly; its landing fir
  motion.update(1000+FLY_MS*.5);assert.ok(exhaust.position.distanceTo(home)>0&&motion.busy);assert.equal(landed,0);
  motion.finish(1000+FLY_MS*.6);assert.deepEqual(exhaust.position.toArray(),home.toArray());assert.equal(landed,1);assert.equal(motion.busy,false);
  motion.finish();assert.equal(landed,1,'no second landing');
+ assert.equal(motion.update(2000),1,'an interrupted landing does not pulse');
  assert.equal(motion.play(root,drawnSet(root),{now:2000,camera,lights:false}),false,'nothing new: caller plays its sound at once');
 });
 test('lights do not fly: they ignite with a flicker and settle back to normal brightness',()=>{
