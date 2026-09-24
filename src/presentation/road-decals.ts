@@ -49,10 +49,11 @@ export async function loadRoadDecals(renderer:THREE.WebGLRenderer,route:CourseRo
  const build=(list:RoadDecalQuad[])=>{
   const count=list.length,position=new Float32Array(count*12),normal=new Float32Array(count*12),uv=new Float32Array(count*8),color=new Float32Array(count*16),index=new Uint32Array(count*6);
   list.forEach((q,i)=>{
+   const paint=q.tile.startsWith('white-')?.78:1;   // road paint reflects ~70-80%; at full white the headlights clipped lines to glowing bars
    const tx=Math.sin(q.yaw),tz=Math.cos(q.yaw),nx=-tz,nz=tx,hw=q.width/2,hl=q.length/2,y=plan.y+q.layer*.0012,[u0,v0,w,h]=tiles.get(q.tile)!.uvRectBottomLeft;
    // Compressed textures are not flipped on upload: image-top is v=0, so the atlas' bottom-left rectangles are mirrored in v.
    const corners=[[-1,-1,u0,1-v0],[1,-1,u0+w,1-v0],[1,1,u0+w,1-v0-h],[-1,1,u0,1-v0-h]];
-   corners.forEach(([a,b,u,v],k)=>{position.set([q.x+nx*hw*a+tx*hl*b,y,q.z+nz*hw*a+tz*hl*b],i*12+k*3);normal.set([0,1,0],i*12+k*3);uv.set([u,v],i*8+k*2);color.set([1,1,1,q.alpha],i*16+k*4)});
+   corners.forEach(([a,b,u,v],k)=>{position.set([q.x+nx*hw*a+tx*hl*b,y,q.z+nz*hw*a+tz*hl*b],i*12+k*3);normal.set([0,1,0],i*12+k*3);uv.set([u,v],i*8+k*2);color.set([paint,paint,paint,q.alpha],i*16+k*4)});
    index.set([i*4,i*4+1,i*4+2,i*4,i*4+2,i*4+3],i*6);
   });
   const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(position,3));geometry.setAttribute('normal',new THREE.BufferAttribute(normal,3));geometry.setAttribute('uv',new THREE.BufferAttribute(uv,2));geometry.setAttribute('color',new THREE.BufferAttribute(color,4));geometry.setIndex(new THREE.BufferAttribute(index,1));geometry.computeBoundingSphere();return geometry;
