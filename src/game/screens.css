@@ -283,3 +283,16 @@ html.gx body .sig-departure button{font:700 13px/1 var(--gx-body);letter-spacing
 html.gx body .sig-departure button:hover{border-color:var(--gx-ink)}
 html.gx body .sig-departure button:last-child{background:var(--gx-red-2);border-color:var(--gx-red)}html.gx body .sig-departure button:last-child:hover{background:var(--gx-red)}
 html.gx body .sig-departure small{letter-spacing:.08em;opacity:.75}
+/* ---------- Parts game tuning (src/game/tuning.ts): performance bars in the inspector ---------- */
+/* The category rail scrolls when the performance card does not fit (8 Spyder categories, 720p screens). */
+html.gx body .signature-ui .sig-categories{max-height:calc(100dvh - var(--sig-top) - var(--sig-bottom) - 60px);overflow-y:auto;scrollbar-width:none}
+html.gx body .signature-ui .sig-perf{margin-top:10px;padding:10px 12px 12px;background:var(--gx-glass);border-left:3px solid var(--gx-good);display:grid;gap:6px}
+html.gx body .signature-ui .sig-perf-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}html.gx body .signature-ui .sig-perf-head small{font:600 10px/1.2 var(--gx-body);color:var(--gx-mute);letter-spacing:.04em}
+html.gx body .signature-ui .sig-perf p{margin:0 0 2px;font:600 12px/1.3 var(--gx-body);color:var(--gx-ink-2)}
+html.gx body .signature-ui .sig-stat{display:grid;grid-template-columns:78px 1fr 44px;align-items:center;gap:8px;font:700 10px/1 var(--gx-body);letter-spacing:.08em;text-transform:uppercase;color:var(--gx-mute)}
+html.gx body .signature-ui .sig-stat i{position:relative;display:block;height:6px;background:#ffffff14;transform:skewX(-12deg);overflow:hidden}
+html.gx body .signature-ui .sig-stat s,html.gx body .signature-ui .sig-stat u{position:absolute;top:0;bottom:0;left:0;width:calc(var(--v)*1%);background:var(--gx-ink);transition:width var(--gx-t) var(--gx-ease),left var(--gx-t) var(--gx-ease)}
+html.gx body .signature-ui .sig-stat u{left:calc(var(--v)*1%);width:calc(var(--d)*1%);background:repeating-linear-gradient(90deg,var(--gx-good) 0 3px,transparent 3px 5px);opacity:.7}
+html.gx body .signature-ui .sig-stat u[data-fitted=true]{background:var(--gx-good);opacity:1;box-shadow:0 0 10px var(--gx-good)}
+html.gx body .signature-ui .sig-stat em{font:italic 800 14px/1 var(--gx-display);white-space:nowrap;color:var(--gx-ink);text-align:right;font-style:italic}html.gx body .signature-ui .sig-stat em small{margin-left:3px;font:800 10px/1 var(--gx-body);color:var(--gx-good)}html.gx body .signature-ui .sig-stat em small.is-loss{color:var(--gx-bad)}
+html.gx body .signature-ui[data-reduced-motion=true] .sig-stat :is(s,u){transition:none}

@@ -10,7 +10,8 @@ import {announceAchievements} from './toast';
 import {isAttract} from './attract-flag';
 import {gameCue} from './audio-bus';
 import {setPrompts} from './shell';
-import {tourProgress,repGain,rankTitle,repForLevel} from './progress';
+import {tourProgress,repGain,rankTitle,repForLevel,levelForRep} from './progress';
+import {newlyUnlocked} from './driver-skills';
 import type {Career,Receipt} from '../career/store';
 import {radioLine,CREW,portraitMarkup,type CrewId,type RadioMoment} from './crew';
 /**
@@ -157,7 +158,7 @@ export class RaceFX {
   const gain=repGain(r.before,r.receipt),after=tourProgress(r.before);after.rep=gain.rep;
   const panel=document.createElement('section');panel.className='gx-reward';panel.setAttribute('aria-label',`Earned ${r.credits} credits and ${gain.gain} Tour Rep`);
   const floor=repForLevel(gain.level),next=repForLevel(gain.level+1),fill=next>floor?(gain.rep-floor)/(next-floor):1,startFill=gain.levelUp?0:Math.max(0,(gain.from.rep-floor)/(next-floor));
-  panel.innerHTML=`<div class="gx-reward-row"><span>CREDITS EARNED</span><b data-count="${r.credits}">+0</b><small>BALANCE ${r.balance.toLocaleString('en-US')} CR</small></div><div class="gx-reward-row"><span>TOUR REP</span><b data-count="${gain.gain}">+0</b><small>LV ${gain.level} · ${rankTitle(gain.level)}</small></div><div class="gx-rep-bar"><i style="--gx-from:${startFill.toFixed(3)};--gx-to:${fill.toFixed(3)}"></i></div>${gain.levelUp?`<div class="gx-levelup"><b>LEVEL UP</b><span>LV ${gain.level} · ${rankTitle(gain.level)}</span></div>`:''}`;
+  panel.innerHTML=`<div class="gx-reward-row"><span>CREDITS EARNED</span><b data-count="${r.credits}">+0</b><small>BALANCE ${r.balance.toLocaleString('en-US')} CR</small></div><div class="gx-reward-row"><span>TOUR REP</span><b data-count="${gain.gain}">+0</b><small>LV ${gain.level} · ${rankTitle(gain.level)}</small></div><div class="gx-rep-bar"><i style="--gx-from:${startFill.toFixed(3)};--gx-to:${fill.toFixed(3)}"></i></div>${gain.levelUp?`<div class="gx-levelup"><b>LEVEL UP</b><span>LV ${gain.level} · ${rankTitle(gain.level)}</span>${newlyUnlocked(levelForRep(gain.from.rep),gain.level).map(s=>`<small>New driver skill: ${s.name}</small>`).join('')}</div>`:''}`;
   const anchor=menu.querySelector('.menu-actions');menu.insertBefore(panel,anchor);
   const counters=[...panel.querySelectorAll<HTMLElement>('[data-count]')];
   if(!animate){counters.forEach(c=>c.textContent='+'+Number(c.dataset.count).toLocaleString('en-US'));panel.classList.add('is-done');return}

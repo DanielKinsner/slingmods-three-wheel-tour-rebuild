@@ -76,3 +76,7 @@ body[data-gx-modal] .gx-prompts{z-index:9600}
 .gx-log-open{position:absolute;top:17px;right:calc(var(--gx-edge-x,40px) + 222px);width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--gx-edge,#ffffff18);background:var(--gx-glass,#0c0e12c7);backdrop-filter:blur(10px);color:var(--gx-hot,#ffd23c);font-size:19px;line-height:1;cursor:pointer;padding:0}
 .gx-log-open:hover{background:var(--gx-glass-hi,#22262e)}
 @media (max-width:760px){.gx-log-open{display:none}}
+/* Driver skills (game/driver-skills.ts): Tour Log stats list. */
+.gx-skills{margin-top:18px;display:grid;gap:6px}.gx-skills h3{margin:0 0 4px;font:italic 800 18px/1 var(--gx-display);letter-spacing:.04em;text-transform:uppercase;color:var(--gx-ink)}.gx-skills h3 small{margin-left:8px;font:600 11px/1 var(--gx-body);letter-spacing:.08em;color:var(--gx-mute);text-transform:none}
+.gx-skill-row{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:12px;padding:8px 12px;background:var(--gx-glass-2);border-left:3px solid var(--gx-edge-2);opacity:.6}.gx-skill-row[data-unlocked=true]{opacity:1;border-left-color:var(--gx-good)}
+.gx-skill-row b{font:italic 800 15px/1 var(--gx-display);color:var(--gx-hot)}.gx-skill-row span{display:grid;gap:2px;font:500 12px/1.3 var(--gx-body);color:var(--gx-ink-2)}.gx-skill-row strong{font:800 13px/1.2 var(--gx-body);color:var(--gx-ink)}.gx-skill-row em{font:800 10px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;font-style:normal;color:var(--gx-mute)}.gx-skill-row[data-unlocked=true] em{color:var(--gx-good)}

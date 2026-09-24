@@ -15,6 +15,8 @@ export type Quat=Vec3&{w:number};
 export interface VehicleControl { throttle:number; brake:number; steer:number; reverse:boolean; tractionControl?:boolean; /** Arcade drift layer only (Simulation.enableDrift); ignored otherwise. */ handbrake?:number }
 /** Arcade drift -> boost (Phase 4B). Charge is time x rear slip; tiers at 0.8 / 1.8 / 3.2; a clean exit pays 0.6 / 1.0 / 1.6 s. */
 export const DRIFT={tiers:[.8,1.8,3.2],boostSeconds:[0,.6,1,1.6],boostAccel:3.4,minSpeed:9,slideSlip:.12,cleanSlip:.1,spinSlip:1.2,holdSlip:.56,carryAccel:2.6} as const;
+/** Game tuning from fitted parts (src/game/tuning.ts): multipliers, all exactly neutral by default. */
+export interface VehicleTuning {power:number;grip:number;aeroGrip:number;drag:number}
 export interface DriftState {enabled:boolean;handbrake:number;active:boolean;charge:number;tier:number;boostLeft:number;boosts:number;forfeits:number;event:'tier'|'boost'|'forfeit'|null;eventTier:number;eventCount:number}
 export interface WheelTelemetry {id:string;contact:boolean;load:number;travel:number;slipRatio:number;slipAngle:number;spin:number;steer:number;localCenter:Vec3;surface:string;angularSpeed:number;longitudinalSpeed:number;longitudinalForce:number;lateralForce:number;gripLimit:number;driveTorque:number}
 export interface VehicleTelemetry {vehicleId?:string;definitionId?:string;powertrain?:'five-speed'|'cvt'|'six-speed';cvtRatio?:number;time:number;position:Vec3;quaternion:Quat;velocity:Vec3;angularVelocity:Vec3;speed:number;rpm:number;engineWheelAngularSpeed:number;gear:number;shifting:boolean;shiftRemaining:number;steer:number;throttle:number;brake:number;reversePending:boolean;wheels:WheelTelemetry[]}
@@ -52,10 +54,11 @@ export class Simulation {
   private driftState:DriftState={enabled:false,handbrake:0,active:false,charge:0,tier:0,boostLeft:0,boosts:0,forfeits:0,event:null,eventTier:0,eventCount:0};private rearSlip=0;
   /** Arcade drift layer (Quick Race, free drives): the handbrake loosens the single rear tyre into a slide that charges
    *  a boost. Off by default, so career events, time trials and recorded runs never see it. */
-  enableDrift(on:boolean){this.driftState={...this.driftState,enabled:on,active:false,charge:0,tier:0,boostLeft:0};if(!on)this.driftState.handbrake=0}
+  private driftSkill={charge:1,boost:1,launch:1,cleanSlip:DRIFT.cleanSlip as number};
+  enableDrift(on:boolean,skill?:{charge:number;boost:number;launch:number;cleanSlip:number}){this.driftState={...this.driftState,enabled:on,active:false,charge:0,tier:0,boostLeft:0};if(!on)this.driftState.handbrake=0;if(skill)this.driftSkill={charge:Math.max(1,Math.min(1.3,skill.charge)),boost:Math.max(1,Math.min(1.4,skill.boost)),launch:Math.max(1,Math.min(2,skill.launch)),cleanSlip:Math.max(DRIFT.cleanSlip,Math.min(.2,skill.cleanSlip))}}
   drift():Readonly<DriftState>{return this.driftState}
   /** Arcade layer only: a boost that is not from a drift (a perfect start). Ignored when the layer is off. */
-  grantBoost(seconds:number){if(this.driftState.enabled)this.driftState.boostLeft=Math.max(this.driftState.boostLeft,seconds)}
+  grantBoost(seconds:number){if(this.driftState.enabled)this.driftState.boostLeft=Math.max(this.driftState.boostLeft,seconds*this.driftSkill.launch)}
   /** The chassis is touching something that is not the road surface (a wall, a barrier, another car). */
   private struck(){let hit=false;for(let i=0;i<this.body.numColliders()&&!hit;i++){const c=this.body.collider(i);this.world.contactPairsWith(c,other=>{if(hit||other.shape.type===RAPIER.ShapeType.TriMesh)return;this.world.contactPair(c,other,m=>{if(m.numContacts()>0)hit=true})})}return hit}
   private emitDrift(event:'tier'|'boost'|'forfeit',tier:number){const d=this.driftState;d.event=event;d.eventTier=tier;d.eventCount++}
@@ -65,11 +68,15 @@ export class Simulation {
     if(!d.active)return;
     const lose=()=>{if(d.tier>0){d.forfeits++;this.emitDrift('forfeit',d.tier)}d.active=false;d.charge=0;d.tier=0};
     if(slip>DRIFT.spinSlip||this.struck()){lose();return}
-    if(moving&&slip>DRIFT.slideSlip){d.charge+=dt*Math.min(1.5,slip/.25);const tier=d.charge>=DRIFT.tiers[2]?3:d.charge>=DRIFT.tiers[1]?2:d.charge>=DRIFT.tiers[0]?1:0;if(tier>d.tier){d.tier=tier;this.emitDrift('tier',tier)}}
+    if(moving&&slip>DRIFT.slideSlip){d.charge+=dt*Math.min(1.5,slip/.25)*this.driftSkill.charge;const tier=d.charge>=DRIFT.tiers[2]?3:d.charge>=DRIFT.tiers[1]?2:d.charge>=DRIFT.tiers[0]?1:0;if(tier>d.tier){d.tier=tier;this.emitDrift('tier',tier)}}
     if(Math.abs(speed)<6){d.active=false;d.charge=0;d.tier=0;return}
     // Clean exit: handbrake off and the car pointing where it is going (rear slip under ~6 degrees).
-    if(handbrake<.2&&slip<DRIFT.cleanSlip){if(d.tier>0){d.boostLeft=DRIFT.boostSeconds[d.tier];d.boosts++;this.emitDrift('boost',d.tier)}d.active=false;d.charge=0;d.tier=0}
+    if(handbrake<.2&&slip<this.driftSkill.cleanSlip){if(d.tier>0){d.boostLeft=DRIFT.boostSeconds[d.tier]*this.driftSkill.boost;d.boosts++;this.emitDrift('boost',d.tier)}d.active=false;d.charge=0;d.tier=0}
   }
+  private tuning:VehicleTuning={power:1,grip:1,aeroGrip:0,drag:1};
+  /** Parts' game tuning, set before driving like the suspension. Bounded so a bad value cannot break the car. */
+  configureTuning(t:VehicleTuning){if(this.time!==0)throw Error('Configure tuning before driving');const b=(v:number,lo:number,hi:number,d:number)=>Number.isFinite(v)?Math.max(lo,Math.min(hi,v)):d;this.tuning={power:b(t.power,.9,1.15,1),grip:b(t.grip,.9,1.12,1),aeroGrip:b(t.aeroGrip,0,.08,0),drag:b(t.drag,.9,1.1,1)}}
+  tuningConfig():Readonly<VehicleTuning>{return this.tuning}
   private draft=0;
   /** Racecraft (RaceWorld.setRacecraft): share of aerodynamic drag removed by a slipstream, 0..0.4. Stays 0 unless a
    *  race opts in, so time trials and recorded runs are unchanged. */
@@ -133,7 +140,7 @@ export class Simulation {
     this.steering+=clamp((target-this.steering)*response,-handlingProfile(this.profileId).steerRate*dt,handlingProfile(this.profileId).steerRate*dt);
     if(this.definition.powertrain==='six-speed')this.throttle=spyderThrottle(this.throttle,this.spyder);
     const driveState=this.drivetrain.step(speed,this.overspeed[2],this.definition.layout.wheels[2].radius,this.throttle,this.brake,Boolean(control.reverse),dt);
-    this.throttle=driveState.throttle;this.brake=driveState.brake;const engineForce=driveState.force;
+    this.throttle=driveState.throttle;this.brake=driveState.brake;const engineForce=driveState.force*this.tuning.power;
     this.body.resetForces(true);this.body.resetTorques(true);
     const forgiving=(this.profileId==='slingmods-sport-v4'||this.profileId==='slingmods-sport-v5'||this.profileId==='ryker-road-v1'||this.profileId==='spyder-f3-v1');
     const newWheels:WheelTelemetry[]=[];if(this.diagnosticEnabled)this.forceDiagnostics=[];
@@ -190,7 +197,7 @@ export class Simulation {
         const tireFwd=normalized(add(rawFwd,scale(normal,-dot(rawFwd,normal))));
         const tireRight=normalized(v(tireFwd.y*normal.z-tireFwd.z*normal.y,tireFwd.z*normal.x-tireFwd.x*normal.z,tireFwd.x*normal.y-tireFwd.y*normal.x));
         long=dot(pointVel,tireFwd);const lateral=dot(pointVel,tireRight);const surf=this.environment.surfaceAt(point.x,point.z);surface=surf.id;
-        muLimit=this.profileId==='legacy-p08a'?load*surf.mu:load*surf.mu*(surf.id==='asphalt'?handlingProfile(this.profileId).asphaltGripScale:1);slipAngle=Math.atan2(lateral,Math.max(Math.abs(long),2));if(rear){this.rearSlip=slipAngle;if(handbrake>0)muLimit*=1-.4*handbrake}
+        muLimit=this.profileId==='legacy-p08a'?load*surf.mu:load*surf.mu*(surf.id==='asphalt'?handlingProfile(this.profileId).asphaltGripScale:1);slipAngle=Math.atan2(lateral,Math.max(Math.abs(long),2));muLimit*=this.tuning.grip*(1+this.tuning.aeroGrip*clamp((Math.abs(speed)-20)/20,0,1));if(rear){this.rearSlip=slipAngle;if(handbrake>0)muLimit*=1-.4*handbrake}
         let drive=rear?engineForce:0;
         if(control.tractionControl!==false){
           // Reserve part of the rear tire's finite friction budget while sliding.
@@ -250,7 +257,7 @@ export class Simulation {
         if(Math.abs(slip)>.15&&Math.abs(speed)>DRIFT.minSpeed){const lv=this.body.linvel(),s=Math.hypot(lv.x,lv.z)||1;this.body.addForce(v(lv.x/s*this.definition.mass*DRIFT.carryAccel,0,lv.z/s*this.definition.mass*DRIFT.carryAccel),true)}}
       if(d.boostLeft>0){this.body.addForce(scale(forward,this.definition.mass*DRIFT.boostAccel),true);d.boostLeft=Math.max(0,d.boostLeft-dt)}}
     // Aerodynamic drag is a COM force. Load transfer is solely rigid-body response at tire contacts.
-    const vmag=Math.hypot(velocity.x,velocity.y,velocity.z);this.body.addForce(scale(velocity,-(this.definition.powertrain==='six-speed'?.36:this.definition.powertrain==='cvt'?.30:.43)*(1-this.draft)*vmag),true);
+    const vmag=Math.hypot(velocity.x,velocity.y,velocity.z);this.body.addForce(scale(velocity,-(this.definition.powertrain==='six-speed'?.36:this.definition.powertrain==='cvt'?.30:.43)*(1-this.draft)*this.tuning.drag*vmag),true);
   }
   publishTick(dt:number){this.time+=dt;
   }
@@ -269,7 +276,9 @@ export class RaceWorld {
  readonly participants=new Map<string,Simulation>();
  /** Racecraft (Phase 4A), off unless a race opts in: slipstream behind another car, and glancing car-to-car contact
   *  that scrapes instead of spinning. Time trials, validation and historical runs never enable it. */
- private racecraft={slipstream:false,rubbing:false};private wake=new Map<string,number>();private scrapes=0;
+ private racecraft={slipstream:false,rubbing:false};private wake=new Map<string,number>();private draftSkill=new Map<string,number>();
+ /** Driver skill (arcade races): this car's tow builds `factor` times faster. */
+ setDraftSkill(id:string,factor:number){this.draftSkill.set(id,Math.max(1,Math.min(3,factor)))}private scrapes=0;
  /** Pairs rubbing during the last step (racecraft), with the midpoint between them: presentation reads it for sparks. */
  readonly rubbing:{a:string;b:string;x:number;y:number;z:number}[]=[];
  setRacecraft(options:{slipstream?:boolean;rubbing?:boolean}){this.racecraft={...this.racecraft,...options};if(!this.racecraft.slipstream)for(const car of this.participants.values())car.setDraft(0)}
@@ -327,7 +336,7 @@ export class RaceWorld {
    const speed=Math.hypot(m.lin.x,m.lin.z);let best=0;
    if(speed>10){const ux=m.lin.x/speed,uz=m.lin.z/speed;for(const [other,,o] of cars){if(other===id)continue;const dx=o.pos.x-m.pos.x,dz=o.pos.z-m.pos.z,ahead=dx*ux+dz*uz,side=Math.abs(dx*uz-dz*ux);const reach=1.2+ahead*.05;if(ahead>2.5&&ahead<25&&side<reach)best=Math.max(best,(1-(ahead-2.5)/22.5)*(1-side/reach))}}
    const wake=best>.05?(this.wake.get(id)??0)+dt:Math.max(0,(this.wake.get(id)??0)-2*dt);this.wake.set(id,wake);
-   const ramp=Math.min(1,Math.max(0,(wake-.35)/.75));car.setDraft(.38*best*ramp*ramp*(3-2*ramp));
+   const ramp=Math.min(1,Math.max(0,(wake*(this.draftSkill.get(id)??1)-.35)/.75));car.setDraft(.38*best*ramp*ramp*(3-2*ramp));
   }
  }
  /** Rubbing is racing: two cars touching side by side at a small angle keep only part of the yaw and sideways kick
