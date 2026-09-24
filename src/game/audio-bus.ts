@@ -4,7 +4,7 @@ import type {CueId} from '../audio/interface';
  * without each screen threading an audio reference through. GameAudio registers itself; before it exists, or before
  * sound is unlocked, cues are silently dropped exactly as GameAudio.cue already does.
  */
-export interface AudioBus {cue(id:CueId,transactionKey?:string):boolean;unlock():Promise<void>}
+export interface AudioBus {cue(id:CueId,transactionKey?:string,rate?:number):boolean;unlock():Promise<void>}
 let active:AudioBus|undefined;
 export function registerGameAudio(bus:AudioBus){active=bus;armGestureUnlock()}
 /**
@@ -18,6 +18,6 @@ function armGestureUnlock(){
  const go=(e:Event)=>{if(!e.isTrusted)return;removeEventListener('keydown',go,true);removeEventListener('pointerdown',go,true);void active?.unlock()};
  addEventListener('keydown',go,true);addEventListener('pointerdown',go,true);
 }
-export function gameCue(id:CueId,transactionKey?:string){return active?.cue(id,transactionKey)??false}
+export function gameCue(id:CueId,transactionKey?:string,rate?:number){return active?.cue(id,transactionKey,rate)??false}
 export function unlockGameAudio(){return active?.unlock()??Promise.resolve()}
 export function hasGameAudio(){return !!active}

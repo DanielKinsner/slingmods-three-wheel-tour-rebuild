@@ -186,6 +186,8 @@ export class RaceFX {
   menu.querySelector('h1')?.nextElementSibling?.after(node);
  }
  /** Results: the few things worth celebrating about this run, popping in one after another. Never more than five. */
+ /** Extra result lines from the race host (e.g. SlingMods Points): [kind, label, value]. Called once per result. */
+ extraAccolades?:()=>[string,string,string][];
  private accolades(menu:HTMLElement){
   if(this.freeDrive||menu.querySelector('.gx-accolades')||!Number.isFinite(Number(menu.dataset.place)))return;
   const s=this.lastSnap,me=s?.standings.find(x=>x.id==='player'),field=(s?.standings.length??1)>1,list:[string,string,string][]=[];
@@ -194,6 +196,7 @@ export class RaceFX {
   const gained=field&&me&&this.gridPlace?this.gridPlace-me.place:0;if(gained>0)list.push(['up','PLACES GAINED',`+${gained}`]);
   if(!this.contact&&!this.offTrack)list.push(['clean',field?'CLEAN RACE':'CLEAN LAP','NO CONTACT']);
   if(this.skillPoints>=50)list.push(['skill','SKILL POINTS',Math.round(this.skillPoints).toLocaleString('en-US')]);
+  list.push(...(this.extraAccolades?.()??[]));
   if(!list.length)return;
   const node=document.createElement('ul');node.className='gx-accolades';node.setAttribute('aria-label','Run highlights');
   node.innerHTML=list.slice(0,5).map(([k,label,value],i)=>`<li data-kind="${k}" style="--i:${i}"><b>${label}</b><span>${value}</span></li>`).join('');

@@ -44,7 +44,7 @@ export class GameAudio {
  private refreshFilm(){if(this.currentFilm&&!this.filmScore&&this.context&&this.mix&&this.enabled)this.filmScore=new RaceFilmScore(this.context,this.mix);this.filmScore?.update(this.currentFilm,this.filmElapsed,this.enabled&&!this.settings.mute,this.settings.volume*this.settings.musicVolume)}
  async suspendContext(){await this.context?.suspend()}
  setSoundScene(scene:Partial<SoundScene>){Object.assign(this.soundScene,scene);this.director?.setScene(scene)}
- cue(id:CueId,transactionKey?:string){const played=this.interfaceAudio?.play(id,transactionKey)??false;if(played&&(/^(race|career|part|build)/.test(id)))this.director?.duck(id==='race.finish'?2:.8);return played}
+ cue(id:CueId,transactionKey?:string,rate=1){const played=this.interfaceAudio?.play(id,transactionKey,rate)??false;if(played&&(/^(race|career|part|build)/.test(id)))this.director?.duck(id==='race.finish'?2:.8);return played}
  setEnginePower(enabled:boolean){if(this.enginePowered===enabled)return;this.enginePowered=enabled;if(enabled&&this.last?.powertrain!=='six-speed')this.director?.play(this.last?.powertrain==='cvt'?'ignition-ryker':'ignition-sling',.25);this.refresh()}
  setExhaustTreatment(enabled:boolean){this.sportExhaust=enabled;if(!enabled)this.thermal?.stop();this.graph?.setTreatment(enabled);this.refresh()}
  startBayDoor(){if(!this.context||!this.mix||!this.enabled||this.disposed||this.settings.mute)return;this.bayDoor??=new BayDoorAudio(this.context,this.mix);this.bayDoor.update(this.life());void this.bayDoor.start()}
