@@ -453,3 +453,20 @@ body.race-film-active .gx-drift,body.gx-photo .gx-drift{display:none}
 @media(prefers-reduced-motion:reduce){.gx-drift-flash.is-play{animation:none}}
 /* Driver skills: level-up line in race results (list styles live in options.css). */
 .gx-levelup small{display:block;margin-top:4px;font:800 11px/1.2 var(--gx-body);letter-spacing:.12em;text-transform:uppercase;color:var(--gx-good)}
+/* Gymkhana Lot (game/gymkhana.ts): score HUD, event feed and results. */
+.gx-gym{position:fixed;right:var(--gx-edge-x,32px);top:84px;z-index:31;display:grid;justify-items:end;gap:4px;pointer-events:none;text-align:right}
+.gx-gym .gx-gym-head{display:flex;gap:14px;align-items:baseline;padding:6px 14px;background:var(--gx-glass);border-top:2px solid var(--gx-red);backdrop-filter:blur(6px)}.gx-gym .gx-gym-head span{font:800 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}.gx-gym .gx-gym-head b{font:italic 800 22px/1 var(--gx-display);color:var(--gx-ink);font-variant-numeric:tabular-nums}
+.gx-gym strong{font:italic 900 54px/1 var(--gx-display);color:var(--gx-ink);text-shadow:0 3px 20px #0009;font-variant-numeric:tabular-nums}
+.gx-gym em{font:italic 900 20px/1 var(--gx-display);font-style:italic;color:var(--gx-hot);opacity:.35;transition:opacity .2s}.gx-gym:not([data-chain='1']) em{opacity:1;text-shadow:0 0 12px var(--gx-hot-glow)}
+.gx-gym p{margin:4px 0 0;max-width:min(360px,80vw);font:600 13px/1.35 var(--gx-body);color:var(--gx-ink-2);background:var(--gx-glass);padding:6px 12px}.gx-gym p:empty{display:none}
+.gx-gym-feed{display:grid;justify-items:end;gap:4px;margin-top:6px}.gx-gym-feed b{font:italic 900 26px/1 var(--gx-display);color:var(--gx-good);text-shadow:0 2px 14px #000a;animation:gx-gym-pop 2.4s var(--gx-ease,ease) both}.gx-gym-feed b[data-kind=figure8]{color:var(--gx-hot);font-size:34px}.gx-gym-feed b[data-kind=cone]{color:var(--gx-bad)}.gx-gym-feed b[data-kind=chain]{color:var(--gx-cool);font-size:18px}
+@keyframes gx-gym-pop{0%{opacity:0;transform:scale(1.4)}10%{opacity:1;transform:none}80%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.gx-gym-results{position:fixed;inset:0;z-index:40;display:grid;place-content:center;justify-items:center;gap:10px;background:radial-gradient(ellipse at center,#07080ae6,#07080aa6);text-align:center;color:var(--gx-ink)}.gx-gym-results[hidden]{display:none}
+.gx-gym-kicker{margin:0;font:800 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-mute)}.gx-gym-results h2{margin:0;font:italic 900 clamp(64px,10vw,120px)/.9 var(--gx-display)}
+.gx-gym-medal{margin:0;font:800 14px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gx-mute)}.gx-gym-medal[data-medal=gold]{color:#ffd23c}.gx-gym-medal[data-medal=silver]{color:#d6dbe0}.gx-gym-medal[data-medal=bronze]{color:#d58a4c}
+.gx-gym-results dl{display:flex;gap:26px;margin:10px 0 0}.gx-gym-results dt{font:800 10px/1 var(--gx-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gx-mute)}.gx-gym-results dd{margin:6px 0 0;font:italic 800 26px/1 var(--gx-display)}
+.gx-gym-best{margin:0;font:700 13px/1 var(--gx-body);color:var(--gx-good)}.gx-gym-actions{display:flex;gap:12px;margin-top:10px}.gx-gym-actions button{min-height:48px;padding:0 22px;border:1px solid var(--gx-edge-2);background:var(--gx-glass-2);color:var(--gx-ink);font:800 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}.gx-gym-actions button.is-primary{background:var(--gx-red);border-color:var(--gx-red)}
+body.race-film-active .gx-gym,body.gx-photo .gx-gym{display:none}
+@media(prefers-reduced-motion:reduce){.gx-gym-feed b{animation:none}}
+/* Gymkhana mode: lap, race clock, course title and circuit map mean nothing on the lot. */
+body.gx-gymkhana-mode .race-course-title,body.gx-gymkhana-mode .race-timing{visibility:hidden!important}body.gx-gymkhana-mode .race-route-aid{display:none!important}

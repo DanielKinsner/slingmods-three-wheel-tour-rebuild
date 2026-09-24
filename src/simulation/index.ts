@@ -283,6 +283,14 @@ export class RaceWorld {
  readonly rubbing:{a:string;b:string;x:number;y:number;z:number}[]=[];
  setRacecraft(options:{slipstream?:boolean;rubbing?:boolean}){this.racecraft={...this.racecraft,...options};if(!this.racecraft.slipstream)for(const car of this.participants.values())car.setDraft(0)}
  draftOf(id:string){return this.participants.get(id)?.draftShare??0}
+ /** Adds an area to an already built course (the Gymkhana Lot): extra yaw-only box colliders, and a surface override that
+  *  wins where it returns a value. The course's own geometry and surfaces are untouched everywhere else. */
+ extendEnvironment(extra:{obstacles?:EnvironmentDefinition['obstacles'];surface?:(x:number,z:number)=>ReturnType<EnvironmentDefinition['surfaceAt']>|null}){
+  const env=this.environment as {obstacles:EnvironmentDefinition['obstacles'];surfaceAt:EnvironmentDefinition['surfaceAt']};
+  for(const box of extra.obstacles??[])this.world.createCollider(RAPIER.ColliderDesc.cuboid(box.size[0]/2,box.size[1]/2,box.size[2]/2).setTranslation(box.center[0],box.center[1],box.center[2]).setRotation({x:0,y:Math.sin((box.yaw??0)/2),z:0,w:Math.cos((box.yaw??0)/2)}).setFriction(0.45));
+  if(extra.obstacles?.length)env.obstacles=[...env.obstacles,...extra.obstacles];
+  if(extra.surface){const base=env.surfaceAt.bind(env),over=extra.surface;env.surfaceAt=(x,z)=>over(x,z)??base(x,z)}
+ }
  get scrapeCount(){return this.scrapes}
  steps=0;private disposed=false;private initialized=false;
  static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT,profileId:HandlingProfileId='legacy-p08a'){initialized??=RAPIER.init();await initialized;return new RaceWorld(environment,profileId)}
