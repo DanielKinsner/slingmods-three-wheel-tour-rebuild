@@ -5,17 +5,17 @@ export interface PadSample {index:number;id:string;connected:boolean;mapping:str
 export interface DeviceSample {keys:ReadonlySet<string>;pads:readonly (PadSample|null)[];focused:boolean;pressedKeys?:ReadonlySet<string>;keyboardResetSince?:number}
 export type DeviceReader=()=>DeviceSample;
 type Action='camera'|'lookBack'|'direction'|'reset'|'pause';
-type Intent={throttle:number;brake:number;steer:number;handbrake:number;actions:Record<Action,boolean>};
+type Intent={throttle:number;brake:number;steer:number;handbrake:number;horn:boolean;actions:Record<Action,boolean>};
 const keyActions={camera:'KeyC',lookBack:'KeyB',direction:'KeyX',reset:'KeyR',pause:'Escape'} as const;
 const actions:Action[]=['camera','lookBack','direction','reset','pause'];
 const finite=(v:number)=>Number.isFinite(v)?v:0;
 const clamp=(v:number,min=0,max=1)=>Math.min(max,Math.max(min,finite(v)));
 export function stickSteering(x:number){const a=Math.abs(clamp(x,-1,1));return a<=INPUT_TUNING.steeringDeadzone?0:-Math.sign(x)*((a-INPUT_TUNING.steeringDeadzone)/(1-INPUT_TUNING.steeringDeadzone))**INPUT_TUNING.steeringExponent}
-const empty=():Intent=>({throttle:0,brake:0,steer:0,handbrake:0,actions:{camera:false,lookBack:false,direction:false,reset:false,pause:false}});
+const empty=():Intent=>({throttle:0,brake:0,steer:0,handbrake:0,horn:false,actions:{camera:false,lookBack:false,direction:false,reset:false,pause:false}});
 const neutral=(i:Intent)=>Math.abs(i.steer)<1e-8&&i.throttle<=INPUT_TUNING.triggerNeutral&&i.brake<=INPUT_TUNING.triggerNeutral&&i.handbrake<=INPUT_TUNING.triggerNeutral&&!actions.some(a=>i.actions[a]);
 const meaningful=(i:Intent)=>!neutral(i);
-function keyboard(keys:ReadonlySet<string>):Intent{const i=empty();i.throttle=Number(keys.has('KeyW')||keys.has('ArrowUp'));i.brake=Number(keys.has('KeyS')||keys.has('ArrowDown'));i.steer=Number(keys.has('KeyA')||keys.has('ArrowLeft'))-Number(keys.has('KeyD')||keys.has('ArrowRight'));i.handbrake=Number(keys.has('Space'));for(const [a,k]of Object.entries({camera:'KeyC',lookBack:'KeyB',direction:'KeyX',reset:'KeyR',pause:'Escape'}))i.actions[a as Action]=keys.has(k);return i}
-function padIntent(p:PadSample):Intent{const i=empty();i.steer=stickSteering(p.axes[0]);i.throttle=clamp(p.buttons[7]?.value);i.brake=clamp(p.buttons[6]?.value);i.handbrake=clamp(p.buttons[2]?.value)||Number(p.buttons[2]?.pressed===true);for(const [a,b]of Object.entries({camera:3,lookBack:4,direction:1,reset:0,pause:9}))i.actions[a as Action]=p.buttons[b]?.pressed===true||clamp(p.buttons[b]?.value)>.5;return i}
+function keyboard(keys:ReadonlySet<string>):Intent{const i=empty();i.throttle=Number(keys.has('KeyW')||keys.has('ArrowUp'));i.brake=Number(keys.has('KeyS')||keys.has('ArrowDown'));i.steer=Number(keys.has('KeyA')||keys.has('ArrowLeft'))-Number(keys.has('KeyD')||keys.has('ArrowRight'));i.handbrake=Number(keys.has('Space'));i.horn=keys.has('KeyH');for(const [a,k]of Object.entries({camera:'KeyC',lookBack:'KeyB',direction:'KeyX',reset:'KeyR',pause:'Escape'}))i.actions[a as Action]=keys.has(k);return i}
+function padIntent(p:PadSample):Intent{const i=empty();i.steer=stickSteering(p.axes[0]);i.throttle=clamp(p.buttons[7]?.value);i.brake=clamp(p.buttons[6]?.value);i.handbrake=clamp(p.buttons[2]?.value)||Number(p.buttons[2]?.pressed===true);i.horn=p.buttons[5]?.pressed===true||clamp(p.buttons[5]?.value)>.5;for(const [a,b]of Object.entries({camera:3,lookBack:4,direction:1,reset:0,pause:9}))i.actions[a as Action]=p.buttons[b]?.pressed===true||clamp(p.buttons[b]?.value)>.5;return i}
 const changed=(a:Intent,b:Intent)=>Math.max(Math.abs(a.steer-b.steer),Math.abs(a.throttle-b.throttle),Math.abs(a.brake-b.brake),Math.abs(a.handbrake-b.handbrake))>INPUT_TUNING.activityDelta;
 export class InputResolver {
  constructor(readonly profileId:HandlingProfileId='legacy-p08a'){}
@@ -57,7 +57,7 @@ export class InputResolver {
   }else this.holdStart=undefined;
   return this.output(intent,camera,reset);
  }
- private output(i:Intent,camera:boolean,reset:boolean){const enabled=this.armed&&!this.paused;const reversePedals=this.profileId!=='legacy-p08a'&&this.reverse&&this.automaticReverse;const control:VehicleControl={throttle:enabled?(reversePedals?i.brake:i.throttle):0,brake:enabled?(reversePedals?i.throttle:i.brake):0,steer:enabled?i.steer:0,reverse:this.reverse,tractionControl:true,...(enabled&&i.handbrake>0&&!this.reverse?{handbrake:i.handbrake}:{})};return {control,direction:this.reverse?'R':'D',directionHelp:this.profileId!=='legacy-p08a'?'Stop, release pedals, then press brake for reverse. Forward pedal brakes reverse; release and press again to drive. X/right face selects direction explicitly.':'X / right face selects direction',paused:this.paused,armed:this.armed,activeDevice:this.activeDevice,status:this.status,camera,reset,lookBack:enabled&&i.actions.lookBack,resetProgress:this.holdStart===undefined?0:Math.min(1,(this.lastNow-this.holdStart)/INPUT_TUNING.resetHoldMs)}}
+ private output(i:Intent,camera:boolean,reset:boolean){const enabled=this.armed&&!this.paused;const reversePedals=this.profileId!=='legacy-p08a'&&this.reverse&&this.automaticReverse;const control:VehicleControl={throttle:enabled?(reversePedals?i.brake:i.throttle):0,brake:enabled?(reversePedals?i.throttle:i.brake):0,steer:enabled?i.steer:0,reverse:this.reverse,tractionControl:true,...(enabled&&i.handbrake>0&&!this.reverse?{handbrake:i.handbrake}:{})};return {control,direction:this.reverse?'R':'D',directionHelp:this.profileId!=='legacy-p08a'?'Stop, release pedals, then press brake for reverse. Forward pedal brakes reverse; release and press again to drive. X/right face selects direction explicitly.':'X / right face selects direction',paused:this.paused,armed:this.armed,activeDevice:this.activeDevice,status:this.status,camera,reset,lookBack:enabled&&i.actions.lookBack,horn:enabled&&i.horn,resetProgress:this.holdStart===undefined?0:Math.min(1,(this.lastNow-this.holdStart)/INPUT_TUNING.resetHoldMs)}}
 }
 
 /** Browser key events outlive a slow rendering frame; holds remain tied to actual down/up. */

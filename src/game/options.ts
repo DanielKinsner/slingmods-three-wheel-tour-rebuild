@@ -31,7 +31,7 @@ const MOTION_KEY='slingmods-signature-motion',FILMS_KEY='slingmods-race-films';
 const get=(k:string)=>{try{return localStorage.getItem(k)}catch{return null}};
 const set=(k:string,v:string)=>{try{localStorage.setItem(k,v)}catch{/* private mode: session only */}};
 const CONTROLS:[string,string,string][]=[
- ['Throttle','W / ↑','RT'],['Brake · reverse','S / ↓','LT'],['Steer','A D / ← →','Left stick'],['Camera','C','Y'],['Look back (hold)','B','LB'],['Handbrake drift (hold, Quick Race)','Space','X'],['Drive / reverse','X','B'],['Reset to road (hold)','R','A'],['Pause','Esc','Menu'],
+ ['Throttle','W / ↑','RT'],['Brake · reverse','S / ↓','LT'],['Steer','A D / ← →','Left stick'],['Camera','C','Y'],['Look back (hold)','B','LB'],['Handbrake drift (hold, Quick Race)','Space','X'],['Horn','H','RB'],['Drive / reverse','X','B'],['Reset to road (hold)','R','A'],['Pause','Esc','Menu'],
  ['Select','Enter','A'],['Back','Esc','B'],['Switch tabs','Q / E','LB / RB'],['Options','O','View']
 ];
 let open:HTMLElement|null=null,returnFocus:HTMLElement|null=null,tab:Tab='audio',padToken=0,inerted:HTMLElement[]=[];
