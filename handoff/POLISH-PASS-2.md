@@ -18,10 +18,7 @@ production build before the push. All pushed to main (deploys the Vercel game).
 
 ## Skipped, with reasons
 
-- **Sustained performance measurement (HOLD):** not run. The PC was being remote-controlled (screen capture
-  and streaming) with Chrome open, which contaminates GPU timing. Run `scripts/perf/sustained.mjs high
-  uncapped harbor` from a packaged build (`npm run demo:build`, `node scripts/serve-demo.mjs`) on an idle PC.
-  Draw calls went down across both passes; no frame-time claim is made.
+- **Sustained performance measurement:** run afterwards once the PC was free (see the section below).
 - **Slingshot tyre sidewall lettering:** the tyre has no sidewall UV space. Lettering needs a shader patch
   that would collide with the vehicle-surface system, or extra draws. Not worth it vs the HOLD gate.
 - The historical proof scripts `scripts/p08b-departure-proof.mjs`, `p08b-recovery-check.mjs` and
@@ -36,5 +33,29 @@ production build before the push. All pushed to main (deploys the Vercel game).
 3. Showroom, Ryker, Front view: the lamps look like lenses, not white paint.
 4. Any drive: the rider wears gloves and no neck skin shows. At night the white lines don't glow.
 5. Smoky Ridge: the hillside beside the start line has no crack.
+
+## Sustained performance (run 2026-09-24, packaged build `49aadf797022`, Harbor, uncapped)
+
+PC otherwise idle (no remote session); the owner's Chrome was open. Two complete races per preset, all four
+finishers, no stalls removed. Raw evidence (local only): `.tools/polish2-high-20260924/`, `.tools/polish2-ultra-20260924/`.
+
+| Pooled | High (dynamic res.) | Ultra (full res.) | Gate | Previous High / Ultra (QUALITY-AND-PERFORMANCE.md) |
+|---|---:|---:|---:|---:|
+| Average frame | 11.91 ms (83.9 FPS) | 13.77 ms (72.6 FPS) | High <= 10 | 20.87 / 31.55 ms |
+| Worst 1% | 35.06 ms | 41.17 ms | High <= 16.6 | 100.64 / 218.70 ms |
+| p95 | 19.5 ms | 29.4 ms | <= 20 | - |
+| p99 | 30.9 ms | 36.6 ms | <= 33.4 | - |
+| Max | 46.1 ms | 47.1 ms | <= 100 | 468 / 641 ms |
+| Frames > 100 ms | 0 | 0 | | many |
+
+**Verdict: HOLD remains.** High passes p95/p99/max pooled (attempt 2 alone misses p95 by 0.2 ms) but misses the
+10 ms average and 16.6 ms worst-1% budgets. Ultra misses p95 and p99. Both are far better than the last recorded
+runs (roughly 2x average, no 100 ms+ stalls), but the cause can't be separated: the fleet-render CPU work
+(`d4446dc`), this pass, and a quieter machine all differ.
+
+Observation for the next performance step: High's dynamic resolution still sits near its 0.6 floor (average
+0.63), yet full-resolution Ultra is only ~1.9 ms slower. Frames are CPU-bound (draw submission), so dropping
+resolution buys little and costs sharpness. A GPU-aware resolution controller, or cutting draw calls further,
+would be the next lever.
 
 Verification at the end: 499/499 tests, build passes, main == origin/main.

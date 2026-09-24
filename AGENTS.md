@@ -4,7 +4,8 @@ Follow-up to the visual polish pass, owner-authorized and pushed to main. Read `
 The Ridge start-line step is now fixed in physics (off-road only; road heights bit-identical, tested).
 Also: garage vehicle sync, Slingshot calipers and console icons, rider gloves/balaclava, lamp lenses,
 floor moire, road paint, back-button wording. Editing slingshot-2026.glb requires the SM-133 refit (see doc).
-Performance HOLD remains; the sustained run was skipped (PC not idle). Earlier headers below are history.
+Sustained run (idle PC): High 11.9 ms / Ultra 13.8 ms average, no 100 ms stalls, but HOLD remains (see doc).
+Earlier headers below are history.
 
 ---
 # Visual polish pass (2026-09-23)
