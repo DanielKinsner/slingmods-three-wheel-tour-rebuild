@@ -24,7 +24,7 @@ export class WetReflection {
  private tag(scene:THREE.Scene){
   // Re-tagged about every two seconds so parts fitted later (products, rivals) join without any caller bookkeeping. Lights
   // are tested against camera layers too, so every light joins the layer or the reflected cars would be unlit.
-  for(const root of this.tagged)root.traverse(o=>o.layers.enable(WET_REFLECTION_LAYER));for(const root of this.untagged)root.traverse(o=>o.layers.disable(WET_REFLECTION_LAYER));scene.traverse(o=>{if((o as THREE.Light).isLight)o.layers.enable(WET_REFLECTION_LAYER)});this.age=0;
+  for(const root of this.tagged)root.traverse(o=>{if(o.userData.reflectionExclude)o.layers.disable(WET_REFLECTION_LAYER);else o.layers.enable(WET_REFLECTION_LAYER)});for(const root of this.untagged)root.traverse(o=>o.layers.disable(WET_REFLECTION_LAYER));scene.traverse(o=>{if((o as THREE.Light).isLight)o.layers.enable(WET_REFLECTION_LAYER)});this.age=0;
  }
  render(scene:THREE.Scene,camera:THREE.PerspectiveCamera){
   const renderer=this.renderer;if(++this.age>120)this.tag(scene);
