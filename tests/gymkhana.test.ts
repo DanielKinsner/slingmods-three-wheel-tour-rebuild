@@ -29,3 +29,9 @@ test('the lot is added to a built world: asphalt inside, the course untouched ou
  assert.equal(world.environment.surfaceAt(LOT.cx,LOT.cz).id,'asphalt');assert.deepEqual(world.environment.surfaceAt(LOT.cx+LOT.w,LOT.cz),outside);
  assert.equal(world.environment.obstacles.length,before+6,'4 barrier walls + 2 poles');assert.equal(EXPRESS_ROUTE.colliders.length,before,'the shared route data is not mutated');world.dispose();
 });
+test('the deployed (visitor) build keeps the Gymkhana Lot and Cargo Run links',async()=>{
+ const {visitorSearch}=await import('../src/demo/profile');
+ const gym=new URLSearchParams(visitorSearch('?scene=express&route=express&mode=test&gymkhana=1&play=preview'));assert.equal(gym.get('gymkhana'),'1');
+ assert.equal(new URLSearchParams(visitorSearch('?scene=express&route=harbor&mode=test&challenge=harbor-cargo')).get('challenge'),'harbor-cargo');
+ assert.equal(new URLSearchParams(visitorSearch('?gymkhana=2')).get('gymkhana'),null,'only the known value');
+});
