@@ -259,3 +259,18 @@ html.gx body .signature-ui .sig-destination-light button[aria-pressed=true]{colo
  html.gx body .sig-bottom .sig-test-drive span{font-size:20px}
  html.gx body .sig-bottom .sig-test-drive small{display:none}
 }
+
+/* ---------- Phase 3 motion: the showroom panel is morphed in place (src/game/morph.ts), so state changes animate ---------- */
+html.gx body .signature-ui :is(button,a,.sig-finishes i){transition:background-color var(--gx-t-fast) var(--gx-ease),border-color var(--gx-t-fast) var(--gx-ease),color var(--gx-t-fast) var(--gx-ease),box-shadow var(--gx-t-fast) var(--gx-ease),transform var(--gx-t-fast) var(--gx-ease),opacity var(--gx-t-fast) var(--gx-ease)}
+html.gx body .signature-ui button[data-pop]{animation:gx-press-pop var(--gx-t-fast) var(--gx-ease)}
+html.gx body .signature-ui .sig-finishes button[aria-pressed=true] i{transform:scale(1.06)}
+html.gx body .signature-ui [data-enter]{animation:gx-morph-in var(--gx-t-fast) var(--gx-ease) both}
+html.gx body .signature-ui .sig-detail[data-enter]{animation:gx-panel-in .24s var(--gx-ease) both}
+html.gx body .signature-ui .sig-detail[data-enter]>*{animation:gx-morph-in .24s var(--gx-ease) both}
+html.gx body .signature-ui .sig-detail[data-enter]>*:nth-child(2){animation-delay:20ms}html.gx body .signature-ui .sig-detail[data-enter]>*:nth-child(3){animation-delay:40ms}html.gx body .signature-ui .sig-detail[data-enter]>*:nth-child(4){animation-delay:60ms}html.gx body .signature-ui .sig-detail[data-enter]>*:nth-child(5){animation-delay:80ms}html.gx body .signature-ui .sig-detail[data-enter]>*:nth-child(n+6){animation-delay:100ms}
+html.gx body .signature-ui .sig-status{transition:opacity var(--gx-t) var(--gx-ease)}
+@keyframes gx-morph-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes gx-panel-in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@keyframes gx-press-pop{0%{transform:scale(.97)}60%{transform:scale(1.015)}100%{transform:none}}
+html.gx body .signature-ui[data-reduced-motion=true] :is([data-enter],[data-enter]>*,[data-pop]){animation:none}
+html.gx body .signature-ui[data-reduced-motion=true] :is(button,a,.sig-finishes i){transition:none}
