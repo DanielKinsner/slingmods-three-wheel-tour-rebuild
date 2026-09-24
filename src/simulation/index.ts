@@ -54,6 +54,8 @@ export class Simulation {
    *  a boost. Off by default, so career events, time trials and recorded runs never see it. */
   enableDrift(on:boolean){this.driftState={...this.driftState,enabled:on,active:false,charge:0,tier:0,boostLeft:0};if(!on)this.driftState.handbrake=0}
   drift():Readonly<DriftState>{return this.driftState}
+  /** Arcade layer only: a boost that is not from a drift (a perfect start). Ignored when the layer is off. */
+  grantBoost(seconds:number){if(this.driftState.enabled)this.driftState.boostLeft=Math.max(this.driftState.boostLeft,seconds)}
   /** The chassis is touching something that is not the road surface (a wall, a barrier, another car). */
   private struck(){let hit=false;for(let i=0;i<this.body.numColliders()&&!hit;i++){const c=this.body.collider(i);this.world.contactPairsWith(c,other=>{if(hit||other.shape.type===RAPIER.ShapeType.TriMesh)return;this.world.contactPair(c,other,m=>{if(m.numContacts()>0)hit=true})})}return hit}
   private emitDrift(event:'tier'|'boost'|'forfeit',tier:number){const d=this.driftState;d.event=event;d.eventTier=tier;d.eventCount++}

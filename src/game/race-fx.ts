@@ -66,7 +66,9 @@ export class RaceFX {
   }
   this.lastSpeed=Math.abs(t.speed);this.lastSpeedAt=now;
  }
- private judgeLaunch(ms:number){this.launchJudged=true;if(ms>450||ms<-350)return;this.launch={kind:ms<=200?'perfect':'great',ms};if(this.launch.kind==='perfect')countMoment('perfectStarts');
+ /** Launch judged (the race host turns a good start into a boost in arcade races). */
+ onLaunch?:(kind:'perfect'|'great')=>void;
+ private judgeLaunch(ms:number){this.launchJudged=true;if(ms>450||ms<-350)return;this.launch={kind:ms<=200?'perfect':'great',ms};if(this.launch.kind==='perfect')countMoment('perfectStarts');this.onLaunch?.(this.launch.kind);
   const kind=this.launch.kind,text=ms<=0?'ON THE GREEN':`REACTION ${(ms/1000).toFixed(2)} S`;
   // The start lights stay up for 1.1 s after GO; the call-out waits for them so the two never overlap.
   setTimeout(()=>{if(this.finished)return;this.banner(`<b>${kind==='perfect'?'PERFECT START':'GREAT START'}</b><span>${text}</span>`,kind==='perfect'?'is-launch is-gold':'is-launch',1500);gameCue(kind==='perfect'?'gx.record':'gx.pos-up');if(kind==='perfect')pulse(.4,.7,160)},Math.max(0,1150-(performance.now()-this.goAt)))}

@@ -66,6 +66,7 @@ import {COLORS,type Appearance} from './career/catalog';
 import {SlipstreamHud} from './game/slipstream-hud';
 import {DriftHud} from './game/drift-hud';
 import {DriftSparks} from './presentation/drift-sparks';
+import {gameCue} from './game/audio-bus';
 import {loadSave,writeSave,browserStorage} from './save';
 import {pageActive} from './demo/recovery';
 import {evidenceEnabled} from './demo/profile';
@@ -126,6 +127,8 @@ const scrapePoint=new THREE.Vector3(),scrapeVelocity=new THREE.Vector3();
 // challenges keep honest records, so the handbrake does nothing there.
 const arcade=!careerRace&&!trial&&!challengeDef;if(arcade)world.get('player').enableDrift(true);
 const driftHud=lifetime.own(new DriftHud(),v=>v.dispose()),driftSparks=lifetime.own(new DriftSparks(scene),v=>v.dispose());let driftHinted=false;
+// Perfect / great start (judged by the race effects) pays a short boost in arcade races; career races keep the accolade only.
+const launchBoost=(kind:'perfect'|'great')=>{if(!arcade)return;const seconds=kind==='perfect'?.6:.3;world.get('player').grantBoost(seconds);effects.boostFlame('player',seconds);gameCue('gx.whoosh')};
 let driftClock=performance.now(),driftEvents=0,driftTier=0,driftBlur=0;const driftAt=new THREE.Vector3(),driftVel=new THREE.Vector3(),driftQ=new THREE.Quaternion();
 const TIER_GLOW:Appearance['color'][]=['white','white','amber','red'],glowFitted=hero.asset.getObjectByName('ryker_foundation')?!!recipe.ryker?.underglow:!!recipe.products['SM-133'];
 const updateDrift=()=>{const now=performance.now(),dt=session.input.paused?0:Math.min(.1,(now-driftClock)/1000);driftClock=now;const car=world.get('player'),d=car.drift(),t=car.telemetry(),w=t.wheels[2];driftHud.update(d);if(!driftHinted&&race.snapshot().phase==='running'){driftHinted=true;driftHud.hint()}
@@ -161,7 +164,7 @@ const seriesRun=seriesRace?new SeriesRun(r=>{const q=new URLSearchParams({scene:
 const ui=new CrewUI(app,menuAction,false,{title:careerRace?.title??(trial?'Time Attack · ':'')+(ridge?'Smoky Ridge':express?'Harbor Express':'Original Harbor'),subtitle:careerRace?.subtitle??(free?'Unscored build test':trial?'One standing-start lap. Beat the medal times, then beat your ghost':'Quick race / 1 lap / Rivals: '+DIFFICULTY_LABEL[difficulty()])+' / '+(ridge?(preset==='day'?'Late afternoon':'Blue hour'):activeLook.label),preview:!careerRace,career:!!careerRace,freeDrive:free,trial,route});
 // Game-feel layer over the HUD: start lights, callouts, splits, finish slam and results tally (presentation only).
 const touch=!attractMode&&touchDriveWanted()?lifetime.own(new TouchDrive(document.body),v=>v.dispose()):undefined;
-const raceFx=new RaceFX(ui.root,{freeDrive:free,trial,vehicle:recipe.vehicleId,route});lifetime.own(raceFx,v=>v.dispose());
+const raceFx=new RaceFX(ui.root,{freeDrive:free,trial,vehicle:recipe.vehicleId,route});lifetime.own(raceFx,v=>v.dispose());raceFx.onLaunch=kind=>launchBoost(kind);
 // Photo mode from the pause menu: free orbit around the paused car, lens control, PNG capture of the rendered frame.
 // Photo mode may try underglow colours on the photo only; leaving restores the build's own lighting.
 const photoGlow=()=>{const ryker=!!hero.asset.getObjectByName('ryker_foundation'),fitted=ryker?!!recipe.ryker?.underglow:hero.asset.getObjectByName('spyder_foundation')?!!recipe.spyder?.parts.underglow:!!recipe.products['SM-133'];if(!fitted)return undefined;
