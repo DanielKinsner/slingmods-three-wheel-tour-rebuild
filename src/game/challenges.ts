@@ -7,6 +7,8 @@ import {MEDALS,type Medal} from './time-attack';
  *  - sprint: standing start, reach the gate fastest (time, lower is better)
  *  - trap:   standing start, carry the most speed through the speed trap (m/s, higher is better)
  *  - brake:  standing start, reach the box inside the time limit and stop in it (metres from the line, lower is better)
+ *  - cargo:  a sprint carrying loose crates: sustained hard braking or cornering spills one (+2 s each). Fitted Slingshot
+ *            storage bags (SM-28919) keep the load secured, so the product is felt, not just listed.
  * Runs happen in the free-drive mode with the car placed at the challenge start; the judge only reads telemetry, so
  * physics, race rules and the career are untouched. Targets are measured, not invented: `scripts/game-feel/challenge-targets.ts`
  * runs the crew AI, Jett at raised pace scales (1.1-1.3) and Jett's steering at full throttle, and the best run that stays
@@ -14,21 +16,26 @@ import {MEDALS,type Medal} from './time-attack';
  * or 0.96 / 0.90 / 0.80 of its trap speed (traps sit just after corners, so exit speed matters). Brake limits sit between
  * the committed late-braking runs of `challenge-brake-limits.ts`. Results live in their own local key.
  */
-export type ChallengeKind='sprint'|'trap'|'brake';
+export type ChallengeKind='sprint'|'trap'|'brake'|'cargo';
 export type ChallengeRoute='harbor'|'express'|'ridge';
 export interface Challenge {id:string;route:ChallengeRoute;kind:ChallengeKind;title:string;brief:string;
  /** Start and target stations along the course (m); `end` is the gate, the trap or the box line. May wrap past the lap line. */
  start:number;end:number;
  /** brake only: time to stop in the box (ms). */
  limitMs?:number;
+ /** cargo only: crates carried. */
+ crates?:number;
  /** Medal thresholds: ms (sprint), m/s (trap), metres (brake). */
  targets:Record<Medal,number>}
-export const BOX_HALF=4,KIND_LABEL:Record<ChallengeKind,string>={sprint:'SPRINT',trap:'SPEED TRAP',brake:'BRAKE TEST'};
+export const BOX_HALF=4,KIND_LABEL:Record<ChallengeKind,string>={sprint:'SPRINT',trap:'SPEED TRAP',brake:'BRAKE TEST',cargo:'CARGO RUN'};
+/** Cargo: a crate spills after this much sustained horizontal acceleration (about 0.75 g for 0.2 s), 1.2 s apart. */
+export const CARGO={spillAccel:7.4,holdS:.2,cooldownS:1.2,penaltyMs:2000,smoothingS:.12} as const;
 
 export const CHALLENGES:readonly Challenge[]=[
  {id:'harbor-brake',route:'harbor',kind:'brake',title:'Harbor Brake Test',brief:'Launch down the start straight and stop with your nose on the line. The box is 150 m ahead.',start:0,end:150,limitMs:11500,targets:{slingmods:.3,gold:.9,silver:2,bronze:BOX_HALF}},
  {id:'harbor-sprint',route:'harbor',kind:'sprint',title:'Waterfront Sprint',brief:'The tight middle of the harbor: 700 m of 90-degree corners. Brake early, clip the apex, go.',start:200,end:900,targets:{slingmods:35000,gold:36400,silver:39200,bronze:43700}},
  {id:'harbor-trap',route:'harbor',kind:'trap',title:'Seawall Speed Trap',brief:'Thread the last tight corners, then carry every mph you can onto the back straight and through the trap.',start:700,end:1020,targets:{slingmods:33.9,gold:32.5,silver:30.5,bronze:27.1}},
+ {id:'harbor-cargo',route:'harbor',kind:'cargo',title:'Waterfront Cargo Run',brief:'Four crates, loose in the back, through the waterfront corners. Brake or corner too hard and one spills (+2 s). Fitted storage bags keep the load secured.',start:200,end:900,crates:4,targets:{slingmods:35000,gold:36400,silver:39200,bronze:43700}},
  {id:'express-trap',route:'express',kind:'trap',title:'Coastal Exit Trap',brief:'A fast sweeper onto the coastal straight. The earlier you get back on the throttle, the faster the trap.',start:900,end:1450,targets:{slingmods:46.5,gold:44.6,silver:41.8,bronze:37.2}},
  {id:'express-brake',route:'express',kind:'brake',title:'Coastal Brake Test',brief:'Full throttle for 260 m, then stop inside the box. Carry speed: the clock is tight.',start:1240,end:1500,limitMs:15000,targets:{slingmods:.3,gold:.9,silver:2,bronze:BOX_HALF}},
  {id:'express-sprint',route:'express',kind:'sprint',title:'Harbor Esses',brief:'Six hundred metres of linked bends back to the line. Smooth is fast.',start:1700,end:2300,targets:{slingmods:22300,gold:23200,silver:25000,bronze:27900}},
@@ -40,7 +47,7 @@ export const challengeById=(id:string|null|undefined)=>CHALLENGES.find(c=>c.id==
 export const betterIsLower=(k:ChallengeKind)=>k!=='trap';
 export function challengeMedal(c:Challenge,value:number):Medal|null{return MEDALS.find(m=>betterIsLower(c.kind)?value<=c.targets[m]:value>=c.targets[m])??null}
 export function formatValue(c:Challenge,value:number,units:'mph'|'kmh'='mph'){
- if(c.kind==='sprint'){const s=value/1000,m=Math.floor(s/60);return m?`${m}:${(s-m*60).toFixed(3).padStart(6,'0')}`:`${s.toFixed(3)} s`}
+ if(c.kind==='sprint'||c.kind==='cargo'){const s=value/1000,m=Math.floor(s/60);return m?`${m}:${(s-m*60).toFixed(3).padStart(6,'0')}`:`${s.toFixed(3)} s`}
  if(c.kind==='trap')return units==='kmh'?`${(value*3.6).toFixed(1)} km/h`:`${(value*2.23694).toFixed(1)} mph`;
  return `${value.toFixed(2)} m`;
 }
@@ -48,16 +55,17 @@ export function formatValue(c:Challenge,value:number,units:'mph'|'kmh'='mph'){
 export function stationPose(route:CourseRoute,station:number){const p=sampleRoad(route,station);return {x:p.x,y:p.y===undefined?route.start.y:p.y+.025,z:p.z,yaw:Math.atan2(-p.dx,-p.dz),...(p.dy===undefined?{}:{pitch:Math.atan(p.dy)})}}
 
 export type JudgePhase='ready'|'running'|'done'|'failed';
-export interface JudgeState {phase:JudgePhase;elapsedMs:number;travelled:number;toGo:number;speed:number;value:number|null;medal:Medal|null;reason:string}
+export interface JudgeState {phase:JudgePhase;elapsedMs:number;travelled:number;toGo:number;speed:number;value:number|null;medal:Medal|null;reason:string;spills:number;secured:boolean}
 /**
  * Pure run judge over telemetry. The clock starts on the first movement (drag-strip style rollout), progress is
  * unwrapped along the course so lap-line crossings work, and leaving the road, turning back or a recovery jump fails.
  */
 export class ChallengeJudge {
+ private spills=0;private accel=0;private over=0;private lastSpill=-Infinity;private lastVel:{x:number;z:number;t:number}|null=null;
  private phase:JudgePhase='ready';private t0=0;private lastT=0;private prog=0;private travelled=0;private value:number|null=null;private reason='';private lastPos:{x:number;z:number}|null=null;private speed=0;private peak=0;
- constructor(private route:CourseRoute,readonly challenge:Challenge){}
+ constructor(private route:CourseRoute,readonly challenge:Challenge,readonly secured=false){}
  get length(){const L=this.route.length;return ((this.challenge.end-this.challenge.start)%L+L)%L||L}
- reset(){this.phase='ready';this.t0=0;this.travelled=0;this.value=null;this.reason='';this.lastPos=null;this.peak=0}
+ reset(){this.spills=0;this.accel=0;this.over=0;this.lastSpill=-Infinity;this.lastVel=null;this.phase='ready';this.t0=0;this.travelled=0;this.value=null;this.reason='';this.lastPos=null;this.peak=0}
  update(t:VehicleTelemetry):JudgeState{
   const c=this.challenge,L=this.route.length,pr=projectRoad(this.route,t.position.x,t.position.z);this.speed=Math.abs(t.speed);
   if(this.phase==='ready'){this.prog=pr.progress;this.lastPos={x:t.position.x,z:t.position.z};const moved=this.speed>.6;if(moved){this.phase='running';this.t0=t.time;this.travelled=0}}
@@ -69,6 +77,7 @@ export class ChallengeJudge {
    else if(pr.distance>this.route.width/2+this.route.runoff+1.5)this.fail('Off course');
    else if(this.travelled<-6)this.fail('Wrong way');
    else if(c.kind==='sprint'&&this.travelled>=goal)this.finish(elapsed);
+   else if(c.kind==='cargo'){this.cargo(t);if(this.travelled>=goal)this.finish(elapsed+this.spills*CARGO.penaltyMs)}
    else if(c.kind==='trap'&&this.travelled>=goal)this.finish(this.speed);
    else if(c.kind==='brake'){
     if(this.travelled>goal+BOX_HALF)this.fail('Overshot the box');
@@ -79,9 +88,16 @@ export class ChallengeJudge {
   }
   this.lastT=t.time;return this.state();
  }
+ /** Smoothed horizontal acceleration from the car's own velocity; sustained hard driving spills a crate. */
+ private cargo(t:VehicleTelemetry){
+  const v={x:t.velocity.x,z:t.velocity.z,t:t.time},last=this.lastVel;this.lastVel=v;if(!last)return;const dt=v.t-last.t;if(dt<=0)return;
+  const a=Math.hypot(v.x-last.x,v.z-last.z)/dt,k=Math.min(1,dt/CARGO.smoothingS);this.accel+=(a-this.accel)*k;
+  if(this.secured||this.spills>=(this.challenge.crates??4))return;
+  this.over=this.accel>CARGO.spillAccel?this.over+dt:0;if(this.over>=CARGO.holdS&&v.t-this.lastSpill>=CARGO.cooldownS){this.spills++;this.lastSpill=v.t;this.over=0}
+ }
  private finish(v:number){this.phase='done';this.value=v}
  private fail(reason:string){this.phase='failed';this.reason=reason}
- state():JudgeState{const elapsed=this.phase==='ready'?0:(this.lastT-this.t0)*1000;return {phase:this.phase,elapsedMs:elapsed,travelled:this.travelled,toGo:this.length-this.travelled,speed:this.speed,value:this.value,medal:this.value===null?null:challengeMedal(this.challenge,this.value),reason:this.reason}}
+ state():JudgeState{const elapsed=this.phase==='ready'?0:(this.lastT-this.t0)*1000;return {phase:this.phase,elapsedMs:elapsed,travelled:this.travelled,toGo:this.length-this.travelled,speed:this.speed,value:this.value,medal:this.value===null?null:challengeMedal(this.challenge,this.value),reason:this.reason,spills:this.spills,secured:this.secured}}
 }
 
 // Local results (never part of the career save).
@@ -89,7 +105,8 @@ const KEY='slingmods-gx-challenges-v1';
 export interface ChallengeBest {value:number;medal:Medal|null;vehicle:string;at:string;runs:number}
 type Store=Record<string,ChallengeBest>;
 function read():Store{try{const v=JSON.parse(localStorage.getItem(KEY)??'{}');return v&&typeof v==='object'?v:{}}catch{return {}}}
-export const challengeKey=(id:string,identity?:string)=>identity?.startsWith('can-am-spyder-f3')?id+':'+identity:id;
+/** Spyder builds and performance-tuned Slingshot/Ryker builds keep their own results; stock keeps the plain key. */
+export const challengeKey=(id:string,identity?:string)=>identity?.startsWith('can-am-spyder-f3')||identity?.includes('|tuned:')?id+':'+identity:id;
 export function challengeRecords(id:string){return Object.entries(read()).filter(([k,v])=>(k===id||k.startsWith(id+':'))&&Number.isFinite(v.value)).map(([key,best])=>({key,best}))}
 export function challengeBest(id:string,identity?:string):ChallengeBest|null{const b=read()[challengeKey(id,identity)];return b&&Number.isFinite(b.value)?b:null}
 /** Record a finished run; returns whether it improved the best. */
