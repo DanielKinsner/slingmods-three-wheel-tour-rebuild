@@ -26,7 +26,9 @@ const DETAIL_NORMAL=`vec3 mapN = texture2D( normalMap, vNormalMapUv ).xyz * 2.0 
 // stands, goes mirror-smooth and flat, and (High/Ultra) shows the mirrored cars, underglow and lamps. Visual only.
 const WET_FIELD=`#include <map_fragment>
 	float wetField=texture2D(puddleMask,vWetWorld.xz/puddleTile).r*.75+texture2D(puddleMask,vWetWorld.zx/(puddleTile*.37)+.31).r*.25;
-	float puddle=smoothstep(.50,.64,wetField)*wetness,damp=wetness*(.6+.4*smoothstep(.25,.6,wetField));
+	// A 95 m macro sample thins and gathers puddles along the road (no visible 22 m repeat); a 2 m sample roughens edges.
+	wetField+=(texture2D(puddleMask,vWetWorld.xz/(puddleTile*4.3)+vec2(.17,.53)).r-.5)*.22+(texture2D(puddleMask,vWetWorld.zx/(puddleTile*.06)+.71).r-.5)*.16;
+	float puddle=smoothstep(.49,.66,wetField)*wetness,damp=wetness*(.6+.4*smoothstep(.25,.6,wetField));
 	diffuseColor.rgb*=mix(1.,.55,damp);`;
 const WET_REFLECTION=`if(wetPlanar>.5){
 		vec4 wetClip=wetReflectionMatrix*vec4(vWetWorld,1.);vec2 wetUv=wetClip.xy/wetClip.w+normal.xy*.012*(1.-puddle);
