@@ -11,12 +11,72 @@ const noise=(x:number,z:number)=>Math.sin(x*.021+Math.cos(z*.018))*Math.cos(z*.0
 export function ridgeScenicHeight(x:number,z:number){const p=projectRoad(RIDGE_ROUTE,x,z),offset=(x-p.x)*-p.dz+(z-p.z)*p.dx,near=ridgeCrossHeight(p.progress,Math.sign(offset)*Math.min(60,Math.abs(offset))),far=-25+50*Math.exp(-(((x-400)/600)**2)-((z+750)/900)**2)+12*Math.sin(x*.006)*Math.cos(z*.006),raw=Math.max(0,Math.min(1,(p.distance-60)/160)),blend=raw*raw*(3-2*raw);return near*(1-blend)+far*blend}
 
 function geometry(data:RidgeMeshData){const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(data.vertices,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(data.uv,2));g.setIndex(data.indices);g.computeVertexNormals();return g}
+/**
+ * The bank ripple (sin(station*.035)) is not lap-periodic, so beyond the shoulders the physical ground steps by up to 1.16 m where
+ * station 3200 meets station 0 at the start line, which opened a see-through crack. The visible terrain (and the scenic land's 60 m
+ * edge) eases that difference in over the last 44 m before the line, so both sides share one edge. Visual copies only: physics keeps
+ * its support meshes. Within 9 m of the centreline nothing moves; the lift is under 0.3 m at 18 m and reaches the full step only 44-60 m out.
+ * If the ripple is ever made lap-periodic the difference is zero and this becomes a no-op.
+ */
+export function ridgeSeamBlend(land?:RidgeMeshData){const n=RIDGE_ROUTE.centerline.length,span=8,ease=(i:number)=>{const t=Math.max(0,Math.min(1,(i-(n-span))/span));return t*t*(3-2*t)};
+ const terrain=RIDGE_SURFACES.terrain.map(d=>{const vertices=d.vertices.slice();for(let c=0;c<2;c++){const step=d.vertices[c*3+1]-d.vertices[(2*n+c)*3+1];for(let i=n-span;i<=n;i++)vertices[(i*2+c)*3+1]+=ease(i)*step}return{...d,vertices}});
+ let landVertices=land?.vertices;if(land){landVertices=land.vertices.slice();for(const[side,column,from]of[[0,0,0],[5,1,n]]as const){const d=RIDGE_SURFACES.terrain[side],step=d.vertices[column*3+1]-d.vertices[(2*n+column)*3+1];for(let i=n-span;i<n;i++){const v=(from+i)*3,r=(i*2+column)*3;if(Math.abs(land.vertices[v]-d.vertices[r])<1e-3&&Math.abs(land.vertices[v+2]-d.vertices[r+2])<1e-3)landVertices[v+1]+=ease(i)*step}}}
+ return{terrain,land:land?{...land,vertices:landVertices!}:undefined}}
+const hash1=(n:number)=>{const s=Math.sin(n*127.1)*43758.5453;return s-Math.floor(s)},noise1=(x:number)=>{const i=Math.floor(x),f=x-i,u=f*f*(3-2*f);return(hash1(i)*(1-u)+hash1(i+1)*u)*2-1};
+/**
+ * Five distant ridge layers in one draw, all inside the 2.2 km camera far plane. Silhouettes carry ridge, spur and canopy detail;
+ * each column is lit by its slope against the sun; each layer fades from darker, richer forest at the base to a hazy, sky-tinted
+ * ridgeline, and farther layers sit further into the haze. Scene fog still applies on top.
+ */
+export function ridgeBackdrop(preset:'day'|'night',sun:THREE.Vector3){
+ const night=preset==='night',columns=2048,layers=5,position:number[]=[],tint:number[]=[],data:number[]=[],index:number[]=[],sunXZ=new THREE.Vector2(sun.x,sun.z).normalize();
+ const forest=night?new THREE.Color(.016,.026,.042):new THREE.Color(.048,.074,.044),haze=night?new THREE.Color(.12,.16,.25):new THREE.Color(.38,.43,.47);
+ for(let layer=0;layer<layers;layer++){
+  const radius=1000+layer*105,lift=radius*Math.tan((5.4+layer*.9)*Math.PI/180),base=forest.clone().lerp(haze,.08+layer/(layers-1)*.55),first=position.length/3;
+  const broad=(a:number)=>lift+55*Math.sin(a*3+layer*.8)+28*Math.sin(a*8+layer)+24*noise1(a*radius/240+layer*17),profile=(a:number)=>{const arc=a*radius;return Math.max(28,broad(a)+8*noise1(arc/65+layer*5)+(layer<3?3:1.5)*noise1(arc/12+layer*3))};
+  for(let j=0;j<=columns;j++){
+   const a=j/columns*Math.PI*2,r=radius+45*Math.sin(a*7+layer),x=340+Math.cos(a)*r,z=-350+Math.sin(a)*r,y=profile(a),slope=(broad(a+.01)-broad(a-.01))/(.02*radius);
+   // Relief from the broad profile only (canopy noise would stripe every column): downhill faces turn along the ring; the inward term dims ridges seen against the sun.
+   const facing=-slope*(-Math.sin(a)*sunXZ.x+Math.cos(a)*sunXZ.y),inward=-(Math.cos(a)*sunXZ.x+Math.sin(a)*sunXZ.y),shade=1+(night?.35:1)*(Math.max(-.32,Math.min(.32,facing*2.4))+.1*inward),c=base.clone().multiplyScalar(shade);
+   position.push(x,-250,z,x,y,z);for(let k=0;k<2;k++){tint.push(c.r,c.g,c.b);data.push(a*radius,y,0)}
+   if(j<columns){const k=first+j*2;index.push(k,k+1,k+2,k+1,k+3,k+2)}
+  }
+ }
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(position,3));g.setAttribute('ridgeTint',new THREE.Float32BufferAttribute(tint,3));g.setAttribute('ridgeData',new THREE.Float32BufferAttribute(data,3));g.setIndex(index);g.computeBoundingSphere();
+ const material=new THREE.ShaderMaterial({uniforms:THREE.UniformsUtils.merge([THREE.UniformsLib.fog,{haze:{value:haze},hazeTop:{value:night?.34:.38}}]),fog:true,side:THREE.DoubleSide,vertexShader:`attribute vec3 ridgeTint;attribute vec3 ridgeData;varying vec3 vTint;varying vec3 vRidge;
+  #include <fog_pars_vertex>
+  void main(){vTint=ridgeTint;vRidge=vec3(ridgeData.x,position.y,ridgeData.y);vec4 mvPosition=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mvPosition;
+  #include <fog_vertex>
+  }`,fragmentShader:`uniform vec3 haze;uniform float hazeTop;varying vec3 vTint;varying vec3 vRidge;
+  #include <fog_pars_fragment>
+  float rh(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+  float rn(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(rh(i),rh(i+vec2(1.,0.)),u.x),mix(rh(i+vec2(0.,1.)),rh(i+vec2(1.,1.)),u.x),u.y);}
+  void main(){
+   float t=clamp(vRidge.y/max(vRidge.z,1.),0.,1.);
+   // Tree crowns, forest stands and vertical drainage gullies, in metres along the ridge and up it.
+   float crowns=rn(vRidge.xy/vec2(11.,8.)),stands=rn(vRidge.xy/vec2(140.,70.)+7.3),gully=rn(vRidge.xy/vec2(30.,90.)+3.1);
+   vec3 c=vTint*(.86+.2*crowns)*(.86+.26*stands)*(.9+.16*smoothstep(.3,.7,gully));
+   gl_FragColor=vec4(mix(c,haze,pow(t,1.6)*hazeTop),1.);
+   #include <tonemapping_fragment>
+   #include <colorspace_fragment>
+   #include <fog_fragment>
+  }`});
+ return{geometry:g,material};
+}
 /** Dedicated low afternoon / blue-hour sky. Reuses the one-sun, two-headlight budget. */
 export function loadRidgeAtmosphere(scene:THREE.Scene,renderer:THREE.WebGLRenderer,preset:'day'|'night'){
- const night=preset==='night',w=512,h=256,data=new Float32Array(w*h*4),sun=new THREE.Vector3(-.74,.29,-.60).normalize();
- for(let y=0;y<h;y++)for(let x=0;x<w;x++){const lat=(.5-(y+.5)/h)*Math.PI,lng=((x+.5)/w-.5)*Math.PI*2,dir=new THREE.Vector3(Math.cos(lat)*Math.cos(lng),Math.sin(lat),Math.cos(lat)*Math.sin(lng)),t=Math.pow(Math.max(0,dir.y),.45),haze=Math.exp(-Math.abs(dir.y)*9),warm=Math.max(0,dir.dot(sun));let c:THREE.Color;if(night)c=new THREE.Color().setRGB(.095+.20*haze,.15+.15*haze,.26+.10*haze);else c=new THREE.Color().setRGB(.65-.32*t+.27*haze*warm,.62-.15*t+.06*haze,.62-.03*t-.12*haze*warm);if(dir.y<0)c.multiplyScalar(.4);if(!night&&dir.angleTo(sun)<.008)c.setRGB(4,3.3,2.3);data.set([c.r,c.g,c.b,1],(y*w+x)*4)}
- const tex=new THREE.DataTexture(data,w,h,THREE.RGBAFormat,THREE.FloatType);tex.mapping=THREE.EquirectangularReflectionMapping;tex.flipY=true;tex.needsUpdate=true;const pmrem=new THREE.PMREMGenerator(renderer),probe=pmrem.fromEquirectangular(tex);pmrem.dispose();scene.background=tex;scene.environment=probe.texture;scene.environmentIntensity=night?1.0:1.2;renderer.toneMappingExposure=night?1.15:1.0;scene.userData.outdoorSunDirection=sun.toArray();scene.userData.outdoorEnvironment={source:'Original procedural Appalachian atmosphere',preset:night?'blue-hour':'late-afternoon',sunElevationDegrees:Math.asin(sun.y)*180/Math.PI};
- return{inspect:()=>scene.userData.outdoorEnvironment,dispose(){if(scene.background===tex)scene.background=null;if(scene.environment===probe.texture)scene.environment=null;tex.dispose();probe.dispose()}};
+ const night=preset==='night',w=512,h=256,data=new Uint16Array(w*h*4),half=THREE.DataUtils.toHalfFloat,sun=new THREE.Vector3(-.74,.29,-.60).normalize();
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const lat=(.5-(y+.5)/h)*Math.PI,lng=((x+.5)/w-.5)*Math.PI*2,dir=new THREE.Vector3(Math.cos(lat)*Math.cos(lng),Math.sin(lat),Math.cos(lat)*Math.sin(lng)),t=Math.pow(Math.max(0,dir.y),.45),haze=Math.exp(-Math.abs(dir.y)*9),warm=Math.max(0,dir.dot(sun));let c:THREE.Color;if(night)c=new THREE.Color().setRGB(.095+.20*haze,.15+.15*haze,.26+.10*haze);else c=new THREE.Color().setRGB(.65-.32*t+.27*haze*warm,.62-.15*t+.06*haze,.62-.03*t-.12*haze*warm);if(dir.y<0)c.multiplyScalar(.4);if(!night){const a=dir.angleTo(sun),core=Math.exp(-((a/.03)**2)),halo=Math.exp(-a/.22);c.r+=1.1*core+.12*halo;c.g+=.85*core+.08*halo;c.b+=.55*core+.04*halo}data.set([half(c.r),half(c.g),half(c.b),half(1)],(y*w+x)*4)}
+ // One texel spans ~0.7 degrees, so the texture only carries a soft, filtered halo (and its light for the probe); the round disc is a sprite.
+ const tex=new THREE.DataTexture(data,w,h,THREE.RGBAFormat,THREE.HalfFloatType);tex.magFilter=tex.minFilter=THREE.LinearFilter;tex.mapping=THREE.EquirectangularReflectionMapping;tex.flipY=true;tex.needsUpdate=true;const pmrem=new THREE.PMREMGenerator(renderer),probe=pmrem.fromEquirectangular(tex);pmrem.dispose();scene.background=tex;scene.environment=probe.texture;scene.environmentIntensity=night?1.0:1.2;renderer.toneMappingExposure=night?1.15:1.0;scene.userData.outdoorSunDirection=sun.toArray();scene.userData.outdoorEnvironment={source:'Original procedural Appalachian atmosphere',preset:night?'blue-hour':'late-afternoon',sunElevationDegrees:Math.asin(sun.y)*180/Math.PI,sunDisc:!night};
+ // Round sun: a camera-facing quad 2 km out along the light, depth-tested so ridges and trees can hide it. Quad half-width is 5 degrees; r is in degrees.
+ let disc:THREE.Mesh|undefined;
+ if(!night){const size=2000*Math.tan(5*Math.PI/180),at=new THREE.Vector3(),turn=new THREE.Quaternion(),unit=new THREE.Vector3(1,1,1);disc=new THREE.Mesh(new THREE.PlaneGeometry(size*2,size*2),new THREE.ShaderMaterial({uniforms:{core:{value:new THREE.Color(4.2,3.6,2.6)},glow:{value:new THREE.Color(1,.72,.45)}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`uniform vec3 core;uniform vec3 glow;varying vec2 vUv;
+  void main(){float r=length(vUv-.5)*10.;float d=1.-smoothstep(.48,.6,r);gl_FragColor=vec4(core*d+glow*(.45*exp(-r*r*1.4)+.1*exp(-r*.9))*(1.-d),1.);
+  #include <tonemapping_fragment>
+  #include <colorspace_fragment>
+  }`,blending:THREE.AdditiveBlending,transparent:true,depthWrite:false,fog:false}));disc.name='Ridge_sun_disc';disc.frustumCulled=false;disc.renderOrder=-1;disc.onBeforeRender=(_r,_s,camera)=>{at.setFromMatrixPosition(camera.matrixWorld);turn.setFromRotationMatrix(camera.matrixWorld);disc!.matrixWorld.compose(at.addScaledVector(sun,2000),turn,unit)};scene.add(disc)}
+ return{inspect:()=>scene.userData.outdoorEnvironment,dispose(){if(scene.background===tex)scene.background=null;if(scene.environment===probe.texture)scene.environment=null;tex.dispose();probe.dispose();if(disc){disc.removeFromParent();disc.geometry.dispose();(disc.material as THREE.Material).dispose()}}};
 }
 /** Call after harborLighting to retain its exact lighting budget and dynamic follow. */
 export function configureRidgeLighting(scene:THREE.Scene,preset:'day'|'night') {const night=preset==='night';scene.fog=new THREE.Fog(night?'#71859e':'#c9bda6',night?320:440,night?2100:2900);scene.traverse(o=>{if(o instanceof THREE.DirectionalLight){o.color.set(night?'#9fbde9':'#ffce91');o.intensity=night?.85:3.0}else if(o instanceof THREE.HemisphereLight){o.color.set(night?'#a4bddd':'#d7e8f2');o.groundColor.set(night?'#434d57':'#806743');o.intensity=night?.95:1.1}})}
@@ -30,13 +90,13 @@ export async function loadRidgePresentation(scene:THREE.Scene,preset:'day'|'nigh
  const [asphalt,normal,rough,grass,grassNormal,planks,bark,stone]=textures as THREE.Texture[];for(const t of textures as THREE.Texture[]){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=4}for(const t of[asphalt,grass,planks,bark,stone])t.colorSpace=THREE.SRGBColorSpace;for(const t of[asphalt,normal,rough])t.repeat.set(2.5,2.5);
  const materials={road:new THREE.MeshStandardMaterial({map:asphalt,normalMap:normal,roughnessMap:rough,roughness:.93,normalScale:new THREE.Vector2(.35,.35)}),shoulder:new THREE.MeshStandardMaterial({map:grass,color:'#aa9b77',roughness:1}),terrain:new THREE.MeshStandardMaterial({map:grass,normalMap:grassNormal,color:'#8c8e69',normalScale:new THREE.Vector2(.55,.55),roughness:1}),white:new THREE.MeshStandardMaterial({color:'#eee7d5',roughness:.85}),yellow:new THREE.MeshStandardMaterial({color:'#d1ac4b',roughness:.8}),rail:new THREE.MeshStandardMaterial({color:'#9a9e99',metalness:.5,roughness:.53}),dark:new THREE.MeshStandardMaterial({color:'#353c3a',roughness:.9}),stone:new THREE.MeshStandardMaterial({map:stone,color:'#777a71',roughness:1})};
  const add=(g:THREE.BufferGeometry,m:THREE.Material,name:string)=>{const mesh=new THREE.Mesh(g,m);mesh.name=name;mesh.receiveShadow=true;root.add(mesh);return mesh};
- add(geometry(RIDGE_SURFACES.road),materials.road,'Ridge_road_EXACT_support_vertices');for(const [name,data]of [['left',RIDGE_SURFACES.leftShoulder],['right',RIDGE_SURFACES.rightShoulder]]as const)add(geometry(data),materials.shoulder,'Ridge_gravel_'+name);RIDGE_SURFACES.terrain.forEach((data,i)=>add(geometry(data),materials.terrain,'Ridge_physical_terrain_'+i));
+ add(geometry(RIDGE_SURFACES.road),materials.road,'Ridge_road_EXACT_support_vertices');for(const [name,data]of [['left',RIDGE_SURFACES.leftShoulder],['right',RIDGE_SURFACES.rightShoulder]]as const)add(geometry(data),materials.shoulder,'Ridge_gravel_'+name);const seam=ridgeSeamBlend(land as RidgeMeshData);seam.terrain.forEach((data,i)=>add(geometry(data),materials.terrain,'Ridge_physical_terrain_'+i));
  for(const side of[-1,1])add(geometry(ridgeRibbon(side*5.75,side*5.90,.018)),materials.white,'Ridge_edge_'+side);
  const dashes:THREE.BufferGeometry[]=[];for(let s=15;s<3200;s+=21){const a=ridgePoint(s),b=ridgePoint(s+6),v:number[]=[];for(const p of[a,b])for(const o of[-.055,.055])v.push(p.x-p.dz*o,p.y+.026,p.z+p.dx*o);dashes.push(geometry({vertices:v,indices:[0,1,2,1,3,2],uv:[0,0,1,0,0,1,1,1]}))}add(mergeGeometries(dashes)!,materials.yellow,'Ridge_center_dashes');dashes.forEach(g=>g.dispose());
  // Scenic terrain connects the 60m physical verge to distant wooded land. No hidden support plane.
- add(geometry(land as RidgeMeshData),materials.terrain,'Ridge_scenic_land_exact_bank_boundary');
- // Five true 3D silhouette layers; wooded profiles with atmospheric separation.
- for(let layer=0;layer<5;layer++){const v:number[]=[],uv:number[]=[],idx:number[]=[],radius=1100+layer*410;for(let j=0;j<=384;j++){const a=j/384*Math.PI*2,r=radius+90*Math.sin(a*7+layer),y=95+layer*30+65*Math.sin(a*3+layer*.8)+35*Math.sin(a*8+layer)+2.5*Math.sin(a*89+layer)+1.5*Math.sin(a*137-layer);v.push(340+Math.cos(a)*r,-250,-350+Math.sin(a)*r,340+Math.cos(a)*r,y,-350+Math.sin(a)*r);uv.push(j,0,j,1);if(j<384){const k=j*2;idx.push(k,k+1,k+2,k+1,k+3,k+2)}}const m=new THREE.MeshBasicMaterial({color:new THREE.Color().setHSL(preset==='night'?.57:.37+layer*.015,preset==='night'?.18:.24,preset==='night'?.14+layer*.045:.19+layer*.042),side:THREE.DoubleSide});add(geometry({vertices:v,indices:idx,uv}),m,'Ridge_distant_wooded_layer_'+layer)}
+ add(geometry(seam.land!),materials.terrain,'Ridge_scenic_land_exact_bank_boundary');
+ // Distant ridges: one merged, shaded backdrop (see ridgeBackdrop).
+ {const backdrop=ridgeBackdrop(preset,new THREE.Vector3().fromArray(scene.userData.outdoorSunDirection??[-.74,.29,-.60]).normalize());add(backdrop.geometry,backdrop.material,'Ridge_distant_ridges').receiveShadow=false}
  const box=new THREE.BoxGeometry(1,1,1),matrix=new THREE.Matrix4(),q=new THREE.Quaternion(),euler=new THREE.Euler();const rails=new THREE.InstancedMesh(box,materials.rail,RIDGE_ROUTE.colliders.length);RIDGE_ROUTE.colliders.forEach((b,i)=>{q.setFromEuler(euler.set(b.pitch??0,b.yaw??0,0,'YXZ'));matrix.compose(new THREE.Vector3().fromArray(b.center as number[]),q,new THREE.Vector3().fromArray(b.size as number[]));rails.setMatrixAt(i,matrix)});rails.name='Ridge_rails_EXACT_collision_boxes';rails.computeBoundingSphere();root.add(rails);
  const posts:number[]=[];for(let s=450;s<3140;s+=12)for(const side of[-1,1]){if(side===1&&s<1400||s>1790&&s<1885)continue;const p=ridgePoint(s,side*10.4);posts.push(p.x,p.y+.30,p.z)}const postMesh=new THREE.InstancedMesh(box,materials.dark,posts.length/3);for(let i=0;i<posts.length;i+=3){matrix.makeScale(.15,.85,.15);matrix.setPosition(posts[i],posts[i+1],posts[i+2]);postMesh.setMatrixAt(i/3,matrix)}postMesh.computeBoundingSphere();root.add(postMesh);
  kit.scene.updateMatrixWorld(true);const library=new Map<string,Map<THREE.Material,THREE.BufferGeometry[]>>();kit.scene.traverse((o:THREE.Object3D)=>{if(!(o instanceof THREE.Mesh))return;const module=o.name.match(/^ridge_(tree\d_(?:near|far))_/)?.[1]??o.name.match(/^ridge_(pavilion|gantry|table|crate|rock\d)/)?.[1];if(!module)return;const m=(Array.isArray(o.material)?o.material[0]:o.material)as THREE.MeshStandardMaterial;if(m.name==='Ridge_bark'){m.map=bark;m.color.set('#777369')}if(m.name==='Ridge_warm_timber')m.map=planks;if(m.name==='Ridge_layered_stone')m.map=stone;if(m.name==='Ridge_broadleaf')m.side=THREE.DoubleSide;const by=library.get(module)??new Map(),gs=by.get(m)??[];gs.push(o.geometry.clone().applyMatrix4(o.matrixWorld));by.set(m,gs);library.set(module,by)});

@@ -1,6 +1,6 @@
 import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {loadTrackside,planTrackside,type TracksidePlan} from '../presentation/trackside';
-import {loadRaceAsphalt} from '../presentation/race-asphalt';import {loadRoadDecals} from '../presentation/road-decals';
+import {loadRaceAsphalt} from '../presentation/race-asphalt';import {loadRoadDecals} from '../presentation/road-decals';import {loadKTX2} from '../presentation/ktx2';import {SURFACE_SETS} from '../presentation/surface-assets';
 import {EXPRESS_ROUTE,EXPRESS_DESIGN} from './route';import {sampleRoad} from '../course/environment';
 export type ExpressPlacement={module:string;x:number;z:number;yaw:number;scale:number};
 /** Editable instance layout reuses current authored Harbor kit, not old route geometry. */
@@ -15,14 +15,68 @@ export function buildExpressRibbon(inner:number,outer:number,height:number){if(i
  for(let i=0;i<=route.centerline.length;i++){const index=i%route.centerline.length,a=route.centerline[index],prior=route.centerline[(index-1+route.centerline.length)%route.centerline.length],next=route.centerline[(index+1)%route.centerline.length];let dx=next[0]-prior[0],dz=next[1]-prior[1],n=Math.hypot(dx,dz);dx/=n;dz/=n;if(i)along+=Math.hypot(a[0]-prior[0],a[1]-prior[1]);for(const offset of[inner,outer]){positions.push(a[0]-dz*offset,height,a[1]+dx*offset);uv.push(offset/6,along/6)}if(i<route.centerline.length){const k=i*2;indices.push(k,k+1,k+2,k+1,k+3,k+2)}}const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(indices);g.computeVertexNormals();return g}
 /** Roadside rhythm: barriers sit exactly on the collision rail line (11.2 m), so nothing here changes where the car can go. */
 export const EXPRESS_TRACKSIDE:TracksidePlan={railOffset:EXPRESS_ROUTE.width/2+EXPRESS_ROUTE.runoff+.7,barrier:station=>station>560&&station<900?'jersey-red-white':'armco-straight',fence:(station,side)=>side<0?station>40&&station<560:station>780&&station<1150,lights:{spacing:40,offset:12.5},boards:{offset:9.6,scale:1.8}};
+/** Value noise in world metres, shared by the land and water shaders. */
+const ENV_NOISE=`float envHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float envNoise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(envHash(i),envHash(i+vec2(1.,0.)),u.x),mix(envHash(i+vec2(0.,1.)),envHash(i+vec2(1.,1.)),u.x),u.y);}
+float envFbm(vec2 p){return .5*envNoise(p)+.3*envNoise(p*2.03+17.)+.2*envNoise(p*4.11+31.);}
+`;
+/**
+ * Harbor land, still one plane and one draw: the already-loaded leafy scan read at two rotated scales (luminance only, graded to a lawn),
+ * broad tone and colour drift, dry worn patches that keep the scan's own brown, mowing stripes along the straights, a concrete quay apron
+ * with a coping edge at the water and paved yards around the inner warehouse row. The concrete is the P11 set the scenery pass already uses.
+ */
+export function expressLandMaterial(grass:THREE.Texture,grassNormal:THREE.Texture,concrete:THREE.Texture|undefined,wet:boolean){
+ const material=new THREE.MeshStandardMaterial({map:grass,normalMap:grassNormal,normalScale:new THREE.Vector2(.6,.6),roughness:wet?.55:1});
+ material.onBeforeCompile=shader=>{
+  shader.uniforms.envConcrete={value:concrete??grass};
+  shader.vertexShader='varying vec3 vEnvWorld;\n'+shader.vertexShader.replace('#include <uv_vertex>','#include <uv_vertex>\n vEnvWorld=(modelMatrix*vec4(position,1.)).xyz;\n #ifdef USE_NORMALMAP\n vNormalMapUv=vEnvWorld.xz*.31;\n #endif');
+  shader.fragmentShader='varying vec3 vEnvWorld;uniform sampler2D envConcrete;float envHard=0.;\n'+ENV_NOISE+shader.fragmentShader.replace('#include <map_fragment>',`
+   vec2 gp=vEnvWorld.xz;float envDist=length(vViewPosition);
+   vec3 leafA=texture2D(map,gp*.31).rgb,leafB=texture2D(map,mat2(.8,-.6,.6,.8)*gp*.083+.37).rgb,leaf=mix(leafA,(leafA+leafB)*.5,smoothstep(12.,60.,envDist));
+   float detail=dot(leaf,vec3(.2126,.7152,.0722))/.0457,macro=envFbm(gp/150.),patchy=envFbm(gp/24.+vec2(11.,5.)),tone=.84+.32*envFbm(gp/320.+3.);
+   vec3 lawn=mix(vec3(.052,.084,.027),vec3(.110,.112,.042),smoothstep(.25,.75,macro))*mix(1.,detail,.8);
+   lawn*=1.+.05*(smoothstep(-.2,.2,sin(gp.x*.5236))*2.-1.)*(1.-smoothstep(60.,220.,envDist));
+   vec3 ground=mix(lawn,mix(lawn,leaf*vec3(1.5,1.35,1.1),.7),smoothstep(.64,.76,patchy)*.8)*tone;
+   // gp.y is world z.
+   vec2 yard=vec2(abs(gp.x+42.),abs(mod(gp.y+105.,94.)-47.));
+   float yards=(1.-smoothstep(29.,31.,yard.x))*(1.-smoothstep(25.,27.,yard.y))*step(-745.,gp.y)*step(gp.y,-30.);
+   envHard=max(smoothstep(12.5,13.5,gp.x),yards);
+   // Weathered pale concrete: the P11 scan supplies only the grain; 6 m slab joints fade out before they can shimmer.
+   vec3 grain=texture2D(envConcrete,gp*.25).rgb*.5+texture2D(envConcrete,mat2(.8,-.6,.6,.8)*gp*.07).rgb*.5;vec2 joint=abs(fract(gp/6.)-.5)*6.;
+   vec3 slab=vec3(.30,.29,.27)*mix(1.,dot(grain,vec3(.2126,.7152,.0722))/.087,.6)*(.88+.24*envNoise(gp/9.))*(1.-.45*(1.-smoothstep(.03,.07,min(joint.x,joint.y)))*(1.-smoothstep(20.,60.,envDist)))*mix(1.,1.25,smoothstep(21.,21.3,gp.x));
+   diffuseColor.rgb*=mix(ground,slab,envHard);`).replace('#include <normal_fragment_maps>',THREE.ShaderChunk.normal_fragment_maps.replace('mapN.xy *= normalScale;','mapN.xy *= normalScale*(1.-envHard*.85);'));
+ };
+ material.customProgramCacheKey=()=>'express-land-v1';return material;
+}
+/**
+ * Harbor Express water on the standard material (so sky probe, sun, fog and look grading apply): deep-water wave trains from a long swell
+ * down to fine chop, fading the short waves with distance instead of aliasing, broad wind slicks, and roughness that rises far out.
+ * Procedural: no textures, no extra pass.
+ */
+export function expressWaterMaterial(preset:'day'|'night'){
+ const time={value:0},material=new THREE.MeshStandardMaterial({color:preset==='day'?'#1d5362':'#0c2733',roughness:.05,metalness:0});
+ material.onBeforeCompile=shader=>{
+  shader.uniforms.envTime=time;
+  shader.vertexShader='varying vec3 vEnvWorld;\n'+shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\n vEnvWorld=(modelMatrix*vec4(position,1.)).xyz;');
+  shader.fragmentShader='varying vec3 vEnvWorld;uniform float envTime;\n'+ENV_NOISE+`vec2 envWave(vec2 p,vec2 dir,float L,float A){float k=6.2831853/L;dir=normalize(dir);return dir*(A*k)*cos(dot(p,dir)*k-envTime*sqrt(9.81*k));}\n`+shader.fragmentShader.replace('#include <normal_fragment_maps>',`{
+    vec2 p=vEnvWorld.xz;float d=length(vViewPosition),fine=1.-smoothstep(25.,160.,d),mid=1.-smoothstep(120.,700.,d);
+    vec2 g=envWave(p,vec2(1.,.3),31.,.2)+envWave(p,vec2(.8,-.5),17.,.1);
+    g+=(envWave(p,vec2(.3,1.),7.3,.035)+envWave(p,vec2(-.6,.8),4.1,.02))*mid;
+    g+=(envWave(p,vec2(1.,-.9),1.9,.008)+envWave(p,vec2(-.2,-1.),1.1,.004)+envWave(p,vec2(.9,.5),.63,.002))*fine;
+    g*=.55+.9*envNoise(p/70.+envTime*.01);
+    normal=normalize(mat3(viewMatrix)*normalize(vec3(-g.x,1.,-g.y)));
+   }`).replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n roughnessFactor=mix(roughnessFactor,.16,smoothstep(80.,900.,length(vViewPosition)));');
+ };
+ material.customProgramCacheKey=()=>'express-water-v1';return{material,time};
+}
 export async function loadExpressPresentation(scene:THREE.Scene,preset:'day'|'night'='day',renderer?:THREE.WebGLRenderer,lampsOn=preset==='night',wet=false){
  const root=new THREE.Group();root.name='Harbor_Express_layout_v1';const loader=new GLTFLoader(),textures=new THREE.TextureLoader();
- const [kit,logo,asphalt,normal,rough,grass]=await Promise.all([loader.loadAsync('/assets/showcase-quality/kit.glb'),loader.loadAsync('/assets/brand/slingmods-sign.glb'),textures.loadAsync('/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg'),textures.loadAsync('/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg'),textures.loadAsync('/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg'),textures.loadAsync('/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg')]);
- asphalt.colorSpace=grass.colorSpace=THREE.SRGBColorSpace;for(const t of[asphalt,normal,rough,grass]){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=4}grass.repeat.set(160,160);
- const materials={road:new THREE.MeshStandardMaterial({map:asphalt,normalMap:normal,roughnessMap:rough,roughness:.9,normalScale:new THREE.Vector2(.35,.35)}),runoff:new THREE.MeshStandardMaterial({color:'#aaa293',roughness:1}),white:new THREE.MeshStandardMaterial({color:'#ede4ca',roughness:.8}),red:new THREE.MeshStandardMaterial({color:'#a82620',roughness:.8}),ground:new THREE.MeshStandardMaterial({map:grass,color:'#747b60',roughness:1}),rail:new THREE.MeshStandardMaterial({color:'#afb5b6',metalness:.35,roughness:.6}),water:new THREE.MeshStandardMaterial({color: preset==='day'?'#426f7a':'#173442',metalness:.3,roughness:.32})};
+ const [kit,logo,asphalt,normal,rough,grass,grassNormal,concrete]=await Promise.all([loader.loadAsync('/assets/showcase-quality/kit.glb'),loader.loadAsync('/assets/brand/slingmods-sign.glb'),textures.loadAsync('/assets/showcase-quality/textures/p06c_asphalt_Diffuse.jpg'),textures.loadAsync('/assets/showcase-quality/textures/p06c_asphalt_nor_gl.jpg'),textures.loadAsync('/assets/showcase-quality/textures/p06c_asphalt_Rough.jpg'),textures.loadAsync('/assets/showcase-quality/textures/leafy_grass_Diffuse.jpg'),textures.loadAsync('/assets/showcase-quality/textures/leafy_grass_nor_gl.jpg'),renderer?loadKTX2(renderer,SURFACE_SETS.concrete.urls[0],{srgb:true}).catch(()=>undefined):undefined]);
+ asphalt.colorSpace=grass.colorSpace=THREE.SRGBColorSpace;for(const t of[asphalt,normal,rough,grass,grassNormal]){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=4}grass.repeat.set(160,160);
+ const materials={road:new THREE.MeshStandardMaterial({map:asphalt,normalMap:normal,roughnessMap:rough,roughness:.9,normalScale:new THREE.Vector2(.35,.35)}),runoff:new THREE.MeshStandardMaterial({color:'#aaa293',roughness:1}),white:new THREE.MeshStandardMaterial({color:'#ede4ca',roughness:.8}),red:new THREE.MeshStandardMaterial({color:'#a82620',roughness:.8}),ground:expressLandMaterial(grass,grassNormal,concrete,wet),rail:new THREE.MeshStandardMaterial({color:'#afb5b6',metalness:.35,roughness:.6})};const sea=expressWaterMaterial(preset);
  const add=(g:THREE.BufferGeometry,m:THREE.Material,name:string)=>{const mesh=new THREE.Mesh(g,m);mesh.name=name;mesh.receiveShadow=true;root.add(mesh);return mesh};
  const ground=add(new THREE.PlaneGeometry(1344,1550),materials.ground,'Express_land');ground.rotation.x=-Math.PI/2;ground.position.set(-650,-.01,-400);
- const water=add(new THREE.PlaneGeometry(1500,1600),materials.water,'Express_water');water.rotation.x=-Math.PI/2;water.position.set(772,-.07,-400);
+ const water=add(new THREE.PlaneGeometry(1500,1600),sea.material,'Express_water');water.rotation.x=-Math.PI/2;water.position.set(772,-.07,-400);
  add(buildExpressRibbon(-10.5,10.5,.004),materials.runoff,'Express_runoff');const road=add(buildExpressRibbon(-7.5,7.5,.014),materials.road,'Express_road'),flatPaint:THREE.Mesh[]=[];for(const side of[-1,1]){flatPaint.push(add(buildExpressRibbon(side*7.3,side*7.42,.025),materials.white,'Express_edge'));add(buildExpressRibbon(side*7.55,side*8.1,.015),materials.red,'Express_curb')}
  const boxes=new THREE.BoxGeometry(1,1,1),rails=new THREE.InstancedMesh(boxes,materials.rail,EXPRESS_ROUTE.colliders.length),matrix=new THREE.Matrix4(),quaternion=new THREE.Quaternion();EXPRESS_ROUTE.colliders.forEach((b,i)=>{matrix.compose(new THREE.Vector3().fromArray(b.center as number[]),quaternion.setFromAxisAngle(THREE.Object3D.DEFAULT_UP,b.yaw??0),new THREE.Vector3().fromArray(b.size as number[]));rails.setMatrixAt(i,matrix)});rails.name='Express_rails_exact_collision_boxes';rails.computeBoundingSphere();rails.receiveShadow=true;root.add(rails);
  // P11 armco, barriers, lights, fence and countdown boards replace the plain rail boxes visually; the boxes remain the collision truth.
@@ -41,5 +95,5 @@ export async function loadExpressPresentation(scene:THREE.Scene,preset:'day'|'ni
  // all times the module scale. 12% of the face stays clear above and below; the plane's own proportions carry the artwork aspect.
  const gantry=EXPRESS_PLACEMENTS[0],sign=logo.scene,art=new THREE.Box3().setFromObject(sign).getSize(new THREE.Vector3());sign.position.set(gantry.x,4.6*gantry.scale,gantry.z+.3*gantry.scale+.005);sign.scale.setScalar(.75*gantry.scale*(1-2*.12)*art.x/art.y);root.add(sign);
  for(const metres of[200,150,100,50]){const canvas=document.createElement('canvas');canvas.width=256;canvas.height=256;const c=canvas.getContext('2d')!;c.fillStyle='#f4ede1';c.fillRect(0,0,256,256);c.fillStyle='#bd3229';c.fillRect(0,0,256,22);c.fillStyle='#17212a';c.font='bold 96px sans-serif';c.textAlign='center';c.fillText(String(metres),128,145);c.font='bold 28px sans-serif';c.fillText('BRAKE',128,209);const map=new THREE.CanvasTexture(canvas);map.colorSpace=THREE.SRGBColorSpace;const sign=add(new THREE.PlaneGeometry(2,2),new THREE.MeshStandardMaterial({map,roughness:.8,side:THREE.DoubleSide}),'Express_brake_'+metres);sign.position.set(-9,1.6,-800+metres);sign.visible=!trackside}
- scene.add(root);let disposed=false;return {root,roadY:.014,wetSurfaces:surface?.[0].wet?[surface[0].wet]:[],reflectable:trackside?[trackside.group]:[],update(camera:THREE.Vector3,_time:number){trackside?.update(camera)},inspect:()=>({route:EXPRESS_DESIGN,placements:EXPRESS_PLACEMENTS.length,instanceGroups,kit:'/assets/showcase-quality/kit.glb',collisionAlignment:'Visible rails consume exact route collision boxes',trackside:trackside?.inspect()??null,surface:surface?{asphalt:surface[0].inspect(),decals:surface[1].inspect()}:null,source:'src/express/route.ts and presentation.ts; kit editable source assets/blender/showcase-quality/built-waterfront.blend'}),dispose(){if(disposed)return;disposed=true;trackside?.dispose();surface?.forEach(v=>v.dispose());materials.road.dispose();root.removeFromParent();const geometries=new Set<THREE.BufferGeometry>(),mats=new Set<THREE.Material>(),maps=new Set<THREE.Texture>();for(const tree of[root,kit.scene])tree.traverse(o=>{if(o instanceof THREE.Mesh){geometries.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material])mats.add(m)}});for(const g of geometries)g.dispose();for(const m of mats){for(const v of Object.values(m))if(v instanceof THREE.Texture)maps.add(v);m.dispose()}for(const t of maps)t.dispose()}};
+ scene.add(root);let disposed=false;return {root,roadY:.014,wetSurfaces:surface?.[0].wet?[surface[0].wet]:[],reflectable:trackside?[trackside.group]:[],update(camera:THREE.Vector3,_time:number){trackside?.update(camera);sea.time.value=Number.isFinite(_time)?_time:0},inspect:()=>({route:EXPRESS_DESIGN,placements:EXPRESS_PLACEMENTS.length,instanceGroups,kit:'/assets/showcase-quality/kit.glb',collisionAlignment:'Visible rails consume exact route collision boxes',trackside:trackside?.inspect()??null,surface:surface?{asphalt:surface[0].inspect(),decals:surface[1].inspect()}:null,source:'src/express/route.ts and presentation.ts; kit editable source assets/blender/showcase-quality/built-waterfront.blend'}),dispose(){if(disposed)return;disposed=true;trackside?.dispose();concrete?.dispose();surface?.forEach(v=>v.dispose());materials.road.dispose();root.removeFromParent();const geometries=new Set<THREE.BufferGeometry>(),mats=new Set<THREE.Material>(),maps=new Set<THREE.Texture>();for(const tree of[root,kit.scene])tree.traverse(o=>{if(o instanceof THREE.Mesh){geometries.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material])mats.add(m)}});for(const g of geometries)g.dispose();for(const m of mats){for(const v of Object.values(m))if(v instanceof THREE.Texture)maps.add(v);m.dispose()}for(const t of maps)t.dispose()}};
 }
