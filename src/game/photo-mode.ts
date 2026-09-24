@@ -4,19 +4,21 @@ import {gameCue} from './audio-bus';
 import {setPrompts} from './shell';
 /**
  * Photo mode: from the pause menu, a free orbit camera around your car with the HUD hidden, a lens (FOV) control and
- * a PNG capture of the actual rendered frame. The race stays paused; nothing in the simulation or race state changes.
+ * a PNG capture of the actual rendered frame. Focus blur (car sharp, surroundings soft) and the race films' look come
+ * from the pipeline's film lens via `lens()`; underglow colour, when fitted, changes for the photo only and is
+ * restored on exit. The race stays paused; nothing in the simulation or race state changes.
  * The orbit drives its own camera, copied onto the game camera after the chase camera has run, so gameplay camera code
  * never needs to know photo mode exists.
  */
 export class PhotoMode {
  active=false;
- private rig=new THREE.PerspectiveCamera();private controls?:OrbitControls;private ui=document.createElement('div');private fov=45;private captureNext=false;private padToken=0;private hideUI=false;private saving=false;
- constructor(private canvas:HTMLCanvasElement,private camera:THREE.PerspectiveCamera,private target:()=>THREE.Vector3,private ground:(x:number,z:number)=>number,private onExit:()=>void,private captureFull?:()=>Promise<Blob>){
+ private rig=new THREE.PerspectiveCamera();private controls?:OrbitControls;private ui=document.createElement('div');private fov=45;private captureNext=false;private padToken=0;private hideUI=false;private saving=false;private blur=0;private film=false;
+ constructor(private canvas:HTMLCanvasElement,private camera:THREE.PerspectiveCamera,private target:()=>THREE.Vector3,private ground:(x:number,z:number)=>number,private onExit:()=>void,private captureFull?:()=>Promise<Blob>,private glow?:{colors:Record<string,string>;current:string;set(color:string|null):void}){
   this.ui.className='gx-photo-ui';this.ui.hidden=true;
-  this.ui.innerHTML=`<span class="gx-photo-title">PHOTO MODE</span><label>LENS<input type="range" min="20" max="90" step="1" value="45" data-photo="fov"><output>45°</output></label>${captureFull?'<label>PHOTO SIZE<select data-photo="size"><option value="view">Screen</option><option value="4k">4K</option></select></label>':''}<button data-photo="hide">Hide UI</button><button data-photo="capture" class="is-primary">Capture</button><button data-photo="exit">Back</button><small role="status" data-photo-status>Drag to orbit · wheel to zoom · right-drag to pan</small>`;
+  this.ui.innerHTML=`<span class="gx-photo-title">PHOTO MODE</span><label>LENS<input type="range" min="20" max="90" step="1" value="45" data-photo="fov"><output>45°</output></label><label>FOCUS BLUR<input type="range" min="0" max="100" step="5" value="0" data-photo="blur"><output>Off</output></label><button data-photo="film" aria-pressed="false">Film look</button>${glow?`<div class="gx-photo-glow" role="group" aria-label="Underglow colour"><span>UNDERGLOW</span>${Object.entries(glow.colors).map(([k,v])=>`<button data-photo="glow" data-value="${k}" aria-label="${k}" aria-pressed="${k===glow.current}" style="--swatch:${v}"></button>`).join('')}</div>`:''}${captureFull?'<label>PHOTO SIZE<select data-photo="size"><option value="view">Screen</option><option value="4k">4K</option></select></label>':''}<button data-photo="hide">Hide UI</button><button data-photo="capture" class="is-primary">Capture</button><button data-photo="exit">Back</button><small role="status" data-photo-status>Drag to orbit · wheel to zoom · right-drag to pan</small>`;
   document.body.append(this.ui);
-  this.ui.addEventListener('input',e=>{const t=e.target as HTMLInputElement;if(t.dataset.photo==='fov'){this.fov=Number(t.value);(t.nextElementSibling as HTMLOutputElement).value=t.value+'°'}});
-  this.ui.addEventListener('click',e=>{const b=(e.target as Element).closest<HTMLElement>('[data-photo]');if(!b)return;if(b.dataset.photo==='capture')this.capture();else if(b.dataset.photo==='exit')this.exit();else if(b.dataset.photo==='hide')this.toggleUI()});
+  this.ui.addEventListener('input',e=>{const t=e.target as HTMLInputElement;if(t.dataset.photo==='fov'){this.fov=Number(t.value);(t.nextElementSibling as HTMLOutputElement).value=t.value+'°'}else if(t.dataset.photo==='blur'){this.blur=Number(t.value);(t.nextElementSibling as HTMLOutputElement).value=this.blur?t.value+'%':'Off'}});
+  this.ui.addEventListener('click',e=>{const b=(e.target as Element).closest<HTMLElement>('[data-photo]');if(!b)return;if(b.dataset.photo==='capture')this.capture();else if(b.dataset.photo==='exit')this.exit();else if(b.dataset.photo==='hide')this.toggleUI();else if(b.dataset.photo==='film'){this.film=!this.film;b.setAttribute('aria-pressed',String(this.film));gameCue('gx.tab')}else if(b.dataset.photo==='glow'&&b.dataset.value){this.glow?.set(b.dataset.value);this.pressGlow(b.dataset.value);gameCue('gx.tab')}});
   addEventListener('keydown',this.onKey,true);
  }
  private onKey=(e:KeyboardEvent)=>{if(!this.active)return;if(e.code==='Escape'||e.code==='Backspace'){e.preventDefault();e.stopPropagation();if(this.hideUI)this.toggleUI();else this.exit()}else if(e.code==='KeyH'){e.stopPropagation();this.toggleUI()}else if(e.code==='Enter'||e.code==='Space'){if(!(e.target instanceof HTMLButtonElement||e.target instanceof HTMLInputElement||e.target instanceof HTMLSelectElement)){e.preventDefault();e.stopPropagation();this.capture()}}};
@@ -29,7 +31,10 @@ export class PhotoMode {
   document.body.dataset.gxModal='1';this.controls=new OrbitControls(this.rig,this.canvas);this.controls.target.copy(this.target());this.controls.enableDamping=true;this.controls.dampingFactor=.08;this.controls.minDistance=1.4;this.controls.maxDistance=26;this.controls.maxPolarAngle=Math.PI*.495;this.controls.update();
   this.ui.hidden=false;gameCue('gx.select');setPrompts([{key:'orbit',label:'Orbit'},{key:'confirm',label:'Capture'},{key:'back',label:'Back'}]);this.padLoop();
  }
- exit(){if(!this.active)return;this.active=false;this.captureNext=false;delete document.body.dataset.gxModal;this.padToken++;this.controls?.dispose();this.controls=undefined;this.ui.hidden=true;document.body.classList.remove('gx-photo','gx-photo-clean');gameCue('gx.back');setPrompts(null);this.onExit()}
+ exit(){if(!this.active)return;this.active=false;this.captureNext=false;delete document.body.dataset.gxModal;this.padToken++;this.controls?.dispose();this.controls=undefined;this.ui.hidden=true;document.body.classList.remove('gx-photo','gx-photo-clean');if(this.glow){this.glow.set(null);this.pressGlow(this.glow.current)}gameCue('gx.back');setPrompts(null);this.onExit()}
+ private pressGlow(value:string){for(const s of this.ui.querySelectorAll<HTMLElement>('[data-photo=glow]'))s.setAttribute('aria-pressed',String(s.dataset.value===value))}
+ /** Film lens for the renderer while photo mode is open (undefined = none): focus on the car, blur by the slider. */
+ lens(){if(!this.active||!this.blur&&!this.film)return undefined;return {amount:this.film?1:.002,focus:this.rig.position.distanceTo(this.controls?.target??this.target()),aperture:this.blur/100*2.2,time:performance.now()/1000}}
  /** After the gameplay camera ran: substitute the photo rig. Returns true while photo mode owns the view. */
  apply(){
   if(!this.active||!this.controls)return false;this.controls.update();
