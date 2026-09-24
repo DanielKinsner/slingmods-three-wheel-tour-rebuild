@@ -19,7 +19,7 @@ import {perfLegacy} from './perf-switches';
 import {upgradeBrakeRotors} from './brake-rotors';
 import {upgradeAmberLenses} from './lens-detail';
 import {VehicleProxy,STAND_IN_LAYER} from './vehicle-proxy';import {WET_REFLECTION_LAYER} from './wet-reflection';
-const LAMP_ROLES=new Set(['headlamp','running-brake','brake']);
+const LAMP_ROLES=new Set(['headlamp','running-brake','brake']);const DRIVE_PRODUCT_ROOTS=new Set(['ddmworks_sm3223_installed','TricLED_SM133_Base_Accessory','TricLED_Ryker_SM7227','signature_catalog_products']);
 import type {VehicleTelemetry} from '../simulation';
 /** Existing exported hero and rig, same wheel/caliper/steering bindings as the retained pad. */
 export async function loadDrivingHero(loader:GLTFLoader,options:{rivals?:boolean}={}){
@@ -48,8 +48,11 @@ export function bindDrivingHero(car:THREE.Group,body:THREE.Group,attachment:Driv
  // rig, steering, front links or mirrors address stays its own rigid body. Semantic (2026) car only; shared by all rivals.
  const rigidNames=new Set<string>([...Object.values(rig.groups),rig.drivePulley?.node??'','steering_control','rear_carrier','rear_swingarm','rear_arm_pivot','rear_hub','shock_upper','shock_lower','Mirrors_1','stock_exhaust']),dynamic=(o:THREE.Object3D)=>rigidNames.has(o.name)||/_(steer|spin)$/.test(o.name)||/^stock_(front_left|front_right|rear)_(spring|shock)$/.test(o.name)||!!(o.userData.frontLink??o.userData.model01FrontLink??o.userData.spyderMotion);
  let rivalTemplate:THREE.Group|undefined,rivalMerge:MergeReport|undefined;const materialPool=new RivalMaterialPool();
- let standIn:VehicleProxy|undefined;
- return{shadowStandIn(layerMask:number){if(!standIn)standIn=new VehicleProxy(car,dynamic,m=>{const mats=Array.isArray(m.material)?m.material:[m.material];return mats.some(x=>LAMP_ROLES.has(materialRole(x)??''))}).standIn(layerMask);return standIn.report},cloneRival(paint:string,accent:string,preset:'day'|'night'='day'){
+ let standIn:VehicleProxy|undefined,driveMerge:MergeReport|undefined;
+ // Drives only (never the showroom): once products are fitted nothing addresses the 2026 car's static parts one by one, so they
+ // merge like a rival's. Anything under a product root stays untouched (the DDMWorks shocks animate part by part).
+ const underProduct=(o:THREE.Object3D)=>{for(let p:THREE.Object3D|null=o;p&&p!==car;p=p.parent)if(DRIVE_PRODUCT_ROOTS.has(p.name))return true;return false};
+ return{mergeForDrive(){if(!driveMerge&&hasMaterialBindings(car))driveMerge=mergeRigidParts(car,o=>dynamic(o)||underProduct(o)).report;return driveMerge},shadowStandIn(layerMask:number){if(!standIn)standIn=new VehicleProxy(car,dynamic,m=>{const mats=Array.isArray(m.material)?m.material:[m.material];return mats.some(x=>LAMP_ROLES.has(materialRole(x)??''))}).standIn(layerMask);return standIn.report},cloneRival(paint:string,accent:string,preset:'day'|'night'='day'){
  const semantic=hasMaterialBindings(car),decalMaps:THREE.Texture[]=[];
  if(semantic&&!rivalTemplate&&!/[?&]rivalmerge=off/.test(globalThis.location?.search??'')){rivalTemplate=cloneRig(car) as THREE.Group;rivalMerge=mergeRigidParts(rivalTemplate,dynamic).report}
  const carClone=cloneRig(rivalTemplate??car) as THREE.Group,bodyClone=cloneRig(body) as THREE.Group,owned=new Map<THREE.Material,THREE.Material>(),pooled=new Set<THREE.Material>();
