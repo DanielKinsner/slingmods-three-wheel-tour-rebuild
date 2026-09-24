@@ -75,7 +75,7 @@ if(career){recipe=careerRecipe(career.state);original=structuredClone(recipe)}el
 let saved:ReturnType<typeof storage.store.recipes>=[];if(!garage)try{saved=storage.store.recipes()}catch(e){status=(e as Error).message}
 const simulation=await Simulation.create(undefined,recipe.handlingProfile,vehicleDefinition(recipe.vehicleId)),simulationProfile=recipe.handlingProfile;
 simulation.reset({x:0,z:0,y:0,yaw:0});if(recipe.spyder)simulation.configureSpyder(recipe.spyder);if(recipe.vehicleId==='can-am-ryker-900')simulation.configureRykerSuspension(!!recipe.ryker?.shocks);for(let i=0;i<120;i++)simulation.step({throttle:0,brake:1,steer:0,reverse:false});
-let departureTelemetry:VehicleTelemetry|undefined;let neutral=simulation.telemetry();const display=new PoweredDisplay(hero.asset),optics=new VehicleOptics(hero.asset,true);let ignition=true;hero.pose(neutral,0,false,true);hero.driver.root.visible=false;
+let departureTelemetry:VehicleTelemetry|undefined;let neutral=simulation.telemetry();const display=new PoweredDisplay(hero.asset),optics=new VehicleOptics(hero.asset,true,.9);/* lit lamps in a bright studio: night level blew them out to flat white shapes */let ignition=true;hero.pose(neutral,0,false,true);hero.driver.root.visible=false;
 const mirrors=new VehicleMirrors(hero.root,hero.asset);
 // Same post pipeline as the drive, so the showroom car and the driven car are graded alike (and underglow glows here too).
 const pipeline=new RenderPipeline(renderer,graphics);pipeline.onViewTarget(target=>{mirrors.viewTarget=target});

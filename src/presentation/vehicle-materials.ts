@@ -20,12 +20,12 @@ export function recolorRivalMaterial(m:THREE.MeshStandardMaterial,paint:string,a
 export class VehicleOptics {
  private slots:{mesh:THREE.Mesh;original:THREE.Material|THREE.Material[]}[]=[];private owned:THREE.Material[]=[];
  private emitters:{material:THREE.MeshStandardMaterial;role:'headlamp'|'running-brake'|'brake'}[]=[];
- constructor(car:THREE.Object3D,private night=false){
+ constructor(car:THREE.Object3D,private night=false,private headlampLevel?:number){
   const semantic=hasMaterialBindings(car);
-  car.traverse(o=>{if(!(o instanceof THREE.Mesh))return;let changed=false;const original=o.material,mats=(Array.isArray(original)?original:[original]).map(m=>{const role=semantic?materialRole(m):o.name.startsWith('lights_head__Optical_Lens')?'headlamp':o.name.startsWith('lights_brake__Tail_Lens')?'running-brake':undefined;if(!(m instanceof THREE.MeshStandardMaterial)||!['headlamp','running-brake','brake'].includes(role??''))return m;const copy=m.clone();copy.emissive.set(role==='headlamp'?0xdcefff:0xff1808);changed=true;this.owned.push(copy);this.emitters.push({material:copy,role:role as 'headlamp'|'running-brake'|'brake'});return copy});if(changed){this.slots.push({mesh:o,original});o.material=Array.isArray(original)?mats:mats[0]}});
+  car.traverse(o=>{if(!(o instanceof THREE.Mesh))return;let changed=false;const original=o.material,mats=(Array.isArray(original)?original:[original]).map(m=>{const role=semantic?materialRole(m):o.name.startsWith('lights_head__Optical_Lens')?'headlamp':o.name.startsWith('lights_brake__Tail_Lens')?'running-brake':undefined;if(!(m instanceof THREE.MeshStandardMaterial)||!['headlamp','running-brake','brake'].includes(role??''))return m;const copy=m.clone();copy.emissive.set(role==='headlamp'?0xdcefff:0xff1808);if(role==='headlamp'&&!copy.map&&.2126*copy.color.r+.7152*copy.color.g+.0722*copy.color.b>.3){copy.color.setRGB(.05,.055,.06);copy.metalness=.9;copy.roughness=.1}/* flat pale lamp paint (Ryker) read as white patches by day: a dark mirror reflector under the lens instead; the emissive glow is unchanged */changed=true;this.owned.push(copy);this.emitters.push({material:copy,role:role as 'headlamp'|'running-brake'|'brake'});return copy});if(changed){this.slots.push({mesh:o,original});o.material=Array.isArray(original)?mats:mats[0]}});
   this.update(0);
  }
- update(brake:number,power=true){for(const e of this.emitters)e.material.emissiveIntensity=!power?0:e.role==='headlamp'?(this.night?2.6:.1):brake>.03?3.5:e.role==='brake'?0:this.night?.55:.15}
+ update(brake:number,power=true){for(const e of this.emitters)e.material.emissiveIntensity=!power?0:e.role==='headlamp'?(this.headlampLevel??(this.night?2.6:.1)):brake>.03?3.5:e.role==='brake'?0:this.night?.55:.15}
  inspect(){return{brakeEmission:this.emitters.filter(e=>e.role!=='headlamp').map(e=>e.material.emissiveIntensity),roles:this.emitters.map(e=>e.role)}}
  dispose(){for(const s of this.slots)s.mesh.material=s.original;this.owned.forEach(m=>m.dispose());this.slots=[];this.owned=[]}
 }
