@@ -11,10 +11,13 @@ import type {WetRoadUniforms} from './race-asphalt';
  * It is a top-level render before the frame, like the vehicle mirrors, so it shares the main pass' lights state.
  */
 export const WET_REFLECTION_LAYER=1;
+/** Share of the full drawing buffer. Puddles show a normal-perturbed, soft image; at .5 this pass cost ~65% of the main
+ *  view's pixels (the main view itself runs at dynamic resolution) and was the heavy half of High's alternating frames. */
+export const REFLECTION_SCALE=.35;
 export class WetReflection {
  readonly target:THREE.WebGLRenderTarget;private virtual=new THREE.PerspectiveCamera();private position=new THREE.Vector3();private forward=new THREE.Vector3();private up=new THREE.Vector3();private look=new THREE.Vector3();private size=new THREE.Vector2();private clear=new THREE.Color();private tagged:THREE.Object3D[]=[];private untagged:THREE.Object3D[]=[];private age=1e9;passes=0;
  private readonly bias=new THREE.Matrix4().set(.5,0,0,.5,0,.5,0,.5,0,0,.5,.5,0,0,0,1);
- constructor(private renderer:THREE.WebGLRenderer,readonly planeY:number,private surfaces:WetRoadUniforms[],readonly scale=.5){
+ constructor(private renderer:THREE.WebGLRenderer,readonly planeY:number,private surfaces:WetRoadUniforms[],readonly scale=REFLECTION_SCALE){
   renderer.getDrawingBufferSize(this.size);this.target=new THREE.WebGLRenderTarget(Math.max(2,Math.round(this.size.x*scale)),Math.max(2,Math.round(this.size.y*scale)),{type:THREE.HalfFloatType,depthBuffer:true,stencilBuffer:false});this.target.texture.name='wet-road-reflection';
   this.virtual.layers.set(WET_REFLECTION_LAYER);for(const surface of surfaces){surface.reflection.value=this.target.texture;surface.planar.value=1}
  }
