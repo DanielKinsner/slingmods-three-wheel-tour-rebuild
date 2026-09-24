@@ -1,4 +1,15 @@
-# Polish pass 2 - current (2026-09-23)
+# Performance gate passed - current (2026-09-24)
+
+Owner asked to work on performance. Read `handoff/PERFORMANCE-GATE.md`. The sustained High and Ultra gates on
+Harbor dusk-rain now PASS with unchanged thresholds (High worst 1% 14.9-15.4 ms vs 16.6; average ~6.9 ms);
+Smoky Ridge High passes widely. Cause: vehicle draw calls (rival distance proxies, player shadow/reflection
+stand-in, player static-part merge in drives), a smaller wet-reflection target, and mirrors alternating with the
+puddle pass on High. `?perf=legacy-proxy` restores the old path for A/B. Physics, saves, routes, products and the
+showroom are unchanged. One workstation; modest High margin. Phase 3 is not started: that is the owner's call.
+Earlier headers below are history.
+
+---
+# Polish pass 2 (2026-09-23)
 
 Follow-up to the visual polish pass, owner-authorized and pushed to main. Read `handoff/POLISH-PASS-2.md`.
 The Ridge start-line step is now fixed in physics (off-road only; road heights bit-identical, tested).
