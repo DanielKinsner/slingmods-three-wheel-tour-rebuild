@@ -14,7 +14,7 @@ export class RuntimeProfile {
   if(!this.lightList){this.lightList=[];scene.traverse(o=>{if(o instanceof THREE.Light)this.lightList!.push(o)})}
   let spots=0,areas=0,emitting=0;this.lightList.forEach(o=>{if(!o.parent||!o.visible)return;if(o instanceof THREE.SpotLight){spots++;if(o.intensity>0)emitting++}if(o instanceof THREE.RectAreaLight)areas++});
   const lights=`${spots}/${areas}/${emitting}`;if(lights!==this.lastLights){this.mark('light-slots',{spots,areas,emitting,ticks,elapsedMs:race.elapsedMs});this.lastLights=lights}
-  if(this.rows.length<30000)this.rows.push([now,interval,cpu,this.renderMs,ticks,race.elapsedMs,programs,spots,areas,performance.now()-start,['ready','countdown','running','finished'].indexOf(race.phase),race.attempt,resolutionScale]);else this.overflow++;
+  if(this.rows.length<120000)this.rows.push([now,interval,cpu,this.renderMs,ticks,race.elapsedMs,programs,spots,areas,performance.now()-start,['ready','countdown','running','finished'].indexOf(race.phase),race.attempt,resolutionScale]);else this.overflow++;
  }
  export(){return{columns:['rafMs','intervalMs','cpuFrameMs','renderSubmissionMs','ticks','raceMs','programs','residentSpot','residentArea','collectorMs','phaseCode','attempt','resolutionScale'],rows:this.rows,events:this.events,overflow:this.overflow,method:'Native RAF timestamps; CPU frame/render-submission times are not GPU timings. 30000-row bound, no truncation of earlier outliers.'}}
 }
