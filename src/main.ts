@@ -16,7 +16,7 @@ try{
 if(!params.has('scene')&&!params.has('test')&&params.get('play')!=='career'){
  await loadScene(()=>import('./signature/scene'));
 }else{
-if(!['signature','express','ridge'].includes(mode)&&!garage){loadingExit=document.createElement('a');loadingExit.className='preview-loading-exit';loadingExit.href=location.pathname;loadingExit.textContent='Leave to the showroom';document.body.append(loadingExit)}
+if(!['signature','express','ridge'].includes(mode)&&!garage){loadingExit=document.createElement('a');loadingExit.className='preview-loading-exit';loadingExit.href=location.pathname;loadingExit.textContent='Back to showroom';document.body.append(loadingExit)}
 if (mode === 'calibration') {
   document.querySelector('#stage')!.textContent='P00 / CALIBRATION';
   document.querySelector('#title')!.textContent='Materials. Scale. Motion.';
