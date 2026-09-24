@@ -6,7 +6,7 @@ the GLB binary so the old image bytes are dropped rather than orphaned. Idempote
 replaces whatever image the `plate` material currently uses.
 Run: python scripts/spyder/replace-plate.py
 """
-import io,json,pathlib,struct
+import io,pathlib,sys
 from PIL import Image,ImageDraw,ImageFont
 
 R=pathlib.Path(__file__).resolve().parents[2]
@@ -30,22 +30,9 @@ def plate():
   d.ellipse([x-17,H/2-17,x+17,H/2+17],fill=(170,174,178),outline=(90,94,98),width=4)
  out=io.BytesIO();img.save(out,'JPEG',quality=90,optimize=True,progressive=False);return out.getvalue()
 
-def replace(glb_bytes,image_name,new_bytes,mime='image/jpeg'):
- n=struct.unpack_from('<I',glb_bytes,12)[0];j=json.loads(glb_bytes[20:20+n]);bl=struct.unpack_from('<I',glb_bytes,20+n)[0];bin_=glb_bytes[28+n:28+n+bl]
- target=[i for i,im in enumerate(j['images']) if im.get('name')==image_name]
- if len(target)!=1:raise SystemExit(f'expected one image named {image_name}, found {len(target)}')
- view=j['images'][target[0]]['bufferView'];j['images'][target[0]]['mimeType']=mime
- order=sorted(range(len(j['bufferViews'])),key=lambda i:j['bufferViews'][i].get('byteOffset',0))
- out=bytearray()
- for i in order:
-  bv=j['bufferViews'][i];data=new_bytes if i==view else bin_[bv.get('byteOffset',0):bv.get('byteOffset',0)+bv['byteLength']]
-  while len(out)%4:out.append(0)
-  bv['byteOffset']=len(out);bv['byteLength']=len(data);out+=data
- while len(out)%4:out.append(0)
- j['buffers'][0]['byteLength']=len(out)
- js=json.dumps(j,separators=(',',':')).encode();js+=b' '*((4-len(js)%4)%4)
- total=12+8+len(js)+8+len(out)
- return struct.pack('<4sII',b'glTF',2,total)+struct.pack('<I4s',len(js),b'JSON')+js+struct.pack('<I4s',len(out),b'BIN\x00')+bytes(out)
+sys.path.insert(0,str(R/'scripts'))
+from importlib import import_module
+replace=import_module('replace-glb-image').replace
 
 if __name__=='__main__':
  before=GLB.read_bytes();after=replace(before,'plate',plate());GLB.write_bytes(after)
