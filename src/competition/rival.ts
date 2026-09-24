@@ -18,6 +18,8 @@ export class RivalController {
  private racecraft:boolean;private guards:number[]=[];private pressure=0;private mistakeUntil=0;private mistakeWide=0;private mistakeSlow=1;private reactUntil=0;private reacted=false;private random:()=>number;
  /** Light catch-up (set by the race host, Quick Race only): 0.97-1.03 on this rival's pace. Never used for career events. */
  catchUp=1;
+ /** Blue flag (set by the race host): a car a lap ahead is close behind, so give way on the next straight. */
+ blueFlag=false;
  /** @param paceScale Quick Race difficulty only (1 = the certified crew pace used by every career event). */
  constructor(route:CourseRoute,readonly id:string,readonly seed=1,readonly profileId:HandlingProfileId='legacy-p08a',readonly paceScale=1){this.road=new RaceRoad(route);this.trait={...(traits[id]??traits.player)};if(profileId!=='legacy-p08a'){this.trait.pace*=2.28;this.trait.lateral*=route.width<13?1.4:1.8;this.trait.braking*=1.0;this.trait.headway*=1.15}if(route.elevations){this.trait.pace*=.86;this.trait.lateral*=.85}if(paceScale!==1){this.trait.pace*=paceScale;this.trait.lateral*=paceScale*paceScale;this.trait.braking*=paceScale}let h=seed>>>0;for(const c of id)h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;this.preference=this.trait.line+((h%1000)/1000-.5)*.25;this.targetLane=this.preference;this.racecraft=!LEGACY_PROFILES.has(profileId);let r=h||1;this.random=()=>{r=Math.imul(r^r>>>15,1|r)+0x6d2b79f5>>>0;return (r>>>0)/4294967296}}
  control(v:VehicleTelemetry,peers:Record<string,VehicleTelemetry>,dt=1/60):VehicleControl {
@@ -71,8 +73,11 @@ export class RivalController {
    if(t.style==='wide'){const a=this.road.sample(progress+20),b=this.road.sample(progress+45),turn=Math.sign(a.dx*b.dz-a.dz*b.dx);this.mistakeWide=clamp(-turn*1.4,-(this.road.route.width/2-1.9)-this.targetLane,this.road.route.width/2-1.9-this.targetLane);this.mistakeSlow=.96}
    else{this.mistakeWide=0;this.mistakeSlow=.9}
   }
-  if(this.mode!=='follow'||this.time<this.reactUntil)return;
   const straight=this.straightAhead(progress),edge=this.road.route.width/2-1.9;
+  // Being lapped: move off the racing line on a straight, away from the car coming through (any personality).
+  if(this.blueFlag&&straight&&this.mode!=='pass'&&this.time>=this.reactUntil){this.targetLane=clamp(chaser.lane>lateral?-edge:edge,-edge,edge);this.reactUntil=this.time+4;this.reacted=true;this.stats.yields++;return}
+  if(this.mode!=='follow'||this.time<this.reactUntil)return;
+
   if(t.react==='yield'&&this.pressure>3&&straight){this.targetLane=clamp(chaser.lane>lateral?-edge:edge,-edge,edge);this.reactUntil=this.time+5;this.reacted=true;this.stats.yields++}
   else if(t.react==='defend'&&this.pressure>1&&chaser.gap>7&&Math.abs(chaser.lane-lateral)>1.2&&!straight){this.targetLane=clamp(chaser.lane,-2.7,2.7);this.reactUntil=this.time+3;this.reacted=true}
  }

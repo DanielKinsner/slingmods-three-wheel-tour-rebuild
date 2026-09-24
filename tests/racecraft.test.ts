@@ -42,3 +42,9 @@ test('historical handling profiles keep the original rival behaviour (no racecra
  const r=new RivalController(route,'maya',11,'legacy-p08a');const me=at(40);for(let i=0;i<90;i++)r.control(me,{maya:me,player:at(40,-2.2)},FIXED_DT);
  assert.ok((r.inspect().lane as number)<-.6,'legacy rivals are unchanged by the new awareness');assert.equal('guards' in r.inspect(),false);
 });
+test('blue flag: a rival about to be lapped moves off the line on a straight, away from the car coming through',()=>{
+ const run=(flag:boolean)=>{const r=new RivalController(route,'maya',11,'slingmods-sport-v5');r.blueFlag=flag;const me=at(60),behind=at(52,.3);for(let i=0;i<180;i++)r.control(me,{maya:me,player:behind},FIXED_DT);return r.inspect()};
+ const flagged=run(true),normal=run(false);
+ assert.ok((flagged.targetLane as number)<-3,`gives way toward the far edge (${flagged.targetLane})`);assert.ok((flagged.yields as number)>=1);
+ assert.ok(Math.abs(normal.targetLane as number)<3,'without the flag Maya keeps her line');
+});
