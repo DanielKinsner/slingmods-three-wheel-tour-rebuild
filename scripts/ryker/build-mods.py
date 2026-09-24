@@ -90,27 +90,8 @@ shock('Elka_front_right',[.184,.416,-.855],[.394,.176,-.855],1)
 shock('Elka_rear',[.002,.49,.078],[.002,.34,.415],1)
 # Oval polished street muffler on the right, open 3-inch slash-cut rear outlet.
 exhaust=group('ryker_mod_exhaust');exhaust['reference']='Treal TRP-RKR-SES Street, no silencer insert'
-def oval(name,z0,z1,rx,ry,material):
- verts=[]
- for z in [z0,z1]:
-  for i in range(64):a=math.tau*i/64;verts.append((.143+rx*math.cos(a),.247+ry*math.sin(a),z))
- return mesh(name,verts,[(i,(i+1)%64,(i+1)%64+64,i+64) for i in range(64)],exhaust,material,True)
-oval('Treal_oval_silencer',.095,.426,.068,.077,steel)
-for z in [.095,.426]:
- pts=[(.143+.068*math.cos(i*math.tau/64),.247+.077*math.sin(i*math.tau/64),z) for i in range(65)];tube('Treal_rolled_seam',pts,.0028,exhaust,steel)
- verts=[(.143+rx*math.cos(i*math.tau/64),.247+ry*math.sin(i*math.tau/64),z) for rx,ry in [(.068,.077),(.035,.035)] for i in range(64)]
- mesh('Treal_oval_end_cap',verts,[(i,(i+1)%64,(i+1)%64+64,i+64) for i in range(64)],exhaust,steel)
-tube('Treal_inlet',[(.143,.247,.096),(.143,.247,.02),(.115,.28,-.06),(.05,.33,-.12)],.024,exhaust,steel)
-# Actual wall thickness and slanted open end, with a dark cavity behind it.
-verts=[]
-for radius,z,slash in [(.035,.42,0),(.0381,.585,.018),(.0358,.585,.018),(.0327,.434,0)]:
- for i in range(64):a=i*math.tau/64;verts.append((.143+radius*math.cos(a),.247+radius*math.sin(a),z+slash*math.cos(a)))
-mesh('Treal_slash_cut_outlet',verts,[(layer*64+i,layer*64+(i+1)%64,(layer+1)*64+(i+1)%64,(layer+1)*64+i) for layer in range(3) for i in range(64)],exhaust,steel,True)
-cylinder('Treal_dark_inner_bore',(.143,.247,.43),(.143,.247,.433),.032,exhaust,recess)
-for j in range(3):
- z=.453+j*.012;tube('Treal_colored_weld',[(.143+.037*math.cos(i*math.tau/64),.247+.037*math.sin(i*math.tau/64),z) for i in range(65)],.0016,exhaust,weld if j!=1 else blue)
-tube('Treal_upper_bracket',[(.095,.31,.25),(.095,.34,.25),(.185,.34,.25),(.185,.31,.25)],.004,exhaust,steel)
-for x in [.11,.175]:cylinder('Treal_mount_fastener',(x,.337,.25),(x,.35,.25),.007,exhaust,alloy,6)
+# Remodelled from the retail photos in treal-exhaust.py (polished oval can, rolled ends, straight rolled-lip tip).
+exec(compile(pathlib.Path(__file__).with_name('treal-exhaust.py').read_text(),'treal-exhaust.py','exec'))
 exec(compile(pathlib.Path(__file__).with_name('refine-products.py').read_text(), 'refine-products.py','exec'))
 # Separate kit asset so ProductPresenter can share its established lighting controls.
 glow=group('ryker_mod_underglow');diffuser=mat('Ryker_TricLED_diffuser',(.7,.7,.7),.5);housing=mat('Ryker_TricLED_smoked_tube',(.012,.013,.015),.6)
