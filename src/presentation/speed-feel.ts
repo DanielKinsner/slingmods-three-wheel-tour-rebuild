@@ -26,6 +26,8 @@ export class SpeedFeel {
  private fov=0;private reach=0;private drop=0;private roll=0;private drive=0;private rough=0;private time=0;private initialized=false;private look=new THREE.Vector3();
  private forward=new THREE.Vector3();private velocity=new THREE.Vector3();private offset=new THREE.Vector3();private q=new THREE.Quaternion();private up=new THREE.Vector3(0,1,0);private lean=new THREE.Vector3();
  constructor(public reducedMotion=motionReduced()){}
+ /** Extra edge blur from the slipstream tow (0..0.3), on top of the speed blur; nothing with reduced motion. */
+ boostBlur(extra:number){if(!this.reducedMotion&&extra>0)this.edgeBlur=Math.min(1,this.edgeBlur+extra)}
  inspect(){return{reducedMotion:this.reducedMotion,fov:this.fov,reach:this.reach,drop:this.drop,rollDegrees:this.roll,edgeBlur:this.edgeBlur,rough:this.rough,tuning:SPEED_FEEL}}
  /**
   * @param target the point DrivingCamera aimed at; moved toward where the car is actually GOING.

@@ -1,5 +1,5 @@
 import type {VehicleTelemetry} from '../simulation';
-export type AudioLife={enabled:boolean;paused:boolean;mute:boolean;volume:number;cockpit:boolean;reset?:boolean};
+export type AudioLife={enabled:boolean;paused:boolean;mute:boolean;volume:number;cockpit:boolean;reset?:boolean;draft?:number};
 const finite=(v:number,fallback=0)=>Number.isFinite(v)?v:fallback,clamp=(v:number,a=0,b=1)=>Math.max(a,Math.min(b,finite(v)));
 export const ENGINE_RPMS=[1200,1650,2200,3000,4000,5300,6800] as const;
 /** Actual applied telemetry only; these are presentation mix estimates, not a second powertrain. */
@@ -10,7 +10,7 @@ export function mapAudio(t:VehicleTelemetry,life:AudioLife){
  const layers=ENGINE_RPMS.flatMap((ref,i)=>[{name:`engine-${ref}-load`,rate:clamp(rpm/ref,.72,1.4),gain:weights[i]*(.055+.28*load)},{name:`engine-${ref}-lift`,rate:clamp(rpm/ref,.72,1.4),gain:weights[i]*(.16*(1-load))}]);
  const roadSpeed=contact.reduce((a,w)=>a+Math.abs(finite(w.longitudinalSpeed)),0)/Math.max(1,contact.length);
  const surface=contact.some(w=>w.surface==='gravel')?1.35:contact.some(w=>w.surface==='wet')?.85:1;
- layers.push({name:'road',rate:1,gain:contact.length?clamp(roadSpeed/28)*(.06+.10*slip)*surface:0},{name:'wind',rate:1,gain:clamp(speed/32)**1.7*.13});
+ layers.push({name:'road',rate:1,gain:contact.length?clamp(roadSpeed/28)*(.06+.10*slip)*surface:0},{name:'wind',rate:1,gain:clamp(speed/32)**1.7*.13*(1-1.5*clamp(life.draft??0))});
  return{powertrain:t.powertrain,rpm,speed,load,layers,master:life.enabled&&!life.paused&&!life.mute?clamp(life.volume):0,cutoff:life.cockpit?2600:6500,shiftGain:.18,reset:!!life.reset};
 }
 export class ShiftEvents {

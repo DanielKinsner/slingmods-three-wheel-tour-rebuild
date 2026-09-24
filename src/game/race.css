@@ -429,3 +429,9 @@ html.gx body .gx-chal-actions button:hover,html.gx body .gx-chal-actions button:
 .race-shift.is-flash i{background:var(--gx-red,#ff3b2f)!important;box-shadow:0 0 12px var(--gx-red,#ff3b2f)!important;animation:gx-shift-flash .16s steps(2,jump-none) infinite}
 @keyframes gx-shift-flash{50%{opacity:.25}}
 @media(prefers-reduced-motion:reduce){.race-shift.is-flash i{animation:none}}
+/* Phase 4A slipstream tag (game/slipstream-hud.ts): fills as the tow builds behind another car. */
+.gx-draft{position:fixed;left:50%;top:128px;transform:translate(-50%,-6px);z-index:30;display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 14px 9px;background:var(--gx-glass,rgba(12,14,18,.78));border-top:2px solid var(--gx-cool,#39c6ff);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity var(--gx-t-fast,.22s) var(--gx-ease,ease),transform var(--gx-t-fast,.22s) var(--gx-ease,ease)}
+.gx-draft.is-on{opacity:1;transform:translate(-50%,0)}
+.gx-draft b{font:italic 800 16px/1 var(--gx-display,sans-serif);letter-spacing:.18em;color:var(--gx-cool,#39c6ff);text-shadow:0 0 12px #39c6ff88}
+.gx-draft i{display:block;width:120px;height:3px;background:#ffffff22;overflow:hidden}.gx-draft s{display:block;height:100%;width:100%;background:var(--gx-cool,#39c6ff);transform-origin:left;transform:scaleX(var(--draft,0));transition:transform .12s linear}
+body.race-film-active .gx-draft,body.gx-photo .gx-draft{display:none}

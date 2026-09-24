@@ -46,6 +46,16 @@ export class Simulation {
   suspensionConfig(){return this.definition.powertrain==='six-speed'?{vehicle:this.definition.id,build:structuredClone(this.spyder),calibration:'game-estimated'}:this.definition.powertrain==='cvt'?{vehicle:'can-am-ryker-900',elka:this.elka,calibration:'game-estimated'}:this.suspension?{...this.suspension}:null}
   private spyder:SpyderBuild=freshSpyderBuild();
   configureSpyder(build:SpyderBuild){if(this.time!==0||this.definition.powertrain!=='six-speed'||!validSpyderBuild(build))throw Error('Valid Spyder configuration required before driving');this.spyder=structuredClone(build)}
+  private draft=0;
+  /** Racecraft (RaceWorld.setRacecraft): share of aerodynamic drag removed by a slipstream, 0..0.4. Stays 0 unless a
+   *  race opts in, so time trials and recorded runs are unchanged. */
+  setDraft(share:number){this.draft=Math.max(0,Math.min(.4,share))}
+  get draftShare(){return this.draft}
+  /** Racecraft: rigid-body state read before a step and restored (partly) after a glancing car-to-car contact. */
+  motion(){const l=this.body.linvel(),a=this.body.angvel(),t=this.body.translation(),q=this.body.rotation();return {lin:{x:l.x,y:l.y,z:l.z},ang:{x:a.x,y:a.y,z:a.z},pos:{x:t.x,y:t.y,z:t.z},forward:{x:-2*(q.x*q.z+q.w*q.y),z:-(1-2*(q.x*q.x+q.y*q.y))}}}
+  setMotion(lin:Vec3,ang:Vec3){this.body.setLinvel(lin,true);this.body.setAngvel(ang,true)}
+  /** True while any collider of this car is in contact with any collider of `other`. */
+  touching(other:Simulation){let hit=false;for(let i=0;i<this.body.numColliders()&&!hit;i++)for(let j=0;j<other.body.numColliders()&&!hit;j++)this.world.contactPair(this.body.collider(i),other.body.collider(j),m=>{if(m.numContacts()>0)hit=true});return hit}
   private elka=false;
   configureRykerSuspension(elka:boolean){if(this.time!==0||this.definition.powertrain!=='cvt')throw Error('Ryker suspension must be configured before driving');this.elka=elka}
   private world:RAPIER.World;
@@ -204,7 +214,7 @@ export class Simulation {
     }
     this.wheels=newWheels;
     // Aerodynamic drag is a COM force. Load transfer is solely rigid-body response at tire contacts.
-    const vmag=Math.hypot(velocity.x,velocity.y,velocity.z);this.body.addForce(scale(velocity,-(this.definition.powertrain==='six-speed'?.36:this.definition.powertrain==='cvt'?.30:.43)*vmag),true);
+    const vmag=Math.hypot(velocity.x,velocity.y,velocity.z);this.body.addForce(scale(velocity,-(this.definition.powertrain==='six-speed'?.36:this.definition.powertrain==='cvt'?.30:.43)*(1-this.draft)*vmag),true);
   }
   publishTick(dt:number){this.time+=dt;
   }
@@ -221,6 +231,14 @@ export class Simulation {
 export class RaceWorld {
  readonly world:RAPIER.World;
  readonly participants=new Map<string,Simulation>();
+ /** Racecraft (Phase 4A), off unless a race opts in: slipstream behind another car, and glancing car-to-car contact
+  *  that scrapes instead of spinning. Time trials, validation and historical runs never enable it. */
+ private racecraft={slipstream:false,rubbing:false};private wake=new Map<string,number>();private scrapes=0;
+ /** Pairs rubbing during the last step (racecraft), with the midpoint between them: presentation reads it for sparks. */
+ readonly rubbing:{a:string;b:string;x:number;y:number;z:number}[]=[];
+ setRacecraft(options:{slipstream?:boolean;rubbing?:boolean}){this.racecraft={...this.racecraft,...options};if(!this.racecraft.slipstream)for(const car of this.participants.values())car.setDraft(0)}
+ draftOf(id:string){return this.participants.get(id)?.draftShare??0}
+ get scrapeCount(){return this.scrapes}
  steps=0;private disposed=false;private initialized=false;
  static async create(environment:EnvironmentDefinition=PAD_ENVIRONMENT,profileId:HandlingProfileId='legacy-p08a'){initialized??=RAPIER.init();await initialized;return new RaceWorld(environment,profileId)}
  constructor(readonly environment:EnvironmentDefinition,readonly profileId:HandlingProfileId='legacy-p08a'){
@@ -260,8 +278,38 @@ export class RaceWorld {
   if(this.disposed)throw Error('RaceWorld disposed');if(Math.abs(dt-FIXED_DT)>1e-9)throw Error('Authoritative simulation accepts only fixed 1/60 second ticks');
   this.initialize();
   for(const id of this.participants.keys())if(!controls[id])throw Error('Missing control for '+id);
+  if(this.racecraft.slipstream)this.updateDraft(dt);
   for(const [id,car]of this.participants){const control=controls[id];if(!control)throw Error('Missing control for '+id);car.applyForces(control,dt)}
-  this.world.step();this.steps++;for(const car of this.participants.values())car.publishTick(dt);
+  const before=this.racecraft.rubbing&&this.participants.size>1?new Map([...this.participants].map(([id,car])=>[id,car.motion()])):undefined;
+  this.world.step();this.steps++;if(before)this.softenRubbing(before);for(const car of this.participants.values())car.publishTick(dt);
+ }
+ /** Slipstream: a car running 2.5-25 m behind another, inside a wake that widens with distance (1.3 m close up, 2.4 m
+  *  at 25 m), loses up to 38% of its drag once it has sat in it for about a second (the tow builds, never instantly). */
+ private updateDraft(dt:number){
+  const cars=[...this.participants].map(([id,car])=>[id,car,car.motion()] as const);
+  for(const [id,car,m] of cars){
+   const speed=Math.hypot(m.lin.x,m.lin.z);let best=0;
+   if(speed>10){const ux=m.lin.x/speed,uz=m.lin.z/speed;for(const [other,,o] of cars){if(other===id)continue;const dx=o.pos.x-m.pos.x,dz=o.pos.z-m.pos.z,ahead=dx*ux+dz*uz,side=Math.abs(dx*uz-dz*ux);const reach=1.2+ahead*.05;if(ahead>2.5&&ahead<25&&side<reach)best=Math.max(best,(1-(ahead-2.5)/22.5)*(1-side/reach))}}
+   const wake=best>.05?(this.wake.get(id)??0)+dt:Math.max(0,(this.wake.get(id)??0)-2*dt);this.wake.set(id,wake);
+   const ramp=Math.min(1,Math.max(0,(wake-.35)/.75));car.setDraft(.38*best*ramp*ramp*(3-2*ramp));
+  }
+ }
+ /** Rubbing is racing: two cars touching side by side at a small angle keep only part of the yaw and sideways kick
+  *  the contact gave them this step (scrape, not spin). Head-on, T-bone and fast closing hits stay fully physical. */
+ private softenRubbing(before:Map<string,ReturnType<Simulation['motion']>>){
+  const ids=[...this.participants.keys()];this.rubbing.length=0;
+  for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++){
+   const a=this.get(ids[i]),b=this.get(ids[j]),ma=before.get(ids[i])!,mb=before.get(ids[j])!;
+   const fa=Math.hypot(ma.forward.x,ma.forward.z)||1,fb=Math.hypot(mb.forward.x,mb.forward.z)||1,align=(ma.forward.x*mb.forward.x+ma.forward.z*mb.forward.z)/(fa*fb);
+   if(align<.9)continue;
+   const dx=mb.pos.x-ma.pos.x,dz=mb.pos.z-ma.pos.z,dist=Math.hypot(dx,dz)||1,closing=((ma.lin.x-mb.lin.x)*dx+(ma.lin.z-mb.lin.z)*dz)/dist;
+   if(closing>6||!a.touching(b))continue;
+   this.scrapes++;this.rubbing.push({a:ids[i],b:ids[j],x:(ma.pos.x+mb.pos.x)/2,y:(ma.pos.y+mb.pos.y)/2,z:(ma.pos.z+mb.pos.z)/2});
+   for(const [car,m] of [[a,ma],[b,mb]] as const){
+    const now=car.motion(),rx=-m.forward.z/(Math.hypot(m.forward.x,m.forward.z)||1),rz=m.forward.x/(Math.hypot(m.forward.x,m.forward.z)||1),lateral=(now.lin.x-m.lin.x)*rx+(now.lin.z-m.lin.z)*rz;
+    car.setMotion({x:now.lin.x-rx*lateral*.55,y:now.lin.y,z:now.lin.z-rz*lateral*.55},{x:m.ang.x+(now.ang.x-m.ang.x)*.5,y:m.ang.y+(now.ang.y-m.ang.y)*.3,z:m.ang.z+(now.ang.z-m.ang.z)*.5});
+   }
+  }
  }
  telemetry(){return Object.fromEntries([...this.participants].map(([id,c])=>[id,c.telemetry()]))}
  removeVehicle(id:string){const car=this.get(id);car.dispose();this.participants.delete(id)}
