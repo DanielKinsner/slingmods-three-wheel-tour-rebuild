@@ -89,6 +89,31 @@ leaderboards, rivalry meter, SlingMods Points pickups, "products felt" moments.
 - Respawn returns to the start box; lap/clock/course title/circuit map hidden on the lot.
 - Test-only helper: `?test=1&spawn=x,z,yaw` places the car anywhere in a free drive (used to find the lot).
 
+## Finishing Phase 4 (owner: "do those in the order that makes the most sense")
+
+| Commit | What |
+|---|---|
+| `3b2d70e` | **SlingMods Points**: tokens on every route (10 racing line, 25 by the wall on straights, 50 inside the sharpest fifth of bends, 100 at the three tightest apexes; always on the tarmac). Chain x2..x5 within 2 s with a rising chime; contact/grass drops it; respawn each lap; minimap dots; results line + route best; Tour Log lifetime total. Quick Race / series only. **Not career credits** (the career save and certified rewards stay untouched; conversion is an owner decision). |
+| `37f46e7` | **Fix**: the deployed (demo-mode) build filters URL params through `visitorSearch`; `gymkhana=1` was stripped, so the live Gymkhana Lot button opened a plain test drive. Allowlisted (and `harbor-cargo`); verified on a local production build. Lesson in memory. |
+| `7cce841` | **Cargo Run** (bags felt): Harbor waterfront sprint with four loose crates; ~0.75 g sustained spills one (+2 s, it tumbles off). Slingshot storage bags (SM-28919) secure the load. Also: tuned builds now keep separate challenge records. |
+| `fcf7d56` | **Drift zones**: two per route with purple gates; live score, banked on exit into a local top five; Tour Log lists zone bests. Arcade drives only. |
+| `1fa894a` | **Rivalries**: record + heat per rival; the hottest rival (raced twice, some heat) calls you out at the start with the real score; results line; Tour Log with heat bars. Presentation/local only. |
+| `a51699e` | **Daily Run**: each day also sets a condition and a build rule (any / stock only / tuned); the card shows them, Go launches in that condition, only a fitting finish counts, a fast non-fitting run says why. |
+| `28b8bbc` | **Blue flags**: a rival the player is about to lap gives way on the next straight. |
+
+### Not built, with reasons (owner decisions)
+
+- **Shocks "felt" moment (bumpy mid-corner section).** Tried a game-tuning bump model for upgraded shocks (cap and
+  rate limit on a wheel's load spike) with headless probes: a line-holding driver over ridges and the production AI over
+  a ridge strip in the Express sweeper at 5 paces x 2 ridge heights. Upgraded shocks did NOT reliably help (sometimes
+  calmer, sometimes more upsets, no consistent time), so it was reverted rather than shipped. Doing it properly needs a
+  damping-based shock model (rebound/high-speed compression) in the suspension. Shocks keep their +3% grip tuning.
+- **Overtaking zones / run-off.** Harbor Express rails are generated in code (movable), but (1) race rules invalidate
+  after 0.35 s with two tyres beyond the runoff, so a grass run-off only trades a wall for an invalid race unless the
+  certified track-limit rule changes; (2) the layout version (`express-layout-v1`) is bound into career chapter events,
+  so a new layout means a career migration; (3) Original Harbor and Smoky Ridge are Blender-authored. This is a
+  "track layout v2" project for the owner to approve.
+
 ## Hand-test (about 5 minutes)
 
 1. Quick Race on Harbor Express: sit right behind a rival on the straight; SLIPSTREAM appears and fills, you gain.
@@ -104,4 +129,9 @@ leaderboards, rivalry meter, SlingMods Points pickups, "products felt" moments.
 8. Events > Harbor Express > Gymkhana Lot: leave the box, hold Space + steer round a pole for a DONUT, then the
    other pole the other way for a FIGURE 8; clip a cone (it tumbles, -150). After 90 s: results and Run it again.
 
-Tests: 524 pass. Everything is pushed to main (deploys Vercel).
+Points: Quick Race on Harbor Express, drive through the coins (chain chime rising), see SLINGMODS POINTS in the
+results. Cargo: Challenges > Waterfront Cargo Run with and without the storage bags. Drift zones: the purple gates;
+the card top-right banks your score. Rivalry: after two races with a rival, they call you out at the start. Daily card on
+the home screen shows the condition and build rule.
+
+Tests: 537 pass. Everything is pushed to main (deploys Vercel).
