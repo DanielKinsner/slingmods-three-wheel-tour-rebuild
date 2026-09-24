@@ -1,3 +1,12 @@
+# Visual polish pass - current (2026-09-23)
+
+Owner asked to reduce bloom, fix the F3 underglow red line, upgrade weak assets, clean up UI
+inconsistencies and clipping, and remodel the Ryker Panther kit and Treal exhaust, straight on main.
+Read `handoff/VISUAL-POLISH.md`. All of it is committed and pushed. Physics, steering, saves, routes and
+product bindings are unchanged (the Ridge start-line seam is a visual blend; its physics fix awaits owner
+approval). Performance HOLD remains; no sustained measurement was run. Earlier headers below are history.
+
+---
 # Career entry repair - current (2026-09-23)
 
 The owner reported a repeated loading failure after Continue Career. Reproduced the Spyder
