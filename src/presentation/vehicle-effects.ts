@@ -88,6 +88,9 @@ export class VehicleEffects {
  async loadTextures(renderer:THREE.WebGLRenderer){if(!this.enabled)return;await Promise.all(effectAssetURLs().map(async(url,i)=>{try{const t=await loadKTX2(renderer,url,{srgb:true,repeat:false,anisotropy:1});if(this.disposed){t.dispose();return}t.minFilter=THREE.LinearFilter;t.magFilter=THREE.LinearFilter;this.textures.push(t);this.pools[i].texture(t);this.loaded++}catch{this.skipped++}}))}
  /** Rubbing between two cars (RaceWorld racecraft): a short spray of scrape sparks at the contact, carried along
   *  with the cars. Nothing with effects off or reduced motion. */
+ private boosting=new Map<string,number>();
+ /** Drift boost (arcade layer): the exhaust outlets spit flame for the boost's duration. */
+ boostFlame(id:string,seconds:number){this.boosting.set(id,this.time+seconds)}
  scrapeSparks(point:THREE.Vector3,velocity:THREE.Vector3){if(!this.enabled||this.reduced||!this.group.visible)return;const pool=this.pools[EFFECT_SPRITES.indexOf('brake-scrape-sparks')];if(!pool)return;for(let i=0;i<3;i++){this.v.copy(velocity).multiplyScalar(.75).add(this.p.set(Math.random()*2-1,Math.random()*1.4+.3,Math.random()*2-1));pool.emit(point,this.v,this.time,.22+Math.random()*.12,.35+Math.random()*.2)}}
  /** Compile all pooled materials behind the existing loading veil, before their first burst. */
  prepare(){if(!this.enabled)return;this.group.visible=true;for(const pool of this.pools)pool.points.visible=true;this.glow.visible=true;this.cones.visible=true}
@@ -111,7 +114,7 @@ export class VehicleEffects {
    }
    const impact=!restart&&c.lastSpeed-speed>3;c.lastSpeed=speed;
    if(dt>0&&rate>0&&(speed>3||impact)){c.contactBudget+=dt;if(c.contactBudget>.075||impact){c.contactBudget=0;if(this.readContact(c.spec.id,this.point)){this.v.set(-t.velocity.x*.08,.7,-t.velocity.z*.08);this.pools[4].emit(this.point,this.v,this.time,.6,.45)}}}
-   if(c.state.flame&&rate>0)for(const outlet of c.outlets){this.point.copy(outlet).applyQuaternion(this.q).add(t.position);this.v.set(0,.03,.7).applyQuaternion(this.q);this.pools[5].emit(this.point,this.v,this.time,.35,.4)}
+   if((c.state.flame||(this.boosting.get(c.spec.id)??-1)>this.time)&&rate>0)for(const outlet of c.outlets){this.point.copy(outlet).applyQuaternion(this.q).add(t.position);this.v.set(0,.03,.7).applyQuaternion(this.q);this.pools[5].emit(this.point,this.v,this.time,.35,.4)}
    for(let side=0;side<2;side++){this.point.set((side?1:-1)*(c.spyder?.157:ryker?.10:.58),c.spyder?.813:ryker?.7:.55,c.spyder?-.90:ryker?-.65:-1.6).applyQuaternion(this.q).add(t.position);this.matrix.compose(this.point,this.q,ONE);this.cones.setMatrixAt(ci*2+side,this.matrix)}
    if(!rival&&c.spec.exhaust&&!reduced&&preset.exhaustShimmer&&density>0&&t.rpm>2200){this.point.copy(c.outlets[0]);if(!ryker)this.point.x=0;this.point.y+=.12;this.point.z+=.35;this.point.applyQuaternion(this.q).add(t.position);this.p.copy(this.point).project(camera);if(this.p.z>0&&this.p.z<1){const size=.7/Math.max(2,camera.position.distanceTo(this.point));this.heatHaze.set(this.p.x*.5+.5,this.p.y*.5+.5,size,Math.min(1,(t.rpm-2200)/4000))}}
   }
