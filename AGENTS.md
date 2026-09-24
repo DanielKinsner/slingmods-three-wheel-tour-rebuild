@@ -1,4 +1,14 @@
-# Phase 3 UI and cinematic transitions - current (2026-09-24)
+# Phase 4 fun systems - current (2026-09-24)
+
+Owner order A -> B -> C. Read `handoff/PHASE-4-FUN-SYSTEMS.md`. A: racecraft (rivals hold their line beside you,
+race at a closer gap, personalities, slipstream, scrape-not-spin contact, Quick Race catch-up). B: handbrake drift ->
+boost arcade layer (Space / X). C: horn, perfect-start boost; sector splits already existed. New physics is opt-in per
+race: time trials, challenges and records are byte-identical; career gets racecraft but never drift/boost/catch-up.
+Open owner decisions: gymkhana arena (none drivable today) and whether parts/levels should change handling.
+515 tests pass; everything is pushed to main (deploys Vercel). Earlier headers below are history.
+
+---
+# Phase 3 UI and cinematic transitions (2026-09-24)
 
 Owner asked to start Phase 3 after the performance gate passed. Read `handoff/PHASE-3-TRANSITIONS.md`. The
 showroom panel now morphs in place (`src/game/morph.ts`) instead of rebuilding; parts fly onto the car with
