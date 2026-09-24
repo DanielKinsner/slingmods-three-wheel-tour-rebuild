@@ -1,4 +1,15 @@
-# Performance gate passed - current (2026-09-24)
+# Phase 3 UI and cinematic transitions - current (2026-09-24)
+
+Owner asked to start Phase 3 after the performance gate passed. Read `handoff/PHASE-3-TRANSITIONS.md`. The
+showroom panel now morphs in place (`src/game/morph.ts`) instead of rebuilding; parts fly onto the car with
+sparks and an underglow pulse (`src/presentation/install-motion.ts`); camera moves rack focus; the departure is
+letterboxed; photo mode adds focus blur, film look and underglow colour; the HUD has a shift light. Deferred with
+reasons: part highlight sweep, live photo time of day. Physics, saves, routes, products and the perf-gated race
+render paths are unchanged. 508 tests pass; everything is pushed to main (deploys Vercel).
+Earlier headers below are history.
+
+---
+# Performance gate passed (2026-09-24)
 
 Owner asked to work on performance. Read `handoff/PERFORMANCE-GATE.md`. The sustained High and Ultra gates on
 Harbor dusk-rain now PASS with unchanged thresholds (High worst 1% 14.9-15.4 ms vs 16.6; average ~6.9 ms);
