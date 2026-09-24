@@ -1,4 +1,13 @@
-# Visual polish pass - current (2026-09-23)
+# Polish pass 2 - current (2026-09-23)
+
+Follow-up to the visual polish pass, owner-authorized and pushed to main. Read `handoff/POLISH-PASS-2.md`.
+The Ridge start-line step is now fixed in physics (off-road only; road heights bit-identical, tested).
+Also: garage vehicle sync, Slingshot calipers and console icons, rider gloves/balaclava, lamp lenses,
+floor moire, road paint, back-button wording. Editing slingshot-2026.glb requires the SM-133 refit (see doc).
+Performance HOLD remains; the sustained run was skipped (PC not idle). Earlier headers below are history.
+
+---
+# Visual polish pass (2026-09-23)
 
 Owner asked to reduce bloom, fix the F3 underglow red line, upgrade weak assets, clean up UI
 inconsistencies and clipping, and remodel the Ryker Panther kit and Treal exhaust, straight on main.
