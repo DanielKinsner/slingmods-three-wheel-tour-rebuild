@@ -4,8 +4,8 @@ Owner order A -> B -> C. Read `handoff/PHASE-4-FUN-SYSTEMS.md`. A: racecraft (ri
 race at a closer gap, personalities, slipstream, scrape-not-spin contact, Quick Race catch-up). B: handbrake drift ->
 boost arcade layer (Space / X). C: horn, perfect-start boost; sector splits already existed. New physics is opt-in per
 race: time trials, challenges and records are byte-identical; career gets racecraft but never drift/boost/catch-up.
-Open owner decisions: gymkhana arena (none drivable today) and whether parts/levels should change handling.
-515 tests pass; everything is pushed to main (deploys Vercel). Earlier headers below are history.
+Then (owner chose A twice): parts give modest labelled game-tuning gains, Tour Rep levels unlock driver skills, and a
+Gymkhana Lot on the Harbor Express infield (donuts, figure 8s, cones, medals). 524 tests pass; everything is pushed to main (deploys Vercel). Earlier headers below are history.
 
 ---
 # Phase 3 UI and cinematic transitions (2026-09-24)

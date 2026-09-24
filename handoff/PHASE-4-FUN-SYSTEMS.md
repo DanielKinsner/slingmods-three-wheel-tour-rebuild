@@ -53,16 +53,41 @@ Code: `src/simulation/index.ts` (`DRIFT`, `enableDrift`, `drift()`), `src/drivin
 | Horn (H / RB) | `e324d05`: synthesised dual-tone, follows volume/mute/pause (`src/audio/horn.ts`) |
 | Perfect-launch bonus | The PERFECT START / GREAT accolade already existed; `81f7154`: it now pays a 0.6 / 0.3 s boost in arcade races |
 | Sector splits green/red vs best | Already built earlier (`race-fx.ts` checkpoint splits, `slingmods-gx-splits-v1`); verified, no change |
-| Gymkhana / donut mode | **Not started: needs an owner decision** (there is no drivable open lot: the physics pad exists but its only scene is the retired workbench). See below. |
+| Gymkhana / donut mode | `d31dd40`: built as the Gymkhana Lot (owner chose A), see below |
 
 Other Phase 4 hooks already in the game before this pass: PB ghosts + medals (Time Attack), near-miss and drift
 skill chains, daily run with streak, speed-trap challenges, crew radio lines. Not built: drift zones with
 leaderboards, rivalry meter, SlingMods Points pickups, "products felt" moments.
 
-## Gymkhana decision (open)
+## Owner decisions taken after A/B/C (2026-09-24): both "A"
 
-Options put to the owner: (A) a new open lot scene built on the existing pad physics (cones, boxes, donut pole,
-figure-8; recommended), (B) gymkhana props on an existing route's start area, (C) skip for now.
+### Parts tune the car; levels unlock driver skills (`5157c53`)
+
+- `src/game/tuning.ts`: Slingshot exhaust +4% power, shocks +3% grip, wing up to +3% grip at speed for +3% drag;
+  Ryker exhaust +4% power, Elka shocks +3% grip, Panther kit -2% drag; Spyder front/rear shocks +1.5% grip each,
+  sway bar +2% grip. Throttle controller stays response-only; lights, bags, wheel lights cosmetic. Applied through
+  `Simulation.configureTuning` (neutral = byte-identical) for the current tunes only (Sport v5, Ryker, Spyder).
+- Standing starts are traction-limited, so power shows from a rolling start (`scripts/game-feel/tuning-probe.ts`).
+- Garage: a Performance card under the categories (acceleration, top speed, grip, stability); the open part's share
+  glows when fitted and shows as a ghost when not. Labelled "Game tuning". Product copy that said "no horsepower /
+  grip change" now states the game value and that it is not a claim for the real product.
+- Tuned Slingshot/Ryker builds get their own Time Attack / challenge records (`...|tuned:SM-3223,SM-7720`); stock
+  keys and every existing record are unchanged.
+- Driver skills (`src/game/driver-skills.ts`), Quick Race and test drives only: LV2 Launch Control, LV4 Drift Feel,
+  LV6 Nitrous Nerves, LV8 Draft Hunter, LV10 Clean Exit. Tour Log > Stats lists them; a race-results level-up names
+  a new one. The drive reads the saved career read-only for the level.
+- Balance note: career rivals keep their certified pace, so parts make career races easier. That is the intended
+  progression; revisit if it feels too easy.
+
+### Gymkhana Lot (`d31dd40`)
+
+- A 90 x 110 m lot on the Harbor Express infield (clear of all colliders: `scripts/game-feel/lot-search.ts`), launched
+  from the Harbor Express card as a free test drive (`?gymkhana=1`). Painted markings, two donut poles, a two-row cone
+  slalom, a barrier. The physics world is built as before; the lot is added after (`RaceWorld.extendEnvironment`).
+- 90 s score attack (`src/game/gymkhana-score.ts`): drift points with a x5 chain, DONUT +400, FIGURE 8 +1500, cones
+  -150. Medals 3,000 / 6,500 / 11,000 (first guesses: retune after the owner plays it). Best per build, local only.
+- Respawn returns to the start box; lap/clock/course title/circuit map hidden on the lot.
+- Test-only helper: `?test=1&spawn=x,z,yaw` places the car anywhere in a free drive (used to find the lot).
 
 ## Hand-test (about 5 minutes)
 
@@ -74,5 +99,9 @@ figure-8; recommended), (B) gymkhana props on an existing route's start area, (C
    BOOST. Hit a wall mid-drift: LOST.
 4. Press H: horn (sound enabled).
 5. Career race or Time Attack: Space does nothing, no drift meter.
+6. Garage > Exhaust: the Performance card shows the ghost gain; Preview part turns it green.
+7. Tour Log > Stats: Driver skills list with unlock levels.
+8. Events > Harbor Express > Gymkhana Lot: leave the box, hold Space + steer round a pole for a DONUT, then the
+   other pole the other way for a FIGURE 8; clip a cone (it tumbles, -150). After 90 s: results and Run it again.
 
-Tests: 515 pass. Everything is pushed to main (deploys Vercel).
+Tests: 524 pass. Everything is pushed to main (deploys Vercel).
