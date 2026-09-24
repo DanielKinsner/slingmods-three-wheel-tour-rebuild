@@ -17,7 +17,7 @@ const report={startedAt:new Date().toISOString(),quality,cadence,route,look,url:
 p.on('pageerror',e=>report.errors.push(e.message));p.on('console',m=>{if(m.type()==='error')report.errors.push(m.text())});p.on('response',r=>{if(r.status()>=400)report.failedRequests.push({status:r.status(),url:r.url()})});
 let heartbeat;
 try {
- await p.goto(base+`/?scene=express&route=${route}&mode=race&play=preview&test=1&profile=1&quality=${quality}&look=${look}`,{timeout:120000});
+ await p.goto(base+`/?scene=express&route=${route}&mode=race&play=preview&test=1&profile=1&quality=${quality}&look=${look}${process.env.EXTRA||''}`,{timeout:120000});
  await p.waitForFunction(()=>window.__EXPRESS?.ready,null,{timeout:180000});await p.bringToFront();
  report.initial=await p.evaluate(()=>window.__EXPRESS.inspect());assert.match(report.initial.renderer,/RTX 4080/);assert.deepEqual(report.initial.size,[2560,1440]);
  report.timeOrigin=await p.evaluate(()=>performance.timeOrigin);
