@@ -72,7 +72,7 @@ export function openOptions(initial:Tab='audio',which:Mode='options'){
  open=document.createElement('section');open.className='gx-options';open.setAttribute('role','dialog');open.setAttribute('aria-modal','true');open.setAttribute('aria-label',MODES[mode].title);open.dataset.mode=mode;
  open.innerHTML=`<div class="gx-opt-panel"><header><span class="gx-kicker">SLINGMODS · THREE-WHEEL TOUR</span><h2 class="gx-display">${MODES[mode].title}</h2><button class="gx-opt-close" data-opt="close" aria-label="Close">✕</button></header><nav class="gx-opt-tabs" data-gx-tabs data-gx-modal-tabs>${TABS().map(([id,label])=>`<button data-gx-tab data-tab="${id}" role="tab">${label}</button>`).join('')}</nav><div class="gx-opt-body"></div></div>`;
  document.body.append(open);inerted=[...document.body.children].filter((el):el is HTMLElement=>el instanceof HTMLElement&&el!==open&&!el.classList.contains('gx-prompts')&&!el.inert);for(const el of inerted)el.inert=true;render();gameCue('gx.select');
- setPrompts([{key:'confirm',label:'Select'},{key:'adjust',label:'Adjust'},{key:'tabs',label:'Tabs'},{key:'back',label:'Close'}]);
+ setPrompts([{key:'confirm',label:'Select'},...(mode==='options'?[{key:'adjust' as const,label:'Adjust'}]:[]),{key:'tabs',label:'Tabs'},{key:'back',label:'Close'}]);
  open.addEventListener('click',onClick);open.addEventListener('input',onInput);open.addEventListener('keydown',onKey);
  (open.querySelector<HTMLElement>(`[data-tab="${tab}"]`))?.focus();padLoop();
 }

@@ -59,7 +59,7 @@ html.gx body.career-experience .career-callout a:hover{text-decoration:none;back
 html.gx body.career-experience .career-section-title{margin:40px 0 16px;border-bottom:0;padding-bottom:0}
 html.gx body.career-experience .career-section-title h2{font:italic 800 38px/1 var(--gx-display);font-synthesis:style;text-transform:uppercase}
 html.gx body.career-experience .career-section-title h2::before{content:'';display:inline-block;width:6px;height:.8em;margin-right:12px;background:var(--gx-red);transform:skewX(var(--gx-rake))}
-html.gx body.career-experience .career-section-title span{font:800 11px/1 var(--gx-body);letter-spacing:.2em;color:var(--gx-mute)}
+html.gx body.career-experience .career-section-title span{font:800 11px/1 var(--gx-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gx-mute)}
 
 /* Event cards */
 html.gx body.career-experience .career-events{gap:14px}
@@ -136,3 +136,10 @@ html.gx body.career-experience .career-shell .sig-header{background:linear-gradi
 
 /* Three rows on phones: brand/audio, navigation, then vehicle selection. */
 @media(max-width:760px){html.gx body.career-experience .career-shell .sig-header,html.gx body.career-experience .career-shell .sig-header:has(.vehicle-appearance-picker){height:160px;min-height:160px;padding-top:12px}html.gx body.career-experience .career-shell .sig-header .vehicle-appearance-picker{top:112px}html.gx body.career-experience .career-chapters{margin-top:20px}}
+/* Same header rhythm as the showroom (menu.css): the nav tightens with the window, the rank title never fits the
+   1680px shell, and the fixed sound chip lines up with the shell edge so Options/Tour Log keep their gap from it. */
+html.gx body.career-experience .career-shell .gx-player-rank{display:none}
+html.gx body.career-experience #game-audio{right:max(var(--gx-edge-x),calc((100% - 1680px)/2))}
+@media (max-width:1300px){html.gx body.career-experience .career-shell .sig-navigation button{padding:0 12px;font-size:16px}}
+@media (max-width:920px){html.gx body.career-experience .career-shell .sig-navigation button{padding:0 8px;font-size:15px}}
+@media (max-height:500px) and (min-width:761px){html.gx body.career-experience .career-shell .sig-header,html.gx body.career-experience .career-shell .sig-header:has(.vehicle-appearance-picker){height:100px;min-height:100px;padding-top:8px}html.gx body.career-experience .career-shell .sig-header .sig-brand img{width:108px}html.gx body.career-experience .career-shell .sig-header .vehicle-appearance-picker{top:54px}}

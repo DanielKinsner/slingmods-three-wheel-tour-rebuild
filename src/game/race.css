@@ -150,8 +150,9 @@ html.gx body.race-results-open .result-standings>div{padding:7px 14px}
 html.gx body.harbor-race #game-audio{top:124px;right:auto;left:var(--gx-edge-x);height:40px;background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px)}
 html.gx body.harbor-race #game-audio :is(button,summary){min-height:38px;font:800 13px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase}
 html.gx body.harbor-race .gx-prompts{left:0;right:0;justify-content:center;background:none}
-html.gx body #game-graphics{background:var(--gx-glass);border:1px solid var(--gx-edge);backdrop-filter:blur(8px);font-family:var(--gx-body)}
-html.gx body #game-graphics select{background:#ffffff0d;color:var(--gx-ink);border:1px solid var(--gx-edge-2);font:700 13px var(--gx-body)}
+html.gx body #game-graphics{background:var(--gx-glass);border:1px solid var(--gx-edge);border-radius:0;backdrop-filter:blur(8px);font:800 11px/1.2 var(--gx-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gx-mute)}
+html.gx body #game-graphics select{background:#ffffff0d;color:var(--gx-ink);border:1px solid var(--gx-edge-2);border-radius:0;font:700 13px var(--gx-body);letter-spacing:normal;text-transform:none}
+html.gx body #game-graphics small{font:600 12px/1.3 var(--gx-body);letter-spacing:normal;text-transform:none}
 
 /* ---------- Time Attack: medal ladder HUD + results medal ---------- */
 html.gx body #harbor-ui:has(.gx-trial) :is(#crew-order,.race-position){display:none}
@@ -260,6 +261,10 @@ html.gx body .gx-ghost-pick button[data-ghost=jett][aria-pressed=true]{backgroun
 html.gx body .gx-ghost-pick button:disabled{opacity:.35;cursor:default}
 .gx-trial small[data-ghost=jett]{color:#ff8a82}.gx-trial small[data-ghost=jett] i{background:#ff5a4f;box-shadow:0 0 8px #ff5a4f}
 html.gx body.harbor-race:has(#harbor-ui[data-gx-mode=race]) #game-audio{top:176px;left:auto;right:var(--gx-edge-x)}
+/* Ready/pause menus own the left column: the sound chip moves beside the pause button, as in the showroom header. */
+html.gx body.harbor-race.race-menu-open:not(.race-results-open):has(#race-menu) #game-audio{top:22px;left:auto;right:calc(var(--gx-edge-x) + 56px);height:44px}
+/* Phone held sideways: clear of the steering hint and the touch tools, under the scaled timing strip. */
+@media (max-height:500px){html.gx body.harbor-race:has(#harbor-ui):has(#race-menu) #game-audio{top:76px;left:auto;right:var(--gx-edge-x)}}
 
 /* ---------- Instant replay ---------- */
 html.gx body.gx-replay :is(#harbor-ui,.gx-race,#game-audio,#game-graphics,.film-launcher,.gx-trial,#crew-proximity){visibility:hidden!important}

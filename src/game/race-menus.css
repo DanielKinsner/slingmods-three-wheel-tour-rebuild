@@ -115,7 +115,7 @@ html.gx body .film-skip{font:800 11px/1 var(--gx-body);letter-spacing:.2em;text-
  html.gx body #race-menu[data-phase=ready]>p{margin:4px 0 8px;font-size:13px}
  html.gx body #race-menu[data-phase=ready] .menu-actions .primary{min-height:46px;font-size:22px}
  html.gx body.race-menu-open:not(.race-results-open) :is(#game-graphics,.film-launcher){display:none}
- html.gx body.gx-paused #game-audio{display:none}
+ html.gx body.gx-paused #game-audio,html.gx body.race-menu-open:not(.race-results-open) #game-audio{display:none}
 }
 /* Short desktop windows (720p): tighter results so the whole column, actions included, fits without scrolling. */
 @media (max-height:800px) and (min-height:501px){

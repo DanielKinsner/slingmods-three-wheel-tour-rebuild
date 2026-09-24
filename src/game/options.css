@@ -36,6 +36,10 @@
 .gx-opt-open:hover{background:var(--gx-glass-hi,#22262e)}
 @media (max-width:760px){.gx-opt-row{grid-template-columns:1fr;gap:6px}.gx-opt-row small{grid-column:1}.gx-opt-panel h2{font-size:40px}.gx-opt-tabs{overflow-x:auto}.gx-opt-open{top:12px;right:12px}}
 body[data-gx-modal] .gx-prompts{z-index:9600}
+/* Leave the prompt bar its own strip so it never sits on top of the panel's last rows. */
+.gx-options{padding-bottom:64px}.gx-opt-panel{max-height:calc(100dvh - 88px)}
+@media (max-width:760px),(max-height:500px){.gx-options{padding:8px}.gx-opt-panel{max-height:calc(100dvh - 16px)}}
+@media (max-height:500px){.gx-opt-panel header{padding:12px 20px 4px}.gx-opt-panel h2{font-size:34px}.gx-opt-close{top:8px;right:8px}.gx-opt-tabs{padding:2px 20px 0}.gx-opt-tabs button{min-height:40px;line-height:40px;font-size:17px;padding:0 14px}.gx-opt-body{padding:12px 20px 16px}}
 /* Tour Log */
 .gx-log-summary{display:flex;align-items:baseline;gap:12px;margin:0}
 .gx-log-summary b{font:italic 800 44px/1 var(--gx-display,sans-serif);font-synthesis:style;color:var(--gx-hot,#ffd23c)}.gx-log-summary b i{font-size:.55em;color:var(--gx-mute,#999)}
