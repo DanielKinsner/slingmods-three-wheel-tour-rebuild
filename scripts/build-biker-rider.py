@@ -19,6 +19,7 @@ fit-spyder.json, manifest.json.
 import bpy, json, math, pathlib, struct, sys, zipfile, hashlib
 import numpy as np
 from mathutils import Vector, Matrix, Quaternion
+from mathutils.bvhtree import BVHTree
 
 R = pathlib.Path(__file__).resolve().parents[1]
 SRC = R / 'male-biker-rigged'
@@ -51,24 +52,34 @@ def update():
 FITS = {
     'slingshot': dict(
         glb='public/assets/model02/slingshot-2026.glb', control='wheel', handlebar=False,
-        grips={'left': (-0.175, 0.0, 0.0), 'right': (0.175, 0.0, 0.0)},
-        hip=(-0.375, 0.455, 0.185), pelvis_tilt=-13, chest_tilt=6, head_pitch=-2, reach=14,
-        ankles={'left': (-0.47, 0.285, -0.64), 'right': (-0.30, 0.30, -0.70)}, foot_pitch=38,
+        # Hands at 10 and 2 (30 deg above the 9/3 spokes, whose hub joins cover the rim there).
+        grips={'left': (-0.15155, 0.0875, 0.0), 'right': (0.15155, 0.0875, 0.0)},
+        # Back in the bucket on the cushion (not 7 cm into it); left heel on the floor, right toe on the
+        # throttle pad (x -0.25..-0.31, face 0.30-0.44 m high) clear of the brake pedal inboard of it.
+        hip=(-0.375, 0.50, 0.25), pelvis_tilt=-10, chest_tilt=6, head_pitch=-2, reach=22,
+        ankles={'left': (-0.47, 0.35, -0.64), 'right': (-0.285, 0.355, -0.59)}, foot_pitch=38,
         knee_out=0.05, wrist_ext=8, eye_forward=0.0),
     'ryker': dict(
         glb='public/assets/ryker/complete/ryker-900-complete.glb', control='bar', handlebar=True,
         grips={'left': (-0.274, 0.02, 0.012), 'right': (0.274, 0.02, 0.012)},
-        hip=(0.0, 0.705, 0.235), pelvis_tilt=6, chest_tilt=8, head_pitch=-12, reach=6,
-        ankles={'left': (-0.30, 0.255, -0.20), 'right': (0.30, 0.255, -0.20)}, foot_pitch=4,
-        knee_out=0.16, wrist_ext=10, eye_forward=0.0, grip_inset=0.03),
+        # In the seat pocket behind the seat's front ridge (0.62 m cushion, ridge 0.79 m at z 0.17-0.2), leaning
+        # to the low bars; balls of the feet on the pegs (tops 0.19 m at z -0.22), right toe under the brake pedal.
+        hip=(0.0, 0.78, 0.43), pelvis_tilt=20, chest_tilt=26, head_pitch=-12, reach=18,
+        ankles={'left': (-0.36, 0.29, -0.09), 'right': (0.36, 0.29, -0.09)}, foot_pitch=4,
+        knee_out=0.50, wrist_ext=10, eye_forward=0.0, grip_inset=0.012,
+        # Seated further back, the rider leans and turns into the outside grip at full lock.
+        handlebar_pose=(0, -0.35, 0.75)),
     'spyder': dict(
         glb='public/assets/spyder/spyder-f3.glb', control='bar', handlebar=True,
         grips={'left': (-0.4805574, 0.2050073, 0.1751104), 'right': (0.4761434, 0.2050073, 0.1751104)},
-        hip=(0.0, 0.79, 0.16), pelvis_tilt=-4, chest_tilt=2, head_pitch=-6, reach=6,
-        ankles={'left': (-0.33, 0.31, -0.08), 'right': (0.33, 0.31, -0.08)}, foot_pitch=8,
-        knee_out=0.18, wrist_ext=6, eye_forward=0.0, grip_inset=0.045,
-        # 96 cm bars: at full lock the rider leans and turns into the outside grip (tests/biker-rider.test.ts).
-        handlebar_pose=(0, -0.42, 0.85)),
+        # Seated in the seat pocket (buttocks on the 0.76 m cushion, clear of the tank ramp), knees outside the
+        # side panels, balls of the feet on the forward footpegs (peg tops 0.315 m at z -0.32, x 0.31-0.44).
+        hip=(0.0, 0.965, 0.30), pelvis_tilt=10, chest_tilt=22, head_pitch=-6, reach=14,
+        ankles={'left': (-0.39, 0.408, -0.18), 'right': (0.39, 0.41, -0.16)}, foot_pitch=8,
+        knee_out=0.30, wrist_ext=6, eye_forward=0.0, grip_inset=0.08,
+        # 96 cm bars: at full lock the outside grip swings ~27 cm forward, so the rider leans and turns into it
+        # (tests/biker-rider.test.ts keeps both hands on the grips through full lock).
+        handlebar_pose=(0, -0.6, 1.2)),
 }
 
 NAMES = {'root.x': 'driver_pelvis', 'spine_01.x': 'driver_spine', 'spine_02.x': 'driver_spine_02',
@@ -84,6 +95,10 @@ for s, side in (('l', 'left'), ('r', 'right')):
         for k in (1, 2, 3):
             NAMES[f'c_{f}{k}.{s}'] = f'driver_{f}{k}_{side}'
 FINGERS = ('index', 'middle', 'ring', 'pinky')
+# Glove skin thickness around each digit bone (m), proximal -> distal, used to stop the curl at the control surface.
+FINGER_SKIN = {1: .012, 2: .011, 3: .0095}
+THUMB_SKIN = {1: .013, 2: .012, 3: .0105}
+PALM = .033                     # palm surface to hand-bone plane (m): the glove rests on the grip, not in it
 
 
 # ---------------------------------------------------------------- source character -> game rig
@@ -325,6 +340,18 @@ def measure_grip(control, point, inset=0.0):
     return Vector(g) - ax * inset, ax, len(P), radius
 
 
+def control_bvh(control):
+    """World-space surface of the steering control (bar/rim, grips, spokes, switch gear, levers)."""
+    dg = bpy.context.evaluated_depsgraph_get(); V, F = [], []
+    for o in descendants(control):
+        if o.type != 'MESH' or not o.visible_get():
+            continue
+        e = o.evaluated_get(dg); me = e.to_mesh(); mw = o.matrix_world; off = len(V)
+        V += [mw @ v.co for v in me.vertices]; F += [[off + i for i in p.vertices] for p in me.polygons]
+        e.to_mesh_clear()
+    return BVHTree.FromPolygons(V, F)
+
+
 # ---------------------------------------------------------------- posing (same limb solver as runtime)
 def solve_elbow(shoulder, target, pole, upper, lower):
     direction = target - shoulder; distance = max(.015, min(direction.length, upper + lower - .0001))
@@ -377,6 +404,25 @@ class Poser:
             self.set_rot(bone, q @ self.rest[bone].to_3x3())
         return E
 
+    def wrap(self, bone, axis, sign, degrees, surface, skin):
+        """Curl a digit segment toward its nominal angle, stopping where its skin would touch the control."""
+        def clear():
+            a, b = self.pb[bone].head, self.pb[bone].tail
+            for u in (.25, .5, .75, 1.0):
+                p = a.lerp(b, u); loc, n, _, d = surface.find_nearest(p, .2)
+                if loc is not None and ((p - loc).dot(n) < 0 or d < skin):
+                    return False
+            return True
+        if not clear():                                        # already touching: keep the authored curl
+            self.rotate_world(bone, axis, sign * math.radians(degrees)); return
+        done = 0.0
+        while done < degrees:
+            step = min(2.0, degrees - done)
+            self.rotate_world(bone, axis, sign * math.radians(step))
+            if not clear():
+                self.rotate_world(bone, axis, -sign * math.radians(step)); return
+            done += step
+
     def curl_sign(self, bone, axis, toward):
         """Rotation sense about a world axis that swings the bone's tail toward `toward` (decided once per digit)."""
         d = self.pb[bone].matrix.to_3x3().col[1]
@@ -389,7 +435,7 @@ def hand_model(poser, side, radius=.016):
     wrist = poser.rest_head(hn); knuckle = poser.rest_head(f'driver_middle1_{side}')
     F = (knuckle - wrist).normalized(); N = Vector((0, 0, -1)); N = (N - F * N.dot(F)).normalized()
     meta = (knuckle - wrist).length
-    grip = wrist + F * (meta * .86) + N * (.020 + radius)   # tube centre under the palm's distal crease
+    grip = wrist + F * (meta * .86) + N * (PALM + radius)   # tube centre under the palm's distal crease
     inv = rest.transposed()
     return inv @ F, inv @ N, inv @ (grip - wrist)
 
@@ -434,15 +480,18 @@ def pose_for(poser, fit, control_obj, sc_world_bl):
             f_des = (W - E).normalized()
         E = poser.limb(up, lo, hn, W, pole)
         poser.set_rot(hn, Q)
-        # Fingers wrap the tube; the thumb closes from the opposite side.
+        # Fingers wrap the tube; the thumb closes from the opposite side. Each segment curls toward its authored
+        # angle but stops where its skin meets the real control surface, so fingertips rest on the grip/rim
+        # (and on spokes, switch gear or levers) instead of sinking into it.
+        surface = control_bvh(control_obj)
         for f in FINGERS:
             s = poser.curl_sign(f'driver_{f}1_{side}', axis, Nw)
             for k, ang in ((1, 62), (2, 78), (3, 48)):
-                poser.rotate_world(f'driver_{f}{k}_{side}', axis, s * math.radians(ang))
+                poser.wrap(f'driver_{f}{k}_{side}', axis, s, ang, surface, FINGER_SKIN[k])
         t_axis = poser.pb[f'driver_thumb1_{side}'].matrix.to_3x3().col[0].normalized()
         s = poser.curl_sign(f'driver_thumb1_{side}', t_axis, Nw)
         for k, ang in ((1, 18), (2, 28), (3, 22)):
-            poser.rotate_world(f'driver_thumb{k}_{side}', t_axis, s * math.radians(ang))
+            poser.wrap(f'driver_thumb{k}_{side}', t_axis, s, ang, surface, THUMB_SKIN[k])
         report[side] = dict(grip=g, axis=axis, wrist=W, elbow=E, pole=pole, measured=bool(m), samples=m[2] if m else 0, radius=m[3] if m else 0)
     for side, sign in (('left', -1), ('right', 1)):
         th, sh, ft = f'driver_thigh_{side}', f'driver_shin_{side}', f'driver_foot_{side}'
