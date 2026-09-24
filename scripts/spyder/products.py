@@ -66,9 +66,26 @@ def mounted(name,points,parent):
    target=v(Vector(points[i]).lerp(Vector(points[i+1]),k/12));at,n,idx,d=surface.find_nearest(target);direction=(target-at).normalized() if d>.0001 else n
    at+=direction*.003;fitted.append((at.x,at.z,-at.y));gaps.append(d)
  tube(name,fitted,.003,parent,led);strip_report.append({'name':name,'centers':fitted,'surfaceOffset':.003,'maxAdaptation':max(gaps)})
+# The side-frame strips stick to the UNDERSIDE of the upper frame rail and shine down on the engine.
+# Nearest-surface snapping jumped between rail, engine covers and brackets (up to 10 cm) and drew a
+# zigzag through the engine bay, so these follow the rail axis measured from the master mesh
+# (camera ray survey, 42 mm rail) and meet its underside with upward rays only.
+FRAME_TUBE_AXIS=[(.156,.551,-.068),(.205,.560,-.154),(.244,.569,-.225),(.273,.576,-.291),(.292,.584,-.359),(.307,.588,-.429)]
+FRAME_TUBE_RADIUS=.021
+def under_tube(name,axis,parent):
+ fitted=[];gaps=[]
+ for i in range(len(axis)-1):
+  for k in range(12 if i<len(axis)-2 else 13):
+   c=Vector(axis[i]).lerp(Vector(axis[i+1]),k/12);start=v((c.x,c.y-FRAME_TUBE_RADIUS-.02,c.z))
+   at,n,idx,d=surface.ray_cast(start,Vector((0,0,1)),FRAME_TUBE_RADIUS+.02)
+   expected=c.y-FRAME_TUBE_RADIUS;y=at.z if at is not None and abs(at.z-expected)<.012 else expected
+   gaps.append(abs(y-expected));fitted.append((c.x,y-.0035,c.z))
+ # light smoothing so mesh facets do not ripple the strip
+ fitted=[fitted[0]]+[(p[0],(fitted[j-1][1]+p[1]+fitted[j+1][1])/3,p[2]) for j,p in enumerate(fitted[1:-1],1)]+[fitted[-1]]
+ tube(name,fitted,.003,parent,led);strip_report.append({'name':name,'centers':fitted,'surfaceOffset':.0035,'maxAdaptation':max(gaps),'method':'rail-axis underside rays'})
 for sign in [-1,1]:
  mounted('F3 upper headlight strip',[(sign*.05,.88,-.835),(sign*.15,.885,-.82),(sign*.27,.865,-.80)],parts['underglow'])
- mounted('F3 tubular frame strip',[(sign*.30,.51,-.24),(sign*.30,.50,-.02),(sign*.30,.50,.18)],parts['underglow'])
+ under_tube('F3 tubular frame strip',[(sign*x,y,z) for x,y,z in FRAME_TUBE_AXIS],parts['underglow'])
  mounted('F3 inner grill strip',[(sign*.04,.205,-1.192),(sign*.19,.195,-1.13),(sign*.295,.265,-1.02)],parts['underglow'])
  arm=group('F3 lower A arm strip '+str(sign),parts['underglow']);channel=0 if sign<0 else 1;arm['spyderMotion']={'kind':'link','channel':channel,'part':'link','travelRatio':1,'upper':[sign*.225,.187,-.853],'lower':[sign*.598,.187,-.853]}
  mounted('F3 lower A arm LED',[(sign*.275,.198,-.715),(sign*.41,.198,-.765),(sign*.555,.198,-.804)],arm)
