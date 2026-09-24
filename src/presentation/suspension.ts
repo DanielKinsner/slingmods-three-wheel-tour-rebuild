@@ -22,7 +22,11 @@ export class SuspensionPresenter {
   const index=side==='front'?0:2,allowed:THREE.Object3D[]=[...Object.values(this.shocks[index]),...this.originals.filter(o=>side==='front'?o.name==='suspension_front_left':o.name.startsWith('shock_'))];
   if(side==='front')allowed.push(this.root.getObjectByName('carrier_front_left')!);
   const belongs=(o:THREE.Object3D)=>{for(let p:THREE.Object3D|null=o;p;p=p.parent)if(allowed.includes(p))return true;return false};
+  // The car's own emitters (underglow area lights live in the scene, others on the car) would light a floor around a lone shock.
+  const onCar=(o:THREE.Object3D)=>{for(let p:THREE.Object3D|null=o;p;p=p.parent)if(p===this.car)return true;return false};
   (this.car.parent??this.car).traverse(o=>{if(o instanceof THREE.Mesh&&!belongs(o)){this.masks.set(o,o.visible);o.visible=false}});
+  let top:THREE.Object3D=this.car;while(top.parent)top=top.parent;
+  top.traverse(o=>{if(o instanceof THREE.Light&&(o.name==='SM133_reserved_emitter'||onCar(o))){this.masks.set(o,o.visible);o.visible=false}});
  }
  update(){if(!this.enabled)return;this.car.updateWorldMatrix(true,true);const inverse=this.car.matrixWorld.clone().invert(),point=(name:string)=>this.car.getObjectByName(name)!.getWorldPosition(new THREE.Vector3()).applyMatrix4(inverse);this.endpoints=[];
   for(let i=0;i<3;i++){let a:THREE.Vector3,b:THREE.Vector3;if(i===2){a=point('shock_lower');b=point('shock_upper')}else{const side=i===0?-1:1,node=point(i===0?'front_left_steer':'front_right_steer'),travel=node.y-layout.wheels[i].center[1];const authored=this.car.getObjectByName('vehicle_root')?.userData.frontShockMounts?.[i===0?'left':'right'];a=authored?new THREE.Vector3().fromArray(authored.lower):new THREE.Vector3(side*.76,.28,-1.3335);a.y+=travel;b=authored?new THREE.Vector3().fromArray(authored.upper):new THREE.Vector3(side*.48,.64,-1.31)}
