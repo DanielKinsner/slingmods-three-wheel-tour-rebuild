@@ -4,3 +4,9 @@
 .sig-departure button{min-height:48px;padding:12px 20px;color:inherit;background:#222426;border:1px solid #818487;border-radius:3px;font:600 15px Arial,sans-serif;cursor:pointer}
 .sig-departure button:last-child{background:#a51219;border-color:#df4349}.sig-departure button:focus-visible{outline:3px solid white;outline-offset:4px}.sig-departure small{margin-left:16px;font-size:13px;font-weight:400}
 @media(max-width:700px){.sig-departure-bar{padding:20px;align-items:flex-start;flex-direction:column}.sig-departure p{font-size:18px}.sig-departure button{padding:12px}}
+/* Film mattes: the departure plays letterboxed, like the race films that follow it (cinematics/film.css). */
+.sig-departure{--sig-matte:clamp(42px,9vh,104px)}.sig-departure-bar{position:relative;z-index:1;min-height:var(--sig-matte);padding-top:14px;padding-bottom:14px}
+.sig-matte{position:absolute;left:0;right:0;height:var(--sig-matte);background:#080a0c;transform:scaleY(0);animation:sig-matte-in .7s cubic-bezier(.16,1,.3,1) .05s forwards}
+.sig-matte-top{top:0;transform-origin:top}.sig-matte-bottom{bottom:0;transform-origin:bottom}
+@keyframes sig-matte-in{to{transform:none}}
+@media(prefers-reduced-motion:reduce){.sig-matte{animation:none;transform:none}}

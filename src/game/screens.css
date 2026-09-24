@@ -274,3 +274,12 @@ html.gx body .signature-ui .sig-status{transition:opacity var(--gx-t) var(--gx-e
 @keyframes gx-press-pop{0%{transform:scale(.97)}60%{transform:scale(1.015)}100%{transform:none}}
 html.gx body .signature-ui[data-reduced-motion=true] :is([data-enter],[data-enter]>*,[data-pop]){animation:none}
 html.gx body .signature-ui[data-reduced-motion=true] :is(button,a,.sig-finishes i){transition:none}
+/* ---------- Phase 3: garage departure in the game's type and colours (layout and mattes in signature/departure.css) ---------- */
+html.gx body .sig-departure{font-family:var(--gx-body);background:linear-gradient(transparent 62%,#07080acc)}
+html.gx body .sig-departure-bar{padding-left:var(--gx-edge-x);padding-right:var(--gx-edge-x)}
+html.gx body .sig-departure .sig-eyebrow{font:700 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-hot)}
+html.gx body .sig-departure p{font:italic 800 28px/1 var(--gx-display);text-transform:uppercase;letter-spacing:.01em;margin:6px 0 0}
+html.gx body .sig-departure button{font:700 13px/1 var(--gx-body);letter-spacing:.14em;text-transform:uppercase;background:var(--gx-glass-2);border:1px solid var(--gx-edge-2);border-radius:0;transition:background-color var(--gx-t-fast) var(--gx-ease),border-color var(--gx-t-fast) var(--gx-ease)}
+html.gx body .sig-departure button:hover{border-color:var(--gx-ink)}
+html.gx body .sig-departure button:last-child{background:var(--gx-red-2);border-color:var(--gx-red)}html.gx body .sig-departure button:last-child:hover{background:var(--gx-red)}
+html.gx body .sig-departure small{letter-spacing:.08em;opacity:.75}
