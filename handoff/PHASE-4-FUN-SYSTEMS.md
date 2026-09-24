@@ -93,13 +93,14 @@ leaderboards, rivalry meter, SlingMods Points pickups, "products felt" moments.
 
 | Commit | What |
 |---|---|
-| `3b2d70e` | **SlingMods Points**: tokens on every route (10 racing line, 25 by the wall on straights, 50 inside the sharpest fifth of bends, 100 at the three tightest apexes; always on the tarmac). Chain x2..x5 within 2 s with a rising chime; contact/grass drops it; respawn each lap; minimap dots; results line + route best; Tour Log lifetime total. Quick Race / series only. **Not career credits** (the career save and certified rewards stay untouched; conversion is an owner decision). |
+| `3b2d70e` | **SlingMods Points** (REMOVED in `ee0254c`, see below): tokens on every route (10 racing line, 25 by the wall on straights, 50 inside the sharpest fifth of bends, 100 at the three tightest apexes; always on the tarmac). Chain x2..x5 within 2 s with a rising chime; contact/grass drops it; respawn each lap; minimap dots; results line + route best; Tour Log lifetime total. Quick Race / series only. **Not career credits** (the career save and certified rewards stay untouched; conversion is an owner decision). |
 | `37f46e7` | **Fix**: the deployed (demo-mode) build filters URL params through `visitorSearch`; `gymkhana=1` was stripped, so the live Gymkhana Lot button opened a plain test drive. Allowlisted (and `harbor-cargo`); verified on a local production build. Lesson in memory. |
 | `7cce841` | **Cargo Run** (bags felt): Harbor waterfront sprint with four loose crates; ~0.75 g sustained spills one (+2 s, it tumbles off). Slingshot storage bags (SM-28919) secure the load. Also: tuned builds now keep separate challenge records. |
 | `fcf7d56` | **Drift zones**: two per route with purple gates; live score, banked on exit into a local top five; Tour Log lists zone bests. Arcade drives only. |
 | `1fa894a` | **Rivalries**: record + heat per rival; the hottest rival (raced twice, some heat) calls you out at the start with the real score; results line; Tour Log with heat bars. Presentation/local only. |
 | `a51699e` | **Daily Run**: each day also sets a condition and a build rule (any / stock only / tuned); the card shows them, Go launches in that condition, only a fitting finish counts, a fast non-fitting run says why. |
 | `28b8bbc` | **Blue flags**: a rival the player is about to lap gives way on the next straight. |
+| `ee0254c` | **Points removed** (owner, after playing: too gimmicky, not the premium race vibe). Reverts `3b2d70e`; the race-fx results hook stays because the rivalry line uses it. |
 
 ### Not built, with reasons (owner decisions)
 
@@ -129,9 +130,17 @@ leaderboards, rivalry meter, SlingMods Points pickups, "products felt" moments.
 8. Events > Harbor Express > Gymkhana Lot: leave the box, hold Space + steer round a pole for a DONUT, then the
    other pole the other way for a FIGURE 8; clip a cone (it tumbles, -150). After 90 s: results and Run it again.
 
-Points: Quick Race on Harbor Express, drive through the coins (chain chime rising), see SLINGMODS POINTS in the
-results. Cargo: Challenges > Waterfront Cargo Run with and without the storage bags. Drift zones: the purple gates;
+Cargo: Challenges > Waterfront Cargo Run with and without the storage bags. Drift zones: the purple gates;
 the card top-right banks your score. Rivalry: after two races with a rival, they call you out at the start. Daily card on
 the home screen shows the condition and build rule.
 
-Tests: 537 pass. Everything is pushed to main (deploys Vercel).
+Tests: 535 pass (the two Points tests left with the feature). Everything is pushed to main (deploys Vercel).
+
+## Owner follow-up (2026-09-24)
+
+- "The handling feels different": stock physics is unchanged. The same scripted 20 s drive (throttle, hard brake,
+  weave) gives identical state fingerprints before Phase 4 (`063f538`) and after, for the Slingshot, Ryker and Spyder.
+  The difference the owner felt is parts tuning (`5157c53`): exhaust + shocks + wing ended the same drive ~3.3 m/s
+  faster. The owner likes it and keeps it.
+- SlingMods Points removed (`ee0254c`): owner found it gimmicky and not the premium race vibe. No other feature changed.
+  Old local Points records in players' browsers (`slingmods-gx-points*`) are simply no longer read.

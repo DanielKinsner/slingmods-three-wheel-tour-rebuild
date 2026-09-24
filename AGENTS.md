@@ -1,10 +1,11 @@
 # Phase 4 complete except two owner decisions - current (2026-09-24)
 
-Read `handoff/PHASE-4-FUN-SYSTEMS.md`. Since the last header: SlingMods Points pickups, Cargo Run (storage bags felt),
+Read `handoff/PHASE-4-FUN-SYSTEMS.md`. Since the last header: Cargo Run (storage bags felt),
 drift zones with local top-five boards, rivalries with radio call-outs, Daily Run conditions + build rules, blue flags,
 and a fix for the live build stripping the Gymkhana Lot link (new URL params must be allowlisted in `visitorSearch`).
 Not built, with reasons in the handoff: the shocks bump moment (probes showed no reliable benefit, reverted) and
-overtaking zones / run-off (track limits + career route version + Blender). 537 tests pass; everything is pushed.
+overtaking zones / run-off (track limits + career route version + Blender). SlingMods Points was built, then removed
+at the owner's request (`ee0254c`: too gimmicky); parts tuning stays. 535 tests pass; everything is pushed.
 
 ---
 # Phase 4 fun systems (2026-09-24)
