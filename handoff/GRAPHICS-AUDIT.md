@@ -142,6 +142,7 @@ touches (no ground-light patch; rider rim only):
 
 Ridge blue hour and Redstone were stopped (owner chose to re-run on a quiet PC). Next step, owner closes Premiere and
 Photoshop: build the unchanged commit and pass 1, run Harbor and Ridge back to back (~20 min). Push only if they match.
+(Done after all three passes; see "Quiet-PC A/B results" below.)
 
 Re-score after pass 1 (desktop, High): Art direction 2, Hero **2.5** (rider holds its shape; night lights read),
 Track/rivals 2, Feedback 2, World **2** (Ridge and Redstone read as shaded, layered places; authoring weak spots
@@ -205,7 +206,7 @@ Evidence in `graphics-pass3-evidence/`.
 Draw calls: one fewer than before on every route (idle sparks no longer submit a draw). Tests:
 `tests/graphics-pass3.test.ts` (3), full suite 565/565.
 
-## Scorecard after passes 1–3 (desktop, High; owner's quiet A/B still pending)
+## Scorecard after passes 1–3 (desktop, High; quiet A/B done, see below)
 
 | Category | Audit | Now | Evidence |
 |---|---:|---:|---|
@@ -218,11 +219,40 @@ Draw calls: one fewer than before on every route (idle sparks no longer submit a
 | Lighting | 1.5 | 2.5 | Sun/sky balance, baked shade, blue hour, night pools, rim. |
 | VFX | 1.5 | 2.5 | Streak spray, streaked reflections, trailing flames, visible tier sparks; all event-driven and pooled. |
 | UI / HUD | 2 | 2 | Unchanged apart from the hint queue; phone portrait remains 1 (separate target). |
-| Performance evidence | 2 | 2 | Census every pass; sustained gates still owe a quiet-PC A/B. |
-| **Average** | **1.85** | **2.30** | Premium: every category ≥ 2 and average ≥ 2.3. On the line, by this scorecard. |
+| Performance evidence | 2 | 2.5 | Census every pass, plus a quiet-PC A/B against the pre-pass build: Harbor unchanged, Ridge 4% faster, Redstone steady 60 fps at normal cadence. |
+| **Average** | **1.85** | **2.35** | Premium: every category ≥ 2 and average ≥ 2.3. Past the line, by this scorecard. |
 
-What would move it clearly past 2.3: the quiet A/B with baseline and post numbers (performance evidence 2.5), Harbor
-ground cover and building detail (world 3), and a HUD polish pass.
+What would move it further: Harbor ground cover and building detail (world 3), a HUD polish pass, and the phone target.
+
+## Quiet-PC A/B results (2026-09-29): no regression, all road gates pass
+
+Owner's PC with Premiere and Photoshop closed (Chrome and Dropbox still running). Two fresh packaged builds, served side
+by side and measured with the same harness:
+- Baseline `3432998`: before pass 1, built in a sparse worktree.
+- Head `6d69b9e`: passes 1-3, the feel pass and today's fixes; this is the live build.
+
+Runs alternated baseline/head so drifting background load hit both. Summary numbers are in
+`perf-ab-20260929/summary.json`; the runner is `.tools/graphics/perf-ab.sh` (local tool).
+
+| High, 2560×1440, uncapped | Baseline avg / worst 1% / max | Head avg / worst 1% / max | Verdict |
+|---|---|---|---|
+| Harbor dusk-rain | 6.81 ms / 10.54 / 24.6 | 6.83 ms / 10.81 / 31.7 | Same (+0.3% avg); both pass |
+| Smoky Ridge day | 5.34 ms / 14.81 / 41.4 | 5.15 ms / 13.05 / 34.2 | Head 4% faster (grove thinning); both pass |
+| Redstone, lap 1 | 1.91 ms (524 fps) / 14.24 / 211 | 2.09 ms (480 fps) / 12.99 / 214 | Head ~9% more frame time at ~500 fps |
+
+Gates: average 10 ms, worst 1% 16.6, p95 20, p99 33.4, max 100.
+
+- **Harbor:** pass 2's five-tap wet reflections cost nothing measurable.
+- **Redstone:** the ~9% is pass 1 and 3 scenery (rock variety, bake, haze). At ~2 ms per frame, that is headroom only.
+  Both builds miss the 100 ms max-frame gate in the uncapped lane, with random single frames of 180-214 ms. The game
+  spends only 3-8 ms of CPU on those frames and compiles no shaders during them. This is the uncapped stress limitation
+  already recorded in `RYKER-RALLY.md` (150 / 113 ms then), not a regression.
+- **Redstone lap 2** is left out: the page profile keeps 120,000 rows, and ~500 fps passes that during lap 2.
+- **Redstone at normal display cadence (head, both laps)** is a locked 60.0 fps: worst 1% 16.8 ms, max 16.8 ms, zero
+  frames over 33 ms. This closes the Ridge and Redstone re-run owed since `RACE-PREMIUM.md`.
+
+Not measured in this A/B: Express dusk-rain (same wet-reflection and grime paths as Harbor, which showed no cost),
+Ridge night (pass 1 blue hour) and phone targets. Run them next if a route ever feels slower.
 
 ## Reproducing the live checks
 
