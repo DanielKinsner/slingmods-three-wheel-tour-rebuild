@@ -218,7 +218,7 @@ for(const finish of ['black-red','white-graphite','graphite-red','blue-orange'].
 await apply();const preparation=await prepareRenderer(renderer,scene,camera,()=>pipeline.render(scene,camera));veil.remove();
 // Attract screen on the first visit of a tab session: slow turntable behind "press any key", which also unlocks sound.
 setCareerSource(careerState);
-if(!garage&&screen==='entry'&&shouldShowTitle()){const turntable=!reducedMotion;showTitle({onIdle:active=>{controls.autoRotate=active&&turntable;controls.autoRotateSpeed=-.55},onStart:()=>{markEntering(ui.root,1400);view('hero');setTimeout(()=>announceAchievements(careerState()),1200)}})}else if(!garage)announceAchievements(careerState());const loadMs=performance.now()-started;
+if(!garage&&screen==='entry'&&shouldShowTitle()){const turntable=!reducedMotion;showTitle({onIdle:active=>{controls.autoRotate=active&&turntable;controls.autoRotateSpeed=-.55},revealMs:450,onStart:()=>view('hero',true,1300),onReveal:()=>{markEntering(ui.root,1400);setTimeout(()=>announceAchievements(careerState()),750)}})}else if(!garage)announceAchievements(careerState());const loadMs=performance.now()-started;
 // The career garage follows purchases, equipment and finish changes made through its own workshop or another tab.
 career?.subscribe(()=>{if(!career)return;const next=careerRecipe(career.state);if(sameBuild(next,recipe))return;recipe=next;original=structuredClone(next);void apply()});
 let graphicsControl:{root:HTMLElement;dispose():void}|undefined;if(garage){const {installGraphicsControl}=await import('../presentation/graphics-control');graphicsControl=installGraphicsControl(app,renderer,pipeline,GRAPHICS_PRESETS[graphics].lighting);graphicsControl.root.style.display='flex'}
