@@ -25,10 +25,10 @@ export class SpeedFeel {
  edgeBlur=0;
  private fov=0;private reach=0;private drop=0;private roll=0;private drive=0;private rough=0;private time=0;private initialized=false;private look=new THREE.Vector3();
  private forward=new THREE.Vector3();private velocity=new THREE.Vector3();private offset=new THREE.Vector3();private q=new THREE.Quaternion();private up=new THREE.Vector3(0,1,0);private lean=new THREE.Vector3();
- constructor(public reducedMotion=motionReduced()){}
+ constructor(public reducedMotion=motionReduced(),private surfaceMotion:{roughShakeScale:number;headBuzzScale:number}={roughShakeScale:1,headBuzzScale:1}){}
  /** Extra edge blur from the slipstream tow (0..0.3), on top of the speed blur; nothing with reduced motion. */
  boostBlur(extra:number){if(!this.reducedMotion&&extra>0)this.edgeBlur=Math.min(1,this.edgeBlur+extra)}
- inspect(){return{reducedMotion:this.reducedMotion,fov:this.fov,reach:this.reach,drop:this.drop,rollDegrees:this.roll,edgeBlur:this.edgeBlur,rough:this.rough,tuning:SPEED_FEEL}}
+ inspect(){return{reducedMotion:this.reducedMotion,fov:this.fov,reach:this.reach,drop:this.drop,rollDegrees:this.roll,edgeBlur:this.edgeBlur,rough:this.rough,surfaceMotion:this.surfaceMotion,tuning:SPEED_FEEL}}
  /**
   * @param target the point DrivingCamera aimed at; moved toward where the car is actually GOING.
   * @param obstruction optional ray test (target -> desired camera) so the extra pull-back never passes through scenery.
@@ -45,7 +45,7 @@ export class SpeedFeel {
   this.fov=snap?fov:damp(this.fov,fov,2.6,dt);this.reach=snap?reach:damp(this.reach,reach,3.2,dt);this.drop=snap?drop:damp(this.drop,drop,2.4,dt);this.roll=snap?roll:damp(this.roll,roll,4.5,dt);
   if(cockpit){
    // Head, not camera rig: g pushes it outward and forward under braking, with a faint road buzz that grows with speed.
-   this.lean.set(lateralG*SPEED_FEEL.headLean[0],(Math.sin(this.time*57)*.0035+Math.sin(this.time*23.7)*.002)*s*SPEED_FEEL.headBuzz,-this.drive*SPEED_FEEL.headLean[1]*Math.min(1,s*3)).applyQuaternion(this.q);camera.position.add(this.lean);target.add(this.lean);
+   this.lean.set(lateralG*SPEED_FEEL.headLean[0],(Math.sin(this.time*57)*.0035+Math.sin(this.time*23.7)*.002)*s*SPEED_FEEL.headBuzz*this.surfaceMotion.headBuzzScale,-this.drive*SPEED_FEEL.headLean[1]*Math.min(1,s*3)).applyQuaternion(this.q);camera.position.add(this.lean);target.add(this.lean);
   }else{
    // Look where the car is going (velocity), leading slightly into the turn, rather than where the nose points.
    this.velocity.set(t.velocity.x,0,t.velocity.z);const moving=Math.min(1,this.velocity.length()/10);
@@ -59,7 +59,7 @@ export class SpeedFeel {
   }
   camera.fov=this.fov;camera.up.set(0,1,0);camera.lookAt(target);camera.rotateZ(THREE.MathUtils.degToRad(this.roll));
   // Shake is sized in screen pixels so it reads the same at any FOV or resolution: 0.5 to 1.5 px above 90 mph, more off the asphalt.
-  const fast=THREE.MathUtils.clamp((mph-SPEED_FEEL.shakeFromMph)/(SPEED_FEEL.topSpeedMph-SPEED_FEEL.shakeFromMph),0,1),pixels=(mph>SPEED_FEEL.shakeFromMph?THREE.MathUtils.lerp(SPEED_FEEL.shakePixels[0],SPEED_FEEL.shakePixels[1],fast):0)+this.rough*SPEED_FEEL.roughShakePixels*Math.min(1,mph/45);
+  const fast=THREE.MathUtils.clamp((mph-SPEED_FEEL.shakeFromMph)/(SPEED_FEEL.topSpeedMph-SPEED_FEEL.shakeFromMph),0,1),pixels=(mph>SPEED_FEEL.shakeFromMph?THREE.MathUtils.lerp(SPEED_FEEL.shakePixels[0],SPEED_FEEL.shakePixels[1],fast):0)+this.rough*SPEED_FEEL.roughShakePixels*this.surfaceMotion.roughShakeScale*Math.min(1,mph/45);
   if(pixels>0){const radians=pixels*THREE.MathUtils.degToRad(this.fov)/Math.max(1,viewportHeight),k=this.time;camera.rotateX(radians*(Math.sin(k*83.1)*.6+Math.sin(k*131.7+1.3)*.4));camera.rotateY(radians*(Math.sin(k*97.3+.7)*.6+Math.sin(k*149.9)*.4))}
   camera.updateProjectionMatrix();this.edgeBlur=ease((mph-SPEED_FEEL.blurFromMph)/(SPEED_FEEL.topSpeedMph-SPEED_FEEL.blurFromMph));
  }

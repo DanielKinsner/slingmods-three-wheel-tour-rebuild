@@ -6,5 +6,6 @@ export function tourRoutePreview(route: string, night: boolean): string | undefi
 
 /** Illustrated course maps (generated key art, see assets/game-feel/README.md): the route drawn from the real layout. */
 export function courseMap(route: string): string | undefined {
+  if(route==='rally')return '/assets/game-feel/maps/rally.png';
   return ['harbor', 'express', 'ridge'].includes(route) ? `/assets/game-feel/maps/${route}.jpg` : undefined;
 }

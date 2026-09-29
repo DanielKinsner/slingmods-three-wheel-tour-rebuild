@@ -11,6 +11,7 @@ interface Options {
   vehicle:'slingshot'|'ryker'|'spyder'; destination:string; context:string;
   /** false: the victory film never starts by itself (Time Attack keeps retries instant); the launcher still offers it. */
   autoplay?:boolean;
+  films?:typeof FILMS; titles?:Partial<Record<Film,string>>; gridDetail?:string; resultLabel?:string;
   ground:(x:number,z:number)=>number;
   obstruction:(target:THREE.Vector3,desired:THREE.Vector3)=>number|undefined;
   score:(film:Film|null,elapsed?:number)=>void;
@@ -77,9 +78,9 @@ export class RaceFilmDirector {
     this.skip.textContent=done?'Skip · Go to grid  ↗':preview?'Back to race  ↗':'View results  ↗';
     this.overlay.dataset.film=film;
     this.eyebrow.textContent=preview?'DIRECTOR’S CUT / CINEMATIC PREVIEW':film==='victory'?'THE FINISH / '+this.options.destination.toUpperCase():'SLINGMODS / '+this.options.destination.toUpperCase();
-    this.title.textContent=film==='arrival'?'Find your\nfreedom.':film==='grid'?'Make it\nyour race.':preview||this.result?.place===1?'You own\nthis moment.':'Leave it all\non the road.';
+    this.title.textContent=this.options.titles?.[film]??(film==='arrival'?'Find your\nfreedom.':film==='grid'?'Make it\nyour race.':preview||this.result?.place===1?'You own\nthis moment.':'Leave it all\non the road.');
     const time=this.result?.timeMs;
-    this.detail.textContent=film==='victory'&&!preview?`${this.result?.place===1?'VICTORY':`P${this.result?.place??'—'} / FINISH`}  /  ${time==null?'':(time/1000).toFixed(3)+' SEC'}`:film==='arrival'?this.options.destination.toUpperCase()+' / '+this.options.context.toUpperCase():this.options.vehicle==='spyder'?'CAN-AM SPYDER F3 CUSTOM / FIND YOUR LINE.':this.options.vehicle==='ryker'?'CAN-AM RYKER 900 / THREE WHEELS. ONE LINE.':'POLARIS SLINGSHOT / THREE WHEELS. ONE LINE.';
+    this.detail.textContent=film==='victory'&&!preview?`${this.options.resultLabel??(this.result?.place===1?'VICTORY':`P${this.result?.place??'—'} / FINISH`)}  /  ${time==null?'':(time/1000).toFixed(3)+' SEC'}`:film==='arrival'?this.options.destination.toUpperCase()+' / '+this.options.context.toUpperCase():this.options.gridDetail??(this.options.vehicle==='spyder'?'CAN-AM SPYDER F3 CUSTOM / FIND YOUR LINE.':this.options.vehicle==='ryker'?'CAN-AM RYKER 900 / THREE WHEELS. ONE LINE.':'POLARIS SLINGSHOT / THREE WHEELS. ONE LINE.');
     this.options.score(film,0);
   }
   private end(complete:boolean){
@@ -110,9 +111,9 @@ export class RaceFilmDirector {
     // Honour an accessibility preference changed while the film is already playing.
     if(motionReduced()&&!this.reduced){this.end(true);return}
     this.elapsed+=Math.max(0,Math.min(.1,dt));
-    const duration=this.reduced?1.2:filmDuration(this.film);
+    const duration=this.reduced?1.2:filmDuration(this.film,this.options.films);
     if(this.elapsed>=duration){this.end(true);return}
-    const sample=sampleFilm(this.film,this.reduced?filmDuration(this.film)-1:this.elapsed),{shot}=sample;
+    const sample=sampleFilm(this.film,this.reduced?filmDuration(this.film,this.options.films)-1:this.elapsed,this.options.films),{shot}=sample;
     const o=this.options,camera=o.camera,scale=o.vehicle==='spyder'?.8:o.vehicle==='ryker'?.7:1;
     // Stabilize roll/pitch: the film tracks the real position/yaw, not suspension vibration.
     this.euler.setFromQuaternion(o.hero.quaternion,'YXZ');this.orientation.setFromAxisAngle(THREE.Object3D.DEFAULT_UP,this.euler.y);
@@ -141,7 +142,7 @@ export class RaceFilmDirector {
     // A black shutter at the opening and exit; interior cuts remain clean, with no white flashes.
     const fade=this.reduced?0:Math.max(1-smooth(this.elapsed/.48),smooth((this.elapsed-duration+.35)/.35));
     this.veil.style.opacity=String(fade);
-    if(this.shot!==sample.index){this.shot=sample.index;this.shotLabel.textContent=`${String(sample.index+1).padStart(2,'0')} / ${String(FILMS[this.film].length).padStart(2,'0')}   ${shot.name.toUpperCase()}`}
+    if(this.shot!==sample.index){this.shot=sample.index;this.shotLabel.textContent=`${String(sample.index+1).padStart(2,'0')} / ${String((this.options.films??FILMS)[this.film].length).padStart(2,'0')}   ${shot.name.toUpperCase()}`}
     this.options.score(this.film,this.elapsed);
   }
   seek(seconds:number){if(this.active&&Number.isFinite(seconds))this.elapsed=Math.max(0,seconds)}

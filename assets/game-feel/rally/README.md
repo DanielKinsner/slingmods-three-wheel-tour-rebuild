@@ -1,0 +1,22 @@
+# Redstone Rally artwork
+
+Generated on 2026-09-28 with the built-in OpenAI image-generation tool. These are illustrated promotional plates; the event card also shows a separately labelled, real in-game thumbnail. No purchased Blender source was uploaded. Reference inputs were inspected local runtime images and a code-drawn route diagram.
+
+Runtime files:
+
+- `public/assets/game-feel/maps/rally.png`: illustrated course map, using the real route outline.
+- `public/assets/game-feel/loading/rally.png`: loading screen, navigation curtain, and scene-entry artwork.
+
+`route-guide.svg` and `route-guide.png` are code-drawn reference diagrams from `RALLY_ROUTE`, not generated artwork. Rebuild them with `npx tsx scripts/rally/build-art-guide.ts`.
+
+## Transition prompt
+
+References, in order: `public/assets/game-feel/loading/ridge-day.jpg` (presentation style), `public/assets/game-feel/loading/garage-ryker.jpg` (vehicle), `public/assets/rally/thumbnail.jpg` (actual course environment).
+
+Create one NEW 16:9 landscape cinematic racing-game loading-screen key art for REDSTONE RALLY. References: image 1 is STYLE / quality / photographic racing composition only; image 2 is the exact VEHICLE reference (Can-Am Ryker three-wheeler, two exposed wheels in front and ONE rear wheel, motorcycle saddle, handlebars, compact narrow carbon-black body, NOT a Slingshot cockpit); image 3 is the ENVIRONMENT reference for this game course: warm reddish compacted dirt, pine and broadleaf forest, layered red sandstone quarry cliffs, dry scrub, orange course flags. Render a dynamic low front three-quarter shot of the accurate Ryker, ridden by a single adult in black full-face helmet, black riding jacket/gloves/boots, drifting through a sweeping dirt bend. Visible three-wheel architecture, anatomically correct rider grip on handlebars; restrained red body accent, realistic dusty tires and a beautiful sunlit dust trail. The machine occupies the right half and lower middle; the left third has atmospheric scenery and negative space for the game's own loading interface. Rich warm late-afternoon light, detailed tangible dirt and gravel, scenic forest and redstone mesas in depth, photographic realism and premium motorsport key art consistent with reference 1. Wide 16:9 composition. This is illustration for a real racing game's transition screen, not an in-game screenshot. NO typography, no text, no logos, no watermarks, no UI, no extra wheels, no sports car, no road asphalt, no exaggerated jumps.
+
+## Map prompt
+
+References, in order: `assets/game-feel/rally/route-guide.png` (actual course geometry), `public/assets/game-feel/maps/ridge.jpg` (map style), `public/assets/rally/thumbnail.jpg` (actual environment).
+
+Create one NEW illustrated course-map image for a premium racing game, landscape 3:2, matching the photorealistic oblique aerial map style of reference 2. Reference 1 is the EXACT race-course geometry: preserve its one closed loop, long left straight, rounded lower-left end, inward bottom notch, large lower-right loop, inward middle-right hairpin, upper-right loop and upper-left transition. Do not substitute the simpler route in reference 2. Keep the complete route clearly visible and fully contained in the image with comfortable margins, roughly centered at 45% of the width so a 30%-aligned UI crop keeps it visible. Make the diagram into a believable low-oblique aerial view of a REDSTONE RALLY course: compacted warm reddish dirt racing surface, broad gravel shoulders, ponderosa pines mixed with broadleaf forest, dry scrub, layered red sandstone quarry cliffs, winding timber section, little marshal hut by start/finish. Reference 3 is the actual course environment and color identity to interpret at cinematic quality. Trace the actual course centerline with a thin luminous RED racing-map line, as in reference 2, lying accurately on the dirt road. Small black-and-white start/finish checker stripe on the lower half of the long left straight at the position shown in reference 1. Lighting: warm late-afternoon sunlight, long tree shadows, atmospheric mesas in the distant background, rich natural detail. No asphalt, bridges, intersections, extra course branches, vehicle close-ups, written text, lettering, numbers, logos, borders, UI or watermarks. This is an illustrated event-map plate, not a topographic diagram or in-game screenshot. Preserve the distinctive course topology from reference 1; do not copy its flat fill or label.

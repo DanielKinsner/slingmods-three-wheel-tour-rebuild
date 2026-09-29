@@ -7,9 +7,12 @@ import {speedDressingURLs,BASIS_TRANSCODER_URLS} from '../presentation/p11-asset
 import {resolveLook} from '../presentation/time-of-day';
 import {CURRENT_VEHICLE_URL,CURRENT_REAR_RIG,CURRENT_PRODUCTS_URL,CURRENT_UNDERGLOW,VEHICLE_VISUAL} from '../presentation/vehicle-asset';
 import type {BuildRecipe,DestinationId} from './config';
-export const DRIVE_DESTINATIONS:Record<DestinationId,string>={harbor:'Original Harbor',express:'Harbor Express',ridge:'Smoky Ridge'};
-export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
+import {rallyAssetURLs,RALLY_TEXTURES} from '../rally/assets';
+type DriveDestination=DestinationId|'rally';
+export const DRIVE_DESTINATIONS:Record<DriveDestination,string>={harbor:'Original Harbor',express:'Harbor Express',ridge:'Smoky Ridge',rally:'Redstone Rally'};
+export function driveAssetURLs(route:DriveDestination,recipe:BuildRecipe){
  const shared=recipe.vehicleId==='can-am-spyder-f3'?['/assets/spyder/spyder-products.glb','/assets/spyder/spyder-f3.glb',riderAttachmentURL('spyder'),'/assets/spyder/rear-rig.json',riderAssetURL(),'/assets/brand/slingmods-sign.glb']:recipe.vehicleId==='can-am-ryker-900'?['/assets/ryker/complete/ryker-900-complete.glb','/assets/ryker/complete/ryker-underglow.glb',riderAssetURL(),riderAttachmentURL('ryker'),'/assets/ryker/rear-rig.json','/assets/brand/slingmods-sign.glb']:[CURRENT_VEHICLE_URL,riderAssetURL(),riderAttachmentURL(),CURRENT_REAR_RIG,'/assets/brand/slingmods-sign.glb',CURRENT_UNDERGLOW.glb,CURRENT_UNDERGLOW.attachment,'/assets/products/ddmworks-sm3223-silver.glb',CURRENT_PRODUCTS_URL];
+ if(route==='rally')return [...new Set([...shared,...rallyAssetURLs(),'/assets/showcase-quality/sky/day-puresky-2k.hdr'])];
  if(route!=='ridge')shared.push('/assets/showcase-quality/sky/day-puresky-2k.hdr','/assets/showcase-quality/kit.glb');
  if(route==='harbor')shared.push('/assets/harbor/route.json','/assets/harbor/harbor.glb');
  else for(const name of ['p06c_asphalt_Diffuse.jpg','p06c_asphalt_nor_gl.jpg','p06c_asphalt_Rough.jpg','leafy_grass_Diffuse.jpg'])shared.push('/assets/showcase-quality/textures/'+name);
@@ -19,7 +22,7 @@ export function driveAssetURLs(route:DestinationId,recipe:BuildRecipe){
  return [...new Set(shared)];
 }
 /** Set dressing the drive can do without (P11 asphalt, decals, trackside). Warmed when the host has it; never required. */
-export const optionalDriveAssetURLs=(route:DestinationId)=>{if(route==='ridge')return [...surfaceAssetURLs(route),...effectAssetURLs(),...forestAssetURLs(),...BASIS_TRANSCODER_URLS];const sky=resolveLook({route,career:false,requested:'day',explicitLighting:false}).sky;return[...surfaceAssetURLs(route),...effectAssetURLs(),...speedDressingURLs(route),...(sky?[sky]:[])]};
+export const optionalDriveAssetURLs=(route:DriveDestination)=>{if(route==='rally')return [...RALLY_TEXTURES.map(n=>'/assets/p11/ground-cover/'+n+'.ktx2'),...effectAssetURLs(),...BASIS_TRANSCODER_URLS];if(route==='ridge')return [...surfaceAssetURLs(route),...effectAssetURLs(),...forestAssetURLs(),...BASIS_TRANSCODER_URLS];const sky=resolveLook({route,career:false,requested:'day',explicitLighting:false}).sky;return[...surfaceAssetURLs(route),...effectAssetURLs(),...speedDressingURLs(route),...(sky?[sky]:[])]};
 /**
  * Best-effort warm-up. A missing file, a network error or a timeout is recorded and swallowed: the scene has its own
  * fallback (previous road, no props), so nothing here may ever stop the player from driving.
@@ -31,14 +34,14 @@ export async function warmOptionalAssets(urls:readonly string[],fetchImpl:typeof
 }
 export interface DrivePreparationReport {route:string;started:number;ended:number;ms:number;resources:{url:string;ms:number;bytes:number}[];retries:number;cancelled:boolean;optional?:{warmed:number;skipped:string[]}}
 /** Warm HTTP bytes before departure. No speculative renderer, simulation, audio or save mutation. */
-export async function prepareDrive(route:DestinationId,recipe:BuildRecipe,mode:'test'|'race'='test'):Promise<DrivePreparationReport>{
+export async function prepareDrive(route:DriveDestination,recipe:BuildRecipe,mode:'test'|'race'='test'):Promise<DrivePreparationReport>{
  const started=performance.now(),report:DrivePreparationReport={route,started,ended:0,ms:0,resources:[],retries:0,cancelled:false};
  const dialog=document.createElement('dialog');dialog.className='sig-drive-loading';dialog.setAttribute('aria-label','Prepare test drive');
- const eyebrow=document.createElement('p');eyebrow.className='drive-loading-eyebrow';eyebrow.textContent=mode==='race'?'Quick race':'Test drive';
+ const eyebrow=document.createElement('p');eyebrow.className='drive-loading-eyebrow';eyebrow.textContent=route==='rally'?(mode==='race'?'Ryker Rally':'Stage recce'):mode==='race'?'Quick race':'Test drive';
  const title=document.createElement('h2');title.textContent=DRIVE_DESTINATIONS[route];
  const stage=document.createElement('p');stage.setAttribute('role','status');stage.dataset.driveLoading='';
  const progress=document.createElement('progress');progress.className='drive-loading-track';progress.setAttribute('aria-label','Drive download progress');
- const detail=document.createElement('p');detail.className='drive-loading-detail';detail.textContent=mode==='race'?'One lap against the field. Your current build comes with you.':'Explore at your own pace. Your current build comes with you.';
+ const detail=document.createElement('p');detail.className='drive-loading-detail';detail.textContent=route==='rally'?'Preparing your Ryker and the dirt stage.':mode==='race'?'One lap against the field. Your current build comes with you.':'Explore at your own pace. Your current build comes with you.';
  const cancel=document.createElement('button');cancel.className='drive-loading-button';cancel.textContent='Stay in showroom';cancel.dataset.prepareCancel='';
  const retry=document.createElement('button');retry.className='drive-loading-button drive-loading-primary';retry.textContent='Try again';retry.hidden=true;retry.dataset.prepareRetry='';
  const actions=document.createElement('div');actions.className='drive-loading-actions';actions.append(retry,cancel);

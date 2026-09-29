@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {RALLY_KIT,RALLY_TEXTURES} from './assets';
 import {loadRallyVegetation} from './vegetation';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
@@ -8,7 +9,7 @@ import {projectRoad,type CourseBox} from '../course/environment';
 import {RALLY_ROUTE,RALLY_SURFACES,rallyPoint,rallyRibbon,rallyCrossHeight,RALLY_SECTORS} from './route';
 
 type Placement={x:number;y:number;z:number;scale:number;yaw:number;stretch?:number};
-const KIT=['redstone-0','redstone-1','redstone-2','ponderosa-0','ponderosa-1','deadwood','log-stack','marshal-hut','quarry-gantry'];
+const KIT=RALLY_KIT;
 function seeded(){let seed=0x725411;return()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};}
 function ribbon(data:ReturnType<typeof rallyRibbon>){const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(data.vertices,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(data.uv,2));g.setAttribute('color',new THREE.Float32BufferAttribute(data.colors,3));g.setIndex(data.indices);g.computeVertexNormals();return g;}
 function labelTexture(text:string,small:string,color='#e69b45'){
@@ -23,7 +24,7 @@ export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.Web
   scene.fog=new THREE.FogExp2('#c3bbac',.00165);
   const textures:THREE.Texture[]=[],loader=new GLTFLoader(),random=seeded();
   const ground='/assets/p11/ground-cover/';
-  const [dirt,normal,gravel,soil,soilNormal,rock]=await Promise.all(['canyon-dirt-baseColor','canyon-dirt-normal','gravel-shoulder-baseColor','shaded-soil-baseColor','leaf-litter-normal','rocks-baseColor'].map(async(n)=>{const t=await loadKTX2(renderer,ground+n+'.ktx2',{srgb:n.endsWith('baseColor')});t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=8;textures.push(t);return t;}));
+  const [dirt,normal,gravel,soil,soilNormal,rock]=await Promise.all(RALLY_TEXTURES.map(async(n)=>{const t=await loadKTX2(renderer,ground+n+'.ktx2',{srgb:n.endsWith('baseColor')});t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=8;textures.push(t);return t;}));
   const dirtMat=new THREE.MeshStandardMaterial({map:dirt,normalMap:normal,normalScale:new THREE.Vector2(.75,.75),roughness:1,vertexColors:true,color:'#e3c3a0'});
   // Worn racing line and narrow, irregular wheel ruts follow physical metres along the route UVs.
   dirtMat.onBeforeCompile=s=>{s.fragmentShader=s.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>

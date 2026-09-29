@@ -15,6 +15,8 @@ export type Quat=Vec3&{w:number};
 export interface VehicleControl { throttle:number; brake:number; steer:number; reverse:boolean; tractionControl?:boolean; /** Arcade drift layer only (Simulation.enableDrift); ignored otherwise. */ handbrake?:number }
 /** Arcade drift -> boost (Phase 4B). Charge is time x rear slip; tiers at 0.8 / 1.8 / 3.2; a clean exit pays 0.6 / 1.0 / 1.6 s. */
 export const DRIFT={tiers:[.8,1.8,3.2],boostSeconds:[0,.6,1,1.6],boostAccel:3.4,minSpeed:9,slideSlip:.12,cleanSlip:.1,spinSlip:1.2,holdSlip:.56,carryAccel:2.6} as const;
+export interface DriftDynamics {rearGripReduction:number;holdSlip:number;carryAccel:number;exitAlignment:number;exitDamping:number}
+export const ROAD_DRIFT_DYNAMICS:Readonly<DriftDynamics>={rearGripReduction:.4,holdSlip:DRIFT.holdSlip,carryAccel:DRIFT.carryAccel,exitAlignment:5,exitDamping:1.2};
 /** Game tuning from fitted parts (src/game/tuning.ts): multipliers, all exactly neutral by default. */
 export interface VehicleTuning {power:number;grip:number;aeroGrip:number;drag:number}
 export interface DriftState {enabled:boolean;handbrake:number;active:boolean;charge:number;tier:number;boostLeft:number;boosts:number;forfeits:number;event:'tier'|'boost'|'forfeit'|null;eventTier:number;eventCount:number}
@@ -55,7 +57,8 @@ export class Simulation {
   /** Arcade drift layer (Quick Race, free drives): the handbrake loosens the single rear tyre into a slide that charges
    *  a boost. Off by default for career and road time trials; standalone rally opts in with rewards disabled. */
   private driftSkill={charge:1,boost:1,launch:1,cleanSlip:DRIFT.cleanSlip as number};
-  enableDrift(on:boolean,skill?:{charge:number;boost:number;launch:number;cleanSlip:number},rewards=true){this.driftRewards=rewards;this.driftState={...this.driftState,enabled:on,active:false,charge:0,tier:0,boostLeft:0};if(!on)this.driftState.handbrake=0;if(skill)this.driftSkill={charge:Math.max(1,Math.min(1.3,skill.charge)),boost:Math.max(1,Math.min(1.4,skill.boost)),launch:Math.max(1,Math.min(2,skill.launch)),cleanSlip:Math.max(DRIFT.cleanSlip,Math.min(.2,skill.cleanSlip))}}
+  private driftDynamics=ROAD_DRIFT_DYNAMICS;
+  enableDrift(on:boolean,skill?:{charge:number;boost:number;launch:number;cleanSlip:number},rewards=true,dynamics=ROAD_DRIFT_DYNAMICS){this.driftDynamics=dynamics;this.driftRewards=rewards;this.driftState={...this.driftState,enabled:on,active:false,charge:0,tier:0,boostLeft:0};if(!on)this.driftState.handbrake=0;if(skill)this.driftSkill={charge:Math.max(1,Math.min(1.3,skill.charge)),boost:Math.max(1,Math.min(1.4,skill.boost)),launch:Math.max(1,Math.min(2,skill.launch)),cleanSlip:Math.max(DRIFT.cleanSlip,Math.min(.2,skill.cleanSlip))}}
   drift():Readonly<DriftState>{return this.driftState}
   /** Arcade layer only: a boost that is not from a drift (a perfect start). Ignored when the layer is off. */
   grantBoost(seconds:number){if(this.driftState.enabled&&this.driftRewards)this.driftState.boostLeft=Math.max(this.driftState.boostLeft,seconds*this.driftSkill.launch)}
@@ -197,7 +200,7 @@ export class Simulation {
         const tireFwd=normalized(add(rawFwd,scale(normal,-dot(rawFwd,normal))));
         const tireRight=normalized(v(tireFwd.y*normal.z-tireFwd.z*normal.y,tireFwd.z*normal.x-tireFwd.x*normal.z,tireFwd.x*normal.y-tireFwd.y*normal.x));
         long=dot(pointVel,tireFwd);const lateral=dot(pointVel,tireRight);const surf=this.environment.surfaceAt(point.x,point.z);surface=surf.id;
-        muLimit=this.profileId==='legacy-p08a'?load*surf.mu:load*surf.mu*(surf.id==='asphalt'?handlingProfile(this.profileId).asphaltGripScale:1);slipAngle=Math.atan2(lateral,Math.max(Math.abs(long),2));muLimit*=this.tuning.grip*(1+this.tuning.aeroGrip*clamp((Math.abs(speed)-20)/20,0,1));if(rear){this.rearSlip=slipAngle;if(handbrake>0)muLimit*=1-.4*handbrake}
+        muLimit=this.profileId==='legacy-p08a'?load*surf.mu:load*surf.mu*(surf.id==='asphalt'?handlingProfile(this.profileId).asphaltGripScale:1);slipAngle=Math.atan2(lateral,Math.max(Math.abs(long),2));muLimit*=this.tuning.grip*(1+this.tuning.aeroGrip*clamp((Math.abs(speed)-20)/20,0,1));if(rear){this.rearSlip=slipAngle;if(handbrake>0)muLimit*=1-this.driftDynamics.rearGripReduction*handbrake}
         let drive=rear?engineForce:0;
         if(control.tractionControl!==false){
           // Reserve part of the rear tire's finite friction budget while sliding.
@@ -246,15 +249,15 @@ export class Simulation {
     }
     this.wheels=newWheels;
     if(this.driftState.enabled){this.updateDrift(speed,handbrake,dt);const d=this.driftState;
-      // Controllable slide: while the handbrake holds a drift, a yaw correction keeps the angle near 32 degrees instead of
+      // Controllable slide: while the handbrake holds a drift, a yaw correction caps the angle at the mode's limit instead of
       // letting the tail come all the way round (a skilled driver's counter-steer). Big hits and over-rotation still spin.
-      if(d.active){const slip=this.rearSlip,excess=Math.abs(slip)-DRIFT.holdSlip,inertia=this.body.principalInertia().y,yawRate=this.body.angvel().y;
+      if(d.active){const slip=this.rearSlip,excess=Math.abs(slip)-this.driftDynamics.holdSlip,inertia=this.body.principalInertia().y,yawRate=this.body.angvel().y;
         if(excess>0)this.body.addTorque(v(0,-Math.sign(slip)*Math.min(1,excess/.2)*9*inertia-yawRate*inertia*2.2*Math.min(1,excess/.1),0),true);
         // Catchable exit: once the handbrake is released the car is helped back in line (slip toward zero, rotation damped),
         // so a keyboard's full-lock counter-steer does not snap it into a spin.
-        else if(handbrake<.2)this.body.addTorque(v(0,-Math.sign(slip)*Math.min(1,Math.abs(slip)/.5)*5*inertia-yawRate*inertia*1.2,0),true);
+        else if(handbrake<.2)this.body.addTorque(v(0,-Math.sign(slip)*Math.min(1,Math.abs(slip)/.5)*this.driftDynamics.exitAlignment*inertia-yawRate*inertia*this.driftDynamics.exitDamping,0),true);
         // Momentum: an arcade drift keeps most of its speed instead of scrubbing it off sideways.
-        if(Math.abs(slip)>.15&&Math.abs(speed)>DRIFT.minSpeed){const lv=this.body.linvel(),s=Math.hypot(lv.x,lv.z)||1;this.body.addForce(v(lv.x/s*this.definition.mass*DRIFT.carryAccel,0,lv.z/s*this.definition.mass*DRIFT.carryAccel),true)}}
+        if(Math.abs(slip)>.15&&Math.abs(speed)>DRIFT.minSpeed){const lv=this.body.linvel(),s=Math.hypot(lv.x,lv.z)||1;this.body.addForce(v(lv.x/s*this.definition.mass*this.driftDynamics.carryAccel,0,lv.z/s*this.definition.mass*this.driftDynamics.carryAccel),true)}}
       if(d.boostLeft>0){this.body.addForce(scale(forward,this.definition.mass*DRIFT.boostAccel),true);d.boostLeft=Math.max(0,d.boostLeft-dt)}}
     // Aerodynamic drag is a COM force. Load transfer is solely rigid-body response at tire contacts.
     const vmag=Math.hypot(velocity.x,velocity.y,velocity.z);this.body.addForce(scale(velocity,-(this.definition.powertrain==='six-speed'?.36:this.definition.powertrain==='cvt'?.30:.43)*(1-this.draft)*this.tuning.drag*vmag),true);

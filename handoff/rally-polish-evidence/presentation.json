@@ -1,0 +1,151 @@
+{
+  "base": "http://127.0.0.1:5274",
+  "checks": [
+    "Packaged boot uses the generated Redstone transition plate",
+    "All four pre-race shots, portrait layout, frozen stage timer, and normal film completion into countdown",
+    "Valid full stage triggers the automatic finish film; record stays unchanged through the film",
+    "Keyboard skip starts one countdown and restores race controls",
+    "Visible skip control starts the race",
+    "Reduced motion bypasses the film through the shared accessibility path",
+    "Saved auto-cinematics preference is respected",
+    "Generated illustrated map and real in-game postcard on desktop and mobile event cards"
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "shots": [
+    {
+      "name": "redstone-start",
+      "cinematics": {
+        "active": true,
+        "film": "grid",
+        "elapsed": 0.85,
+        "shot": 0,
+        "preview": false,
+        "reducedMotion": false,
+        "auto": true,
+        "look": {
+          "amount": 1,
+          "focus": 12.13083122060628,
+          "aperture": 0,
+          "time": 0.85
+        }
+      },
+      "camera": {
+        "fov": 48.06908311767816,
+        "position": [
+          -6.951641817625288,
+          4.540787877916234,
+          -4.427462950187986
+        ],
+        "view": "near"
+      }
+    },
+    {
+      "name": "dirt-contact",
+      "cinematics": {
+        "active": true,
+        "film": "grid",
+        "elapsed": 2.4,
+        "shot": 1,
+        "preview": false,
+        "reducedMotion": false,
+        "auto": true,
+        "look": {
+          "amount": 1,
+          "focus": 2.411269058366036,
+          "aperture": 0.45,
+          "time": 2.4
+        }
+      },
+      "camera": {
+        "fov": 55,
+        "position": [
+          -1.6381168328923266,
+          0.4318995841049621,
+          3.5218829433576198
+        ],
+        "view": "near"
+      }
+    },
+    {
+      "name": "your-stage",
+      "cinematics": {
+        "active": true,
+        "film": "grid",
+        "elapsed": 4.65,
+        "shot": 2,
+        "preview": false,
+        "reducedMotion": false,
+        "auto": true,
+        "look": {
+          "amount": 1,
+          "focus": 6.087039194920467,
+          "aperture": 0.28,
+          "time": 4.65
+        }
+      },
+      "camera": {
+        "fov": 44.64237847222223,
+        "position": [
+          -3.1683891782407407,
+          1.2354456929380087,
+          1.6482549267129096
+        ],
+        "view": "near"
+      }
+    },
+    {
+      "name": "handoff",
+      "cinematics": {
+        "active": true,
+        "film": "grid",
+        "elapsed": 6.5,
+        "shot": 3,
+        "preview": false,
+        "reducedMotion": false,
+        "auto": true,
+        "look": {
+          "amount": 1,
+          "focus": 8.153105782721909,
+          "aperture": 0,
+          "time": 6.5
+        }
+      },
+      "camera": {
+        "fov": 53.84032,
+        "position": [
+          0,
+          2.9258853146972683,
+          11.655887776249946
+        ],
+        "view": "near"
+      }
+    }
+  ],
+  "art": {
+    "art": "url('/assets/game-feel/loading/rally.png')",
+    "width": 1672,
+    "height": 941
+  },
+  "build": "2fe87adf0b70-working",
+  "finish": {
+    "result": {
+      "event": "redstone-rally-v2",
+      "attemptId": "2bc1b634-c112-4d08-88e5-a9a962afcf39",
+      "participantId": "player",
+      "status": "finished",
+      "valid": true,
+      "laps": 1,
+      "timeMs": 123283.3582439112,
+      "place": 1,
+      "invalidReason": null
+    },
+    "best": {
+      "timeMs": 123283.3582439112,
+      "drift": 0,
+      "runs": 1,
+      "at": "2026-09-29T02:09:32.207Z"
+    }
+  },
+  "pass": true
+}

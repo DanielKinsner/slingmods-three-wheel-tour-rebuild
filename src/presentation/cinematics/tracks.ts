@@ -26,11 +26,11 @@ export const FILMS: Record<Film, readonly Shot[]> = {
     {name:'The victory portrait',duration:4.3,from:[-4.5,1.65,-7.2],to:[-3.8,1.05,-6.7],aim:[1.9,.65,0],lens:43,lensEnd:46,aperture:.25,title:true},
   ],
 };
-export const filmDuration = (film: Film) => FILMS[film].reduce((n,s)=>n+s.duration,0);
+export const filmDuration = (film: Film,library=FILMS) => library[film].reduce((n,s)=>n+s.duration,0);
 export const clamp01 = (n:number) => Math.max(0,Math.min(1,n));
 export const smooth = (n:number) => {const t=clamp01(n);return t*t*(3-2*t)};
-export function sampleFilm(film: Film, elapsed: number) {
-  const shots=FILMS[film];let start=0,index=0;
+export function sampleFilm(film: Film, elapsed: number,library=FILMS) {
+  const shots=library[film];let start=0,index=0;
   for(;index<shots.length-1;index++){if(elapsed<start+shots[index].duration)break;start+=shots[index].duration}
   const shot=shots[index],u=clamp01((elapsed-start)/shot.duration);
   // Continuous travel, with a small acceleration/deceleration at the ends of a take.
@@ -38,7 +38,7 @@ export function sampleFilm(film: Film, elapsed: number) {
   const mix=(a:V3,b:V3):[number,number,number]=>a.map((v,i)=>v+(b[i]-v)*t) as [number,number,number];
   const position=mix(shot.from,shot.to);
   if(shot.orbit){const a=Math.atan2(shot.from[0],shot.from[2]),b=Math.atan2(shot.to[0],shot.to[2]);let delta=b-a;while(delta>Math.PI)delta-=Math.PI*2;while(delta<-Math.PI)delta+=Math.PI*2;const radius=Math.hypot(shot.from[0],shot.from[2])*(1-t)+Math.hypot(shot.to[0],shot.to[2])*t;position[0]=Math.sin(a+delta*t)*radius;position[2]=Math.cos(a+delta*t)*radius}
-  return {shot,index,local:elapsed-start,u,position,aim:mix(shot.aim,shot.aimEnd??shot.aim),fov:shot.lens+((shot.lensEnd??shot.lens)-shot.lens)*t,done:elapsed>=filmDuration(film)};
+  return {shot,index,local:elapsed-start,u,position,aim:mix(shot.aim,shot.aimEnd??shot.aim),fov:shot.lens+((shot.lensEnd??shot.lens)-shot.lens)*t,done:elapsed>=filmDuration(film,library)};
 }
 
 /** Exactly once per valid attempt; no fabricated winners for retired/invalid runs. */

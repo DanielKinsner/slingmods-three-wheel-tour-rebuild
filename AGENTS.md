@@ -1,11 +1,13 @@
 # Ryker-exclusive Redstone Rally - current (2026-09-28)
 
-Read `handoff/RYKER-RALLY.md`. The owner requested and authorized pushing a new dirt rally mode to main.
+Read `handoff/RYKER-RALLY.md` and `handoff/RYKER-RALLY-POLISH.md`. The owner requested and authorized pushing a new dirt rally mode to main.
 Redstone is a separate 2.14 km Ryker stage with drift scoring, local records, untimed recce, new Blender
 scenery, and physical dirt/gravel support. Enter through Race -> Redstone Rally. Preserve the existing
 road destinations, handling profiles, career saves, and purchased-source boundaries. Editable original
 scenery is in `assets/blender/rally/`; its generator is `scripts/build-rally-scenery.py`.
-Validation and the separate normal-cadence/uncapped performance results are in the handoff. Earlier headers below are history.
+The follow-up adds generated map/loading art, shared race cinematics, calmer dirt camera motion and rally-only drift tuning.
+Revised records compare within `redstone-rally-v2`; earlier records stay stored. Validation and the separate
+normal-cadence/uncapped performance results are in the handoffs. Earlier headers below are history.
 
 ---
 # Phase 4 complete except two owner decisions (2026-09-24)
