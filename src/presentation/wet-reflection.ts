@@ -16,8 +16,10 @@ export type PlanarReflectionSurface=Pick<WetRoadUniforms,'reflection'|'reflectio
 /** Share of the full drawing buffer. Puddles show a normal-perturbed, soft image; at .5 this pass cost ~65% of the main
  *  view's pixels (the main view itself runs at dynamic resolution) and was the heavy half of High's alternating frames. */
 export const REFLECTION_SCALE=.35;
+/** Directional, spot and point lights: the ones with a shadow map the pass may sample. */
+type ShadowLight=THREE.Light&{shadow:THREE.LightShadow};
 export class WetReflection {
- readonly target:THREE.WebGLRenderTarget;private virtual=new THREE.PerspectiveCamera();private position=new THREE.Vector3();private forward=new THREE.Vector3();private up=new THREE.Vector3();private look=new THREE.Vector3();private size=new THREE.Vector2();private clear=new THREE.Color();private tagged:THREE.Object3D[]=[];private untagged:THREE.Object3D[]=[];private shadowLights:THREE.Light[]=[];private age=1e9;passes=0;
+ readonly target:THREE.WebGLRenderTarget;private virtual=new THREE.PerspectiveCamera();private position=new THREE.Vector3();private forward=new THREE.Vector3();private up=new THREE.Vector3();private look=new THREE.Vector3();private size=new THREE.Vector2();private clear=new THREE.Color();private tagged:THREE.Object3D[]=[];private untagged:THREE.Object3D[]=[];private shadowLights:ShadowLight[]=[];private age=1e9;passes=0;
  private readonly bias=new THREE.Matrix4().set(.5,0,0,.5,0,.5,0,.5,0,0,.5,.5,0,0,0,1);
  constructor(private renderer:THREE.WebGLRenderer,readonly planeY:number,private surfaces:PlanarReflectionSurface[],readonly scale=REFLECTION_SCALE){
   renderer.getDrawingBufferSize(this.size);this.target=new THREE.WebGLRenderTarget(Math.max(2,Math.round(this.size.x*scale)),Math.max(2,Math.round(this.size.y*scale)),{type:THREE.HalfFloatType,depthBuffer:true,stencilBuffer:false});this.target.texture.name='wet-road-reflection';
@@ -29,14 +31,14 @@ export class WetReflection {
  private tag(scene:THREE.Scene){
   // Re-tagged about every two seconds so parts fitted later (products, rivals) join without any caller bookkeeping. Lights
   // are tested against camera layers too, so every light joins the layer or the reflected cars would be unlit.
-  for(const root of this.tagged)root.traverse(o=>{if(o.userData.reflectionExclude)o.layers.disable(WET_REFLECTION_LAYER);else o.layers.enable(WET_REFLECTION_LAYER)});for(const root of this.untagged)root.traverse(o=>o.layers.disable(WET_REFLECTION_LAYER));this.shadowLights=[];scene.traverse(o=>{if((o as THREE.Light).isLight){o.layers.enable(WET_REFLECTION_LAYER);if((o as THREE.Light).shadow)this.shadowLights.push(o as THREE.Light)}});this.age=0;
+  for(const root of this.tagged)root.traverse(o=>{if(o.userData.reflectionExclude)o.layers.disable(WET_REFLECTION_LAYER);else o.layers.enable(WET_REFLECTION_LAYER)});for(const root of this.untagged)root.traverse(o=>o.layers.disable(WET_REFLECTION_LAYER));this.shadowLights=[];scene.traverse(o=>{if((o as THREE.Light).isLight){o.layers.enable(WET_REFLECTION_LAYER);if((o as Partial<ShadowLight>).shadow)this.shadowLights.push(o as ShadowLight)}});this.age=0;
  }
  /** The pass turns shadow updates off to reuse the main pass' maps. Before the main pass has made a map (the showroom's
   *  first frame draws this pass first), three.js binds an RGBA placeholder to the shadow sampler and every
   *  shadow-receiving draw fails ("Mismatch between texture format and sampler type"). Wait and keep the previous image. */
  private awaitingShadows(scene:THREE.Scene){
   if(!this.renderer.shadowMap.enabled)return false;
-  return this.shadowLights.some(light=>{if(!light.castShadow||light.shadow?.map)return false;for(let o:THREE.Object3D|null=light;o;o=o.parent){if(!o.visible)return false;if(o===scene)return true}return false});
+  return this.shadowLights.some(light=>{if(!light.castShadow||light.shadow.map)return false;for(let o:THREE.Object3D|null=light;o;o=o.parent){if(!o.visible)return false;if(o===scene)return true}return false});
  }
  render(scene:THREE.Scene,camera:THREE.PerspectiveCamera){
   const renderer=this.renderer;if(++this.age>120)this.tag(scene);if(this.awaitingShadows(scene))return;
