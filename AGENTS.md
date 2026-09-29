@@ -1,11 +1,12 @@
-# Graphics audit + plan to premium 2.3 (2026-09-29)
+# Graphics pass 1 (depth and light) committed locally, not pushed (2026-09-29)
 
-Read `handoff/GRAPHICS-AUDIT.md`. Independent graphics audit of `cb087de` (threejs-aaa-graphics-builder skill) scores
-desktop race play 1.85/3; premium needs every category >= 2 and an average >= 2.3. Verified live: Rally's fog is
-overwritten by the shared lighting rig, Ridge night headlights add only ~9%, scenery has no AO and sun shadows only
-near the car, and wet spray reads as glowing orbs. The doc holds a three-pass plan to 2.3 (depth/light, wet weather/VFX,
-world/HUD); no pass is started or authorized yet. Codex's QA audit of the same commit is local-only and untracked in
-`handoff/threejs-audit-20260929/`. The Redstone performance re-run noted below still applies.
+Read `handoff/GRAPHICS-AUDIT.md` (audit, plan to premium 2.3, pass 1 results). Pass 1: Redstone keeps its canyon haze,
+a ground light (`src/presentation/ground-light.ts`: baked tree/rock shade beyond the chase shadow map, contact
+darkening, headlight pools in sunless looks), Smoky Ridge late sun with shape and a real blue hour, and a race-only
+rider rim. Re-scored 2.05 (VFX 1.5 remains; pass 2 is wet weather and effects). NOT PUSHED: the sustained gates ran
+on a busy PC (Premiere/Photoshop open) and failed on every route including barely-touched Harbor. Owner will close
+Premiere; then A/B the unchanged commit vs pass 1 on Harbor and Ridge (~20 min) and push only if they match. The F3
+loading art (Codex) is committed locally ahead of pass 1. The Redstone performance re-run noted below still applies.
 
 ---
 # Race premium pass - current (2026-09-28)

@@ -19,7 +19,7 @@ The showroom already meets the bar because it fakes contact shadows; the race sc
 
 | # | Finding | Evidence | Cause |
 |---|---|---|---|
-| 1 | **Scenery is ungrounded.** No ambient occlusion anywhere; sun shadows exist only in a 48 m square around the car, so trees, rocks and buildings beyond ~25 m cast nothing. | [ridge-day](graphics-audit-evidence/ridge-day.jpg), [rally-quarry](graphics-audit-evidence/rally-quarry.jpg) | `src/presentation/chase-shadow.ts:4` single chase map, no cascades; `src/presentation/surface-materials.ts:27` sets `aoMap` null on swapped scenery materials; `driving-contact.ts` contact blobs cover tyres only. |
+| 1 | **Scenery is ungrounded.** No ambient occlusion anywhere; sun shadows exist only in a 48 m square around the car, so trees, rocks and buildings beyond ~25 m cast nothing. | [ridge-day](graphics-audit-evidence/ridge-day.jpg), [rally-quarry](graphics-audit-evidence/rally-quarry.jpg) | `src/presentation/chase-shadow.ts:4` single chase map, no cascades; no baked scene AO exists (the kit's glTF AO maps are tiling-texture detail such as `concrete_pavement_02_AO`, correctly dropped when `surface-materials.ts:27` swaps the texture set); `driving-contact.ts` contact blobs cover tyres only. |
 | 2 | **Rally fog is overwritten (bug, confirmed live).** Rally's warm canyon haze is replaced by Harbor's cool fog that starts at 400 m; Rally vegetation ends at ~420 m, so the stage has almost no depth haze and the mesas read as flat grey cut-outs. | Live scene read: `Fog #b9cbd6 400–1400` instead of `FogExp2 #c3bbac .00165` ([measurements](graphics-audit-evidence/measurements.json)) | `src/rally/presentation.ts:24` sets fog at load; `src/presentation/harbor-lighting.ts:10` (called at `src/express.ts:186`) always replaces `scene.fog`. |
 | 3 | **Ridge night is day-for-night.** Headlights brighten the road ahead by only ~9% (mean luminance 38.2 → 41.7 of 255); moon and sky fill already light the road. | [ridge-night](graphics-audit-evidence/ridge-night.jpg), [live](graphics-audit-evidence/live-ridge-night.jpg), [measurements](graphics-audit-evidence/measurements.json) | Moon 0.85 + hemisphere 0.95 + exposure 1.15 (`src/ridge/presentation.ts:66,77`) vs 180 cd headlight spots with decay 2. The repo's `clear-night` HDR is unused. |
 | 4 | **Wet spray looks like glowing hover-thrusters.** | [crop-wet-spray](graphics-audit-evidence/crop-wet-spray.jpg), [live bend](graphics-audit-evidence/live-express-bend.jpg) | `src/presentation/vehicle-effects.ts:18-20` replaces the authored rooster-tail atlas with a round procedural mist tinted light blue (`#b5d4e5`); all particles are round point sprites, so spray cannot streak. No falling rain exists in rain looks. |
@@ -40,7 +40,7 @@ are lamp reflections (finding 5). The flame velocity issue is real but minor.
 | Track edges and rivals | 2 | 2 | Real rival models, tags, distance boards; Harbor barriers are boxes. |
 | Drift and position feedback | 2 | 2 | Drift zones, score pop-ups, shift light. |
 | World | 2 | **1.5** | Barrel rocks, flat backdrops, even tree spacing, flat Harbor grass. |
-| Materials | 2 | 2 | Paint, P11 asphalt decals and wet shader good; scenery loses AO maps. |
+| Materials | 2 | 2 | Paint, P11 asphalt decals and wet shader good; no baked contact shading on scenery. |
 | Lighting | 2 | **1.5** | No AO, near-only shadows, Rally fog lost, day-for-night Ridge. |
 | VFX | 2 | **1.5** | Good pooled system; the most visible effect (spray) reads wrong; no rain. |
 | UI / HUD | 2 (phone 1) | 2 (phone 1) | Phone portrait clipping is an automatic premium fail (Codex finding 1). |
@@ -62,8 +62,8 @@ saves, products and handling stay untouched.
 1. Rally fog: route-owned fog survives the shared lighting rig; tune the canyon haze so mesas soften into distance.
 2. Ridge night relight: cut moon and sky fill, give headlights a shaped beam (light texture) and longer throw, make
    rival lights read, evaluate the unused `clear-night` sky. Check Harbor/Express night looks with the same rule.
-3. Grounding: soft contact darkening under trees, rocks, barriers and building bases; keep scenery AO maps where the
-   source has them; a load-time static sun shadow for scenery beyond the car's shadow range (riskiest item, measure).
+3. Grounding: soft contact darkening under trees, rocks, barriers and building bases, and a load-time static sun shadow
+   for scenery beyond the car's shadow range (riskiest item, measure).
    Prefer baked/static solutions over a screen-space AO pass: Harbor High's worst-1% margin is modest (~15 of 16.6 ms).
 4. Player separation: subtle rim light on the player's rider and vehicle only.
 
@@ -100,6 +100,58 @@ saves, products and handling stay untouched.
 
 Phone is a separate target: it reaches "every category ≥ 2" only with Codex's phone HUD fix (proposal checkpoint B)
 and real-device performance evidence on reference phones.
+
+## Pass 1 results — depth and light (2026-09-29, owner go; desktop first)
+
+Before/after pairs are in `graphics-pass1-evidence/`: same controlled-clock frames, game canvas only, High, 1600×900,
+RTX 4080. Tool: `node scripts/graphics/capture-looks.mjs <label> [slot,...]` against the dev server (output in the
+ignored `.tools/graphics/<label>/`, with canvas metrics and the renderer census per frame).
+
+What changed:
+
+1. **Redstone keeps its canyon haze.** The race re-applies the rally's fog after the shared rig (`express.ts`); tuned
+   to `#a88a70`, density .00135 so mesas stay sandstone-red in the distance instead of washing out
+   ([tuning grid](graphics-pass1-evidence/rally-haze-tuning.jpg)).
+2. **Ground light** (`src/presentation/ground-light.ts`), ground and road materials only, zero draw calls:
+   - *Baked scenery shade*: one top-down texture baked at load (Ridge: 2,953 trees in ~206 ms; 2048² on High/Ultra,
+     1024² on Low/Medium). Tree/rock sun shadows fade in beyond the chase shadow map, so shade no longer pops in
+     ~25 m ahead of the car; contact darkening grounds trunks, rocks, huts everywhere.
+   - *Headlight pools* for every car, only in sunless looks (Ridge blue hour, Harbor/Express Night and Night-rain).
+     Tried at dusk too and rejected: a matte pool greys out wet asphalt while the sky still lights the road.
+3. **Smoky Ridge late sun with shape**: sun 3.3 over sky fill 0.6 (was 3.0/1.1), world-only reflections trimmed
+   (cars keep theirs), exposure 1.08. The old balance let the sky outweigh the sun, so no shade could read.
+4. **Smoky Ridge blue hour** that looks like blue hour: moon 0.25 / fill 0.32 (was 0.85/0.95), world reflections
+   0.4, far tree cards dimmed to match (`NIGHT_IMPOSTOR`). The sky glows, the ground drops, tail lights and pools read.
+5. **Rider rim** (`raceRiderRim`, races only): a Fresnel edge tinted by the route haze keeps the black-clad rider's
+   shape against dark bodywork ([crops](graphics-pass1-evidence/rider-rim-and-lights-crops.jpg)).
+
+Renderer census: main-scene draw calls identical before/after on every route (Express 498/355, Harbor 337/474, Ridge
+317/302, Rally 142–145). Added cost is one texture fetch plus a short loop in ground/road shaders, and the bake texture
+(~21 MB GPU with mipmaps on High, ~5 MB on Low/Medium). Tests: `tests/graphics-pass1.test.ts` (7), full suite green.
+
+**Performance: NOT yet qualified.** The sustained gates (`scripts/perf/sustained.mjs high uncapped`, packaged build,
+2560×1440) ran while the owner's PC was busy (Premiere Pro, Photoshop, Creative Cloud open; 12.6 of 16 GB GPU memory
+in use), and every route was far slower than its recent quiet-machine record, including Harbor, which pass 1 barely
+touches (no ground-light patch; rider rim only):
+
+| Route (High) | This busy run | Recent quiet record | Gate (worst 1%) |
+|---|---|---|---|
+| Harbor dusk-rain | avg 9.40 ms, worst 1% 25.9, scale 0.6 | avg 6.10, worst 1% 9.67, scale 1.0 (race premium) | fail |
+| Express dusk-rain | avg 6.75, worst 1% 18.5 | avg 4.44, worst 1% 13.42 (race premium) | fail |
+| Ridge day | avg 6.77, worst 1% 88.8, 63 frames >100 ms, max 1.47 s | avg 6.23, worst 1% 13.21 (Codex audit, this morning) | fail |
+
+Ridge blue hour and Redstone were stopped (owner chose to re-run on a quiet PC). Next step, owner closes Premiere and
+Photoshop: build the unchanged commit and pass 1, run Harbor and Ridge back to back (~20 min). Push only if they match.
+
+Re-score after pass 1 (desktop, High): Art direction 2, Hero **2.5** (rider holds its shape; night lights read),
+Track/rivals 2, Feedback 2, World **2** (Ridge and Redstone read as shaded, layered places; authoring weak spots
+remain for pass 3), Materials 2, Lighting **2.5** (Ridge day shade, blue hour, canyon haze, night pools, rim; Harbor
+and Express dusk unchanged), VFX 1.5, UI 2, Performance evidence 2. **Average 2.05.** Not premium yet: VFX is still
+below 2, which is pass 2's job.
+
+Still open from pass 1, carried into later passes rather than dropped: grounding for Harbor/Express scenery
+(buildings, barriers, palms; pass 3), evaluating the unused `clear-night` HDR for the night looks (pass 2), and
+phone-width checks of the new looks (phone target is separate).
 
 ## Reproducing the live checks
 
