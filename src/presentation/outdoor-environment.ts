@@ -57,6 +57,33 @@ function skyTexture(data:Float32Array,width:number,height:number){
  texture.flipY=true;texture.minFilter=texture.magFilter=THREE.LinearFilter;texture.needsUpdate=true;return texture;
 }
 
+/**
+ * Sky fill on the world only. Vehicles keep the full scene environment (their paint reflections); the scenery's image
+ * light is scaled by `factor` so the sun, not a flat sky, shapes it. A material that uses scene.environment has its own
+ * envMapIntensity overridden by three.js, so each scenery material points at the same environment texture explicitly:
+ * no new texture, no new shader variant. Returns the number of materials changed.
+ */
+export function sceneryAmbient(scene:THREE.Scene,vehicles:readonly THREE.Object3D[],factor:number){
+ if(!(factor<1)||!scene.environment)return 0;
+ const keep=new Set<THREE.Object3D>();for(const v of vehicles)v.traverse(o=>keep.add(o));
+ const seen=new Set<THREE.Material>();
+ scene.traverse(o=>{if(keep.has(o)||!(o instanceof THREE.Mesh))return;for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial&&!m.envMap&&!seen.has(m)){seen.add(m);m.envMap=scene.environment;m.envMapIntensity=scene.environmentIntensity*factor}});
+ return seen.size;
+}
+
+/**
+ * Feathered cut-out edges (palm fronds, leaves, chain link) from the MSAA the pipeline already renders: alpha to
+ * coverage turns the hard alpha-test step into per-sample coverage, the technique the rally leaves use. No-op without
+ * MSAA (Low). Vehicles are left alone. Returns the number of materials changed.
+ */
+export function smoothCutouts(scene:THREE.Scene,vehicles:readonly THREE.Object3D[],samples:number){
+ if(!(samples>0))return 0;
+ const keep=new Set<THREE.Object3D>();for(const v of vehicles)v.traverse(o=>keep.add(o));
+ const seen=new Set<THREE.Material>();
+ scene.traverse(o=>{if(keep.has(o)||!(o instanceof THREE.Mesh))return;for(const m of Array.isArray(o.material)?o.material:[o.material])if(m.alphaTest>0&&!m.alphaToCoverage&&!m.transparent&&!seen.has(m)){seen.add(m);m.alphaToCoverage=true;m.needsUpdate=true}});
+ return seen.size;
+}
+
 /** @param look optional Phase 2 time-of-day look. Its HDR sky goes through the same sun-capped probe as the day sky. */
 export async function loadOutdoorEnvironment(scene:THREE.Scene,renderer:THREE.WebGLRenderer,preset:LightPreset,look?:Look){
  let background:THREE.DataTexture,probe:THREE.DataTexture,metadata:Record<string,unknown>;

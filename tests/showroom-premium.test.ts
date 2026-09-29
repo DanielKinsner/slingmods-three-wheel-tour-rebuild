@@ -19,10 +19,10 @@ test('showroom finish keeps the owner room, replaces the floating softboxes and 
  const shader=compile(r.floor);assert.equal(r.hooks(),1,'the shared surface-finish hook still runs');
  assert.match(shader.fragmentShader,/coatShine/);assert.match(shader.vertexShader,/vCoatWorld/);assert.ok('coatReflection' in shader.uniforms);assert.match(r.floor.customProgramCacheKey(),/^surface-finish\|showroom-epoxy-coat$/);
  assert.equal(compile(r.wall.material as THREE.Material).fragmentShader,THREE.ShaderLib.standard.fragmentShader,'walls are untouched');
- assert.equal(r.logo.emissiveMap,r.logo.map,'the brand sign is backlit by its own artwork');assert.ok(r.brushed.roughness>=.5&&r.brushed.envMapIntensity<.7);
+ assert.equal(r.logo.emissiveMap,r.logo.map,'the brand sign is backlit by its own artwork');assert.ok(r.brushed.roughness>=.5&&r.brushed.color.getHex()!==0x8c999e,'satin, darker hardware');
  const inspect=premium.inspect();assert.equal(inspect.planar,null,'no planar pass below High');assert.deepEqual(inspect.floorMaterials,['Refined_vented_gray']);
  premium.dispose();
- assert.equal(r.softbox.visible,true);assert.equal(r.logo.emissiveMap,null);assert.equal(r.brushed.roughness,.28);assert.equal(r.brushed.envMapIntensity,.7);assert.equal(r.brushed.color.getHex(),0x8c999e);
+ assert.equal(r.softbox.visible,true);assert.equal(r.logo.emissiveMap,null);assert.equal(r.brushed.roughness,.28);assert.equal(r.brushed.color.getHex(),0x8c999e);
 });
 
 test('lights-down look dims the frame, pools and sign; studio restores them',()=>{

@@ -8,6 +8,9 @@ import {FOREST_SPECIES,TREE_ROOT,GROUND_ROOT,forestAssetURLs} from './forest-ass
 import {forestFloorPlan,forestLOD,FOREST_BUDGET,type ForestPlacement} from './forest-layout';
 
 /** P11 COLOR_0 contains bend/flutter weights, never foliage albedo. Depth uses the same bend. */
+/** Near leaves and ground cover take the same day->night ratio the distant impostors use (0xb5b5a0 -> 0x748095), so the
+ *  blue-hour forest reads as one: close trees no longer glow daylight green in front of a dim, cool far forest. */
+const NIGHT_FOLIAGE=((n,d)=>new THREE.Color(n.r/d.r*.9,n.g/d.g*.9,n.b/d.b*.9))(new THREE.Color(0x748095),new THREE.Color(0xb5b5a0));
 export function forestWind(material:THREE.Material,time:{value:number},strength:{value:number},sun:THREE.Vector3,leaf=false,night=false){
  (material as THREE.MeshStandardMaterial).vertexColors=false;
  material.onBeforeCompile=shader=>{
@@ -60,7 +63,7 @@ export async function loadRidgeForest(renderer:THREE.WebGLRenderer,trees:ForestP
  try{
   for(let species=0;species<FOREST_SPECIES.length;species++){
    const name=FOREST_SPECIES[species],bark=new THREE.MeshStandardMaterial({map:tex(TREE_ROOT,name+'-bark-baseColor'),normalMap:tex(TREE_ROOT,name+'-bark-normal'),normalScale:new THREE.Vector2(.65,-.65),roughness:.95,metalness:0});
-   const leaves=new THREE.MeshStandardMaterial({map:tex(TREE_ROOT,name+'-leaves-baseColor'),alphaTest:.48,side:THREE.DoubleSide,roughness:.85,metalness:0});
+   const leaves=new THREE.MeshStandardMaterial({map:tex(TREE_ROOT,name+'-leaves-baseColor'),alphaTest:.48,side:THREE.DoubleSide,roughness:.85,metalness:0,color:night?NIGHT_FOLIAGE:0xffffff});
    forestWind(bark,time,wind,sun);forestWind(leaves,time,wind,sun,true,night);
    const barkDepth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking}),leafDepth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking,map:leaves.map,alphaTest:.48,side:THREE.DoubleSide});forestWind(barkDepth,time,wind,sun);forestWind(leafDepth,time,wind,sun);
    for(let lod=0;lod<3;lod++){
@@ -88,7 +91,7 @@ export async function loadRidgeForest(renderer:THREE.WebGLRenderer,trees:ForestP
   const cards=tex(GROUND_ROOT,'cards-baseColor');
   for(let variant=0;variant<3;variant++){
    const g=forestCardGeometry(variant);
-   const mat=new THREE.MeshStandardMaterial({map:cards,alphaTest:.55,side:THREE.DoubleSide,roughness:1,color:0xb5b6a3});forestWind(mat,time,wind,sun,true,night);batch(g,mat,plan.cover.length,'cover',variant);
+   const mat=new THREE.MeshStandardMaterial({map:cards,alphaTest:.55,side:THREE.DoubleSide,roughness:1,color:night?new THREE.Color(0xb5b6a3).multiply(new THREE.Color(NIGHT_FOLIAGE)):0xb5b6a3});forestWind(mat,time,wind,sun,true,night);batch(g,mat,plan.cover.length,'cover',variant);
   }
   const rockMaterial=new THREE.MeshStandardMaterial({map:tex(GROUND_ROOT,'rocks-baseColor'),normalMap:tex(GROUND_ROOT,'rocks-normal'),normalScale:new THREE.Vector2(.5,-.5),roughness:.95});
   for(let i=0;i<2;i++){const model=assets.get(sceneryGeometryURL(GROUND_ROOT+'rock-'+i+'-lod1.glb'));model.scene.updateMatrixWorld(true);model.scene.traverse((o:THREE.Object3D)=>{if(o instanceof THREE.Mesh)batch(o.geometry.clone().applyMatrix4(o.matrixWorld),rockMaterial,plan.rocks.length,'rock',i)})}

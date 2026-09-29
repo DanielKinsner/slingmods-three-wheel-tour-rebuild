@@ -64,9 +64,10 @@ export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.Web
     const source=(await loader.loadAsync('/assets/rally/'+key+'.glb')).scene;sources.push(source);source.updateMatrixWorld(true);
     const pieces=new Map<string,{material:THREE.MeshStandardMaterial;geometry:THREE.BufferGeometry[]}>();
     source.traverse(o=>{if(!(o instanceof THREE.Mesh))return;const original=o.material as THREE.MeshStandardMaterial,leaf=original.name.includes('needles'),kind=leaf?'leaf':'solid',g=o.geometry.clone().applyMatrix4(o.matrixWorld);
-      for(const a of Object.keys(g.attributes))if(!['position','normal','uv'].includes(a))g.deleteAttribute(a);
-      const pos=g.getAttribute('position'),norm=g.getAttribute('normal'),colors:number[]=[],uv:number[]=[];
-      for(let i=0;i<pos.count;i++){colors.push(original.color.r,original.color.g,original.color.b);uv.push((Math.abs(norm.getY(i))>.7?pos.getX(i):pos.getX(i)+pos.getZ(i))*.3,(Math.abs(norm.getY(i))>.7?pos.getZ(i):pos.getY(i))*.3);}
+      for(const a of Object.keys(g.attributes))if(!['position','normal','uv','color'].includes(a))g.deleteAttribute(a);
+      const pos=g.getAttribute('position'),norm=g.getAttribute('normal'),authored=g.getAttribute('color'),colors:number[]=[],uv:number[]=[];
+      // Authored vertex colour (the v2 sandstone strata) is kept, tinted by the material; other kit pieces use their material colour.
+      for(let i=0;i<pos.count;i++){colors.push(original.color.r*(authored?authored.getX(i):1),original.color.g*(authored?authored.getY(i):1),original.color.b*(authored?authored.getZ(i):1));uv.push((Math.abs(norm.getY(i))>.7?pos.getX(i):pos.getX(i)+pos.getZ(i))*.3,(Math.abs(norm.getY(i))>.7?pos.getZ(i):pos.getY(i))*.3);}
       g.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));if(!leaf||!g.getAttribute('uv'))g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
       let group=pieces.get(kind);if(!group){const material=leaf?original.clone():new THREE.MeshStandardMaterial({vertexColors:true,roughness:1,map:key.startsWith('redstone')?rock:null});
         if(leaf){material.alphaTest=.22;material.alphaToCoverage=true;material.emissiveMap=material.map;material.emissive.set('#ffffff');material.emissiveIntensity=.3;material.transparent=false;material.depthWrite=true;material.side=THREE.DoubleSide;material.roughness=1;material.color.set('#e4edce');}

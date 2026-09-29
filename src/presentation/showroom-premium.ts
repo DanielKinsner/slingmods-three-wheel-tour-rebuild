@@ -73,7 +73,8 @@ export function premiumShowroom(renderer:THREE.WebGLRenderer,room:THREE.Object3D
  // Epoxy coat on the floor materials currently bound (after the shared surface-finish swap).
  const uniforms:CoatUniforms={reflection:{value:null},reflectionMatrix:{value:new THREE.Matrix4()},planar:{value:0},strength:{value:SHOWROOM_PREMIUM.looks.studio.coat},texel:{value:new THREE.Vector2(1/1024,1/1024)}};
  const floors=new Set<THREE.MeshStandardMaterial>();
- const hardware:[THREE.MeshStandardMaterial,number,number,number][]=[];room.traverse(o=>{if(o instanceof THREE.Mesh&&!Array.isArray(o.material)&&o.material instanceof THREE.MeshStandardMaterial&&o.material.name==='studio_handle_brushed'&&!hardware.some(([m])=>m===o.material)){hardware.push([o.material,o.material.envMapIntensity,o.material.roughness,o.material.color.getHex()]);o.material.envMapIntensity=.3;o.material.roughness=Math.max(o.material.roughness,.5);o.material.color.multiplyScalar(.6)}});
+ // Lift ramps and bright hardware: satin galvanized (roughness and colour; three.js overrides envMapIntensity with the scene's).
+ const hardware:[THREE.MeshStandardMaterial,number,number][]=[];room.traverse(o=>{if(o instanceof THREE.Mesh&&!Array.isArray(o.material)&&o.material instanceof THREE.MeshStandardMaterial&&o.material.name==='studio_handle_brushed'&&!hardware.some(([m])=>m===o.material)){hardware.push([o.material,o.material.roughness,o.material.color.getHex()]);o.material.roughness=Math.max(o.material.roughness,.5);o.material.color.multiplyScalar(.6)}});
  const signs:THREE.MeshStandardMaterial[]=[];room.traverse(o=>{if(o instanceof THREE.Mesh&&!Array.isArray(o.material)&&o.material instanceof THREE.MeshStandardMaterial&&o.material.name==='SlingMods_authorized_logo'&&o.material.map&&!signs.includes(o.material)){const m=o.material;signs.push(m);m.emissiveMap=m.map;m.emissive.set(0xffffff);m.emissiveIntensity=SHOWROOM_PREMIUM.looks.studio.sign;m.needsUpdate=true}});
  const bind=()=>room.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial&&SHOWROOM_PREMIUM.floorMaterials.test(m.name)&&!floors.has(m)){coat(m,uniforms);floors.add(m)}});
  bind();
@@ -89,6 +90,6 @@ export function premiumShowroom(renderer:THREE.WebGLRenderer,room:THREE.Object3D
   render(scene:THREE.Scene,camera:THREE.PerspectiveCamera){if(!reflection)return;reflection.render(scene,camera)},
   resize(){reflection?.resize();syncTexel()},
   inspect(){return {version:'showroom-premium-v1',look,ceiling:true,softboxesHidden:hidden.length,downlights:pools.length,floorMaterials:[...floors].map(m=>m.name),backlitSigns:signs.length,planar:reflection?.inspect()??null}},
-  dispose(){reflection?.dispose();for(const o of hidden)o.visible=true;for(const [m,env,rough,color] of hardware){m.envMapIntensity=env;m.roughness=rough;m.color.setHex(color)}for(const m of signs){m.emissiveMap=null;m.emissive.set(0);m.emissiveIntensity=1;m.needsUpdate=true}group.removeFromParent();group.traverse(o=>{if(o instanceof THREE.Mesh)o.geometry.dispose()});materials.forEach(m=>m.dispose());for(const s of pools)s.dispose()},
+  dispose(){reflection?.dispose();for(const o of hidden)o.visible=true;for(const [m,rough,color] of hardware){m.roughness=rough;m.color.setHex(color)}for(const m of signs){m.emissiveMap=null;m.emissive.set(0);m.emissiveIntensity=1;m.needsUpdate=true}group.removeFromParent();group.traverse(o=>{if(o instanceof THREE.Mesh)o.geometry.dispose()});materials.forEach(m=>m.dispose());for(const s of pools)s.dispose()},
  };
 }

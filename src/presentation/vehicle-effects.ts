@@ -17,7 +17,7 @@ const FRAGMENT=`uniform sampler2D atlas;uniform float ready;uniform float frames
 void main(){if(age>=life||life<=0.)discard;vec2 uv=vec2(gl_PointCoord.x,1.-gl_PointCoord.y);float frame=min(frames-1.,floor(age*fps));vec2 cell=vec2(mod(frame,8.),floor(frame/8.));vec4 s=ready>.5?texture2D(atlas,(cell+clamp(uv,vec2(.002),vec2(.998)))/8.):vec4(1.,1.,1.,pow(max(0.,1.-length(uv-.5)*2.),2.));
 // The authored spray atlas supplies breakup inside a soft mist envelope. Its
 // radial spikes must not read as bright snowflakes behind the tires.
-if(kind==3.){vec2 p=uv-.5;float mist=pow(max(0.,1.-length(p*vec2(1.3,1.))*2.),3.);float drop=exp(-p.x*p.x*1600.-p.y*p.y*70.);s=vec4(vec3(.85),(.28*mist+.18*drop)*(.65+.35*s.a));}
+if(kind==3.){vec2 p=uv-.5;float mist=pow(max(0.,1.-length(p*vec2(1.3,1.))*2.),3.);float drop=exp(-p.x*p.x*1600.-p.y*p.y*70.);s=vec4(vec3(.85),(.22*mist+.05*drop)*(.65+.35*s.a));}
 float fade=smoothstep(0.,.08,age)*(1.-smoothstep(life*.55,life,age));gl_FragColor=vec4(s.rgb*tint,s.a*fade*opacity);if(gl_FragColor.a<.008)discard;
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
@@ -106,7 +106,10 @@ export class VehicleEffects {
     const w=t.wheels[wi];if(!w)continue;
     visualWheel(this.p,wi,w.localCenter,ryker);this.p.y-=c.spyder?.32355:ryker?rykerWheels[wi].radius:(wi===2?.3455:.32985);this.p.applyQuaternion(this.q).add(t.position);
     const activity=tireActivity(w,t.speed,wet),kind=w.surface!=='asphalt'?1:wet?3:0;
-    if(dt>0&&rate>0&&activity>0){c.budget[wi]+=dt*activity*rate*(kind===3?28:9);if(c.budget[wi]>=1){c.budget[wi]--;this.v.set(t.velocity.x*.08,.35+speed*.025,t.velocity.z*.08);this.point.copy(this.p);this.point.y+=.04;this.pools[kind].emit(this.point,this.v,this.time,kind===3?.8+speed*.03:1.4,kind===3?.8:1.9);if(kind===1&&w.surface==='grass'&&quality!=='low')this.pools[2].emit(this.point,this.v,this.time,.28,1.2)}}else if(!activity)c.budget[wi]=0;
+    if(dt>0&&rate>0&&activity>0){c.budget[wi]+=dt*activity*rate*(kind===3?46:9);if(c.budget[wi]>=1){c.budget[wi]--;
+      // Wet spray streams off the tyre with the car (78% of its velocity) as a low plume; at 8% the sprites sat behind it
+      // on the road as a regular grid of soft orbs. Close spacing, short lives: the same fixed 160-sprite pool.
+      if(kind===3)this.v.set(t.velocity.x*.78,.25+speed*.012,t.velocity.z*.78);else this.v.set(t.velocity.x*.08,.35+speed*.025,t.velocity.z*.08);this.point.copy(this.p);this.point.y+=.04;this.pools[kind].emit(this.point,this.v,this.time,kind===3?.55+speed*.018:1.4,kind===3?.5:1.9);if(kind===1&&w.surface==='grass'&&quality!=='low')this.pools[2].emit(this.point,this.v,this.time,.28,1.2)}}else if(!activity)c.budget[wi]=0;
     const skid=density>0&&skidActivity(w,t.speed,wet)>.22;
     if(dt>0&&skid){if(c.marking[wi]){const distance=c.anchors[wi].distanceTo(this.p);if(this.skids.add(c.anchors[wi],this.p,c.spyder?(wi===2?.273:.204):ryker?(wi===2?.168:.135):(wi===2?.27:.19))||distance>2.5)c.anchors[wi].copy(this.p)}else c.anchors[wi].copy(this.p)}c.marking[wi]=skid&&dt>0;
     const heat=lamps?Math.max(0,c.state.heat-.24)*1.25:0;this.heat.setX(ci*3+wi,heat);glowing||=heat>.01;

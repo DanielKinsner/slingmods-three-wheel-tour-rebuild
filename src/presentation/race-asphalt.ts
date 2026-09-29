@@ -28,12 +28,14 @@ const WET_FIELD=`#include <map_fragment>
 	float wetField=texture2D(puddleMask,vWetWorld.xz/puddleTile).r*.75+texture2D(puddleMask,vWetWorld.zx/(puddleTile*.37)+.31).r*.25;
 	// A 95 m macro sample thins and gathers puddles along the road (no visible 22 m repeat); a 2 m sample roughens edges.
 	wetField+=(texture2D(puddleMask,vWetWorld.xz/(puddleTile*4.3)+vec2(.17,.53)).r-.5)*.22+(texture2D(puddleMask,vWetWorld.zx/(puddleTile*.06)+.71).r-.5)*.16;
-	float puddle=smoothstep(.49,.66,wetField)*wetness,damp=wetness*(.6+.4*smoothstep(.25,.6,wetField));
-	diffuseColor.rgb*=mix(1.,.55,damp);`;
+	// Mask v2 is continuous (scripts/p11/build-puddle-mask.py): a wide band grades damp shoulders into standing water.
+	float puddle=smoothstep(.56,.72,wetField)*wetness,damp=wetness*(.55+.45*smoothstep(.3,.62,wetField));
+	// Wet asphalt darkens; standing water darker still (it absorbs), so puddles read as water rather than pale paint.
+	diffuseColor.rgb*=mix(1.,.5,damp)*mix(1.,.7,puddle);`;
 const WET_REFLECTION=`if(wetPlanar>.5){
 		vec4 wetClip=wetReflectionMatrix*vec4(vWetWorld,1.);vec2 wetUv=wetClip.xy/wetClip.w+normal.xy*.012*(1.-puddle);
 		vec4 mirrored=texture2D(wetReflection,clamp(wetUv,vec2(.002),vec2(.998)));
-		float grazing=pow(1.-saturate(dot(normalize(vViewPosition),normal)),4.),shine=(puddle+damp*.22)*mix(.22,1.,grazing);
+		float grazing=pow(1.-saturate(dot(normalize(vViewPosition),normal)),4.),shine=(puddle+damp*.07)*mix(.2,1.,grazing);
 		// Reflected objects hide the sky glint behind them, then add their own light.
 		outgoingLight=outgoingLight*(1.-mirrored.a*shine*.65)+mirrored.rgb*shine;
 	}
@@ -48,7 +50,7 @@ export async function loadRaceAsphalt(renderer:THREE.WebGLRenderer,uvMetres:numb
   let fragment=shader.fragmentShader.replace('vec3 mapN = texture2D( normalMap, vNormalMapUv ).xyz * 2.0 - 1.0;',DETAIL_NORMAL+(options.wet?'\n\tmapN = normalize( vec3( mapN.xy * ( 1.0 - puddle * .96 ), mapN.z ) ); // standing water is flat':''));
   if(options.wet){
    shader.vertexShader='varying vec3 vWetWorld;\n'+shader.vertexShader.replace('#include <project_vertex>','#include <project_vertex>\n\tvWetWorld=(modelMatrix*vec4(transformed,1.0)).xyz;');
-   fragment='varying vec3 vWetWorld;uniform float wetness;uniform sampler2D puddleMask;uniform float puddleTile;uniform sampler2D wetReflection;uniform mat4 wetReflectionMatrix;uniform float wetPlanar;\n'+fragment.replace('#include <map_fragment>',WET_FIELD).replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n\troughnessFactor=mix(mix(roughnessFactor,.34,damp),.035,puddle);').replace('#include <opaque_fragment>',WET_REFLECTION);
+   fragment='varying vec3 vWetWorld;uniform float wetness;uniform sampler2D puddleMask;uniform float puddleTile;uniform sampler2D wetReflection;uniform mat4 wetReflectionMatrix;uniform float wetPlanar;\n'+fragment.replace('#include <map_fragment>',WET_FIELD).replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n\troughnessFactor=mix(mix(roughnessFactor,.46,damp),.05,puddle);').replace('#include <opaque_fragment>',WET_REFLECTION);
   }
   shader.fragmentShader='uniform sampler2D detailNormalMap;uniform float detailRepeat;uniform float detailStrength;\n'+fragment};
  material.customProgramCacheKey=()=>'p11-race-asphalt-detail'+(options.wet?'-wet':'');

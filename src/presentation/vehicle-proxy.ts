@@ -15,6 +15,25 @@ export const PROXY_NEAR_METRES=18,PROXY_FAR_METRES=22;
 /** The player's car as a shadow/reflection stand-in lives only on this layer (plus the wet-reflection layer): the sun's
  *  shadow camera and the puddle camera see it, the main view never does. */
 export const STAND_IN_LAYER=6;
+/**
+ * three.js decides what enters a shadow map by testing each object's layers against the MAIN camera (WebGLShadowMap
+ * renderObject), not the shadow camera; enabling the layer on the shadow camera does nothing. So the stand-ins never
+ * reached the sun's shadow map and the cars cast almost no shadow. Two empty markers bracket the scene's shadow
+ * traversal: the first switches the stand-in layer on for the main camera, the last switches it off again. The main
+ * view's draw list is already built by then (it is projected before shadows), so the stand-ins still never draw there.
+ * Each marker is one invisible, empty draw. Returns a disposer.
+ */
+export function standInShadowSwitch(scene:THREE.Scene){
+ const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute([0,0,0,0,0,0,0,0,0],3));
+ const material=new THREE.MeshBasicMaterial({colorWrite:false,depthWrite:false,depthTest:false});
+ const marker=(on:boolean)=>{const m=new THREE.Mesh(geometry,material);m.name=on?'stand_in_shadow_on':'stand_in_shadow_off';m.castShadow=true;m.frustumCulled=false;m.renderOrder=-1e9;
+  m.onBeforeShadow=(_r,_o,camera)=>{if(on)camera.layers.enable(STAND_IN_LAYER);else camera.layers.disable(STAND_IN_LAYER)};return m};
+ const first=marker(true),last=marker(false);scene.add(first,last);scene.children.splice(scene.children.indexOf(first),1);scene.children.unshift(first);
+ // Anything added to the scene later lands after `last`; keep `last` at the end before every shadow pass.
+ const keepLast=()=>{const i=scene.children.indexOf(last);if(i!==scene.children.length-1){scene.children.splice(i,1);scene.children.push(last)}};
+ first.onBeforeRender=keepLast;const previous=scene.onBeforeRender;scene.onBeforeRender=(...args)=>{keepLast();previous.apply(scene,args)};
+ return ()=>{scene.onBeforeRender=previous;first.removeFromParent();last.removeFromParent();geometry.dispose();material.dispose()};
+}
 const shownIn=(o:THREE.Object3D,root:THREE.Object3D)=>{for(let p:THREE.Object3D|null=o;p;p=p.parent){if(!p.visible)return false;if(p===root)return true}return true};
 const sampled=new WeakMap<THREE.Texture,THREE.Color|null>();
 function averageColour(texture:THREE.Texture):THREE.Color|null{
@@ -33,7 +52,10 @@ function bakedColour(material:THREE.Material):THREE.Color|null{
  return colour;
 }
 let sharedMaterial:THREE.MeshStandardMaterial|undefined;
-export function proxyMaterial(){return sharedMaterial??=new THREE.MeshStandardMaterial({name:'rival_distance_proxy',vertexColors:true,roughness:.42,metalness:.15})}
+/** Double-sided on purpose. Car bodies are thin one-sided shells: a front-side material only draws back faces into the
+ *  sun's shadow map and only undersides into the puddle camera, so the stand-ins cast and reflected just their closed
+ *  parts (a ring of tyre) instead of the car. */
+export function proxyMaterial(){return sharedMaterial??=new THREE.MeshStandardMaterial({name:'rival_distance_proxy',vertexColors:true,roughness:.42,metalness:.15,side:THREE.DoubleSide,shadowSide:THREE.DoubleSide})}
 export class VehicleProxy {
  private proxied:THREE.Mesh[]=[];private dropped:THREE.Mesh[]=[];private proxies:THREE.Mesh[]=[];private far=false;private warming=false;
  readonly report={proxied:0,dropped:0,kept:0,proxies:0};

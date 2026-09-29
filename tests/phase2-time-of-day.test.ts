@@ -5,8 +5,10 @@ import {recordKey,SAVE_KEY} from '../src/save';
 
 const memory=(initial:Record<string,string>={})=>{const data=new Map(Object.entries(initial));return{getItem:(k:string)=>data.get(k)??null,setItem:(k:string,v:string)=>{data.set(k,v)},data}};
 const flat=(extra:Partial<Parameters<typeof resolveLook>[0]>={})=>resolveLook({route:'express',career:false,requested:'day',explicitLighting:false,search:'',storage:memory(),...extra});
-test('Day and Night are the untouched validated looks; every look sits on one of the two validated bases',()=>{
- for(const id of['day','night']as const){const l=LOOKS[id];assert.equal(l.base,id);assert.equal(l.sky,null,'keeps the validated sky');assert.equal(l.sun,null);assert.equal(l.hemisphere,null);assert.equal(l.fog,null);assert.deepEqual(l.grade,{tint:[1,1,1],saturation:1,contrast:1})}
+test('Night is the untouched validated look; Day keeps its validated sky and base with the premium grade; every look sits on a validated base',()=>{
+ for(const id of['day','night']as const){const l=LOOKS[id];assert.equal(l.base,id);assert.equal(l.sky,null,'keeps the validated sky');assert.equal(l.hemisphere,null);assert.equal(l.fog,null)}
+ assert.equal(LOOKS.night.sun,null);assert.deepEqual(LOOKS.night.grade,{tint:[1,1,1],saturation:1,contrast:1});assert.equal(LOOKS.night.scenery??1,1,'night keeps its full sky fill');
+ assert.ok(LOOKS.day.sun&&LOOKS.day.sun.intensity>2.05,'a sun stronger than the validated rig');assert.ok((LOOKS.day.scenery??1)<1&&(LOOKS.day.scenery??1)>=.5,'less flat sky fill on the world, never a dark one');assert.ok(LOOKS.day.grade.contrast>1&&LOOKS.day.grade.contrast<1.15);
  assert.equal(LOOKS.day.exposure,.95);assert.equal(LOOKS.night.exposure,1.05);
  for(const id of LOOK_ORDER){const l=LOOKS[id];assert.ok(l.base==='day'||l.base==='night');assert.equal(l.lampsOn,l.base==='night','lamps follow the base, so lit streets and lit windows always agree');assert.ok(l.bloom.threshold>=.7&&l.grade.contrast>=.9&&l.grade.contrast<=1.2)}
  assert.deepEqual(LOOK_ORDER.filter(id=>LOOKS[id].wet),['after-rain','dusk-rain','night-rain']);

@@ -60,6 +60,9 @@ export async function loadRoadDecals(renderer:THREE.WebGLRenderer,route:CourseRo
  };
  const shared={transparent:true,depthWrite:false,vertexColors:true,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:0,metalness:0};
  const material=new THREE.MeshStandardMaterial({name:'P11_road_decals',map,normalMap,normalScale:new THREE.Vector2(1,-1),roughnessMap:orm,roughness:plan.wet?.42:1,...shared});
+ // Dry road: the atlas authors tar snakes and oil at roughness ~.13, a mirror, so on a sunny day they reflected the sky as
+ // pale blue squiggles. Aged sealant and oil are dark satin; floor the roughness there. Wet roads keep their gloss.
+ if(!plan.wet){material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n\troughnessFactor=max(roughnessFactor,.5);')};material.customProgramCacheKey=()=>'p11-road-decals-dry-satin'}
  // Laid rubber is matte and nearly flat. With the atlas' glossy roughness it mirrored the sky and read as a PALE strip, so
  // the racing line gets its own material: same colour map, no gloss, a whisper of the normal.
  const rubber=new THREE.MeshStandardMaterial({name:'P11_road_rubber',map,normalMap,normalScale:new THREE.Vector2(.2,-.2),roughness:plan.wet?.5:.96,color:'#8d8d8d',...shared});

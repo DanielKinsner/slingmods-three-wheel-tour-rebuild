@@ -46,22 +46,63 @@ def finish(name):
         collection.objects.link(o)
     current.clear()
 
+# Stratified sandstone v2: weathered buttes instead of faceted tubes. Same footprint and height as v1 (about 5.2 x 3.6 x 6 m
+# before instance scale) so colliders and placements are unchanged. Hard cap-rock layers overhang softer, recessed beds;
+# vertical fluting and erosion noise break the silhouette; smooth normals; strata colour lives in vertex colours.
+def noise3(x,y,z,seed):
+    # Cheap smooth value noise from summed sines (deterministic, no external modules).
+    return (math.sin(x*1.7+seed)*math.cos(y*1.3-seed*.7)+math.sin(y*2.3+z*1.1+seed*1.9)*.6+math.sin(z*2.9-x*1.4+seed*.3)*.35)/1.95
+_later=random.getstate()  # the trees and props after this keep the exact v1 random sequence
+stone_tint=mat('Rally_sandstone_strata',(1,1,1),.92)
+# The glTF exporter keeps a colour attribute only when the material reads it (Blender 4.2+), so wire it to Base Color.
+_strata=stone_tint.node_tree.nodes.new('ShaderNodeVertexColor');_strata.layer_name='Col'
+stone_tint.node_tree.links.new(_strata.outputs['Color'],stone_tint.node_tree.nodes['Principled BSDF'].inputs['Base Color'])
+bands=[(0.35,.16,.08),(.43,.22,.115),(.39,.19,.095),(.47,.26,.15),(.33,.15,.075),(.44,.235,.13),(.37,.18,.09)]
 for variant in range(3):
-    # Chipped sedimentary shelves: irregular shared rings with actual horizontal strata.
-    rings=10; sides=11; verts=[]; faces=[]
-    outline=[random.uniform(.8,1.2) for _ in range(sides)]
+    random.seed(291026+variant*17)
+    rings=34; sides=40; verts=[]; faces=[]; colors=[]
+    outline=[random.uniform(.85,1.15) for _ in range(8)]
+    layers=sorted(random.uniform(.06,.94) for _ in range(6))
+    def outline_at(a):
+        f=a/(2*math.pi)*8; i=int(f)%8; t=f-int(f); t=t*t*(3-2*t)
+        return outline[i]*(1-t)+outline[(i+1)%8]*t
+    def strata(z):
+        # Distance into the current bed (0 at its base, 1 at its cap) and the bed's index.
+        edges=[0]+layers+[1]
+        for k in range(len(edges)-1):
+            if z<=edges[k+1]:return (z-edges[k])/max(edges[k+1]-edges[k],1e-6),k
+        return 1,len(edges)-2
     for j in range(rings):
-        z=j/(rings-1); taper=(1-z*.37)*(1+(.045 if j%2 else -.035))
+        z=j/(rings-1); into,bed=strata(z)
+        # Soft bed recessed at its base, hard cap overhanging at its top; the whole butte tapers and leans slightly.
+        ledge=-.09*(1-into)**2+.05*max(0,into-.82)/.18
+        taper=(1-z*.36)+ledge
         for i in range(sides):
-            a=2*math.pi*i/sides;r=outline[i]*taper
-            verts.append((math.cos(a)*r*2.6+z*.5,math.sin(a)*r*1.8,z*6+math.sin(i*1.73+variant)*.32*z+random.uniform(-.10,.10)))
+            a=2*math.pi*i/sides
+            flute=.035*math.sin(a*9+variant*1.3)*(.4+.6*z)
+            erosion=.08*noise3(math.cos(a)*1.6,math.sin(a)*1.6,z*5,variant*3.1)
+            r=outline_at(a)*(taper+flute+erosion)
+            top=1 if j<rings-1 else .82
+            verts.append((math.cos(a)*r*2.6*top+z*.5,math.sin(a)*r*1.8*top,z*6+.25*noise3(math.cos(a),math.sin(a),variant,1.7)*z))
+            c=bands[(bed+variant)%len(bands)]
+            shade=.82+.18*into+.06*noise3(a*3,z*14,variant,4.2)   # beds darken toward their recessed base
+            varnish=1-.16*max(0,math.sin(a*13+variant))**6*(1-z)  # dark desert-varnish streaks running down
+            colors.append(tuple(max(0,min(1,ch*shade*varnish)) for ch in c))
     for j in range(rings-1):
         for i in range(sides):faces.append((j*sides+i,j*sides+(i+1)%sides,(j+1)*sides+(i+1)%sides,(j+1)*sides+i))
-    faces.append(tuple(range(sides-1,-1,-1)));faces.append(tuple((rings-1)*sides+i for i in range(sides)))
-    mesh=bpy.data.meshes.new('Stratified sandstone');mesh.from_pydata(verts,[],faces);mesh.update();o=bpy.data.objects.new('redstone_'+str(variant),mesh);bpy.context.collection.objects.link(o);current.append(o)
-    for m in stone:mesh.materials.append(m)
-    for p in mesh.polygons:p.material_index=(p.index//sides+variant)%len(stone)
+    faces.append(tuple(range(sides-1,-1,-1)))
+    cap=len(verts);cz=verts[(rings-1)*sides][2]
+    verts.append((.5,0,cz+.18));colors.append(bands[(len(layers)+variant)%len(bands)])
+    for i in range(sides):faces.append(((rings-1)*sides+i,(rings-1)*sides+(i+1)%sides,cap))
+    mesh=bpy.data.meshes.new('Stratified sandstone');mesh.from_pydata(verts,[],faces);mesh.update()
+    for p in mesh.polygons:p.use_smooth=True
+    attr=mesh.color_attributes.new('Col','FLOAT_COLOR','POINT')
+    for k,c in enumerate(colors):attr.data[k].color=(*c,1)
+    o=bpy.data.objects.new('redstone_'+str(variant),mesh);bpy.context.collection.objects.link(o);current.append(o)
+    mesh.materials.append(stone_tint)
     finish('redstone-'+str(variant))
+random.setstate(_later)
+for _ in range(3*(11+10*11)):random.random()  # v1's rock loop drew 363 values
 
 # Authored needle atlas: fine individual needles on an asymmetric branch, with an alpha cutout.
 import numpy as np

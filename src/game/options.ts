@@ -43,7 +43,7 @@ export const optionsOpen=()=>!!open;
 function audioRows(){
  const locked=!!document.querySelector<HTMLElement>('#enable-sound:not([hidden])'),muted=document.querySelector('#mute-sound')?.textContent==='Unmute';
  const rows=MIX.map(([id,label])=>{const src=document.getElementById(id) as HTMLInputElement|null,v=src?Number(src.value):1;return `<label class="gx-opt-row"><span>${label}</span><input type="range" min="0" max="1" step=".05" value="${v}" data-mix="${id}" ${src?'':'disabled'}><output>${Math.round(v*100)}%</output></label>`}).join('');
- return `${locked?'<button class="gx-opt-cta" data-opt="unlock">Enable sound</button>':''}<div class="gx-opt-group">${rows}</div><div class="gx-opt-row"><span>Sound</span><button class="gx-opt-toggle" data-opt="mute" aria-pressed="${!muted}">${muted?'Muted':'On'}</button><small></small></div>`;
+ return `${locked?'<button class="gx-opt-cta" data-opt="unlock">Enable sound</button>':''}<div class="gx-opt-group">${rows}</div><div class="gx-opt-row"><span>Sound</span><button class="gx-opt-toggle" data-opt="mute" aria-pressed="${!muted&&!locked}">${muted?'Muted':locked?'Waiting':'On'}</button><small>${locked&&!muted?'Starts when you enable sound.':''}</small></div>`;
 }
 function videoRows(){
  const live=document.querySelector<HTMLSelectElement>('#game-graphics select[aria-label="Graphics quality"]'),q=(live?.value as GraphicsQuality)??loadGraphicsQuality();

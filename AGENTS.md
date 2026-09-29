@@ -1,4 +1,13 @@
-# Showroom premium finish - current (2026-09-28)
+# Race premium pass - current (2026-09-28)
+
+Read `handoff/RACE-PREMIUM.md`. Fixes every premium-audit finding: car sun shadows restored (three.js tests shadow
+casters against the MAIN camera layers; `standInShadowSwitch`), new wet roads and spray, daylight with shape
+(`Look.scenery`), feathered foliage, satin tar snakes, Ridge night foliage, Redstone sandstone rocks, pre-race picker
+and Options sound label. Harbor High is faster (6.1 ms, full resolution); Express passes. The GPU failed during the
+session: Ridge and Redstone performance must be re-run after a reboot before pushing.
+
+---
+# Showroom premium finish (2026-09-28)
 
 Read `handoff/SHOWROOM-PREMIUM.md`. Owner chose to keep the shop recreated from their photos and give it a premium
 finish: vehicle-aimed spots instead of directional lights, a finished ceiling with an LED light frame and downlights,
