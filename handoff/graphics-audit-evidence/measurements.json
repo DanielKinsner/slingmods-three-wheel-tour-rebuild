@@ -1,0 +1,38 @@
+{
+ "commit": "cb087dec84f0a068f862a37ce566803eb4f7a17f",
+ "date": "2026-09-29",
+ "gpu": "NVIDIA RTX 4080, ANGLE D3D11, dev server, 1600x900 viewport at DPR 1.5, High quality, controlled clock",
+ "rally_fog_live": {
+  "intended": "FogExp2 #c3bbac density 0.00165 (src/rally/presentation.ts:24)",
+  "actual": "Fog #b9cbd6 near 400 far 1400 (src/presentation/harbor-lighting.ts:10 runs later, src/express.ts:186)"
+ },
+ "ridge_night_headlights": {
+  "lights": "2 SpotLights 180 cd, distance 85 m, 19.5 deg, penumbra 0.7, decay 2, no shadows; moon DirectionalLight 0.85 #9fbde9; HemisphereLight 0.95",
+  "mean_luminance_0_255": {
+   "road_just_ahead": {
+    "on": 41.7,
+    "off": 38.2
+   },
+   "road_far": {
+    "on": 54.3,
+    "off": 51.9
+   },
+   "road_near": {
+    "on": 43.3,
+    "off": 43.3
+   }
+  },
+  "conclusion": "headlights add ~9% on the road ahead; fill light dominates"
+ },
+ "express_lamp_reflection_ab": {
+  "method": "count saturated-orange pixels below 36% screen height with P11_sodium_lamp emissiveIntensity 6 vs 0",
+  "lamps_on": 613,
+  "lamps_off": 550,
+  "note": "remaining 550 px are the player's tail lights/trim in the centre cells; the off-car orange road patches vanish with lamps off -> they are wet-road reflections of lamp heads, not VFX"
+ },
+ "exhaust_flames": {
+  "emitted_first_20s_run1": 74,
+  "emitted_run2": 0,
+  "explanation": "launch-boost flame (0.6 s x 2 outlets); rivals have exhaust:false (src/express.ts:176); flame sprites do not inherit car velocity (src/presentation/vehicle-effects.ts:120)"
+ }
+}

@@ -1,3 +1,13 @@
+# Graphics audit + plan to premium 2.3 (2026-09-29)
+
+Read `handoff/GRAPHICS-AUDIT.md`. Independent graphics audit of `cb087de` (threejs-aaa-graphics-builder skill) scores
+desktop race play 1.85/3; premium needs every category >= 2 and an average >= 2.3. Verified live: Rally's fog is
+overwritten by the shared lighting rig, Ridge night headlights add only ~9%, scenery has no AO and sun shadows only
+near the car, and wet spray reads as glowing orbs. The doc holds a three-pass plan to 2.3 (depth/light, wet weather/VFX,
+world/HUD); no pass is started or authorized yet. Codex's QA audit of the same commit is local-only and untracked in
+`handoff/threejs-audit-20260929/`. The Redstone performance re-run noted below still applies.
+
+---
 # Race premium pass - current (2026-09-28)
 
 Read `handoff/RACE-PREMIUM.md`. Fixes every premium-audit finding: car sun shadows restored (three.js tests shadow
