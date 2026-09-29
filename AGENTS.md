@@ -1,13 +1,12 @@
-# Graphics passes 1-2 committed locally, not pushed (2026-09-29)
+# Graphics passes 1-3 committed locally, not pushed (2026-09-29)
 
-Read `handoff/GRAPHICS-AUDIT.md` (audit, plan to premium 2.3, pass 1 and 2 results). Pass 1 (depth and light): Redstone
-canyon haze, `src/presentation/ground-light.ts` (baked tree/rock shade, contact darkening, dry-road headlight pools),
-Smoky Ridge late sun and real blue hour, race-only rider rim. Pass 2 (wet): streak spray (`wet-spray.ts`), streaked
-wet-road reflections, flames that trail the car. Re-scored 2.15, every category >= 2; pass 3 (world and HUD) is next.
-NOT PUSHED: sustained gates ran on a busy PC (Premiere/Photoshop open) and failed on every route, including barely
-touched Harbor. When the owner has closed Premiere: A/B the unchanged commit 3432998 vs HEAD on Harbor and Ridge
-(~20 min; includes the pass 2 reflection taps on High) and push only if they match. The F3 loading art (Codex) is
-committed locally too. The Redstone performance re-run noted below still applies.
+Read `handoff/GRAPHICS-AUDIT.md` (audit, plan, pass 1-3 results, scorecard). Pass 1 depth and light (canyon haze,
+`ground-light.ts` baked shade/contact/dry-road headlight pools, Ridge late sun and blue hour, rider rim); pass 2 wet
+(`wet-spray.ts`, streaked wet reflections, trailing flames); pass 3 world and feedback (Ridge groves, rock variety,
+race-only turf patches and wall grime in `surface-materials.ts`, streak drift sparks, hint queue). Scorecard 2.30 with
+every category >= 2: on the premium line. NOT PUSHED: sustained gates ran on a busy PC and failed on every route.
+When the owner has closed Premiere/Photoshop: A/B commit 3432998 vs HEAD on Harbor and Ridge (~20 min), push only if
+they match. The F3 loading art (Codex) is committed locally too. The Redstone performance re-run below still applies.
 
 ---
 # Race premium pass - current (2026-09-28)

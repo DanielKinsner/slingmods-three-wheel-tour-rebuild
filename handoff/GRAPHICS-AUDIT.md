@@ -181,6 +181,49 @@ Re-score after pass 2 (desktop, High): Materials **2.5** (wet asphalt now reads 
 VFX **2** (spray, flames and sparks read as intended; drift sparks are still small), the rest as after pass 1.
 **Average 2.15, and every category is now at 2 or above.** Premium still needs 2.3: pass 3 (world and HUD finish).
 
+## Pass 3 results — world and feedback finish (2026-09-29, local, not pushed)
+
+Evidence in `graphics-pass3-evidence/`.
+
+1. **Smoky Ridge groves and clearings**: the two roadside tree rows are thinned by a position-based noise along the road
+   (the far row stays denser), so the even avenue opens into clearings with views across the valley
+   ([groves](graphics-pass3-evidence/ridge-groves-900.jpg)). The shared random sequence is untouched; Ridge trees are
+   not colliders.
+2. **Redstone rock variety**: each sandstone butte gets its own proportions (width ±20%, height -25/+35%) and a slight
+   lean, deterministic per placement; colliders keep their original scale/stretch
+   ([rocks](graphics-pass3-evidence/rally-rocks-2520.jpg)).
+3. **Race surfaces** (`surface-materials.ts`, race-only `RaceSurface` option; showroom and workbench unchanged): turf
+   gets large lush/dry patches and less grazing-angle sky sheen (the sheen had washed the Harbor field to one tone); on
+   the flat routes (Harbor, Express) walls, barriers and posts get a soft grime line in their lower 45 cm
+   ([field and barriers](graphics-pass3-evidence/harbor-field-and-barrier-grime.jpg)). Improvement on the Harbor field is
+   modest: from road height, patches compress into bands. Real ground cover (grass tufts) is the next step there.
+4. **Drift sparks** are additive streaks along their velocity instead of 5.5 cm points, so the tier colour reads at
+   chase distance ([tier 2](graphics-pass3-evidence/drift-sparks-tier2.jpg)).
+5. **One coaching line at a time**: the one-time drift hint waits for the first-drive coach hint to clear instead of
+   stacking over the car.
+
+Draw calls: one fewer than before on every route (idle sparks no longer submit a draw). Tests:
+`tests/graphics-pass3.test.ts` (3), full suite 565/565.
+
+## Scorecard after passes 1–3 (desktop, High; owner's quiet A/B still pending)
+
+| Category | Audit | Now | Evidence |
+|---|---:|---:|---|
+| Art direction | 2 | 2.5 | Each route has its own light: canyon haze, late sun and blue hour, wet dusk and night streaks, overcast after rain. |
+| Hero: vehicles and rider | 2 | 2.5 | Rider rim; tail lights and pools read at night. |
+| Track edges and rivals | 2 | 2 | Barrier grime; rival lights and pools at night; barriers are still simple shapes. |
+| Drift and position feedback | 2 | 2 | Tier sparks and hint queue help; no new systems. |
+| World | 1.5 | 2.5 | Shade and haze, Ridge groves and vistas, rock variety, turf patches. Weakest: Harbor/Express block buildings, the flat Harbor field. |
+| Materials | 2 | 2.5 | Wet asphalt reads as wet asphalt; contact darkening. |
+| Lighting | 1.5 | 2.5 | Sun/sky balance, baked shade, blue hour, night pools, rim. |
+| VFX | 1.5 | 2.5 | Streak spray, streaked reflections, trailing flames, visible tier sparks; all event-driven and pooled. |
+| UI / HUD | 2 | 2 | Unchanged apart from the hint queue; phone portrait remains 1 (separate target). |
+| Performance evidence | 2 | 2 | Census every pass; sustained gates still owe a quiet-PC A/B. |
+| **Average** | **1.85** | **2.30** | Premium: every category ≥ 2 and average ≥ 2.3. On the line, by this scorecard. |
+
+What would move it clearly past 2.3: the quiet A/B with baseline and post numbers (performance evidence 2.5), Harbor
+ground cover and building detail (world 3), and a HUD polish pass.
+
 ## Reproducing the live checks
 
 Dev server (`.claude/launch.json` → `tour-dev`, port 5186), `localStorage['slingmods-race-films']='off'`, URL
