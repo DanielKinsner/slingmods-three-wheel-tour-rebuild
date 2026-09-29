@@ -12,8 +12,10 @@ export class DriftHud {
   this.root.innerHTML='<div class="gx-drift-meter" aria-hidden="true"><b>DRIFT</b><span><i></i></span><span><i></i></span><span><i></i></span></div><strong class="gx-drift-flash" hidden></strong><p class="gx-drift-hint" hidden>Hold <kbd>Space</kbd> / <kbd>X</kbd> to drift · straighten up for a boost</p>';
   parent.append(this.root);
  }
- /** Show the one-time control hint (first arcade race on this browser). */
- hint(){let seen=false;try{seen=localStorage.getItem(HINT_KEY)==='1';localStorage.setItem(HINT_KEY,'1')}catch{}if(seen)return;const h=this.root.querySelector<HTMLElement>('.gx-drift-hint')!;h.hidden=false;clearTimeout(this.hintTimer);this.hintTimer=window.setTimeout(()=>h.hidden=true,6500)}
+ /** Show the one-time control hint (first arcade race on this browser), after any coach hint on screen. */
+ hint(){let seen=false;try{seen=localStorage.getItem(HINT_KEY)==='1';localStorage.setItem(HINT_KEY,'1')}catch{}if(seen)return;const h=this.root.querySelector<HTMLElement>('.gx-drift-hint')!;clearTimeout(this.hintTimer);
+  // One coaching line at a time: wait for the first-drive coach hint to clear instead of stacking over the car.
+  const show=()=>{if(document.querySelector('.gx-coach-hint.is-on')){this.hintTimer=window.setTimeout(show,300);return}h.hidden=false;this.hintTimer=window.setTimeout(()=>h.hidden=true,6500)};show()}
  update(d:Readonly<DriftState>){
   if(!d.enabled){if(this.shown){this.shown=false;this.root.classList.remove('is-on')}return}
   const on=d.active;if(on!==this.shown){this.shown=on;this.root.classList.toggle('is-on',on)}

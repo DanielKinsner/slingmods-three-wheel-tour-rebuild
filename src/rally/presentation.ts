@@ -9,7 +9,7 @@ import {disposeGraph} from '../presentation/scene-lifetime';
 import {projectRoad,type CourseBox} from '../course/environment';
 import {RALLY_ROUTE,RALLY_SURFACES,rallyPoint,rallyRibbon,rallyCrossHeight,RALLY_SECTORS} from './route';
 
-type Placement={x:number;y:number;z:number;scale:number;yaw:number;stretch?:number};
+type Placement={x:number;y:number;z:number;scale:number;yaw:number;stretch?:number;/** Visual only (graphics pass 3): per-rock proportions and lean; colliders keep scale/stretch. */shape?:[number,number,number];tilt?:number};
 const KIT=RALLY_KIT;
 function seeded(){let seed=0x725411;return()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};}
 function ribbon(data:ReturnType<typeof rallyRibbon>){const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(data.vertices,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(data.uv,2));g.setAttribute('color',new THREE.Float32BufferAttribute(data.colors,3));g.setIndex(data.indices);g.computeVertexNormals();return g;}
@@ -62,6 +62,10 @@ export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.Web
   place('marshal-hut',70,-23,1,Math.PI/2);place('marshal-hut',RALLY_ROUTE.length*.70,24,.85,-Math.PI/2);
   place('quarry-gantry',RALLY_ROUTE.length*.35,-29,1.5,1.1);
   for(let i=0;i<7;i++)place('log-stack',RALLY_ROUTE.length*.59+i*8,-21,1,Math.PI*.2);
+  // Graphics pass 3: every sandstone rock gets its own proportions and a slight lean, so the kit's three buttes stop reading
+  // as a row of identical barrels. Deterministic per placement; visual only (the colliders below still use scale/stretch).
+  const hash=(i:number,k:number)=>{const v=Math.sin(i*127.1+k*311.7)*43758.5453;return v-Math.floor(v)};
+  for(const kind of ['redstone-0','redstone-1','redstone-2'])placements[kind].forEach((p,i)=>{if(p.stretch)return;const n=i+kind.length*97+Number(kind.slice(-1))*1013;p.shape=[.82+hash(n,1)*.4,.75+hash(n,2)*.6,.82+hash(n,3)*.4];p.tilt=(hash(n,4)-.5)*.16});
   const batches:{mesh:THREE.InstancedMesh;placements:Placement[];near:boolean}[]=[],sources:THREE.Group[]=[],shapes:Record<string,{leaf:THREE.Box3;solid:THREE.Box3}>={};
   await Promise.all(KIT.map(async key=>{
     const source=(await loader.loadAsync('/assets/rally/'+key+'.glb')).scene;sources.push(source);source.updateMatrixWorld(true);
@@ -82,7 +86,7 @@ export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.Web
       for(const near of [true,false]){const inst=new THREE.InstancedMesh(geometry,material,placements[key].length);inst.name='Rally_'+key;inst.frustumCulled=false;inst.instanceMatrix.setUsage(THREE.DynamicDrawUsage);inst.count=0;inst.castShadow=near;inst.receiveShadow=true;root.add(inst);batches.push({mesh:inst,placements:placements[key],near});}
     }
   }));
-  const matrix=new THREE.Matrix4(),rotation=new THREE.Quaternion(),position=new THREE.Vector3(),scale=new THREE.Vector3(),lastCamera=new THREE.Vector3(Infinity,Infinity,Infinity);let lastQuality='';
+  const matrix=new THREE.Matrix4(),rotation=new THREE.Quaternion(),euler=new THREE.Euler(),position=new THREE.Vector3(),scale=new THREE.Vector3(),lastCamera=new THREE.Vector3(Infinity,Infinity,Infinity);let lastQuality='';
   const postMat=new THREE.MeshStandardMaterial({color:'#614831',roughness:1}),flagMat=new THREE.MeshStandardMaterial({color:'#dd722b',roughness:1,side:THREE.DoubleSide}),white=new THREE.MeshStandardMaterial({color:'#ece1c4',roughness:1});
   const markerGeos=[new THREE.CylinderGeometry(.065,.09,1.5,6),new THREE.PlaneGeometry(.48,.34)];
   for(let s=8;s<RALLY_ROUTE.length;s+=22){for(const side of [-1,1]){const p=rallyPoint(s,side*13.5),post=new THREE.Mesh(markerGeos[0],postMat);post.position.set(p.x,p.y+.75,p.z);root.add(post);const flag=new THREE.Mesh(markerGeos[1],side===1?flagMat:white);flag.position.set(p.x,p.y+1.28,p.z);flag.rotation.y=Math.atan2(p.dx,p.dz);root.add(flag);}}
@@ -120,7 +124,7 @@ export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.Web
     vegetation.update(camera,quality);
     if(lastCamera.distanceToSquared(camera)<9&&quality===lastQuality)return;lastCamera.copy(camera);lastQuality=quality;const distance=quality==='low'?260:quality==='medium'?370:quality==='ultra'?600:490;
     for(const b of batches){b.mesh.count=0;for(const p of b.placements){const d=Math.hypot(p.x-camera.x,p.z-camera.z),isNear=d<120;if(isNear!==b.near||d>distance&&!p.stretch)continue;
-      rotation.setFromAxisAngle(THREE.Object3D.DEFAULT_UP,p.yaw);matrix.compose(position.set(p.x,p.y,p.z),rotation,scale.set(p.scale*(p.stretch??1),p.scale,p.scale*(p.stretch??1)));b.mesh.setMatrixAt(b.mesh.count++,matrix);}
+      if(p.tilt)rotation.setFromEuler(euler.set(p.tilt,p.yaw,0,'YXZ'));else rotation.setFromAxisAngle(THREE.Object3D.DEFAULT_UP,p.yaw);const sh=p.shape;matrix.compose(position.set(p.x,p.y,p.z),rotation,scale.set(p.scale*(p.stretch??1)*(sh?sh[0]:1),p.scale*(sh?sh[1]:1),p.scale*(p.stretch??1)*(sh?sh[2]:1)));b.mesh.setMatrixAt(b.mesh.count++,matrix);}
       b.mesh.visible=b.mesh.count>0;b.mesh.castShadow=b.near&&quality!=='low';b.mesh.instanceMatrix.needsUpdate=true;
     }
   },inspect(){return {name:RALLY_ROUTE.name,vegetation:vegetation.inspect(),physicalProps:obstacles.length,assets:KIT.length,instances:Object.values(placements).reduce((n,p)=>n+p.length,0),batches:batches.length,visibleBatches:batches.filter(b=>b.mesh.visible).length,surface:'canyon dirt / normal maps / racing-line ruts',length:RALLY_ROUTE.length};},dispose(){vegetation.dispose();root.removeFromParent();batches.forEach(b=>b.mesh.dispose());disposeGraph(root);sources.forEach(disposeGraph);textures.forEach(t=>t.dispose());}};

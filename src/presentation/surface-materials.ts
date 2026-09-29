@@ -3,6 +3,11 @@ import {loadKTX2} from './ktx2';
 import {SURFACE_SETS,type SurfaceKind} from './surface-assets';
 
 type Rule={kind:SurfaceKind;detailOnly:boolean;tint:boolean};
+/** Races only (graphics pass 3): large grass patches, and on flat routes a grime line at the foot of walls and barriers. */
+export type RaceSurface={groundY?:number};
+const SURFACE_NOISE=`float surfaceHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float surfaceNoise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(surfaceHash(i),surfaceHash(i+vec2(1.,0.)),f.x),mix(surfaceHash(i+vec2(0.,1.)),surfaceHash(i+vec2(1.,1.)),f.x),f.y);}
+`;
 const kinds:Record<string,SurfaceKind>={
  Quality_Painted_White:'concrete',Quality_Slingmods_Red:'concrete',Quality_Aluminum:'metal',Quality_Powdercoat:'metal',Waterfront_Marine_Paint:'metal',Harbor_Road_Paint:'concrete',
  Quality_Mineral_Stucco:'concrete',Quality_Cast_Concrete:'concrete',Quality_Quay_Concrete:'concrete',Harbor_Concrete:'concrete',Quality_Showroom_Epoxy:'concrete',Quality_Dock_Timber:'wood',Quality_Maintained_Turf:'grass',Quality_Planted_Ground:'grass',
@@ -20,7 +25,7 @@ export function surfaceRule(material:THREE.Material,meshName:string):Rule|undefi
 }
 
 /** World-metre projection survives merged modules and nonuniform instance scales without editing any geometry. */
-export function prepareSurfaceMaterial(source:THREE.MeshStandardMaterial,rule:Rule,maps?:THREE.Texture[]){
+export function prepareSurfaceMaterial(source:THREE.MeshStandardMaterial,rule:Rule,maps?:THREE.Texture[],race?:RaceSurface){
  const material=source.clone(),tile=SURFACE_SETS[rule.kind].tile;
  if(!rule.detailOnly){
   if(!maps)throw Error('Matched surface maps required');
@@ -50,13 +55,34 @@ export function prepareSurfaceMaterial(source:THREE.MeshStandardMaterial,rule:Ru
    mapN.xy+=surfaceDetail.xy*${detailStrength.toFixed(3)}*(1.-smoothstep(6.,28.,length(vViewPosition)));
    mapN=normalize(mapN);mapN.xy *= normalScale;`);
   shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',normalChunk);
+  if(race){
+   shader.vertexShader=`varying vec3 vSurfaceWorld;
+`+shader.vertexShader.replace('#include <project_vertex>',`#include <project_vertex>
+    #ifdef USE_INSTANCING
+    vSurfaceWorld=(modelMatrix*instanceMatrix*vec4(transformed,1.)).xyz;
+    #else
+    vSurfaceWorld=(modelMatrix*vec4(transformed,1.)).xyz;
+    #endif`);
+   shader.fragmentShader=`varying vec3 vSurfaceWorld;
+`+SURFACE_NOISE+shader.fragmentShader;
+   // Turf: greener and drier patches at ~55 m and ~13 m, so a field no longer reads as one flat carpet to the horizon.
+   // Grass is rough and self-shadowing: at the driver's grazing angle the stock sky sheen washed the whole field to one tone.
+   if(rule.kind==='grass')shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
+    float surfaceMacro=surfaceNoise(vSurfaceWorld.xz/55.)*.6+surfaceNoise(vSurfaceWorld.xz/13.+7.3)*.4;
+    diffuseColor.rgb*=mix(vec3(.55,.64,.45),vec3(1.3,1.18,.72),smoothstep(.38,.62,surfaceMacro));`).replace('#include <aomap_fragment>',`#include <aomap_fragment>
+    reflectedLight.indirectSpecular*=.35;reflectedLight.directSpecular*=.5;`);
+   // Walls, barriers and posts: splash grime at the foot (vertical faces only, never pavement), grounding them on the quay.
+   else if(race.groundY!==undefined)shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',`{vec3 surfaceUp=(vec4(normal,0.)*viewMatrix).xyz;float surfaceWall=1.-smoothstep(.55,.8,abs(surfaceUp.y));
+    diffuseColor.rgb*=mix(1.,mix(.7,1.,smoothstep(.02,.45,vSurfaceWorld.y-${race.groundY.toFixed(3)})),surfaceWall);}
+    #include <emissivemap_fragment>`);
+  }
  };
- material.customProgramCacheKey=()=>`surface-finish-v1-${rule.kind}-${rule.detailOnly}-${rule.tint}`;
+ material.customProgramCacheKey=()=>`surface-finish-v1-${rule.kind}-${rule.detailOnly}-${rule.tint}`+(race?`-race${race.groundY!==undefined&&rule.kind!=='grass'?'-grime':''}`:'');
  return material;
 }
 
 /** Optional, transactional scenery pass. Failed/timed-out sets leave their original materials intact. */
-export async function loadSurfaceMaterials(renderer:THREE.WebGLRenderer,root:THREE.Object3D,enabled=true){
+export async function loadSurfaceMaterials(renderer:THREE.WebGLRenderer,root:THREE.Object3D,enabled=true,race?:RaceSurface){
  const slots:{mesh:THREE.Mesh;original:THREE.Material|THREE.Material[];next:THREE.Material|THREE.Material[]}[]=[],materials=new Set<THREE.Material>(),textures=new Set<THREE.Texture>(),cache=new Map<string,THREE.MeshStandardMaterial>();
  const wanted=new Set<SurfaceKind>(),targets:{mesh:THREE.Mesh;rules:(Rule|undefined)[]}[]=[];
  if(enabled)root.traverse(o=>{if(!(o instanceof THREE.Mesh))return;const rules=(Array.isArray(o.material)?o.material:[o.material]).map(m=>surfaceRule(m,o.name));if(rules.some(Boolean)){targets.push({mesh:o,rules});rules.forEach(r=>{if(r&&!r.detailOnly)wanted.add(r.kind)})}});
@@ -68,7 +94,7 @@ export async function loadSurfaceMaterials(renderer:THREE.WebGLRenderer,root:THR
   if(result.some(r=>r.status==='rejected')){owned.forEach(t=>t.dispose());failed.push(kind);return}
   const set=result.map(r=>(r as PromiseFulfilledResult<THREE.Texture>).value);maps.set(kind,set);set.forEach(t=>textures.add(t));
  }));
- for(const {mesh,rules}of targets){const original=mesh.material,list=Array.isArray(original)?original:[original],next=list.map((m,i)=>{const rule=rules[i];if(!rule||!rule.detailOnly&&!maps.has(rule.kind))return m;const key=m.uuid+':'+JSON.stringify(rule);let replacement=cache.get(key);if(!replacement){replacement=prepareSurfaceMaterial(m as THREE.MeshStandardMaterial,rule,maps.get(rule.kind));cache.set(key,replacement);materials.add(replacement)}return replacement});if(next.some((m,i)=>m!==list[i]))slots.push({mesh,original,next:Array.isArray(original)?next:next[0]})}
+ for(const {mesh,rules}of targets){const original=mesh.material,list=Array.isArray(original)?original:[original],next=list.map((m,i)=>{const rule=rules[i];if(!rule||!rule.detailOnly&&!maps.has(rule.kind))return m;const key=m.uuid+':'+JSON.stringify(rule);let replacement=cache.get(key);if(!replacement){replacement=prepareSurfaceMaterial(m as THREE.MeshStandardMaterial,rule,maps.get(rule.kind),race);cache.set(key,replacement);materials.add(replacement)}return replacement});if(next.some((m,i)=>m!==list[i]))slots.push({mesh,original,next:Array.isArray(original)?next:next[0]})}
  for(const slot of slots)slot.mesh.material=slot.next;
  let disposed=false;
  return{inspect:()=>({version:'surface-finish-v1',enabled,changedMeshes:slots.filter(s=>s.next!==s.original).length,materials:[...materials].map(m=>m.userData.surfaceFinish),loadedSets:[...maps.keys()],failedSets:failed,addedDrawCalls:0}),dispose(){if(disposed)return;disposed=true;for(const s of slots)s.mesh.material=s.original;materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose())}};
