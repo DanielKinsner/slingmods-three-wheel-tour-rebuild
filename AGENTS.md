@@ -1,12 +1,13 @@
-# Graphics passes 1-3 committed locally, not pushed (2026-09-29)
+# Graphics passes 1-3: 1-2 on main, 3 local (2026-09-29)
 
 Read `handoff/GRAPHICS-AUDIT.md` (audit, plan, pass 1-3 results, scorecard). Pass 1 depth and light (canyon haze,
 `ground-light.ts` baked shade/contact/dry-road headlight pools, Ridge late sun and blue hour, rider rim); pass 2 wet
 (`wet-spray.ts`, streaked wet reflections, trailing flames); pass 3 world and feedback (Ridge groves, rock variety,
 race-only turf patches and wall grime in `surface-materials.ts`, streak drift sparks, hint queue). Scorecard 2.30 with
-every category >= 2: on the premium line. NOT PUSHED: sustained gates ran on a busy PC and failed on every route.
+every category >= 2: on the premium line. Passes 1-2 and the F3 art reached origin/main outside this session (not by
+the agent) before a clean speed check; pass 3 is local. Sustained gates ran on a busy PC and failed on every route.
 When the owner has closed Premiere/Photoshop: A/B commit 3432998 vs HEAD on Harbor and Ridge (~20 min), push only if
-they match. The F3 loading art (Codex) is committed locally too. The Redstone performance re-run below still applies.
+they match (pass 1-2 already live: if the A/B shows a regression, fix forward). The Redstone performance re-run below still applies.
 
 ---
 # Race premium pass - current (2026-09-28)
