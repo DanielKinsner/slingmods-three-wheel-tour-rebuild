@@ -153,6 +153,34 @@ Still open from pass 1, carried into later passes rather than dropped: grounding
 (buildings, barriers, palms; pass 3), evaluating the unused `clear-night` HDR for the night looks (pass 2), and
 phone-width checks of the new looks (phone target is separate).
 
+## Pass 2 results — wet weather and effects (2026-09-29, local, not pushed)
+
+Evidence in `graphics-pass2-evidence/` (before = the pre-pass-1 frames; after = pass 1 + 2).
+
+1. **Tyre spray** (`src/presentation/wet-spray.ts`): the round light-blue point sprites are replaced by streak quads
+   along each particle's velocity (longer with speed, wider with age), broken up by noise, lit by the route's haze
+   colour, and faded within ~3 m of the chase camera (the spray trails back towards it). Same 160-particle pool, one
+   draw. The authored `water-rooster-tail` atlas is not used: it is a small radial starburst per frame.
+2. **Wet-road reflections** (`race-asphalt.ts`): a five-tap vertical smear of the planar reflection, long on damp
+   asphalt and near-mirror in standing water, and damp asphalt reflects more (0.3, was 0.07). Sodium lamps now lay the
+   classic long orange streaks down a wet night road instead of flame-shaped blobs ([night-rain](graphics-pass2-evidence/express-night-rain-after.jpg)).
+3. **Headlight pools are dry-road only** (`headlightPoolStrength`): on wet asphalt a matte pool read as a grey floodlit
+   patch; the streaked reflections carry the lights there.
+4. **Boost and launch flames** inherit 90% of the car's velocity, so they trail the exhaust instead of hanging in the air.
+
+Correction to the audit: the rain looks are authored as *after rain* ("Dusk, after rain", "Night, after rain"), so
+falling rain and splash rings were not added; that would change the art direction. The unused `clear-night` HDR was
+evaluated and not adopted: it exists only at 1K (too soft for a visible sky) and 8K (75.6 MB), and the analytic night
+sky is a deliberate original; adopting it needs a 2K build and an art-direction decision.
+
+Draw calls unchanged (Express 498/355, Harbor 337/474). Cost to measure in the quiet A/B: five reflection taps per wet
+road pixel on High/Ultra (the planar pass is already skipped on Medium/Low). Tests: `tests/graphics-pass2.test.ts`,
+full suite 562/562.
+
+Re-score after pass 2 (desktop, High): Materials **2.5** (wet asphalt now reads as wet asphalt at dusk and night),
+VFX **2** (spray, flames and sparks read as intended; drift sparks are still small), the rest as after pass 1.
+**Average 2.15, and every category is now at 2 or above.** Premium still needs 2.3: pass 3 (world and HUD finish).
+
 ## Reproducing the live checks
 
 Dev server (`.claude/launch.json` → `tour-dev`, port 5186), `localStorage['slingmods-race-films']='off'`, URL
