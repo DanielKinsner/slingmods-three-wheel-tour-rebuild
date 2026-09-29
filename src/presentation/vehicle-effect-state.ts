@@ -9,7 +9,7 @@ export function tireActivity(w:WheelTelemetry,speed:number,wet:boolean){
  if(wet)return clamp((Math.abs(speed)-4)/22);
  return clamp(Math.max((Math.abs(w.slipAngle)-.11)/.24,(Math.abs(w.slipRatio)-.17)/.55));
 }
-export function skidActivity(w:WheelTelemetry,speed:number,wet:boolean){return !wet&&w.surface==='asphalt'?tireActivity(w,speed,false):0}
+export function skidActivity(w:WheelTelemetry,speed:number,wet:boolean){return !wet&&w.surface==='dirt'?tireActivity(w,speed,false)*.35:!wet&&w.surface==='asphalt'?tireActivity(w,speed,false):0}
 export class VehicleEffectState {
  heat=0;previousThrottle=0;cooldown=0;flame=false;
  update(t:VehicleTelemetry,dt:number,exhaust:boolean,reduced:boolean){

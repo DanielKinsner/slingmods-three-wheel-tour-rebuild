@@ -51,14 +51,14 @@ export class Simulation {
   suspensionConfig(){return this.definition.powertrain==='six-speed'?{vehicle:this.definition.id,build:structuredClone(this.spyder),calibration:'game-estimated'}:this.definition.powertrain==='cvt'?{vehicle:'can-am-ryker-900',elka:this.elka,calibration:'game-estimated'}:this.suspension?{...this.suspension}:null}
   private spyder:SpyderBuild=freshSpyderBuild();
   configureSpyder(build:SpyderBuild){if(this.time!==0||this.definition.powertrain!=='six-speed'||!validSpyderBuild(build))throw Error('Valid Spyder configuration required before driving');this.spyder=structuredClone(build)}
-  private driftState:DriftState={enabled:false,handbrake:0,active:false,charge:0,tier:0,boostLeft:0,boosts:0,forfeits:0,event:null,eventTier:0,eventCount:0};private rearSlip=0;
+  private driftState:DriftState={enabled:false,handbrake:0,active:false,charge:0,tier:0,boostLeft:0,boosts:0,forfeits:0,event:null,eventTier:0,eventCount:0};private rearSlip=0;private driftRewards=true;
   /** Arcade drift layer (Quick Race, free drives): the handbrake loosens the single rear tyre into a slide that charges
-   *  a boost. Off by default, so career events, time trials and recorded runs never see it. */
+   *  a boost. Off by default for career and road time trials; standalone rally opts in with rewards disabled. */
   private driftSkill={charge:1,boost:1,launch:1,cleanSlip:DRIFT.cleanSlip as number};
-  enableDrift(on:boolean,skill?:{charge:number;boost:number;launch:number;cleanSlip:number}){this.driftState={...this.driftState,enabled:on,active:false,charge:0,tier:0,boostLeft:0};if(!on)this.driftState.handbrake=0;if(skill)this.driftSkill={charge:Math.max(1,Math.min(1.3,skill.charge)),boost:Math.max(1,Math.min(1.4,skill.boost)),launch:Math.max(1,Math.min(2,skill.launch)),cleanSlip:Math.max(DRIFT.cleanSlip,Math.min(.2,skill.cleanSlip))}}
+  enableDrift(on:boolean,skill?:{charge:number;boost:number;launch:number;cleanSlip:number},rewards=true){this.driftRewards=rewards;this.driftState={...this.driftState,enabled:on,active:false,charge:0,tier:0,boostLeft:0};if(!on)this.driftState.handbrake=0;if(skill)this.driftSkill={charge:Math.max(1,Math.min(1.3,skill.charge)),boost:Math.max(1,Math.min(1.4,skill.boost)),launch:Math.max(1,Math.min(2,skill.launch)),cleanSlip:Math.max(DRIFT.cleanSlip,Math.min(.2,skill.cleanSlip))}}
   drift():Readonly<DriftState>{return this.driftState}
   /** Arcade layer only: a boost that is not from a drift (a perfect start). Ignored when the layer is off. */
-  grantBoost(seconds:number){if(this.driftState.enabled)this.driftState.boostLeft=Math.max(this.driftState.boostLeft,seconds*this.driftSkill.launch)}
+  grantBoost(seconds:number){if(this.driftState.enabled&&this.driftRewards)this.driftState.boostLeft=Math.max(this.driftState.boostLeft,seconds*this.driftSkill.launch)}
   /** The chassis is touching something that is not the road surface (a wall, a barrier, another car). */
   private struck(){let hit=false;for(let i=0;i<this.body.numColliders()&&!hit;i++){const c=this.body.collider(i);this.world.contactPairsWith(c,other=>{if(hit||other.shape.type===RAPIER.ShapeType.TriMesh)return;this.world.contactPair(c,other,m=>{if(m.numContacts()>0)hit=true})})}return hit}
   private emitDrift(event:'tier'|'boost'|'forfeit',tier:number){const d=this.driftState;d.event=event;d.eventTier=tier;d.eventCount++}
@@ -71,7 +71,7 @@ export class Simulation {
     if(moving&&slip>DRIFT.slideSlip){d.charge+=dt*Math.min(1.5,slip/.25)*this.driftSkill.charge;const tier=d.charge>=DRIFT.tiers[2]?3:d.charge>=DRIFT.tiers[1]?2:d.charge>=DRIFT.tiers[0]?1:0;if(tier>d.tier){d.tier=tier;this.emitDrift('tier',tier)}}
     if(Math.abs(speed)<6){d.active=false;d.charge=0;d.tier=0;return}
     // Clean exit: handbrake off and the car pointing where it is going (rear slip under ~6 degrees).
-    if(handbrake<.2&&slip<this.driftSkill.cleanSlip){if(d.tier>0){d.boostLeft=DRIFT.boostSeconds[d.tier]*this.driftSkill.boost;d.boosts++;this.emitDrift('boost',d.tier)}d.active=false;d.charge=0;d.tier=0}
+    if(handbrake<.2&&slip<this.driftSkill.cleanSlip){if(d.tier>0&&this.driftRewards){d.boostLeft=DRIFT.boostSeconds[d.tier]*this.driftSkill.boost;d.boosts++;this.emitDrift('boost',d.tier)}d.active=false;d.charge=0;d.tier=0}
   }
   private tuning:VehicleTuning={power:1,grip:1,aeroGrip:0,drag:1};
   /** Parts' game tuning, set before driving like the suspension. Bounded so a bad value cannot break the car. */

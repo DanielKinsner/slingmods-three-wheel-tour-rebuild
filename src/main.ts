@@ -16,7 +16,7 @@ try{
 if(!params.has('scene')&&!params.has('test')&&params.get('play')!=='career'){
  await loadScene(()=>import('./signature/scene'));
 }else{
-if(!['signature','express','ridge'].includes(mode)&&!garage){loadingExit=document.createElement('a');loadingExit.className='preview-loading-exit';loadingExit.href=location.pathname;loadingExit.textContent='Back to showroom';document.body.append(loadingExit)}
+if(!['signature','express','ridge','rally'].includes(mode)&&!garage){loadingExit=document.createElement('a');loadingExit.className='preview-loading-exit';loadingExit.href=location.pathname;loadingExit.textContent='Back to showroom';document.body.append(loadingExit)}
 if (mode === 'calibration') {
   document.querySelector('#stage')!.textContent='P00 / CALIBRATION';
   document.querySelector('#title')!.textContent='Materials. Scale. Motion.';
@@ -24,7 +24,7 @@ if (mode === 'calibration') {
   await loadScene(()=>import('./calibration'));
 } else if(mode==='signature'||garage) await loadScene(()=>import('./signature/scene'));
 else if(mode==='career') await loadScene(()=>import('./career-experience/hub'));
-else if((mode==='express'||mode==='ridge')) await loadScene(()=>import('./express'));
+else if((mode==='express'||mode==='ridge'||mode==='rally')) await loadScene(()=>import('./express'));
 else if(mode==='crew') await loadScene(()=>import('./express'));
 else if(mode==='harbor') await loadScene(()=>import('./express'));
 else await loadScene(()=>import('./workbench'));

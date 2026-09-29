@@ -1,4 +1,14 @@
-# Phase 4 complete except two owner decisions - current (2026-09-24)
+# Ryker-exclusive Redstone Rally - current (2026-09-28)
+
+Read `handoff/RYKER-RALLY.md`. The owner requested and authorized pushing a new dirt rally mode to main.
+Redstone is a separate 2.14 km Ryker stage with drift scoring, local records, untimed recce, new Blender
+scenery, and physical dirt/gravel support. Enter through Race -> Redstone Rally. Preserve the existing
+road destinations, handling profiles, career saves, and purchased-source boundaries. Editable original
+scenery is in `assets/blender/rally/`; its generator is `scripts/build-rally-scenery.py`.
+Validation and the separate normal-cadence/uncapped performance results are in the handoff. Earlier headers below are history.
+
+---
+# Phase 4 complete except two owner decisions (2026-09-24)
 
 Read `handoff/PHASE-4-FUN-SYSTEMS.md`. Since the last header: Cargo Run (storage bags felt),
 drift zones with local top-five boards, rivalries with radio call-outs, Daily Run conditions + build rules, blue flags,

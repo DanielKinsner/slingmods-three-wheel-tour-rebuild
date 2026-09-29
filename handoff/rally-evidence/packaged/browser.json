@@ -1,0 +1,3276 @@
+{
+  "base": "http://127.0.0.1:5271",
+  "errors": [],
+  "failedRequests": [],
+  "checks": [
+    "Event menu entry from a Slingshot supplies a Ryker; desktop and mobile layout",
+    "Full physical lap, records persist, retry resets scoring, pause freezes clock and score",
+    "Recce keyboard drift, dirt particles, no timed record or automatic boost",
+    "express / 2026 retains its road mode",
+    "ridge / ryker retains its road mode",
+    "harbor / spyder retains its road mode"
+  ],
+  "initial": {
+    "rivalMaterialPool": {
+      "materials": 0,
+      "users": 0
+    },
+    "textureCache": {
+      "urls": 19,
+      "requests": 19,
+      "reused": 0
+    },
+    "cinematics": {
+      "active": false,
+      "film": null,
+      "elapsed": 0,
+      "shot": -1,
+      "preview": false,
+      "reducedMotion": false,
+      "auto": true,
+      "look": {
+        "amount": 0,
+        "focus": 5,
+        "aperture": 0,
+        "time": 0
+      }
+    },
+    "finish": {
+      "finish": "blue-orange",
+      "accent": "#f07521",
+      "paintedSurfaces": [
+        {
+          "node": "retained_body_panels001_1",
+          "color": "ef2e1b"
+        }
+      ],
+      "paintedAccents": [
+        {
+          "node": "front_left_rim_2",
+          "color": "ad0906"
+        },
+        {
+          "node": "front_right_rim_2",
+          "color": "ad0906"
+        },
+        {
+          "node": "rear_rim_2",
+          "color": "ad0906"
+        },
+        {
+          "node": "handlebar_controls_2",
+          "color": "ad0906"
+        }
+      ],
+      "isolatedMaterialSlots": 5,
+      "mask": "Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged",
+      "textureCount": 0
+    },
+    "surfaceFinish": {
+      "version": "surface-finish-v1",
+      "enabled": true,
+      "changedMeshes": 0,
+      "materials": [],
+      "loadedSets": [],
+      "failedSets": [],
+      "addedDrawCalls": 0
+    },
+    "vehicleSurfaces": {
+      "version": "vehicle-surface-v2",
+      "materials": 26,
+      "meshes": 123,
+      "kinds": {
+        "coated": 5,
+        "chrome": 2,
+        "metal": 10,
+        "plastic": 3,
+        "rubber": 3,
+        "leather": 1,
+        "paint": 2
+      },
+      "maps": [
+        "flake",
+        "peel",
+        "stipple",
+        "leather",
+        "rubber",
+        "metal"
+      ]
+    },
+    "transparentHalves": {
+      "materials": 0
+    },
+    "contact": {
+      "enabled": true,
+      "cars": 1,
+      "visiblePatches": 1,
+      "capacity": 4,
+      "drawCalls": 1,
+      "method": "soft contact occlusion on static ground; no screen-space AO or extra render pass"
+    },
+    "effects": {
+      "enabled": true,
+      "quality": "high",
+      "reducedMotion": true,
+      "loadedTextures": 6,
+      "skippedTextures": 0,
+      "skidSegments": 0,
+      "skidCapacity": 3072,
+      "particles": [
+        {
+          "kind": "tire-smoke",
+          "emitted": 0,
+          "visible": false,
+          "capacity": 160
+        },
+        {
+          "kind": "dust-kickup",
+          "emitted": 0,
+          "visible": false,
+          "capacity": 160
+        },
+        {
+          "kind": "dry-leaf-burst",
+          "emitted": 0,
+          "visible": false,
+          "capacity": 160
+        },
+        {
+          "kind": "water-rooster-tail",
+          "emitted": 0,
+          "visible": false,
+          "capacity": 160
+        },
+        {
+          "kind": "brake-scrape-sparks",
+          "emitted": 0,
+          "visible": false,
+          "capacity": 160
+        },
+        {
+          "kind": "exhaust-flame-pop",
+          "emitted": 0,
+          "visible": false,
+          "capacity": 160
+        }
+      ],
+      "brakeHeat": [
+        {
+          "id": "player",
+          "heat": 0
+        }
+      ],
+      "headlightFog": false,
+      "heatHaze": 0,
+      "drawCallCeiling": 9
+    },
+    "look": {
+      "id": "day",
+      "base": "day",
+      "requested": "day",
+      "wet": false
+    },
+    "wetReflection": null,
+    "speedFeel": {
+      "reducedMotion": true,
+      "fov": 0,
+      "reach": 0,
+      "drop": 0,
+      "rollDegrees": 0,
+      "edgeBlur": 0,
+      "rough": 0,
+      "tuning": {
+        "topSpeedMph": 120,
+        "restFov": 55,
+        "topFov": 75.7,
+        "cockpitFov": [
+          66,
+          74.1
+        ],
+        "carSize": [
+          0.92,
+          0.8
+        ],
+        "trail": 0.405,
+        "brakeTuck": 0.45,
+        "drop": 0.315,
+        "lookToVelocity": 0.54,
+        "yawLead": 0.198,
+        "rollPerG": 1.125,
+        "maxRoll": 1.8,
+        "headLean": [
+          0.0252,
+          0.019799999999999998
+        ],
+        "headBuzz": 0.84,
+        "blurFromMph": 70,
+        "shakeFromMph": 90,
+        "shakePixels": [
+          0.42,
+          1.26
+        ],
+        "roughShakePixels": 2.688,
+        "motionScale": 0.9,
+        "shakeScale": 0.84
+      }
+    },
+    "pipeline": {
+      "quality": "high",
+      "post": true,
+      "samples": 4,
+      "bloomLevels": 5,
+      "resolutionScale": 1,
+      "targetFrameMs": 16.7,
+      "size": [
+        1600,
+        900
+      ]
+    },
+    "camera": {
+      "fov": 42,
+      "position": [
+        0,
+        2.4270565146972682,
+        11.999999776249947
+      ],
+      "view": "near"
+    },
+    "world": {
+      "name": "Redstone Rally",
+      "vegetation": {
+        "trees": 335,
+        "understory": 1070,
+        "batches": 9
+      },
+      "physicalProps": 1769,
+      "assets": 9,
+      "instances": 1431,
+      "batches": 22,
+      "visibleBatches": 18,
+      "surface": "canyon dirt / normal maps / racing-line ruts",
+      "length": 2136.647548741851
+    },
+    "shadowCasters": [
+      {
+        "kept": 94,
+        "trimmed": 43,
+        "minimumMetres": 0.15
+      }
+    ],
+    "mirrors": {
+      "cropped": 2,
+      "count": 2,
+      "resolution": [
+        768,
+        512
+      ],
+      "updates": [
+        1,
+        1
+      ],
+      "live": [
+        false,
+        false
+      ],
+      "alternate": true,
+      "cachedMaterials": 79,
+      "mirrors": [
+        {
+          "name": "mirror_right_live",
+          "position": [
+            -0.3794345009656213,
+            1.0680725963612125,
+            5.813766817898779
+          ]
+        },
+        {
+          "name": "mirror_left_live",
+          "position": [
+            0.3902731935043506,
+            1.0680724424515542,
+            5.813766827468455
+          ]
+        }
+      ]
+    },
+    "vehicleContext": {
+      "year": 0,
+      "model": "Ryker 900",
+      "visual": "ryker",
+      "rollHoops": "none",
+      "label": "Can-Am Ryker 900",
+      "controls": "900 ACE · CVT / reverse · Ryker Road v1"
+    },
+    "visual": {
+      "asset": "/assets/ryker/complete/ryker-900-complete.glb",
+      "driver": {
+        "motion": {
+          "enabled": true,
+          "breathing": 0,
+          "headYaw": 0,
+          "headPitch": 0,
+          "bodyRoll": 0,
+          "bodyPitch": 0,
+          "gesture": "none",
+          "stoppedFor": 0
+        },
+        "arms": {
+          "left": {
+            "gap": 8.429435885806543e-8,
+            "rimGap": 8.429435885806543e-8,
+            "regripping": false,
+            "release": 0,
+            "angle": 0,
+            "target": [
+              -0.2541000001117587,
+              1.0471439179618267,
+              5.871472547102625
+            ],
+            "contact": [
+              -0.2540999750437141,
+              1.0471439245370187,
+              5.871472466891037
+            ],
+            "elbow": [
+              -0.283359816209163,
+              1.0889225820438313,
+              6.104919343205887
+            ]
+          },
+          "right": {
+            "gap": 3.454403279055604e-9,
+            "rimGap": 3.454403279055604e-9,
+            "regripping": false,
+            "release": 0,
+            "angle": 0,
+            "target": [
+              0.2642299998882413,
+              1.0476336408294367,
+              5.8710422315057205
+            ],
+            "contact": [
+              0.26422999822798715,
+              1.0476336425237514,
+              5.871042228994594
+            ],
+            "elbow": [
+              0.2863196414756648,
+              1.0906274707773393,
+              6.10505631322431
+            ]
+          }
+        },
+        "feet": {
+          "left": {
+            "gap": 0.0000030482301636001247,
+            "ankle": [
+              -0.36000015056764234,
+              0.2899969649405841,
+              -0.09000023968908533
+            ]
+          },
+          "right": {
+            "gap": 0.0000029705054704629534,
+            "ankle": [
+              0.3600001467113142,
+              0.28999704233066875,
+              -0.09000023360365539
+            ]
+          }
+        },
+        "headVisible": true,
+        "bodyPitch": 0,
+        "wheelAngle": 0,
+        "eye": [
+          0,
+          1.32617,
+          0.07346
+        ]
+      },
+      "rear": {
+        "linkage": {
+          "movingGroups": 25,
+          "shocks": [
+            {
+              "node": "Elka_front_left_body",
+              "channel": 0,
+              "part": "body",
+              "upper": [
+                -0.1679999977350235,
+                0.41600000858306885,
+                -0.8550000190734863
+              ],
+              "lower": [
+                -0.3779999911785126,
+                0.17599999904632568,
+                -0.8550000190734863
+              ],
+              "length": 0.3189043772416777,
+              "stroke": 0
+            },
+            {
+              "node": "Elka_front_left_shaft",
+              "channel": 0,
+              "part": "shaft",
+              "upper": [
+                -0.1679999977350235,
+                0.41600000858306885,
+                -0.8550000190734863
+              ],
+              "lower": [
+                -0.3779999911785126,
+                0.17599999904632568,
+                -0.8550000190734863
+              ],
+              "length": 0.3189043772416777,
+              "stroke": 0
+            },
+            {
+              "node": "Elka_front_left_spring",
+              "channel": 0,
+              "part": "spring",
+              "upper": [
+                -0.1679999977350235,
+                0.41600000858306885,
+                -0.8550000190734863
+              ],
+              "lower": [
+                -0.3779999911785126,
+                0.17599999904632568,
+                -0.8550000190734863
+              ],
+              "length": 0.3189043772416777,
+              "stroke": 0
+            },
+            {
+              "node": "Elka_front_right_body",
+              "channel": 1,
+              "part": "body",
+              "upper": [
+                0.18400000035762787,
+                0.41600000858306885,
+                -0.8550000190734863
+              ],
+              "lower": [
+                0.39399999380111694,
+                0.17599999904632568,
+                -0.8550000190734863
+              ],
+              "length": 0.3189043772416777,
+              "stroke": 0
+            },
+            {
+              "node": "Elka_front_right_shaft",
+              "channel": 1,
+              "part": "shaft",
+              "upper": [
+                0.18400000035762787,
+                0.41600000858306885,
+                -0.8550000190734863
+              ],
+              "lower": [
+                0.39399999380111694,
+                0.17599999904632568,
+                -0.8550000190734863
+              ],
+              "length": 0.3189043772416777,
+              "stroke": 0
+            },
+            {
+              "node": "Elka_front_right_spring",
+              "channel": 1,
+              "part": "spring",
+              "upper": [
+                0.18400000035762787,
+                0.41600000858306885,
+                -0.8550000190734863
+              ],
+              "lower": [
+                0.39399999380111694,
+                0.17599999904632568,
+                -0.8550000190734863
+              ],
+              "length": 0.3189043772416777,
+              "stroke": 0
+            },
+            {
+              "node": "Elka_rear_body",
+              "channel": 2,
+              "part": "body",
+              "upper": [
+                0.0020000000949949026,
+                0.49000000953674316,
+                0.07800000160932541
+              ],
+              "lower": [
+                0.0020000000949949026,
+                0.3400000035762787,
+                0.41499999165534973
+              ],
+              "length": 0.36887531101872334,
+              "stroke": 0
+            },
+            {
+              "node": "Elka_rear_shaft",
+              "channel": 2,
+              "part": "shaft",
+              "upper": [
+                0.0020000000949949026,
+                0.49000000953674316,
+                0.07800000160932541
+              ],
+              "lower": [
+                0.0020000000949949026,
+                0.3400000035762787,
+                0.41499999165534973
+              ],
+              "length": 0.36887531101872334,
+              "stroke": 0
+            },
+            {
+              "node": "Elka_rear_spring",
+              "channel": 2,
+              "part": "spring",
+              "upper": [
+                0.0020000000949949026,
+                0.49000000953674316,
+                0.07800000160932541
+              ],
+              "lower": [
+                0.0020000000949949026,
+                0.3400000035762787,
+                0.41499999165534973
+              ],
+              "length": 0.36887531101872334,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_motion_0",
+              "channel": 0,
+              "part": "spring",
+              "upper": [
+                -0.168,
+                0.416,
+                -0.855
+              ],
+              "lower": [
+                -0.378,
+                0.176,
+                -0.855
+              ],
+              "length": 0.31890437438203945,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_motion_1",
+              "channel": 0,
+              "part": "body",
+              "upper": [
+                -0.168,
+                0.416,
+                -0.855
+              ],
+              "lower": [
+                -0.378,
+                0.176,
+                -0.855
+              ],
+              "length": 0.31890437438203945,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_motion_2",
+              "channel": 0,
+              "part": "shaft",
+              "upper": [
+                -0.168,
+                0.416,
+                -0.855
+              ],
+              "lower": [
+                -0.378,
+                0.176,
+                -0.855
+              ],
+              "length": 0.31890437438203945,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_motion_3",
+              "channel": 1,
+              "part": "spring",
+              "upper": [
+                0.184,
+                0.416,
+                -0.855
+              ],
+              "lower": [
+                0.394,
+                0.176,
+                -0.855
+              ],
+              "length": 0.3189043743820395,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_motion_4",
+              "channel": 1,
+              "part": "body",
+              "upper": [
+                0.184,
+                0.416,
+                -0.855
+              ],
+              "lower": [
+                0.394,
+                0.176,
+                -0.855
+              ],
+              "length": 0.3189043743820395,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_motion_5",
+              "channel": 1,
+              "part": "shaft",
+              "upper": [
+                0.184,
+                0.416,
+                -0.855
+              ],
+              "lower": [
+                0.394,
+                0.176,
+                -0.855
+              ],
+              "length": 0.3189043743820395,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_rear_motion_0",
+              "channel": 2,
+              "part": "body",
+              "upper": [
+                0.002,
+                0.49,
+                0.078
+              ],
+              "lower": [
+                0.002,
+                0.34,
+                0.415
+              ],
+              "length": 0.3688753176887822,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_rear_motion_1",
+              "channel": 2,
+              "part": "shaft",
+              "upper": [
+                0.002,
+                0.49,
+                0.078
+              ],
+              "lower": [
+                0.002,
+                0.34,
+                0.415
+              ],
+              "length": 0.3688753176887822,
+              "stroke": 0
+            },
+            {
+              "node": "stock_ryker_shocks_rear_motion_2",
+              "channel": 2,
+              "part": "spring",
+              "upper": [
+                0.002,
+                0.49,
+                0.078
+              ],
+              "lower": [
+                0.002,
+                0.34,
+                0.415
+              ],
+              "length": 0.3688753176887822,
+              "stroke": 0
+            }
+          ],
+          "method": "Individual carriers, wishbones and swingarm; fixed upper/lower shock mounts with rigid telescoping body/shaft and axial spring deformation."
+        },
+        "kind": "ryker-rigid",
+        "wheelbase": 1.709,
+        "physicsWheelbase": 1.709,
+        "physicsContactMismatch": false,
+        "handlebarAngle": 0,
+        "calipersSpin": false,
+        "fendersSpin": false,
+        "rearSuspension": "Articulated mono swingarm with independent coilover"
+      },
+      "wheels": [
+        {
+          "center": [
+            -0.5202029943466187,
+            0.28596925735473633,
+            -0.8544999361038217
+          ],
+          "steer": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "spin": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "center": [
+            0.5392817854881287,
+            0.28596925735473633,
+            -0.8544999361038217
+          ],
+          "steer": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "spin": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "center": [
+            -0.0013028656831011176,
+            0.2851041257381439,
+            0.8544999957084647
+          ],
+          "spin": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "heroStandIn": {
+      "proxied": 62,
+      "dropped": 0,
+      "kept": 5,
+      "proxies": 8
+    },
+    "heroMerge": {
+      "partsBefore": 137,
+      "partsAfter": 94,
+      "joined": 55,
+      "groups": 12,
+      "left": {
+        "dynamic": 1,
+        "transparent": 0,
+        "other": 27
+      }
+    },
+    "rivals": {},
+    "optics": {
+      "shadow": {
+        "maps": 1,
+        "quality": "high",
+        "resolution": 2048,
+        "span": 48,
+        "texelMetres": 0.0234375,
+        "radius": 2.4,
+        "stabilized": true,
+        "focus": [
+          0.004003364917232818,
+          0.026810025204503738,
+          7.794592137601266
+        ]
+      },
+      "outdoor": {
+        "source": "/assets/showcase-quality/sky/day-puresky-2k.hdr",
+        "look": "day",
+        "sourceResolution": [
+          2048,
+          1024
+        ],
+        "solarDirection": [
+          0.5545620062863689,
+          0.741980411720831,
+          0.37673073913104493
+        ],
+        "p95": 1.1162102487564085,
+        "probeCap": 2.232420497512817,
+        "sourceMaximum": 72843.344571875,
+        "cappedPixels": 8941,
+        "normalization": 0.8062997101152829,
+        "backgroundDisplayGain": 1.6,
+        "probe": "sun-capped source, PMREM",
+        "preset": "day",
+        "environmentIntensity": 0.95,
+        "backgroundIntensity": 1.2900795361844528,
+        "exposure": 0.95
+      },
+      "sunDirection": [
+        0.554562006286369,
+        0.7419804117208311,
+        0.37673073913104504
+      ],
+      "directIntensity": 2.05,
+      "hemisphereIntensity": 0.3,
+      "headlightPositions": [
+        [
+          -0.1269368886947632,
+          0.7255960531977709,
+          5.292828067386166
+        ],
+        [
+          0.13090323507785798,
+          0.7255960531977709,
+          5.292828067386166
+        ]
+      ],
+      "beamIntensities": [
+        0,
+        0
+      ],
+      "brakeEmission": [
+        0.15
+      ],
+      "practicalIndices": [],
+      "residentPracticals": 4,
+      "emittingPracticals": 0
+    },
+    "display": {
+      "kind": "ryker-sim",
+      "power": true,
+      "values": {
+        "speed": 0,
+        "units": "mph",
+        "rpm": 0,
+        "gear": "N"
+      },
+      "pixels": [
+        512,
+        256
+      ],
+      "liveDials": 0,
+      "uploads": 1,
+      "thumbnailCaptures": 0,
+      "method": "Original SIM graphics on supplied fixed screen. Actual game speed/RPM/gear, including reverse. Fresh planar UVs; at most 10Hz changed-value uploads nearby and in view. Not OEM artwork."
+    },
+    "recovery": {
+      "available": false,
+      "reason": "",
+      "heldSeconds": 0,
+      "recoveries": 0,
+      "policy": "Fresh scored attempt at grid; no reward for abandoned attempt"
+    },
+    "entry": {
+      "started": 63.20000000298023,
+      "firstControllable": 4475.89999999851,
+      "firstDrivingTick": null,
+      "readyBoundary": "First rendered ready menu and enabled start controls; firstDrivingTick is separate after user start/countdown",
+      "totalMs": 4412.69999999553,
+      "stages": [
+        {
+          "name": "sky-fetch-decode-probe",
+          "start": 77.5,
+          "end": 333.6000000014901,
+          "ms": 256.1000000014901
+        },
+        {
+          "name": "gltf-decode-construct:/assets/drivers/biker/",
+          "start": 102.80000000447035,
+          "end": 402.1000000014901,
+          "ms": 299.29999999701977
+        },
+        {
+          "name": "gltf-decode-construct:/assets/ryker/complete/",
+          "start": 402.20000000298023,
+          "end": 421.5,
+          "ms": 19.299999997019768
+        },
+        {
+          "name": "vehicle-fetch-decode-bind",
+          "start": 78,
+          "end": 425.6000000014901,
+          "ms": 347.6000000014901
+        },
+        {
+          "name": "gltf-decode-construct:/assets/ryker/complete/",
+          "start": 3471.5,
+          "end": 3472,
+          "ms": 0.5
+        },
+        {
+          "name": "products-fetch-decode-bind",
+          "start": 3468.2000000029802,
+          "end": 3472.60000000149,
+          "ms": 4.399999998509884
+        },
+        {
+          "name": "finish-fetch-decode",
+          "start": 3473.10000000149,
+          "end": 3473.10000000149,
+          "ms": 0
+        },
+        {
+          "name": "initial-present",
+          "start": 3569.89999999851,
+          "end": 3572.5,
+          "ms": 2.600000001490116
+        },
+        {
+          "name": "graphics-preparation",
+          "start": 3642.39999999851,
+          "end": 4470.10000000149,
+          "ms": 827.7000000029802
+        }
+      ],
+      "raf": [
+        {
+          "at": 35.4,
+          "interval": 0
+        },
+        {
+          "at": 68.7,
+          "interval": 33.300000000000004
+        },
+        {
+          "at": 85.4,
+          "interval": 16.700000000000003
+        },
+        {
+          "at": 102,
+          "interval": 16.599999999999994
+        },
+        {
+          "at": 118.7,
+          "interval": 16.700000000000003
+        },
+        {
+          "at": 318.7,
+          "interval": 200
+        },
+        {
+          "at": 335.4,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 352.1,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 368.7,
+          "interval": 16.599999999999966
+        },
+        {
+          "at": 385.4,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 418.7,
+          "interval": 33.30000000000001
+        },
+        {
+          "at": 435.4,
+          "interval": 16.69999999999999
+        },
+        {
+          "at": 518.7,
+          "interval": 83.30000000000007
+        },
+        {
+          "at": 535.3,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 552.1,
+          "interval": 16.800000000000068
+        },
+        {
+          "at": 568.7,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 585.4,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 602.1,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 618.7,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 652.1,
+          "interval": 33.39999999999998
+        },
+        {
+          "at": 668.7,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 685.3,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 702.1,
+          "interval": 16.800000000000068
+        },
+        {
+          "at": 718.7,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 735.4,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 752.1,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 768.7,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 785.4,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 802,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 818.7,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 835.4,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 852,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 868.7,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 885.4,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 902.1,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 918.7,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 935.4,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 952,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 968.7,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 985.4,
+          "interval": 16.699999999999932
+        },
+        {
+          "at": 1002,
+          "interval": 16.600000000000023
+        },
+        {
+          "at": 1018.7,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1035.4,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1052,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1068.6,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1085.4,
+          "interval": 16.800000000000182
+        },
+        {
+          "at": 1102,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1118.7,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1135.4,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1152,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1168.7,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1185.4,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 1202.1,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 1218.7,
+          "interval": 16.600000000000136
+        },
+        {
+          "at": 1235.3,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1252.1,
+          "interval": 16.799999999999955
+        },
+        {
+          "at": 1268.7,
+          "interval": 16.600000000000136
+        },
+        {
+          "at": 1285.3,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 1302,
+          "interval": 16.700000000000045
+        },
+        {
+          "at": 2885.3,
+          "interval": 1583.3000000000002
+        },
+        {
+          "at": 2902,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 2918.6,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3001.9,
+          "interval": 83.30000000000018
+        },
+        {
+          "at": 3018.6,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3035.3,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3051.9,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3068.6,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3085.2,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3101.9,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3118.6,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3135.3,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3151.9,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3168.6,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3185.3,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3202,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3218.6,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3235.3,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3251.9,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3268.6,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3285.3,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3301.9,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3318.6,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3335.2,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3351.9,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3368.6,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3385.2,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3401.9,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3418.6,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3435.3,
+          "interval": 16.700000000000273
+        },
+        {
+          "at": 3452,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3468.6,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3485.2,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3635.2,
+          "interval": 150
+        },
+        {
+          "at": 3685.3,
+          "interval": 50.100000000000364
+        },
+        {
+          "at": 3751.9,
+          "interval": 66.59999999999991
+        },
+        {
+          "at": 3768.5,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3935.3,
+          "interval": 166.80000000000018
+        },
+        {
+          "at": 3952,
+          "interval": 16.699999999999818
+        },
+        {
+          "at": 3968.6,
+          "interval": 16.59999999999991
+        },
+        {
+          "at": 3985.2,
+          "interval": 16.59999999999991
+        }
+      ],
+      "resources": [
+        {
+          "url": "http://127.0.0.1:5271/assets/fonts/BarlowCondensed-ExtraBold.woff2",
+          "start": 8.100000001490116,
+          "duration": 2.2000000029802322,
+          "fetchMs": 2.2000000029802322,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/index-C_MdE6w7.js",
+          "start": 8.200000002980232,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 6022,
+          "decodedBodySize": 6022
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/units-CGbDEqfN.js",
+          "start": 8.300000004470348,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 53036,
+          "decodedBodySize": 53036
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/environment-UbWa__xE.js",
+          "start": 8.300000004470348,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 3207,
+          "decodedBodySize": 3207
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/three.core-BphGRe8A.js",
+          "start": 8.300000004470348,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 244718,
+          "decodedBodySize": 244718
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/BufferGeometryUtils-zMOJYmjO.js",
+          "start": 8.399999998509884,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 4752,
+          "decodedBodySize": 4752
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/series-BcbbH7_a.js",
+          "start": 8.399999998509884,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1572,
+          "decodedBodySize": 1572
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/difficulty-C17fhzuS.js",
+          "start": 8.399999998509884,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 55097,
+          "decodedBodySize": 55097
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/graphics-settings-SlaBcI4e.js",
+          "start": 8.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 2484,
+          "decodedBodySize": 2484
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/texture-detail-RVEVMUHg.js",
+          "start": 8.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1937,
+          "decodedBodySize": 1937
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/ryker-selection-DeUjW4BM.js",
+          "start": 8.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 21851,
+          "decodedBodySize": 21851
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/profile-Ta3jVNVg.js",
+          "start": 8.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 2276,
+          "decodedBodySize": 2276
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/recovery-B4hX4p4h.js",
+          "start": 8.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 3557,
+          "decodedBodySize": 3557
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/preload-helper-BZ1Pz5am.js",
+          "start": 8.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1218,
+          "decodedBodySize": 1218
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/difficulty-CBejAQC1.css",
+          "start": 8.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 13712,
+          "decodedBodySize": 13712
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/ryker-selection-uIcaPzAh.css",
+          "start": 8.600000001490116,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 14578,
+          "decodedBodySize": 14578
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/recovery-CdZNJ4Oo.css",
+          "start": 8.600000001490116,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 11270,
+          "decodedBodySize": 11270
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/index-kRaUQQeP.css",
+          "start": 8.600000001490116,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 37596,
+          "decodedBodySize": 37596
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/brand/slingmods-logo-main.png",
+          "start": 8.600000001490116,
+          "duration": 1.6000000014901161,
+          "fetchMs": 1.6000000014901161,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/fonts/Manrope-Variable.ttf",
+          "start": 12,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 164700,
+          "decodedBodySize": 164700
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/thumbnail.jpg",
+          "start": 12.300000004470348,
+          "duration": 2.1999999955296516,
+          "fetchMs": 2.1999999955296516,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/express-pvaULOOD.js",
+          "start": 22.600000001490116,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 198159,
+          "decodedBodySize": 198159
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/three.module-ntUXrvGS.js",
+          "start": 22.80000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 352375,
+          "decodedBodySize": 352375
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/GLTFLoader-BuaO_CcR.js",
+          "start": 23,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 44339,
+          "decodedBodySize": 44339
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/prepare-CMCWnJgl.js",
+          "start": 23.200000002980232,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 33779,
+          "decodedBodySize": 33779
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/prepare-6DNy1SzU.css",
+          "start": 23.30000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 6781,
+          "decodedBodySize": 6781
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/save-Dr2Ncpuw.js",
+          "start": 23.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 2464,
+          "decodedBodySize": 2464
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/toast-DWIJujBF.js",
+          "start": 23.600000001490116,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 940,
+          "decodedBodySize": 940
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/game-audio-__-cmqnm.js",
+          "start": 23.700000002980232,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 40894,
+          "decodedBodySize": 40894
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/game-audio-DFQTNVVO.css",
+          "start": 23.80000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 562,
+          "decodedBodySize": 562
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/route-BrZ4KHzx.js",
+          "start": 23.80000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1882,
+          "decodedBodySize": 1882
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/menu-vODJLspO.js",
+          "start": 24,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 18008,
+          "decodedBodySize": 18008
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/client-B1cXGj7z.js",
+          "start": 24.100000001490116,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 5018,
+          "decodedBodySize": 5018
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/race-adapter-BCC_dl7g.js",
+          "start": 24.200000002980232,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 17354,
+          "decodedBodySize": 17354
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/hero-Bb_sf10S.js",
+          "start": 24.30000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 42137,
+          "decodedBodySize": 42137
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/suspension-Bh7kE28z.js",
+          "start": 24.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 3228723,
+          "decodedBodySize": 3228723
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11-assets-DmGl7SFk.js",
+          "start": 24.600000001490116,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 61398,
+          "decodedBodySize": 61398
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/route-BaXINz8j.js",
+          "start": 24.700000002980232,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 3063,
+          "decodedBodySize": 3063
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/scene-lifetime-BC3Ync8y.js",
+          "start": 24.80000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 824,
+          "decodedBodySize": 824
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/road-decals-B5EPFaZ9.js",
+          "start": 24.80000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 14803,
+          "decodedBodySize": 14803
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/showcase-CGRB4aLE.js",
+          "start": 25,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 27453,
+          "decodedBodySize": 27453
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/time-of-day-BXsunEUi.js",
+          "start": 25.100000001490116,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 2580,
+          "decodedBodySize": 2580
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/graphics-control-yC-eLxrz.js",
+          "start": 25.200000002980232,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 1878,
+          "decodedBodySize": 1878
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/express-5laxyZdV.css",
+          "start": 25.399999998509884,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 81220,
+          "decodedBodySize": 81220
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/style-S_mbsQK_.css",
+          "start": 25.5,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 863,
+          "decodedBodySize": 863
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/harbor-7Ji5kb-z.css",
+          "start": 25.700000002980232,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 17131,
+          "decodedBodySize": 17131
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/showcase-quality/sky/day-puresky-2k.hdr",
+          "start": 77.89999999850988,
+          "duration": 23.30000000447035,
+          "fetchMs": 23.30000000447035,
+          "transferSize": 300,
+          "encodedBodySize": 5451493,
+          "decodedBodySize": 5451493
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/ryker/complete/ryker-900-complete.glb",
+          "start": 78.10000000149012,
+          "duration": 288.20000000298023,
+          "fetchMs": 288.20000000298023,
+          "transferSize": 17472724,
+          "encodedBodySize": 17472424,
+          "decodedBodySize": 17472424
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/drivers/biker/fit-ryker.json",
+          "start": 78.30000000447035,
+          "duration": 6.199999995529652,
+          "fetchMs": 6.199999995529652,
+          "transferSize": 300,
+          "encodedBodySize": 12511,
+          "decodedBodySize": 12511
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/ryker/rear-rig.json",
+          "start": 78.30000000447035,
+          "duration": 6.299999997019768,
+          "fetchMs": 6.299999997019768,
+          "transferSize": 300,
+          "encodedBodySize": 408,
+          "decodedBodySize": 408
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/drivers/biker/biker-rider.glb",
+          "start": 78.30000000447035,
+          "duration": 9.099999994039536,
+          "fetchMs": 9.099999994039536,
+          "transferSize": 300,
+          "encodedBodySize": 1900128,
+          "decodedBodySize": 1900128
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/vehicle-surfaces/flake.webp",
+          "start": 78.5,
+          "duration": 5.800000004470348,
+          "fetchMs": 5.800000004470348,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/vehicle-surfaces/peel.webp",
+          "start": 78.60000000149012,
+          "duration": 11.5,
+          "fetchMs": 11.5,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/vehicle-surfaces/stipple.webp",
+          "start": 78.70000000298023,
+          "duration": 11.899999998509884,
+          "fetchMs": 11.899999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/vehicle-surfaces/leather.webp",
+          "start": 78.80000000447035,
+          "duration": 12.199999995529652,
+          "fetchMs": 12.199999995529652,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/vehicle-surfaces/rubber.webp",
+          "start": 78.80000000447035,
+          "duration": 12.599999994039536,
+          "fetchMs": 12.599999994039536,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/vehicle-surfaces/metal.webp",
+          "start": 78.89999999850988,
+          "duration": 14.300000004470348,
+          "fetchMs": 14.300000004470348,
+          "transferSize": 300,
+          "encodedBodySize": 0,
+          "decodedBodySize": 0
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/presentation-DD-TjniO.js",
+          "start": 426,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 12033,
+          "decodedBodySize": 12033
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/forest-BfRBlZ6b.js",
+          "start": 426.30000000447035,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 10718,
+          "decodedBodySize": 10718
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/forest-assets-CutPSrQO.js",
+          "start": 426.3999999985099,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 577,
+          "decodedBodySize": 577
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/route-DK0bM-2I.js",
+          "start": 426.70000000298023,
+          "duration": 0,
+          "fetchMs": 0,
+          "transferSize": 0,
+          "encodedBodySize": 4604,
+          "decodedBodySize": 4604
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ground-cover/canyon-dirt-baseColor.ktx2",
+          "start": 520.6000000014901,
+          "duration": 11.899999998509884,
+          "fetchMs": 11.899999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 3410271,
+          "decodedBodySize": 3410271
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ground-cover/canyon-dirt-normal.ktx2",
+          "start": 520.7000000029802,
+          "duration": 93.10000000149012,
+          "fetchMs": 93.10000000149012,
+          "transferSize": 19842280,
+          "encodedBodySize": 19841980,
+          "decodedBodySize": 19841980
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ground-cover/gravel-shoulder-baseColor.ktx2",
+          "start": 520.8999999985099,
+          "duration": 20.900000005960464,
+          "fetchMs": 20.900000005960464,
+          "transferSize": 300,
+          "encodedBodySize": 2914225,
+          "decodedBodySize": 2914225
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ground-cover/shaded-soil-baseColor.ktx2",
+          "start": 521.1000000014901,
+          "duration": 25,
+          "fetchMs": 25,
+          "transferSize": 300,
+          "encodedBodySize": 3984798,
+          "decodedBodySize": 3984798
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ground-cover/leaf-litter-normal.ktx2",
+          "start": 521.2000000029802,
+          "duration": 138,
+          "fetchMs": 138,
+          "transferSize": 21112442,
+          "encodedBodySize": 21112142,
+          "decodedBodySize": 21112142
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ground-cover/rocks-baseColor.ktx2",
+          "start": 521.3999999985099,
+          "duration": 6.100000001490116,
+          "fetchMs": 6.100000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 864834,
+          "decodedBodySize": 864834
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/basis/basis_transcoder.js",
+          "start": 530.3000000044703,
+          "duration": 3.7999999970197678,
+          "fetchMs": 3.7999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 57529,
+          "decodedBodySize": 57529
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/basis/basis_transcoder.wasm",
+          "start": 530.5,
+          "duration": 5.300000004470348,
+          "fetchMs": 5.300000004470348,
+          "transferSize": 300,
+          "encodedBodySize": 527333,
+          "decodedBodySize": 527333
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/redstone-0.glb",
+          "start": 2888,
+          "duration": 3.100000001490116,
+          "fetchMs": 3.100000001490116,
+          "transferSize": 15120,
+          "encodedBodySize": 14820,
+          "decodedBodySize": 14820
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/redstone-1.glb",
+          "start": 2888.10000000149,
+          "duration": 3.100000001490116,
+          "fetchMs": 3.100000001490116,
+          "transferSize": 15512,
+          "encodedBodySize": 15212,
+          "decodedBodySize": 15212
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/redstone-2.glb",
+          "start": 2888.2000000029802,
+          "duration": 3.2999999970197678,
+          "fetchMs": 3.2999999970197678,
+          "transferSize": 15512,
+          "encodedBodySize": 15212,
+          "decodedBodySize": 15212
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/ponderosa-0.glb",
+          "start": 2888.2000000029802,
+          "duration": 5.199999995529652,
+          "fetchMs": 5.199999995529652,
+          "transferSize": 290640,
+          "encodedBodySize": 290340,
+          "decodedBodySize": 290340
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/ponderosa-1.glb",
+          "start": 2888.39999999851,
+          "duration": 4.5,
+          "fetchMs": 4.5,
+          "transferSize": 290676,
+          "encodedBodySize": 290376,
+          "decodedBodySize": 290376
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/deadwood.glb",
+          "start": 2888.39999999851,
+          "duration": 4,
+          "fetchMs": 4,
+          "transferSize": 15532,
+          "encodedBodySize": 15232,
+          "decodedBodySize": 15232
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/log-stack.glb",
+          "start": 2888.5,
+          "duration": 5.399999998509884,
+          "fetchMs": 5.399999998509884,
+          "transferSize": 42184,
+          "encodedBodySize": 41884,
+          "decodedBodySize": 41884
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/marshal-hut.glb",
+          "start": 2888.60000000149,
+          "duration": 5.600000001490116,
+          "fetchMs": 5.600000001490116,
+          "transferSize": 77372,
+          "encodedBodySize": 77072,
+          "decodedBodySize": 77072
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/rally/quarry-gantry.glb",
+          "start": 2888.7000000029802,
+          "duration": 5.399999998509884,
+          "fetchMs": 5.399999998509884,
+          "transferSize": 66120,
+          "encodedBodySize": 65820,
+          "decodedBodySize": 65820
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ridge-trees/oak-bark-baseColor.ktx2",
+          "start": 3010.7000000029802,
+          "duration": 9,
+          "fetchMs": 9,
+          "transferSize": 1808461,
+          "encodedBodySize": 1808161,
+          "decodedBodySize": 1808161
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ridge-trees/oak-bark-normal.ktx2",
+          "start": 3011,
+          "duration": 54.5,
+          "fetchMs": 54.5,
+          "transferSize": 10557478,
+          "encodedBodySize": 10557178,
+          "decodedBodySize": 10557178
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ridge-trees/oak-leaves-baseColor.ktx2",
+          "start": 3011.3000000044703,
+          "duration": 15.199999995529652,
+          "fetchMs": 15.199999995529652,
+          "transferSize": 300,
+          "encodedBodySize": 2552727,
+          "decodedBodySize": 2552727
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ridge-trees/sycamore-bark-baseColor.ktx2",
+          "start": 3011.39999999851,
+          "duration": 19.900000005960464,
+          "fetchMs": 19.900000005960464,
+          "transferSize": 858993,
+          "encodedBodySize": 858693,
+          "decodedBodySize": 858693
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ridge-trees/sycamore-bark-normal.ktx2",
+          "start": 3011.5,
+          "duration": 35.5,
+          "fetchMs": 35.5,
+          "transferSize": 300,
+          "encodedBodySize": 5452619,
+          "decodedBodySize": 5452619
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ridge-trees/sycamore-leaves-baseColor.ktx2",
+          "start": 3011.60000000149,
+          "duration": 24,
+          "fetchMs": 24,
+          "transferSize": 300,
+          "encodedBodySize": 2444743,
+          "decodedBodySize": 2444743
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/runtime-scenery/ridge-trees/sycamore-lod1.glb",
+          "start": 3199.2000000029802,
+          "duration": 2,
+          "fetchMs": 2,
+          "transferSize": 300,
+          "encodedBodySize": 261076,
+          "decodedBodySize": 261076
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/runtime-scenery/ridge-trees/sycamore-lod2.glb",
+          "start": 3205.5,
+          "duration": 2.100000001490116,
+          "fetchMs": 2.100000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 54648,
+          "decodedBodySize": 54648
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/runtime-scenery/ridge-trees/oak-lod1.glb",
+          "start": 3292.8000000044703,
+          "duration": 3.2999999970197678,
+          "fetchMs": 3.2999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 261040,
+          "decodedBodySize": 261040
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/runtime-scenery/ridge-trees/oak-lod2.glb",
+          "start": 3303.60000000149,
+          "duration": 2,
+          "fetchMs": 2,
+          "transferSize": 300,
+          "encodedBodySize": 54616,
+          "decodedBodySize": 54616
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/ground-cover/cards-baseColor.ktx2",
+          "start": 3311.3000000044703,
+          "duration": 14.5,
+          "fetchMs": 14.5,
+          "transferSize": 300,
+          "encodedBodySize": 3203236,
+          "decodedBodySize": 3203236
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/ryker/complete/ryker-underglow.glb",
+          "start": 3468.60000000149,
+          "duration": 2.2999999970197678,
+          "fetchMs": 2.2999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 20820,
+          "decodedBodySize": 20820
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/vfx/tire-smoke.ktx2",
+          "start": 3564.7000000029802,
+          "duration": 5,
+          "fetchMs": 5,
+          "transferSize": 300,
+          "encodedBodySize": 559289,
+          "decodedBodySize": 559289
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/vfx/dust-kickup.ktx2",
+          "start": 3565,
+          "duration": 5,
+          "fetchMs": 5,
+          "transferSize": 300,
+          "encodedBodySize": 450400,
+          "decodedBodySize": 450400
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/vfx/dry-leaf-burst.ktx2",
+          "start": 3565.10000000149,
+          "duration": 3.2000000029802322,
+          "fetchMs": 3.2000000029802322,
+          "transferSize": 300,
+          "encodedBodySize": 79552,
+          "decodedBodySize": 79552
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/vfx/water-rooster-tail.ktx2",
+          "start": 3565.2000000029802,
+          "duration": 3.2999999970197678,
+          "fetchMs": 3.2999999970197678,
+          "transferSize": 300,
+          "encodedBodySize": 197353,
+          "decodedBodySize": 197353
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/vfx/brake-scrape-sparks.ktx2",
+          "start": 3565.3000000044703,
+          "duration": 4.5999999940395355,
+          "fetchMs": 4.5999999940395355,
+          "transferSize": 300,
+          "encodedBodySize": 224542,
+          "decodedBodySize": 224542
+        },
+        {
+          "url": "http://127.0.0.1:5271/assets/p11/vfx/exhaust-flame-pop.ktx2",
+          "start": 3565.39999999851,
+          "duration": 4.4000000059604645,
+          "fetchMs": 4.4000000059604645,
+          "transferSize": 300,
+          "encodedBodySize": 49760,
+          "decodedBodySize": 49760
+        }
+      ],
+      "method": "Wall-clock stage boundaries and loading RAF intervals. Fetch timing includes cache behavior; load/decode phases overlap network as stated. Waiting is not CPU or GPU rendering cost."
+    },
+    "build": "a3b6384a3c0e-working",
+    "handlingProfile": "ryker-road-v1",
+    "profileContract": {
+      "simulation": "ryker-road-v1",
+      "input": "ryker-road-v1",
+      "field": "ryker-road-v1"
+    },
+    "eventId": "redstone-rally-v1",
+    "preview": true,
+    "career": null,
+    "free": false,
+    "recipe": {
+      "version": 2,
+      "vehicleId": "can-am-ryker-900",
+      "finish": "blue-orange",
+      "products": {},
+      "lights": {
+        "color": "red",
+        "brightness": 0.6,
+        "enabled": true
+      },
+      "suspension": {
+        "frontCompression": 2,
+        "frontRebound": 6,
+        "rearCompression": 1,
+        "rearRebound": 3,
+        "rideHeightMm": 0
+      },
+      "handlingProfile": "ryker-road-v1",
+      "definitionId": "ryker-900-v1",
+      "ryker": {}
+    },
+    "race": {
+      "event": "redstone-rally-v1",
+      "handlingProfileId": "ryker-road-v1",
+      "laps": 1,
+      "phase": "ready",
+      "paused": false,
+      "countdown": 0,
+      "elapsedMs": 0,
+      "attemptId": "",
+      "standings": [
+        {
+          "id": "player",
+          "place": 1,
+          "status": "running",
+          "lap": 1,
+          "nextGate": 1,
+          "progress": 0,
+          "timeMs": null,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "playerResult": null,
+      "allFinished": false
+    },
+    "telemetry": {
+      "vehicleId": "can-am-ryker-900",
+      "definitionId": "ryker-900-v1",
+      "powertrain": "cvt",
+      "cvtRatio": 3,
+      "time": 0,
+      "position": {
+        "x": 0,
+        "y": 0.02705651469726822,
+        "z": 5.999999776249946
+      },
+      "quaternion": {
+        "x": -0.0003221287333872169,
+        "y": 0,
+        "z": 0,
+        "w": 0.9999999403953552
+      },
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "angularVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "speed": 0,
+      "rpm": 1050,
+      "engineWheelAngularSpeed": 0,
+      "gear": 1,
+      "shifting": false,
+      "shiftRemaining": 0,
+      "steer": 0,
+      "throttle": 0,
+      "brake": 0,
+      "reversePending": false,
+      "wheels": [
+        {
+          "id": "front_left",
+          "contact": false,
+          "load": 0,
+          "travel": 0,
+          "slipRatio": 0,
+          "slipAngle": 0,
+          "spin": 0,
+          "steer": 0,
+          "localCenter": {
+            "x": -0.5202029943466187,
+            "y": 0.28596925735473633,
+            "z": -0.8544999361038208
+          },
+          "surface": "air",
+          "angularSpeed": 0,
+          "longitudinalSpeed": 0,
+          "longitudinalForce": 0,
+          "lateralForce": 0,
+          "gripLimit": 0,
+          "driveTorque": 0
+        },
+        {
+          "id": "front_right",
+          "contact": false,
+          "load": 0,
+          "travel": 0,
+          "slipRatio": 0,
+          "slipAngle": 0,
+          "spin": 0,
+          "steer": 0,
+          "localCenter": {
+            "x": 0.5392817854881287,
+            "y": 0.28596925735473633,
+            "z": -0.8544999361038208
+          },
+          "surface": "air",
+          "angularSpeed": 0,
+          "longitudinalSpeed": 0,
+          "longitudinalForce": 0,
+          "lateralForce": 0,
+          "gripLimit": 0,
+          "driveTorque": 0
+        },
+        {
+          "id": "rear",
+          "contact": false,
+          "load": 0,
+          "travel": 0,
+          "slipRatio": 0,
+          "slipAngle": 0,
+          "spin": 0,
+          "steer": 0,
+          "localCenter": {
+            "x": -0.0013028656831011176,
+            "y": 0.2851041257381439,
+            "z": 0.8544999957084656
+          },
+          "surface": "air",
+          "angularSpeed": 0,
+          "longitudinalSpeed": 0,
+          "longitudinalForce": 0,
+          "lateralForce": 0,
+          "gripLimit": 0,
+          "driveTorque": 0
+        }
+      ]
+    },
+    "field": {
+      "player": {
+        "vehicleId": "can-am-ryker-900",
+        "definitionId": "ryker-900-v1",
+        "powertrain": "cvt",
+        "cvtRatio": 3,
+        "time": 0,
+        "position": {
+          "x": 0,
+          "y": 0.02705651469726822,
+          "z": 5.999999776249946
+        },
+        "quaternion": {
+          "x": -0.0003221287333872169,
+          "y": 0,
+          "z": 0,
+          "w": 0.9999999403953552
+        },
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "speed": 0,
+        "rpm": 1050,
+        "engineWheelAngularSpeed": 0,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0,
+        "throttle": 0,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": false,
+            "load": 0,
+            "travel": 0,
+            "slipRatio": 0,
+            "slipAngle": 0,
+            "spin": 0,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.5202029943466187,
+              "y": 0.28596925735473633,
+              "z": -0.8544999361038208
+            },
+            "surface": "air",
+            "angularSpeed": 0,
+            "longitudinalSpeed": 0,
+            "longitudinalForce": 0,
+            "lateralForce": 0,
+            "gripLimit": 0,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": false,
+            "load": 0,
+            "travel": 0,
+            "slipRatio": 0,
+            "slipAngle": 0,
+            "spin": 0,
+            "steer": 0,
+            "localCenter": {
+              "x": 0.5392817854881287,
+              "y": 0.28596925735473633,
+              "z": -0.8544999361038208
+            },
+            "surface": "air",
+            "angularSpeed": 0,
+            "longitudinalSpeed": 0,
+            "longitudinalForce": 0,
+            "lateralForce": 0,
+            "gripLimit": 0,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": false,
+            "load": 0,
+            "travel": 0,
+            "slipRatio": 0,
+            "slipAngle": 0,
+            "spin": 0,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.0013028656831011176,
+              "y": 0.2851041257381439,
+              "z": 0.8544999957084656
+            },
+            "surface": "air",
+            "angularSpeed": 0,
+            "longitudinalSpeed": 0,
+            "longitudinalForce": 0,
+            "lateralForce": 0,
+            "gripLimit": 0,
+            "driveTorque": 0
+          }
+        ]
+      }
+    },
+    "rally": {
+      "practice": false,
+      "score": 0,
+      "slideSeconds": 0,
+      "chain": 0,
+      "recorded": false,
+      "saved": false,
+      "best": null
+    },
+    "gymkhana": null,
+    "zones": null,
+    "rivalry": null,
+    "racecraft": {
+      "drift": {
+        "enabled": true,
+        "handbrake": 0,
+        "active": false,
+        "charge": 0,
+        "tier": 0,
+        "boostLeft": 0,
+        "boosts": 0,
+        "forfeits": 0,
+        "event": null,
+        "eventTier": 0,
+        "eventCount": 0
+      },
+      "draft": 0,
+      "scrapes": 0,
+      "arcade": false,
+      "driverLevel": 1,
+      "driverSkills": {
+        "launch": 1,
+        "charge": 1,
+        "boost": 1,
+        "draft": 1,
+        "cleanSlip": 0.1
+      },
+      "tuning": {
+        "power": 1,
+        "grip": 1,
+        "aeroGrip": 0,
+        "drag": 1
+      }
+    },
+    "ticks": 0,
+    "attemptId": null,
+    "rewardPending": false,
+    "rewardText": "",
+    "careerTouched": false,
+    "route": {
+      "id": "redstone-rally",
+      "version": "redstone-dirt-v1",
+      "length": 2136.647548741851
+    },
+    "design": null,
+    "lighting": "day",
+    "suspension": {
+      "equipped": false,
+      "inspection": null,
+      "stockVisible": [],
+      "endpoints": [],
+      "model": "SM-3223 Silver (Standard), original approximation. Front carriers retained; rear vertical-raycast linkage approximation unchanged."
+    },
+    "simulationSuspension": {
+      "vehicle": "can-am-ryker-900",
+      "elka": false,
+      "calibration": "game-estimated"
+    },
+    "products": {
+      "ryker": {
+        "selected": {},
+        "replacementNodes": [],
+        "geometry": "Original reference-based game approximations; not manufacturer CAD",
+        "physics": "Ryker Road v1; Elka uses labeled game-estimated compression damping"
+      },
+      "selected": [],
+      "storageInspection": false,
+      "stockExhaust": {
+        "meshes": 0,
+        "kind": "empty compatibility anchor"
+      },
+      "seats": [
+        {
+          "side": "driver"
+        },
+        {
+          "side": "passenger"
+        }
+      ],
+      "inspectionMethod": "Only seats temporarily removed; original doors hinge open. Complete car visibility restored on exit.",
+      "mounts": {
+        "exhaust": {
+          "position": [
+            2.7,
+            1.3,
+            3.9
+          ],
+          "target": [
+            0,
+            0.65,
+            1.3
+          ]
+        },
+        "wing": {
+          "position": [
+            2.8,
+            1.9,
+            3.3
+          ],
+          "target": [
+            0,
+            1.25,
+            1.2
+          ]
+        },
+        "storage": {
+          "position": [
+            -1.6,
+            2.1,
+            -0.3
+          ],
+          "target": [
+            -0.2,
+            0.48,
+            0.95
+          ]
+        }
+      },
+      "productRoot": "signature_catalog_products"
+    },
+    "audio": {
+      "horn": null,
+      "enabled": false,
+      "loading": false,
+      "failure": "",
+      "soundTreatment": "tour-designed-three-cylinder",
+      "life": {
+        "enabled": false,
+        "paused": false,
+        "mute": false,
+        "volume": 0.55,
+        "cockpit": false,
+        "reset": false
+      },
+      "levels": {
+        "master": 0.55,
+        "interface": 1,
+        "engine": 1
+      },
+      "extendedLevels": {
+        "music": 0.45,
+        "environment": 0.8
+      },
+      "captureBus": "post-limiter master including engine, rivals, interface, door, Thermal, world, road and score"
+    },
+    "memory": {
+      "geometries": 122,
+      "textures": 61
+    },
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 (0x00002704) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "size": [
+      1600,
+      900
+    ],
+    "dpr": 1,
+    "loadMs": 4412.5999999940395,
+    "preparation": {
+      "ms": 823.6000000014901,
+      "stages": [
+        {
+          "name": "init-textures",
+          "ms": 273.1000000014901
+        },
+        {
+          "name": "compile-async",
+          "ms": 82.69999999552965
+        },
+        {
+          "name": "first-all-mesh-render",
+          "ms": 176.30000000447035
+        },
+        {
+          "name": "post-path-all-mesh-render",
+          "ms": 290.8999999985099
+        },
+        {
+          "name": "loading-gpu-sync",
+          "ms": 0
+        }
+      ],
+      "textures": 30,
+      "programs": 80,
+      "parallelCompile": true,
+      "method": "Texture initialization, compileAsync, all-mesh render and loading-only finish. Culling restored before play; simulation not stepped."
+    }
+  },
+  "finish": {
+    "telemetry": {
+      "vehicleId": "can-am-ryker-900",
+      "definitionId": "ryker-900-v1",
+      "powertrain": "cvt",
+      "cvtRatio": 0.9831070672353881,
+      "time": 125.94999999999413,
+      "position": {
+        "x": 0.015609738345181381,
+        "y": 0.02546285702005935,
+        "z": -0.5190147115283736
+      },
+      "quaternion": {
+        "x": -0.0062898313626646996,
+        "y": 0.0035401450004428625,
+        "z": 0.00038132217014208436,
+        "w": -0.9999738931655884
+      },
+      "velocity": {
+        "x": 0.2858368158340454,
+        "y": 0.0015038097044453025,
+        "z": -31.22631072998047
+      },
+      "angularVelocity": {
+        "x": 0.00293613295070827,
+        "y": 0.009716354310512543,
+        "z": -0.001094718580134213
+      },
+      "speed": 31.225101324032718,
+      "rpm": 7799.999999999999,
+      "engineWheelAngularSpeed": 109.3223126259872,
+      "gear": 1,
+      "shifting": false,
+      "shiftRemaining": 0,
+      "steer": 0.0019743922960766035,
+      "throttle": 1,
+      "brake": 0,
+      "reversePending": false,
+      "wheels": [
+        {
+          "id": "front_left",
+          "contact": true,
+          "load": 689.6242594531587,
+          "travel": -0.03750731219738088,
+          "slipRatio": -0.0021000000000000003,
+          "slipAngle": 0.003731727118668798,
+          "spin": 7533.672992216389,
+          "steer": 0.0019755795898735605,
+          "localCenter": {
+            "x": -0.5202029943466187,
+            "y": 0.24846194515735545,
+            "z": -0.8544999361038208
+          },
+          "surface": "dirt",
+          "angularSpeed": 109.43193191929569,
+          "longitudinalSpeed": 31.16621421061541,
+          "longitudinalForce": -14.482109448516335,
+          "lateralForce": -23.161405956239157,
+          "gripLimit": 565.4918927515902,
+          "driveTorque": 0
+        },
+        {
+          "id": "front_right",
+          "contact": true,
+          "load": 715.7530518705622,
+          "travel": -0.0366740988680657,
+          "slipRatio": -0.0021000000000000003,
+          "slipAngle": 0.0037287330501280217,
+          "spin": 7510.281549268129,
+          "steer": 0.0019731629631099474,
+          "localCenter": {
+            "x": 0.5392817854881287,
+            "y": 0.24929515848667064,
+            "z": -0.8544999361038208
+          },
+          "surface": "dirt",
+          "angularSpeed": 109.46791640608944,
+          "longitudinalSpeed": 31.176462592454275,
+          "longitudinalForce": -15.030814089281808,
+          "lateralForce": -24.019668542157856,
+          "gripLimit": 586.917502533861,
+          "driveTorque": 0
+        },
+        {
+          "id": "rear",
+          "contact": true,
+          "load": 2373.510258422052,
+          "travel": -0.014670306851143039,
+          "slipRatio": 0.07058197864131856,
+          "slipAngle": 0.0022860125853490522,
+          "spin": 7517.366661425994,
+          "steer": 0,
+          "localCenter": {
+            "x": -0.0013028656831011176,
+            "y": 0.2704338188870009,
+            "z": 0.8544999957084656
+          },
+          "surface": "dirt",
+          "angularSpeed": 109.33498368903444,
+          "longitudinalSpeed": 31.171403849743722,
+          "longitudinalForce": 1675.2705036489576,
+          "lateralForce": -48.83286889987103,
+          "gripLimit": 1946.2784119060827,
+          "driveTorque": 491.83006385851655
+        }
+      ]
+    },
+    "race": {
+      "event": "redstone-rally-v1",
+      "handlingProfileId": "ryker-road-v1",
+      "laps": 1,
+      "phase": "finished",
+      "paused": false,
+      "countdown": 0,
+      "elapsedMs": 122950.0000000129,
+      "attemptId": "a65e96bf-5c68-4866-8c0a-69d4576b8756",
+      "standings": [
+        {
+          "id": "player",
+          "place": 1,
+          "status": "finished",
+          "lap": 1,
+          "nextGate": 1,
+          "progress": 2136.647548741851,
+          "timeMs": 122933.36816917447,
+          "invalidReason": null,
+          "valid": true
+        }
+      ],
+      "playerResult": {
+        "event": "redstone-rally-v1",
+        "attemptId": "a65e96bf-5c68-4866-8c0a-69d4576b8756",
+        "participantId": "player",
+        "status": "finished",
+        "valid": true,
+        "laps": 1,
+        "timeMs": 122933.36816917447,
+        "place": 1,
+        "invalidReason": null
+      },
+      "allFinished": true
+    },
+    "field": {
+      "player": {
+        "vehicleId": "can-am-ryker-900",
+        "definitionId": "ryker-900-v1",
+        "powertrain": "cvt",
+        "cvtRatio": 0.9831070672353881,
+        "time": 125.94999999999413,
+        "position": {
+          "x": 0.015609738345181381,
+          "y": 0.02546285702005935,
+          "z": -0.5190147115283736
+        },
+        "quaternion": {
+          "x": -0.0062898313626646996,
+          "y": 0.0035401450004428625,
+          "z": 0.00038132217014208436,
+          "w": -0.9999738931655884
+        },
+        "velocity": {
+          "x": 0.2858368158340454,
+          "y": 0.0015038097044453025,
+          "z": -31.22631072998047
+        },
+        "angularVelocity": {
+          "x": 0.00293613295070827,
+          "y": 0.009716354310512543,
+          "z": -0.001094718580134213
+        },
+        "speed": 31.225101324032718,
+        "rpm": 7799.999999999999,
+        "engineWheelAngularSpeed": 109.3223126259872,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0.0019743922960766035,
+        "throttle": 1,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 689.6242594531587,
+            "travel": -0.03750731219738088,
+            "slipRatio": -0.0021000000000000003,
+            "slipAngle": 0.003731727118668798,
+            "spin": 7533.672992216389,
+            "steer": 0.0019755795898735605,
+            "localCenter": {
+              "x": -0.5202029943466187,
+              "y": 0.24846194515735545,
+              "z": -0.8544999361038208
+            },
+            "surface": "dirt",
+            "angularSpeed": 109.43193191929569,
+            "longitudinalSpeed": 31.16621421061541,
+            "longitudinalForce": -14.482109448516335,
+            "lateralForce": -23.161405956239157,
+            "gripLimit": 565.4918927515902,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 715.7530518705622,
+            "travel": -0.0366740988680657,
+            "slipRatio": -0.0021000000000000003,
+            "slipAngle": 0.0037287330501280217,
+            "spin": 7510.281549268129,
+            "steer": 0.0019731629631099474,
+            "localCenter": {
+              "x": 0.5392817854881287,
+              "y": 0.24929515848667064,
+              "z": -0.8544999361038208
+            },
+            "surface": "dirt",
+            "angularSpeed": 109.46791640608944,
+            "longitudinalSpeed": 31.176462592454275,
+            "longitudinalForce": -15.030814089281808,
+            "lateralForce": -24.019668542157856,
+            "gripLimit": 586.917502533861,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 2373.510258422052,
+            "travel": -0.014670306851143039,
+            "slipRatio": 0.07058197864131856,
+            "slipAngle": 0.0022860125853490522,
+            "spin": 7517.366661425994,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.0013028656831011176,
+              "y": 0.2704338188870009,
+              "z": 0.8544999957084656
+            },
+            "surface": "dirt",
+            "angularSpeed": 109.33498368903444,
+            "longitudinalSpeed": 31.171403849743722,
+            "longitudinalForce": 1675.2705036489576,
+            "lateralForce": -48.83286889987103,
+            "gripLimit": 1946.2784119060827,
+            "driveTorque": 491.83006385851655
+          }
+        ]
+      }
+    },
+    "rally": {
+      "practice": false,
+      "score": 0,
+      "slideSeconds": 0,
+      "chain": 0,
+      "recorded": true,
+      "saved": true,
+      "best": {
+        "timeMs": 122933.36816917447,
+        "drift": 0,
+        "runs": 1,
+        "at": "2026-09-29T01:23:11.366Z"
+      }
+    },
+    "gymkhana": null,
+    "zones": null,
+    "rivalry": null,
+    "racecraft": {
+      "drift": {
+        "enabled": true,
+        "handbrake": 0,
+        "active": false,
+        "charge": 0,
+        "tier": 0,
+        "boostLeft": 0,
+        "boosts": 0,
+        "forfeits": 0,
+        "event": null,
+        "eventTier": 0,
+        "eventCount": 0
+      },
+      "draft": 0,
+      "scrapes": 0,
+      "arcade": false,
+      "driverLevel": 1,
+      "driverSkills": {
+        "launch": 1,
+        "charge": 1,
+        "boost": 1,
+        "draft": 1,
+        "cleanSlip": 0.1
+      },
+      "tuning": {
+        "power": 1,
+        "grip": 1,
+        "aeroGrip": 0,
+        "drag": 1
+      }
+    },
+    "ticks": 7557,
+    "attemptId": "a65e96bf-5c68-4866-8c0a-69d4576b8756"
+  },
+  "drift": {
+    "peak": 0.7533243226680711,
+    "slides": 70,
+    "state": {
+      "telemetry": {
+        "vehicleId": "can-am-ryker-900",
+        "definitionId": "ryker-900-v1",
+        "powertrain": "cvt",
+        "cvtRatio": 1.282463202708256,
+        "time": 11.150000000000134,
+        "position": {
+          "x": 10.655468703585383,
+          "y": 0.6377106267069206,
+          "z": -110.24649078792203
+        },
+        "quaternion": {
+          "x": 0.00814927089959383,
+          "y": -0.04893431439995766,
+          "z": -0.024392426013946533,
+          "w": 0.9984708428382874
+        },
+        "velocity": {
+          "x": 3.987053394317627,
+          "y": 0.20431017875671387,
+          "z": -21.679405212402344
+        },
+        "angularVelocity": {
+          "x": -0.0008723462815396488,
+          "y": 0.018692437559366226,
+          "z": -0.005585140082985163
+        },
+        "speed": 21.96673312781528,
+        "rpm": 7800.000000000001,
+        "engineWheelAngularSpeed": 83.80399369132918,
+        "gear": 1,
+        "shifting": false,
+        "shiftRemaining": 0,
+        "steer": 0.06237863617399965,
+        "throttle": 1,
+        "brake": 0,
+        "reversePending": false,
+        "wheels": [
+          {
+            "id": "front_left",
+            "contact": true,
+            "load": 362.62608063112964,
+            "travel": -0.020868466992073877,
+            "slipRatio": -0.0016345316007383404,
+            "slipAngle": 0.150182415689606,
+            "spin": 397.8165202714829,
+            "steer": 0.06358434546597509,
+            "localCenter": {
+              "x": -0.5202029943466187,
+              "y": 0.26510079036266243,
+              "z": -0.8544999361038208
+            },
+            "surface": "gravel",
+            "angularSpeed": 76.46131439546676,
+            "longitudinalSpeed": 21.77618233982893,
+            "longitudinalForce": -5.927237880434709,
+            "lateralForce": -235.63241556634176,
+            "gripLimit": 235.70695241023427,
+            "driveTorque": 0
+          },
+          {
+            "id": "front_right",
+            "contact": true,
+            "load": 1298.9366313400421,
+            "travel": 0.011296106677359717,
+            "slipRatio": -0.0016619734282911991,
+            "slipAngle": 0.14770108262970713,
+            "spin": 397.3638701886658,
+            "steer": 0.0611759894758294,
+            "localCenter": {
+              "x": 0.5392817854881287,
+              "y": 0.297265364032096,
+              "z": -0.8544999361038208
+            },
+            "surface": "gravel",
+            "angularSpeed": 76.55504383451257,
+            "longitudinalSpeed": 21.80287648406918,
+            "longitudinalForce": -21.587981663212314,
+            "lateralForce": -844.0327756182506,
+            "gripLimit": 844.3088103710274,
+            "driveTorque": 0
+          },
+          {
+            "id": "rear",
+            "contact": true,
+            "load": 1981.6087697633309,
+            "travel": 0.0026394482357557647,
+            "slipRatio": 0.11854579795867354,
+            "slipAngle": 0.08796469120850914,
+            "spin": 420.4830160635359,
+            "steer": 0,
+            "localCenter": {
+              "x": -0.0013028656831011176,
+              "y": 0.2877435739738997,
+              "z": 0.8544999957084656
+            },
+            "surface": "gravel",
+            "angularSpeed": 83.65170872027934,
+            "longitudinalSpeed": 21.95073346794728,
+            "longitudinalForce": 635.3561416788363,
+            "lateralForce": -1120.4393332131935,
+            "gripLimit": 1288.0457003461652,
+            "driveTorque": 272.8351912844025
+          }
+        ]
+      },
+      "race": {
+        "event": "redstone-rally-v1-recce",
+        "handlingProfileId": "ryker-road-v1",
+        "laps": 1,
+        "phase": "running",
+        "paused": false,
+        "countdown": 0,
+        "elapsedMs": 8150.000000000059,
+        "attemptId": "8c662149-33ef-480e-9a87-c86d1c791cd3",
+        "standings": [
+          {
+            "id": "player",
+            "place": 1,
+            "status": "running",
+            "lap": 1,
+            "nextGate": 1,
+            "progress": 0,
+            "timeMs": null,
+            "invalidReason": null,
+            "valid": true
+          }
+        ],
+        "playerResult": null,
+        "allFinished": false
+      },
+      "field": {
+        "player": {
+          "vehicleId": "can-am-ryker-900",
+          "definitionId": "ryker-900-v1",
+          "powertrain": "cvt",
+          "cvtRatio": 1.282463202708256,
+          "time": 11.150000000000134,
+          "position": {
+            "x": 10.655468703585383,
+            "y": 0.6377106267069206,
+            "z": -110.24649078792203
+          },
+          "quaternion": {
+            "x": 0.00814927089959383,
+            "y": -0.04893431439995766,
+            "z": -0.024392426013946533,
+            "w": 0.9984708428382874
+          },
+          "velocity": {
+            "x": 3.987053394317627,
+            "y": 0.20431017875671387,
+            "z": -21.679405212402344
+          },
+          "angularVelocity": {
+            "x": -0.0008723462815396488,
+            "y": 0.018692437559366226,
+            "z": -0.005585140082985163
+          },
+          "speed": 21.96673312781528,
+          "rpm": 7800.000000000001,
+          "engineWheelAngularSpeed": 83.80399369132918,
+          "gear": 1,
+          "shifting": false,
+          "shiftRemaining": 0,
+          "steer": 0.06237863617399965,
+          "throttle": 1,
+          "brake": 0,
+          "reversePending": false,
+          "wheels": [
+            {
+              "id": "front_left",
+              "contact": true,
+              "load": 362.62608063112964,
+              "travel": -0.020868466992073877,
+              "slipRatio": -0.0016345316007383404,
+              "slipAngle": 0.150182415689606,
+              "spin": 397.8165202714829,
+              "steer": 0.06358434546597509,
+              "localCenter": {
+                "x": -0.5202029943466187,
+                "y": 0.26510079036266243,
+                "z": -0.8544999361038208
+              },
+              "surface": "gravel",
+              "angularSpeed": 76.46131439546676,
+              "longitudinalSpeed": 21.77618233982893,
+              "longitudinalForce": -5.927237880434709,
+              "lateralForce": -235.63241556634176,
+              "gripLimit": 235.70695241023427,
+              "driveTorque": 0
+            },
+            {
+              "id": "front_right",
+              "contact": true,
+              "load": 1298.9366313400421,
+              "travel": 0.011296106677359717,
+              "slipRatio": -0.0016619734282911991,
+              "slipAngle": 0.14770108262970713,
+              "spin": 397.3638701886658,
+              "steer": 0.0611759894758294,
+              "localCenter": {
+                "x": 0.5392817854881287,
+                "y": 0.297265364032096,
+                "z": -0.8544999361038208
+              },
+              "surface": "gravel",
+              "angularSpeed": 76.55504383451257,
+              "longitudinalSpeed": 21.80287648406918,
+              "longitudinalForce": -21.587981663212314,
+              "lateralForce": -844.0327756182506,
+              "gripLimit": 844.3088103710274,
+              "driveTorque": 0
+            },
+            {
+              "id": "rear",
+              "contact": true,
+              "load": 1981.6087697633309,
+              "travel": 0.0026394482357557647,
+              "slipRatio": 0.11854579795867354,
+              "slipAngle": 0.08796469120850914,
+              "spin": 420.4830160635359,
+              "steer": 0,
+              "localCenter": {
+                "x": -0.0013028656831011176,
+                "y": 0.2877435739738997,
+                "z": 0.8544999957084656
+              },
+              "surface": "gravel",
+              "angularSpeed": 83.65170872027934,
+              "longitudinalSpeed": 21.95073346794728,
+              "longitudinalForce": 635.3561416788363,
+              "lateralForce": -1120.4393332131935,
+              "gripLimit": 1288.0457003461652,
+              "driveTorque": 272.8351912844025
+            }
+          ]
+        }
+      },
+      "rally": {
+        "practice": true,
+        "score": 0,
+        "slideSeconds": 0,
+        "chain": 0,
+        "recorded": false,
+        "saved": false,
+        "best": {
+          "timeMs": 122933.36816917447,
+          "drift": 0,
+          "runs": 1,
+          "at": "2026-09-29T01:23:11.366Z"
+        }
+      },
+      "gymkhana": null,
+      "zones": null,
+      "rivalry": null,
+      "racecraft": {
+        "drift": {
+          "enabled": true,
+          "handbrake": 0,
+          "active": false,
+          "charge": 0,
+          "tier": 0,
+          "boostLeft": 0,
+          "boosts": 0,
+          "forfeits": 0,
+          "event": "tier",
+          "eventTier": 1,
+          "eventCount": 1
+        },
+        "draft": 0,
+        "scrapes": 0,
+        "arcade": false,
+        "driverLevel": 1,
+        "driverSkills": {
+          "launch": 1,
+          "charge": 1,
+          "boost": 1,
+          "draft": 1,
+          "cleanSlip": 0.1
+        },
+        "tuning": {
+          "power": 1,
+          "grip": 1,
+          "aeroGrip": 0,
+          "drag": 1
+        }
+      },
+      "ticks": 669,
+      "attemptId": "8c662149-33ef-480e-9a87-c86d1c791cd3"
+    }
+  },
+  "pass": true
+}

@@ -1,3 +1,4 @@
+import {rallyHref} from '../rally/entry';
 import {disposeKTX2} from '../presentation/ktx2';
 import {vehicleDefinition} from '../simulation/vehicle-definition';
 import {artUrl} from '../game/loading-art';
@@ -151,9 +152,9 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='build'){audio.cue('ui.nav');goScreen('build')}
  else if(name==='quick-race'){audio.cue('ui.nav');goScreen('events')}
  else if(name==='home'){audio.cue('ui.back');goScreen('entry')}
- else if(name==='destination'){destination=value==='ridge'?'ridge':value==='harbor'?'harbor':'express'}
+ else if(name==='destination'){destination=value==='rally'?'rally':value==='ridge'?'ridge':value==='harbor'?'harbor':'express'}
  else if(name==='destination-lighting'){destinationLighting=value==='night'?'night':'day';audio.cue('ui.nav')}
- else if(name==='destination-look'){if(destination!=='ridge'){destinationLooks[destination]=resolveLook({route:destination,career:false,requested:'day',explicitLighting:false,search:'?look='+String(value)}).id;audio.cue('ui.detent')}}
+ else if(name==='destination-look'){if(destination==='express'||destination==='harbor'){destinationLooks[destination]=resolveLook({route:destination,career:false,requested:'day',explicitLighting:false,search:'?look='+String(value)}).id;audio.cue('ui.detent')}}
  else if(name==='career'){audio.cue('ui.nav');careerView?careerView.navigate(careerHref()):location.assign(careerHref());return}
  else if(name==='lighting'){lighting=value==='lights'?'lights':'studio';await reapply()}
  else if(name==='motion'){reducedMotion=value==='true';controls.enableDamping=!reducedMotion;try{localStorage.setItem('slingmods-signature-motion',reducedMotion?'reduced':'full')}catch{} }
@@ -171,6 +172,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='copy'){await navigator.clipboard.writeText(buildSummary(recipe));status='Build summary copied.'}
  // Back: leave an inspection first, then retrace in-app history, then go up one level. Never toggles.
  else if(name==='back'){audio.cue('ui.back');if(screen==='build'&&currentView!=='hero'&&(currentView.startsWith('SM-')||currentView==='tour-wall'||currentView==='interior'))view('hero');else if(navDepth>0)window.history.back();else if(screen!=='entry')goScreen(screen==='shop'?'build':'entry','replace')}
+ else if(name==='rally'||name==='test-drive'&&value==='rally'){const target=rallyHref(recipe,value==='test'||name==='test-drive');location.assign(careerView?careerView.relay(target):target);return}
  else if(name==='test-drive'||name==='race'||name==='time-attack'||name==='challenge'||name==='gymkhana'||name==='daily'){
   // The Daily Run is Time Attack on today's course in today's condition (game/daily.ts).
   const daily=name==='daily'?dailyRun():undefined;if(daily){value=daily.route;name='time-attack'}

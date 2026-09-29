@@ -10,7 +10,7 @@ export function worldMix(scene:SoundScene,t?:VehicleTelemetry){
  const slip=ground.reduce((n,w)=>Math.max(n,clamp(Math.abs(w.slipAngle)*1.8+Math.abs(w.slipRatio)*.6-.12)),0);
  const road=scene.place!=='showroom'&&scene.phase==='running';
  return {[scene.place]:scene.place==='showroom'?.32:.42*(1-.65*speed),night:scene.night&&scene.place!=='showroom'?.16:0,rain:scene.wet?.28:0,
-  'tire-scrub':road&&ground.length?slip*speed*.65:0,gravel:road&&ground.some(w=>w.surface==='gravel')?speed*.5:0,
+  'tire-scrub':road&&ground.length?slip*speed*.65:0,gravel:road&&ground.some(w=>(w.surface==='gravel'||w.surface==='dirt'))?speed*.5:0,
   wind:road?speed**1.7*.24:0,road:road&&ground.length?clamp(ground.reduce((v,w)=>v+Math.abs(w.longitudinalSpeed),0)/ground.length/28)*.25:0,
   'wet-tire':road&&ground.length&&scene.wet?speed*.4:0};
 }

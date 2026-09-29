@@ -1,0 +1,3 @@
+import validator from 'gltf-validator';import fs from 'node:fs/promises';
+const reports=[];for(const name of await fs.readdir('public/assets/rally'))if(name.endsWith('.glb')){const bytes=await fs.readFile('public/assets/rally/'+name);const r=await validator.validateBytes(new Uint8Array(bytes),{maxIssues:100});reports.push({name,bytes:bytes.length,errors:r.issues.numErrors,warnings:r.issues.numWarnings,triangles:r.info.totalTriangleCount});if(r.issues.numErrors)throw Error(name+JSON.stringify(r.issues));}
+await fs.writeFile('handoff/rally-evidence/assets.json',JSON.stringify(reports,null,2));console.log(JSON.stringify(reports));

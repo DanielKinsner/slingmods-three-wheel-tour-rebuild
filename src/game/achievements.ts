@@ -11,14 +11,14 @@ import {MEDALS,MEDAL_NAMES,trialRecords,trialBest,trialTime,type Medal,type Tria
  * stats counter. Unlocks are remembered in their own key so the toast plays once; nothing here can change a save.
  */
 const SEEN='slingmods-gx-achievements-v1',STATS='slingmods-gx-stats-v1';
-export interface DriveStats {drives:number;races:number;trials:number;tests:number;ryker:number;slingshot:number;spyder?:number;perfectStarts:number;cleanWins:number}
+export interface DriveStats {drives:number;races:number;trials:number;tests:number;ryker:number;slingshot:number;spyder?:number;rallies?:number;perfectStarts:number;cleanWins:number}
 const readJSON=<T>(k:string,fallback:T):T=>{try{const v=JSON.parse(localStorage.getItem(k)??'null');return v&&typeof v==='object'?{...fallback,...v}:fallback}catch{return fallback}};
 const writeJSON=(k:string,v:unknown)=>{if(isAttract())return;/* demo races never count */try{localStorage.setItem(k,JSON.stringify(v))}catch{/* private mode */}};
 export const driveStats=()=>readJSON<DriveStats>(STATS,{drives:0,races:0,trials:0,tests:0,ryker:0,slingshot:0,perfectStarts:0,cleanWins:0});
 /** Race moments RaceFX celebrates (a Perfect Start, a win without contact), counted for the Tour Log and achievements. */
 export function countMoment(kind:'perfectStarts'|'cleanWins'){const s=driveStats();s[kind]++;writeJSON(STATS,s)}
 /** Counted once per started run (countdown to green), never for paused or aborted menus. */
-export function countDrive(kind:'race'|'trial'|'test',vehicle:string){const s=driveStats();s.drives++;s[kind==='race'?'races':kind==='trial'?'trials':'tests']++;if(vehicle.startsWith('can-am-spyder-f3'))s.spyder=(s.spyder??0)+1;else if(vehicle==='can-am-ryker-900')s.ryker++;else s.slingshot++;writeJSON(STATS,s)}
+export function countDrive(kind:'race'|'trial'|'test'|'rally',vehicle:string){const s=driveStats();s.drives++;if(kind==='rally')s.rallies=(s.rallies??0)+1;else s[kind==='race'?'races':kind==='trial'?'trials':'tests']++;if(vehicle.startsWith('can-am-spyder-f3'))s.spyder=(s.spyder??0)+1;else if(vehicle==='can-am-ryker-900')s.ryker++;else s.slingshot++;writeJSON(STATS,s)}
 
 const ROUTES:TrialRoute[]=['harbor','express','ridge'],VEHICLES=['slingshot-r-2024','can-am-ryker-900'];
 const bestMedal=(route:TrialRoute):Medal|null=>{let best:Medal|null=null;for(const row of trialRecords(route)){const m=row.best.medal??null;if(m&&(!best||MEDALS.indexOf(m)<MEDALS.indexOf(best)))best=m}return best};
