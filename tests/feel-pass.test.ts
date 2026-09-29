@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import {orbitMove,sampleOrbit} from '../src/presentation/camera-orbit';
 import {RECOVERY_LABELS} from '../src/driving/recovery';
 import {InputResolver} from '../src/driving/input';
+import {readFileSync} from 'node:fs';
 
 const car=new THREE.Vector3(0,.6,0);
 const pathOf=(m:ReturnType<typeof orbitMove>)=>Array.from({length:41},(_,i)=>{const p=new THREE.Vector3(),t=new THREE.Vector3();const s=sampleOrbit(m,m.start+m.duration*i/40,p,t);return{p,t,fov:s.fov,done:s.done}});
@@ -38,4 +39,8 @@ test('camera orbit: diving into the cockpit arcs over the car',()=>{
 test('crew recovery: every stuck reason has a card headline; the hold starts empty',()=>{
  for(const reason of['Car overturned','Below the road','Stranded off the course','Car stuck without tire support'])assert.ok(RECOVERY_LABELS[reason],reason);
  const input=new InputResolver('sport-v5' as never);assert.equal(input.resetHold,0);input.reset();assert.equal(input.resetHold,0,'a reset leaves the ring empty');
+});
+
+test('crew recovery: the hidden card is really hidden (its display rule would otherwise override [hidden])',()=>{
+ const css=readFileSync('src/game/race.css','utf8');assert.match(css,/\.gx-recovery\{[^}]*display:grid/);assert.ok(css.includes('.gx-recovery[hidden]{display:none}'));
 });

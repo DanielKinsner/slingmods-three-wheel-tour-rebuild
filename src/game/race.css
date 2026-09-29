@@ -481,6 +481,7 @@ body.gx-gymkhana-mode .race-course-title,body.gx-gymkhana-mode .race-timing{visi
 .gx-zone.is-banked b{color:#cfa6ff}.gx-zone.is-banked small{color:var(--gx-good)}body.race-film-active .gx-zone,body.gx-photo .gx-zone{display:none}
 /* Crew recovery card (feel pass): the stuck-car prompt as a crew moment in the game's own style. --gx-hold fills the ring while the reset button is held. */
 .gx-recovery{--gx-hold:0;position:fixed;left:50%;top:17%;z-index:11000;width:min(460px,92vw);transform:translateX(-50%);display:grid;gap:12px;padding:16px 18px 14px;box-sizing:border-box;background:var(--gx-glass-2);backdrop-filter:blur(12px);box-shadow:inset 0 3px 0 var(--gx-red),0 18px 50px #000a;color:var(--gx-ink);font:500 14px/1.4 var(--gx-body)}
+.gx-recovery[hidden]{display:none}
 .gx-recovery:not([hidden]){animation:gx-recovery-in .5s var(--gx-snap) both}
 .gx-recovery-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .gx-recovery-tag{font:800 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-red)}
