@@ -21,5 +21,8 @@ export class ChaseShadow {
   this.focus.addScaledVector(this.right,Math.round(x/texel)*texel-x).addScaledVector(this.up,Math.round(y/texel)*texel-y);
   this.sun.target.position.copy(this.focus);this.sun.position.copy(this.focus).addScaledVector(this.direction,65);
  }
+ private footprint={focus:new THREE.Vector3(),right:this.right,up:this.up,half:0};
+ /** The map's square in the light's plane (ground light fades its baked shade inside it). Null before the first update. */
+ frame(){if(!this.quality)return null;this.footprint.focus.copy(this.focus);this.footprint.half=CHASE_SHADOW[this.quality].span/2;return this.footprint}
  inspect(){const p=CHASE_SHADOW[this.quality??'high'];return{maps:1,quality:this.quality,resolution:this.sun.shadow.mapSize.x,span:this.sun.shadow.camera.right-this.sun.shadow.camera.left,texelMetres:p.span/p.resolution,radius:this.sun.shadow.radius,stabilized:!!this.quality,focus:this.focus.toArray()}}
 }

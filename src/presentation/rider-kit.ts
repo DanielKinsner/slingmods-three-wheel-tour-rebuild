@@ -17,3 +17,18 @@ export function finishRiderKit(root:THREE.Object3D){
   m.userData.riderKit=true;m.needsUpdate=true;
  }});
 }
+
+/**
+ * Races only (graphics pass 1): a Fresnel edge tinted by the route's haze, so the black-clad rider keeps a silhouette
+ * against dark bodywork and dark ground in the chase camera. The showroom never calls this.
+ */
+export function raceRiderRim(roots:readonly THREE.Object3D[],haze:THREE.Color,strength:number){
+ const tint=new THREE.Color().copy(haze).multiplyScalar(strength),seen=new Set<THREE.Material>();
+ for(const root of roots)root.traverse(o=>{if(!(o instanceof THREE.Mesh))return;for(const m of Array.isArray(o.material)?o.material:[o.material]){
+  if(seen.has(m)||!(m instanceof THREE.MeshStandardMaterial)||!m.name.startsWith('Biker_')||m.userData.raceRim)continue;seen.add(m);m.userData.raceRim=true;
+  const compile=m.onBeforeCompile,key=m.customProgramCacheKey.call(m);
+  m.onBeforeCompile=(shader,renderer)=>{compile.call(m,shader,renderer);if(!shader.fragmentShader.includes('#include <opaque_fragment>'))return;shader.uniforms.raceRiderRim={value:tint};
+   shader.fragmentShader='uniform vec3 raceRiderRim;\n'+shader.fragmentShader.replace('#include <opaque_fragment>','outgoingLight+=raceRiderRim*pow(1.-saturate(dot(normal,normalize(vViewPosition))),3.);\n#include <opaque_fragment>')};
+  m.customProgramCacheKey=()=>key+'|race-rim-v1';m.needsUpdate=true;
+ }});
+}

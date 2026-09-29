@@ -11,6 +11,9 @@ import {forestFloorPlan,forestLOD,FOREST_BUDGET,type ForestPlacement} from './fo
 /** Near leaves and ground cover take the same day->night ratio the distant impostors use (0xb5b5a0 -> 0x748095), so the
  *  blue-hour forest reads as one: close trees no longer glow daylight green in front of a dim, cool far forest. */
 const NIGHT_FOLIAGE=((n,d)=>new THREE.Color(n.r/d.r*.9,n.g/d.g*.9,n.b/d.b*.9))(new THREE.Color(0x748095),new THREE.Color(0xb5b5a0));
+/** Unlit far cards at blue hour: 0x748095 matched the old bright fill; x0.42 follows the darker blue-hour rig
+ *  (moon .25, sky fill .32, world reflections .4) so near leaves and far cards still read as one forest. */
+export const NIGHT_IMPOSTOR=0x31363f;
 export function forestWind(material:THREE.Material,time:{value:number},strength:{value:number},sun:THREE.Vector3,leaf=false,night=false){
  (material as THREE.MeshStandardMaterial).vertexColors=false;
  material.onBeforeCompile=shader=>{
@@ -60,6 +63,8 @@ export async function loadRidgeForest(renderer:THREE.WebGLRenderer,trees:ForestP
   geometry.add(g);materials.add(m);if(depth)materials.add(depth);
   const mesh=new THREE.InstancedMesh(g,m,capacity);instances.add(mesh);mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);mesh.count=0;mesh.frustumCulled=false;mesh.name=`forest-${kind}-${variant}-${lod}`;mesh.userData.prewarmLOD=true;mesh.receiveShadow=true;mesh.castShadow=kind==='tree'&&lod<2||kind==='rock';if(depth)mesh.customDepthMaterial=depth;group.add(mesh);batches.push({mesh,kind,variant,lod});return mesh;
  }
+ // Crown extents per species (LOD0 leaves), for the ground light's baked shade.
+ const crowns=FOREST_SPECIES.map(()=>new THREE.Box3());
  try{
   for(let species=0;species<FOREST_SPECIES.length;species++){
    const name=FOREST_SPECIES[species],bark=new THREE.MeshStandardMaterial({map:tex(TREE_ROOT,name+'-bark-baseColor'),normalMap:tex(TREE_ROOT,name+'-bark-normal'),normalScale:new THREE.Vector2(.65,-.65),roughness:.95,metalness:0});
@@ -68,10 +73,10 @@ export async function loadRidgeForest(renderer:THREE.WebGLRenderer,trees:ForestP
    const barkDepth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking}),leafDepth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking,map:leaves.map,alphaTest:.48,side:THREE.DoubleSide});forestWind(barkDepth,time,wind,sun);forestWind(leafDepth,time,wind,sun);
    for(let lod=0;lod<3;lod++){
     const model=assets.get(sceneryGeometryURL(TREE_ROOT+name+'-lod'+lod+'.glb'));model.scene.updateMatrixWorld(true);
-    model.scene.traverse((o:THREE.Object3D)=>{if(!(o instanceof THREE.Mesh))return;const leaf=(o.material as THREE.Material).name.includes('leaf'),g=o.geometry.clone().applyMatrix4(o.matrixWorld);batch(g,leaf?leaves:bark,trees.length,'tree',species,lod,leaf?leafDepth:barkDepth)});
+    model.scene.traverse((o:THREE.Object3D)=>{if(!(o instanceof THREE.Mesh))return;const leaf=(o.material as THREE.Material).name.includes('leaf'),g=o.geometry.clone().applyMatrix4(o.matrixWorld);if(lod===0&&leaf){g.computeBoundingBox();crowns[species].union(g.boundingBox!)}batch(g,leaf?leaves:bark,trees.length,'tree',species,lod,leaf?leafDepth:barkDepth)});
    }
    const meta=assets.get(TREE_ROOT+name+'-imposter.json'),g=new THREE.PlaneGeometry(meta.worldWidthMetres,meta.worldWidthMetres);g.translate(meta.center[0],meta.center[1],0);
-   const m=new THREE.MeshBasicMaterial({map:tex(TREE_ROOT,name+'-imposter-baseColor'),alphaTest:.4,side:THREE.DoubleSide,color:night?0x748095:0xb5b5a0});
+   const m=new THREE.MeshBasicMaterial({map:tex(TREE_ROOT,name+'-imposter-baseColor'),alphaTest:.4,side:THREE.DoubleSide,color:night?NIGHT_IMPOSTOR:0xb5b5a0});
    // The authored atlas has four columns, two rows, indexed by local camera azimuth.
    m.onBeforeCompile=shader=>{shader.vertexShader='varying vec2 forestCell;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>',`#include <begin_vertex>
     vec3 center=(modelMatrix*instanceMatrix*vec4(0.,0.,0.,1.)).xyz;vec3 view=normalize(vec3(cameraPosition.x-center.x,0.,cameraPosition.z-center.z));
@@ -107,7 +112,7 @@ export async function loadRidgeForest(renderer:THREE.WebGLRenderer,trees:ForestP
    }`,transparent:true,depthWrite:false,side:THREE.DoubleSide});
   const ag=new THREE.PlaneGeometry(1,1);ag.setAttribute('airKind',new THREE.InstancedBufferAttribute(new Float32Array(plan.air.map(p=>p.variant)),1));const air=batch(ag,airMaterial,plan.air.length,'air',0);air.castShadow=false;
   function fill(mesh:THREE.InstancedMesh,p:ForestPlacement){position.set(p.x,p.y,p.z);q.setFromAxisAngle(THREE.Object3D.DEFAULT_UP,p.yaw);scale.setScalar(p.scale);matrix.compose(position,q,scale);mesh.setMatrixAt(mesh.count++,matrix)}
-  return{group,ground,update(camera:THREE.Vector3,seconds:number,quality:GraphicsQuality,reduced:boolean){
+  return{group,ground,crowns:crowns.map(c=>({low:c.min.y,high:c.max.y,radius:Math.max(c.max.x-c.min.x,c.max.z-c.min.z)*.4})),update(camera:THREE.Vector3,seconds:number,quality:GraphicsQuality,reduced:boolean){
    wind.value=reduced?0:.18;time.value=seconds;
    if(camera.distanceToSquared(lastCamera)<9&&lastQuality===quality)return;lastCamera.copy(camera);lastQuality=quality;active=[0,0,0,0];for(const b of batches)b.mesh.count=0;
    const budget=FOREST_BUDGET[quality];

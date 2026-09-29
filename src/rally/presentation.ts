@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {RALLY_KIT,RALLY_TEXTURES} from './assets';
 import {loadRallyVegetation} from './vegetation';
+import type {GroundCaster} from '../presentation/ground-light';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {loadKTX2} from '../presentation/ktx2';
@@ -21,7 +22,9 @@ function labelTexture(text:string,small:string,color='#e69b45'){
 /** Shared near/far instancing for the original Blender kit; density adds instances rather than a draw per prop. */
 export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.WebGLRenderer){
   const root=new THREE.Group();root.name='Redstone_Rally';scene.add(root);
-  scene.fog=new THREE.FogExp2('#c3bbac',.00165);
+  // Canyon haze. The race re-applies it after the shared lighting rig, which would otherwise install Harbor's fog.
+  // Warm dust keeps the distant mesas sandstone-red instead of washing them to pale grey.
+  const fog=new THREE.FogExp2('#a88a70',.00135);scene.fog=fog;
   const textures:THREE.Texture[]=[],loader=new GLTFLoader(),random=seeded();
   const ground='/assets/p11/ground-cover/';
   const [dirt,normal,gravel,soil,soilNormal,rock]=await Promise.all(RALLY_TEXTURES.map(async(n)=>{const t=await loadKTX2(renderer,ground+n+'.ktx2',{srgb:n.endsWith('baseColor')});t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=8;textures.push(t);return t;}));
@@ -44,7 +47,7 @@ export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.Web
   const scenicHeight=(x:number,z:number)=>{const p=projectRoad(RALLY_ROUTE,x,z),d=p.distance;return rallyCrossHeight(p.progress,d)-.75+Math.max(0,Math.min(32,(d-32)*.23))*(.72+.28*Math.sin(x*.017)*Math.cos(z*.019));};
   const basinGeo=new THREE.PlaneGeometry(2300,2200,256,256);basinGeo.rotateX(-Math.PI/2);const bp=basinGeo.getAttribute('position'),bu=basinGeo.getAttribute('uv');
   for(let i=0;i<bp.count;i++){const x=bp.getX(i)+240,z=bp.getZ(i)-120;bp.setXYZ(i,x,scenicHeight(x,z),z);bu.setXY(i,x/7,z/7);}basinGeo.computeVertexNormals();
-  const basin=new THREE.Mesh(basinGeo,new THREE.MeshStandardMaterial({map:soil,normalMap:soilNormal,color:'#b5ae89',roughness:1}));basin.receiveShadow=true;root.add(basin);
+  const basin=new THREE.Mesh(basinGeo,new THREE.MeshStandardMaterial({map:soil,normalMap:soilNormal,color:'#b5ae89',roughness:1}));basin.name='Rally_basin';basin.receiveShadow=true;root.add(basin);
   const placements=Object.fromEntries(KIT.map(k=>[k,[] as Placement[]]));
   const place=(kind:string,s:number,offset:number,scale:number,yaw=random()*Math.PI*2)=>{const p=rallyPoint(s,offset),near=projectRoad(RALLY_ROUTE,p.x,p.z);if(near.distance<17)return;placements[kind].push({...p,scale,yaw});};
   for(let s=0;s<RALLY_ROUTE.length;s+=8){for(const side of [-1,1]){
@@ -59,9 +62,10 @@ export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.Web
   place('marshal-hut',70,-23,1,Math.PI/2);place('marshal-hut',RALLY_ROUTE.length*.70,24,.85,-Math.PI/2);
   place('quarry-gantry',RALLY_ROUTE.length*.35,-29,1.5,1.1);
   for(let i=0;i<7;i++)place('log-stack',RALLY_ROUTE.length*.59+i*8,-21,1,Math.PI*.2);
-  const batches:{mesh:THREE.InstancedMesh;placements:Placement[];near:boolean}[]=[],sources:THREE.Group[]=[];
+  const batches:{mesh:THREE.InstancedMesh;placements:Placement[];near:boolean}[]=[],sources:THREE.Group[]=[],shapes:Record<string,{leaf:THREE.Box3;solid:THREE.Box3}>={};
   await Promise.all(KIT.map(async key=>{
     const source=(await loader.loadAsync('/assets/rally/'+key+'.glb')).scene;sources.push(source);source.updateMatrixWorld(true);
+    const shape={leaf:new THREE.Box3(),solid:new THREE.Box3()};shapes[key]=shape;source.traverse(o=>{if(o instanceof THREE.Mesh)shape[(o.material as THREE.Material).name.includes('needles')?'leaf':'solid'].union(new THREE.Box3().setFromObject(o))});
     const pieces=new Map<string,{material:THREE.MeshStandardMaterial;geometry:THREE.BufferGeometry[]}>();
     source.traverse(o=>{if(!(o instanceof THREE.Mesh))return;const original=o.material as THREE.MeshStandardMaterial,leaf=original.name.includes('needles'),kind=leaf?'leaf':'solid',g=o.geometry.clone().applyMatrix4(o.matrixWorld);
       for(const a of Object.keys(g.attributes))if(!['position','normal','uv','color'].includes(a))g.deleteAttribute(a);
@@ -104,8 +108,15 @@ export async function loadRallyPresentation(scene:THREE.Scene,renderer:THREE.Web
     else if(kind==='quarry-gantry')for(const x of [-3.6,3.6])for(const z of [-2.2,2.2])obstacles.push({id:id+x+z,center:[p.x+(x*Math.cos(p.yaw)+z*Math.sin(p.yaw))*k,p.y+2*k,p.z+(-x*Math.sin(p.yaw)+z*Math.cos(p.yaw))*k],size:[.4*k,4*k,.4*k]});
   }
   obstacles.push(...vegetation.obstacles);
+  // Ground light (src/presentation/ground-light.ts): what casts baked shade on the stage; the backdrop mesas are too far to matter.
+  const casters:GroundCaster[]=[],body=(b:THREE.Box3)=>({low:Math.max(0,b.min.y),high:b.max.y,radius:Math.max(b.max.x-b.min.x,b.max.z-b.min.z)*.4});
+  const density:Record<string,number>={deadwood:.3,'quarry-gantry':.4,'log-stack':.8,'marshal-hut':.85};
+  for(const [kind,list] of Object.entries(placements)){const s=shapes[kind];if(!s)continue;const tree=!s.leaf.isEmpty(),b=body(tree?s.leaf:s.solid),opacity=tree?.78:density[kind]??.85;
+    for(const p of list){if(p.stretch)continue;const r=b.radius*p.scale;casters.push({x:p.x,z:p.z,low:b.low*p.scale,high:b.high*p.scale,radius:r,opacity,contact:.6,contactRadius:tree?Math.max(1.2,r*.4):r*1.15})}}
+  for(const p of vegetation.trees){const c=vegetation.crowns[p.species],r=c.radius*p.scale;casters.push({x:p.x,z:p.z,low:c.low*p.scale,high:c.high*p.scale,radius:r,opacity:.78,contact:.6,contactRadius:Math.max(1.2,r*.4)})}
+  const groundMeshes=root.children.filter((o):o is THREE.Mesh=>o instanceof THREE.Mesh&&/^Rally_(compacted_dirt|loose_gravel|earth_bank|basin)/.test(o.name));
   const support={vertices:Array.from(bp.array),indices:Array.from(basinGeo.index!.array)};
-  return {root,support,obstacles,update(camera:THREE.Vector3,quality='high'){
+  return {root,support,obstacles,fog,ground:{meshes:groundMeshes,casters},update(camera:THREE.Vector3,quality='high'){
     vegetation.update(camera,quality);
     if(lastCamera.distanceToSquared(camera)<9&&quality===lastQuality)return;lastCamera.copy(camera);lastQuality=quality;const distance=quality==='low'?260:quality==='medium'?370:quality==='ultra'?600:490;
     for(const b of batches){b.mesh.count=0;for(const p of b.placements){const d=Math.hypot(p.x-camera.x,p.z-camera.z),isNear=d<120;if(isNear!==b.near||d>distance&&!p.stretch)continue;
