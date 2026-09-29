@@ -1,11 +1,10 @@
 /** Actual game captures. Old preview files stay intact for historical review builds. */
 export function tourRoutePreview(route: string, night: boolean): string | undefined {
-  if (!['harbor', 'express', 'ridge'].includes(route)) return undefined;
+  if (!['harbor', 'express', 'ridge', 'rally'].includes(route)) return undefined;
   return `/assets/interface/${route}-${route === 'ridge' && night ? 'night' : 'day'}.jpg`;
 }
 
 /** Illustrated course maps (generated key art, see assets/game-feel/README.md): the route drawn from the real layout. */
 export function courseMap(route: string): string | undefined {
-  if(route==='rally')return '/assets/game-feel/maps/rally.png';
-  return ['harbor', 'express', 'ridge'].includes(route) ? `/assets/game-feel/maps/${route}.jpg` : undefined;
+  return ['harbor', 'express', 'ridge', 'rally'].includes(route) ? `/assets/game-feel/maps/${route}.jpg` : undefined;
 }

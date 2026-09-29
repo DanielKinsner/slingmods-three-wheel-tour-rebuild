@@ -4,8 +4,8 @@ Generated on 2026-09-28 with the built-in OpenAI image-generation tool. These ar
 
 Runtime files:
 
-- `public/assets/game-feel/maps/rally.png`: illustrated course map, using the real route outline.
-- `public/assets/game-feel/loading/rally.png`: loading screen, navigation curtain, and scene-entry artwork.
+- `public/assets/game-feel/maps/rally.jpg`: illustrated course map (JPEG, like the other course maps), using the real route outline.
+- `public/assets/game-feel/loading/rally.jpg`: loading screen, navigation curtain, and scene-entry artwork.
 
 `route-guide.svg` and `route-guide.png` are code-drawn reference diagrams from `RALLY_ROUTE`, not generated artwork. Rebuild them with `npx tsx scripts/rally/build-art-guide.ts`.
 

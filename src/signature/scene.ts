@@ -1,4 +1,4 @@
-import {rallyHref,rallyRecipe} from '../rally/entry';
+import {rallyHref,rallyRecipe,rememberRallyOrigin,rememberDestination,rallyWasChosen} from '../rally/entry';
 import {disposeKTX2} from '../presentation/ktx2';
 import {vehicleDefinition} from '../simulation/vehicle-definition';
 import {artUrl} from '../game/loading-art';
@@ -83,7 +83,7 @@ const mirrors=new VehicleMirrors(hero.root,hero.asset);
 // Same post pipeline as the drive, so the showroom car and the driven car are graded alike (and underglow glows here too).
 const pipeline=new RenderPipeline(renderer,graphics);pipeline.onViewTarget(target=>{mirrors.viewTarget=target});
 const thumbs=Object.fromEntries(PRODUCTS.map(p=>[p.id,`/assets/p08b/thumbnails/${p.id}.png`]));
-let destination:DestinationChoice='express',destinationLighting:DestinationLighting='day';try{const prior=storage.store.drive();destination=prior.route;if(prior.route==='ridge')destinationLighting=prior.lighting??'day'}catch{/* Invalid drive snapshot stays untouched until an explicit new entry. */}
+let destination:DestinationChoice='express',destinationLighting:DestinationLighting='day';try{const prior=storage.store.drive();destination=prior.route;if(prior.route==='ridge')destinationLighting=prior.lighting??'day'}catch{/* Invalid drive snapshot stays untouched until an explicit new entry. */}if(rallyWasChosen())destination='rally';
 const initialDestination=destination;
 // Waterfront looks start from what the drive would resolve anyway (remembered choice or showcase default), now shown and passed explicitly.
 const destinationLooks:Record<'express'|'harbor',TimeOfDay>={express:resolveLook({route:'express',career:false,requested:'day',explicitLighting:false,search:''}).id,harbor:resolveLook({route:'harbor',career:false,requested:'day',explicitLighting:false,search:''}).id};
@@ -152,7 +152,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
  else if(name==='build'){audio.cue('ui.nav');goScreen('build')}
  else if(name==='quick-race'){audio.cue('ui.nav');goScreen('events')}
  else if(name==='home'){audio.cue('ui.back');goScreen('entry')}
- else if(name==='destination'){destination=value==='rally'?'rally':value==='ridge'?'ridge':value==='harbor'?'harbor':'express'}
+ else if(name==='destination'){destination=value==='rally'?'rally':value==='ridge'?'ridge':value==='harbor'?'harbor':'express';rememberDestination(destination)}
  else if(name==='destination-lighting'){destinationLighting=value==='night'?'night':'day';audio.cue('ui.nav')}
  else if(name==='destination-look'){if(destination==='express'||destination==='harbor'){destinationLooks[destination]=resolveLook({route:destination,career:false,requested:'day',explicitLighting:false,search:'?look='+String(value)}).id;audio.cue('ui.detent')}}
  else if(name==='career'){audio.cue('ui.nav');careerView?careerView.navigate(careerHref()):location.assign(careerHref());return}
@@ -184,7 +184,7 @@ async function action(name:string,value?:unknown){if(pending)return;try{
   const seriesRun=typeof value==='string'&&value.startsWith('series:');if(seriesRun)value=(value as string).slice(7);
   if(value==='duel'||value==='crew'){careerView?careerView.navigate('?scene=career&play=career'):location.assign('?scene=career&play=career');return}
   const route=rallyEntry?'rally':value==='ridge'?'ridge':value==='harbor'?'harbor':'express',snapshot=rallyEntry?rallyRecipe(recipe):validateRecipe(recipe),look=route==='ridge'||route==='rally'?'':destinationLooks[route];if(look)rememberLook(route as 'express'|'harbor',look);
-  const target=rallyEntry?rallyHref(snapshot,name==='test-drive'):`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='test-drive'?'test':'race'}${name==='time-attack'?'&trial=1':''}${chal?'&challenge='+chal.id:''}${gym?'&gymkhana=1':''}${seriesRun?'&series=1':''}&play=preview${route==='ridge'?'&lighting='+(daily?.lighting??destinationLighting):'&look='+(daily?.look??look)}${fromCareer?'&from='+fromCareer:''}${recipeFragment(snapshot)}`;
+  if(rallyEntry)rememberRallyOrigin(recipe);const target=rallyEntry?rallyHref(snapshot,name==='test-drive'):`?scene=${route==='ridge'?'ridge':'express'}&route=${route}&mode=${name==='test-drive'?'test':'race'}${name==='time-attack'?'&trial=1':''}${chal?'&challenge='+chal.id:''}${gym?'&gymkhana=1':''}${seriesRun?'&series=1':''}&play=preview${route==='ridge'?'&lighting='+(daily?.lighting??destinationLighting):'&look='+(daily?.look??look)}${fromCareer?'&from='+fromCareer:''}${recipeFragment(snapshot)}`;
   pending=true;refresh();drivePreparation=await prepareDrive(route,snapshot,name==='test-drive'?'test':'race');pending=false;if(drivePreparation.cancelled){status='Preparation cancelled. Your build is unchanged.';refresh();return}
   if(route!=='rally')storage.store.beginDrive(snapshot,route,name==='test-drive'?'test':'race',destinationLighting);
   // A temporary career rides along in this tab (never into the drive's rewards) so it survives the round trip.

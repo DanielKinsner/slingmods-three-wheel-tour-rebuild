@@ -5,7 +5,7 @@
  */
 export type ArtId='rally'|'harbor-day'|'harbor-night'|'express-day'|'express-dusk'|'express-night'|'ridge-day'|'ridge-night'|'garage'|'garage-ryker'|'garage-spyder';
 export const ART_DIR='/assets/game-feel/loading/';
-export const artUrl=(id:ArtId)=>id==='rally'?'/assets/game-feel/loading/rally.png':`${ART_DIR}${id}.jpg`;
+export const artUrl=(id:ArtId)=>`${ART_DIR}${id}.jpg`;
 const NIGHTISH=/night/,DUSKISH=/dusk/;
 /** Course + look -> art. Harbor has day/night art; Express day/dusk/night; Ridge late afternoon / blue hour. */
 export function courseArt(route:string,look='day'):ArtId{

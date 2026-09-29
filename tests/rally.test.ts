@@ -13,8 +13,10 @@ import {sampleRoad,projectRoad,createCourseEnvironment} from '../src/course/envi
 import {EXPRESS_ROUTE} from '../src/express/route';
 import {RALLY_ROUTE,createRallyEnvironment,rallyPoint} from '../src/rally/route';
 import {RallyScore,readRallyRecord,saveRallyRecord,RALLY_RECORD_KEY} from '../src/rally/score';
-import {rallyHref,rallyRecipe} from '../src/rally/entry';
-import {freshRecipe,freshRykerRecipe,freshSpyderRecipe,fragmentRecipe} from '../src/signature/config';
+import {rallyHref,rallyRecipe,rememberRallyOrigin,rallyReturnFragment,rememberDestination,rallyWasChosen} from '../src/rally/entry';
+import {artUrl,artForSearch} from '../src/game/loading-art';
+import {courseMap} from '../src/interface/route-art';
+import {freshRecipe,freshRykerRecipe,freshSpyderRecipe,fragmentRecipe,recipeFragment} from '../src/signature/config';
 import {visitorSearch} from '../src/demo/profile';
 
 test('rally is Ryker exclusive, preserves the supplied Ryker build and never mutates a road build',()=>{
@@ -47,14 +49,17 @@ test('rally handbrake produces a sustained catchable dirt slide without an arcad
   }finally{world.dispose();}
 });
 
-test('rally drift has a wider held angle, retains a recoverable exit, and does not change normal driving',async()=>{
+test('rally drift is a little looser than road, stays bounded, recovers, and does not change normal driving',async()=>{
   async function run(dynamics:Readonly<DriftDynamics>,handbrake=true){const world=await RaceWorld.create(createRallyEnvironment(),'ryker-road-v1');
     try{world.addVehicle('player',{x:0,z:-50,y:sampleRoad(RALLY_ROUTE,50).y,yaw:0},RYKER_DEFINITION,'ryker-road-v1');world.initialize();const car=world.get('player');car.enableDrift(true,undefined,false,dynamics);car.setMotion({x:0,y:0,z:-20},{x:0,y:0,z:0});const trace=[];
       for(let i=0;i<240;i++){const t=i/60,n=car.telemetry(),held=t>.3&&t<1.6;world.step({player:{throttle:.65,brake:0,steer:held?1:Math.max(-1,Math.min(1,-n.angularVelocity.y*.9)),handbrake:held&&handbrake?1:0,reverse:false}},FIXED_DT);const next=car.telemetry();trace.push({t,slip:Math.abs(next.wheels[2].slipAngle),speed:next.speed,position:next.position});}
       assert.equal(car.drift().boosts,0);return trace;
     }finally{world.dispose();}}
   const old=await run(ROAD_DRIFT_DYNAMICS),rally=await run(RALLY_DRIFT),mean=(rows:typeof old)=>{const held=rows.filter(r=>r.t>.5&&r.t<1.6);return held.reduce((n,r)=>n+r.slip,0)/held.length};
-  assert.ok(mean(rally)>mean(old)*1.25,'at least 25% more visible angle under identical controls');assert.ok(Math.max(...rally.map(r=>r.slip))<1.2,'no spin');assert.ok(rally.at(-1)!.slip<.08&&rally.at(-1)!.speed>15,'release and countersteer catch the slide');
+  // Owner feedback on v2: the slide read as too extreme. Keep it visibly looser than road, never past ~55 degrees,
+  // and no more than ~1.5x the road layer's speed loss through the held slide.
+  const loss=(rows:typeof old)=>20-rows.find(r=>r.t>=1.6)!.speed,peak=Math.max(...rally.map(r=>r.slip));
+  assert.ok(mean(rally)>mean(old)*1.08&&mean(rally)<mean(old)*1.25,`held angle ${mean(rally)} vs road ${mean(old)}`);assert.ok(peak<.96,`peak slip ${peak}`);assert.ok(loss(rally)<loss(old)*1.5,`speed loss ${loss(rally)} vs road ${loss(old)}`);assert.ok(rally.at(-1)!.slip<.08&&rally.at(-1)!.speed>15,'release and countersteer catch the slide');
   assert.deepEqual(await run(RALLY_DRIFT,false),await run(ROAD_DRIFT_DYNAMICS,false),'driving without the handbrake is unchanged');
 });
 
@@ -81,4 +86,18 @@ test('rally records keep the fastest time and highest drift independently, isola
   const data=new Map<string,string>([['career','untouched']]),storage={getItem:(k:string)=>data.get(k)??null,setItem:(k:string,v:string)=>{data.set(k,v);}};
   assert.equal(saveRallyRecord('stock',100000,2000,storage),true);saveRallyRecord('stock',110000,4000,storage);saveRallyRecord('tuned',90000,500,storage);const best=readRallyRecord('stock',storage);assert.equal(best?.timeMs,100000);assert.equal(best?.drift,4000);assert.equal(best?.runs,2);assert.equal(data.get('career'),'untouched');assert.equal(saveRallyRecord('stock',NaN,9999,storage),false);
   data.set(RALLY_RECORD_KEY,'null');assert.equal(saveRallyRecord('stock',100000,100,storage),true);assert.equal(saveRallyRecord('stock',100000,100,{getItem(){throw Error('denied');},setItem(){throw Error('denied');}}),false);
+});
+
+test("leaving a rally returns the player's own build and reopens the Redstone card; denied storage falls back safely",()=>{
+  const data=new Map<string,string>(),storage={getItem:(k:string)=>data.get(k)??null,setItem:(k:string,v:string)=>{data.set(k,v);},removeItem:(k:string)=>{data.delete(k);}};
+  const slingshot=freshRecipe(),ryker=freshRykerRecipe(),eventFragment=recipeFragment(rallyRecipe(slingshot));
+  rememberRallyOrigin(slingshot,storage);assert.deepEqual(fragmentRecipe(rallyReturnFragment(eventFragment,storage)),slingshot,'a supplied Ryker is event-only');
+  rememberRallyOrigin(ryker,storage);assert.equal(rallyReturnFragment(eventFragment,storage),eventFragment,'an entered Ryker build comes back as driven');
+  assert.equal(rallyWasChosen(storage),false);rememberDestination('rally',storage);assert.equal(rallyWasChosen(storage),true);rememberDestination('ridge',storage);assert.equal(rallyWasChosen(storage),false);
+  const denied={getItem(){throw Error('denied');},setItem(){throw Error('denied');},removeItem(){throw Error('denied');}};
+  assert.doesNotThrow(()=>rememberRallyOrigin(slingshot,denied));assert.equal(rallyReturnFragment(eventFragment,denied),eventFragment);assert.equal(rallyWasChosen(denied),false);
+});
+
+test('rally art resolves through the same JPEG lookups as the road courses',()=>{
+  assert.equal(artForSearch('?scene=rally&visual=ryker&mode=race'),'rally');assert.equal(artUrl('rally'),'/assets/game-feel/loading/rally.jpg');assert.equal(courseMap('rally'),'/assets/game-feel/maps/rally.jpg');
 });

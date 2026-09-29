@@ -22,8 +22,8 @@ try{
   await page.route(/\.js(?:\?|$)/,async route=>{await gate;await route.continue();});
   await page.goto(base+rally,{waitUntil:'commit'});
   await page.locator('#gx-boot').waitFor();
-  const art=await page.locator('#gx-boot').evaluate(async el=>{const art=el.style.getPropertyValue('--gx-art');const img=new Image();img.src='/assets/game-feel/loading/rally.png';await img.decode();return{art,width:img.naturalWidth,height:img.naturalHeight};});
-  assert.ok(art.art.includes('/assets/game-feel/loading/rally.png'));assert.ok(art.width>=1500);
+  const art=await page.locator('#gx-boot').evaluate(async el=>{const art=el.style.getPropertyValue('--gx-art');const img=new Image();img.src='/assets/game-feel/loading/rally.jpg';await img.decode();return{art,width:img.naturalWidth,height:img.naturalHeight};});
+  assert.ok(art.art.includes('/assets/game-feel/loading/rally.jpg'));assert.ok(art.width>=1500);
   await page.screenshot({path:out+'/loading.png'});release();await ready();await page.unroute(/\.js(?:\?|$)/);
   report.art=art;report.build=(await page.evaluate(()=>window.__EXPRESS.inspect())).build;
   report.checks.push('Packaged boot uses the generated Redstone transition plate');
@@ -66,7 +66,7 @@ try{
   await page.goto(base+'/?scene=signature&screen=events&visual=ryker&test=1&profile=1');await page.waitForFunction(()=>window.__SIGNATURE?.ready,null,{timeout:180000});
   await page.locator('[data-action=destination][data-value=rally]').click();
   const map=page.locator('img.gx-course-map');await map.evaluate(async img=>{await img.decode()});
-  assert.ok((await map.getAttribute('src')).endsWith('/assets/game-feel/maps/rally.png'));
+  assert.ok((await map.getAttribute('src')).endsWith('/assets/game-feel/maps/rally.jpg'));
   await page.mouse.move(0,0);await page.waitForTimeout(700);await page.screenshot({path:out+'/map-desktop.png'});
   await page.setViewportSize({width:390,height:844});await page.locator('.sig-selected-destination').scrollIntoViewIfNeeded();await page.screenshot({path:out+'/map-mobile.png'});
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));

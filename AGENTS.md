@@ -1,4 +1,13 @@
-# Ryker-exclusive Redstone Rally - current (2026-09-28)
+# Redstone Rally drift retune + consistency pass - current (2026-09-28)
+
+Read `handoff/RYKER-RALLY-CONSISTENCY.md`. Owner feedback: rally drift was too extreme and the new track should match
+the rest of the game. Rally drift v3 (`src/rally/tuning.ts` only) sits between the road layer and v2; records now
+compare within `redstone-rally-v3` and tests bound the tune from both sides. Redstone uses the shared event card,
+returns the player's own build after a supplied-Ryker entry, uses the shared HUD tokens, `raceTime` and record cue,
+and its art is JPEG through the shared lookups. Road handling, road drift, saves and records are unchanged.
+
+---
+# Ryker-exclusive Redstone Rally (2026-09-28)
 
 Read `handoff/RYKER-RALLY.md` and `handoff/RYKER-RALLY-POLISH.md`. The owner requested and authorized pushing a new dirt rally mode to main.
 Redstone is a separate 2.14 km Ryker stage with drift scoring, local records, untimed recce, new Blender
@@ -6,7 +15,7 @@ scenery, and physical dirt/gravel support. Enter through Race -> Redstone Rally.
 road destinations, handling profiles, career saves, and purchased-source boundaries. Editable original
 scenery is in `assets/blender/rally/`; its generator is `scripts/build-rally-scenery.py`.
 The follow-up adds generated map/loading art, shared race cinematics, calmer dirt camera motion and rally-only drift tuning.
-Revised records compare within `redstone-rally-v2`; earlier records stay stored. Validation and the separate
+Revised records compared within `redstone-rally-v2` (now v3, see above); earlier records stay stored. Validation and the separate
 normal-cadence/uncapped performance results are in the handoffs. Earlier headers below are history.
 
 ---
