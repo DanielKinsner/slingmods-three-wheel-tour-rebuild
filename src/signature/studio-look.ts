@@ -3,8 +3,9 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 /** These values are showroom-only. No racing renderer/material shares this rig. */
 export const STUDIO_LOOKS = {
-  studio: { exposure: .91, environment: .95, hemisphere: .55, key: 1.4, fill: .76, rim: 1.15, background: '#30373c', wallWash: 22 },
-  tour: { exposure: .91, environment: .95, hemisphere: .55, key: 1.4, fill: .76, rim: 1.15, background: '#30373c', wallWash: 22 },
+  // Room fill is low so the ceiling downlights (showroom-premium.ts) pool on the vehicle and the room falls off around it.
+  studio: { exposure: .95, environment: .95, hemisphere: .12, key: .7, fill: .28, rim: 1.0, background: '#15181c', wallWash: 22 },
+  tour: { exposure: .95, environment: .95, hemisphere: .12, key: .7, fill: .28, rim: 1.0, background: '#15181c', wallWash: 22 },
   lights: { exposure: .84, environment: .20, hemisphere: .23, key: .42, fill: .19, rim: .34, background: '#161d26', wallWash: 5 },
 } as const;
 export type StudioLook = keyof typeof STUDIO_LOOKS;

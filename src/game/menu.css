@@ -131,6 +131,8 @@ html.gx body .signature-ui{transition:opacity .45s}
  html.gx body .gx-menu-title{display:none}
  html.gx body .gx-tile{min-height:62px}html.gx body .gx-tile-hero{min-height:96px}
  html.gx body .tour-machine.gx-ride{display:none}
+ /* Every showroom screen, not only Home: at 84px the vehicle tabs sat on the wrapped phone navigation row. */
+ html.gx body .vehicle-appearance-picker{top:120px;left:16px}
  html.gx body .signature-ui[data-screen=entry] .vehicle-appearance-picker{position:absolute;right:auto;left:16px;bottom:auto;top:120px}
  html.gx body .gx-prompts{display:none}
 }

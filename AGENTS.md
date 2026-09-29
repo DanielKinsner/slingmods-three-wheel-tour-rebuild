@@ -1,4 +1,13 @@
-# Redstone Rally drift retune + consistency pass - current (2026-09-28)
+# Showroom premium finish - current (2026-09-28)
+
+Read `handoff/SHOWROOM-PREMIUM.md`. Owner chose to keep the shop recreated from their photos and give it a premium
+finish: vehicle-aimed spots instead of directional lights, a finished ceiling with an LED light frame and downlights,
+an epoxy coat with planar reflection on the checker floor (High/Ultra, reusing `WetReflection`), satin lift hardware,
+backlit signs and consistent UI scrims (`src/presentation/showroom-premium.ts`). Room geometry is unchanged. Also fixes
+the phone vehicle tabs colliding with navigation on non-Home screens. The rally work below is pushed.
+
+---
+# Redstone Rally drift retune + consistency pass (2026-09-28)
 
 Read `handoff/RYKER-RALLY-CONSISTENCY.md`. Owner feedback: rally drift was too extreme and the new track should match
 the rest of the game. Rally drift v3 (`src/rally/tuning.ts` only) sits between the road layer and v2; records now

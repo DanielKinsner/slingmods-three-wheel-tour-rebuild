@@ -80,3 +80,7 @@ body.career-garage:has(.vehicle-appearance-picker) #chapter-panel,body.career-ga
 .sig-header .sig-navigation{top:18px}
 @media(max-width:760px){.sig-header .sig-navigation{top:58px}.career-shell .sig-header .sig-navigation{top:56px}}
 .rally-entry-note{font-size:12px;line-height:1.7;color:var(--sig-muted,#bbb)}
+/* Cinematic edge scrims over the 3D room: the header rows and footer hints always sit on the same dark edge, whatever scenery a camera preset puts behind them. */
+html.gx body.signature-showroom #viewport::before,html.gx body.signature-showroom #viewport::after{content:'';position:fixed;left:0;right:0;z-index:1;pointer-events:none}
+html.gx body.signature-showroom #viewport::before{top:0;height:175px;background:linear-gradient(180deg,#07080aeb 0%,#07080ad6 52%,#07080a00 100%)}
+html.gx body.signature-showroom #viewport::after{bottom:0;height:120px;background:linear-gradient(0deg,#07080a99 0%,#07080a00 100%)}

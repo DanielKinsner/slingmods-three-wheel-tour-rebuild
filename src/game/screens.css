@@ -136,6 +136,7 @@ html.gx body .signature-ui[data-gx-entering] .sig-shop{animation:gx-slide .5s va
 
 @media (max-width:1100px){html.gx body .sig-destination-info{grid-template-columns:1fr;margin-top:-60px}}
 @media (max-width:760px){
+ html.gx body .sig-shop{top:calc(var(--sig-top) + 18px)}/* level with the garage panel, below the vehicle tabs */
  html.gx body .signature-ui{--sig-top:150px}
  html.gx body .sig-events{inset:150px 16px 16px;grid-template-columns:1fr}
  html.gx body .sig-destination-info{margin-top:0;padding:0}
