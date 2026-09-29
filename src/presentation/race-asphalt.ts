@@ -34,8 +34,11 @@ const WET_FIELD=`#include <map_fragment>
 	diffuseColor.rgb*=mix(1.,.5,damp)*mix(1.,.7,puddle);`;
 const WET_REFLECTION=`if(wetPlanar>.5){
 		vec4 wetClip=wetReflectionMatrix*vec4(vWetWorld,1.);vec2 wetUv=wetClip.xy/wetClip.w+normal.xy*.012*(1.-puddle);
-		vec4 mirrored=texture2D(wetReflection,clamp(wetUv,vec2(.002),vec2(.998)));
-		float grazing=pow(1.-saturate(dot(normalize(vViewPosition),normal)),4.),shine=(puddle+damp*.07)*mix(.2,1.,grazing);
+		// Wet asphalt smears lights into vertical streaks towards the viewer; standing water stays near-mirror (graphics pass 2).
+		vec2 wetStep=vec2(0.,mix(wetStreak,wetStreak*.18,puddle));vec4 mirrored=vec4(0.);float wetWeight=0.;
+		for(int i=0;i<5;i++){float t=float(i)-2.5;float w=exp(-t*t*.28);mirrored+=texture2D(wetReflection,clamp(wetUv+wetStep*t,vec2(.002),vec2(.998)))*w;wetWeight+=w;}
+		mirrored/=wetWeight;
+		float grazing=pow(1.-saturate(dot(normalize(vViewPosition),normal)),4.),shine=(puddle+damp*wetDampShine)*mix(.2,1.,grazing);
 		// Reflected objects hide the sky glint behind them, then add their own light.
 		outgoingLight=outgoingLight*(1.-mirrored.a*shine*.65)+mirrored.rgb*shine;
 	}
@@ -45,12 +48,12 @@ export async function loadRaceAsphalt(renderer:THREE.WebGLRenderer,uvMetres:numb
  for(const t of[map,normalMap,orm])t.repeat.setScalar(uvMetres/TILE);
  const material=new THREE.MeshStandardMaterial({name:'P11_race_asphalt',map,normalMap,normalScale:new THREE.Vector2(.9,-.9),roughnessMap:orm,aoMap:orm,aoMapIntensity:.6,roughness:1,metalness:0,vertexColors:!!options.vertexColors});
  const wet:WetRoadUniforms={wetness:{value:options.wet?1:0},puddleMask:{value:puddles},puddleTile:{value:22},reflection:{value:null},reflectionMatrix:{value:new THREE.Matrix4()},planar:{value:0}};
- const uniforms={detailNormalMap:{value:detail},detailRepeat:{value:TILE/DETAIL_TILE},detailStrength:{value:.55},wetness:wet.wetness,puddleMask:wet.puddleMask,puddleTile:wet.puddleTile,wetReflection:wet.reflection,wetReflectionMatrix:wet.reflectionMatrix,wetPlanar:wet.planar};
+ const uniforms={detailNormalMap:{value:detail},detailRepeat:{value:TILE/DETAIL_TILE},detailStrength:{value:.55},wetness:wet.wetness,puddleMask:wet.puddleMask,puddleTile:wet.puddleTile,wetReflection:wet.reflection,wetReflectionMatrix:wet.reflectionMatrix,wetPlanar:wet.planar,wetStreak:{value:.07},wetDampShine:{value:.3}};
  material.onBeforeCompile=shader=>{Object.assign(shader.uniforms,uniforms);
   let fragment=shader.fragmentShader.replace('vec3 mapN = texture2D( normalMap, vNormalMapUv ).xyz * 2.0 - 1.0;',DETAIL_NORMAL+(options.wet?'\n\tmapN = normalize( vec3( mapN.xy * ( 1.0 - puddle * .96 ), mapN.z ) ); // standing water is flat':''));
   if(options.wet){
    shader.vertexShader='varying vec3 vWetWorld;\n'+shader.vertexShader.replace('#include <project_vertex>','#include <project_vertex>\n\tvWetWorld=(modelMatrix*vec4(transformed,1.0)).xyz;');
-   fragment='varying vec3 vWetWorld;uniform float wetness;uniform sampler2D puddleMask;uniform float puddleTile;uniform sampler2D wetReflection;uniform mat4 wetReflectionMatrix;uniform float wetPlanar;\n'+fragment.replace('#include <map_fragment>',WET_FIELD).replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n\troughnessFactor=mix(mix(roughnessFactor,.46,damp),.05,puddle);').replace('#include <opaque_fragment>',WET_REFLECTION);
+   fragment='varying vec3 vWetWorld;uniform float wetness;uniform sampler2D puddleMask;uniform float puddleTile;uniform sampler2D wetReflection;uniform mat4 wetReflectionMatrix;uniform float wetPlanar;uniform float wetStreak;uniform float wetDampShine;\n'+fragment.replace('#include <map_fragment>',WET_FIELD).replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n\troughnessFactor=mix(mix(roughnessFactor,.46,damp),.05,puddle);').replace('#include <opaque_fragment>',WET_REFLECTION);
   }
   shader.fragmentShader='uniform sampler2D detailNormalMap;uniform float detailRepeat;uniform float detailStrength;\n'+fragment};
  material.customProgramCacheKey=()=>'p11-race-asphalt-detail'+(options.wet?'-wet':'');

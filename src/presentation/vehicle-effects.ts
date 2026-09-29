@@ -8,6 +8,7 @@ import {GRAPHICS_PRESETS,type GraphicsQuality} from './graphics-settings';
 import {loadKTX2} from './ktx2';
 import {EFFECT_SPRITES,effectAssetURLs} from './effect-assets';
 import {VehicleEffectState,tireActivity,skidActivity} from './vehicle-effect-state';
+import {SprayPool} from './wet-spray';
 
 const UP=new THREE.Vector3(0,1,0),ONE=new THREE.Vector3(1,1,1),RING_Q=new THREE.Quaternion().setFromAxisAngle(UP,Math.PI/2);
 const PARTICLE_ATTRIBUTES=['position','aBirth','aLife','aSize'] as const;
@@ -15,9 +16,6 @@ const VERTEX=`attribute float aBirth;attribute float aLife;attribute float aSize
 void main(){age=max(0.,time-aBirth);life=aLife;vec4 p=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*p;gl_PointSize=(age<aLife&&aLife>0.)?clamp(aSize*pixels/max(1.,-p.z),1.,220.):0.;}`;
 const FRAGMENT=`uniform sampler2D atlas;uniform float ready;uniform float frames;uniform float fps;uniform float kind;uniform vec3 tint;uniform float opacity;varying float age;varying float life;
 void main(){if(age>=life||life<=0.)discard;vec2 uv=vec2(gl_PointCoord.x,1.-gl_PointCoord.y);float frame=min(frames-1.,floor(age*fps));vec2 cell=vec2(mod(frame,8.),floor(frame/8.));vec4 s=ready>.5?texture2D(atlas,(cell+clamp(uv,vec2(.002),vec2(.998)))/8.):vec4(1.,1.,1.,pow(max(0.,1.-length(uv-.5)*2.),2.));
-// The authored spray atlas supplies breakup inside a soft mist envelope. Its
-// radial spikes must not read as bright snowflakes behind the tires.
-if(kind==3.){vec2 p=uv-.5;float mist=pow(max(0.,1.-length(p*vec2(1.3,1.))*2.),3.);float drop=exp(-p.x*p.x*1600.-p.y*p.y*70.);s=vec4(vec3(.85),(.22*mist+.05*drop)*(.65+.35*s.a));}
 float fade=smoothstep(0.,.08,age)*(1.-smoothstep(life*.55,life,age));gl_FragColor=vec4(s.rgb*tint,s.a*fade*opacity);if(gl_FragColor.a<.008)discard;
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
@@ -69,7 +67,7 @@ export type ContactReader=(id:string,point:THREE.Vector3)=>boolean;
 /** All road modes share this telemetry-only presentation. Simulation time freezes effects on pause. */
 export class VehicleEffects {
  readonly group=new THREE.Group();readonly heatHaze=new THREE.Vector4();readonly skids=new SkidBuffer();
- private pools=EFFECT_SPRITES.map((_,i)=>new ParticlePool(i));private textures:THREE.Texture[]=[];private disposed=false;
+ private pools=EFFECT_SPRITES.map((_,i)=>i===3?new SprayPool():new ParticlePool(i));private textures:THREE.Texture[]=[];private disposed=false;
  private cars:{spec:EffectCar;ryker:boolean;spyder:boolean;state:VehicleEffectState;lastTime:number;lastSpeed:number;anchors:THREE.Vector3[];marking:boolean[];budget:Float32Array;contactBudget:number;outlets:THREE.Vector3[]}[];
  private q=new THREE.Quaternion();private steering=new THREE.Quaternion();private p=new THREE.Vector3();private v=new THREE.Vector3();private point=new THREE.Vector3();private matrix=new THREE.Matrix4();private time=0;
  private glow:THREE.InstancedMesh;private cones:THREE.InstancedMesh;private heat:THREE.InstancedBufferAttribute;private loaded=0;private skipped=0;private quality:GraphicsQuality='high';private reduced=false;
@@ -92,6 +90,8 @@ export class VehicleEffects {
  /** Drift boost (arcade layer): the exhaust outlets spit flame for the boost's duration. */
  boostFlame(id:string,seconds:number){this.boosting.set(id,this.time+seconds)}
  scrapeSparks(point:THREE.Vector3,velocity:THREE.Vector3){if(!this.enabled||this.reduced||!this.group.visible)return;const pool=this.pools[EFFECT_SPRITES.indexOf('brake-scrape-sparks')];if(!pool)return;for(let i=0;i<3;i++){this.v.copy(velocity).multiplyScalar(.75).add(this.p.set(Math.random()*2-1,Math.random()*1.4+.3,Math.random()*2-1));pool.emit(point,this.v,this.time,.22+Math.random()*.12,.35+Math.random()*.2)}}
+ /** Wet spray takes the route's haze colour as its light (graphics pass 2). */
+ setSprayLight(color:THREE.Color){(this.pools[3] as SprayPool).setLight(color)}
  /** Compile all pooled materials behind the existing loading veil, before their first burst. */
  prepare(){if(!this.enabled)return;this.group.visible=true;for(const pool of this.pools)pool.points.visible=true;this.glow.visible=true;this.cones.visible=true}
  update(field:Record<string,VehicleTelemetry>,camera:THREE.PerspectiveCamera,pixels:number,quality:GraphicsQuality,wet:boolean,lamps:boolean,reduced:boolean,reset=false){
@@ -117,7 +117,7 @@ export class VehicleEffects {
    }
    const impact=!restart&&c.lastSpeed-speed>3;c.lastSpeed=speed;
    if(dt>0&&rate>0&&(speed>3||impact)){c.contactBudget+=dt;if(c.contactBudget>.075||impact){c.contactBudget=0;if(this.readContact(c.spec.id,this.point)){this.v.set(-t.velocity.x*.08,.7,-t.velocity.z*.08);this.pools[4].emit(this.point,this.v,this.time,.6,.45)}}}
-   if((c.state.flame||(this.boosting.get(c.spec.id)??-1)>this.time)&&rate>0)for(const outlet of c.outlets){this.point.copy(outlet).applyQuaternion(this.q).add(t.position);this.v.set(0,.03,.7).applyQuaternion(this.q);this.pools[5].emit(this.point,this.v,this.time,.35,.4)}
+   if((c.state.flame||(this.boosting.get(c.spec.id)??-1)>this.time)&&rate>0)for(const outlet of c.outlets){this.point.copy(outlet).applyQuaternion(this.q).add(t.position);this.v.set(0,.03,.7).applyQuaternion(this.q).addScaledVector(this.p.set(t.velocity.x,t.velocity.y,t.velocity.z),.9);this.pools[5].emit(this.point,this.v,this.time,.35,.4)}
    for(let side=0;side<2;side++){this.point.set((side?1:-1)*(c.spyder?.157:ryker?.10:.58),c.spyder?.813:ryker?.7:.55,c.spyder?-.90:ryker?-.65:-1.6).applyQuaternion(this.q).add(t.position);this.matrix.compose(this.point,this.q,ONE);this.cones.setMatrixAt(ci*2+side,this.matrix)}
    if(!rival&&c.spec.exhaust&&!reduced&&preset.exhaustShimmer&&density>0&&t.rpm>2200){this.point.copy(c.outlets[0]);if(!ryker)this.point.x=0;this.point.y+=.12;this.point.z+=.35;this.point.applyQuaternion(this.q).add(t.position);this.p.copy(this.point).project(camera);if(this.p.z>0&&this.p.z<1){const size=.7/Math.max(2,camera.position.distanceTo(this.point));this.heatHaze.set(this.p.x*.5+.5,this.p.y*.5+.5,size,Math.min(1,(t.rpm-2200)/4000))}}
   }

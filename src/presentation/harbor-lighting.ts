@@ -6,6 +6,9 @@ import type {GroundLight,GroundLamp} from './ground-light';
 import type {GraphicsQuality} from './graphics-settings';
 export type LightPreset='day'|'night';
 export type HarborLightingRoute={lamps:{position:number[];target:number[]}[]};
+/** Headlight road pools (ground-light.ts): dry, sunless roads only. At dusk the sky still lights the road, and on wet
+ *  asphalt a matte pool reads as a grey floodlit patch (the wet road's streaked reflections carry the lights instead). */
+export const headlightPoolStrength=(night:boolean,look?:Pick<Look,'sun'|'wet'>)=>night&&!look?.sun&&!look?.wet?1.1:0;
 /** Two stock beams, one bounded shadow map, and at most four nearby nonshadow harbor practicals. */
 export function harborLighting(scene:THREE.Scene,car:THREE.Object3D,route:HarborLightingRoute,preset:LightPreset,quality:'standard'|'low',look?:Look,ground?:{light:GroundLight;roots:readonly THREE.Object3D[]}){
  const night=preset==='night',sky=new THREE.Color(night?'#3e4857':'#b9cbd6');scene.fog=new THREE.Fog(sky,night?240:400,night?900:1400);
@@ -17,7 +20,7 @@ export function harborLighting(scene:THREE.Scene,car:THREE.Object3D,route:Harbor
  const spyder=!!car.getObjectByName('spyder_foundation');
  const beams=(spyder?[-.157,.157]:[bounds.min.x+.025,bounds.max.x-.025]).map(x=>{const light=new THREE.SpotLight(0xe9f3ff,night?180:0,85,.34,.7,2);light.position.set(x,spyder?.813:middle.y,spyder?-.90:bounds.min.z-.04);light.target.position.set(x*.7,-1.0,-32);car.add(light,light.target);return light});
  // Ground light: the beams' road pools for every car at night (the spots themselves barely reach a matte road).
- ground?.light.setPools(0xe9f3ff,night&&!look?.sun?1.1:0);/* Only with no sun: at dusk the sky still lights the road, and a matte pool greys out wet asphalt. */const lampLocal:{p:THREE.Vector3;d:THREE.Vector3}[]=[],lamps:GroundLamp[]=[],pose=new THREE.Matrix4();
+ ground?.light.setPools(0xe9f3ff,headlightPoolStrength(night,look));const lampLocal:{p:THREE.Vector3;d:THREE.Vector3}[]=[],lamps:GroundLamp[]=[],pose=new THREE.Matrix4();
  const syncGround=()=>{if(!ground)return;const roots=ground.roots;
   if(night&&!lampLocal.length&&roots.length){const inv=pose.compose(roots[0].position,roots[0].quaternion,roots[0].scale).clone().invert();for(const beam of beams){const p=beam.getWorldPosition(new THREE.Vector3()),d=beam.target.getWorldPosition(new THREE.Vector3()).sub(p);lampLocal.push({p:p.applyMatrix4(inv),d:d.transformDirection(inv)})}for(let i=0;i<roots.length*lampLocal.length;i++)lamps.push({position:new THREE.Vector3(),direction:new THREE.Vector3()})}
   let k=0;for(const r of roots){pose.compose(r.position,r.quaternion,r.scale);for(const l of lampLocal){const lamp=lamps[k++];lamp.position.copy(l.p).applyMatrix4(pose);lamp.direction.copy(l.d).transformDirection(pose)}}
