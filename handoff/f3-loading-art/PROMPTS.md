@@ -1,0 +1,16 @@
+# F3 loading artwork
+
+Generated using the built-in image_gen tool on 2026-09-29. Both images use the previous runtime garage-spyder.jpg as the vehicle identity reference. PNG originals retained; runtime JPEG encoded at quality 90 without resizing.
+
+## Premium garage (installed)
+
+Use case: compositing
+Asset type: production background artwork for a Can-Am Spyder F3 game loading screen, widescreen 16:9, 2560x1440 or higher.
+Input image: exact vehicle identity reference. Create a premium photorealistic automotive advertising image of THIS orange and white Can-Am Spyder F3 reverse trike in a beautiful custom motorcycle workshop. Preserve its recognizable bodywork, broad orange nose with white central stripe, low horizontal black grille, white separate front fenders, black upper fairing, two front wheels and single rear wheel, exposed orange front suspension, saddle and handlebars. Exactly one vehicle. No rider. Correct realistic tire tread and engineering.
+Scene: dark premium workshop, charcoal cabinetry, subtle red vertical light strips, subdued checker tile floor with satin epoxy reflections, warm overhead strip lighting, restrained cinematic haze and depth. Vehicle three-quarter front view at the RIGHT two-thirds, complete vehicle in frame, front pointing slightly toward viewer and left. Camera low enough to feel powerful but see saddle/handlebars. Left 32% is quiet dark negative space for the game's text overlay. Vehicle fits inside x=35%-94%, y=16%-86% so cropping on wider screens is safe. Deep glossy orange lacquer, clean white paint, richly detailed black materials; sharp wheels, physical contact shadows. A premium racing-game key art photograph, not a grey catalog rendering. The image itself should contain NO typography, logos added to scene, UI, watermarks, borders, progress bars or text. Maintain believable F3 proportions and motorcycle seating; no car cockpit, no Ryker substitution.
+
+## Mountain dusk (alternate)
+
+Use case: compositing
+Asset type: alternative game loading screen background, wide 16:9 premium automotive photograph.
+Input image is the exact orange/white Can-Am Spyder F3 reverse trike to preserve, including original nose profile, white center stripe, black upper fairing, white fenders, orange suspension, saddle, handlebars, two front wheels and ONE rear wheel. Create a new scene of this one vehicle parked on a scenic mountain road overlook at blue-hour dusk, distant winding asphalt and layered mountains, soft amber sunset at horizon, dark graphite foreground asphalt with subtle texture. No people. The vehicle sits on the right 65 percent, front three-quarter view, complete silhouette and wheels visible, crisp orange/white paint and realistic metal/rubber. Controlled warm rim light and soft cool sky fill keep the whole vehicle readable. Leave left 32 percent quiet, dark and mostly empty for loading-screen typography. Keep vehicle within x=35%-94% and y=17%-84% with generous margin for ultrawide crops. Premium grounded photorealistic racing-game key art, cinematic atmosphere with natural colors. No typography, no UI, no progress bars, no graphic frame, no watermark. Vehicle geometry and orange/white design match the reference, never substitute a car or a Ryker.
