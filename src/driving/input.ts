@@ -24,6 +24,8 @@ export class InputResolver {
  private prior=new Map<string,Intent>();private activity=new Map<string,Intent>();private readyPads=new Set<string>();private connected=new Set<string>();private holdStart:number|undefined;private holdLatched=false;private baselineNext=false;private lastNow=0;private holdNotBefore=0;
  suspend(){this.directionReleased=false;this.holdNotBefore=this.lastNow;this.paused=true;this.armed=false;this.holdStart=undefined;this.holdLatched=false;this.baselineNext=true}
  disconnect(){this.readyPads.clear();this.connected.clear();this.prior.clear();this.activity.clear();this.suspend()}
+ /** Reset-button hold progress 0-1 (the 1 s hold that respawns), for the recovery card's ring. */
+ get resetHold(){return this.holdStart===undefined||this.holdLatched?0:Math.min(1,Math.max(0,(this.lastNow-this.holdStart)/INPUT_TUNING.resetHoldMs))}
  reset(){this.directionReleased=false;this.automaticReverse=false;this.holdNotBefore=this.lastNow;this.reverse=false;this.armed=false;this.holdStart=undefined;this.holdLatched=true}
  poll(now:number,sample:DeviceSample,signedSpeed=0){
   this.signedSpeed=Number.isFinite(signedSpeed)?signedSpeed:0;

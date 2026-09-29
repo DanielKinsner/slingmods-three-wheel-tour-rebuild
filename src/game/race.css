@@ -479,3 +479,29 @@ body.gx-gymkhana-mode .race-course-title,body.gx-gymkhana-mode .race-timing{visi
 .gx-zone{position:fixed;right:var(--gx-edge-x,32px);top:226px;z-index:30;display:grid;justify-items:end;text-align:right;gap:3px;padding:8px 14px;background:var(--gx-glass);border-right:3px solid #b46bff;backdrop-filter:blur(6px);pointer-events:none}.gx-zone[hidden]{display:none}
 .gx-zone span{font:800 10px/1 var(--gx-body);letter-spacing:.22em;color:#cfa6ff}.gx-zone b{font:italic 900 30px/1 var(--gx-display);color:var(--gx-ink);font-variant-numeric:tabular-nums}.gx-zone small{font:700 11px/1 var(--gx-body);letter-spacing:.1em;text-transform:uppercase;color:var(--gx-mute)}
 .gx-zone.is-banked b{color:#cfa6ff}.gx-zone.is-banked small{color:var(--gx-good)}body.race-film-active .gx-zone,body.gx-photo .gx-zone{display:none}
+/* Crew recovery card (feel pass): the stuck-car prompt as a crew moment in the game's own style. --gx-hold fills the ring while the reset button is held. */
+.gx-recovery{--gx-hold:0;position:fixed;left:50%;top:17%;z-index:11000;width:min(460px,92vw);transform:translateX(-50%);display:grid;gap:12px;padding:16px 18px 14px;box-sizing:border-box;background:var(--gx-glass-2);backdrop-filter:blur(12px);box-shadow:inset 0 3px 0 var(--gx-red),0 18px 50px #000a;color:var(--gx-ink);font:500 14px/1.4 var(--gx-body)}
+.gx-recovery:not([hidden]){animation:gx-recovery-in .5s var(--gx-snap) both}
+.gx-recovery-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.gx-recovery-tag{font:800 11px/1 var(--gx-body);letter-spacing:.3em;color:var(--gx-red)}
+.gx-recovery-reason{display:inline-block;font:italic 800 40px/.9 var(--gx-display);font-synthesis:style;letter-spacing:.02em;transform:skewX(var(--gx-rake));text-shadow:0 4px 18px #000}
+.gx-recovery:not([hidden]) .gx-recovery-reason{animation:gx-recovery-stamp .45s .1s var(--gx-snap) both}
+.gx-recovery-radio{display:flex;align-items:center;gap:10px;padding:6px 12px 6px 6px;background:#0009;box-shadow:inset 3px 0 0 var(--gx-crew,#ff3b2f)}
+.gx-recovery-radio img{width:46px;height:46px;object-fit:cover;flex:none}
+.gx-recovery-radio p{margin:0;flex:1;min-width:0}
+.gx-recovery-radio b{display:block;margin-bottom:2px;font:italic 800 16px/1 var(--gx-display);font-synthesis:style;letter-spacing:.06em;color:var(--gx-crew,#ff3b2f)}
+.gx-recovery-eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.gx-recovery-eq s{width:3px;height:100%;background:var(--gx-crew,#ff3b2f);animation:gx-radio-eq .5s steps(3) infinite}
+.gx-recovery-eq s:nth-child(2){animation-delay:.12s}.gx-recovery-eq s:nth-child(3){animation-delay:.24s}
+.gx-recovery-go{display:flex;align-items:center;gap:14px;min-height:0;padding:8px 18px 8px 8px;border:0;background:var(--gx-red);color:#fff;cursor:pointer;transform:skewX(var(--gx-rake));box-shadow:0 8px 24px #ff3b2f55;transition:filter .15s}
+.gx-recovery-go:hover,.gx-recovery-go:focus-visible{filter:brightness(1.12);outline:0}
+.gx-recovery-go>*{transform:skewX(calc(-1*var(--gx-rake)))}
+.gx-recovery-ring{position:relative;display:grid;place-items:center;width:44px;height:44px;flex:none}
+.gx-recovery-ring::before{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(#fff calc(var(--gx-hold)*360deg),#ffffff38 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 4.5px));mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 4.5px))}
+.gx-recovery-go-label{font:italic 800 24px/1 var(--gx-display);font-synthesis:style;letter-spacing:.04em}
+.gx-recovery-go small{margin-left:auto;padding-left:12px;font:800 10px/1 var(--gx-body);letter-spacing:.22em;opacity:.85}
+.gx-recovery-rule{margin:0;font-size:12px;line-height:1.4;color:var(--gx-ink-2)}
+@keyframes gx-recovery-in{0%{opacity:0;transform:translateX(-50%) translateY(-22px) scale(.94)}60%{opacity:1;transform:translateX(-50%) translateY(3px) scale(1.01)}100%{opacity:1;transform:translateX(-50%)}}
+@keyframes gx-recovery-stamp{0%{opacity:0;transform:skewX(var(--gx-rake)) scale(1.6)}70%{opacity:1;transform:skewX(var(--gx-rake)) scale(.96)}100%{opacity:1;transform:skewX(var(--gx-rake)) scale(1)}}
+@media (max-width:520px){.gx-recovery{top:12%;padding:12px}.gx-recovery-reason{font-size:30px}.gx-recovery-go-label{font-size:20px}.gx-recovery-go small{display:none}}
+@media (prefers-reduced-motion:reduce){.gx-recovery:not([hidden]),.gx-recovery:not([hidden]) .gx-recovery-reason,.gx-recovery-eq s{animation:none}}
