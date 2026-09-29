@@ -27,8 +27,32 @@ export class SignatureFinishPresenter {
     changed=true;const lacquered=m instanceof THREE.MeshPhysicalMaterial,c=options.studio&&!lacquered?new THREE.MeshPhysicalMaterial():m.clone();if(options.studio){const physical=c as THREE.MeshPhysicalMaterial;if(!lacquered){THREE.MeshStandardMaterial.prototype.copy.call(c,m);physical.defines={STANDARD:'',PHYSICAL:''}}physical.metalness=Math.min(m.metalness,.18);physical.clearcoat=.7;physical.clearcoatRoughness=.16;physical.envMapIntensity=1.05}this.materials.push({material:c,map:m.map,color:m.color.clone(),roughness:m.roughness,roughnessMap:m.roughnessMap,node:o.name,role:decal?'decal':paint?'paint':'accent'});return c;
    });if(changed){o.material=Array.isArray(original)?owned:owned[0];this.slots.push({mesh:o,original,owned:o.material})}
   });
+  if(options.studio&&semantic)for(const s of this.materials)if(s.role!=='decal')this.addWipe(s.material);
  }
- async set(finish:SignatureFinish){
+ /** Showroom paint change (feel pass): a wipe along the car, old colour ahead of the line, new behind it, a soft bright
+  *  spray line on the edge. The code is in the shader from construction, so it compiles behind the loading veil with the
+  *  other finish variants; a change only moves uniforms. Paint and accent colours only (decals switch at once). */
+ private wipe={finishWipe:{value:new THREE.Vector4(0,0,1,1e9)},finishWipeOn:{value:0}};private oldColors=new Map<THREE.MeshStandardMaterial,{value:THREE.Color}>();private wipeFrame=0;
+ private addWipe(m:THREE.MeshStandardMaterial){
+  const old={value:m.color.clone()};this.oldColors.set(m,old);const compile=m.onBeforeCompile,key=m.customProgramCacheKey.call(m);
+  m.onBeforeCompile=(shader,renderer)=>{compile.call(m,shader,renderer);if(!shader.fragmentShader.includes('vec4 diffuseColor = vec4( diffuse, opacity );')||!shader.vertexShader.includes('#include <project_vertex>'))return;
+   Object.assign(shader.uniforms,this.wipe,{finishOld:old});
+   shader.vertexShader=`varying vec3 vFinishWorld;
+`+shader.vertexShader.replace('#include <project_vertex>',`#include <project_vertex>
+	vFinishWorld=(modelMatrix*vec4(transformed,1.)).xyz;`);
+   shader.fragmentShader=`varying vec3 vFinishWorld;uniform vec4 finishWipe;uniform float finishWipeOn;uniform vec3 finishOld;
+`+shader.fragmentShader.replace('vec4 diffuseColor = vec4( diffuse, opacity );','float finishD=dot(vFinishWorld,finishWipe.xyz)-finishWipe.w;vec4 diffuseColor=vec4(mix(diffuse,finishOld,finishWipeOn*smoothstep(-.012,.012,finishD)),opacity);').replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
+	totalEmissiveRadiance+=vec3(1.,.97,.92)*1.6*finishWipeOn*exp(-finishD*finishD*900.);`);
+  };
+  m.customProgramCacheKey=()=>key+'|finish-wipe-v1';m.needsUpdate=true;
+ }
+ private startWipe(){
+  const car=this.car;car.updateWorldMatrix(true,true);const axis=new THREE.Vector3(0,0,1).applyQuaternion(car.getWorldQuaternion(new THREE.Quaternion())).normalize(),box=new THREE.Box3().setFromObject(car);let lo=Infinity,hi=-Infinity;
+  for(const x of[box.min.x,box.max.x])for(const y of[box.min.y,box.max.y])for(const z of[box.min.z,box.max.z]){const d=axis.x*x+axis.y*y+axis.z*z;lo=Math.min(lo,d);hi=Math.max(hi,d)}
+  const start=performance.now(),frame=++this.wipeFrame;this.wipe.finishWipe.value.set(axis.x,axis.y,axis.z,lo-.1);this.wipe.finishWipeOn.value=1;
+  const step=()=>{if(frame!==this.wipeFrame||this.dead)return;const t=Math.min(1,(performance.now()-start)/750),u=t<.5?2*t*t:1-(-2*t+2)**2/2;this.wipe.finishWipe.value.w=lo-.1+(hi-lo+.2)*u;if(t<1)requestAnimationFrame(step);else this.wipe.finishWipeOn.value=0};requestAnimationFrame(step);
+ }
+ async set(finish:SignatureFinish,wipe=false){
   if(!['blue-orange','black-red','white-graphite','graphite-red'].includes(finish))throw Error('Unknown finish');const ticket=++this.generation;
   let texture:THREE.Texture|undefined;
   if(finish!=='blue-orange'&&this.materials.some(s=>s.role==='paint'&&!materialRole(s.material)&&!/^(Josh_|Model02_)/.test(s.material.name))){
@@ -40,8 +64,8 @@ export class SignatureFinishPresenter {
    if(!map){map=await new THREE.TextureLoader().loadAsync('/assets/model02/'+key+'.png');map.colorSpace=THREE.SRGBColorSpace;map.flipY=false;map.anisotropy=4;if(this.dead){map.dispose();return}const prior=this.textures.get(key);if(prior){map.dispose();map=prior}else this.textures.set(key,map)}
    decals.set(part,map);
   }
-  if(this.dead||ticket!==this.generation)return;this.current=finish;
-  for(const s of this.materials){const m=s.material;if(s.role==='decal'){m.map=finish==='blue-orange'?s.map:decals.get(m.userData.decalPart??m.name.replace('Model02_AccentDecal_',''))!;m.color.set(0xffffff);m.roughness=s.roughness}else if(materialRole(m)||/^(Josh_|Model02_)/.test(m.name)){m.map=s.map;m.color.set((isRyker(this.car)||!!this.car.getObjectByName('spyder_foundation'))&&finish==='blue-orange'?s.color:s.role==='accent'?SIGNATURE_ACCENTS[finish]:{'blue-orange':'#126cb5','black-red':'#14191f','white-graphite':'#e8e9e7','graphite-red':'#535a61'}[finish]);m.roughness=finish==='graphite-red'?.44:.26}else if(finish==='blue-orange'){m.map=s.map;m.color.copy(s.color);m.roughness=s.roughness}else if(s.role==='paint'){m.map=texture!;m.color.set(0xffffff);m.roughness=finish==='graphite-red'?.44:finish==='white-graphite'?.24:.19}else{m.color.set(SIGNATURE_ACCENTS[finish]);m.map=null}if(this.options.studio){const physical=m as THREE.MeshPhysicalMaterial;physical.roughnessMap=finish==='graphite-red'?null:s.roughnessMap;physical.roughness=finish==='graphite-red'?.48:s.roughnessMap?1:finish==='white-graphite'?.28:.24;physical.clearcoat=finish==='graphite-red'?.12:.7;physical.clearcoatRoughness=finish==='graphite-red'?.42:.16}m.needsUpdate=true}
+  if(this.dead||ticket!==this.generation)return;this.current=finish;for(const [m,old] of this.oldColors)old.value.copy(m.color);
+  for(const s of this.materials){const m=s.material;if(s.role==='decal'){m.map=finish==='blue-orange'?s.map:decals.get(m.userData.decalPart??m.name.replace('Model02_AccentDecal_',''))!;m.color.set(0xffffff);m.roughness=s.roughness}else if(materialRole(m)||/^(Josh_|Model02_)/.test(m.name)){m.map=s.map;m.color.set((isRyker(this.car)||!!this.car.getObjectByName('spyder_foundation'))&&finish==='blue-orange'?s.color:s.role==='accent'?SIGNATURE_ACCENTS[finish]:{'blue-orange':'#126cb5','black-red':'#14191f','white-graphite':'#e8e9e7','graphite-red':'#535a61'}[finish]);m.roughness=finish==='graphite-red'?.44:.26}else if(finish==='blue-orange'){m.map=s.map;m.color.copy(s.color);m.roughness=s.roughness}else if(s.role==='paint'){m.map=texture!;m.color.set(0xffffff);m.roughness=finish==='graphite-red'?.44:finish==='white-graphite'?.24:.19}else{m.color.set(SIGNATURE_ACCENTS[finish]);m.map=null}if(this.options.studio){const physical=m as THREE.MeshPhysicalMaterial;physical.roughnessMap=finish==='graphite-red'?null:s.roughnessMap;physical.roughness=finish==='graphite-red'?.48:s.roughnessMap?1:finish==='white-graphite'?.28:.24;physical.clearcoat=finish==='graphite-red'?.12:.7;physical.clearcoatRoughness=finish==='graphite-red'?.42:.16}m.needsUpdate=true}if(wipe&&this.oldColors.size)this.startWipe();
  }
  inspect(){return{finish:this.current,accent:SIGNATURE_ACCENTS[this.current],paintedSurfaces:this.materials.filter(s=>s.role==='paint').map(s=>({node:s.node,color:s.material.color.getHexString()})),paintedAccents:this.materials.filter(s=>s.role==='accent').map(s=>({node:s.node,color:s.material.color.getHexString()})),isolatedMaterialSlots:this.materials.length,mask:'Paint atlas and explicitly painted body/rear-arm accents only; rubber/seats/glass/lamps/metals/shock springs unchanged',textureCount:this.textures.size}}
  dispose(){if(this.dead)return;this.dead=true;this.generation++;for(const s of this.slots)s.mesh.material=s.original;for(const s of this.materials)s.material.dispose();this.textures.forEach(t=>t.dispose());this.textures.clear()}
