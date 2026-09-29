@@ -1,13 +1,14 @@
-# Graphics passes 1-3: 1-2 on main, 3 local (2026-09-29)
+# Feel pass (local) + graphics passes 1-3 (on main) (2026-09-29)
 
-Read `handoff/GRAPHICS-AUDIT.md` (audit, plan, pass 1-3 results, scorecard). Pass 1 depth and light (canyon haze,
-`ground-light.ts` baked shade/contact/dry-road headlight pools, Ridge late sun and blue hour, rider rim); pass 2 wet
-(`wet-spray.ts`, streaked wet reflections, trailing flames); pass 3 world and feedback (Ridge groves, rock variety,
-race-only turf patches and wall grime in `surface-materials.ts`, streak drift sparks, hint queue). Scorecard 2.30 with
-every category >= 2: on the premium line. Passes 1-2 and the F3 art reached origin/main outside this session (not by
-the agent) before a clean speed check; pass 3 is local. Sustained gates ran on a busy PC and failed on every route.
-When the owner has closed Premiere/Photoshop: A/B commit 3432998 vs HEAD on Harbor and Ridge (~20 min), push only if
-they match (pass 1-2 already live: if the A/B shows a regression, fix forward). The Redstone performance re-run below still applies.
+Read `handoff/FEEL-PASS.md`. Showroom camera presets swing around the car (`camera-orbit.ts`), the 9 s first-cockpit
+freeze is fixed (`VehicleMirrors.prime`), a crew recovery card replaces the respawn box, paint changes wipe on nose to
+tail, and the title hands over to the menu in beats. Committed on main, not pushed.
+
+Read `handoff/GRAPHICS-AUDIT.md` for graphics passes 1-3 (depth and light, wet weather, world and feedback; scorecard
+2.30, every category >= 2). All three are on origin/main; they reached it before a clean speed check. Sustained gates
+ran on a busy PC and failed on every route. When the owner has closed Premiere/Photoshop: A/B commit 3432998 vs HEAD
+on Harbor and Ridge (~20 min). Push the feel pass only if they match; if the A/B shows a regression, fix forward.
+The Redstone performance re-run below still applies.
 
 ---
 # Race premium pass - current (2026-09-28)
