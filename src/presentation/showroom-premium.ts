@@ -42,6 +42,7 @@ function coat(material:THREE.MeshStandardMaterial,u:CoatUniforms){
    .replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n\troughnessFactor*=mix(1.,.82,coatStrength);').replace('#include <map_fragment>','#include <map_fragment>\n\tdiffuseColor.rgb*=mix(1.,.72,coatStrength);').replace('#include <opaque_fragment>',COAT);
  };
  material.customProgramCacheKey=()=>previousKey.call(material)+'|showroom-epoxy-coat';material.needsUpdate=true;
+ return ()=>{material.onBeforeCompile=previous;material.customProgramCacheKey=previousKey;delete material.userData.showroomCoat;material.needsUpdate=true};
 }
 
 function ceilingAndFrame(){
@@ -68,28 +69,36 @@ function ceilingAndFrame(){
 export function premiumShowroom(renderer:THREE.WebGLRenderer,room:THREE.Object3D,reflectionTier:number){
  const {group,materials,led}=ceilingAndFrame();
  // The ceiling's light frame replaces the floating softbox panels; their light is carried by the downlights below.
- const hidden:THREE.Object3D[]=[];room.traverse(o=>{if(o instanceof THREE.Mesh&&!Array.isArray(o.material)&&o.material.name==='studio_softbox_diffuser'){o.visible=false;hidden.push(o)}});
+ const hidden:[THREE.Object3D,boolean][]=[];room.traverse(o=>{if(o instanceof THREE.Mesh&&!Array.isArray(o.material)&&o.material.name==='studio_softbox_diffuser'){hidden.push([o,o.visible]);o.visible=false}});
  const pools=SHOWROOM_PREMIUM.downlights.map(([px,pz],i)=>{const spot=new THREE.SpotLight(0xfff4e6,SHOWROOM_PREMIUM.looks.studio.pool,11,.62,.85,2);spot.name='showroom_downlight_'+i;spot.position.set(px,SHOWROOM_PREMIUM.frame.y-.05,pz);spot.target.position.set(px*.35,0,pz*.35+.1);group.add(spot,spot.target);return spot});
  // Epoxy coat on the floor materials currently bound (after the shared surface-finish swap).
  const uniforms:CoatUniforms={reflection:{value:null},reflectionMatrix:{value:new THREE.Matrix4()},planar:{value:0},strength:{value:SHOWROOM_PREMIUM.looks.studio.coat},texel:{value:new THREE.Vector2(1/1024,1/1024)}};
- const floors=new Set<THREE.MeshStandardMaterial>();
+ const floors=new Set<THREE.MeshStandardMaterial>(),restoreCoats:(()=>void)[]=[];
  // Lift ramps and bright hardware: satin galvanized (roughness and colour; three.js overrides envMapIntensity with the scene's).
  const hardware:[THREE.MeshStandardMaterial,number,number][]=[];room.traverse(o=>{if(o instanceof THREE.Mesh&&!Array.isArray(o.material)&&o.material instanceof THREE.MeshStandardMaterial&&o.material.name==='studio_handle_brushed'&&!hardware.some(([m])=>m===o.material)){hardware.push([o.material,o.material.roughness,o.material.color.getHex()]);o.material.roughness=Math.max(o.material.roughness,.5);o.material.color.multiplyScalar(.6)}});
- const signs:THREE.MeshStandardMaterial[]=[];room.traverse(o=>{if(o instanceof THREE.Mesh&&!Array.isArray(o.material)&&o.material instanceof THREE.MeshStandardMaterial&&o.material.name==='SlingMods_authorized_logo'&&o.material.map&&!signs.includes(o.material)){const m=o.material;signs.push(m);m.emissiveMap=m.map;m.emissive.set(0xffffff);m.emissiveIntensity=SHOWROOM_PREMIUM.looks.studio.sign;m.needsUpdate=true}});
- const bind=()=>room.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial&&SHOWROOM_PREMIUM.floorMaterials.test(m.name)&&!floors.has(m)){coat(m,uniforms);floors.add(m)}});
+ const signs:THREE.MeshStandardMaterial[]=[],restoreSigns:(()=>void)[]=[];room.traverse(o=>{if(o instanceof THREE.Mesh&&!Array.isArray(o.material)&&o.material instanceof THREE.MeshStandardMaterial&&o.material.name==='SlingMods_authorized_logo'&&o.material.map&&!signs.includes(o.material)){const m=o.material,map=m.emissiveMap,color=m.emissive.clone(),intensity=m.emissiveIntensity;signs.push(m);restoreSigns.push(()=>{m.emissiveMap=map;m.emissive.copy(color);m.emissiveIntensity=intensity;m.needsUpdate=true});m.emissiveMap=m.map;m.emissive.set(0xffffff);m.emissiveIntensity=SHOWROOM_PREMIUM.looks.studio.sign;m.needsUpdate=true}});
+ const bind=()=>room.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial&&SHOWROOM_PREMIUM.floorMaterials.test(m.name)&&!floors.has(m)){const restore=coat(m,uniforms);if(restore)restoreCoats.push(restore);floors.add(m)}});
  bind();
- const reflection=reflectionTier>0?new WetReflection(renderer,0,[uniforms],.5):undefined;
+ let reflection=reflectionTier>0?new WetReflection(renderer,0,[uniforms],.5):undefined;
+ let roots:THREE.Object3D[]=[],except:THREE.Object3D[]=[],tier=reflectionTier,frame=0;
  const syncTexel=()=>{if(reflection)uniforms.texel.value.set(1/reflection.target.width,1/reflection.target.height)};syncTexel();
  let look:PremiumLook='studio';
  return {
   group,
   /** Roots that appear in the floor: the vehicle (with fitted parts) and the light frame. The live mirror faces stay out. */
-  reflect(roots:THREE.Object3D[],except:THREE.Object3D[]=[]){reflection?.reflect([...roots,group],except)},
+  reflect(next:THREE.Object3D[],excluded:THREE.Object3D[]=[]){roots=[...next,group];except=excluded;reflection?.reflect(roots,except);frame=0},
   setLook(next:PremiumLook){look=next;const l=SHOWROOM_PREMIUM.looks[next];led.emissiveIntensity=l.led;for(const m of signs)m.emissiveIntensity=l.sign;for(const s of pools)s.intensity=l.pool;uniforms.strength.value=l.coat},
   /** Top-level pass before the frame, like the vehicle mirrors. */
-  render(scene:THREE.Scene,camera:THREE.PerspectiveCamera){if(!reflection)return;reflection.render(scene,camera)},
+  render(scene:THREE.Scene,camera:THREE.PerspectiveCamera,nextTier=reflectionTier){
+   if(nextTier!==tier){
+    tier=nextTier;frame=0;
+    if(tier>0){if(!reflection){reflection=new WetReflection(renderer,0,[uniforms],.5);reflection.reflect(roots,except)}else reflection.resize();syncTexel()}
+    else{reflection?.dispose();reflection=undefined}
+   }
+   if(reflection&&frame++%Math.max(1,tier)===0)reflection.render(scene,camera);
+  },
   resize(){reflection?.resize();syncTexel()},
   inspect(){return {version:'showroom-premium-v1',look,ceiling:true,softboxesHidden:hidden.length,downlights:pools.length,floorMaterials:[...floors].map(m=>m.name),backlitSigns:signs.length,planar:reflection?.inspect()??null}},
-  dispose(){reflection?.dispose();for(const o of hidden)o.visible=true;for(const [m,rough,color] of hardware){m.roughness=rough;m.color.setHex(color)}for(const m of signs){m.emissiveMap=null;m.emissive.set(0);m.emissiveIntensity=1;m.needsUpdate=true}group.removeFromParent();group.traverse(o=>{if(o instanceof THREE.Mesh)o.geometry.dispose()});materials.forEach(m=>m.dispose());for(const s of pools)s.dispose()},
+  dispose(){reflection?.dispose();for(const [o,visible] of hidden)o.visible=visible;restoreCoats.forEach(restore=>restore());restoreSigns.forEach(restore=>restore());for(const [m,rough,color] of hardware){m.roughness=rough;m.color.setHex(color)}group.removeFromParent();group.traverse(o=>{if(o instanceof THREE.Mesh)o.geometry.dispose()});materials.forEach(m=>m.dispose());for(const s of pools)s.dispose()},
  };
 }

@@ -31,3 +31,38 @@ test('lights-down look dims the frame, pools and sign; studio restores them',()=
  premium.setLook('studio');assert.ok(spots().every(s=>s.intensity===SHOWROOM_PREMIUM.looks.studio.pool));assert.ok(SHOWROOM_PREMIUM.looks.lights.led<SHOWROOM_PREMIUM.looks.studio.led);
  premium.dispose();
 });
+
+test('showroom disposal restores the existing room and a new finish binds fresh floor uniforms',()=>{
+ const r=room(),hook=r.floor.onBeforeCompile,key=r.floor.customProgramCacheKey;
+ r.softbox.visible=false;r.logo.emissive.setHex(0x123456);r.logo.emissiveIntensity=.4;
+ const originalMap=new THREE.Texture();r.logo.emissiveMap=originalMap;
+ const first=premiumShowroom(undefined as unknown as THREE.WebGLRenderer,r.root,0),old=compile(r.floor);
+ first.dispose();
+ assert.equal(r.floor.onBeforeCompile,hook);assert.equal(r.floor.customProgramCacheKey,key);
+ assert.equal(r.floor.userData.showroomCoat,undefined);assert.equal(r.softbox.visible,false);
+ assert.equal(r.logo.emissiveMap,originalMap);assert.equal(r.logo.emissive.getHex(),0x123456);assert.equal(r.logo.emissiveIntensity,.4);
+ const second=premiumShowroom(undefined as unknown as THREE.WebGLRenderer,r.root,0),fresh=compile(r.floor);
+ assert.notEqual(fresh.uniforms.coatStrength,old.uniforms.coatStrength);
+ second.setLook('lights');assert.equal(fresh.uniforms.coatStrength.value,SHOWROOM_PREMIUM.looks.lights.coat);
+ assert.equal(old.uniforms.coatStrength.value,SHOWROOM_PREMIUM.looks.studio.coat);
+ second.dispose();
+});
+
+test('showroom reflection follows live quality changes, resizes, and stops below High',()=>{
+ let width=800,height=600,passes=0,target:THREE.WebGLRenderTarget|null=null;
+ const renderer={getDrawingBufferSize:(v:THREE.Vector2)=>v.set(width,height),shadowMap:{autoUpdate:true},getRenderTarget:()=>null,
+  getClearAlpha:()=>1,getClearColor:(c:THREE.Color)=>c.set(0),setClearColor(){},setRenderTarget(next:THREE.WebGLRenderTarget|null){if(next)target=next},render(){passes++}} as unknown as THREE.WebGLRenderer;
+ const r=room(),premium=premiumShowroom(renderer,r.root,0),scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera();
+ const car=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshStandardMaterial());scene.add(r.root,car,premium.group);premium.reflect([car]);
+ const shader=compile(r.floor);
+ premium.render(scene,camera,0);assert.equal(passes,0);
+ premium.render(scene,camera,2);assert.equal(passes,1);assert.ok(car.layers.isEnabled(1),'roots saved while disabled join the new reflection');
+ const texture=shader.uniforms.coatReflection.value as THREE.Texture;let disposed=false;target!.addEventListener('dispose',()=>{disposed=true});
+ premium.render(scene,camera,2);assert.equal(passes,1,'High refreshes every other frame');
+ premium.render(scene,camera,2);assert.equal(passes,2);
+ premium.render(scene,camera,0);assert.equal(passes,2);assert.equal(shader.uniforms.coatPlanar.value,0);assert.equal(premium.inspect().planar,null);assert.ok(disposed);
+ width=1200;height=900;premium.render(scene,camera,1);assert.equal(passes,3);assert.equal(shader.uniforms.coatPlanar.value,1);
+ assert.deepEqual(premium.inspect().planar?.size,[600,450]);assert.notEqual(shader.uniforms.coatReflection.value,texture);
+ width=1600;premium.resize();assert.deepEqual(premium.inspect().planar?.size,[800,450]);
+ premium.render(scene,camera,1);assert.equal(passes,4,'Ultra refreshes every frame');premium.dispose();
+});

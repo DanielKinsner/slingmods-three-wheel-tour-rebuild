@@ -9,6 +9,6 @@ test('keyboard buffer exists before any showroom UI callback can fire under the 
 test('undo is audible like every other build action',()=>{
  const undo=source.slice(source.indexOf("name==='undo'"),source.indexOf("name==='compare'"));assert.match(undo,/audio\.cue\('ui\.back'\)/);
 });
-test('showroom resize re-reads the monitor pixel ratio',()=>{
- const resize=source.slice(source.indexOf('function resize()'),source.indexOf('async function change'));assert.match(resize,/setPixelRatio\(Math\.min\(devicePixelRatio,GRAPHICS_PRESETS\[graphics\]\.pixelRatioCap\)\)/);assert.match(resize,/pipeline\.resize\(\)/);assert.match(source,/resolution:\$\{devicePixelRatio\}dppx/);
+test('showroom resize uses the live quality and re-reads the monitor pixel ratio',()=>{
+ const resize=source.slice(source.indexOf('function resize()'),source.indexOf('async function change'));assert.match(resize,/setPixelRatio\(Math\.min\(devicePixelRatio,GRAPHICS_PRESETS\[pipeline\.quality\]\.pixelRatioCap\)\)/);assert.match(resize,/pipeline\.resize\(\)/);assert.match(source,/resolution:\$\{devicePixelRatio\}dppx/);
 });
