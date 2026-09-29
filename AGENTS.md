@@ -1,13 +1,15 @@
-# Feel pass (local) + graphics passes 1-3 (on main) (2026-09-29)
+# Feel pass + graphics passes 1-3 on main; two fixes local (2026-09-29)
 
 Read `handoff/FEEL-PASS.md`. Showroom camera presets swing around the car (`camera-orbit.ts`), the 9 s first-cockpit
 freeze is fixed (`VehicleMirrors.prime`), a crew recovery card replaces the respawn box, paint changes wipe on nose to
-tail, and the title hands over to the menu in beats. Committed on main, not pushed.
+tail, and the title hands over to the menu in beats. On origin/main (pushed outside the session). Local, not yet
+pushed: `4ebdde6` keeps the empty recovery card hidden during races (live bug) and `ff54c5e` ends the showroom
+sampler error flood (`WetReflection` waits for shadow maps).
 
 Read `handoff/GRAPHICS-AUDIT.md` for graphics passes 1-3 (depth and light, wet weather, world and feedback; scorecard
 2.30, every category >= 2). All three are on origin/main; they reached it before a clean speed check. Sustained gates
 ran on a busy PC and failed on every route. When the owner has closed Premiere/Photoshop: A/B commit 3432998 vs HEAD
-on Harbor and Ridge (~20 min). Push the feel pass only if they match; if the A/B shows a regression, fix forward.
+on Harbor and Ridge (~20 min). Everything up to `c0931fe` is already live; if the A/B shows a regression, fix forward.
 The Redstone performance re-run below still applies.
 
 ---

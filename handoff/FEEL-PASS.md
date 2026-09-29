@@ -1,8 +1,13 @@
 # Feel pass: transitions and the crew recovery card (2026-09-29)
 
 Owner request: look at the paint-job, camera-angle and title-to-menu transitions, and make the "respawn vehicle" card
-feel part of the game and more fun. The owner chose option (a): one feel pass on all four, in this order. Four local
-commits on main: `799422f`, `ac49074`, `229c3a6`, `a894091`. Not pushed yet; see "Push" below.
+feel part of the game and more fun. The owner chose option (a): one feel pass on all four, in this order. Four
+commits on main: `799422f`, `ac49074`, `229c3a6`, `a894091`. They reached origin/main (and so Vercel) outside this
+session, before the quiet-PC A/B.
+
+Owner hand test found one bug: an empty recovery card sat on screen through every race. Its `display:grid` rule
+overrode the `[hidden]` attribute; `4ebdde6` adds the `[hidden]{display:none}` rule the photo, replay and touch
+panels already use (local until pushed). Checked in a live race: hidden while driving, full card when stranded.
 
 ## What changed
 
@@ -43,15 +48,30 @@ hold). The full suite passes 569/569.
 2. Pick a different paint (for example Gloss black / red): a bright line sweeps the new paint on from nose to tail.
 3. In a fresh tab, press any key on the title: the title leaves first, the camera swoops, then the menu slides in.
 4. In a free drive, flip or strand the car: after about a second the CREW RECOVERY card appears with a crew line.
-   Holding R fills the ring and respawns; clicking the button also works.
+   Holding R fills the ring and respawns; clicking the button also works. While driving normally, no card shows.
 
-## Push
+## Speed check
 
-Hold the push until the quiet-PC A/B from `handoff/GRAPHICS-AUDIT.md` has run (unchanged `3432998` vs HEAD,
+The quiet-PC A/B from `handoff/GRAPHICS-AUDIT.md` is still owed (unchanged `3432998` vs HEAD,
 `scripts/perf/sustained.mjs high uncapped` on Harbor and Ridge, about 20 minutes, with Premiere/Photoshop closed).
 The feel pass itself does not change race rendering.
 
-## Known, not fixed here
+## Showroom sampler error flood: fixed (`ff54c5e`)
 
-The showroom logs a flood of WebGL "Mismatch between texture format and sampler type" errors (about 256; also on the
-live site, so it predates this pass). It was split off as its own task and is not caused by this pass.
+The showroom logged 256 WebGL "Mismatch between texture format and sampler type" errors on load (older than this
+pass; also on the live site). Traced with a draw-call hook (`.tools/graphics/sampler-mismatch.mjs`, local tool):
+- Every failing draw was in the floor's planar reflection (`WetReflection.render` from `showroom-premium.ts`) during
+  the very first render, which `view('hero',false)` triggers in setup.
+- That pass turns shadow updates off to reuse the main pass' shadow maps, but no main pass had run yet, so the key
+  spot light's `shadow.map` was null.
+- three.js r186 then binds its empty shadow placeholder, a `DepthTexture` that is never uploaded (version 0), so the
+  shadow sampler gets an RGBA 1x1 texture and every shadow-receiving draw fails (261 draws).
+
+`WetReflection` now skips a pass, keeping its previous image, while a visible shadow-casting light still has no map.
+
+Results: the showroom build screen, title, career garage and Ultra show 0 errors. The floor reflection still runs
+(passes 1 -> 61 over 2 s). Wet races were already clean, and their reflections still run (2 -> 63 and 2 -> 67 passes).
+Tests: `tests/wet-reflection-shadows.test.ts`.
+
+Seen while tracing, not changed: that first render compiles almost every shader synchronously (about 8-10 s in the dev
+server) before `prepareRenderer`'s `compileAsync` runs. This may be a loading-time lead worth measuring on a build.
